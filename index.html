@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V5 (A-Z Grouping)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V11 (All Compact Tables)</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -17,19 +17,25 @@
             --text-grey: #555;
             --text-light-grey: #aaa;
             --border-color: #dadce0;
-            --bg-grey: #f8f9fa;
+            --bg-body: #f4f6f8; 
             --bg-accent-top: #e9ecef; 
             --accent-red: #d9534f;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-header: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-card: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-card-hover: 0 8px 20px rgba(0,0,0,0.1);
+            
+            /* Table Header Color - KBOB style */
+            --table-header-bg: #003366; 
+            --table-header-text: #ffffff;
         }
 
         /* --- GLOBAL RESET & TYPOGRAPHY --- */
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, Roboto, sans-serif;
-            margin: 0; padding: 0; color: var(--text-dark); background-color: #fff;
+            margin: 0; padding: 0; color: var(--text-dark); background-color: var(--bg-body);
             line-height: 1.5; -webkit-font-smoothing: antialiased;
         }
         h1, h2, h3 { margin: 0; font-weight: 700; color: var(--text-dark); }
@@ -37,8 +43,18 @@
         .hidden { display: none !important; }
 
         /* --- HEADER --- */
-        header { background: #fff; box-shadow: var(--shadow-md); position: relative; z-index: 100; }
-        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 12px 30px; border-bottom: 1px solid var(--border-color); }
+        header { 
+            background: #fff; 
+            box-shadow: var(--shadow-header); 
+            position: relative; 
+            z-index: 1000; 
+        }
+        
+        .header-top { 
+            display: flex; justify-content: space-between; align-items: center; padding: 12px 30px; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        
         .logo-wrapper { display: flex; align-items: center; color: var(--text-grey); font-size: 0.9rem; line-height: 1.3; }
         .logo-swiss-cross {
             font-size: 1.2rem; font-weight: 900; color: var(--accent-red); margin-right: 12px;
@@ -49,40 +65,49 @@
         .lang-switch span { margin-left: 8px; cursor: pointer; color: var(--text-grey); }
         .lang-switch span.active, .lang-switch span:hover { color: var(--kbob-blue); text-decoration: underline; }
 
-        .main-nav { border-bottom: 3px solid var(--kbob-blue); }
-        .main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; padding-left: 20px; }
+        /* --- NAV --- */
+        .main-nav { 
+            border-bottom: 1px solid var(--border-color); 
+            background: #fff;
+        }
+        .main-nav ul { 
+            list-style: none; padding: 0; margin: 0; display: flex; 
+            justify-content: center;
+        }
+        
         .nav-link {
             text-decoration: none; color: var(--text-dark); padding: 16px 24px; display: block;
             font-weight: 500; font-size: 1.05rem; transition: all 0.2s; position: relative;
+            border-bottom: 3px solid transparent; 
         }
-        .nav-link:hover:not(.disabled):not(.active) { background: var(--bg-grey); color: var(--kbob-blue); }
+        .nav-link:hover:not(.disabled):not(.active) { background: var(--bg-body); color: var(--kbob-blue); }
         .nav-link.active {
             color: var(--kbob-blue); font-weight: 700;
-            box-shadow: inset 0 -3px 0 0 var(--kbob-blue);
+            border-bottom: 3px solid var(--kbob-blue);
             background: rgba(0, 51, 102, 0.03);
+            margin-bottom: -1px;
         }
         .nav-link.disabled { color: var(--text-light-grey); cursor: default; }
 
 
-        /* --- CONTENT AREA BACKGROUND --- */
+        /* --- CONTENT AREA --- */
         #content-area {
-            padding: 40px 0 60px 0; min-height: 700px;
-            background-image: 
-                url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="80" height="80" patternUnits="userSpaceOnUse"><circle cx="40" cy="40" r="1.5" fill="%23bdc3c7"/><path d="M40 40L80 0M40 40L0 80M40 40H0" stroke="%23dce0e3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>'),
-                linear-gradient(to bottom, var(--bg-accent-top) 0%, var(--bg-grey) 250px, #ffffff 600px);
-            background-repeat: repeat, no-repeat;
-            background-size: 400px, auto;
+            min-height: 800px;
+            padding: 40px 0 60px 0;
+            background-color: var(--bg-body);
+        }
+        #content-area.white-bg {
+            background-color: #fff !important;
+            padding-top: 0;
         }
 
-
         /* --- COMMON ELEMENTS --- */
-        .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 30px; color: var(--text-dark); text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
+        .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 30px; margin-top: 10px; color: var(--text-dark); }
         
-        /* Central Search Bar */
         .central-search-container { 
             max-width: 900px; margin: 0 auto 40px auto; position: relative; display: flex; 
-            box-shadow: var(--shadow-lg);
-            border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);
             background: #fff;
         }
         .central-search-input { 
@@ -98,27 +123,17 @@
         /* --- CATALOG VIEW --- */
         .catalog-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;}
         
-        /* A-Z Filter (Updated for Grouping) */
         .az-filter-bar { 
-            display: flex; flex-wrap: wrap; 
-            gap: 4px; /* Engerer Abstand für kompakteren Look */
-            flex: 1; /* Nimmt verfügbaren Platz ein */
-            align-items: center;
+            display: flex; flex-wrap: wrap; gap: 4px; flex: 1; align-items: center;
         }
         .az-btn { 
-            border: none; background: var(--filter-teal); color: var(--kbob-blue); 
-            padding: 6px 10px; cursor: pointer; border-radius: 3px; font-weight: 600; font-size: 0.9rem; transition: all 0.1s;
+            border: none; background: #fff; color: var(--kbob-blue); border: 1px solid #d0d7de;
+            padding: 6px 10px; cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.1s;
             min-width: 32px; text-align: center;
         }
-        .az-btn:hover { background: var(--filter-teal-hover); }
-        .az-btn.active { background: var(--kbob-blue); color: #fff; }
-        
-        /* Spezielles Styling für den ALLE Button - KEIN margin-left: auto mehr! */
-        .az-btn.all-btn { 
-            padding-left: 16px; padding-right: 16px; 
-            font-weight: 700; /* Etwas fetter */
-            letter-spacing: 0.5px;
-        } 
+        .az-btn:hover { background: var(--filter-teal); border-color: var(--kbob-blue); }
+        .az-btn.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue); }
+        .az-btn.all-btn { padding-left: 16px; padding-right: 16px; font-weight: 700; letter-spacing: 0.5px; } 
 
         .view-switcher { display: flex; gap: 5px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
         .view-btn { 
@@ -129,85 +144,136 @@
 
         .catalog-layout { display: flex; gap: 35px; align-items: flex-start; }
         
-        .sidebar-filter { width: 240px; flex-shrink: 0; background: #fff; border-radius: 6px; box-shadow: var(--shadow-sm); overflow: hidden; border: 1px solid var(--border-color);}
-        .sidebar-header { background: #f8f9fa; padding: 14px 20px; font-weight: 700; font-size: 1.05rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
+        .sidebar-filter { width: 240px; flex-shrink: 0; background: #fff; border-radius: 8px; box-shadow: var(--shadow-sm); overflow: hidden; border: 1px solid var(--border-color);}
+        .sidebar-header { background: #fff; padding: 16px 20px; font-weight: 700; font-size: 1.05rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
         .filter-group { border-bottom: 1px solid var(--border-color); }
         .filter-toggle { 
             padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
             cursor: pointer; font-weight: 600; color: var(--text-dark); transition: background 0.1s; font-size: 0.95rem;
         }
-        .filter-toggle:hover { background: #f1f3f4; }
+        .filter-toggle:hover { background: #f8f9fa; }
         .filter-toggle .material-icons-outlined { font-size: 1.2rem; color: var(--text-grey); }
 
         .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
 
         .element-card { 
             background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; 
-            box-shadow: var(--shadow-sm); border: 1px solid transparent; transition: all 0.2s;
+            box-shadow: var(--shadow-card); border: 1px solid transparent; transition: all 0.2s;
         }
         .element-card:hover { 
-            transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0, 51, 102, 0.3);
+            transform: translateY(-4px); box-shadow: var(--shadow-card-hover); border-color: rgba(0, 51, 102, 0.1);
         }
-        .card-img-container { height: 170px; background: #fff; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f0f0; padding: 20px; position: relative;}
-        .card-img-container::after { content: ''; position: absolute; width: 80%; height: 80%; background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, rgba(255,255,255,0) 70%); z-index: 0; }
+        .card-img-container { height: 180px; background: #fff; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f0f0f0; padding: 20px; position: relative;}
+        .placeholder-icon { font-size: 80px; color: #eee; z-index: 1; }
         .card-img-container img { max-height: 100%; max-width: 100%; mix-blend-mode: multiply; filter: grayscale(10%) contrast(105%); z-index: 1; }
-        .card-body { padding: 18px; }
-        .card-title { margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 800; color: var(--text-dark); line-height: 1.2;}
-        .card-classification { font-size: 0.9rem; color: var(--text-grey); margin-bottom: 18px; display: block; font-weight: 500; background: #f0f2f5; display: inline-block; padding: 2px 6px; border-radius: 4px;}
+        .card-body { padding: 20px; }
+        .card-title { margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 800; color: var(--text-dark); line-height: 1.3;}
+        .card-classification { font-size: 0.85rem; color: var(--text-grey); margin-bottom: 18px; display: block; font-weight: 600; background: #f0f2f5; display: inline-block; padding: 4px 8px; border-radius: 4px;}
         
         .data-icons-row { display: flex; gap: 12px; font-size: 0.75rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; padding-top: 12px;}
         .data-icon-item { display: flex; align-items: center; }
-        .data-icon-item .material-icons-outlined { font-size: 1.1rem; margin-right: 3px; }
+        .data-icon-item .material-icons-outlined { font-size: 1.1rem; margin-right: 4px; }
         .data-icon-item.active { color: var(--text-dark); } .data-icon-item.active .material-icons-outlined { color: var(--text-dark); }
         .data-icon-item.disabled { color: #ccc; } .data-icon-item.disabled .material-icons-outlined { color: #ccc; }
 
 
         /* --- DETAIL VIEW --- */
-        .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 0.95rem; font-weight: 500;}
-        .breadcrumb a { text-decoration: none; color: var(--kbob-blue); }
+        .detail-hero-wrapper { 
+            background: #fff; 
+            padding: 40px 0 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+        .detail-hero { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
+        .hero-content { flex: 1; }
+        .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 0.9rem; font-weight: 500; display: inline-block;}
+        .breadcrumb a { text-decoration: none; color: var(--kbob-blue); display: inline-flex; align-items: center;}
         .breadcrumb a:hover { text-decoration: underline; }
         
-        .detail-layout { display: flex; gap: 40px; align-items: flex-start; }
-        .detail-sidebar { width: 240px; flex-shrink: 0; position: sticky; top: 30px; }
+        .hero-title { font-size: 3rem; margin-bottom: 20px; color: var(--kbob-blue); letter-spacing: -0.5px; line-height: 1.1; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-dark); line-height: 1.6; max-width: 600px; margin-bottom: 30px; }
+        .hero-meta { display: flex; gap: 15px; flex-wrap: wrap; }
+        .meta-badge { 
+            background: var(--bg-body); color: var(--kbob-blue); padding: 6px 14px; border: 1px solid #e1e4e8;
+            border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+        }
+
+        .hero-image-container { 
+            flex: 0 0 50%; height: 400px; display: flex; align-items: center; justify-content: center;
+            background: #fdfdfd; border-radius: 12px; border: 1px solid #f0f0f0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+        }
+        .hero-image-container img { max-width: 90%; max-height: 90%; object-fit: contain; mix-blend-mode: multiply; }
+        .hero-image-placeholder { font-size: 120px; color: #eee; }
+
+        .detail-layout { display: flex; gap: 60px; align-items: flex-start; }
+        .detail-sidebar { width: 220px; flex-shrink: 0; position: sticky; top: 120px; }
         .sticky-nav { 
-            display: flex; flex-direction: column; background: #fff; border-radius: 6px; 
-            box-shadow: var(--shadow-sm); overflow: hidden; border: 1px solid var(--border-color);
+            display: flex; flex-direction: column; background: transparent; 
+            border: none; box-shadow: none; border-left: 2px solid var(--border-color);
+            padding-left: 0;
         }
         .sticky-nav a { 
-            text-decoration: none; padding: 14px 20px; color: var(--text-dark); 
-            border-left: 4px solid transparent; transition: all 0.1s; font-weight: 600;
+            text-decoration: none; padding: 10px 20px; color: var(--text-grey); 
+            font-weight: 500; transition: all 0.2s; border-left: 3px solid transparent;
+            margin-left: -2px; cursor: pointer;
         }
-        .sticky-nav a:hover { background: var(--bg-grey); color: var(--kbob-blue); }
-        .sticky-nav a.active { 
-            border-left-color: var(--kbob-blue); background: rgba(0, 51, 102, 0.05); color: var(--kbob-blue); 
+        .sticky-nav a:hover { color: var(--kbob-blue); }
+        .sticky-nav a.active { border-left-color: var(--kbob-blue); color: var(--kbob-blue); font-weight: 700; }
+
+        .detail-content-area { flex: 1; min-width: 0; padding-bottom: 100px; }
+        /* Adjusted scroll margin for correct positioning under header */
+        .detail-section { margin-bottom: 80px; scroll-margin-top: 120px; }
+        
+        .detail-section h2 { 
+            font-size: 1.8rem; color: var(--kbob-blue); margin-bottom: 30px; 
+            border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
+        .detail-section p { font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 20px; max-width: 800px; }
 
-        .detail-content-box { flex: 1; background: #fff; padding: 40px; border-radius: 8px; box-shadow: var(--shadow-md); }
-        .detail-header { display: flex; justify-content: space-between; gap: 30px; margin-bottom: 50px; border-bottom: 2px solid var(--bg-grey); padding-bottom: 40px;}
-        .detail-title h1 { font-size: 2.4rem; margin-bottom: 15px; color: var(--kbob-blue);}
-        .detail-subtitle { font-size: 1.1rem; color: var(--text-grey); line-height: 1.6; max-width: 600px;}
-        .detail-info-badge { margin-top: 25px; display: inline-flex; gap: 15px; background: var(--bg-grey); padding: 12px 20px; border-radius: 4px; border: 1px solid var(--border-color); font-family: monospace; font-size: 0.95rem;}
-        .detail-image-wrapper { flex-shrink: 0; width: 380px; height: 280px; background: #fff; border-radius: 8px; border: 1px solid var(--border-color); padding: 30px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.03);}
-        .detail-image-wrapper img { max-width: 100%; max-height: 100%; mix-blend-mode: multiply; }
+        /* --- TABLES --- */
+        .data-table { 
+            width: 100%; border-collapse: separate; border-spacing: 0; 
+            border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; 
+            background: #fff; margin-bottom: 20px;
+        }
+        .data-table thead th { 
+            background: var(--table-header-bg); color: var(--table-header-text); 
+            font-weight: 600; text-align: left; padding: 12px 15px; font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .data-table td { 
+            padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: middle;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:hover td { background-color: #fcfcfc; }
+        
+        /* --- NEW: COMPACT PHASE BADGES --- */
+        .phase-compact-wrapper {
+            display: flex; gap: 4px; justify-content: flex-start;
+        }
+        .phase-badge {
+            width: 24px; height: 24px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700;
+            border: 1px solid #ddd; color: #aaa; background: #f9f9f9;
+            cursor: help; /* Suggests tooltip on hover */
+        }
+        .phase-badge.active {
+            background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue);
+        }
+        
+        /* Format Badge */
+        .format-badge { 
+            background: #e8eaf6; color: #3f51b5; padding: 2px 6px; 
+            border-radius: 4px; font-family: monospace; font-size: 0.8rem; border: 1px solid #c5cae9;
+        }
+        /* IFC code style */
+        .ifc-code { font-family: monospace; font-size: 0.85rem; color: #444; background: #f5f5f5; padding: 2px 4px; border-radius: 3px; }
 
-        .detail-section { margin-bottom: 70px; scroll-margin-top: 30px; }
-        .detail-section h2 { font-size: 1.6rem; color: var(--kbob-blue); margin-bottom: 25px; display: flex; align-items: center;}
-        .detail-section h2::before { content: ''; display: inline-block; width: 6px; height: 24px; background: var(--accent-red); margin-right: 12px; border-radius: 2px;}
-
-        .attr-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden;}
-        .attr-table th, .attr-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
-        .attr-table th { background: var(--bg-grey); font-weight: 700; color: var(--kbob-blue); border-bottom: 2px solid var(--border-color);}
-        .attr-table tr:last-child td { border-bottom: none; }
-        .attr-name { font-weight: 700; color: var(--text-dark); }
-        .format-badge { background: #e8eaf6; color: #3f51b5; padding: 3px 6px; border-radius: 3px; font-family: monospace; font-size: 0.85rem; border: 1px solid #c5cae9;}
-        .check-icon-active { color: var(--kbob-blue); font-weight: bold; }
-        .check-icon-inactive { color: var(--border-color); }
-
-        /* --- HELPER STATES --- */
+        /* Helper States */
         .loading-state, .error-state { padding: 80px 20px; text-align: center; color: var(--text-grey); }
         .loading-spinner { font-size: 3rem; color: var(--kbob-blue); animation: spin 1s linear infinite; margin-bottom: 20px; display: inline-block;}
-        .error-state { color: var(--accent-red); background: #fff0f0; border-radius: 8px; border: 1px solid #ffcdd2; max-width: 600px; margin: 40px auto;}
-        @keyframes spin { 100% { transform: rotate(360deg); } }
         .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-grey); font-size: 1.1rem; background: #fff; border-radius: 8px; border: 1px dashed var(--border-color);}
     </style>
 </head>
@@ -227,10 +293,10 @@
             <div class="container">
                 <ul>
                     <li><a href="#home" class="nav-link active">Startseite</a></li>
-                    <li><a href="#catalog" class="nav-link">Katalog</a></li>
-                    <li><a href="#" class="nav-link disabled">Fachmodelle & Domänen</a></li>
-                    <li><a href="#" class="nav-link disabled">Dokumente & Anwendungsfälle</a></li>
-                    <li><a href="#" class="nav-link disabled">Material & Ökologie (EPDs)</a></li>
+                    <li><a href="#catalog" class="nav-link">Elemente</a></li>
+                    <li><a href="#" class="nav-link disabled">Fachmodelle</a></li>
+                    <li><a href="#" class="nav-link disabled">Dokumente</a></li>
+                    <li><a href="#" class="nav-link disabled">Ökobilanzdaten</a></li>
                 </ul>
             </div>
         </nav>
@@ -248,18 +314,51 @@
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
+        const MOCK_DATA = [
+            {
+                "id": "e1",
+                "title": "Fenster (Aussen)",
+                "classification": "IfcWindow",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haus_Fenster_01.jpg/640px-Haus_Fenster_01.jpg", 
+                "lod": true, "loi": true, "epd": true,
+                "general": { "ifcClass": "IfcWindow", "type": "Bauelement" },
+                "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
+                "classifications": [
+                    { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
+                    { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" },
+                    { "system": "DIN 276", "code": "334", "desc": "Außenfenster und Außentüren" }
+                ],
+                "ifcMapping": [
+                    { "element": "Fenster", "ifc": "IfcWindow.WINDOW", "revit": "Windows" },
+                    { "element": "Oberlicht", "ifc": "IfcWindow.SKYLIGHT", "revit": "Windows" }
+                ]
+            },
+            {
+                "id": "e2",
+                "title": "Innentür (Holz)",
+                "classification": "IfcDoor",
+                "image": "", 
+                "lod": true, "loi": true, "epd": false,
+                "general": { "ifcClass": "IfcDoor", "type": "Bauelement" },
+                "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
+                "classifications": [
+                    { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" },
+                    { "system": "Uniformat II 2010", "code": "C1020", "desc": "Interior Doors" },
+                    { "system": "DIN 276", "code": "335", "desc": "Innentüren" }
+                ],
+                "ifcMapping": [
+                     { "element": "Tür", "ifc": "IfcDoor", "revit": "Doors" }
+                ]
+            }
+        ];
+
         let globalElementsData = [];
         let isDataLoaded = false;
 
-        // --- INITIALIZATION ---
         async function initApp() {
             try {
-                // Wait needed for local dev to allow CSS to load
                 await new Promise(resolve => setTimeout(resolve, 200)); 
-
-                const response = await fetch('data/elements.json');
-                if (!response.ok) throw new Error(`HTTP Status: ${response.status}`);
-                globalElementsData = await response.json();
+                globalElementsData = MOCK_DATA;
                 isDataLoaded = true;
                 
                 window.addEventListener('hashchange', router);
@@ -267,15 +366,10 @@
 
             } catch (error) {
                 console.error("Fehler:", error);
-                contentArea.innerHTML = `<div class="container error-state">
-                    <h3><span class="material-icons-outlined" style="vertical-align:middle">error</span> Fehler beim Laden</h3>
-                    <p>Die Daten konnten nicht abgerufen werden. Bitte stellen Sie sicher, dass Sie die Anwendung über einen lokalen Server (localhost) oder GitHub Pages ausführen.</small>
-                    <p style="font-family:monospace; background:rgba(255,255,255,0.5); padding:10px;">${error.message}</p>
-                </div>`;
+                contentArea.innerHTML = `<div class="container error-state">Fehler beim Laden.</div>`;
             }
         }
 
-        // --- ROUTER ---
         function router() {
             if (!isDataLoaded) return;
 
@@ -294,53 +388,45 @@
                 link.classList.toggle('active', isActive);
             });
 
+            contentArea.classList.remove('white-bg');
+
             switch(hash) {
                 case 'home': renderHomePage(); break;
                 case 'catalog': renderCatalogPage(); break;
                 case 'element': 
-                    if(elementId) renderElementDetailPage(elementId);
+                    if(elementId) {
+                        contentArea.classList.add('white-bg'); 
+                        renderElementDetailPage(elementId);
+                    }
                     else window.location.hash = '#catalog';
                     break;
                 default: window.location.hash = '#home';
             }
         }
 
-        // --- HELPER: Render Grid Items ---
         function renderGridItemsHTML(items) {
-            if (items.length === 0) {
-                return '<div class="no-results">Keine Elemente gefunden, die Ihrer Suche entsprechen.</div>';
-            }
+            if (items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
 
             const iconStatus = (active) => active ? 'active' : 'disabled';
 
             return items.map(el => `
                 <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
                     <div class="card-img-container">
-                        <img src="${el.image}" alt="${el.title}">
+                        ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">${el.title}</h3>
                         <span class="card-classification">${el.classification}</span>
                         <div class="data-icons-row">
-                            <span class="data-icon-item ${iconStatus(el.lod)}" title="Geometrie (LOD)">
-                                <i class="material-icons-outlined">view_in_ar</i>LOD
-                            </span>
-                            <span class="data-icon-item ${iconStatus(el.loi)}" title="Attribute (LOI)">
-                                <i class="material-icons-outlined">list_alt</i>LOI
-                            </span>
-                            <span class="data-icon-item ${iconStatus(el.epd)}" title="Ökologie (EPD)">
-                                <i class="material-icons-outlined">eco</i>EPD
-                            </span>
+                            <span class="data-icon-item ${iconStatus(el.lod)}"><i class="material-icons-outlined">view_in_ar</i>LOD</span>
+                            <span class="data-icon-item ${iconStatus(el.loi)}"><i class="material-icons-outlined">list_alt</i>LOI</span>
+                            <span class="data-icon-item ${iconStatus(el.epd)}"><i class="material-icons-outlined">eco</i>EPD</span>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-
-        // --- VIEW RENDERERS ---
-
-        // 1. HOME PAGE
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="container">
@@ -352,34 +438,27 @@
                         </div>
                     </div>
                     
-                    <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-md); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
+                    <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
                         <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder, um Anforderungen an Fachmodelle, Elemente, Dokumente und ökologische Daten effizient abzurufen.</p>
+                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
                     </div>
                 </div>
             `;
         }
 
-        // 2. CATALOG PAGE (With Search Functionality)
         function renderCatalogPage() {
             const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-            // A-Z Buttons
             let azHtml = alphabet.map(letter => `<button class="az-btn">${letter}</button>`).join('');
-            // ALLE Button am Ende angefügt, ohne spezielles Margin
             azHtml += `<button class="az-btn all-btn active">ALLE</button>`;
-
-            // Initial render with all data
             const initialGridHtml = renderGridItemsHTML(globalElementsData);
 
             contentArea.innerHTML = `
                 <div class="container">
                     <h1 class="page-title">Element-Katalog</h1>
-                    
                     <div class="central-search-container">
                         <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
                         <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
                     </div>
-
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar">${azHtml}</div>
                         <div class="view-switcher" style="margin-left: 20px;">
@@ -387,7 +466,6 @@
                             <button class="view-btn" title="Listenansicht"><span class="material-icons-outlined">view_list</span></button>
                         </div>
                     </div>
-
                     <div class="catalog-layout">
                         <aside class="sidebar-filter">
                             <div class="sidebar-header">Filter</div>
@@ -395,113 +473,250 @@
                             <div class="filter-group"><div class="filter-toggle">Klassifikation <span class="material-icons-outlined">expand_more</span></div></div>
                             <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined">expand_more</span></div></div>
                         </aside>
-
                         <div class="element-grid" id="catalogGrid">${initialGridHtml}</div>
                     </div>
                 </div>
             `;
 
-            // --- SEARCH IMPLEMENTATION ---
             const searchInput = document.getElementById('catalogSearchInput');
             const gridContainer = document.getElementById('catalogGrid');
-
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
-                
-                // Filtere globale Daten
-                const filteredData = globalElementsData.filter(el => 
-                    el.title.toLowerCase().includes(searchTerm) || 
-                    el.classification.toLowerCase().includes(searchTerm)
-                );
-
-                // Update Grid HTML
+                const filteredData = globalElementsData.filter(el => el.title.toLowerCase().includes(searchTerm) || el.classification.toLowerCase().includes(searchTerm));
                 gridContainer.innerHTML = renderGridItemsHTML(filteredData);
             });
-            // Focus input for convenience
             searchInput.focus();
         }
 
-        // 3. ELEMENT DETAIL PAGE
         function renderElementDetailPage(id) {
             const data = globalElementsData.find(element => element.id === id);
             if(!data) { contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>'; return; }
 
-            const checkIcon = (checked) => checked ? '<span class="material-icons-outlined check-icon-active">check_box</span>' : '<span class="material-icons-outlined check-icon-inactive">check_box_outline_blank</span>';
+            // removed Comments link
+            const sidebarLinks = [
+                { id: 'allgemeines', text: 'Allgemeines' },
+                { id: 'klassifizierung', text: 'Klassifizierung' },
+                { id: 'ifc', text: 'IFC-Klasse' },
+                { id: 'geometrie', text: 'Geometrie' },
+                { id: 'informationen', text: 'Informationen' },
+                { id: 'dokumentation', text: 'Dokumentation' }
+            ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            const attrRows = data.attributes ? data.attributes.map(attr => `
+            const classRows = data.classifications ? data.classifications.map(c => 
+                `<tr><td style="font-weight:600;">${c.system}</td><td>${c.code} - ${c.desc}</td></tr>`
+            ).join('') : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+
+            const ifcRows = data.ifcMapping ? data.ifcMapping.map(m =>
+                `<tr><td>${m.element}</td><td>${m.ifc}</td><td>${m.revit}</td></tr>`
+            ).join('') : '<tr><td colspan="3">-</td></tr>';
+
+            // === SHARED HELPER FOR PHASES ===
+            const renderPhaseBadges = (phases) => {
+                const phaseLabels = [2, 3, 4, 5, 6];
+                let badgesHtml = '<div class="phase-compact-wrapper">';
+                phases.forEach((isActive, index) => {
+                    const statusClass = isActive ? 'active' : 'inactive';
+                    badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phaseLabels[index]}">${phaseLabels[index]}</div>`;
+                });
+                badgesHtml += '</div>';
+                return badgesHtml;
+            };
+
+            // === 1. GEOMETRY DATA & RENDER ===
+            const geomRowsData = [
+                { name: "Länge", desc: "Gesamtlänge des Elements", phases: [1, 1, 1, 1, 1] },
+                { name: "Breite", desc: "Gesamtbreite des Elements", phases: [1, 1, 1, 1, 1] },
+                { name: "Höhe", desc: "Gesamthöhe des Elements", phases: [1, 1, 1, 1, 1] },
+                { name: "Repräsentative Modellierung", desc: "Vereinfachte Darstellung für Pläne 1:50", phases: [0, 0, 1, 1, 1] },
+                { name: "Zubehör", desc: "Griffe, Bänder, Beschläge", phases: [0, 0, 0, 1, 1] }
+            ];
+
+            const geomRowsHtml = geomRowsData.map(row => `
                 <tr>
-                    <td class="attr-name">${attr.name}</td>
-                    <td>${attr.desc}</td>
-                    <td><span class="format-badge">${attr.format}</span></td>
-                    <td style="text-align:center">${checkIcon(attr.vp)}</td>
-                    <td style="text-align:center">${checkIcon(attr.bp)}</td>
-                    <td>${attr.resp}</td>
+                    <td style="font-weight:600">${row.name}</td>
+                    <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
+                    <td>${renderPhaseBadges(row.phases)}</td>
                 </tr>
-            `).join('') : '<tr><td colspan="6" style="text-align:center; padding: 20px;">Keine Attribute definiert.</td></tr>';
+            `).join('');
+
+
+            // === 2. INFORMATION DATA & RENDER (Existing) ===
+            const infoRowsData = [
+                { name: "Wärmedurchgangskoeffizient", desc: "U-Wert des Fensters", format: "Real", list: false, phases: [0, 0, 1, 1, 1], ifc: "Pset_WindowCommon.ThermalTransmittance" },
+                { name: "Schallschutzklasse", desc: "Anforderung an Schalldämmung", format: "String", list: true, phases: [0, 1, 1, 1, 1], ifc: "Pset_WindowCommon.AcousticRating" },
+                { name: "Feuerwiderstand", desc: "Brandschutzklasse nach VKF", format: "String", list: true, phases: [1, 1, 1, 1, 1], ifc: "Pset_WindowCommon.FireRating" },
+                { name: "Verglasungstyp", desc: "Art der Verglasung (2-fach, 3-fach)", format: "String", list: false, phases: [0, 0, 1, 1, 0], ifc: "IfcWindow.UserDefined.Glazing" },
+                { name: "IsExternal", desc: "Definiert, ob das Bauteil zur Aussenhülle gehört", format: "Boolean", list: false, phases: [1, 1, 1, 1, 1], ifc: "Pset_WindowCommon.IsExternal" }
+            ];
+
+            const infoRowsHtml = infoRowsData.map(row => `
+                <tr>
+                    <td style="font-weight:600">${row.name}</td>
+                    <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
+                    <td><span class="format-badge">${row.format}</span></td>
+                    <td style="text-align:center">${row.list ? '<span class="material-icons-outlined" style="font-size:1.1rem; color:#555;">list</span>' : '-'}</td>
+                    <td>${renderPhaseBadges(row.phases)}</td>
+                    <td><span class="ifc-code">${row.ifc}</span></td>
+                </tr>
+            `).join('');
+
+
+            // === 3. DOCUMENTATION DATA & RENDER ===
+            const docRowsData = [
+                { name: "Vorschriften", desc: "Relevante Normen und Richtlinien", phases: [1, 0, 0, 0, 0] },
+                { name: "Produktdatenblatt", desc: "Technisches Datenblatt des Herstellers", phases: [0, 0, 1, 1, 1] },
+                { name: "Montageanleitung", desc: "Anweisungen für den korrekten Einbau", phases: [0, 0, 0, 1, 1] },
+                { name: "Wartungsheft", desc: "Unterlagen für den Betrieb", phases: [0, 0, 0, 0, 1] }
+            ];
+
+            const docRowsHtml = docRowsData.map(row => `
+                <tr>
+                    <td style="font-weight:600">${row.name}</td>
+                    <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
+                    <td>${renderPhaseBadges(row.phases)}</td>
+                </tr>
+            `).join('');
+
 
             contentArea.innerHTML = `
-                <div class="container">
-                    <div class="breadcrumb">
-                        <a href="#catalog"><span class="material-icons-outlined" style="vertical-align: text-bottom; font-size: 1.1rem;">arrow_back</span> Zurück zum Katalog</a> 
-                        <span style="margin:0 10px; color: var(--border-color);">/</span> ${data.title}
+                <!-- HERO -->
+                <div class="detail-hero-wrapper">
+                    <div class="container">
+                         <div class="detail-hero">
+                             <div class="hero-content">
+                                <div class="breadcrumb">
+                                    <a href="#catalog"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a> 
+                                </div>
+                                <h1 class="hero-title">${data.title}</h1>
+                                <p class="hero-subtitle">${data.subtitle || 'Ein Standard-Element des KBOB Datenkatalogs.'}</p>
+                                <div class="hero-meta">
+                                    <span class="meta-badge">IFC: ${data.general?.ifcClass || '-'}</span>
+                                    <span class="meta-badge" style="background:#f0f0f0; color:#555;">Type: ${data.general?.type || '-'}</span>
+                                </div>
+                             </div>
+                             <div class="hero-image-container">
+                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">image</span>'}
+                             </div>
+                         </div>
                     </div>
+                </div>
 
+                <!-- MAIN -->
+                <div class="container">
                     <div class="detail-layout">
                         <aside class="detail-sidebar">
-                            <nav class="sticky-nav">
-                                <a href="#allgemein" class="active">Allgemein</a>
-                                <a href="#loi">Attribute (LOI)</a>
-                                <a href="#lod">Geometrie (LOD)</a>
-                                <a href="#epd">Material (EPD)</a>
-                            </nav>
+                            <nav class="sticky-nav">${sidebarLinks}</nav>
                         </aside>
 
-                        <section class="detail-content-box">
-                            <div class="detail-header" id="allgemein">
-                                <div>
-                                    <div class="detail-title"><h1>${data.title}</h1></div>
-                                    <div class="detail-subtitle">${data.subtitle || ''}</div>
-                                     <div class="detail-info-badge">
-                                        <span>IFC: <strong>${data.general?.ifcClass || '-'}</strong></span>
-                                        <span style="border-left:1px solid #ccc; margin:0 10px;"></span>
-                                        <span>Type: <strong>${data.general?.type || '-'}</strong></span>
-                                    </div>
-                                </div>
-                                <div class="detail-image-wrapper"><img src="${data.image}" alt="${data.title}"></div>
+                        <div class="detail-content-area">
+                            
+                            <div class="detail-section" id="allgemeines">
+                                <h2>Allgemeines</h2>
+                                <p>Ein ${data.title} ist ein Bauelement, das gemäß den schweizerischen Normen und Standards (SIA/KBOB) definiert ist. Es kann fest installiert sein oder als bewegliche Komponente Teil eines Gebäudesystems sein.</p>
+                                <p>Dieses Element wird sowohl im Architekturmodell als auch in Fachmodellen (z.B. Tragwerk, Haustechnik) verwendet. Die nachfolgenden Tabellen definieren die Informationsanforderungen für die jeweiligen Projektphasen.</p>
                             </div>
 
-                            <div id="loi" class="detail-section">
-                                <h2>Attribute (LOI)</h2>
-                                <table class="attr-table">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 20%;">Name</th>
-                                            <th style="width: 30%;">Beschreibung</th>
-                                            <th style="width: 15%;">Format</th>
-                                            <th style="text-align:center; width: 8%;">VP</th>
-                                            <th style="text-align:center; width: 8%;">BP</th>
-                                            <th style="width: 19%;">Verantwortlich</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>${attrRows}</tbody>
+                            <div id="klassifizierung" class="detail-section">
+                                <h2>Klassifizierung</h2>
+                                <table class="data-table">
+                                    <thead><tr><th style="width:30%">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
+                                    <tbody>${classRows}</tbody>
                                 </table>
                             </div>
 
-                            <div id="lod" class="detail-section">
-                                 <h2>Geometrie (LOD)</h2>
-                                 <div style="background:var(--bg-grey); padding: 40px; border-radius:8px; border: 2px dashed var(--border-color); text-align:center; color: var(--text-grey);">
-                                    <span class="material-icons-outlined" style="font-size: 4rem; color: var(--border-color); margin-bottom:20px;">view_in_ar</span><br>
-                                    Grafische Detaillierungsgrade (LOD 100-400) werden hier angezeigt.
-                                </div>
+                            <div id="ifc" class="detail-section">
+                                <h2>IFC-Klasse</h2>
+                                <table class="data-table">
+                                    <thead><tr><th>Element</th><th>IFC 4.3</th><th>Revit ENG</th></tr></thead>
+                                    <tbody>${ifcRows}</tbody>
+                                </table>
                             </div>
-                        </section>
+
+                            <!-- COMPACT GEOMETRY TABLE -->
+                            <div id="geometrie" class="detail-section">
+                                <h2>Geometrie</h2>
+                                <p>Definiert die geometrischen Anforderungen an das Modellelement pro Phase.</p>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Element</th>
+                                            <th style="width: 40%;">Beschreibung</th>
+                                            <th style="width: 30%;">Phasen (2-6)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>${geomRowsHtml}</tbody>
+                                </table>
+                            </div>
+
+                            <!-- COMPACT INFORMATION TABLE -->
+                            <div id="informationen" class="detail-section">
+                                <h2>Informationen</h2>
+                                <p>Alphanumerische Attribute (LOI), die dem Element zugewiesen werden müssen.</p>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20%;">Name</th>
+                                            <th style="width: 25%;">Beschreibung</th>
+                                            <th style="width: 10%;">Format</th>
+                                            <th style="width: 8%; text-align:center;">Liste</th>
+                                            <th style="width: 17%;">Phasen (2-6)</th>
+                                            <th style="width: 20%;">IFC Mapping</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>${infoRowsHtml}</tbody>
+                                </table>
+                            </div>
+
+                            <!-- COMPACT DOCUMENTATION TABLE -->
+                            <div id="dokumentation" class="detail-section">
+                                <h2>Dokumentation</h2>
+                                <p>Erforderliche Dokumente, die mit dem Element verknüpft oder geliefert werden müssen.</p>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 30%;">Dokumententyp</th>
+                                            <th style="width: 40%;">Beschreibung</th>
+                                            <th style="width: 30%;">Phasen (2-6)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>${docRowsHtml}</tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             `;
              
+             // Add click listeners to sidebar links
+             document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('data-target');
+                    const element = document.getElementById(targetId);
+                    if(element) {
+                        element.scrollIntoView({behavior: 'smooth', block: 'start'});
+                    }
+                });
+             });
+
              setTimeout(() => {
                  const sectionHash = window.location.hash.split('#')[2];
                  if(sectionHash) document.getElementById(sectionHash)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+
+                 const sections = document.querySelectorAll('.detail-section');
+                 const navLinks = document.querySelectorAll('.sticky-nav a');
+                 const observer = new IntersectionObserver((entries) => {
+                     entries.forEach(entry => {
+                         if (entry.isIntersecting) {
+                             navLinks.forEach(link => {
+                                 const target = link.getAttribute('data-target');
+                                 link.classList.toggle('active', target === entry.target.id);
+                             });
+                         }
+                     });
+                 }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
+                 sections.forEach(section => observer.observe(section));
              }, 100);
         }
 
