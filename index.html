@@ -3,40 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.8 (Refined)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.9 (Swiss Style)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
         /* --- CSS VARIABLES --- */
         :root {
             /* Colors */
-            --kbob-blue: #003366;
+            --kbob-blue: #003366; /* Bund Blue */
             --kbob-hover-blue: #004a94;
-            --accent-red: #d9534f;
+            --accent-red: #dc0018; /* Swiss Red adjusted */
             
             /* UI Colors */
             --text-dark: #222;
-            --text-grey: #555;
+            --text-grey: #454545;
             --text-light-grey: #aaa;
             --bg-body: #f4f6f8; 
             --bg-white: #ffffff;
-            --border-color: #dadce0;
+            --border-color: #dcdcdc;
             
             /* Interaction Colors */
-            --hover-bg: #e1e8ed;
+            --hover-bg: #e8e8e8;
             --filter-teal: #e0f2f1;
             
             /* Component Variables */
-            --header-height: 64px;
+            --header-height: 70px; /* Slightly taller for official feel */
             --footer-height: 40px;
             --table-header-bg: #003366; 
             --table-header-text: #ffffff;
             
             /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-header: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-header: 0 2px 5px rgba(0,0,0,0.05);
             --shadow-card: 0 2px 8px rgba(0,0,0,0.05);
-            --shadow-card-hover: 0 8px 20px rgba(0,0,0,0.1);
+            --shadow-card-hover: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         /* --- GLOBAL RESET & TYPOGRAPHY --- */
@@ -48,7 +51,8 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            /* Swiss Style Font Stack */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0; padding: 0; 
             color: var(--text-dark); 
             background-color: var(--bg-body);
@@ -59,7 +63,7 @@
             min-height: 100%;
         }
 
-        h1, h2, h3 { margin: 0; font-weight: 700; color: var(--text-dark); }
+        h1, h2, h3 { margin: 0; font-weight: 700; color: var(--text-dark); letter-spacing: -0.02em; }
         a { color: var(--kbob-blue); text-decoration: none; transition: color 0.2s; }
         
         /* Custom Scrollbar */
@@ -68,7 +72,7 @@
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #999; }
 
-        .container { width: 95%; max-width: 1400px; margin: 0 auto; }
+        .container { width: 95%; max-width: 1440px; margin: 0 auto; }
         .hidden { display: none !important; }
 
         /* --- HEADER --- */
@@ -82,35 +86,34 @@
         
         .header-top { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 12px 30px; 
+            padding: 15px 30px; 
             border-bottom: 1px solid var(--border-color); 
         }
         
-        .logo-wrapper { display: flex; align-items: center; color: var(--text-grey); font-size: 0.9rem; line-height: 1.3; }
+        .logo-wrapper { display: flex; align-items: center; color: var(--text-dark); font-size: 0.95rem; line-height: 1.2; }
         .logo-swiss-cross {
-            font-size: 1.2rem; font-weight: 900; color: var(--accent-red); margin-right: 12px;
-            border: 2.5px solid var(--accent-red); border-radius: 50%; width: 26px; height: 26px;
+            font-size: 1.2rem; font-weight: 900; color: var(--accent-red); margin-right: 15px;
+            border: 2px solid var(--accent-red); border-radius: 50%; width: 28px; height: 28px;
             display: flex; align-items: center; justify-content: center;
         }
         
-        .lang-switch { font-weight: 500; color: var(--kbob-blue); font-size: 0.95rem; }
-        .lang-switch span { margin-left: 8px; cursor: pointer; color: var(--text-grey); }
-        .lang-switch span.active, .lang-switch span:hover { color: var(--kbob-blue); text-decoration: underline; }
+        .lang-switch { font-weight: 500; color: var(--kbob-blue); font-size: 0.9rem; }
+        .lang-switch span { margin-left: 10px; cursor: pointer; color: var(--text-grey); }
+        .lang-switch span.active, .lang-switch span:hover { color: var(--kbob-blue); text-decoration: underline; font-weight: 700;}
 
         /* --- NAV --- */
         .main-nav { background: var(--bg-white); border-bottom: 1px solid var(--border-color); }
-        .main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; flex-wrap: wrap;}
+        .main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: flex-start; flex-wrap: wrap;}
         
         .nav-link {
-            text-decoration: none; color: var(--text-dark); padding: 16px 24px; display: block;
-            font-weight: 500; font-size: 1.05rem; transition: all 0.2s; 
+            text-decoration: none; color: var(--text-dark); padding: 18px 24px; display: block;
+            font-weight: 500; font-size: 1rem; transition: all 0.2s; 
             border-bottom: 3px solid transparent; 
         }
-        .nav-link:hover:not(.disabled):not(.active) { background: var(--bg-body); color: var(--kbob-blue); }
+        .nav-link:hover:not(.disabled):not(.active) { background: #f9f9f9; color: var(--kbob-blue); }
         .nav-link.active {
             color: var(--kbob-blue); font-weight: 700;
             border-bottom-color: var(--kbob-blue);
-            background: rgba(0, 51, 102, 0.03);
         }
         .nav-link.disabled { color: var(--text-light-grey); cursor: default; }
 
@@ -137,20 +140,20 @@
             width: 100%;
         }
 
-        footer a { color: #FFFFFF; font-weight: 500; font-size: 0.9rem;}
-        footer a:hover { color: #e0f2f1; text-decoration: underline; }
+        footer a { color: #FFFFFF; font-weight: 400; font-size: 0.85rem; opacity: 0.9;}
+        footer a:hover { opacity: 1; text-decoration: underline; }
 
         /* --- COMPONENTS --- */
-        .page-title { text-align: center; font-size: 2.5rem; margin: 10px 0 30px 0; color: var(--text-dark); }
+        .page-title { text-align: center; font-size: 2.5rem; margin: 20px 0 40px 0; color: var(--text-dark); }
         
         /* Search */
         .central-search-container { 
             max-width: 900px; margin: 0 auto 40px auto; display: flex; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.1);
             background: var(--bg-white);
         }
-        .central-search-input { flex: 1; padding: 18px 25px; font-size: 1.15rem; border: none; outline: none; background: transparent; }
+        .central-search-input { flex: 1; padding: 18px 25px; font-size: 1.1rem; border: none; outline: none; background: transparent; font-family: inherit;}
         .central-search-btn {
             width: 70px; background: var(--kbob-blue); color: #fff; border: none; cursor: pointer; 
             display: flex; align-items: center; justify-content: center; transition: background 0.2s;
@@ -165,18 +168,18 @@
         
         .az-filter-bar { 
             display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
-            background: var(--bg-white); padding: 6px 10px; border-radius: 4px;
+            background: var(--bg-white); padding: 8px 12px; border-radius: 4px;
             border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
         }
 
         .az-btn { 
-            border: 1px solid #d0d7de; background: var(--bg-white); color: var(--kbob-blue);
-            padding: 6px 10px; cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 0.9rem; 
+            border: 1px solid transparent; background: transparent; color: var(--kbob-blue);
+            padding: 6px 10px; cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 0.95rem; font-family: inherit;
             min-width: 32px; text-align: center; transition: all 0.1s;
         }
-        .az-btn:hover { background: var(--filter-teal); border-color: var(--kbob-blue); }
+        .az-btn:hover { background: var(--filter-teal); }
         .az-btn.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue); }
-        .az-btn.disabled { opacity: 0.4; cursor: default; background: #f4f6f8; pointer-events: none; }
+        .az-btn.disabled { opacity: 0.3; cursor: default; pointer-events: none; }
         .az-btn.all-btn { padding: 6px 16px; font-weight: 700; letter-spacing: 0.5px; } 
 
         .view-switcher { display: flex; gap: 5px; background: var(--bg-white); padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
@@ -191,10 +194,10 @@
         
         .sidebar-filter { 
             width: 240px; flex-shrink: 0; background: var(--bg-white); 
-            border-radius: 8px; box-shadow: var(--shadow-sm); overflow: hidden; 
+            border-radius: 4px; box-shadow: var(--shadow-sm); overflow: hidden; 
             border: 1px solid var(--border-color);
         }
-        .sidebar-header { background: var(--bg-white); padding: 16px 20px; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
+        .sidebar-header { background: #f9f9f9; padding: 16px 20px; font-weight: 700; color: var(--text-dark); border-bottom: 1px solid var(--border-color);}
         .filter-group { border-bottom: 1px solid var(--border-color); }
         .filter-toggle { 
             padding: 14px 20px; display: flex; justify-content: space-between; align-items: center;
@@ -202,14 +205,14 @@
         }
         .filter-toggle:hover { background: #f8f9fa; }
 
-        .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
 
         /* Cards */
         .element-card { 
-            background: var(--bg-white); border-radius: 8px; overflow: hidden; cursor: pointer; 
-            box-shadow: var(--shadow-card); border: 1px solid transparent; transition: all 0.2s;
+            background: var(--bg-white); border-radius: 4px; overflow: hidden; cursor: pointer; 
+            box-shadow: var(--shadow-card); border: 1px solid var(--border-color); transition: all 0.2s;
         }
-        .element-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); border-color: rgba(0, 51, 102, 0.1); }
+        .element-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); border-color: var(--kbob-blue); }
         
         .card-img-container { 
             height: 180px; background: #f4f6f8; display: flex; align-items: center; justify-content: center; 
@@ -219,10 +222,10 @@
         .placeholder-icon { font-size: 80px; color: #eee; }
 
         .card-body { padding: 20px; }
-        .card-title { margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 800; line-height: 1.3;}
+        .card-title { margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 700; line-height: 1.3; color: var(--kbob-blue);}
         .card-classification { 
             font-size: 0.85rem; color: var(--text-grey); margin-bottom: 18px; 
-            font-weight: 600; background: #f0f2f5; display: inline-block; padding: 4px 8px; border-radius: 4px;
+            font-weight: 500; background: #f0f2f5; display: inline-block; padding: 4px 8px; border-radius: 4px;
         }
         
         .data-icons-row { display: flex; gap: 12px; font-size: 0.75rem; font-weight: 600; border-top: 1px solid #f0f0f0; padding-top: 12px;}
@@ -236,14 +239,14 @@
         }
         .detail-hero { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-content { flex: 1; }
-        .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 1rem; font-weight: 500; }
+        .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 0.9rem; font-weight: 500; }
         .breadcrumb a:hover { text-decoration: underline; }
         
-        .hero-title { font-size: 3rem; margin-bottom: 20px; color: var(--kbob-blue); letter-spacing: -0.5px; line-height: 1.1; }
-        .hero-subtitle { font-size: 1.25rem; color: var(--text-dark); line-height: 1.6; max-width: 600px; margin-bottom: 30px; }
+        .hero-title { font-size: 3rem; margin-bottom: 20px; color: var(--kbob-blue); letter-spacing: -1px; line-height: 1.1; font-weight: 700; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-dark); line-height: 1.6; max-width: 700px; margin-bottom: 30px; font-weight: 300; }
         .hero-meta { display: flex; gap: 15px; flex-wrap: wrap; }
         
-        /* Unified Meta Badge Style */
+        /* Unified Meta Badge Style - No override */
         .meta-badge { 
             background: var(--bg-body); color: var(--kbob-blue); padding: 6px 14px; border: 1px solid #e1e4e8;
             border-radius: 50px; font-weight: 600; font-size: 0.9rem;
@@ -251,7 +254,8 @@
 
         .hero-image-container { 
             flex: 0 0 50%; height: 400px; display: flex; align-items: center; justify-content: center;
-            background: #fdfdfd; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; 
+            background: #fdfdfd; border-radius: 8px; box-shadow: var(--shadow-sm); overflow: hidden; 
+            border: 1px solid #eee;
         }
         .hero-image-container img { width: 100%; height: 100%; object-fit: cover; }
         .hero-image-placeholder { font-size: 120px; color: #eee; }
@@ -273,57 +277,64 @@
         .detail-content-area { flex: 1; min-width: 0; padding-bottom: 100px; }
         .detail-section { margin-bottom: 80px; scroll-margin-top: 80px; }
         .detail-section h2 { 
-            font-size: 1.8rem; color: var(--kbob-blue); margin-bottom: 30px; 
+            font-size: 1.8rem; color: var(--kbob-blue); margin-bottom: 25px; 
             border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
+        
         /* No max-width as requested */
         .detail-section p { font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 20px; }
 
-        /* --- TABLES (REFINED) --- */
+        /* --- TABLES (OPTIMIZED WIDTHS) --- */
         .data-table { 
             width: 100%; border-collapse: separate; border-spacing: 0; 
-            border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; 
+            border: 1px solid var(--border-color); border-radius: 4px; overflow: hidden; 
             background: var(--bg-white); margin-bottom: 20px;
+            table-layout: fixed; /* Allow better column control */
         }
         .data-table th { 
             background: var(--table-header-bg); color: var(--table-header-text); 
-            font-weight: 600; text-align: left; padding: 12px 15px; font-size: 0.95rem;
+            font-weight: 600; text-align: left; padding: 14px 15px; font-size: 0.9rem;
             border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
         }
         .data-table td { 
-            padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: middle;
+            padding: 12px 15px; border-bottom: 1px solid #eee; color: var(--text-dark); vertical-align: top; /* Top align usually looks better with text wrapping */
         }
         .data-table tr:last-child td { border-bottom: none; }
         .data-table tr:hover td { background-color: var(--hover-bg); }
 
-        /* --- NEW COLUMN CLASSES (SIMPLIFIED) --- */
+        /* --- COLUMN CLASSES (TH LEVEL) --- */
         
-        /* 1. Main Text Class (Bold/Name) */
+        /* 1. First column (20%) */
+        .th-w-20 { width: 20%; }
+        
+        /* 2. Phases column (200px fixed & centered) */
+        .th-w-phases { width: 200px; text-align: center !important; }
+        
+        /* --- TEXT CLASSES (TD LEVEL) --- */
+        
+        /* 1. Primary Text (Name/Bold) */
         .col-primary {
             font-weight: 600;
             color: var(--kbob-blue);
-            width: 25%; /* Default reasonable width */
         }
         
-        /* 2. Value Text Class (Description/Normal) */
+        /* 2. Value Text (Standard) */
         .col-val {
             font-size: 0.95rem;
             color: var(--text-dark);
+            word-wrap: break-word; /* Prevent overflow */
         }
         
-        /* Utility: Center Alignment (for Phases & List) */
-        .col-center {
-            text-align: center;
-        }
+        .col-center { text-align: center; }
 
         /* --- BADGES & ICONS --- */
         
-        /* Unified Badge for Format, IFC, etc. */
         .data-badge {
             display: inline-block;
             background: #e8eaf6; 
             color: #3f51b5; 
-            padding: 2px 8px; 
+            padding: 3px 8px; 
             border-radius: 4px; 
             font-family: monospace; 
             font-size: 0.85rem; 
@@ -331,19 +342,19 @@
             white-space: nowrap;
         }
 
-        /* Improved List Icon */
+        /* Improved List Icon: Bold and Blue */
         .list-icon-active {
             font-weight: bold;
             color: var(--kbob-blue);
-            font-size: 1.4rem !important;
+            font-size: 1.5rem !important; /* Larger */
         }
 
         /* Phase Badges */
-        .phase-compact-wrapper { display: flex; gap: 4px; justify-content: center; } /* Always centered now */
+        .phase-compact-wrapper { display: flex; gap: 4px; justify-content: center; } 
         
         .phase-badge {
-            width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; border: 1px solid #ddd; color: #aaa; background: #f9f9f9; cursor: help; 
+            width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; border: 1px solid #e0e0e0; color: #b0b0b0; background: #fafafa; cursor: help; 
         }
         .phase-badge.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue); }
         
@@ -351,7 +362,7 @@
         .loading-state, .error-state { padding: 80px 20px; text-align: center; color: var(--text-grey); }
         .loading-spinner { font-size: 3rem; color: var(--kbob-blue); animation: spin 1s linear infinite; margin-bottom: 20px; display: inline-block;}
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-grey); border: 1px dashed var(--border-color); border-radius: 8px;}
+        .no-results { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-grey); border: 1px dashed var(--border-color); border-radius: 4px;}
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 900px) {
@@ -362,6 +373,11 @@
             .sticky-nav { flex-direction: row; overflow-x: auto; border-left: none; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
             .sticky-nav a { border-left: none; border-bottom: 3px solid transparent; margin-bottom: -12px; white-space: nowrap; }
             .sticky-nav a.active { border-left: none; border-bottom-color: var(--kbob-blue); }
+            
+            /* Responsive Tables */
+            .data-table { display: block; overflow-x: auto; }
+            .th-w-phases { width: 150px; } /* Slightly smaller on mobile */
+            .th-w-20 { width: 150px; } /* Fixed width on mobile to prevent squashing */
         }
     </style>
 </head>
@@ -519,15 +535,15 @@
             contentArea.innerHTML = `
                 <div class="container">
                     <div style="text-align: center; margin: 60px 0 80px 0;">
-                        <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px; text-shadow: 0 2px 4px rgba(255,255,255,0.8);">BIM-Fachdatenkatalog</h1>
+                        <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px; letter-spacing: -1px;">BIM-Fachdatenkatalog</h1>
                         <div class="central-search-container">
                             <input type="text" class="central-search-input" placeholder="Suche nach Elementen (z.B. Fenster)...">
                             <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
                         </div>
                     </div>
-                    <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
+                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
                         <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
+                        <p style="font-size: 1.1rem; color: var(--text-dark);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
                     </div>
                 </div>`;
         }
@@ -590,8 +606,7 @@
                 { id: 'dokumentation', text: 'Dokumentation' }
             ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            // --- REFINED TABLE ROWS ---
-            // Using only col-primary, col-val, col-center and data-badge
+            // --- REFINED TABLE ROWS WITH NEW CLASSES ---
             
             const classRows = data.classifications ? data.classifications.map(c => 
                 `<tr><td class="col-primary">${c.system}</td><td class="col-val">${c.code} - ${c.desc}</td></tr>`
@@ -664,44 +679,53 @@
                                 <p>Ein ${data.title} ist ein Bauelement, das gemäß den schweizerischen Normen und Standards (SIA/KBOB) definiert ist.</p>
                                 <p>Dieses Element wird sowohl im Architekturmodell als auch in Fachmodellen verwendet.</p>
                             </div>
+                            
                             <div id="klassifizierung" class="detail-section">
                                 <h2>Klassifizierung</h2>
                                 <table class="data-table">
-                                    <thead><tr><th class="col-primary">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
                                     <tbody>${classRows}</tbody>
                                 </table>
                             </div>
+                            
                             <div id="ifc" class="detail-section">
                                 <h2>IFC-Klasse</h2>
                                 <table class="data-table">
-                                    <thead><tr><th class="col-primary">Element</th><th>IFC 4.3</th><th>Revit ENG</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Element</th><th class="th-w-20">IFC 4.3</th><th>Revit ENG</th></tr></thead>
                                     <tbody>${ifcRows}</tbody>
                                 </table>
                             </div>
+                            
                             <div id="geometrie" class="detail-section">
                                 <h2>Geometrie</h2>
                                 <p>Definiert die geometrischen Anforderungen an das Modellelement pro Phase.</p>
                                 <table class="data-table">
-                                    <thead><tr><th class="col-primary">Element</th><th>Beschreibung</th><th class="col-center">Phasen (2-6)</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Element</th><th>Beschreibung</th><th class="th-w-phases">Phasen (2-6)</th></tr></thead>
                                     <tbody>${geomRowsHtml}</tbody>
                                 </table>
                             </div>
+                            
                             <div id="informationen" class="detail-section">
                                 <h2>Informationen</h2>
                                 <p>Alphanumerische Attribute (LOI), die dem Element zugewiesen werden müssen.</p>
                                 <table class="data-table">
                                     <thead><tr>
-                                        <th class="col-primary">Name</th><th>Beschreibung</th><th>Format</th>
-                                        <th class="col-center">Liste</th><th>IFC Mapping</th><th class="col-center">Phasen (2-6)</th>
+                                        <th class="th-w-20">Name</th>
+                                        <th class="th-w-20">Beschreibung</th>
+                                        <th>Format</th>
+                                        <th class="col-center">Liste</th>
+                                        <th>IFC Mapping</th>
+                                        <th class="th-w-phases">Phasen (2-6)</th>
                                     </tr></thead>
                                     <tbody>${infoRowsHtml}</tbody>
                                 </table>
                             </div>
+                            
                             <div id="dokumentation" class="detail-section">
                                 <h2>Dokumentation</h2>
                                 <p>Erforderliche Dokumente, die mit dem Element verknüpft oder geliefert werden müssen.</p>
                                 <table class="data-table">
-                                    <thead><tr><th class="col-primary">Dokumententyp</th><th>Beschreibung</th><th class="col-center">Phasen (2-6)</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (2-6)</th></tr></thead>
                                     <tbody>${docRowsHtml}</tbody>
                                 </table>
                             </div>
