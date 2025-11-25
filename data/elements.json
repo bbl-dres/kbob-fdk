@@ -3,7 +3,7 @@
     "id": "e1",
     "title": "Fenster (Aussen)",
     "classification": "IfcWindow",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haus_Fenster_01.jpg/640px-Haus_Fenster_01.jpg",
+    "image": "https://www.fensterblick.de/holz-alu-fenster.html",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
     "general": { "ifcClass": "IfcWindow", "type": "Bauelement" },
