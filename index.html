@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.6 (Aligned Toolbar & New Cards)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.7 (Table List View)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
             --border-color: #dcdcdc;
             
             /* Interaction Colors */
-            --hover-bg: #e8e8e8;
+            --hover-bg: #e8f0fe; /* Light blue highlight for table rows */
             --filter-teal: #e0f2f1;
             
             /* Component Variables */
@@ -159,7 +159,7 @@
         }
         .central-search-btn:hover { background: var(--kbob-hover-blue); }
 
-        /* Catalog Toolbar & Filter - UPDATED ALIGNMENT */
+        /* Catalog Toolbar */
         .catalog-toolbar { 
             display: flex; 
             justify-content: center; 
@@ -169,11 +169,8 @@
             flex-wrap: wrap;
         }
         
-        /* Unified Height Strategy: 46px */
-        .az-filter-bar, 
-        .filter-btn, 
-        .view-switcher {
-            height: 46px; /* Fixed coherent height */
+        .az-filter-bar, .filter-btn, .view-switcher {
+            height: 46px; 
             display: flex;
             align-items: center;
             box-sizing: border-box;
@@ -187,8 +184,8 @@
 
         .az-btn { 
             border: 1px solid transparent; background: transparent; color: var(--kbob-blue);
-            padding: 0 10px; /* Reset padding to fit height */
-            height: 32px; /* Inner height */
+            padding: 0 10px; 
+            height: 32px; 
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 0.95rem; font-family: inherit;
             min-width: 32px; transition: all 0.1s;
@@ -205,11 +202,10 @@
         .view-btn { 
             border: none; background: transparent; color: var(--text-grey); padding: 0 10px; 
             cursor: pointer; border-radius: 3px; display: flex; align-items: center; justify-content: center;
-            height: 36px; /* Inner height */
+            height: 36px;
         }
         .view-btn.active { background: var(--kbob-blue); color: #fff; }
 
-        /* Filter Button */
         .filter-btn {
             gap: 8px;
             background: var(--bg-white); border: 1px solid var(--border-color);
@@ -239,7 +235,7 @@
         }
         .filter-toggle:hover { background: #f8f9fa; }
 
-        /* Grid View */
+        /* --- GRID VIEW --- */
         .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
 
         .element-card { 
@@ -256,7 +252,6 @@
         .card-img-container img { width: 100%; height: 100%; object-fit: cover; }
         .placeholder-icon { font-size: 80px; color: #eee; }
 
-        /* Updated Card Body Styles */
         .card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
         .card-title { margin: 0 0 5px 0; font-size: 1.15rem; font-weight: 700; line-height: 1.3; color: var(--kbob-blue);}
         
@@ -265,22 +260,66 @@
             display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
             line-height: 1.4;
         }
-        
         .card-tags { margin-top: auto; display: flex; gap: 8px; flex-wrap: wrap; }
 
-        /* List View */
-        .element-list-container { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-        .element-list-item {
-            display: flex; align-items: center;
-            background: var(--bg-white); border: 1px solid var(--border-color);
-            border-radius: 4px; padding: 15px 20px;
-            transition: all 0.2s; cursor: pointer; box-shadow: var(--shadow-sm);
+
+        /* --- LIST / TABLE VIEW (UPDATED V2.7) --- */
+        /* Wrapper becomes a table-like container */
+        .element-list-container { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0; /* No vertical gaps */
+            width: 100%; 
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--bg-white);
+            box-shadow: var(--shadow-sm);
         }
-        .element-list-item:hover { border-color: var(--kbob-blue); transform: translateX(4px); box-shadow: var(--shadow-card-hover); }
-        .list-col-name { width: 25%; font-weight: 700; color: var(--kbob-blue); font-size: 1.05rem; }
-        .list-col-desc { flex: 1; color: var(--text-grey); font-size: 0.95rem; padding-right: 20px; }
+
+        /* Header Row Styles */
+        .list-header-row {
+            display: flex;
+            align-items: center;
+            background: var(--table-header-bg);
+            color: var(--table-header-text);
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* List Item (Row) Styles */
+        .element-list-item {
+            display: flex; 
+            align-items: center;
+            background: var(--bg-white); 
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            border-radius: 0; 
+            padding: 15px 20px;
+            transition: background-color 0.2s; 
+            cursor: pointer; 
+            box-shadow: none;
+        }
         
-        /* Tags in List View */
+        /* Remove border from last item */
+        .element-list-item:last-child {
+            border-bottom: none;
+        }
+
+        /* New Hover Effect: Highlight Row, no movement */
+        .element-list-item:hover { 
+            border-color: var(--border-color); 
+            transform: none; 
+            box-shadow: none; 
+            background-color: var(--hover-bg);
+        }
+
+        /* Column Definition */
+        .list-col-name { width: 25%; font-weight: 700; color: var(--kbob-blue); font-size: 1.05rem; flex-shrink: 0; }
+        .list-col-desc { flex: 1; color: var(--text-grey); font-size: 0.95rem; padding-right: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
         .list-col-tags { 
             width: 280px; 
             display: flex; 
@@ -289,20 +328,31 @@
             justify-content: flex-end; 
             gap: 8px;
             flex-wrap: wrap; 
+            flex-shrink: 0;
         }
 
-        /* --- UNIVERSAL TAG STYLING (Single Style) --- */
+        /* --- UNIVERSAL TAG STYLING (UPDATED) --- */
         .tag-badge {
             display: inline-flex; 
             align-items: center;
             background: #f0f2f5;       
             color: #111;              
             border: 1px solid #d0d7de; 
-            font-size: 0.9rem; 
-            font-weight: 400;          
-            padding: 4px 10px;         
-            border-radius: 14px;        
+            font-size: 0.8rem; 
+            font-weight: 400;           
+            padding: 6px 12px;          
+            border-radius: 20px;        
             font-family: inherit;
+            /* New Interactive Styles */
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        /* Hover Effect for Tags */
+        .tag-badge:hover {
+            background-color: #e2e6ea;
+            border-color: #999;
+            color: var(--kbob-blue);
         }
 
         /* --- DETAIL VIEW --- */
@@ -430,9 +480,14 @@
             .th-w-list { min-width: 60px; }
             
             /* List View Mobile */
-            .element-list-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            /* Hide headers on small screens */
+            .list-header-row { display: none; }
+            
+            /* Stack content */
+            .element-list-item { flex-direction: column; align-items: flex-start; gap: 10px; border-bottom: 1px solid var(--border-color); }
             .list-col-name, .list-col-tags { width: 100%; align-items: flex-start; }
-            .list-col-tags { flex-direction: row; justify-content: flex-start; }
+            .list-col-desc { white-space: normal; width: 100%; padding-right: 0; }
+            .list-col-tags { flex-direction: row; justify-content: flex-start; width: 100%; }
             
             /* Align heights responsive */
             .az-filter-bar, .filter-btn, .view-switcher { height: auto; padding: 6px; }
@@ -557,15 +612,14 @@
         function renderTagsHtml(tagsData) {
             if (!tagsData) return '';
             let html = '';
-            if(tagsData.ifcClass) html += `<span class="tag-badge">IFC: ${tagsData.ifcClass}</span>`;
-            if(tagsData.type) html += `<span class="tag-badge">Type: ${tagsData.type}</span>`;
+            if(tagsData.ifcClass) html += `<span class="tag-badge" title="Filter nach IFC: ${tagsData.ifcClass}">IFC: ${tagsData.ifcClass}</span>`;
+            if(tagsData.type) html += `<span class="tag-badge" title="Filter nach Type: ${tagsData.type}">Type: ${tagsData.type}</span>`;
             return html;
         }
 
         function renderGridItemsHTML(items) {
             if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
             
-            // Updated Grid Render: Subtitle instead of Classification, Tags instead of Icons
             return items.map(el => `
                 <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
                     <div class="card-img-container">
@@ -585,17 +639,24 @@
         function renderListItemsHTML(items) {
             if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
             
-            return `
-                <div class="element-list-container">
-                    ${items.map(el => `
-                    <div class="element-list-item" onclick="window.location.hash='#element/${el.id}'">
-                        <div class="list-col-name">${el.title}</div>
-                        <div class="list-col-desc">${el.subtitle || el.classification}</div>
-                        <div class="list-col-tags">${renderTagsHtml(el.tags)}</div>
-                    </div>
-                    `).join('')}
+            // Fixed Header Row
+            const headerHtml = `
+                <div class="list-header-row">
+                    <div class="list-col-name">Name</div>
+                    <div class="list-col-desc">Beschreibung</div>
+                    <div class="list-col-tags">Tags</div>
                 </div>
             `;
+
+            const itemsHtml = items.map(el => `
+                <div class="element-list-item" onclick="window.location.hash='#element/${el.id}'">
+                    <div class="list-col-name">${el.title}</div>
+                    <div class="list-col-desc">${el.subtitle || el.classification}</div>
+                    <div class="list-col-tags">${renderTagsHtml(el.tags)}</div>
+                </div>
+            `).join('');
+
+            return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
         }
 
         function renderPhaseBadges(phases) {
