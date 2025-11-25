@@ -1106,7 +1106,7 @@
         <div class="container">
             <h3>Kontakt</h3>
             <div class="contact-info">
-                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+                Fellerstrasse 21 | CH-3003 Bern | <a href="/cdn-cgi/l/email-protection#d4bfb6bbb694b6b6b8fab5b0b9bdbafab7bc"><span class="__cf_email__" data-cfemail="68030a070a280a0a0446090c050106460b00">[email&#160;protected]</span></a>
             </div>
             <div class="contact-info">
                 © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
@@ -1123,7 +1123,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
@@ -1210,10 +1210,9 @@
         // --- RENDER HELPERS ---
         function renderTagsHtml(tagsData) {
             if (!tagsData) return '';
-            let html = '';
-            if(tagsData.ifcClass) html += `<span class="tag-badge" title="Filter nach IFC: ${tagsData.ifcClass}">IFC: ${tagsData.ifcClass}</span>`;
-            if(tagsData.type) html += `<span class="tag-badge" title="Filter nach Type: ${tagsData.type}">Type: ${tagsData.type}</span>`;
-            return html;
+            return Object.entries(tagsData).map(([key, value]) => 
+                `<span class="tag-badge" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`
+            ).join('');
         }
 
         function renderGridItemsHTML(items) {
@@ -1559,13 +1558,3 @@
                      if (scrolledToBottom && stickyNavLinks.length > 0) {
                          stickyNavLinks.forEach(link => link.classList.remove('active'));
                          stickyNavLinks[stickyNavLinks.length - 1].classList.add('active');
-                     }
-                 };
-                 window.addEventListener('scroll', detailScrollHandler);
-             }, 100);
-        }
-
-        window.addEventListener('DOMContentLoaded', initApp);
-    </script>
-</body>
-</html>
