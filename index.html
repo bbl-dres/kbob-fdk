@@ -1207,12 +1207,12 @@
         }
 
         // --- RENDER HELPERS ---
+        // CHANGED: Dynamic tag rendering - loads ALL tags from the tags object
         function renderTagsHtml(tagsData) {
             if (!tagsData) return '';
-            let html = '';
-            if(tagsData.ifcClass) html += `<span class="tag-badge" title="Filter nach IFC: ${tagsData.ifcClass}">IFC: ${tagsData.ifcClass}</span>`;
-            if(tagsData.type) html += `<span class="tag-badge" title="Filter nach Type: ${tagsData.type}">Type: ${tagsData.type}</span>`;
-            return html;
+            return Object.entries(tagsData).map(([key, value]) => 
+                `<span class="tag-badge" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`
+            ).join('');
         }
 
         function renderGridItemsHTML(items) {
