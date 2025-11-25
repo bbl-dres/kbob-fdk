@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.2 (Clean)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.3 (Optimized)</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -106,25 +106,34 @@
             padding-top: 0;
         }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER (OPTIMIZED) --- */
         footer {
-            height: 40px;
             background-color: #003366;
-            display: flex;
-            align-items: center;
             flex-shrink: 0;
             border-top: 1px solid #ccc;
             font-size: 0.85rem;
+            padding: 12px 0; /* Vertical padding */
         }
+        
+        /* Footer Container aligns exactly with the rest of the page (.container) */
+        footer .container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Left aligned */
+        }
+
         footer a {
             color: #FFFFFF;
             text-decoration: none;
             font-weight: 500;
+            display: inline-flex;
+            align-items: center;
         }
         footer a:hover {
-            color: #FFFFFF;
+            color: #e0f2f1;
             text-decoration: underline;
         }
+        footer a .material-icons-outlined { margin-right: 5px; font-size: 1rem; }
 
         /* --- COMMON ELEMENTS --- */
         .page-title { text-align: center; font-size: 2.8rem; margin-bottom: 30px; margin-top: 10px; color: var(--text-dark); }
@@ -145,11 +154,22 @@
         .central-search-btn .material-icons-outlined { font-size: 1.8rem; }
 
 
-        /* --- CATALOG VIEW --- */
-        .catalog-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;}
+        /* --- CATALOG VIEW (OPTIMIZED) --- */
+        .catalog-toolbar { 
+            display: flex; 
+            justify-content: flex-start; /* FIX: Left align everything */
+            gap: 20px; /* FIX: Fixed gap instead of space-between */
+            align-items: center; 
+            margin-bottom: 30px; 
+            max-width: 1200px; 
+            margin-left: auto; 
+            margin-right: auto;
+        }
         
         .az-filter-bar { 
-            display: flex; flex-wrap: wrap; gap: 4px; flex: 1; align-items: center;
+            display: flex; flex-wrap: wrap; gap: 4px; 
+            align-items: center;
+            flex: unset; /* FIX: Don't take full width */
         }
         .az-btn { 
             border: none; background: #fff; color: var(--kbob-blue); border: 1px solid #d0d7de;
@@ -158,6 +178,17 @@
         }
         .az-btn:hover { background: var(--filter-teal); border-color: var(--kbob-blue); }
         .az-btn.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue); }
+        
+        /* Disabled State for unused letters */
+        .az-btn.disabled {
+            opacity: 0.4;
+            cursor: default;
+            background: #f4f6f8;
+            border-color: #eee;
+            color: #aaa;
+            pointer-events: none;
+        }
+
         .az-btn.all-btn { padding-left: 16px; padding-right: 16px; font-weight: 700; letter-spacing: 0.5px; } 
 
         .view-switcher { display: flex; gap: 5px; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
@@ -197,17 +228,14 @@
             align-items: center; 
             justify-content: center; 
             border-bottom: 1px solid #f0f0f0; 
-            padding: 0; /* NO PADDING */
+            padding: 0; 
             position: relative;
             overflow: hidden; 
         }
         .placeholder-icon { font-size: 80px; color: #eee; z-index: 1; }
         
         .card-img-container img { 
-            width: 100%; /* FULL WIDTH */
-            height: 100%; /* FULL HEIGHT */
-            object-fit: cover; /* FILL THE AREA */
-            z-index: 1; 
+            width: 100%; height: 100%; object-fit: cover; z-index: 1; 
         }
 
         .card-body { padding: 20px; }
@@ -242,19 +270,15 @@
             border-radius: 50px; font-weight: 600; font-size: 0.9rem;
         }
 
-        /* --- DETAIL IMAGE (NO BORDER / FULL FRAME) --- */
         .hero-image-container { 
             flex: 0 0 50%; height: 400px; display: flex; align-items: center; justify-content: center;
             background: #fdfdfd; border-radius: 12px; 
-            border: none; /* NO BORDER */
+            border: none; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            overflow: hidden; /* KEEP ROUNDED CORNERS */
+            overflow: hidden; 
         }
         .hero-image-container img { 
-            width: 100%; /* FULL WIDTH */
-            height: 100%; /* FULL HEIGHT */
-            object-fit: cover; /* COVER AREA */
-            mix-blend-mode: normal; 
+            width: 100%; height: 100%; object-fit: cover; mix-blend-mode: normal; 
         }
         .hero-image-placeholder { font-size: 120px; color: #eee; }
 
@@ -274,7 +298,6 @@
         .sticky-nav a.active { border-left-color: var(--kbob-blue); color: var(--kbob-blue); font-weight: 700; }
 
         .detail-content-area { flex: 1; min-width: 0; padding-bottom: 100px; }
-        /* Adjusted scroll margin for correct positioning under header */
         .detail-section { margin-bottom: 80px; scroll-margin-top: 120px; }
         
         .detail-section h2 { 
@@ -309,7 +332,7 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 0.75rem; font-weight: 700;
             border: 1px solid #ddd; color: #aaa; background: #f9f9f9;
-            cursor: help; /* Suggests tooltip on hover */
+            cursor: help; 
         }
         .phase-badge.active {
             background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue);
@@ -320,7 +343,6 @@
             background: #e8eaf6; color: #3f51b5; padding: 2px 6px; 
             border-radius: 4px; font-family: monospace; font-size: 0.8rem; border: 1px solid #c5cae9;
         }
-        /* IFC code style */
         .ifc-code { font-family: monospace; font-size: 0.85rem; color: #444; background: #f5f5f5; padding: 2px 4px; border-radius: 3px; }
 
         /* Helper States */
@@ -363,7 +385,9 @@
 
     <footer>
         <div class="container">
-            <a href="https://github.com/davras5/kbob-fdk" target="_blank">Codebase</a>
+            <a href="https://github.com/davras5/kbob-fdk" target="_blank">
+                <span class="material-icons-outlined">code</span> Codebase
+            </a>
         </div>
     </footer>
 
@@ -485,6 +509,36 @@
             return badgesHtml;
         }
 
+        // --- GLOBAL FILTER FUNCTION ---
+        window.filterCatalogByLetter = function(letter) {
+            const gridContainer = document.getElementById('catalogGrid');
+            const searchInput = document.getElementById('catalogSearchInput');
+
+            // 1. Sucheingabe leeren
+            if(searchInput) searchInput.value = '';
+
+            // 2. Buttons aktualisieren
+            document.querySelectorAll('.az-filter-bar .az-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText === letter || (letter === 'ALL' && btn.classList.contains('all-btn'))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 3. Filtern
+            let filteredData = [];
+            if (letter === 'ALL') {
+                filteredData = globalElementsData;
+            } else {
+                filteredData = globalElementsData.filter(el => 
+                    el.title.trim().toUpperCase().startsWith(letter)
+                );
+            }
+
+            // 4. Rendern
+            gridContainer.innerHTML = renderGridItemsHTML(filteredData);
+        };
+
         // --- PAGE RENDERERS ---
 
         function renderHomePage() {
@@ -507,9 +561,22 @@
         }
 
         function renderCatalogPage() {
+            // 1. Ermitteln der vorhandenen Buchstaben
+            const usedLetters = new Set(
+                globalElementsData.map(el => el.title.trim().charAt(0).toUpperCase())
+            );
+
             const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-            let azHtml = alphabet.map(letter => `<button class="az-btn">${letter}</button>`).join('');
-            azHtml += `<button class="az-btn all-btn active">ALLE</button>`;
+            
+            // 2. Buttons generieren
+            let azHtml = alphabet.map(letter => {
+                const isAvailable = usedLetters.has(letter);
+                const disabledClass = isAvailable ? '' : 'disabled';
+                return `<button class="az-btn ${disabledClass}" onclick="filterCatalogByLetter('${letter}')">${letter}</button>`;
+            }).join('');
+            
+            azHtml += `<button class="az-btn all-btn active" onclick="filterCatalogByLetter('ALL')">ALLE</button>`;
+
             const initialGridHtml = renderGridItemsHTML(globalElementsData);
 
             contentArea.innerHTML = `
@@ -519,13 +586,16 @@
                         <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
                         <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
                     </div>
+                    
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar">${azHtml}</div>
-                        <div class="view-switcher" style="margin-left: 20px;">
+                        
+                        <div class="view-switcher">
                             <button class="view-btn active" title="Rasteransicht"><span class="material-icons-outlined">grid_view</span></button>
                             <button class="view-btn" title="Listenansicht"><span class="material-icons-outlined">view_list</span></button>
                         </div>
                     </div>
+
                     <div class="catalog-layout">
                         <aside class="sidebar-filter">
                             <div class="sidebar-header">Filter</div>
@@ -541,9 +611,11 @@
             const searchInput = document.getElementById('catalogSearchInput');
             const gridContainer = document.getElementById('catalogGrid');
             
-            // Fokus auf Suche + Event Listener
             searchInput.focus();
             searchInput.addEventListener('input', (e) => {
+                // Reset AZ Buttons
+                document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+                
                 const searchTerm = e.target.value.toLowerCase();
                 const filteredData = globalElementsData.filter(el => el.title.toLowerCase().includes(searchTerm) || el.classification.toLowerCase().includes(searchTerm));
                 gridContainer.innerHTML = renderGridItemsHTML(filteredData);
@@ -572,7 +644,7 @@
                 `<tr><td>${m.element}</td><td>${m.ifc}</td><td>${m.revit}</td></tr>`
             ).join('') : '<tr><td colspan="3">-</td></tr>';
 
-            // --- DYNAMIC SECTIONS (From JSON Arrays) ---
+            // --- DYNAMIC SECTIONS ---
             
             // 1. Geometrie
             const geomRows = data.geometry && data.geometry.length > 0 ? data.geometry : [];
@@ -713,7 +785,7 @@
                 </div>
             `;
              
-             setupDetailInteractions();
+            setupDetailInteractions();
         }
 
         // --- INTERACTION LOGIC ---
@@ -728,13 +800,11 @@
                 });
              });
 
-             // 2. Scroll Spy & Init
+             // 2. Scroll Spy
              setTimeout(() => {
-                 // Falls Direktlink mit Hash (z.B. #element/e1#geometrie)
                  const sectionHash = window.location.hash.split('#')[2];
                  if(sectionHash) document.getElementById(sectionHash)?.scrollIntoView({behavior: 'smooth', block: 'start'});
 
-                 // Scroll Observer für aktives Menu Item
                  const sections = document.querySelectorAll('.detail-section');
                  const navLinks = document.querySelectorAll('.sticky-nav a');
                  const observer = new IntersectionObserver((entries) => {
@@ -751,7 +821,6 @@
              }, 100);
         }
 
-        // Start der App
         window.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
