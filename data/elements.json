@@ -79,5 +79,83 @@
         { "name": "LoadBearing", "desc": "Tragendes Bauteil?", "format": "IfcBoolean", "list": false, "phases": [1,1,1,1,1], "ifc": "Pset_WallCommon.LoadBearing" }
     ],
     "documentation": []
+  },
+  {
+    "id": "e4",
+    "title": "Bodenplatte (Stahlbeton)",
+    "classification": "IfcSlab",
+    "image": "",
+    "lod": true, "loi": true, "epd": true,
+    "subtitle": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
+    "general": { "ifcClass": "IfcSlab", "type": "Tragwerk" },
+    "classifications": [
+        { "system": "eBKP-H", "code": "C1.1", "desc": "Bodenplatte" },
+        { "system": "DIN 276", "code": "322", "desc": "Flachgründungen" }
+    ],
+    "ifcMapping": [
+        { "element": "Bodenplatte", "ifc": "IfcSlab.BASESLAB", "revit": "Floors" }
+    ],
+    "geometry": [
+        { "name": "Stärke", "desc": "Statisch erforderliche Dicke", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Gefälle", "desc": "Modellierung von Gefälle für Entwässerung", "phases": [0, 0, 1, 1, 1] }
+    ],
+    "information": [
+        { "name": "LoadBearing", "desc": "Ist das Bauteil tragend?", "format": "Boolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_SlabCommon.LoadBearing" },
+        { "name": "ConcreteGrade", "desc": "Betonsorte (z.B. C25/30)", "format": "String", "list": true, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial" }
+    ],
+    "documentation": [
+         { "name": "Bewehrungsplan", "desc": "Planung der Armierung", "phases": [0, 0, 1, 1, 0] }
+    ]
+  },
+  {
+    "id": "e5",
+    "title": "Dach (Flachdach)",
+    "classification": "IfcSlab",
+    "image": "",
+    "lod": true, "loi": true, "epd": true,
+    "subtitle": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
+    "general": { "ifcClass": "IfcSlab", "type": "Hülle" },
+    "classifications": [
+        { "system": "eBKP-H", "code": "F1.2", "desc": "Flachdach befahrbar/begrünt" },
+        { "system": "DIN 276", "code": "362", "desc": "Dachbeläge" }
+    ],
+    "ifcMapping": [
+        { "element": "Dachdecke", "ifc": "IfcSlab.ROOF", "revit": "Roofs/Floors" }
+    ],
+    "geometry": [
+        { "name": "Schichtaufbau", "desc": "Modellierung der einzelnen Schichten (Dämmung, Abdichtung)", "phases": [0, 0, 0, 1, 1] },
+        { "name": "Gesamtdicke", "desc": "Raumbedarf der Konstruktion", "phases": [1, 1, 1, 1, 1] }
+    ],
+    "information": [
+        { "name": "IsExternal", "desc": "Aussenbauteil", "format": "Boolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_SlabCommon.IsExternal" },
+        { "name": "ThermalTransmittance", "desc": "U-Wert des Aufbaus", "format": "Real", "list": false, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_SlabCommon.ThermalTransmittance" }
+    ],
+    "documentation": []
+  },
+  {
+    "id": "e6",
+    "title": "Stütze (Fertigteil)",
+    "classification": "IfcColumn",
+    "image": "",
+    "lod": true, "loi": false, "epd": true,
+    "subtitle": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
+    "general": { "ifcClass": "IfcColumn", "type": "Tragwerk" },
+    "classifications": [
+        { "system": "eBKP-H", "code": "C2.3", "desc": "Stützen (Konstruktion)" }
+    ],
+    "ifcMapping": [
+        { "element": "Stütze", "ifc": "IfcColumn.COLUMN", "revit": "Columns" }
+    ],
+    "geometry": [
+        { "name": "Querschnitt", "desc": "Abmessungen (b/h oder d)", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Konsolen", "desc": "Auflager für Träger", "phases": [0, 0, 1, 1, 1] }
+    ],
+    "information": [
+        { "name": "FireRating", "desc": "Feuerwiderstand", "format": "String", "list": true, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_ColumnCommon.FireRating" },
+        { "name": "LoadBearing", "desc": "Tragend", "format": "Boolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_ColumnCommon.LoadBearing" }
+    ],
+    "documentation": [
+        { "name": "Versetzplan", "desc": "Logistikplan für Montage", "phases": [0, 0, 0, 1, 1] }
+    ]
   }
 ]
