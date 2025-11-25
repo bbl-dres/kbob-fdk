@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.3 (Optimized)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V1.4</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -106,20 +106,22 @@
             padding-top: 0;
         }
 
-        /* --- FOOTER (OPTIMIZED) --- */
+        /* --- FOOTER (UPDATED) --- */
         footer {
             background-color: #003366;
             flex-shrink: 0;
             border-top: 1px solid #ccc;
             font-size: 0.85rem;
-            padding: 12px 0; /* Vertical padding */
+            padding: 12px 0;
         }
         
-        /* Footer Container aligns exactly with the rest of the page (.container) */
-        footer .container {
+        /* FIX 1: Footer Content strict left alignment */
+        .footer-content {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Left aligned */
+            justify-content: flex-start;
+            padding-left: 40px; /* Margin 40px from left window edge */
+            width: 100%;
         }
 
         footer a {
@@ -154,23 +156,31 @@
         .central-search-btn .material-icons-outlined { font-size: 1.8rem; }
 
 
-        /* --- CATALOG VIEW (OPTIMIZED) --- */
+        /* --- CATALOG VIEW (UPDATED) --- */
         .catalog-toolbar { 
             display: flex; 
-            justify-content: flex-start; /* FIX: Left align everything */
-            gap: 20px; /* FIX: Fixed gap instead of space-between */
+            justify-content: center; 
+            gap: 30px; 
             align-items: center; 
-            margin-bottom: 30px; 
-            max-width: 1200px; 
-            margin-left: auto; 
+            margin-bottom: 30px;
+            margin-left: auto;
             margin-right: auto;
         }
         
+        /* FIX 2: AZ-Filter-Bar styling like view-switcher */
         .az-filter-bar { 
             display: flex; flex-wrap: wrap; gap: 4px; 
             align-items: center;
-            flex: unset; /* FIX: Don't take full width */
+            flex: unset;
+            
+            /* Styles copied from view-switcher logic */
+            background: #fff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
+
         .az-btn { 
             border: none; background: #fff; color: var(--kbob-blue); border: 1px solid #d0d7de;
             padding: 6px 10px; cursor: pointer; border-radius: 4px; font-weight: 600; font-size: 0.9rem; transition: all 0.1s;
@@ -179,7 +189,6 @@
         .az-btn:hover { background: var(--filter-teal); border-color: var(--kbob-blue); }
         .az-btn.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue); }
         
-        /* Disabled State for unused letters */
         .az-btn.disabled {
             opacity: 0.4;
             cursor: default;
@@ -384,7 +393,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="footer-content">
             <a href="https://github.com/davras5/kbob-fdk" target="_blank">
                 <span class="material-icons-outlined">code</span> Codebase
             </a>
