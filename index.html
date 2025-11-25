@@ -1,1 +1,335 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V2</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <style>
+        :root {
+            --kbob-blue: #003366; --kbob-light-blue: #e6eff7; --text-grey: #555;
+            --border-color: #ddd; --bg-grey: #f8f9fa; --accent-red: #d9534f;
+        }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; color: #333; background-color: var(--bg-grey); line-height: 1.6; }
+        .container { width: 92%; max-width: 1200px; margin: 0 auto; }
+        .hidden { display: none; }
+        /* HEADER & NAV */
+        header { background: #fff; border-bottom: 3px solid var(--kbob-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; border-bottom: 1px solid #eee;}
+        .logo-placeholder { font-size: 0.95rem; line-height: 1.3; color: var(--text-grey); display: flex; align-items: center;}
+        .logo-swiss { font-size: 1.4rem; font-weight:bold; color: var(--accent-red); margin-right: 10px; border: 2px solid var(--accent-red); border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 22px; display: inline-block;}
+        .lang-switch { font-weight: bold; color: var(--kbob-blue); font-size: 0.9rem;}
+        .lang-switch span { margin-left: 5px; cursor: pointer; }
+        .lang-switch span.active { text-decoration: underline; }
+        .main-nav ul { list-style: none; padding: 0; margin: 0; display: flex; padding-left: 30px; overflow-x: auto; }
+        .main-nav li { margin-right: 2px; flex-shrink: 0; }
+        .nav-link { text-decoration: none; color: var(--kbob-blue); padding: 15px 25px; display: block; border-bottom: 3px solid transparent; transition: all 0.2s; font-weight: 500; }
+        .nav-link:hover:not(.disabled) { background: var(--kbob-light-blue); color: var(--kbob-blue); }
+        .nav-link.active { border-bottom-color: var(--kbob-blue); font-weight: bold; background: var(--bg-grey); margin-bottom: -3px; padding-bottom: 18px; border-top: 3px solid transparent;}
+        .nav-link.disabled { color: #aaa; cursor: not-allowed; }
+        /* MAIN CONTENT */
+        #content-area { padding: 40px 0; min-height: 600px; background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="2" fill="%23e0e0e0"/><path d="M30 30L60 0M30 30L0 60M30 30H0" stroke="%23e8e8e8" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23a)"/></svg>'); background-size: 300px; }
+        .hero-section { text-align: center; margin-bottom: 50px; }
+        .hero-section h1 { font-size: 2.8rem; color: var(--kbob-blue); margin-bottom: 30px; }
+        .search-bar-container { position: relative; max-width: 700px; margin: 0 auto; }
+        .search-bar-container input { width: 100%; padding: 18px 25px; font-size: 1.2rem; border: 2px solid var(--border-color); border-radius: 4px; outline: none; transition: border-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .search-bar-container input:focus { border-color: var(--kbob-blue); }
+        .search-bar-container .search-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: var(--kbob-blue); color: #fff; padding: 10px 15px; border-radius: 4px; cursor: pointer; border:none; display: flex; align-items: center;}
+        .intro-box { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; border-top: 4px solid var(--kbob-blue); }
+        .intro-box h2 { margin-top: 0; color: var(--kbob-blue); }
+        /* CATALOG VIEW */
+        .az-filter-bar { background: #fff; padding: 10px; border-radius: 4px; border: 1px solid var(--border-color); display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 30px;}
+        .az-btn { border: 1px solid transparent; color: var(--kbob-blue); background: transparent; padding: 5px 10px; cursor: pointer; border-radius: 3px; font-weight: 500; transition: all 0.2s;}
+        .az-btn:hover { background: var(--kbob-light-blue); }
+        .az-btn.active { background: var(--kbob-blue); color: #fff; border-color: var(--kbob-blue);}
+        .catalog-layout { display: flex; gap: 30px; align-items: flex-start; }
+        .sidebar-filter { width: 220px; flex-shrink: 0; background: #fff; border-radius: 4px; border: 1px solid var(--border-color); overflow: hidden;}
+        .sidebar-header { background: var(--bg-grey); padding: 10px 15px; font-weight: bold; border-bottom: 1px solid var(--border-color);}
+        .filter-group { border-bottom: 1px solid #eee; }
+        .filter-toggle { padding: 12px 15px; display: flex; justify-content: space-between; cursor: pointer; font-weight: 500; }
+        .filter-toggle:hover { background: var(--kbob-light-blue); }
+        .element-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .element-card { background: #fff; border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; transition: all 0.2s; cursor: pointer; position: relative; top:0;}
+        .element-card:hover { top: -5px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--kbob-light-blue); }
+        .card-img { height: 160px; background: var(--bg-grey); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #eee; }
+        .card-img img { max-height: 85%; max-width: 85%; mix-blend-mode: multiply; }
+        .card-body { padding: 15px; }
+        .card-body h3 { margin: 0 0 8px 0; font-size: 1.1rem; color: var(--kbob-blue); }
+        .card-meta { font-size: 0.85rem; color: var(--text-grey); margin-bottom: 15px; display: block; font-family: monospace; background: #eee; display: inline-block; padding: 2px 5px; border-radius: 3px;}
+        .data-icons { display: flex; gap: 12px; font-size: 0.8rem; color: var(--text-grey); border-top: 1px solid #eee; padding-top: 10px;}
+        .data-icons span { display: flex; align-items: center; }
+        .data-icons .material-icons-outlined { font-size: 1.1rem; margin-right: 4px; color: var(--kbob-blue);}
+        .data-icons .disabled { color: #ccc; } .data-icons .disabled .material-icons-outlined { color: #ccc; }
+        /* DETAIL VIEW */
+        .breadcrumb { margin-bottom: 25px; color: var(--text-grey); font-size: 0.9rem;}
+        .breadcrumb a { text-decoration: none; color: var(--kbob-blue); }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .detail-layout { display: flex; gap: 40px; }
+        .detail-sidebar { width: 220px; flex-shrink: 0; }
+        .sticky-nav { position: sticky; top: 20px; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border-color); border-radius: 4px; overflow: hidden;}
+        .sticky-nav a { text-decoration: none; padding: 12px 15px; color: var(--kbob-blue); border-left: 4px solid transparent; transition: all 0.2s; font-weight: 500;}
+        .sticky-nav a:hover { background: var(--kbob-light-blue); }
+        .sticky-nav a.active { border-left-color: var(--kbob-blue); background: var(--kbob-light-blue); font-weight: bold;}
+        .detail-content { flex: 1; background: #fff; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 2px 15px rgba(0,0,0,0.03);}
+        .detail-header { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 30px; align-items: flex-start;}
+        .detail-title h1 { margin: 0 0 10px 0; color: var(--kbob-blue); font-size: 2.2rem;}
+        .detail-subtitle { font-size: 1.1rem; color: var(--text-grey); margin-bottom: 20px; display: block;}
+        .detail-meta-box { background: var(--bg-grey); padding: 15px; border-radius: 4px; border: 1px solid #eee; display: inline-block;}
+        .detail-image-container { width: 350px; height: 250px; background: var(--bg-grey); display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid #eee; padding: 20px;}
+        .detail-image-container img { max-width: 100%; max-height: 100%; mix-blend-mode: multiply; }
+        .detail-section { margin-bottom: 60px; scroll-margin-top: 20px; }
+        .detail-section h2 { color: var(--kbob-blue); border-bottom: 2px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px; font-size: 1.5rem;}
+        .attr-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95rem;}
+        .attr-table th, .attr-table td { text-align: left; padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle;}
+        .attr-table th { background: var(--kbob-light-blue); color: var(--kbob-blue); font-weight: bold; border-bottom: 2px solid #fff;}
+        .check-icon { color: var(--kbob-blue); font-weight: bold;}
+        .format-code { font-family: monospace; background: #eee; padding: 2px 5px; border-radius: 3px; font-size: 0.9rem;}
+        .state-message { padding: 50px; text-align: center; color: var(--text-grey); font-size: 1.2rem;}
+        .error-message { color: var(--accent-red); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-placeholder">
+                <span class="logo-swiss">+</span> 
+                <div>Schweizerische Eidgenossenschaft <br> <strong>KBOB / BBL</strong></div>
+            </div>
+            <div class="lang-switch">
+                <span class="active">DE</span> | <span>FR</span> | <span>IT</span>
+            </div>
+        </div>
+        <nav class="main-nav container">
+            <ul>
+                <li><a href="#home" class="nav-link active">Startseite</a></li>
+                <li><a href="#catalog" class="nav-link">Katalog</a></li>
+                <li><a href="#" class="nav-link disabled">Fachmodelle & Domänen</a></li>
+                <li><a href="#" class="nav-link disabled">Dokumente & Anwendungsfälle</a></li>
+                <li><a href="#" class="nav-link disabled">Material & Ökologie (EPDs)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content-area">
+         <div class="container state-message">Initialisiere Anwendung...</div>
+    </main>
+
+
+    <script>
+        const contentArea = document.getElementById('content-area');
+        const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
+        
+        // --- GLOBAL DATA STORE ---
+        // Hier speichern wir alle Elemente, sobald sie geladen sind.
+        let globalElementsData = [];
+        let isDataLoaded = false;
+
+        // --- INITIALIZATION ---
+        async function initApp() {
+            try {
+                // Wir laden die Daten nur EINMAL beim Start
+                const response = await fetch('data/elements.json');
+                if (!response.ok) throw new Error(`HTTP Fehler! Status: ${response.status}`);
+                globalElementsData = await response.json();
+                isDataLoaded = true;
+                
+                // Routing starten, nachdem Daten da sind
+                window.addEventListener('hashchange', router);
+                router(); // Initialer Aufruf
+
+            } catch (error) {
+                console.error("Fataler Fehler beim Laden der Daten:", error);
+                contentArea.innerHTML = `<div class="container state-message error-message">
+                    <h3>Anwendungsfehler</h3>
+                    <p>Die Element-Datenbank konnte nicht geladen werden.</p>
+                    <small>${error.message}</small><br>
+                    <small>Hinweis: Bitte über einen lokalen Server (localhost) oder GitHub Pages ausführen.</small>
+                </div>`;
+            }
+        }
+
+        // --- ROUTER ---
+        function router() {
+            if (!isDataLoaded) return; // Sicherheitshalber
+
+            let hash = window.location.hash.slice(1) || 'home';
+            let elementId = null;
+
+            // Detailseiten-Erkennung (z.B. #element/window)
+            if (hash.startsWith('element/')) {
+                const parts = hash.split('/');
+                hash = parts[0]; // 'element'
+                elementId = parts[1]; // 'window'
+            }
+
+            // Navigation aktualisieren
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                let isActive = (hash === 'element') ? (href === 'catalog') : (href === hash);
+                link.classList.toggle('active', isActive);
+            });
+
+            // Inhalt rendern (ohne künstliche Verzögerung, da Daten im Speicher)
+            switch(hash) {
+                case 'home':
+                    renderHomePage();
+                    break;
+                case 'catalog':
+                    renderCatalogPage();
+                    break;
+                case 'element':
+                    if(elementId) renderElementDetailPage(elementId);
+                    else window.location.hash = '#catalog';
+                    break;
+                default:
+                        window.location.hash = '#home';
+            }
+        }
+
+        // --- VIEW RENDERERS ---
+
+        // 1. RENDER: Startseite (Texte jetzt hardcodiert)
+        function renderHomePage() {
+            contentArea.innerHTML = `
+                <div class="container">
+                    <div class="hero-section">
+                        <h1>BIM-Fachdatenkatalog</h1>
+                        <div class="search-bar-container">
+                            <input type="text" placeholder="Suche nach Elementen (z.B. Fenster, IFCWall)...">
+                            <button class="search-btn"><span class="material-icons-outlined">search</span></button>
+                        </div>
+                    </div>
+                    <div class="intro-box">
+                        <h2>Der zentrale BIM-Standard des Bundes</h2>
+                        <p>Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder, um Anforderungen an Fachmodelle, Elemente, Dokumente und ökologische Daten effizient abzurufen.</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 2. RENDER: Katalog (Grid View) - Nutzt globale Daten
+        function renderCatalogPage() {
+            // A-Z Leiste (Dummy)
+            const alphabet = "#ABCDEFGHIJKLMNOPQRSTUVWXYZAlle".split("");
+            const azHtml = alphabet.map(letter => `<button class="az-btn ${letter === 'Alle' ? 'active' : ''}">${letter}</button>`).join('');
+
+            // Grid Karten generieren - Wir iterieren über das globale Array
+            const gridHtml = globalElementsData.map(el => `
+                <div class="element-card" onclick="window.location.hash='#element/${el.id}'">
+                    <div class="card-img">
+                        <img src="${el.image}" alt="${el.title}">
+                    </div>
+                    <div class="card-body">
+                        <h3>${el.title}</h3>
+                        <span class="card-meta">${el.classification}</span>
+                        <div class="data-icons">
+                            <span class="${el.lod ? '' : 'disabled'}" title="Geometrie"><i class="material-icons-outlined">view_in_ar</i>LOD</span>
+                            <span class="${el.loi ? '' : 'disabled'}" title="Attribute"><i class="material-icons-outlined">list_alt</i>LOI</span>
+                            <span class="${el.epd ? '' : 'disabled'}" title="Ökologie"><i class="material-icons-outlined">eco</i>EPD</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            contentArea.innerHTML = `
+                <div class="container">
+                     <div class="hero-section" style="margin-bottom: 30px;">
+                        <h1>Element-Katalog</h1>
+                        <div class="search-bar-container" style="max-width: 600px;">
+                            <input type="text" placeholder="Suche im Katalog..." style="padding: 12px 20px; font-size: 1rem;">
+                            <button class="search-btn" style="padding: 8px 12px;"><span class="material-icons-outlined">search</span></button>
+                        </div>
+                    </div>
+                    <div class="az-filter-bar"><span style="padding: 5px; color: var(--text-grey); font-weight:bold;">Filter: </span>${azHtml}</div>
+                    <div class="catalog-layout">
+                        <aside class="sidebar-filter">
+                            <div class="sidebar-header">Filteroptionen</div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <span>▼</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Klassifikation <span>▼</span></div></div>
+                        </aside>
+                        <div class="element-grid">${gridHtml}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // 3. RENDER: Element Detailansicht - Filtert globale Daten
+        function renderElementDetailPage(id) {
+            // WICHTIG: Wir suchen das passende Element im globalen Array
+            const data = globalElementsData.find(element => element.id === id);
+
+            if(!data) {
+                 contentArea.innerHTML = '<div class="container state-message error-message">Element nicht gefunden.</div>';
+                 return;
+            }
+
+            // Helper für Checkbox Icons
+            const checkIcon = (checked) => checked ? '<span class="material-icons-outlined check-icon">check_box</span>' : '<span class="material-icons-outlined" style="color:#e0e0e0">check_box_outline_blank</span>';
+
+            // Attribute Tabelle generieren (falls Attribute vorhanden)
+            const attrRows = data.attributes ? data.attributes.map(attr => `
+                <tr>
+                    <td><strong>${attr.name}</strong></td>
+                    <td>${attr.desc}</td>
+                    <td><span class="format-code">${attr.format}</span></td>
+                    <td style="text-align:center">${checkIcon(attr.vp)}</td>
+                    <td style="text-align:center">${checkIcon(attr.bp)}</td>
+                    <td>${attr.resp}</td>
+                </tr>
+            `).join('') : '<tr><td colspan="6">Keine Attribute definiert.</td></tr>';
+
+            contentArea.innerHTML = `
+                <div class="container">
+                    <div class="breadcrumb"><a href="#catalog">Katalog</a> <span style="margin:0 5px;">/</span> ${data.title}</div>
+                    <div class="detail-layout">
+                        <aside class="detail-sidebar">
+                            <nav class="sticky-nav">
+                                <a href="#allgemein" class="active">Allgemein</a>
+                                <a href="#loi">Attribute (LOI)</a>
+                                <a href="#lod">Geometrie (LOD)</a>
+                                <a href="#epd">Material (EPD)</a>
+                            </nav>
+                        </aside>
+                        <div class="detail-content">
+                            <div class="detail-header">
+                                <div class="detail-title">
+                                    <h1>${data.title}</h1>
+                                    <span class="detail-subtitle">${data.subtitle || ''}</span>
+                                     <div class="detail-meta-box">
+                                        <div><strong>IFC Class:</strong> <span class="format-code">${data.general?.ifcClass || '-'}</span></div>
+                                        <div style="margin-top:5px;"><strong>Type:</strong> ${data.general?.type || '-'}</div>
+                                    </div>
+                                </div>
+                                <div class="detail-image-container"><img src="${data.image}" alt="${data.title}"></div>
+                            </div>
+                            <section id="loi" class="detail-section">
+                                <h2>Attribute (LOI)</h2>
+                                <table class="attr-table">
+                                    <thead><tr><th style="width: 20%;">Name</th><th style="width: 30%;">Beschreibung</th><th style="width: 15%;">Format</th><th style="text-align:center; width: 5%;">VP</th><th style="text-align:center; width: 5%;">BP</th><th style="width: 25%;">Verantwortlich</th></tr></thead>
+                                    <tbody>${attrRows}</tbody>
+                                </table>
+                            </section>
+                            <section id="lod" class="detail-section">
+                                 <h2>Geometrie (LOD)</h2>
+                                 <p><em>Platzhalter für Geometrie-Anforderungen.</em></p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            `;
+             // Scroll to section if hash is present
+             setTimeout(() => {
+                 const sectionHash = window.location.hash.split('#')[2];
+                 if(sectionHash) document.getElementById(sectionHash)?.scrollIntoView({behavior: 'smooth'});
+             }, 50);
+        }
+
+        // App starten
+        window.addEventListener('DOMContentLoaded', initApp);
+
+    </script>
+</body>
+</html>
