@@ -38,7 +38,7 @@
     "id": "e2",
     "title": "Innentür (Holz)",
     "classification": "IfcDoor",
-    "image": "", 
+    "image": "assets/img/door_interior.jpg", 
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
     "general": { "ifcClass": "IfcDoor", "type": "Bauelement" },
