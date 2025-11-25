@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V11 (All Compact Tables)</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V11 (Dynamic JSON)</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     
     <style>
@@ -314,13 +314,13 @@
         const contentArea = document.getElementById('content-area');
         const navLinks = document.querySelectorAll('.main-nav .nav-link:not(.disabled)');
         
-        // Globale Variable für die Daten
+        // --- 1. DATEN LADEN ---
         let globalElementsData = [];
         let isDataLoaded = false;
 
         async function initApp() {
             try {
-                // 1. Daten per Fetch holen
+                // Fetch JSON from local file
                 const response = await fetch('data/elements.json');
                 
                 if (!response.ok) {
@@ -341,9 +341,17 @@
                 contentArea.innerHTML = `
                     <div class="container error-state">
                         <span class="material-icons-outlined" style="font-size: 3rem; color: var(--accent-red); margin-bottom:15px;">error_outline</span><br>
-                        <strong>Fehler beim Laden der Daten.</strong><br>
-                        <p style="font-size:0.9rem; margin-top:10px;">Bitte stellen Sie sicher, dass Sie diese Datei über einen Webserver (z.B. VS Code Live Server) öffnen,<br>da Browser den direkten Zugriff auf lokale JSON-Dateien blockieren.</p>
-                        <br>Details: ${error.message}
+                        <h2 style="margin-bottom:10px;">Fehler beim Laden der Daten</h2>
+                        <p style="font-size:1rem; margin-top:10px;">Konnte <code>data/elements.json</code> nicht laden.</p>
+                        <div style="background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #ddd; margin: 20px auto; max-width: 600px; text-align: left;">
+                            <strong>Mögliche Ursachen:</strong>
+                            <ul style="margin: 10px 0 0 20px; font-size: 0.9rem;">
+                                <li>Die Datei liegt nicht im Ordner <code>data/</code>.</li>
+                                <li>Sie öffnen die HTML-Datei direkt (file://). Moderne Browser blockieren dies aus Sicherheitsgründen (CORS).</li>
+                            </ul>
+                            <p style="margin-top: 15px; font-weight: 600; color: var(--kbob-blue);">Lösung: Bitte nutzen Sie einen lokalen Webserver (z.B. "Live Server" in VS Code).</p>
+                        </div>
+                        <br><span style="color: #999; font-size: 0.8rem;">Technical Details: ${error.message}</span>
                     </div>`;
             }
         }
@@ -408,7 +416,7 @@
         }
 
         function renderPhaseBadges(phases) {
-            if(!phases) return '<span style="color:#ccc;">-</span>';
+            if(!phases || !Array.isArray(phases)) return '<span style="color:#ccc;">-</span>';
             const phaseLabels = [2, 3, 4, 5, 6];
             let badgesHtml = '<div class="phase-compact-wrapper">';
             phases.forEach((isActive, index) => {
@@ -431,6 +439,7 @@
                             <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
                         </div>
                     </div>
+                    
                     <div style="background: #fff; padding: 50px; border-radius: 8px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
                         <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der zentrale BIM-Standard des Bundes</h2>
                         <p style="font-size: 1.1rem; color: var(--text-grey);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
@@ -473,12 +482,14 @@
 
             const searchInput = document.getElementById('catalogSearchInput');
             const gridContainer = document.getElementById('catalogGrid');
+            
+            // Fokus auf Suche + Event Listener
+            searchInput.focus();
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 const filteredData = globalElementsData.filter(el => el.title.toLowerCase().includes(searchTerm) || el.classification.toLowerCase().includes(searchTerm));
                 gridContainer.innerHTML = renderGridItemsHTML(filteredData);
             });
-            searchInput.focus();
         }
 
         function renderElementDetailPage(id) {
@@ -494,6 +505,7 @@
                 { id: 'dokumentation', text: 'Dokumentation' }
             ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
+            // --- STATIC DATA DISPLAY ---
             const classRows = data.classifications ? data.classifications.map(c => 
                 `<tr><td style="font-weight:600;">${c.system}</td><td>${c.code} - ${c.desc}</td></tr>`
             ).join('') : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
@@ -502,8 +514,9 @@
                 `<tr><td>${m.element}</td><td>${m.ifc}</td><td>${m.revit}</td></tr>`
             ).join('') : '<tr><td colspan="3">-</td></tr>';
 
-            // === 1. GEOMETRY DATA & RENDER (Dynamic from JSON) ===
-            // Falls leer im JSON, zeige Hinweis
+            // --- DYNAMIC SECTIONS (From JSON Arrays) ---
+            
+            // 1. Geometrie
             const geomRows = data.geometry && data.geometry.length > 0 ? data.geometry : [];
             const geomRowsHtml = geomRows.length > 0 ? geomRows.map(row => `
                 <tr>
@@ -511,22 +524,22 @@
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
                     <td>${renderPhaseBadges(row.phases)}</td>
                 </tr>
-            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center;">Keine Geometrie-Anforderungen definiert.</td></tr>';
+            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center; padding: 20px;">Keine spezifischen Geometrie-Anforderungen definiert.</td></tr>';
 
-            // === 2. INFORMATION DATA & RENDER (Dynamic from JSON) ===
+            // 2. Informationen
             const infoRows = data.information && data.information.length > 0 ? data.information : [];
             const infoRowsHtml = infoRows.length > 0 ? infoRows.map(row => `
                 <tr>
                     <td style="font-weight:600">${row.name}</td>
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
-                    <td><span class="format-badge">${row.format}</span></td>
+                    <td><span class="format-badge">${row.format || '-'}</span></td>
                     <td style="text-align:center">${row.list ? '<span class="material-icons-outlined" style="font-size:1.1rem; color:#555;">list</span>' : '-'}</td>
                     <td>${renderPhaseBadges(row.phases)}</td>
-                    <td><span class="ifc-code">${row.ifc}</span></td>
+                    <td><span class="ifc-code">${row.ifc || '-'}</span></td>
                 </tr>
-            `).join('') : '<tr><td colspan="6" style="color:#999; text-align:center;">Keine Attribute definiert.</td></tr>';
+            `).join('') : '<tr><td colspan="6" style="color:#999; text-align:center; padding: 20px;">Keine Attribute (LOI) definiert.</td></tr>';
 
-            // === 3. DOCUMENTATION DATA & RENDER (Dynamic from JSON) ===
+            // 3. Dokumentation
             const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
             const docRowsHtml = docRows.length > 0 ? docRows.map(row => `
                 <tr>
@@ -534,7 +547,7 @@
                     <td style="font-size:0.9rem; color:#666;">${row.desc}</td>
                     <td>${renderPhaseBadges(row.phases)}</td>
                 </tr>
-            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center;">Keine Dokumente gefordert.</td></tr>';
+            `).join('') : '<tr><td colspan="3" style="color:#999; text-align:center; padding: 20px;">Keine Dokumente gefordert.</td></tr>';
 
 
             contentArea.innerHTML = `
@@ -642,12 +655,12 @@
                 </div>
             `;
              
-             // Setup interactions (scroll, etc.) - same as before
              setupDetailInteractions();
         }
 
-        // Ausgelagerte Funktion für Event-Listener in der Detailansicht
+        // --- INTERACTION LOGIC ---
         function setupDetailInteractions() {
+             // 1. Sidebar Klicks
              document.querySelectorAll('.sidebar-link').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -657,10 +670,13 @@
                 });
              });
 
+             // 2. Scroll Spy & Init
              setTimeout(() => {
+                 // Falls Direktlink mit Hash (z.B. #element/e1#geometrie)
                  const sectionHash = window.location.hash.split('#')[2];
                  if(sectionHash) document.getElementById(sectionHash)?.scrollIntoView({behavior: 'smooth', block: 'start'});
 
+                 // Scroll Observer für aktives Menu Item
                  const sections = document.querySelectorAll('.detail-section');
                  const navLinks = document.querySelectorAll('.sticky-nav a');
                  const observer = new IntersectionObserver((entries) => {
@@ -677,6 +693,7 @@
              }, 100);
         }
 
+        // Start der App
         window.addEventListener('DOMContentLoaded', initApp);
     </script>
 </body>
