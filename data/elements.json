@@ -1,70 +1,83 @@
 [
   {
-    "id": "window",
-    "title": "Fenster / IfcWindow",
-    "classification": "eBKP-H E 3.1",
-    "image": "https://placehold.co/600x400/e6eff7/003366?text=IfcWindow\\n(Detail+View)",
+    "id": "e1",
+    "title": "Fenster (Aussen)",
+    "classification": "IfcWindow",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Haus_Fenster_01.jpg/640px-Haus_Fenster_01.jpg",
     "lod": true, "loi": true, "epd": true,
-    "subtitle": "Ein Bauteil zum Schließen einer Öffnung in einer Wand oder einem Dach, das Licht durchlässt und ggf. Belüftung ermöglicht.",
-    "general": { "ifcClass": "IfcWindow", "type": "Fenster / eBKP-H E 3.1" },
-    "attributes": [
-      { "name": "AcousticRating", "desc": "Bewertetes Schalldämmmaß (Rw).", "format": "IfcLabel", "vp": false, "bp": true, "resp": "Bauphysik" },
-      { "name": "ThermalTransmittance", "desc": "U-Wert des gesamten Fensters (Uw).", "format": "IfcThermalTransmittanceMeasure", "vp": true, "bp": true, "resp": "Bauphysik" },
-      { "name": "IsExternal", "desc": "Außenbauteil?", "format": "IfcBoolean", "vp": true, "bp": true, "resp": "Architekt" },
-      { "name": "FireRating", "desc": "Feuerwiderstandsklasse VKF.", "format": "IfcLabel", "vp": false, "bp": true, "resp": "Brandschutz" }
+    "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
+    "general": { "ifcClass": "IfcWindow", "type": "Bauelement" },
+    "classifications": [
+      { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
+      { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" },
+      { "system": "DIN 276", "code": "334", "desc": "Außenfenster und Außentüren" }
+    ],
+    "ifcMapping": [
+      { "element": "Fenster", "ifc": "IfcWindow.WINDOW", "revit": "Windows" },
+      { "element": "Oberlicht", "ifc": "IfcWindow.SKYLIGHT", "revit": "Windows" }
+    ],
+    "geometry": [
+        { "name": "Länge", "desc": "Gesamtlänge des Elements", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Breite", "desc": "Gesamtbreite des Elements", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Höhe", "desc": "Gesamthöhe des Elements", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Repräsentative Modellierung", "desc": "Vereinfachte Darstellung für Pläne 1:50", "phases": [0, 0, 1, 1, 1] },
+        { "name": "Zubehör", "desc": "Griffe, Bänder, Beschläge", "phases": [0, 0, 0, 1, 1] }
+    ],
+    "information": [
+        { "name": "Wärmedurchgangskoeffizient", "desc": "U-Wert des Fensters", "format": "Real", "list": false, "phases": [0, 0, 1, 1, 1], "ifc": "Pset_WindowCommon.ThermalTransmittance" },
+        { "name": "Schallschutzklasse", "desc": "Anforderung an Schalldämmung", "format": "String", "list": true, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.AcousticRating" },
+        { "name": "Feuerwiderstand", "desc": "Brandschutzklasse nach VKF", "format": "String", "list": true, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.FireRating" },
+        { "name": "IsExternal", "desc": "Definiert, ob das Bauteil zur Aussenhülle gehört", "format": "Boolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_WindowCommon.IsExternal" }
+    ],
+    "documentation": [
+        { "name": "Vorschriften", "desc": "Relevante Normen und Richtlinien", "phases": [1, 0, 0, 0, 0] },
+        { "name": "Produktdatenblatt", "desc": "Technisches Datenblatt des Herstellers", "phases": [0, 0, 1, 1, 1] }
     ]
   },
   {
-    "id": "door",
-    "title": "Türe / IfcDoor",
-    "classification": "eBKP-H E 3.2",
-    "image": "https://placehold.co/600x400/e6eff7/003366?text=IfcDoor\\n(Detail+View)",
-    "lod": true, "loi": true, "epd": true,
-    "subtitle": "Ein Bauteil zum Schließen einer Öffnung, das den Durchgang ermöglicht.",
-    "general": { "ifcClass": "IfcDoor", "type": "Türe / eBKP-H E 3.2" },
-    "attributes": [
-      { "name": "FireRating", "desc": "Feuerwiderstandsklasse VKF.", "format": "IfcLabel", "vp": false, "bp": true, "resp": "Brandschutz" },
-      { "name": "AcousticRating", "desc": "Schalldämmmaß (Rw).", "format": "IfcLabel", "vp": false, "bp": true, "resp": "Bauphysik" },
-      { "name": "IsExternal", "desc": "Außentüre?", "format": "IfcBoolean", "vp": true, "bp": true, "resp": "Architekt" }
-    ]
-  },
-  {
-    "id": "slab",
-    "title": "Decke / IfcSlab",
-    "classification": "eBKP-H C 4.1",
-    "image": "https://placehold.co/600x400/e6eff7/003366?text=IfcSlab\\n(Detail+View)",
+    "id": "e2",
+    "title": "Innentür (Holz)",
+    "classification": "IfcDoor",
+    "image": "", 
     "lod": true, "loi": true, "epd": false,
-    "subtitle": "Ein horizontales oder geneigtes Bauteil, das Räume vertikal trennt oder abschließt.",
-    "general": { "ifcClass": "IfcSlab", "type": "Geschossdecke / eBKP-H C 4.1" },
-    "attributes": [
-        { "name": "LoadBearing", "desc": "Tragendes Bauteil?", "format": "IfcBoolean", "vp": true, "bp": true, "resp": "Tragwerksplaner" },
-        { "name": "Thickness", "desc": "Rohbaustärke der Decke.", "format": "IfcLengthMeasure", "vp": true, "bp": true, "resp": "Tragwerksplaner" }
+    "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
+    "general": { "ifcClass": "IfcDoor", "type": "Bauelement" },
+    "classifications": [
+      { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" },
+      { "system": "DIN 276", "code": "335", "desc": "Innentüren" }
+    ],
+    "ifcMapping": [
+       { "element": "Tür", "ifc": "IfcDoor", "revit": "Doors" }
+    ],
+    "geometry": [
+        { "name": "Durchgangslichte", "desc": "Freie Durchgangsbreite", "phases": [1, 1, 1, 1, 1] },
+        { "name": "Türblattstärke", "desc": "Dicke des Türblatts", "phases": [0, 0, 1, 1, 1] },
+        { "name": "Aufschlagrichtung", "desc": "Links/Rechts", "phases": [1, 1, 1, 1, 1] }
+    ],
+    "information": [
+        { "name": "FireRating", "desc": "Feuerwiderstandsklasse VKF.", "format": "IfcLabel", "list": true, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_DoorCommon.FireRating" },
+        { "name": "AcousticRating", "desc": "Schalldämmmaß (Rw).", "format": "IfcLabel", "list": false, "phases": [0, 1, 1, 1, 1], "ifc": "Pset_DoorCommon.AcousticRating" },
+        { "name": "IsExternal", "desc": "Außentüre?", "format": "IfcBoolean", "list": false, "phases": [1, 1, 1, 1, 1], "ifc": "Pset_DoorCommon.IsExternal" }
+    ],
+    "documentation": [
+        { "name": "Montageanleitung", "desc": "Anweisungen für Einbau", "phases": [0, 0, 0, 1, 1] }
     ]
   },
   {
-    "id": "wall",
-    "title": "Wand / IfcWall",
-    "classification": "eBKP-H C 2.1",
-    "image": "https://placehold.co/600x400/e6eff7/003366?text=IfcWall\\n(Detail+View)",
+    "id": "e3",
+    "title": "Wand (Massiv)",
+    "classification": "IfcWall",
+    "image": "",
     "lod": true, "loi": true, "epd": false,
-    "subtitle": "Ein vertikales Bauteil, das Räume horizontal trennt oder abschließt.",
-    "general": { "ifcClass": "IfcWall", "type": "Wand / eBKP-H C 2.1" },
-    "attributes": [
-        { "name": "LoadBearing", "desc": "Tragendes Bauteil?", "format": "IfcBoolean", "vp": true, "bp": true, "resp": "Tragwerksplaner" },
-        { "name": "IsExternal", "desc": "Außenwand?", "format": "IfcBoolean", "vp": true, "bp": true, "resp": "Architekt" }
-    ]
-  },
-  {
-    "id": "ahu",
-    "title": "Lüftungsgerät / IfcUnitaryEquipment",
-    "classification": "eBKP-H H 5.1",
-    "image": "https://placehold.co/600x400/e6eff7/003366?text=AHU\\n(Detail+View)",
-    "lod": false, "loi": true, "epd": true,
-    "subtitle": "Ein betriebsfertiges Aggregat zur Luftaufbereitung.",
-    "general": { "ifcClass": "IfcUnitaryEquipment", "type": "Lüftungsgerät Monoblock" },
-    "attributes": [
-        { "name": "AirFlowRate", "desc": "Nennvolumenstrom.", "format": "IfcVolumetricFlowRateMeasure", "vp": true, "bp": true, "resp": "HLK-Planer" },
-        { "name": "Weight", "desc": "Betriebsgewicht.", "format": "IfcMassMeasure", "vp": false, "bp": true, "resp": "HLK-Planer" }
-    ]
+    "subtitle": "Tragende Wand aus Beton oder Mauerwerk.",
+    "general": { "ifcClass": "IfcWall", "type": "Bauelement" },
+    "classifications": [
+        { "system": "eBKP-H", "code": "C2.1", "desc": "Aussenwand Konstruktion" }
+    ],
+    "geometry": [],
+    "information": [
+        { "name": "LoadBearing", "desc": "Tragendes Bauteil?", "format": "IfcBoolean", "list": false, "phases": [1,1,1,1,1], "ifc": "Pset_WallCommon.LoadBearing" }
+    ],
+    "documentation": []
   }
 ]
