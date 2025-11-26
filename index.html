@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V3.1</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V3.2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
             --header-height: 70px;
             --footer-height: 40px;
             --toolbar-height: 46px;
-            --toolbar-padding: 0 12px;
+            --toolbar-padding: 8px;
             
             /* Shadows */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
@@ -372,6 +372,7 @@
             overflow-y: auto;
             z-index: 100;
             display: none;
+            text-align: left;
         }
         
         .search-dropdown.open {
@@ -391,14 +392,14 @@
             font-weight: 700;
             font-size: 0.9rem;
             color: var(--text-dark);
-            padding: 8px 20px;
+            padding: 8px 25px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
         .search-dropdown-item {
             display: block;
-            padding: 10px 20px 10px 30px;
+            padding: 10px 25px 10px 40px;
             color: var(--kbob-blue);
             font-size: 0.95rem;
             cursor: pointer;
@@ -411,7 +412,7 @@
         }
         
         .search-dropdown-empty {
-            padding: 25px 20px;
+            padding: 25px;
             text-align: center;
             color: var(--text-grey);
             font-size: 0.95rem;
@@ -1403,7 +1404,7 @@
                 if(disziplin) delete otherTags['disziplin'];
 
                 return `
-                <div class="element-card">
+                <div class="element-card" onclick="window.location.hash='#document/${doc.id}'">
                     <div class="card-img-container">
                         ${disziplin ? `<span class="tag-badge">disziplin: ${disziplin}</span>` : ''}
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon">description</span>'}
@@ -1429,7 +1430,7 @@
             `;
 
             const itemsHtml = items.map(doc => `
-                <div class="element-list-item">
+                <div class="element-list-item" onclick="window.location.hash='#document/${doc.id}'">
                     <div class="list-col-name">${doc.title}</div>
                     <div class="list-col-desc">${doc.description || doc.category}</div>
                     <div class="list-col-tags">${renderTagsHtml(doc.tags)}</div>
