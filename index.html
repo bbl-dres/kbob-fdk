@@ -588,6 +588,7 @@
             padding: 0 6px;
             border-radius: 10px;
             margin-left: 4px;
+            border: 1.5px solid #000;
         }
 
         .filter-btn.has-tags .filter-count {
@@ -620,75 +621,7 @@
             font-size: 16px;
         }
 
-        /* ============================================
-           ACTIVE FILTERS DISPLAY
-           ============================================ */
-        .active-filters-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            padding: 12px 16px;
-            background: #fff8e1;
-            border: 1px solid #ffe082;
-            border-radius: 4px;
-        }
 
-        .active-filters-label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        .active-filter-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--kbob-blue);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .active-filter-tag button {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .active-filter-tag button:hover {
-            opacity: 1;
-        }
-
-        .active-filter-tag button .material-icons-outlined {
-            font-size: 16px;
-        }
-
-        .clear-all-filters {
-            background: none;
-            border: 1px solid var(--text-grey);
-            color: var(--text-grey);
-            padding: 4px 12px;
-            border-radius: 16px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .clear-all-filters:hover {
-            background: var(--text-grey);
-            color: #fff;
-        }
 
         /* ============================================
            CATALOG LAYOUT
@@ -721,6 +654,28 @@
             font-weight: 700; 
             color: var(--text-dark); 
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-reset-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-grey);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .sidebar-reset-btn:hover {
+            background: var(--kbob-blue);
+            color: #fff;
+            border-color: var(--kbob-blue);
         }
         
         .filter-group { 
@@ -1652,30 +1607,13 @@
         }
         
         /**
-         * Render active filters bar
+         * Render sidebar header with optional reset button
          */
-        function renderActiveFiltersBar(activeTags) {
-            if (!activeTags || activeTags.length === 0) return '';
-            
-            const tagBadges = activeTags.map(tagString => {
-                const [key, value] = tagString.split(':');
-                return `
-                    <span class="active-filter-tag">
-                        ${key}: ${value}
-                        <button onclick="toggleTagInURL('${key}', '${value}')" title="Filter entfernen">
-                            <span class="material-icons-outlined">close</span>
-                        </button>
-                    </span>
-                `;
-            }).join('');
-            
-            return `
-                <div class="active-filters-bar">
-                    <span class="active-filters-label">Aktive Filter:</span>
-                    ${tagBadges}
-                    <button class="clear-all-filters" onclick="clearAllTagsFromURL()">Alle entfernen</button>
-                </div>
-            `;
+        function renderSidebarHeader(activeTags) {
+            const resetBtn = activeTags.length > 0 
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()">Zurücksetzen</button>`
+                : '';
+            return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
         
         /**
@@ -2045,8 +1983,6 @@
                         </div>
                     </div>
                     
-                    ${renderActiveFiltersBar(activeTags)}
-                    
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar toolbar-control">${azHtml}</div>
                         
@@ -2060,7 +1996,7 @@
                     
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
-                            <div class="sidebar-header">Filter</div>
+                            ${renderSidebarHeader(activeTags)}
                             <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined">expand_more</span></div></div>
                             <div class="filter-group"><div class="filter-toggle">Klassifikation <span class="material-icons-outlined">expand_more</span></div></div>
                             <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined">expand_more</span></div></div>
@@ -2124,8 +2060,6 @@
                         </div>
                     </div>
                     
-                    ${renderActiveFiltersBar(activeTags)}
-                    
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar toolbar-control">${azHtml}</div>
                         
@@ -2139,7 +2073,7 @@
                     
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
-                            <div class="sidebar-header">Filter</div>
+                            ${renderSidebarHeader(activeTags)}
                             <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined">expand_more</span></div></div>
                             <div class="filter-group"><div class="filter-toggle">Kategorie <span class="material-icons-outlined">expand_more</span></div></div>
                             <div class="filter-group"><div class="filter-toggle">Format <span class="material-icons-outlined">expand_more</span></div></div>
