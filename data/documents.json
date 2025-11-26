@@ -1,8 +1,8 @@
 [
   {
     "id": "d1",
-    "code": "O02001",
     "title": "Projektauftrag",
+    "image": "",
     "category": "Organisation",
     "subcategory": "Projektmanagement",
     "description": "Beinhaltet Kosten, Termine, Leistungen, Qualität, Organisationsform für die kommende Phase",
@@ -10,14 +10,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Organisation"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "O02001", "desc": "Projektauftrag" },
+      { "system": "gif", "code": "1.1.01", "desc": "Projektinitiierung" },
+      { "system": "GEFMA", "code": "100-10", "desc": "Strategisches FM - Projektmanagement" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Bearbeitungszweck entfällt",
     "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d2",
-    "code": "O02007",
     "title": "Projektstatusbericht",
+    "image": "",
     "category": "Organisation",
     "subcategory": "Projektmanagement",
     "description": "Bericht über den aktuellen Stand des Projektes und die weiteren Schritte",
@@ -25,14 +30,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Organisation"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "O02007", "desc": "Projektstatusbericht" },
+      { "system": "gif", "code": "1.1.07", "desc": "Projektcontrolling" },
+      { "system": "GEFMA", "code": "100-12", "desc": "Strategisches FM - Berichtswesen" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
     "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
   },
   {
     "id": "d3",
-    "code": "O04004",
     "title": "QM-Plan / Kontrollplan",
+    "image": "",
     "category": "Organisation",
     "subcategory": "Qualitätsmanagement",
     "description": "Wird aus der Risikoanalyse entwickelt und soll die Risiken minimieren",
@@ -40,14 +50,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Organisation"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "O04004", "desc": "QM-Plan/Kontrollplan" },
+      { "system": "gif", "code": "1.4.04", "desc": "Qualitätssicherung" },
+      { "system": "GEFMA", "code": "700-10", "desc": "Qualitätsmanagement" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
     "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
   },
   {
     "id": "d4",
-    "code": "O06001",
     "title": "Terminplan",
+    "image": "",
     "category": "Organisation",
     "subcategory": "Termine",
     "description": "Auflistung von Start- und Endterminen von Aufgaben und Meilensteinen",
@@ -55,14 +70,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Organisation"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "O06001", "desc": "Terminplan" },
+      { "system": "gif", "code": "1.6.01", "desc": "Terminplanung" },
+      { "system": "RICS", "code": "PM-SCH-01", "desc": "Project Scheduling" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
     "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d5",
-    "code": "O15002",
     "title": "Abnahmeprotokoll",
+    "image": "",
     "category": "Organisation",
     "subcategory": "Technische Protokolle",
     "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt.",
@@ -70,14 +90,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Organisation"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "O15002", "desc": "Abnahmeprotokoll" },
+      { "system": "gif", "code": "1.15.02", "desc": "Abnahmedokumentation" },
+      { "system": "RICS", "code": "PM-HND-02", "desc": "Handover Documentation" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
     "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 0]
   },
   {
     "id": "d6",
-    "code": "K01002",
     "title": "Kostenschätzung (KS)",
+    "image": "",
     "category": "Verträge und Kosten",
     "subcategory": "Kostenplanung",
     "description": "Kostenaufstellung mit einer Genauigkeit von +/- 10%",
@@ -85,14 +110,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Verträge und Kosten"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "K01002", "desc": "Kostenschätzung (KS)" },
+      { "system": "gif", "code": "2.1.02", "desc": "Kostenschätzung" },
+      { "system": "RICS", "code": "QS-EST-02", "desc": "Cost Estimate" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
     "phases": [0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
   },
   {
     "id": "d7",
-    "code": "K02001",
     "title": "Ausschreibung",
+    "image": "",
     "category": "Verträge und Kosten",
     "subcategory": "Ausschreibungsunterlagen",
     "description": "Ausschreibungsunterlagen (Leistungsverzeichnis) ohne/mit Planunterlagen",
@@ -100,14 +130,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Verträge und Kosten"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "K02001", "desc": "Ausschreibung" },
+      { "system": "gif", "code": "2.2.01", "desc": "Ausschreibungsunterlagen" },
+      { "system": "RICS", "code": "QS-TEN-01", "desc": "Tender Documentation" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d8",
-    "code": "K03003",
     "title": "Werkvertrag",
+    "image": "",
     "category": "Verträge und Kosten",
     "subcategory": "Vertragsunterlagen",
     "description": "Vertrag über die Erbringung eines Werkes",
@@ -115,14 +150,19 @@
       "disziplin": "Projektmanagement",
       "kategorie": "Verträge und Kosten"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "K03003", "desc": "Werkvertrag" },
+      { "system": "gif", "code": "2.3.03", "desc": "Werkverträge" },
+      { "system": "RICS", "code": "QS-CON-03", "desc": "Works Contract" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
     "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
   },
   {
     "id": "d9",
-    "code": "B07001",
     "title": "Energienachweis",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis der energetischen Massnahmen",
@@ -130,14 +170,19 @@
       "disziplin": "Haustechnik",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B07001", "desc": "Energienachweis" },
+      { "system": "gif", "code": "3.7.01", "desc": "Energetische Nachweise" },
+      { "system": "GEFMA", "code": "124-50", "desc": "Energiemanagement - Nachweise" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d10",
-    "code": "B07004",
     "title": "Brandschutznachweis",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis über die Einhaltung der Brandschutzverordnung in einem Bauwerk",
@@ -145,14 +190,19 @@
       "disziplin": "Architektur",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B07004", "desc": "Brandschutznachweis" },
+      { "system": "gif", "code": "3.7.04", "desc": "Brandschutznachweise" },
+      { "system": "GEFMA", "code": "190-20", "desc": "Sicherheit - Brandschutz" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d11",
-    "code": "B11122",
     "title": "Brandschutzkonzept",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "IGM-Konzepte",
     "description": "Beschreibt konkrete Ansätze über den ganzheitlichen Brandschutz eines Bauwerks",
@@ -160,14 +210,19 @@
       "disziplin": "Architektur",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B11122", "desc": "Brandschutzkonzept" },
+      { "system": "gif", "code": "3.11.22", "desc": "Brandschutzplanung" },
+      { "system": "GEFMA", "code": "190-10", "desc": "Sicherheit - Brandschutzkonzeption" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d12",
-    "code": "B12401",
     "title": "Heizungskonzept",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Fachkonzepte HLKS",
     "description": "Spezifisches Konzept für die Heizung im Bauwerk inkl. grobe Visualisierung",
@@ -175,14 +230,19 @@
       "disziplin": "Haustechnik",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B12401", "desc": "Heizungskonzept" },
+      { "system": "gif", "code": "3.12.41", "desc": "HLKS-Konzepte Heizung" },
+      { "system": "GEFMA", "code": "420-10", "desc": "TGM - Wärmeversorgung" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
   },
   {
     "id": "d13",
-    "code": "B12601",
     "title": "Elektrokonzept",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Fachkonzepte Elektrotechnik",
     "description": "Spezifisches Konzept für die Stromversorgung im Bauwerk inkl. grobe Visualisierung",
@@ -190,14 +250,19 @@
       "disziplin": "Haustechnik",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B12601", "desc": "Elektrokonzept" },
+      { "system": "gif", "code": "3.12.61", "desc": "Elektrotechnik-Konzepte" },
+      { "system": "GEFMA", "code": "440-10", "desc": "TGM - Elektrotechnik" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
   },
   {
     "id": "d14",
-    "code": "B07002",
     "title": "Statischer Nachweis",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis über die Standsicherheit",
@@ -205,14 +270,19 @@
       "disziplin": "Tragwerk",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B07002", "desc": "Statischer Nachweis" },
+      { "system": "gif", "code": "3.7.02", "desc": "Tragwerksnachweise" },
+      { "system": "RICS", "code": "BS-STR-02", "desc": "Structural Certification" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
   },
   {
     "id": "d15",
-    "code": "B18003",
     "title": "Betriebsanleitung",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Anleitungen",
     "description": "Angaben des Herstellers zum sachgerechten, bestimmungsgemässen und sicheren Betreiben bzw. Verwenden",
@@ -220,14 +290,19 @@
       "disziplin": "Haustechnik",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B18003", "desc": "Betriebsanleitung" },
+      { "system": "gif", "code": "3.18.03", "desc": "Betriebsdokumentation" },
+      { "system": "GEFMA", "code": "922-10", "desc": "Dokumentation - Betriebsanleitungen" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
   },
   {
     "id": "d16",
-    "code": "B19001",
     "title": "Raumverzeichnis",
+    "image": "",
     "category": "Konzepte und Beschriebe",
     "subcategory": "Technische Verzeichnisse",
     "description": "Verzeichnis/Liste aller vorhandener Räume inkl. Spezifikationen gemäss Vorgaben",
@@ -235,14 +310,19 @@
       "disziplin": "Architektur",
       "kategorie": "Konzepte und Beschriebe"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "B19001", "desc": "Raumverzeichnis" },
+      { "system": "gif", "code": "3.19.01", "desc": "Flächenverzeichnisse" },
+      { "system": "GEFMA", "code": "130-20", "desc": "Flächenmanagement - Raumdaten" }
+    ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d17",
-    "code": "V07102",
     "title": "Grundrissplan",
+    "image": "",
     "category": "Visualisierungen",
     "subcategory": "Pläne Architektur",
     "description": "Visualisiert alle für die Ausführung erforderlichen Angaben, wie Abmessungen, Materialien und deren Behandlung im Grundriss",
@@ -250,14 +330,19 @@
       "disziplin": "Architektur",
       "kategorie": "Visualisierungen"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "V07102", "desc": "Grundrissplan" },
+      { "system": "gif", "code": "4.71.02", "desc": "Architekturpläne Grundriss" },
+      { "system": "RICS", "code": "DWG-FLP-01", "desc": "Floor Plans" }
+    ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d18",
-    "code": "V07202",
     "title": "Bewehrungsplan",
+    "image": "",
     "category": "Visualisierungen",
     "subcategory": "Pläne Statik und Konstruktion",
     "description": "Stellt die Bewehrung aus Betonstahl eines Stahlbetonbauteils dar",
@@ -265,14 +350,19 @@
       "disziplin": "Tragwerk",
       "kategorie": "Visualisierungen"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "V07202", "desc": "Bewehrungsplan" },
+      { "system": "gif", "code": "4.72.02", "desc": "Tragwerkspläne Bewehrung" },
+      { "system": "RICS", "code": "DWG-RFT-01", "desc": "Reinforcement Drawings" }
+    ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
   },
   {
     "id": "d19",
-    "code": "V08101",
     "title": "Installationsplan Heizung",
+    "image": "",
     "category": "Visualisierungen",
     "subcategory": "Pläne Heizung",
     "description": "Visualisiert die Heizungsinstallationen pro Geschoss",
@@ -280,14 +370,19 @@
       "disziplin": "Haustechnik",
       "kategorie": "Visualisierungen"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "V08101", "desc": "Installationsplan Heizung" },
+      { "system": "gif", "code": "4.81.01", "desc": "HLKS-Pläne Heizung" },
+      { "system": "GEFMA", "code": "420-91", "desc": "TGM - Heizungspläne" }
+    ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
   },
   {
     "id": "d20",
-    "code": "V09004",
     "title": "Brandschutzplan",
+    "image": "",
     "category": "Visualisierungen",
     "subcategory": "Objektschutz",
     "description": "Visualisiert die baulichen Brandschutzmassnahmen",
@@ -295,6 +390,11 @@
       "disziplin": "Architektur",
       "kategorie": "Visualisierungen"
     },
+    "classifications": [
+      { "system": "KBOB-DTC", "code": "V09004", "desc": "Brandschutzplan" },
+      { "system": "gif", "code": "4.90.04", "desc": "Sicherheitspläne Brandschutz" },
+      { "system": "GEFMA", "code": "190-91", "desc": "Sicherheit - Brandschutzpläne" }
+    ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
     "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
