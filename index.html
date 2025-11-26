@@ -1592,7 +1592,7 @@
          */
         function renderSidebarHeader(activeTags) {
             const resetBtn = activeTags.length > 0 
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">restart_alt</span></button>`
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">reload</span></button>`
                 : '';
             return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
