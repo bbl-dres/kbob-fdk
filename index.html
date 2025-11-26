@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V2.9</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V3.0</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -574,7 +574,7 @@
             justify-content: center; 
             border-bottom: 1px solid #f0f0f0; 
             overflow: hidden; 
-            position: relative; /* Essential for the absolute positioning */
+            position: relative;
         }
         
         /* Floating logic applied to the standard tag-badge */
@@ -583,8 +583,7 @@
             top: 12px;
             left: 12px;
             z-index: 10;
-            /*background-color: rgba(240, 242, 245, 0.95); /* Slight opacity match standard color */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow for visibility on image */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .card-img-container img { 
@@ -676,7 +675,7 @@
             background-color: var(--hover-bg);
         }
 
-        /* Column Layout UPDATED */
+        /* Column Layout */
         .list-col-name { 
             width: 20%;      
             font-size: 0.95rem; 
@@ -1112,8 +1111,8 @@
                 <ul>
                     <li><a href="#home" class="nav-link active">Startseite</a></li>
                     <li><a href="#catalog" class="nav-link">Elemente</a></li>
+                    <li><a href="#documents" class="nav-link">Dokumente</a></li>
                     <li><a href="#" class="nav-link disabled">Fachmodelle</a></li>
-                    <li><a href="#" class="nav-link disabled">Dokumente</a></li>
                     <li><a href="#" class="nav-link disabled">Ökobilanzdaten</a></li>
                 </ul>
             </div>
@@ -1154,17 +1153,32 @@
         
         // --- STATE ---
         let globalElementsData = [];
+        let globalDocumentsData = [];
         let isDataLoaded = false;
         let currentView = 'grid';
         let isFilterVisible = false;
+        
+        // Separate view states for elements and documents
+        let elementsView = 'grid';
+        let documentsView = 'grid';
+        let elementsFilterVisible = false;
+        let documentsFilterVisible = false;
 
         // --- INITIALIZATION ---
         async function initApp() {
             try {
-                // Ensure 'data/elements.json' exists with the JSON structure provided.
-                const response = await fetch('data/elements.json');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                globalElementsData = await response.json();
+                // Load both elements and documents data
+                const [elementsResponse, documentsResponse] = await Promise.all([
+                    fetch('data/elements.json'),
+                    fetch('data/documents.json')
+                ]);
+                
+                if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
+                if (!documentsResponse.ok) throw new Error(`Documents: HTTP error! status: ${documentsResponse.status}`);
+                
+                globalElementsData = await elementsResponse.json();
+                globalDocumentsData = await documentsResponse.json();
+                
                 isDataLoaded = true;
                 window.addEventListener('hashchange', router);
                 router();
@@ -1174,7 +1188,7 @@
                     <div class="container error-state">
                         <span class="material-icons-outlined" style="font-size: 3rem; color: var(--accent-red); margin-bottom:15px;">error_outline</span><br>
                         <h2 style="margin-bottom:10px;">Fehler beim Laden der Daten</h2>
-                        <p>Konnte <code>data/elements.json</code> nicht laden.</p>
+                        <p>Konnte JSON-Dateien nicht laden.</p>
                         <br><span style="color: #999; font-size: 0.8rem;">${error.message}</span>
                     </div>`;
             }
@@ -1194,7 +1208,12 @@
 
             navLinks.forEach(link => {
                 const href = link.getAttribute('href').substring(1);
-                let isActive = (hash === 'element') ? (href === 'catalog') : (href === hash);
+                let isActive = false;
+                if (hash === 'element') {
+                    isActive = (href === 'catalog');
+                } else {
+                    isActive = (href === hash);
+                }
                 link.classList.toggle('active', isActive);
             });
 
@@ -1203,6 +1222,7 @@
             switch(hash) {
                 case 'home': renderHomePage(); break;
                 case 'catalog': renderCatalogPage(); break;
+                case 'documents': renderDocumentsCatalogPage(); break;
                 case 'element': 
                     if(elementId) {
                         contentArea.classList.add('white-bg'); 
@@ -1216,14 +1236,24 @@
         }
 
         // --- VIEW CONTROLS ---
-        window.switchView = function(view) {
-            currentView = view;
-            renderCatalogPage();
+        window.switchView = function(view, type = 'elements') {
+            if (type === 'elements') {
+                elementsView = view;
+                renderCatalogPage();
+            } else {
+                documentsView = view;
+                renderDocumentsCatalogPage();
+            }
         }
 
-        window.toggleFilter = function() {
-            isFilterVisible = !isFilterVisible;
-            renderCatalogPage(); 
+        window.toggleFilter = function(type = 'elements') {
+            if (type === 'elements') {
+                elementsFilterVisible = !elementsFilterVisible;
+                renderCatalogPage();
+            } else {
+                documentsFilterVisible = !documentsFilterVisible;
+                renderDocumentsCatalogPage();
+            }
         }
 
         // --- RENDER HELPERS ---
@@ -1234,7 +1264,7 @@
             ).join('');
         }
 
-        // UPDATED: Use standard tag-badge with positioning for disziplin
+        // Elements Grid/List Renderers
         function renderGridItemsHTML(items) {
             if (!items || items.length === 0) return '<div class="no-results">Keine Elemente gefunden.</div>';
             
@@ -1280,6 +1310,52 @@
             return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
         }
 
+        // Documents Grid/List Renderers
+        function renderDocGridItemsHTML(items) {
+            if (!items || items.length === 0) return '<div class="no-results">Keine Dokumente gefunden.</div>';
+            
+            return items.map(doc => {
+                const disziplin = doc.tags && doc.tags['disziplin'];
+                const otherTags = { ...doc.tags };
+                if(disziplin) delete otherTags['disziplin'];
+
+                return `
+                <div class="element-card">
+                    <div class="card-img-container">
+                        ${disziplin ? `<span class="tag-badge">disziplin: ${disziplin}</span>` : ''}
+                        ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon">description</span>'}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${doc.title}</h3>
+                        <p class="card-subtitle">${doc.description || doc.category}</p>
+                        <div class="card-tags">${renderTagsHtml(otherTags)}</div>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        function renderDocListItemsHTML(items) {
+            if (!items || items.length === 0) return '<div class="no-results">Keine Dokumente gefunden.</div>';
+            
+            const headerHtml = `
+                <div class="list-header-row">
+                    <div class="list-col-name">Name</div>
+                    <div class="list-col-desc">Beschreibung</div>
+                    <div class="list-col-tags">Tags</div>
+                </div>
+            `;
+
+            const itemsHtml = items.map(doc => `
+                <div class="element-list-item">
+                    <div class="list-col-name">${doc.title}</div>
+                    <div class="list-col-desc">${doc.description || doc.category}</div>
+                    <div class="list-col-tags">${renderTagsHtml(doc.tags)}</div>
+                </div>
+            `).join('');
+
+            return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+        }
+
         function renderPhaseBadges(phases) {
             if(!phases || !Array.isArray(phases)) return '<span style="color:#ccc;">-</span>';
             const phaseLabels = [2, 3, 4, 5, 6];
@@ -1292,6 +1368,7 @@
             return badgesHtml;
         }
 
+        // Filter by letter - Elements
         window.filterCatalogByLetter = function(letter) {
             const contentContainer = document.getElementById('catalogContent');
             const searchInput = document.getElementById('catalogSearchInput');
@@ -1308,9 +1385,31 @@
                 ? globalElementsData 
                 : globalElementsData.filter(el => el.title.trim().toUpperCase().startsWith(letter));
             
-            contentContainer.innerHTML = (currentView === 'grid') 
+            contentContainer.innerHTML = (elementsView === 'grid') 
                 ? `<div class="element-grid">${renderGridItemsHTML(filteredData)}</div>`
                 : renderListItemsHTML(filteredData);
+        };
+
+        // Filter by letter - Documents
+        window.filterDocumentsByLetter = function(letter) {
+            const contentContainer = document.getElementById('documentsContent');
+            const searchInput = document.getElementById('documentsSearchInput');
+            if(searchInput) searchInput.value = '';
+
+            document.querySelectorAll('.az-filter-bar .az-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText === letter || (letter === 'ALL' && btn.classList.contains('all-btn'))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            let filteredData = (letter === 'ALL') 
+                ? globalDocumentsData 
+                : globalDocumentsData.filter(doc => doc.title.trim().toUpperCase().startsWith(letter));
+            
+            contentContainer.innerHTML = (documentsView === 'grid') 
+                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData)}</div>`
+                : renderDocListItemsHTML(filteredData);
         };
 
         // --- PAGE RENDERERS ---
@@ -1320,7 +1419,7 @@
                     <div style="text-align: center; margin: 60px 0 80px 0;">
                         <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px; letter-spacing: -1px;">BIM-Fachdatenkatalog</h1>
                         <div class="central-search-container">
-                            <input type="text" class="central-search-input" placeholder="Suche nach Elementen (z.B. Fenster)...">
+                            <input type="text" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten...">
                             <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
                         </div>
                     </div>
@@ -1341,10 +1440,10 @@
             }).join('');
             azHtml += `<button class="az-btn all-btn active" onclick="filterCatalogByLetter('ALL')">ALLE</button>`;
 
-            const filterPanelClass = isFilterVisible ? '' : 'closed';
-            const filterBtnActive = isFilterVisible ? 'active' : '';
-            const gridActive = currentView === 'grid' ? 'active' : '';
-            const listActive = currentView === 'list' ? 'active' : '';
+            const filterPanelClass = elementsFilterVisible ? '' : 'closed';
+            const filterBtnActive = elementsFilterVisible ? 'active' : '';
+            const gridActive = elementsView === 'grid' ? 'active' : '';
+            const listActive = elementsView === 'list' ? 'active' : '';
 
             contentArea.innerHTML = `
                 <div class="container">
@@ -1357,13 +1456,13 @@
                     <div class="catalog-toolbar">
                         <div class="az-filter-bar toolbar-control">${azHtml}</div>
                         
-                        <button class="filter-btn toolbar-control ${filterBtnActive}" onclick="toggleFilter()">
+                        <button class="filter-btn toolbar-control ${filterBtnActive}" onclick="toggleFilter('elements')">
                             <span class="material-icons-outlined">filter_list</span> Filter
                         </button>
                         
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid')"><span class="material-icons-outlined">grid_view</span></button>
-                            <button class="view-btn ${listActive}" onclick="switchView('list')"><span class="material-icons-outlined">view_list</span></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')"><span class="material-icons-outlined">grid_view</span></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')"><span class="material-icons-outlined">view_list</span></button>
                         </div>
                     </div>
                     
@@ -1376,7 +1475,7 @@
                         </aside>
                         
                         <div id="catalogContent" style="flex:1; min-width:0;">
-                             ${currentView === 'grid' 
+                             ${elementsView === 'grid' 
                                 ? `<div class="element-grid">${renderGridItemsHTML(globalElementsData)}</div>` 
                                 : renderListItemsHTML(globalElementsData)
                             }
@@ -1396,9 +1495,82 @@
                     );
                     
                     const container = document.getElementById('catalogContent');
-                    container.innerHTML = (currentView === 'grid') 
+                    container.innerHTML = (elementsView === 'grid') 
                         ? `<div class="element-grid">${renderGridItemsHTML(filteredData)}</div>`
                         : renderListItemsHTML(filteredData);
+                });
+            }
+        }
+
+        function renderDocumentsCatalogPage() {
+            const usedLetters = new Set(globalDocumentsData.map(doc => doc.title.trim().charAt(0).toUpperCase()));
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+            
+            let azHtml = alphabet.map(letter => {
+                const disabledClass = usedLetters.has(letter) ? '' : 'disabled';
+                return `<button class="az-btn ${disabledClass}" onclick="filterDocumentsByLetter('${letter}')">${letter}</button>`;
+            }).join('');
+            azHtml += `<button class="az-btn all-btn active" onclick="filterDocumentsByLetter('ALL')">ALLE</button>`;
+
+            const filterPanelClass = documentsFilterVisible ? '' : 'closed';
+            const filterBtnActive = documentsFilterVisible ? 'active' : '';
+            const gridActive = documentsView === 'grid' ? 'active' : '';
+            const listActive = documentsView === 'list' ? 'active' : '';
+
+            contentArea.innerHTML = `
+                <div class="container">
+                    <h1 class="page-title">Dokumente</h1>
+                    <div class="central-search-container">
+                        <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
+                        <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                    </div>
+                    
+                    <div class="catalog-toolbar">
+                        <div class="az-filter-bar toolbar-control">${azHtml}</div>
+                        
+                        <button class="filter-btn toolbar-control ${filterBtnActive}" onclick="toggleFilter('documents')">
+                            <span class="material-icons-outlined">filter_list</span> Filter
+                        </button>
+                        
+                        <div class="view-switcher toolbar-control">
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')"><span class="material-icons-outlined">grid_view</span></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')"><span class="material-icons-outlined">view_list</span></button>
+                        </div>
+                    </div>
+                    
+                    <div class="catalog-layout">
+                        <aside class="sidebar-filter ${filterPanelClass}">
+                            <div class="sidebar-header">Filter</div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Kategorie <span class="material-icons-outlined">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Format <span class="material-icons-outlined">expand_more</span></div></div>
+                        </aside>
+                        
+                        <div id="documentsContent" style="flex:1; min-width:0;">
+                             ${documentsView === 'grid' 
+                                ? `<div class="element-grid">${renderDocGridItemsHTML(globalDocumentsData)}</div>` 
+                                : renderDocListItemsHTML(globalDocumentsData)
+                            }
+                        </div>
+                    </div>
+                </div>`;
+
+            const searchInput = document.getElementById('documentsSearchInput');
+            if(searchInput) {
+                searchInput.focus();
+                searchInput.addEventListener('input', (e) => {
+                    document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+                    const searchTerm = e.target.value.toLowerCase();
+                    const filteredData = globalDocumentsData.filter(doc => 
+                        doc.title.toLowerCase().includes(searchTerm) || 
+                        doc.category.toLowerCase().includes(searchTerm) ||
+                        doc.description.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    const container = document.getElementById('documentsContent');
+                    container.innerHTML = (documentsView === 'grid') 
+                        ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData)}</div>`
+                        : renderDocListItemsHTML(filteredData);
                 });
             }
         }
