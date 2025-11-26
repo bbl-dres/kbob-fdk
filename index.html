@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB BIM-Fachdatenkatalog - Mockup V3.0</title>
+    <title>KBOB BIM-Fachdatenkatalog - Mockup V3.1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,6 +34,8 @@
             /* Component Variables */
             --header-height: 70px;
             --footer-height: 40px;
+            --toolbar-height: 46px;
+            --toolbar-padding: 0 12px;
             
             /* Shadows */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
@@ -315,6 +317,10 @@
         .central-search-container { 
             max-width: 900px; 
             margin: 0 auto 40px auto; 
+            position: relative;
+        }
+        
+        .central-search-wrapper {
             display: flex; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             border-radius: 4px; 
@@ -347,6 +353,68 @@
         
         .central-search-btn:hover { 
             background: var(--kbob-hover-blue); 
+        }
+
+        /* ============================================
+           GLOBAL SEARCH DROPDOWN (Homepage)
+           ============================================ */
+        .search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            max-height: 450px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+        
+        .search-dropdown.open {
+            display: block;
+        }
+        
+        .search-dropdown-group {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .search-dropdown-group:last-child {
+            border-bottom: none;
+        }
+        
+        .search-dropdown-header {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            padding: 8px 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .search-dropdown-item {
+            display: block;
+            padding: 10px 20px 10px 30px;
+            color: var(--kbob-blue);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        
+        .search-dropdown-item:hover {
+            background: var(--hover-bg);
+            text-decoration: underline;
+        }
+        
+        .search-dropdown-empty {
+            padding: 25px 20px;
+            text-align: center;
+            color: var(--text-grey);
+            font-size: 0.95rem;
         }
 
         /* Tag Badge - Universal */
@@ -384,20 +452,20 @@
         }
         
         .toolbar-control {
-            height: 46px; 
+            height: var(--toolbar-height); 
             display: flex;
             align-items: center;
             background: var(--bg-white); 
             border-radius: 4px;
             border: 1px solid var(--border-color); 
             box-shadow: var(--shadow-sm);
+            padding: var(--toolbar-padding);
         }
 
         /* A-Z Filter */
         .az-filter-bar { 
             flex-wrap: wrap; 
             gap: 4px;
-            padding: 0 10px; 
         }
 
         .az-btn { 
@@ -443,7 +511,6 @@
         /* View Switcher */
         .view-switcher { 
             gap: 5px; 
-            padding: 0 4px; 
         }
         
         .view-btn { 
@@ -456,7 +523,7 @@
             display: flex; 
             align-items: center; 
             justify-content: center;
-            height: 36px;
+            height: 32px;
         }
         
         .view-btn.active { 
@@ -467,7 +534,6 @@
         /* Filter Button */
         .filter-btn {
             gap: 8px;
-            padding: 0 16px; 
             cursor: pointer;
             font-weight: 600; 
             color: var(--text-dark); 
@@ -482,7 +548,7 @@
         .filter-btn.active { 
             background: var(--kbob-blue); 
             color: #fff; 
-            border-color: var(--kbob-blue); 
+            border-color: #fff;
         }
 
         /* ============================================
@@ -1201,11 +1267,16 @@
             if (!isDataLoaded) return;
             let hash = window.location.hash.slice(1) || 'home';
             let elementId = null;
+            let documentId = null;
 
             if (hash.startsWith('element/')) {
                 const parts = hash.split('/');
                 hash = parts[0]; 
                 elementId = parts[1]; 
+            } else if (hash.startsWith('document/')) {
+                const parts = hash.split('/');
+                hash = parts[0]; 
+                documentId = parts[1]; 
             }
 
             navLinks.forEach(link => {
@@ -1213,6 +1284,8 @@
                 let isActive = false;
                 if (hash === 'element') {
                     isActive = (href === 'catalog');
+                } else if (hash === 'document') {
+                    isActive = (href === 'documents');
                 } else {
                     isActive = (href === hash);
                 }
@@ -1231,6 +1304,14 @@
                         renderElementDetailPage(elementId);
                     } else {
                         window.location.hash = '#catalog';
+                    }
+                    break;
+                case 'document': 
+                    if(documentId) {
+                        contentArea.classList.add('white-bg'); 
+                        renderDocumentDetailPage(documentId);
+                    } else {
+                        window.location.hash = '#documents';
                     }
                     break;
                 default: window.location.hash = '#home';
@@ -1414,6 +1495,120 @@
                 : renderDocListItemsHTML(filteredData);
         };
 
+        // --- GLOBAL SEARCH (Homepage) ---
+        function performGlobalSearch(query) {
+            const results = {
+                anwendungsfaelle: [], // Future: globalAnwendungsfaelleData
+                elemente: [],
+                fachmodelle: [], // Future: globalFachmodelleData
+                dokumente: [],
+                oekobilanzdaten: [] // Future: globalOekobilanzdatenData
+            };
+            
+            const searchTerm = query.toLowerCase().trim();
+            if (searchTerm.length < 2) return results;
+            
+            // Search Elements
+            results.elemente = globalElementsData
+                .filter(el => 
+                    el.title.toLowerCase().includes(searchTerm) || 
+                    el.classification.toLowerCase().includes(searchTerm) ||
+                    (el.subtitle && el.subtitle.toLowerCase().includes(searchTerm))
+                )
+                .slice(0, 3);
+            
+            // Search Documents
+            results.dokumente = globalDocumentsData
+                .filter(doc => 
+                    doc.title.toLowerCase().includes(searchTerm) || 
+                    doc.category.toLowerCase().includes(searchTerm) ||
+                    (doc.description && doc.description.toLowerCase().includes(searchTerm))
+                )
+                .slice(0, 3);
+            
+            return results;
+        }
+
+        function renderSearchDropdown(results, query) {
+            const categories = [
+                { key: 'anwendungsfaelle', label: 'Anwendungsfälle', hashPrefix: 'anwendungsfall' },
+                { key: 'elemente', label: 'Elemente', hashPrefix: 'element' },
+                { key: 'fachmodelle', label: 'Fachmodelle', hashPrefix: 'fachmodell' },
+                { key: 'dokumente', label: 'Dokumente', hashPrefix: 'document' },
+                { key: 'oekobilanzdaten', label: 'Ökobilanzdaten', hashPrefix: 'oekobilanzdaten' }
+            ];
+            
+            let hasAnyResults = false;
+            let html = '';
+            
+            categories.forEach(cat => {
+                const items = results[cat.key];
+                if (items && items.length > 0) {
+                    hasAnyResults = true;
+                    html += `<div class="search-dropdown-group">`;
+                    html += `<div class="search-dropdown-header">${cat.label}</div>`;
+                    items.forEach(item => {
+                        html += `<a class="search-dropdown-item" href="#${cat.hashPrefix}/${item.id}">${item.title}</a>`;
+                    });
+                    html += `</div>`;
+                }
+            });
+            
+            if (!hasAnyResults) {
+                html = `<div class="search-dropdown-empty">Keine Ergebnisse für "${query}"</div>`;
+            }
+            
+            return html;
+        }
+
+        function setupGlobalSearch() {
+            const searchInput = document.getElementById('globalSearchInput');
+            const searchDropdown = document.getElementById('globalSearchDropdown');
+            
+            if (!searchInput || !searchDropdown) return;
+            
+            let debounceTimer;
+            
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                const query = e.target.value;
+                
+                if (query.length < 2) {
+                    searchDropdown.classList.remove('open');
+                    return;
+                }
+                
+                debounceTimer = setTimeout(() => {
+                    const results = performGlobalSearch(query);
+                    searchDropdown.innerHTML = renderSearchDropdown(results, query);
+                    searchDropdown.classList.add('open');
+                }, 150);
+            });
+            
+            // Close dropdown on click outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.central-search-container')) {
+                    searchDropdown.classList.remove('open');
+                }
+            });
+            
+            // Close dropdown on Escape
+            searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    searchDropdown.classList.remove('open');
+                    searchInput.blur();
+                }
+            });
+            
+            // Close dropdown and navigate on result click
+            searchDropdown.addEventListener('click', (e) => {
+                if (e.target.classList.contains('search-dropdown-item')) {
+                    searchDropdown.classList.remove('open');
+                    searchInput.value = '';
+                }
+            });
+        }
+
         // --- PAGE RENDERERS ---
         function renderHomePage() {
             contentArea.innerHTML = `
@@ -1421,8 +1616,11 @@
                     <div style="text-align: center; margin: 60px 0 80px 0;">
                         <h1 style="font-size: 3.5rem; color: var(--kbob-blue); margin-bottom: 30px; letter-spacing: -1px;">BIM-Fachdatenkatalog</h1>
                         <div class="central-search-container">
-                            <input type="text" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten...">
-                            <button class="central-search-btn" onclick="window.location.hash='#catalog'"><span class="material-icons-outlined">search</span></button>
+                            <div class="central-search-wrapper">
+                                <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                                <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                            </div>
+                            <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
                     </div>
                     <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
@@ -1430,6 +1628,8 @@
                         <p style="font-size: 1.1rem; color: var(--text-dark);">Die KBOB definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieser digitale Katalog dient als "Single Source of Truth" für alle Stakeholder.</p>
                     </div>
                 </div>`;
+            
+            setupGlobalSearch();
         }
 
         function renderCatalogPage() {
@@ -1451,8 +1651,10 @@
                 <div class="container">
                     <h1 class="page-title">Elemente</h1>
                     <div class="central-search-container">
-                        <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
-                        <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                        <div class="central-search-wrapper">
+                            <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
+                            <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                        </div>
                     </div>
                     
                     <div class="catalog-toolbar">
@@ -1523,8 +1725,10 @@
                 <div class="container">
                     <h1 class="page-title">Dokumente</h1>
                     <div class="central-search-container">
-                        <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
-                        <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                        <div class="central-search-wrapper">
+                            <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
+                            <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                        </div>
                     </div>
                     
                     <div class="catalog-toolbar">
@@ -1718,6 +1922,39 @@
                 </div>`;
             
             setupDetailInteractions();
+        }
+
+        function renderDocumentDetailPage(id) {
+            const data = globalDocumentsData.find(doc => doc.id === id);
+            if(!data) { 
+                contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden. Detail-Seite für Dokumente ist noch in Entwicklung.</div>'; 
+                return; 
+            }
+            
+            // Placeholder detail page for documents
+            contentArea.innerHTML = `
+                <div class="detail-hero-wrapper">
+                    <div class="container">
+                         <div class="detail-hero">
+                             <div class="hero-content">
+                                <div class="breadcrumb"><a href="#documents"><span class="material-icons-outlined" style="vertical-align: text-bottom; margin-right:5px; font-size: 1.1rem;">arrow_back</span> Zurück zur Liste</a></div>
+                                <h1 class="hero-title">${data.title}</h1>
+                                <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
+                                <div class="hero-tags">${renderTagsHtml(data.tags)}</div>
+                             </div>
+                             <div class="hero-image-container">
+                                ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<span class="material-icons-outlined hero-image-placeholder">description</span>'}
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 40px auto; border-top: 5px solid var(--kbob-blue); text-align: center;">
+                        <span class="material-icons-outlined" style="font-size: 4rem; color: var(--text-light-grey); margin-bottom: 20px;">construction</span>
+                        <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">In Entwicklung</h2>
+                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
+                    </div>
+                </div>`;
         }
 
         function setupDetailInteractions() {
