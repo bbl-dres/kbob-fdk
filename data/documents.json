@@ -1,0 +1,302 @@
+[
+  {
+    "id": "d1",
+    "code": "O02001",
+    "title": "Projektauftrag",
+    "category": "Organisation",
+    "subcategory": "Projektmanagement",
+    "description": "Beinhaltet Kosten, Termine, Leistungen, Qualität, Organisationsform für die kommende Phase",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Organisation"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d2",
+    "code": "O02007",
+    "title": "Projektstatusbericht",
+    "category": "Organisation",
+    "subcategory": "Projektmanagement",
+    "description": "Bericht über den aktuellen Stand des Projektes und die weiteren Schritte",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Organisation"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "d3",
+    "code": "O04004",
+    "title": "QM-Plan / Kontrollplan",
+    "category": "Organisation",
+    "subcategory": "Qualitätsmanagement",
+    "description": "Wird aus der Risikoanalyse entwickelt und soll die Risiken minimieren",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Organisation"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "d4",
+    "code": "O06001",
+    "title": "Terminplan",
+    "category": "Organisation",
+    "subcategory": "Termine",
+    "description": "Auflistung von Start- und Endterminen von Aufgaben und Meilensteinen",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Organisation"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d5",
+    "code": "O15002",
+    "title": "Abnahmeprotokoll",
+    "category": "Organisation",
+    "subcategory": "Technische Protokolle",
+    "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt.",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Organisation"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 0]
+  },
+  {
+    "id": "d6",
+    "code": "K01002",
+    "title": "Kostenschätzung (KS)",
+    "category": "Verträge und Kosten",
+    "subcategory": "Kostenplanung",
+    "description": "Kostenaufstellung mit einer Genauigkeit von +/- 10%",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Verträge und Kosten"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [0, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+  },
+  {
+    "id": "d7",
+    "code": "K02001",
+    "title": "Ausschreibung",
+    "category": "Verträge und Kosten",
+    "subcategory": "Ausschreibungsunterlagen",
+    "description": "Ausschreibungsunterlagen (Leistungsverzeichnis) ohne/mit Planunterlagen",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Verträge und Kosten"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d8",
+    "code": "K03003",
+    "title": "Werkvertrag",
+    "category": "Verträge und Kosten",
+    "subcategory": "Vertragsunterlagen",
+    "description": "Vertrag über die Erbringung eines Werkes",
+    "tags": {
+      "disziplin": "Projektmanagement",
+      "kategorie": "Verträge und Kosten"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
+  },
+  {
+    "id": "d9",
+    "code": "B07001",
+    "title": "Energienachweis",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Nachweise",
+    "description": "Nachweis der energetischen Massnahmen",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d10",
+    "code": "B07004",
+    "title": "Brandschutznachweis",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Nachweise",
+    "description": "Nachweis über die Einhaltung der Brandschutzverordnung in einem Bauwerk",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d11",
+    "code": "B11122",
+    "title": "Brandschutzkonzept",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "IGM-Konzepte",
+    "description": "Beschreibt konkrete Ansätze über den ganzheitlichen Brandschutz eines Bauwerks",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d12",
+    "code": "B12401",
+    "title": "Heizungskonzept",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Fachkonzepte HLKS",
+    "description": "Spezifisches Konzept für die Heizung im Bauwerk inkl. grobe Visualisierung",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "d13",
+    "code": "B12601",
+    "title": "Elektrokonzept",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Fachkonzepte Elektrotechnik",
+    "description": "Spezifisches Konzept für die Stromversorgung im Bauwerk inkl. grobe Visualisierung",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "d14",
+    "code": "B07002",
+    "title": "Statischer Nachweis",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Nachweise",
+    "description": "Nachweis über die Standsicherheit",
+    "tags": {
+      "disziplin": "Tragwerk",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
+  },
+  {
+    "id": "d15",
+    "code": "B18003",
+    "title": "Betriebsanleitung",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Anleitungen",
+    "description": "Angaben des Herstellers zum sachgerechten, bestimmungsgemässen und sicheren Betreiben bzw. Verwenden",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+  },
+  {
+    "id": "d16",
+    "code": "B19001",
+    "title": "Raumverzeichnis",
+    "category": "Konzepte und Beschriebe",
+    "subcategory": "Technische Verzeichnisse",
+    "description": "Verzeichnis/Liste aller vorhandener Räume inkl. Spezifikationen gemäss Vorgaben",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Konzepte und Beschriebe"
+    },
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d17",
+    "code": "V07102",
+    "title": "Grundrissplan",
+    "category": "Visualisierungen",
+    "subcategory": "Pläne Architektur",
+    "description": "Visualisiert alle für die Ausführung erforderlichen Angaben, wie Abmessungen, Materialien und deren Behandlung im Grundriss",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Visualisierungen"
+    },
+    "formats": ["DWG", "PDF-A"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d18",
+    "code": "V07202",
+    "title": "Bewehrungsplan",
+    "category": "Visualisierungen",
+    "subcategory": "Pläne Statik und Konstruktion",
+    "description": "Stellt die Bewehrung aus Betonstahl eines Stahlbetonbauteils dar",
+    "tags": {
+      "disziplin": "Tragwerk",
+      "kategorie": "Visualisierungen"
+    },
+    "formats": ["DWG", "PDF-A"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
+  },
+  {
+    "id": "d19",
+    "code": "V08101",
+    "title": "Installationsplan Heizung",
+    "category": "Visualisierungen",
+    "subcategory": "Pläne Heizung",
+    "description": "Visualisiert die Heizungsinstallationen pro Geschoss",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Visualisierungen"
+    },
+    "formats": ["DWG", "PDF-A"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+  },
+  {
+    "id": "d20",
+    "code": "V09004",
+    "title": "Brandschutzplan",
+    "category": "Visualisierungen",
+    "subcategory": "Objektschutz",
+    "description": "Visualisiert die baulichen Brandschutzmassnahmen",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Visualisierungen"
+    },
+    "formats": ["DWG", "PDF-A"],
+    "retention": "bis Ersatz",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+  }
+]
