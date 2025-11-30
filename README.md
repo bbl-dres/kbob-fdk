@@ -7,9 +7,9 @@ This application serves as an interactive prototype to make BIM requirements, cl
 - Deployed: [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
 <p align="center">
-  <img src="assets/readme/preview1.jpg" width="45%"/>
+  <img src="assets/readme/preview1.JPG" width="45%"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/readme/preview2.jpg" width="45%"/>
+  <img src="assets/readme/preview2.JPG" width="45%"/>
   &nbsp;&nbsp;&nbsp;
 </p>
 
