@@ -1,121 +1,162 @@
-KBOB BIM-Fachdatenkatalog (Mockup)
-==================================
+# KBOB BIM Data Catalog (Mockup)
 
-Ein Web-Mockup für den digitalen **BIM-Fachdatenkatalog** der KBOB (Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren).
+A web mockup for the digital **BIM Data Catalog** of KBOB (Coordination Conference of Construction and Real Estate Bodies of Public Building Owners in Switzerland).
 
-Diese Anwendung dient als interaktiver Prototyp, um BIM-Anforderungen, Klassifizierungen und Attribute (LOI) für Bauelemente webbasiert zugänglich zu machen.
+This application serves as an interactive prototype to make BIM requirements, classifications, and attributes (LOI) for building elements accessible via the web.
 
-Über das Projekt
-----------------
+**Live Demo:** [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
-Der KBOB BIM-Fachdatenkatalog definiert die Informationsanforderungen für die Bestellung und Bewirtschaftung von Bauwerken. Dieses Projekt visualisiert diese Daten als "Single Source of Truth" in einer modernen, responsiven Webanwendung.
+## About the Project
 
-**Aktueller Status:** Mockup V1.2 (Clean)
+The KBOB BIM Data Catalog defines information requirements for the ordering and management of buildings. This project visualizes this data as a "Single Source of Truth" in a modern, responsive web application.
 
-Funktionen
-----------
+**Current Status:** Mockup V3.3
 
--   **Katalog-Übersicht:** Rasteransicht aller definierten Bauelemente.
+## Features
 
--   **Suche & Filter:** Echtzeit-Suche nach Elementnamen und Klassifikationen.
+- **Catalog Overview:** Grid and list views of all defined building elements and documents
+- **Search & Filter:** Real-time search by element name, classification, and tags
+- **Tag-Based Filtering:** Click on tags to filter across catalogs (discipline, IFC class, category)
+- **A-Z Navigation:** Quick alphabetical filtering
+- **Detail View:** Comprehensive information for each element including:
+  - Classifications (eBKP-H, DIN 276, Uniformat II)
+  - IFC & Revit Mappings
+  - Geometry requirements per phase
+  - Information requirements (LOI) per phase
+  - Documentation requirements
+- **Documents Catalog:** 20 document types with classifications and phase requirements
+- **Responsive Design:** Optimized for desktop and tablets
+- **URL State:** Tags and filters are preserved in the URL for sharing
 
--   **Detailansicht:** Detaillierte Auflistung von:
+## Installation & Usage
 
-    -   Klassifizierungen (eBKP-H, BKP)
+Since the application loads data via `fetch` from local JSON files, **it cannot be opened directly via the file system (`file://`)** due to CORS security policies in modern browsers.
 
-    -   IFC & Revit Mappings
+### Option 1: Local Web Server (Recommended for Development)
 
-    -   Geometrie-Anforderungen pro Phase
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/davras5/kbob-fdk.git
+   ```
 
-    -   Informationsanforderungen (LOI) pro Phase
+2. Open the folder in your IDE (e.g., VS Code)
 
-    -   Dokumentationspflichten
-
--   **Responsive Design:** Optimiert für Desktop und Tablets.
-
-Installation & Nutzung
-----------------------
-
-Da die Anwendung Daten per `fetch` aus einer lokalen JSON-Datei lädt, **kann sie nicht direkt über das Dateisystem (`file://`) geöffnet werden** (CORS-Security-Policy moderner Browser).
-
-### Option 1: Lokaler Webserver (Empfohlen für Entwicklung)
-
-1.  Klonen Sie das Repository:
-
-    ```
-    git clone [https://github.com/davras5/kbob-fdk.git](https://github.com/davras5/kbob-fdk.git)
-
-    ```
-
-2.  Öffnen Sie den Ordner in Ihrer IDE (z.B. VS Code).
-
-3.  Nutzen Sie eine Extension wie **Live Server**, um die `index.html` zu starten.
+3. Use an extension like **Live Server** to start `index.html`
 
 ### Option 2: Python Simple Server
 
-Wenn Sie Python installiert haben:
+If you have Python installed:
 
-```
-# Im Projektverzeichnis ausführen
+```bash
+# Run in the project directory
 python -m http.server 8000
-
 ```
 
-Öffnen Sie danach `http://localhost:8000` im Browser.
+Then open `http://localhost:8000` in your browser.
 
 ### Option 3: GitHub Pages
 
-Das Projekt ist für das Hosting über GitHub Pages optimiert.
+The project is optimized for hosting via GitHub Pages.
 
-1.  Gehen Sie zu den Repository-Settings.
+1. Go to the repository settings
+2. Select the `main` branch as the source under "Pages"
+3. The page will be available at `https://davras5.github.io/kbob-fdk/`
 
-2.  Wählen Sie unter "Pages" den `main` Branch als Source.
-
-3.  Die Seite ist kurz darauf unter `https://davras5.github.io/kbob-fdk/` erreichbar.
-
-Projektstruktur
----------------
+## Project Structure
 
 ```
 /
-├── index.html           # Hauptanwendung (Single Page Application)
+├── index.html              # Main application (Single Page Application)
 ├── data/
-│   └── elements.json    # Datensatz der Bauelemente
-├── README.md            # Dokumentation
-└── .gitignore
-
+│   ├── elements.json       # Building elements dataset (15 elements)
+│   └── documents.json      # Documents dataset (20 document types)
+├── assets/
+│   └── img/                # Element images (17 images)
+└── README.md               # Documentation
 ```
 
-Tech Stack
-----------
+## Tech Stack
 
--   **HTML5 / CSS3:** Nutzung von CSS Variables für einfaches Theming.
+- **HTML5 / CSS3:** CSS Variables for easy theming
+- **JavaScript (Vanilla):** No frameworks, no build steps required
+- **Material Icons:** Integration via Google Fonts
+- **Inter Font:** Modern sans-serif typography
 
--   **JavaScript (Vanilla):** Keine Frameworks, keine Build-Steps notwendig.
+## Data Structure
 
--   **Material Icons:** Einbindung via Google Fonts.
+### Elements (`data/elements.json`)
 
-Datenstruktur
--------------
+Each element contains:
 
-Die Daten liegen in `data/elements.json`. Ein Element ist wie folgt aufgebaut:
-
-```
+```json
 {
   "id": "e1",
-  "title": "Fenster (Aussen)",
-  "classification": "eBKP-H E 24.1",
-  "lod": true,
-  "loi": true,
-  "phases": [false, true, true, true, true], // Status für Phasen 2-6
-  ...
+  "title": "Window (Exterior)",
+  "classification": "IfcWindow",
+  "image": "assets/img/window.jpg",
+  "subtitle": "Description of the element",
+  "tags": { "ifcClass": "IfcWindow", "disziplin": "Architecture" },
+  "classifications": [...],
+  "ifcMapping": [...],
+  "geometry": [...],
+  "information": [...],
+  "documentation": [...]
 }
-
 ```
 
-Lizenz
-------
+### Documents (`data/documents.json`)
 
-[Hier Lizenz einfügen, z.B. MIT oder Closed Source je nach KBOB Vorgabe]
+Each document contains:
 
-*Dies ist ein inoffizielles Mockup zu Demonstrationszwecken.*
+```json
+{
+  "id": "d1",
+  "title": "Project Order",
+  "category": "Organization",
+  "description": "Document description",
+  "tags": { "disziplin": "Project Management", "kategorie": "Organization" },
+  "classifications": [...],
+  "formats": ["PDF-A", "Office-Format"],
+  "retention": "5 years",
+  "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+}
+```
+
+## Building Elements
+
+The catalog includes 15 building elements across different disciplines:
+
+| Element | IFC Class | Discipline |
+|---------|-----------|------------|
+| Window (Exterior) | IfcWindow | Architecture |
+| Interior Door (Wood) | IfcDoor | Architecture |
+| Wall (Solid) | IfcWall | Architecture |
+| Base Slab (Reinforced Concrete) | IfcSlab | Structural |
+| Roof (Flat Roof) | IfcSlab | Architecture |
+| Column (Precast) | IfcColumn | Structural |
+| Beam (Reinforced Concrete) | IfcBeam | Structural |
+| Duct (Rectangular) | IfcDuctSegment | MEP |
+| Air Handling Unit | IfcUnitaryEquipment | MEP |
+| Heating Pipe | IfcPipeSegment | MEP |
+| Radiator | IfcSpaceHeater | MEP |
+| Sanitary Fixture (WC) | IfcSanitaryTerminal | MEP |
+| Distribution Board | IfcDistributionBoard | MEP |
+| Cable Tray | IfcCableCarrierSegment | MEP |
+| Elevator | IfcTransportElement | MEP |
+
+## Document Types
+
+The catalog includes 20 document types across categories:
+
+- **Organization:** Project Order, Status Report, QM Plan, Schedule, Acceptance Protocol
+- **Contracts & Costs:** Cost Estimate, Tender Documents, Works Contract
+- **Concepts & Descriptions:** Energy Certificate, Fire Protection Concept, HVAC Concepts, Structural Analysis
+- **Visualizations:** Floor Plans, Reinforcement Plans, Installation Plans, Fire Protection Plans
+
+## License
+
+This work is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+---
+
+*This is an unofficial mockup for demonstration purposes.*
