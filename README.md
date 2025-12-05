@@ -67,8 +67,8 @@ kbob-fdk/
 
 ## License
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Free to use with attribution.
+Licensed under [MIT](https://opensource.org/licenses/MIT)
 
 ---
 
-*Mockup V3.3 - Unofficial demonstration project*
+*Unofficial mockup for demonstration purposes.*
