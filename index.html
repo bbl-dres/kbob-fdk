@@ -203,6 +203,7 @@
 
         a:hover {
             color: var(--color-primary);
+            text-decoration: underline; /* Swiss Federal: maintain underline on hover */
         }
 
         /* Custom Scrollbar */
@@ -264,6 +265,51 @@
 
         :focus:not(:focus-visible) {
             outline: none;
+        }
+
+        /* ============================================
+           ICON SYSTEM (Swiss Federal Design)
+           ============================================ */
+
+        /* Base Icon Wrapper */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px; /* Default icon size */
+            color: inherit;
+            flex-shrink: 0;
+        }
+
+        /* Icon Sizes */
+        .icon--sm { font-size: 16px; }
+        .icon--lg { font-size: 24px; }
+
+        /* Interactive Icon (inherits link color) */
+        .icon--interactive {
+            color: var(--color-interactive);
+        }
+
+        .icon--interactive:hover {
+            color: var(--color-primary);
+        }
+
+        /* Icon Link Pattern (icon + text) */
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            text-decoration: none;
+            color: var(--color-interactive);
+        }
+
+        .icon-link:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        .icon-link .icon {
+            flex-shrink: 0;
         }
 
         /* ============================================
@@ -1162,7 +1208,7 @@
             font-size: var(--text-h4);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-snug);
-            color: var(--color-text-primary);
+            color: var(--color-interactive); /* Swiss Federal: card titles use interactive blue */
         }
 
         .card__subtitle {
@@ -1458,6 +1504,29 @@
             background-color: var(--color-surface);
         }
 
+        /* Table Modifiers (BEM) */
+        .table--striped tbody tr:nth-child(even) td {
+            background-color: var(--color-surface);
+        }
+
+        .table--striped tbody tr:nth-child(even):hover td {
+            background-color: var(--color-surface-alt);
+        }
+
+        .table--compact th,
+        .table--compact td {
+            padding: var(--space-xs) var(--space-sm);
+            font-size: var(--text-body-sm);
+        }
+
+        .table--bordered td {
+            border: 1px solid var(--color-border-light);
+        }
+
+        .table--bordered th {
+            border: 1px solid var(--color-border);
+        }
+
         /* Table Column Widths */
         .th-w-20 { width: 20%; }
         .th-w-format { width: 100px; }
@@ -1750,7 +1819,7 @@
 
     <main id="content-area">
          <div class="container loading-state">
-            <span class="material-icons-outlined loading-spinner">replay</span><br>
+            <span class="material-icons-outlined loading-spinner" aria-hidden="true">replay</span><br>
             Anwendung wird initialisiert...
          </div>
     </main>
@@ -1765,8 +1834,8 @@
                 © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
             </div>
         </div>
-        <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben">
-            <span class="material-icons-outlined">keyboard_arrow_up</span>
+        <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben" aria-label="Nach oben scrollen">
+            <span class="material-icons-outlined" aria-hidden="true">keyboard_arrow_up</span>
         </button>
     </section>
 
@@ -1958,7 +2027,7 @@
                 console.error("Fehler beim Laden der Daten:", error);
                 contentArea.innerHTML = `
                     <div class="container error-state">
-                        <span class="material-icons-outlined status-icon status-icon--error">error_outline</span><br>
+                        <span class="material-icons-outlined status-icon status-icon--error" aria-hidden="true">error_outline</span><br>
                         <h2>Fehler beim Laden der Daten</h2>
                         <p>Konnte JSON-Dateien nicht laden.</p>
                         <br><span class="error-detail">${error.message}</span>
@@ -2063,8 +2132,8 @@
          * Render sidebar header with optional reset icon
          */
         function renderSidebarHeader(activeTags) {
-            const resetBtn = activeTags.length > 0 
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen"><span class="material-icons-outlined">refresh</span></button>`
+            const resetBtn = activeTags.length > 0
+                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><span class="material-icons-outlined" aria-hidden="true">refresh</span></button>`
                 : '';
             return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
         }
@@ -2083,7 +2152,7 @@
                 <div class="toolbar-control">
                     ${badge}
                     <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
-                        <span class="material-icons-outlined">filter_list</span> 
+                        <span class="material-icons-outlined" aria-hidden="true">filter_list</span>
                         Filter
                     </button>
                 </div>
@@ -2122,7 +2191,7 @@
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
-                        ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
+                        ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">image</span>'}
                     </div>
                     <div class="card__body">
                         <h3 class="card__title">${el.title}</h3>
@@ -2171,7 +2240,7 @@
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
-                        ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon">description</span>'}
+                        ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">description</span>'}
                     </div>
                     <div class="card__body">
                         <h3 class="card__title">${doc.title}</h3>
@@ -2389,7 +2458,7 @@
                         <div class="central-search-container">
                             <div class="central-search-wrapper">
                                 <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
                             </div>
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
@@ -2426,7 +2495,7 @@
                     <div class="central-search-container">
                         <div class="central-search-wrapper">
                             <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
-                            <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                            <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
                         </div>
                     </div>
                     
@@ -2436,17 +2505,17 @@
                         ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')"><span class="material-icons-outlined">grid_view</span></button>
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')"><span class="material-icons-outlined">view_list</span></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
                         </div>
                     </div>
                     
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Klassifikation <span class="material-icons-outlined">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Klassifikation <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Phase <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
                         </aside>
                         
                         <div id="catalogContent" style="flex:1; min-width:0;">
@@ -2503,7 +2572,7 @@
                     <div class="central-search-container">
                         <div class="central-search-wrapper">
                             <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
-                            <button class="central-search-btn"><span class="material-icons-outlined">search</span></button>
+                            <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
                         </div>
                     </div>
                     
@@ -2513,17 +2582,17 @@
                         ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')"><span class="material-icons-outlined">grid_view</span></button>
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')"><span class="material-icons-outlined">view_list</span></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
                         </div>
                     </div>
                     
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <span class="material-icons-outlined">expand_more</span></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Format <span class="material-icons-outlined">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Kategorie <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Format <span class="material-icons-outlined" aria-hidden="true">expand_more</span></div></div>
                         </aside>
                         
                         <div id="documentsContent" style="flex:1; min-width:0;">
