@@ -196,7 +196,7 @@
         }
 
         a {
-            color: var(--color-interactive);
+            color: var(--color-primary);
             text-decoration: underline;
             transition: color var(--transition-fast);
         }
@@ -249,7 +249,7 @@
             clip: auto;
             white-space: normal;
             background-color: var(--color-white);
-            color: var(--color-interactive);
+            color: var(--color-primary);
             font-weight: var(--font-weight-semibold);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-lg);
@@ -287,7 +287,7 @@
 
         /* Interactive Icon (inherits link color) */
         .icon--interactive {
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .icon--interactive:hover {
@@ -300,7 +300,7 @@
             align-items: center;
             gap: var(--space-xs);
             text-decoration: none;
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .icon-link:hover {
@@ -384,7 +384,7 @@
         /* Language Switch */
         .lang-switch {
             font-weight: var(--font-weight-medium);
-            color: var(--color-interactive);
+            color: var(--color-text-primary);
             font-size: var(--text-body-sm);
         }
 
@@ -397,7 +397,7 @@
 
         .lang-switch span.active,
         .lang-switch span:hover {
-            color: var(--color-interactive);
+            color: var(--color-primary);
             text-decoration: underline;
             font-weight: var(--font-weight-bold);
         }
@@ -688,34 +688,35 @@
             border-color: var(--color-primary-light);
         }
 
-        /* Secondary Button - Interactive Blue */
+        /* Secondary Button - Outline style */
         .btn--secondary {
-            background-color: var(--color-interactive);
-            color: var(--color-white);
-            border-color: var(--color-interactive);
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
         }
 
         .btn--secondary:hover:not(:disabled) {
-            background-color: var(--color-interactive-hover);
-            border-color: var(--color-interactive-hover);
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
         }
 
         /* Outline Button */
         .btn--outline {
             background-color: transparent;
-            color: var(--color-interactive);
-            border-color: var(--color-interactive);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
         }
 
         .btn--outline:hover:not(:disabled) {
-            background-color: var(--color-interactive);
+            background-color: var(--color-primary);
             color: var(--color-white);
         }
 
         /* Ghost Button */
         .btn--ghost {
             background-color: transparent;
-            color: var(--color-interactive);
+            color: var(--color-primary);
             border-color: transparent;
         }
 
@@ -801,7 +802,7 @@
 
         .central-search-btn {
             width: 70px;
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
             border: none;
             cursor: pointer;
@@ -812,7 +813,7 @@
         }
 
         .central-search-btn:hover {
-            background: var(--color-interactive-hover);
+            background: var(--color-primary-light);
         }
 
         /* ============================================
@@ -860,7 +861,7 @@
         .search-dropdown-item {
             display: block;
             padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-2xl);
-            color: var(--color-interactive);
+            color: var(--color-primary);
             font-size: var(--text-body-sm);
             cursor: pointer;
             transition: background var(--transition-fast);
@@ -900,19 +901,19 @@
         .tag-badge:hover {
             background-color: var(--color-surface-alt);
             border-color: var(--color-border);
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         /* Active tag state */
         .tag-badge.active {
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
-            border-color: var(--color-interactive);
+            border-color: var(--color-primary);
         }
 
         .tag-badge.active:hover {
-            background: var(--color-interactive-hover);
-            border-color: var(--color-interactive-hover);
+            background: var(--color-primary-light);
+            border-color: var(--color-primary-light);
             color: var(--color-white);
         }
 
@@ -984,7 +985,7 @@
         .az-btn {
             border: 1px solid transparent;
             background: transparent;
-            color: var(--color-interactive);
+            color: var(--color-text-secondary);
             padding: 0 var(--space-sm);
             height: var(--space-xl);
             display: flex;
@@ -1004,9 +1005,9 @@
         }
 
         .az-btn.active {
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
-            border-color: var(--color-interactive);
+            border-color: var(--color-primary);
         }
 
         .az-btn.disabled {
@@ -1041,11 +1042,11 @@
         }
 
         .view-btn:hover {
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .view-btn.active {
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
         }
 
@@ -1072,9 +1073,9 @@
         }
 
         .filter-btn.active {
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
-            border-color: var(--color-interactive);
+            border-color: var(--color-primary);
         }
 
         /* Floating filter count badge */
@@ -1148,7 +1149,7 @@
         }
 
         .sidebar-reset-btn:hover {
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .sidebar-reset-btn .material-icons-outlined {
@@ -1201,7 +1202,7 @@
         .card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--color-interactive);
+            border-color: var(--color-primary);
         }
 
         .card__image {
@@ -1247,7 +1248,7 @@
             font-size: var(--text-h4);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-snug);
-            color: var(--color-interactive); /* Swiss Federal: card titles use interactive blue */
+            color: var(--color-text-primary);
         }
 
         .card__subtitle {
@@ -1461,7 +1462,7 @@
         }
 
         .sticky-nav a:hover {
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .sticky-nav a.active {
@@ -1670,13 +1671,13 @@
         }
 
         .no-results .clear-filter-link {
-            color: var(--color-interactive);
+            color: var(--color-primary);
             cursor: pointer;
             text-decoration: underline;
         }
 
         .no-results .clear-filter-link:hover {
-            color: var(--color-interactive-hover);
+            color: var(--color-primary-light);
         }
 
         /* ============================================
@@ -1945,13 +1946,13 @@
         th[aria-sort='descending'] .table__sorter span::after {
             content: '▼';
             opacity: 1;
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         th[aria-sort='ascending'] .table__sorter span::after {
             content: '▲';
             opacity: 1;
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         /* ============================================
@@ -2003,7 +2004,7 @@
         }
 
         .accordion__button[aria-expanded="true"] {
-            color: var(--color-interactive);
+            color: var(--color-primary);
         }
 
         .accordion__title {
@@ -2087,7 +2088,7 @@
             padding: 0 var(--space-sm);
             font-size: var(--text-body-sm);
             font-weight: var(--font-weight-medium);
-            color: var(--color-interactive);
+            color: var(--color-text-secondary);
             background: var(--color-white);
             border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
@@ -2098,13 +2099,13 @@
 
         .pagination__link:hover:not(.pagination__link--disabled):not(.pagination__link--active) {
             background: var(--color-surface);
-            border-color: var(--color-interactive);
-            color: var(--color-interactive-hover);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
         }
 
         .pagination__link--active {
-            background: var(--color-interactive);
-            border-color: var(--color-interactive);
+            background: var(--color-primary);
+            border-color: var(--color-primary);
             color: var(--color-white);
             font-weight: var(--font-weight-semibold);
             cursor: default;
