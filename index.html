@@ -985,52 +985,6 @@
             position: relative;
         }
 
-        /* A-Z Filter */
-        .az-filter-bar {
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            align-content: center;
-        }
-
-        .az-btn {
-            border: 1px solid transparent;
-            background: transparent;
-            color: var(--color-text-secondary);
-            padding: 0 var(--space-sm);
-            height: var(--space-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: var(--border-radius);
-            font-weight: var(--font-weight-semibold);
-            font-size: var(--text-body-sm);
-            font-family: var(--font-family-primary);
-            min-width: var(--space-xl);
-            transition: all var(--transition-fast);
-        }
-
-        .az-btn:hover {
-            background: var(--color-surface-alt);
-        }
-
-        .az-btn.active {
-            background: var(--color-primary);
-            color: var(--color-white);
-            border-color: var(--color-primary);
-        }
-
-        .az-btn.disabled {
-            opacity: 0.3;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .az-btn.all-btn {
-            padding: 0 var(--space-md);
-            font-weight: var(--font-weight-bold);
-            letter-spacing: 0.5px;
-        }
 
         /* View Switcher */
         .view-switcher {
@@ -1898,10 +1852,6 @@
 
             .catalog-toolbar {
                 gap: var(--space-sm);
-            }
-
-            .az-filter-bar {
-                display: none;
             }
 
             .element-grid {
@@ -2891,56 +2841,6 @@
             return badgesHtml;
         }
 
-        // Filter by letter - Elements
-        window.filterCatalogByLetter = function(letter) {
-            const contentContainer = document.getElementById('catalogContent');
-            const searchInput = document.getElementById('catalogSearchInput');
-            if(searchInput) searchInput.value = '';
-
-            document.querySelectorAll('.az-filter-bar .az-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.innerText === letter || (letter === 'ALL' && btn.classList.contains('all-btn'))) {
-                    btn.classList.add('active');
-                }
-            });
-
-            const activeTags = getActiveTagsFromURL();
-            let filteredData = filterDataByTags(globalElementsData, activeTags);
-            
-            if (letter !== 'ALL') {
-                filteredData = filteredData.filter(el => el.title.trim().toUpperCase().startsWith(letter));
-            }
-            
-            contentContainer.innerHTML = (elementsView === 'grid') 
-                ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags)}</div>`
-                : renderListItemsHTML(filteredData, activeTags);
-        };
-
-        // Filter by letter - Documents
-        window.filterDocumentsByLetter = function(letter) {
-            const contentContainer = document.getElementById('documentsContent');
-            const searchInput = document.getElementById('documentsSearchInput');
-            if(searchInput) searchInput.value = '';
-
-            document.querySelectorAll('.az-filter-bar .az-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.innerText === letter || (letter === 'ALL' && btn.classList.contains('all-btn'))) {
-                    btn.classList.add('active');
-                }
-            });
-
-            const activeTags = getActiveTagsFromURL();
-            let filteredData = filterDataByTags(globalDocumentsData, activeTags);
-            
-            if (letter !== 'ALL') {
-                filteredData = filteredData.filter(doc => doc.title.trim().toUpperCase().startsWith(letter));
-            }
-            
-            contentContainer.innerHTML = (documentsView === 'grid') 
-                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags)}</div>`
-                : renderDocListItemsHTML(filteredData, activeTags);
-        };
-
         // --- GLOBAL SEARCH (Homepage) ---
         function performGlobalSearch(query) {
             const results = {
@@ -3082,15 +2982,6 @@
             // Filter data by active tags
             const filteredByTags = filterDataByTags(globalElementsData, activeTags);
             
-            const usedLetters = new Set(filteredByTags.map(el => el.title.trim().charAt(0).toUpperCase()));
-            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-            
-            let azHtml = alphabet.map(letter => {
-                const disabledClass = usedLetters.has(letter) ? '' : 'disabled';
-                return `<button class="az-btn ${disabledClass}" onclick="filterCatalogByLetter('${letter}')">${letter}</button>`;
-            }).join('');
-            azHtml += `<button class="az-btn all-btn active" onclick="filterCatalogByLetter('ALL')">ALLE</button>`;
-
             const filterPanelClass = elementsFilterVisible ? '' : 'closed';
             const gridActive = elementsView === 'grid' ? 'active' : '';
             const listActive = elementsView === 'list' ? 'active' : '';
@@ -3106,8 +2997,6 @@
                     </div>
                     
                     <div class="catalog-toolbar">
-                        <div class="az-filter-bar toolbar-control">${azHtml}</div>
-                        
                         ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
@@ -3159,15 +3048,6 @@
             // Filter data by active tags
             const filteredByTags = filterDataByTags(globalDocumentsData, activeTags);
             
-            const usedLetters = new Set(filteredByTags.map(doc => doc.title.trim().charAt(0).toUpperCase()));
-            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-            
-            let azHtml = alphabet.map(letter => {
-                const disabledClass = usedLetters.has(letter) ? '' : 'disabled';
-                return `<button class="az-btn ${disabledClass}" onclick="filterDocumentsByLetter('${letter}')">${letter}</button>`;
-            }).join('');
-            azHtml += `<button class="az-btn all-btn active" onclick="filterDocumentsByLetter('ALL')">ALLE</button>`;
-
             const filterPanelClass = documentsFilterVisible ? '' : 'closed';
             const gridActive = documentsView === 'grid' ? 'active' : '';
             const listActive = documentsView === 'list' ? 'active' : '';
@@ -3183,8 +3063,6 @@
                     </div>
                     
                     <div class="catalog-toolbar">
-                        <div class="az-filter-bar toolbar-control">${azHtml}</div>
-                        
                         ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         
                         <div class="view-switcher toolbar-control">
