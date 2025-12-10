@@ -777,25 +777,32 @@
            SEARCH BAR
            ============================================ */
         .central-search-container {
-            max-width: 900px;
             margin: 0 auto var(--space-lg) auto;
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: var(--space-md);
         }
 
+        .central-search-left {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
         .central-search-container .central-search-wrapper {
-            flex: 1;
-            max-width: 500px;
+            width: 400px;
+            flex-shrink: 0;
         }
 
         .central-search-wrapper {
             display: flex;
-            box-shadow: var(--shadow-md);
+            height: var(--toolbar-height);
+            box-shadow: var(--shadow-sm);
             border-radius: var(--border-radius);
             overflow: hidden;
-            border: 2px solid var(--color-border-light);
+            border: 1px solid var(--color-border-light);
             background: var(--color-white);
             transition: border-color var(--transition-fast);
         }
@@ -806,8 +813,8 @@
 
         .central-search-input {
             flex: 1;
-            padding: var(--space-md) var(--space-lg);
-            font-size: var(--text-h4);
+            padding: 0 var(--space-md);
+            font-size: var(--text-body);
             border: none;
             outline: none;
             background: transparent;
@@ -980,30 +987,39 @@
 
         /* View Switcher */
         .view-switcher {
-            gap: var(--space-xs);
+            gap: 0;
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
         }
 
         .view-btn {
             border: none;
-            background: transparent;
+            background: var(--color-white);
             color: var(--color-text-secondary);
             padding: 0 var(--space-sm);
             cursor: pointer;
-            border-radius: var(--border-radius-sm);
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: var(--space-xl);
+            height: calc(var(--toolbar-height) - 2px);
+            width: 42px;
             transition: all var(--transition-fast);
         }
 
         .view-btn:hover {
-            color: var(--color-primary);
+            color: var(--color-text-primary);
+            background: var(--color-bg-light);
         }
 
         .view-btn.active {
             background: var(--color-bg-alt);
             color: var(--color-text-primary);
+        }
+
+        .view-btn + .view-btn {
+            border-left: 1px solid var(--color-border-light);
         }
 
         /* Filter Button */
@@ -1012,26 +1028,46 @@
             align-items: center;
             gap: var(--space-sm);
             cursor: pointer;
-            font-weight: var(--font-weight-semibold);
+            font-weight: var(--font-weight-medium);
             color: var(--color-text-primary);
-            background: transparent;
-            border: 1px solid transparent;
+            background: var(--color-white);
+            border: 1px solid var(--color-border-light);
             border-radius: var(--border-radius);
-            padding: 0 var(--space-sm);
-            height: var(--space-xl);
+            padding: 0 var(--space-md);
+            height: var(--toolbar-height);
             font-family: var(--font-family-primary);
             font-size: var(--text-body-sm);
             transition: all var(--transition-fast);
         }
 
         .filter-btn:hover {
-            background: var(--color-surface-alt);
+            border-color: var(--color-border);
+            background: var(--color-bg-light);
         }
 
         .filter-btn.active {
-            background: var(--color-primary);
-            color: var(--color-white);
-            border-color: var(--color-primary);
+            border-color: var(--color-border);
+            background: var(--color-bg-light);
+        }
+
+        /* Reset Filter Button */
+        .reset-filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            background: transparent;
+            border: none;
+            border-radius: var(--border-radius);
+            width: var(--toolbar-height);
+            height: var(--toolbar-height);
+            transition: all var(--transition-fast);
+        }
+
+        .reset-filter-btn:hover {
+            color: var(--color-primary);
+            background: var(--color-bg-light);
         }
 
         /* Floating filter count badge */
@@ -2503,7 +2539,14 @@
             }
             window.location.hash = baseHash;
         }
-        
+
+        /**
+         * Clear all filters (wrapper for toolbar reset button)
+         */
+        window.clearAllFilters = function(type) {
+            clearAllTagsFromURL();
+        }
+
         /**
          * Navigate to a route while preserving current tags
          * @param {string} targetRoute - Target route (e.g., 'catalog', 'documents')
@@ -2683,23 +2726,21 @@
         }
         
         /**
-         * Render filter button with floating badge
+         * Render filter button with reset button (visible when filters active)
          */
         function renderFilterButton(type, isVisible, activeTagCount) {
             const activeClass = isVisible ? 'active' : '';
-            
-            const badge = activeTagCount > 0 
-                ? `<span class="toolbar-badge">${activeTagCount}</span>` 
+
+            const resetBtn = activeTagCount > 0
+                ? `<button class="reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><span class="material-icons-outlined" aria-hidden="true">refresh</span></button>`
                 : '';
-            
+
             return `
-                <div class="toolbar-control">
-                    ${badge}
-                    <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
-                        <span class="material-icons-outlined" aria-hidden="true">filter_list</span>
-                        Filter
-                    </button>
-                </div>
+                <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
+                    <span class="material-icons-outlined" aria-hidden="true">filter_list</span>
+                    Filter${activeTagCount > 0 ? ` (${activeTagCount})` : ''}
+                </button>
+                ${resetBtn}
             `;
         }
         
@@ -2978,17 +3019,19 @@
                 <div class="container">
                     <h1 class="page-title">Elemente</h1>
                     <div class="central-search-container">
-                        <div class="central-search-wrapper">
-                            <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
-                            <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                        <div class="central-search-left">
+                            <div class="central-search-wrapper">
+                                <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
+                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                            </div>
+                            ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         </div>
-                        ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
                         </div>
                     </div>
-                    
+
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
@@ -3040,17 +3083,19 @@
                 <div class="container">
                     <h1 class="page-title">Dokumente</h1>
                     <div class="central-search-container">
-                        <div class="central-search-wrapper">
-                            <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
-                            <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                        <div class="central-search-left">
+                            <div class="central-search-wrapper">
+                                <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
+                                <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
+                            </div>
+                            ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         </div>
-                        ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
                         </div>
                     </div>
-                    
+
                     <div class="catalog-layout">
                         <aside class="sidebar-filter ${filterPanelClass}">
                             ${renderSidebarHeader(activeTags)}
