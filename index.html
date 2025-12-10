@@ -437,9 +437,7 @@
             display: block;
             font-weight: var(--font-weight-medium);
             font-size: var(--text-body);
-            transition: all var(--transition-fast);
-            border-bottom: 3px solid transparent;
-            margin-bottom: -1px; /* Overlap border */
+            transition: color var(--transition-fast);
         }
 
         .nav-link:hover:not(.disabled):not(.active) {
@@ -449,7 +447,6 @@
         .nav-link.active {
             color: var(--color-text-primary);
             font-weight: var(--font-weight-semibold);
-            border-bottom-color: var(--color-primary);
         }
 
         .nav-link.active:hover {
