@@ -55,6 +55,10 @@
             --color-info: #31708F;
             --color-info-bg: #D9EDF7;
 
+            /* Dark UI Colors (footer, contact sections) */
+            --color-surface-dark: #3d4f5f;
+            --color-surface-darker: #2d3a44;
+
             /* =====================
                TYPOGRAPHY
                ===================== */
@@ -211,13 +215,11 @@
         a {
             color: var(--color-interactive);
             text-decoration: underline;
-            text-decoration-color: transparent;
-            transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+            transition: color var(--transition-fast);
         }
 
         a:hover {
             color: var(--color-primary);
-            text-decoration-color: currentColor;
         }
 
         /* Custom Scrollbar */
@@ -247,6 +249,28 @@
             clip: rect(0, 0, 0, 0);
             white-space: nowrap;
             border: 0;
+        }
+
+        /* Focusable Screen Reader Only - For Skip Links */
+        .sr-only--focusable:focus,
+        .sr-only--focusable:active {
+            position: fixed;
+            top: var(--space-sm);
+            left: var(--space-sm);
+            width: auto;
+            height: auto;
+            padding: var(--space-sm) var(--space-md);
+            margin: 0;
+            overflow: visible;
+            clip: auto;
+            white-space: normal;
+            background-color: var(--color-white);
+            color: var(--color-interactive);
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: calc(var(--z-tooltip) + 1);
+            text-decoration: none;
         }
 
         /* Focus States - Accessibility */
@@ -392,7 +416,7 @@
            CONTACT SECTION
            ============================================ */
         .contact-section {
-            background-color: #3d4f5f;
+            background-color: var(--color-surface-dark);
             color: var(--color-white);
             min-height: 370px;
             padding: var(--space-2xl) var(--space-lg);
@@ -460,7 +484,7 @@
            FOOTER
            ============================================ */
         footer {
-            background-color: #2d3a44;
+            background-color: var(--color-surface-darker);
             flex-shrink: 0;
             height: var(--footer-height);
             display: flex;
@@ -1651,9 +1675,13 @@
     </style>
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#content-area" class="sr-only sr-only--focusable">
+        Zum Hauptinhalt springen
+    </a>
 
     <header>
-        <div class="header-top">
+        <div class="header__top">
             <div class="logo-wrapper">
                 <div class="logo-swiss-cross">+</div> 
                 <div>Schweizerische Eidgenossenschaft <br> <strong>KBOB / BBL</strong></div>
@@ -2048,15 +2076,15 @@
                 const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
 
                 return `
-                <div class="element-card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
-                    <div class="card-img-container">
+                <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
+                    <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon">image</span>'}
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${el.title}</h3>
-                        <p class="card-subtitle">${el.subtitle || el.classification}</p>
-                        <div class="card-tags">${renderTagsHtml(otherTags, activeTags)}</div>
+                    <div class="card__body">
+                        <h3 class="card__title">${el.title}</h3>
+                        <p class="card__subtitle">${el.subtitle || el.classification}</p>
+                        <div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>
                     </div>
                 </div>
             `}).join('');
@@ -2097,15 +2125,15 @@
                 const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
 
                 return `
-                <div class="element-card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
-                    <div class="card-img-container">
+                <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
+                    <div class="card__image">
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon">description</span>'}
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">${doc.title}</h3>
-                        <p class="card-subtitle">${doc.description || doc.category}</p>
-                        <div class="card-tags">${renderTagsHtml(otherTags, activeTags)}</div>
+                    <div class="card__body">
+                        <h3 class="card__title">${doc.title}</h3>
+                        <p class="card__subtitle">${doc.description || doc.category}</p>
+                        <div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>
                     </div>
                 </div>
             `}).join('');

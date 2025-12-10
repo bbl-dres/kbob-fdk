@@ -251,54 +251,77 @@ Use a 12-column grid with consistent gutters:
 
 ### Buttons
 
-**Primary Button**
+All buttons use the `.btn` base class with BEM modifiers for variants.
+
+**Primary Button (Confederation Red)**
 ```css
-.btn-primary {
+.btn--primary {
   background-color: var(--color-primary);      /* #DC0018 */
   color: var(--color-white);
-  border: none;
+  border-color: var(--color-primary);
   padding: var(--space-sm) var(--space-md);    /* 8px 16px */
-  font-weight: 500;
-  border-radius: 4px;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.btn--primary:hover:not(:disabled) {
   background-color: var(--color-primary-light); /* #F7001D */
+  border-color: var(--color-primary-light);
 }
 ```
 
-**Secondary Button**
+**Secondary Button (Interactive Blue)**
 ```css
-.btn-secondary {
+.btn--secondary {
   background-color: var(--color-interactive);   /* #006699 */
   color: var(--color-white);
-  border: none;
+  border-color: var(--color-interactive);
   padding: var(--space-sm) var(--space-md);
-  font-weight: 500;
-  border-radius: 4px;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
 }
 
-.btn-secondary:hover {
-  background-color: #005580;
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-interactive-hover); /* #005580 */
+  border-color: var(--color-interactive-hover);
 }
 ```
 
 **Outline Button**
 ```css
-.btn-outline {
+.btn--outline {
   background-color: transparent;
   color: var(--color-interactive);
   border: 1px solid var(--color-interactive);
   padding: var(--space-sm) var(--space-md);
-  font-weight: 500;
-  border-radius: 4px;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius);
 }
 
-.btn-outline:hover {
+.btn--outline:hover:not(:disabled) {
   background-color: var(--color-interactive);
   color: var(--color-white);
 }
+```
+
+**Ghost Button**
+```css
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-interactive);
+  border-color: transparent;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: var(--color-surface);
+}
+```
+
+**Button Sizes**
+```css
+.btn--sm { padding: var(--space-xs) var(--space-sm); font-size: var(--text-body-sm); }
+.btn--lg { padding: var(--space-md) var(--space-lg); font-size: var(--text-h4); }
 ```
 
 ### Form Elements
@@ -342,26 +365,64 @@ Use a 12-column grid with consistent gutters:
 
 ### Cards
 
+Cards use BEM naming convention with `__` for elements.
+
 ```css
 .card {
   background-color: var(--color-white);
   border: 1px solid var(--color-border-light);
-  border-radius: 4px;
-  padding: var(--space-md);                     /* 16px */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.card-header {
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-interactive);
+}
+
+.card__image {
+  height: 180px;
+  background: var(--color-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid var(--color-border-light);
-  padding-bottom: var(--space-sm);
-  margin-bottom: var(--space-md);
+  overflow: hidden;
+  position: relative;
 }
 
-.card-title {
+.card__body {
+  padding: var(--space-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
   font-size: var(--text-h4);
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin: 0;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-interactive);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: var(--line-height-snug);
+}
+
+.card__subtitle {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.card__tags {
+  margin-top: auto;
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 ```
 
@@ -422,34 +483,36 @@ Use a 12-column grid with consistent gutters:
 
 ### Alerts & Messages
 
+Alerts use BEM naming with `--` for modifiers.
+
 ```css
 .alert {
   padding: var(--space-md);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border-left: 4px solid;
   margin-bottom: var(--space-md);
 }
 
-.alert-info {
-  background-color: var(--color-surface-blue);
+.alert--info {
+  background-color: var(--color-info-bg);
   border-left-color: var(--color-info);
   color: var(--color-info);
 }
 
-.alert-success {
-  background-color: #DFF0D8;
+.alert--success {
+  background-color: var(--color-success-bg);
   border-left-color: var(--color-success);
   color: var(--color-success);
 }
 
-.alert-warning {
-  background-color: var(--color-highlight);
+.alert--warning {
+  background-color: var(--color-warning-bg);
   border-left-color: var(--color-warning);
   color: var(--color-warning);
 }
 
-.alert-error {
-  background-color: #F2DEDE;
+.alert--error {
+  background-color: var(--color-error-bg);
   border-left-color: var(--color-error);
   color: var(--color-error);
 }
@@ -535,6 +598,45 @@ All focusable elements must have visible focus indicators:
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+```
+
+### Skip Link
+
+A skip link allows keyboard users to bypass navigation and jump directly to main content. Place it as the first focusable element in `<body>`:
+
+```html
+<body>
+  <a href="#content-area" class="sr-only sr-only--focusable">
+    Zum Hauptinhalt springen
+  </a>
+  <header>...</header>
+  <main id="content-area">...</main>
+</body>
+```
+
+The skip link is visually hidden until focused:
+
+```css
+.sr-only--focusable:focus,
+.sr-only--focusable:active {
+  position: fixed;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  width: auto;
+  height: auto;
+  padding: var(--space-sm) var(--space-md);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: var(--color-white);
+  color: var(--color-interactive);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  z-index: calc(var(--z-tooltip) + 1);
+  text-decoration: none;
 }
 ```
 
@@ -627,7 +729,11 @@ Complete CSS custom properties for copy-paste implementation:
   --color-surface-alt: #E7EDEF;
   --color-surface-blue: #D8E8EF;
   --color-highlight: #FFFAB2;
-  
+
+  /* Dark UI (footer, contact sections) */
+  --color-surface-dark: #3d4f5f;
+  --color-surface-darker: #2d3a44;
+
   /* Status */
   --color-success: #3C763D;
   --color-success-bg: #DFF0D8;
