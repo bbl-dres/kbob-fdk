@@ -778,8 +778,16 @@
            ============================================ */
         .central-search-container {
             max-width: 900px;
-            margin: 0 auto var(--space-2xl) auto;
+            margin: 0 auto var(--space-lg) auto;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .central-search-container .central-search-wrapper {
+            flex: 1;
+            max-width: 500px;
         }
 
         .central-search-wrapper {
@@ -961,17 +969,6 @@
             color: var(--color-error);
         }
 
-        /* ============================================
-           CATALOG TOOLBAR
-           ============================================ */
-        .catalog-toolbar {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            align-items: center;
-            margin-bottom: var(--space-lg);
-            flex-wrap: wrap;
-        }
 
         .toolbar-control {
             height: var(--toolbar-height);
@@ -1010,8 +1007,8 @@
         }
 
         .view-btn.active {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: var(--color-bg-alt);
+            color: var(--color-text-primary);
         }
 
         /* Filter Button */
@@ -1848,10 +1845,6 @@
             .central-search-input {
                 padding: var(--space-sm) var(--space-md);
                 font-size: var(--text-body);
-            }
-
-            .catalog-toolbar {
-                gap: var(--space-sm);
             }
 
             .element-grid {
@@ -2994,11 +2987,7 @@
                             <input type="text" id="catalogSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Klassifikation...">
                             <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
                         </div>
-                    </div>
-                    
-                    <div class="catalog-toolbar">
                         ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
-                        
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
@@ -3060,11 +3049,7 @@
                             <input type="text" id="documentsSearchInput" class="central-search-input" placeholder="Suche nach Dokumenten oder Kategorie...">
                             <button class="central-search-btn" aria-label="Suchen"><span class="material-icons-outlined" aria-hidden="true">search</span></button>
                         </div>
-                    </div>
-                    
-                    <div class="catalog-toolbar">
                         ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
-                        
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><span class="material-icons-outlined" aria-hidden="true">grid_view</span></button>
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><span class="material-icons-outlined" aria-hidden="true">view_list</span></button>
