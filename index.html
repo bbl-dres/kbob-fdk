@@ -492,6 +492,78 @@
             color: var(--color-text-primary);
         }
 
+        /* Home Page Hero */
+        .home-hero {
+            text-align: center;
+            margin: var(--space-3xl) 0 var(--space-3xl) 0;
+        }
+
+        .home-hero__title {
+            font-size: var(--text-display);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -1px;
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Info Box Component */
+        .info-box {
+            background: var(--color-white);
+            padding: var(--space-2xl) var(--space-2xl);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 5px solid var(--color-primary);
+        }
+
+        .info-box--centered {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+
+        .info-box__title {
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+            font-size: var(--text-h2);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .info-box__text {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-normal);
+        }
+
+        .info-box__icon {
+            font-size: 4rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        /* Status/Empty States */
+        .status-icon {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            display: inline-block;
+        }
+
+        .status-icon--error {
+            color: var(--color-error);
+        }
+
+        .empty-text {
+            color: var(--color-text-muted);
+            padding: var(--space-md);
+        }
+
+        .error-detail {
+            color: var(--color-text-muted);
+            font-size: var(--text-caption);
+        }
+
         /* ============================================
            BUTTON SYSTEM (Swiss Federal Design)
            ============================================ */
@@ -1090,7 +1162,7 @@
             font-size: var(--text-h4);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-snug);
-            color: var(--color-interactive);
+            color: var(--color-text-primary);
         }
 
         .card__subtitle {
@@ -1226,7 +1298,7 @@
         .hero-title {
             font-size: var(--text-display);
             margin-bottom: var(--space-md);
-            color: var(--color-interactive);
+            color: var(--color-text-primary);
             letter-spacing: -1px;
             line-height: var(--line-height-tight);
             font-weight: var(--font-weight-bold);
@@ -1326,7 +1398,7 @@
 
         .detail-section h2 {
             font-size: var(--text-h2);
-            color: var(--color-interactive);
+            color: var(--color-text-primary);
             margin-bottom: var(--space-lg);
             border-bottom: 1px solid var(--color-border);
             padding-bottom: var(--space-md);
@@ -1410,7 +1482,7 @@
         }
 
         .list-icon-active {
-            color: var(--color-interactive);
+            color: var(--color-success);
             font-size: var(--text-h2) !important;
         }
 
@@ -1438,9 +1510,9 @@
         }
 
         .phase-badge.active {
-            background: var(--color-interactive);
+            background: var(--color-primary);
             color: var(--color-white);
-            border-color: var(--color-interactive);
+            border-color: var(--color-primary);
         }
 
         /* Tooltip Name Style for Informationen Table */
@@ -1463,7 +1535,7 @@
 
         .loading-spinner {
             font-size: var(--text-display);
-            color: var(--color-interactive);
+            color: var(--color-primary);
             animation: spin 1s linear infinite;
             margin-bottom: var(--space-md);
             display: inline-block;
@@ -1886,10 +1958,10 @@
                 console.error("Fehler beim Laden der Daten:", error);
                 contentArea.innerHTML = `
                     <div class="container error-state">
-                        <span class="material-icons-outlined" style="font-size: 3rem; color: var(--color-primary); margin-bottom:15px;">error_outline</span><br>
-                        <h2 style="margin-bottom:10px;">Fehler beim Laden der Daten</h2>
+                        <span class="material-icons-outlined status-icon status-icon--error">error_outline</span><br>
+                        <h2>Fehler beim Laden der Daten</h2>
                         <p>Konnte JSON-Dateien nicht laden.</p>
-                        <br><span style="color: #999; font-size: 0.8rem;">${error.message}</span>
+                        <br><span class="error-detail">${error.message}</span>
                     </div>`;
             }
         }
@@ -2133,7 +2205,7 @@
         }
 
         function renderPhaseBadges(phases) {
-            if(!phases || !Array.isArray(phases)) return '<span style="color:#ccc;">-</span>';
+            if(!phases || !Array.isArray(phases)) return '<span class="empty-text">-</span>';
             const phaseLabels = [2, 3, 4, 5, 6];
             let badgesHtml = '<div class="phase-compact-wrapper">';
             phases.forEach((isActive, index) => {
@@ -2312,8 +2384,8 @@
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="container">
-                    <div style="text-align: center; margin: 60px 0 80px 0;">
-                        <h1 style="font-size: 3rem; color: var(--color-interactive); margin-bottom: 30px; letter-spacing: -1px;">Digitale Bauwerksdokumentation</h1>
+                    <div class="home-hero">
+                        <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
                         <div class="central-search-container">
                             <div class="central-search-wrapper">
                                 <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
@@ -2322,12 +2394,12 @@
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
                     </div>
-                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--color-interactive);">
-                        <h2 style="color: var(--color-interactive); margin-bottom: 20px;">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
-                        <p style="font-size: 1.1rem; color: var(--color-text-primary);">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
+                    <div class="info-box">
+                        <h2 class="info-box__title">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
+                        <p class="info-box__text">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
                     </div>
                 </div>`;
-            
+
             setupGlobalSearch();
         }
 
@@ -2523,7 +2595,7 @@
                         <td class="col-val">${row.desc}</td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
-                : '<tr><td colspan="3" class="col-center" style="color:#999; padding:20px;">Keine Daten.</td></tr>';
+                : '<tr><td colspan="3" class="col-center empty-text">Keine Daten.</td></tr>';
 
             const infoRows = data.information && data.information.length > 0 ? data.information : [];
             const infoRowsHtml = infoRows.length > 0 
@@ -2535,7 +2607,7 @@
                         <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
-                : '<tr><td colspan="5" class="col-center" style="color:#999; padding:20px;">Keine Attribute (LOI).</td></tr>';
+                : '<tr><td colspan="5" class="col-center empty-text">Keine Attribute (LOI).</td></tr>';
 
             const docRows = data.documentation && data.documentation.length > 0 ? data.documentation : [];
             const docRowsHtml = docRows.length > 0 
@@ -2545,7 +2617,7 @@
                         <td class="col-val">${row.desc}</td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
-                : '<tr><td colspan="3" class="col-center" style="color:#999; padding:20px;">Keine Dokumente.</td></tr>';
+                : '<tr><td colspan="3" class="col-center empty-text">Keine Dokumente.</td></tr>';
 
             // Build back link with tags preserved
             const backLink = buildHashWithTags('catalog', activeTags);
@@ -2659,10 +2731,10 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 40px auto; border-top: 5px solid var(--color-interactive); text-align: center;">
-                        <span class="material-icons-outlined" style="font-size: 4rem; color: var(--color-text-muted); margin-bottom: 20px;">construction</span>
-                        <h2 style="color: var(--color-interactive); margin-bottom: 20px;">In Entwicklung</h2>
-                        <p style="font-size: 1.1rem; color: var(--color-text-secondary);">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
+                    <div class="info-box info-box--centered">
+                        <span class="material-icons-outlined info-box__icon">construction</span>
+                        <h2 class="info-box__title">In Entwicklung</h2>
+                        <p class="info-box__text">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
                     </div>
                 </div>`;
         }
