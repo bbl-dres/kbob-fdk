@@ -151,23 +151,6 @@
             --z-modal: 400;
             --z-tooltip: 500;
 
-            /* =====================
-               LEGACY ALIASES (for gradual migration)
-               ===================== */
-
-            /* These map old variable names to new ones for backwards compatibility */
-            --kbob-blue: var(--color-interactive);
-            --kbob-hover-blue: var(--color-interactive-hover);
-            --accent-red: var(--color-primary);
-            --text-dark: var(--color-text-primary);
-            --text-grey: var(--color-text-secondary);
-            --text-light-grey: var(--color-text-muted);
-            --bg-body: var(--color-bg-light);
-            --bg-white: var(--color-white);
-            --border-color: var(--color-border);
-            --hover-bg: var(--color-surface-blue);
-            --filter-teal: var(--color-surface-alt);
-            --toolbar-padding: var(--space-sm);
         }
 
         /* ============================================
@@ -303,15 +286,6 @@
             border-bottom: 1px solid var(--color-border-light);
         }
 
-        /* Legacy class alias */
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-md) var(--space-lg);
-            border-bottom: 1px solid var(--color-border-light);
-        }
-
         .logo-wrapper {
             display: flex;
             align-items: center;
@@ -321,17 +295,15 @@
         }
 
         .logo-swiss-cross {
-            font-size: var(--text-h3);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
             margin-right: var(--space-md);
-            border: 2px solid var(--color-primary);
-            border-radius: var(--border-radius-full);
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .logo-swiss-cross svg {
+            width: 100%;
+            height: 100%;
         }
 
         .lang-switch {
@@ -494,6 +466,8 @@
         .footer-content {
             padding-left: var(--space-lg);
             width: 100%;
+            display: flex;
+            gap: var(--space-xl);
         }
 
         footer a {
@@ -1054,9 +1028,8 @@
             gap: var(--space-lg);
         }
 
-        /* Card Component */
-        .card,
-        .element-card {
+        /* Card Component (BEM) */
+        .card {
             background: var(--color-white);
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -1068,15 +1041,13 @@
             flex-direction: column;
         }
 
-        .card:hover,
-        .element-card:hover {
+        .card:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
             border-color: var(--color-interactive);
         }
 
-        .card__image,
-        .card-img-container {
+        .card__image {
             height: 180px;
             background: var(--color-bg-light);
             display: flex;
@@ -1088,8 +1059,7 @@
         }
 
         /* Floating tag on card image */
-        .card__image .tag-badge,
-        .card-img-container .tag-badge {
+        .card__image .tag-badge {
             position: absolute;
             top: var(--space-md);
             left: var(--space-md);
@@ -1097,8 +1067,7 @@
             box-shadow: var(--shadow-sm);
         }
 
-        .card__image img,
-        .card-img-container img {
+        .card__image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1109,16 +1078,14 @@
             color: var(--color-bg-alt);
         }
 
-        .card__body,
-        .card-body {
+        .card__body {
             padding: var(--space-md);
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .card__title,
-        .card-title {
+        .card__title {
             margin: 0 0 var(--space-xs) 0;
             font-size: var(--text-h4);
             font-weight: var(--font-weight-bold);
@@ -1126,8 +1093,7 @@
             color: var(--color-interactive);
         }
 
-        .card__subtitle,
-        .card-subtitle {
+        .card__subtitle {
             font-size: var(--text-body-sm);
             color: var(--color-text-secondary);
             margin: 0 0 var(--space-md) 0;
@@ -1138,8 +1104,7 @@
             line-height: var(--line-height-normal);
         }
 
-        .card__tags,
-        .card-tags {
+        .card__tags {
             margin-top: auto;
             display: flex;
             gap: var(--space-sm);
@@ -1683,7 +1648,13 @@
     <header>
         <div class="header__top">
             <div class="logo-wrapper">
-                <div class="logo-swiss-cross">+</div> 
+                <div class="logo-swiss-cross" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schweizerkreuz">
+                        <rect width="32" height="32" rx="16" fill="#DC0018"/>
+                        <path d="M14 8h4v16h-4V8z" fill="#FFFFFF"/>
+                        <path d="M8 14h16v4H8v-4z" fill="#FFFFFF"/>
+                    </svg>
+                </div>
                 <div>Schweizerische Eidgenossenschaft <br> <strong>KBOB / BBL</strong></div>
             </div>
             <div class="lang-switch">
@@ -1730,7 +1701,7 @@
     <footer>
         <div class="footer-content">
            <a href="https://github.com/davras5/kbob-fdk" target="_blank">Quellcode</a>
-           <a href="https://www.admin.ch/gov/de/start/rechtliches.html" target="_blank" style="margin-left: 30px;">Rechtliches</a>
+           <a href="https://www.admin.ch/gov/de/start/rechtliches.html" target="_blank">Rechtliches</a>
         </div>
     </footer>
 
@@ -1915,7 +1886,7 @@
                 console.error("Fehler beim Laden der Daten:", error);
                 contentArea.innerHTML = `
                     <div class="container error-state">
-                        <span class="material-icons-outlined" style="font-size: 3rem; color: var(--accent-red); margin-bottom:15px;">error_outline</span><br>
+                        <span class="material-icons-outlined" style="font-size: 3rem; color: var(--color-primary); margin-bottom:15px;">error_outline</span><br>
                         <h2 style="margin-bottom:10px;">Fehler beim Laden der Daten</h2>
                         <p>Konnte JSON-Dateien nicht laden.</p>
                         <br><span style="color: #999; font-size: 0.8rem;">${error.message}</span>
@@ -2342,7 +2313,7 @@
             contentArea.innerHTML = `
                 <div class="container">
                     <div style="text-align: center; margin: 60px 0 80px 0;">
-                        <h1 style="font-size: 3rem; color: var(--kbob-blue); margin-bottom: 30px; letter-spacing: -1px;">Digitale Bauwerksdokumentation</h1>
+                        <h1 style="font-size: 3rem; color: var(--color-interactive); margin-bottom: 30px; letter-spacing: -1px;">Digitale Bauwerksdokumentation</h1>
                         <div class="central-search-container">
                             <div class="central-search-wrapper">
                                 <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
@@ -2351,9 +2322,9 @@
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
                     </div>
-                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--kbob-blue);">
-                        <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-dark);">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
+                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 0 auto; border-top: 5px solid var(--color-interactive);">
+                        <h2 style="color: var(--color-interactive); margin-bottom: 20px;">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
+                        <p style="font-size: 1.1rem; color: var(--color-text-primary);">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
                     </div>
                 </div>`;
             
@@ -2688,10 +2659,10 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 40px auto; border-top: 5px solid var(--kbob-blue); text-align: center;">
-                        <span class="material-icons-outlined" style="font-size: 4rem; color: var(--text-light-grey); margin-bottom: 20px;">construction</span>
-                        <h2 style="color: var(--kbob-blue); margin-bottom: 20px;">In Entwicklung</h2>
-                        <p style="font-size: 1.1rem; color: var(--text-grey);">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
+                    <div style="background: #fff; padding: 50px; border-radius: 4px; box-shadow: var(--shadow-sm); max-width: 900px; margin: 40px auto; border-top: 5px solid var(--color-interactive); text-align: center;">
+                        <span class="material-icons-outlined" style="font-size: 4rem; color: var(--color-text-muted); margin-bottom: 20px;">construction</span>
+                        <h2 style="color: var(--color-interactive); margin-bottom: 20px;">In Entwicklung</h2>
+                        <p style="font-size: 1.1rem; color: var(--color-text-secondary);">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
                     </div>
                 </div>`;
         }
