@@ -1169,41 +1169,53 @@
         }
 
         /* ============================================
-           GRID VIEW (Card Component - BEM)
+           GRID VIEW (Card Component - Swiss CD Style)
            ============================================ */
         .element-grid {
             flex: 1;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-xl);
         }
 
-        /* Card Component (BEM) */
+        /* Card Component - Swiss Federal CD Style */
         .card {
             background: var(--color-white);
-            border-radius: var(--border-radius);
+            border-radius: 0;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--color-border-light);
-            transition: all var(--transition-fast);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: none;
+            transition: box-shadow var(--transition-normal), transform var(--transition-normal);
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .card:hover .card__title {
+            color: var(--color-primary-dark);
+        }
+
+        .card:hover .card__arrow-btn {
+            background: var(--color-primary);
             border-color: var(--color-primary);
         }
 
+        .card:hover .card__arrow-btn svg {
+            stroke: var(--color-white);
+        }
+
         .card__image {
-            height: 180px;
+            height: 200px;
             background: var(--color-bg-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid var(--color-border-light);
             overflow: hidden;
             position: relative;
         }
@@ -1228,37 +1240,93 @@
             color: var(--color-bg-alt);
         }
 
+        .card__content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 0;
+        }
+
         .card__body {
-            padding: var(--space-md);
+            padding: var(--space-lg) var(--space-lg) var(--space-md);
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
+        .card__date {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-light);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
         .card__title {
-            margin: 0 0 var(--space-xs) 0;
+            margin: 0 0 var(--space-sm) 0;
             font-size: var(--text-h4);
             font-weight: var(--font-weight-bold);
             line-height: var(--line-height-snug);
-            color: var(--color-text-primary);
+            color: var(--color-primary);
+            transition: color var(--transition-fast);
         }
 
         .card__subtitle {
-            font-size: var(--text-body-sm);
-            color: var(--color-text-secondary);
-            margin: 0 0 var(--space-md) 0;
+            font-size: var(--text-body);
+            color: var(--color-text-primary);
+            margin: 0;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            line-height: var(--line-height-normal);
+            line-height: var(--line-height-relaxed);
         }
 
         .card__tags {
-            margin-top: auto;
+            margin-top: var(--space-md);
             display: flex;
             gap: var(--space-sm);
             flex-wrap: wrap;
+        }
+
+        .card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) var(--space-lg) var(--space-lg);
+        }
+
+        .card__footer--end {
+            justify-content: flex-end;
+        }
+
+        .card__arrow-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--color-primary);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .card__arrow-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--color-primary);
+            stroke-width: 2;
+            fill: none;
+            transition: stroke var(--transition-fast);
+        }
+
+        .card__arrow-btn:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .card__arrow-btn:hover svg {
+            stroke: var(--color-white);
         }
 
         /* ============================================
@@ -2760,17 +2828,21 @@
             return '<div class="no-results">Keine Elemente gefunden.</div>';
         }
 
+        // Arrow SVG for Swiss CD style cards
+        const arrowSvg = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
         // Elements Grid/List Renderers
         function renderGridItemsHTML(items, activeTags = []) {
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
-            
+
             return items.map(el => {
                 const disziplin = el.tags && el.tags['disziplin'];
                 const otherTags = { ...el.tags };
                 if(disziplin) delete otherTags['disziplin'];
-                
+
                 const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
                 const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
+                const hasOtherTags = Object.keys(otherTags).length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
@@ -2778,10 +2850,15 @@
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">image</span>'}
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__title">${el.title}</h3>
-                        <p class="card__subtitle">${el.subtitle || el.classification}</p>
-                        <div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>
+                    <div class="card__content">
+                        <div class="card__body">
+                            <h3 class="card__title">${el.title}</h3>
+                            <p class="card__subtitle">${el.subtitle || el.classification}</p>
+                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                        </div>
+                        <div class="card__footer card__footer--end">
+                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                        </div>
                     </div>
                 </div>
             `}).join('');
@@ -2812,14 +2889,15 @@
         // Documents Grid/List Renderers
         function renderDocGridItemsHTML(items, activeTags = []) {
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
-            
+
             return items.map(doc => {
                 const disziplin = doc.tags && doc.tags['disziplin'];
                 const otherTags = { ...doc.tags };
                 if(disziplin) delete otherTags['disziplin'];
-                
+
                 const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
                 const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
+                const hasOtherTags = Object.keys(otherTags).length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
@@ -2827,10 +2905,15 @@
                         ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<span class="material-icons-outlined placeholder-icon" aria-hidden="true">description</span>'}
                     </div>
-                    <div class="card__body">
-                        <h3 class="card__title">${doc.title}</h3>
-                        <p class="card__subtitle">${doc.description || doc.category}</p>
-                        <div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>
+                    <div class="card__content">
+                        <div class="card__body">
+                            <h3 class="card__title">${doc.title}</h3>
+                            <p class="card__subtitle">${doc.description || doc.category}</p>
+                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                        </div>
+                        <div class="card__footer card__footer--end">
+                            <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                        </div>
                     </div>
                 </div>
             `}).join('');
