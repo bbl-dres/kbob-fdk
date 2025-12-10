@@ -26,7 +26,7 @@
             /* Interactive Colors */
             --color-interactive: #006699;
             --color-interactive-hover: #005580;
-            --color-focus: #66AFE9;
+            --color-focus: #6666ee;
 
             /* Neutral Colors */
             --color-black: #000000;
@@ -761,7 +761,7 @@
         .form-input:focus {
             border-color: var(--color-focus);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(102, 175, 233, 0.25);
+            box-shadow: none;
         }
 
         .form-input:invalid {
@@ -790,8 +790,13 @@
             box-shadow: var(--shadow-md);
             border-radius: var(--border-radius);
             overflow: hidden;
-            border: 1px solid var(--color-border-light);
+            border: 2px solid var(--color-border-light);
             background: var(--color-white);
+            transition: border-color var(--transition-fast);
+        }
+
+        .central-search-wrapper:focus-within {
+            border-color: var(--color-focus);
         }
 
         .central-search-input {
