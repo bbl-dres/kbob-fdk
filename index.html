@@ -3320,14 +3320,14 @@
                         </div>
                     </div>
 
+                    <aside class="sidebar-filter ${filterPanelClass}">
+                        ${renderSidebarHeader(activeTags)}
+                        <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                    </aside>
+
                     <div class="catalog-layout">
-                        <aside class="sidebar-filter ${filterPanelClass}">
-                            ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </aside>
-                        
                         <div id="catalogContent" style="flex:1; min-width:0;">
                              ${elementsView === 'grid' 
                                 ? `<div class="element-grid">${renderGridItemsHTML(filteredByTags, activeTags)}</div>` 
@@ -3389,14 +3389,14 @@
                         </div>
                     </div>
 
+                    <aside class="sidebar-filter ${filterPanelClass}">
+                        ${renderSidebarHeader(activeTags)}
+                        <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                    </aside>
+
                     <div class="catalog-layout">
-                        <aside class="sidebar-filter ${filterPanelClass}">
-                            ${renderSidebarHeader(activeTags)}
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </aside>
-                        
                         <div id="documentsContent" style="flex:1; min-width:0;">
                              ${documentsView === 'grid' 
                                 ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>` 
