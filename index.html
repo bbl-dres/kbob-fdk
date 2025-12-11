@@ -3479,7 +3479,6 @@
 
             const searchInput = document.getElementById('catalogSearchInput');
             if(searchInput) {
-                searchInput.focus();
                 searchInput.addEventListener('input', (e) => {
                     document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
                     const searchTerm = e.target.value.toLowerCase();
