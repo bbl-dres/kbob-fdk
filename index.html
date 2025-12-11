@@ -583,17 +583,18 @@
            ============================================ */
         .breadcrumb-bar {
             background: var(--color-white);
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--space-md) 0;
+            border-top: 3px solid var(--color-interactive);
         }
 
         .breadcrumb-bar .container {
             max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 0 var(--space-xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        }
+
+        .breadcrumb-row {
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-border-light);
         }
 
         .breadcrumb-nav {
@@ -616,6 +617,34 @@
             text-decoration: underline;
         }
 
+        .breadcrumb-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .breadcrumb-item .dropdown-icon {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            cursor: pointer;
+        }
+
+        .breadcrumb-item .dropdown-icon svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .breadcrumb-item .dropdown-icon:hover {
+            border-color: var(--color-interactive);
+            color: var(--color-interactive);
+        }
+
         .breadcrumb-nav .breadcrumb-separator {
             color: var(--color-text-muted);
             font-size: var(--text-caption);
@@ -630,25 +659,18 @@
 
         .breadcrumb-nav .breadcrumb-current {
             color: var(--color-text-primary);
-            font-weight: var(--font-weight-medium);
         }
 
-        .breadcrumb-nav .breadcrumb-dropdown {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
-            cursor: pointer;
-        }
-
-        .breadcrumb-nav .breadcrumb-dropdown svg {
-            width: 14px;
-            height: 14px;
+        .toolbar-row {
+            display: flex;
+            justify-content: flex-end;
+            padding: var(--space-lg) 0;
         }
 
         .page-toolbar {
             display: flex;
             align-items: center;
-            gap: var(--space-xs);
+            gap: var(--space-sm);
         }
 
         .toolbar-btn {
@@ -683,7 +705,6 @@
             flex: 1 0 auto;
             min-height: 600px;
             background-color: var(--color-white);
-            padding-top: var(--space-2xl);
         }
 
         /* ============================================
@@ -3922,16 +3943,20 @@
 
     <div class="breadcrumb-bar" id="breadcrumb-bar">
         <div class="container">
-            <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
-                <a href="#home">Startseite</a>
-            </nav>
-            <div class="page-toolbar">
-                <button class="toolbar-btn" onclick="window.print()" title="Drucken" aria-label="Seite drucken">
-                    <i data-lucide="printer" aria-hidden="true"></i>
-                </button>
-                <button class="toolbar-btn" onclick="shareCurrentPage()" title="Teilen" aria-label="Seite teilen">
-                    <i data-lucide="share-2" aria-hidden="true"></i>
-                </button>
+            <div class="breadcrumb-row">
+                <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="#home">Startseite</a>
+                </nav>
+            </div>
+            <div class="toolbar-row">
+                <div class="page-toolbar">
+                    <button class="toolbar-btn" onclick="window.print()" title="Drucken" aria-label="Seite drucken">
+                        <i data-lucide="printer" aria-hidden="true"></i>
+                    </button>
+                    <button class="toolbar-btn" onclick="shareCurrentPage()" title="Teilen" aria-label="Seite teilen">
+                        <i data-lucide="share-2" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -4062,21 +4087,18 @@
                 });
             }
 
-            // Build HTML
+            // Build HTML with dropdown icons
             const html = breadcrumbs.map((crumb, index) => {
-                if (index > 0) {
-                    const separator = '<span class="breadcrumb-separator"><i data-lucide="chevron-right" aria-hidden="true"></i></span>';
-                    if (crumb.current) {
-                        return `${separator}<span class="breadcrumb-current">${crumb.label}</span>`;
-                    } else {
-                        return `${separator}<a href="${crumb.href}">${crumb.label}</a>`;
-                    }
+                const separator = index > 0
+                    ? '<span class="breadcrumb-separator"><i data-lucide="chevron-right" aria-hidden="true"></i></span>'
+                    : '';
+
+                if (crumb.current) {
+                    // Current item: show with dropdown icon
+                    return `${separator}<span class="breadcrumb-item"><span class="breadcrumb-current">${crumb.label}</span><span class="dropdown-icon"><i data-lucide="chevron-down" aria-hidden="true"></i></span></span>`;
                 } else {
-                    if (crumb.current) {
-                        return `<span class="breadcrumb-current">${crumb.label}</span>`;
-                    } else {
-                        return `<a href="${crumb.href}">${crumb.label}</a>`;
-                    }
+                    // Link item: show with dropdown icon
+                    return `${separator}<span class="breadcrumb-item"><a href="${crumb.href}">${crumb.label}</a><span class="dropdown-icon"><i data-lucide="chevron-down" aria-hidden="true"></i></span></span>`;
                 }
             }).join('');
 
