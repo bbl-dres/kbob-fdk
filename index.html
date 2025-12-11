@@ -4305,10 +4305,18 @@
                 tags.push(tag);
             }
 
-            // Build base hash
+            // Build base hash - redirect to list view if on detail page
             let baseHash = route;
             if (id) {
-                baseHash = `${route}/${id}`;
+                // On detail page: redirect to corresponding list view
+                const routeMap = {
+                    'element': 'elements',
+                    'document': 'documents',
+                    'usecase': 'usecases',
+                    'model': 'models',
+                    'epd': 'epds'
+                };
+                baseHash = routeMap[route] || route;
             }
 
             // Navigate to new URL
