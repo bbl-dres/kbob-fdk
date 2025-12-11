@@ -700,6 +700,18 @@
             position: relative;
         }
 
+        /* Home Video */
+        .home-video {
+            max-width: 800px;
+            margin: var(--space-2xl) auto 0;
+            aspect-ratio: 16 / 9;
+        }
+        .home-video iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--border-radius);
+        }
+
         /* Home Search Dropdown - positioned below home search */
         .home-search-container .search-dropdown {
             position: absolute;
@@ -3452,6 +3464,9 @@
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
+                        </div>
+                        <div class="home-video">
+                            <iframe src="https://www.youtube.com/embed/NEtzaNVVxz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
 
