@@ -406,22 +406,28 @@
 
         /* Language Switch */
         .lang-switch {
-            font-weight: var(--font-weight-medium);
-            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
             font-size: var(--text-body-sm);
         }
 
         .lang-switch span {
-            margin-left: var(--space-sm);
             cursor: pointer;
             color: var(--color-text-secondary);
             padding: var(--space-xs);
+            transition: color var(--transition-fast);
+        }
+
+        .lang-switch span:not(:last-child)::after {
+            content: "|";
+            margin-left: var(--space-xs);
+            color: var(--color-border);
+            cursor: default;
         }
 
         .lang-switch span.active,
         .lang-switch span:hover {
             color: var(--color-primary);
-            text-decoration: underline;
             font-weight: var(--font-weight-bold);
         }
 
@@ -3998,7 +4004,12 @@
             </a>
             <div class="header__controls">
                 <div class="header__links">
-                    <a href="https://www.kbob.admin.ch/de/kontakt-kbob" class="header__link" target="_blank">Kontakt</a>
+                    <div class="lang-switch" role="navigation" aria-label="Sprachwahl">
+                        <span class="active" data-lang="de" tabindex="0">DE</span>
+                        <span data-lang="fr" tabindex="0">FR</span>
+                        <span data-lang="it" tabindex="0">IT</span>
+                        <span data-lang="en" tabindex="0">EN</span>
+                    </div>
                 </div>
                 <div class="header__search">
                     <button class="header__search-toggle" id="headerSearchToggle" aria-expanded="false" aria-controls="headerSearchForm">
@@ -6368,11 +6379,41 @@
              }, 100);
         }
 
+        // Language Switch
+        function initLanguageSwitch() {
+            const langSwitch = document.querySelector('.lang-switch');
+            if (!langSwitch) return;
+
+            langSwitch.addEventListener('click', (e) => {
+                const span = e.target.closest('span[data-lang]');
+                if (!span) return;
+
+                // Update active state
+                langSwitch.querySelectorAll('span').forEach(s => s.classList.remove('active'));
+                span.classList.add('active');
+
+                // Log selected language (for future implementation)
+                const lang = span.dataset.lang;
+                console.log('Language selected:', lang);
+
+                // TODO: Implement actual language switching
+            });
+
+            // Keyboard support
+            langSwitch.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.target.click();
+                }
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             // Initialize Lucide icons for loading state
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+            initLanguageSwitch();
             initApp();
         });
     </script>
