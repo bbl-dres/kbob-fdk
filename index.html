@@ -353,6 +353,10 @@
             color: inherit;
         }
 
+        .header__branding:hover {
+            text-decoration: none;
+        }
+
         /* Swiss Coat of Arms */
         .header__logo {
             width: 34px;
@@ -651,8 +655,8 @@
         }
 
         .breadcrumb-nav a:hover {
-            color: var(--color-interactive);
-            text-decoration: underline;
+            color: var(--color-primary);
+            text-decoration: none;
         }
 
         .breadcrumb-item {
@@ -4050,8 +4054,11 @@
             breadcrumbs.push({ label: 'Startseite', href: '#home' });
 
             if (route === 'home') {
-                // Just show Startseite as current (no link)
-                breadcrumbs = [{ label: 'Startseite', href: null, current: true }];
+                // Show Startseite > Fachdatenkatalog for home view
+                breadcrumbs = [
+                    { label: 'Startseite', href: '#home' },
+                    { label: 'Fachdatenkatalog', href: null, current: true }
+                ];
             } else if (parentRoutes[route]) {
                 // Detail page - show parent category and current item
                 const parentRoute = parentRoutes[route];
