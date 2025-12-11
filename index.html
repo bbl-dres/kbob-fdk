@@ -905,6 +905,21 @@
             position: relative;
         }
 
+        /* Hero Search Bar - larger search bar for home page */
+        .home-search-container .gallery-filter-wrapper {
+            height: calc(var(--toolbar-height) * 1.3);
+            border-radius: calc(var(--border-radius) * 1.25);
+        }
+
+        .home-search-container .gallery-filter-input {
+            font-size: var(--text-h5);
+            padding: 0 var(--space-lg);
+        }
+
+        .home-search-container .gallery-filter-btn {
+            width: 64px;
+        }
+
         /* Home Video */
         .home-video {
             max-width: 800px;
@@ -1607,6 +1622,7 @@
         .gallery-filter-container .gallery-filter-wrapper {
             width: 400px;
             flex-shrink: 0;
+            height: var(--toolbar-height);
         }
 
         .gallery-filter-wrapper {
