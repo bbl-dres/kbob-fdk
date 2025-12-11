@@ -33,10 +33,10 @@
             --color-text-primary: #333333;
             --color-text-secondary: #454545;
             --color-text-muted: #757575;
-            --color-border: #CCCCCC;
-            --color-border-light: #D5D5D5;
-            --color-bg-alt: #E5E5E5;
-            --color-bg-light: #F5F5F5;
+            --color-border: #D5D5D5;
+            --color-border-light: #E0E0E0;
+            --color-bg-alt: #F0F0F0;
+            --color-bg-light: #F7F7F7;
             --color-white: #FFFFFF;
 
             /* Surface Colors */
@@ -169,7 +169,7 @@
             margin: 0;
             padding: 0;
             color: var(--color-text-primary);
-            background-color: var(--color-bg-light);
+            background-color: var(--color-white);
             font-size: var(--text-body);
             line-height: var(--line-height-normal);
             -webkit-font-smoothing: antialiased;
@@ -1266,9 +1266,9 @@
         .tag-badge {
             display: inline-flex;
             align-items: center;
-            background: var(--color-bg-alt);
+            background: var(--color-white);
             color: var(--color-text-primary);
-            border: none;
+            border: 1px solid var(--color-border);
             font-size: var(--text-body-sm);
             font-weight: var(--font-weight-medium);
             padding: var(--space-sm) var(--space-md);
@@ -1279,7 +1279,8 @@
         }
 
         .tag-badge:hover {
-            background-color: var(--color-border);
+            background-color: var(--color-bg-light);
+            border-color: var(--color-text-muted);
         }
 
         /* Active tag state */
@@ -1625,7 +1626,7 @@
         }
 
         .placeholder-icon {
-            color: var(--color-bg-alt);
+            color: var(--color-border);
         }
 
         .card__content {
@@ -1873,7 +1874,7 @@
         }
 
         .hero-image-placeholder {
-            color: var(--color-bg-alt);
+            color: var(--color-border);
         }
 
         /* Detail Layout */
