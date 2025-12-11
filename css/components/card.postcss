@@ -5,7 +5,13 @@
 .card {
   @apply flex flex-col h-full;
   @apply bg-white;
+  @apply border-2 border-transparent;
+  @apply transition-all duration-300 ease-in-out;
   container-type: inline-size;
+
+  &:hover {
+    @apply border-white;
+  }
 }
 
 .card--default {
