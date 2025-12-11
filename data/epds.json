@@ -1,0 +1,192 @@
+[
+  {
+    "id": "epd1",
+    "title": "Beton C25/30",
+    "image": "",
+    "category": "Baustoffe",
+    "subcategory": "Massivbau",
+    "description": "Umweltproduktdeklaration für Normalbeton der Festigkeitsklasse C25/30",
+    "tags": {
+      "disziplin": "Tragwerk",
+      "kategorie": "Baustoffe"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-B01", "desc": "Beton" },
+      { "system": "eBKP-H", "code": "C2.1", "desc": "Ortbeton" }
+    ],
+    "gwp": 238,
+    "unit": "kg CO₂-eq/m³",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd2",
+    "title": "Betonstahl",
+    "image": "",
+    "category": "Baustoffe",
+    "subcategory": "Massivbau",
+    "description": "Ökobilanz für Bewehrungsstahl nach SN EN 10080",
+    "tags": {
+      "disziplin": "Tragwerk",
+      "kategorie": "Baustoffe"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-S01", "desc": "Betonstahl" },
+      { "system": "eBKP-H", "code": "C2.2", "desc": "Bewehrung" }
+    ],
+    "gwp": 1420,
+    "unit": "kg CO₂-eq/t",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd3",
+    "title": "Kalksandstein",
+    "image": "",
+    "category": "Baustoffe",
+    "subcategory": "Mauerwerk",
+    "description": "EPD für Kalksandstein-Mauerwerk nach DIN 106",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Baustoffe"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-M01", "desc": "Kalksandstein" },
+      { "system": "eBKP-H", "code": "C3.1", "desc": "Mauerwerk" }
+    ],
+    "gwp": 152,
+    "unit": "kg CO₂-eq/m³",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd4",
+    "title": "Konstruktionsholz",
+    "image": "",
+    "category": "Baustoffe",
+    "subcategory": "Holzbau",
+    "description": "Umweltdaten für Brettschichtholz (BSH) aus Fichtenholz",
+    "tags": {
+      "disziplin": "Tragwerk",
+      "kategorie": "Baustoffe"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-H01", "desc": "Brettschichtholz" },
+      { "system": "eBKP-H", "code": "C4.1", "desc": "Holzkonstruktion" }
+    ],
+    "gwp": -680,
+    "unit": "kg CO₂-eq/m³",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd5",
+    "title": "Mineralwolle",
+    "image": "",
+    "category": "Dämmstoffe",
+    "subcategory": "Fassade",
+    "description": "Ökobilanz für Steinwolle-Dämmplatten",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Dämmstoffe"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-D01", "desc": "Mineralwolle" },
+      { "system": "eBKP-H", "code": "E1.1", "desc": "Wärmedämmung" }
+    ],
+    "gwp": 1.2,
+    "unit": "kg CO₂-eq/kg",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd6",
+    "title": "Dreifachverglasung",
+    "image": "",
+    "category": "Bauteile",
+    "subcategory": "Fenster",
+    "description": "EPD für 3-fach Isolierverglasung mit Wärmeschutzbeschichtung",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Bauteile"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-G01", "desc": "Isolierverglasung" },
+      { "system": "eBKP-H", "code": "E2.1", "desc": "Fenster" }
+    ],
+    "gwp": 28.5,
+    "unit": "kg CO₂-eq/m²",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd7",
+    "title": "Aluminiumfassade",
+    "image": "",
+    "category": "Bauteile",
+    "subcategory": "Fassade",
+    "description": "Umweltdaten für Aluminium-Pfosten-Riegel-Fassade",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Bauteile"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-F01", "desc": "Alufassade" },
+      { "system": "eBKP-H", "code": "E3.1", "desc": "Fassadenbekleidung" }
+    ],
+    "gwp": 12.8,
+    "unit": "kg CO₂-eq/kg",
+    "phases": [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd8",
+    "title": "Photovoltaikmodul",
+    "image": "",
+    "category": "Technik",
+    "subcategory": "Erneuerbare Energie",
+    "description": "Ökobilanz für monokristalline Solarmodule",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Technik"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-PV01", "desc": "PV-Modul" },
+      { "system": "eBKP-H", "code": "D8.1", "desc": "Photovoltaik" }
+    ],
+    "gwp": 45,
+    "unit": "kg CO₂-eq/m²",
+    "phases": [0, 0, 0, 1, 1, 1, 0, 0, 0, 0]
+  },
+  {
+    "id": "epd9",
+    "title": "Wärmepumpe Luft/Wasser",
+    "image": "",
+    "category": "Technik",
+    "subcategory": "Heizung",
+    "description": "EPD für Luft-Wasser-Wärmepumpen bis 15 kW",
+    "tags": {
+      "disziplin": "Haustechnik",
+      "kategorie": "Technik"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-WP01", "desc": "Wärmepumpe" },
+      { "system": "eBKP-H", "code": "D5.1", "desc": "Wärmeerzeugung" }
+    ],
+    "gwp": 2850,
+    "unit": "kg CO₂-eq/Stk",
+    "phases": [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+  },
+  {
+    "id": "epd10",
+    "title": "Linoleum",
+    "image": "",
+    "category": "Ausbau",
+    "subcategory": "Bodenbelag",
+    "description": "Umweltproduktdeklaration für Linoleum-Bodenbelag",
+    "tags": {
+      "disziplin": "Architektur",
+      "kategorie": "Ausbau"
+    },
+    "classifications": [
+      { "system": "KBOB-EPD", "code": "EPD-L01", "desc": "Linoleum" },
+      { "system": "eBKP-H", "code": "G2.1", "desc": "Bodenbelag" }
+    ],
+    "gwp": 4.2,
+    "unit": "kg CO₂-eq/m²",
+    "phases": [0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
+  }
+]
