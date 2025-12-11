@@ -3413,18 +3413,18 @@
             if (queryPart) {
                 const params = new URLSearchParams(queryPart);
                 params.getAll('tag').forEach(tag => {
-                    if (tag && tag.includes(':')) {
+                    if (tag) {
                         tags.push(tag);
                     }
                 });
             }
-            
+
             return { route, id, tags };
         }
-        
+
         /**
          * Get active tags from the current URL
-         * @returns {string[]} Array of tag strings like ['disziplin:Architektur', 'ifcClass:IfcWindow']
+         * @returns {string[]} Array of tag strings like ['Architektur', 'IfcWindow']
          */
         function getActiveTagsFromURL() {
             return parseHashWithParams().tags;
@@ -3446,28 +3446,26 @@
         
         /**
          * Toggle a tag in the URL (add if missing, remove if present)
-         * @param {string} key - Tag key (e.g., 'disziplin')
-         * @param {string} value - Tag value (e.g., 'Architektur')
+         * @param {string} tag - Tag string (e.g., 'Architektur')
          */
-        window.toggleTagInURL = function(key, value) {
-            const tagString = `${key}:${value}`;
+        window.toggleTagInURL = function(tag) {
             const { route, id, tags } = parseHashWithParams();
-            
-            const tagIndex = tags.indexOf(tagString);
+
+            const tagIndex = tags.indexOf(tag);
             if (tagIndex > -1) {
                 // Remove tag
                 tags.splice(tagIndex, 1);
             } else {
                 // Add tag
-                tags.push(tagString);
+                tags.push(tag);
             }
-            
+
             // Build base hash
             let baseHash = route;
             if (id) {
                 baseHash = `${route}/${id}`;
             }
-            
+
             // Navigate to new URL
             window.location.hash = buildHashWithTags(baseHash, tags);
         }
@@ -3510,26 +3508,22 @@
             if (!activeTags || activeTags.length === 0) {
                 return data;
             }
-            
+
             return data.filter(item => {
-                if (!item.tags) return false;
-                
-                return activeTags.every(tagString => {
-                    const [key, value] = tagString.split(':');
-                    return item.tags[key] === value;
-                });
+                if (!item.tags || !Array.isArray(item.tags)) return false;
+
+                return activeTags.every(tag => item.tags.includes(tag));
             });
         }
-        
+
         /**
          * Check if a specific tag is active
-         * @param {string} key - Tag key
-         * @param {string} value - Tag value
+         * @param {string} tag - Tag string
          * @returns {boolean}
          */
-        function isTagActive(key, value) {
+        function isTagActive(tag) {
             const activeTags = getActiveTagsFromURL();
-            return activeTags.includes(`${key}:${value}`);
+            return activeTags.includes(tag);
         }
 
         // --- INITIALIZATION ---
@@ -3717,12 +3711,11 @@
 
         // --- RENDER HELPERS ---
         function renderTagsHtml(tagsData, activeTags = []) {
-            if (!tagsData) return '';
-            return Object.entries(tagsData).map(([key, value]) => {
-                const tagString = `${key}:${value}`;
-                const isActive = activeTags.includes(tagString);
+            if (!tagsData || !Array.isArray(tagsData)) return '';
+            return tagsData.map(tag => {
+                const isActive = activeTags.includes(tag);
                 const activeClass = isActive ? 'active' : '';
-                return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${key}', '${value}')" title="Filter nach ${key}: ${value}">${key}: ${value}</span>`;
+                return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
             }).join('');
         }
         
@@ -3779,25 +3772,18 @@
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
 
             return items.map(el => {
-                const disziplin = el.tags && el.tags['disziplin'];
-                const otherTags = { ...el.tags };
-                if(disziplin) delete otherTags['disziplin'];
-
-                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
-                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
-                const hasOtherTags = Object.keys(otherTags).length > 0;
+                const hasTags = el.tags && Array.isArray(el.tags) && el.tags.length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card__image">
-                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
                             <h3 class="card__title">${el.title}</h3>
                             <p class="card__subtitle">${el.subtitle || el.classification}</p>
-                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(el.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3834,25 +3820,18 @@
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
 
             return items.map(doc => {
-                const disziplin = doc.tags && doc.tags['disziplin'];
-                const otherTags = { ...doc.tags };
-                if(disziplin) delete otherTags['disziplin'];
-
-                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
-                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
-                const hasOtherTags = Object.keys(otherTags).length > 0;
+                const hasTags = doc.tags && Array.isArray(doc.tags) && doc.tags.length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card__image">
-                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<i data-lucide="file-text" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
                             <h3 class="card__title">${doc.title}</h3>
                             <p class="card__subtitle">${doc.description || doc.category}</p>
-                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(doc.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3889,25 +3868,18 @@
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
 
             return items.map(item => {
-                const disziplin = item.tags && item.tags['disziplin'];
-                const otherTags = { ...item.tags };
-                if(disziplin) delete otherTags['disziplin'];
-
-                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
-                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
-                const hasOtherTags = Object.keys(otherTags).length > 0;
+                const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
                     <div class="card__image">
-                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="workflow" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3944,25 +3916,18 @@
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
 
             return items.map(item => {
-                const disziplin = item.tags && item.tags['disziplin'];
-                const otherTags = { ...item.tags };
-                if(disziplin) delete otherTags['disziplin'];
-
-                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
-                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
-                const hasOtherTags = Object.keys(otherTags).length > 0;
+                const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags)}'">
                     <div class="card__image">
-                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="boxes" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3999,25 +3964,18 @@
             if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
 
             return items.map(item => {
-                const disziplin = item.tags && item.tags['disziplin'];
-                const otherTags = { ...item.tags };
-                if(disziplin) delete otherTags['disziplin'];
-
-                const disziplinTagString = disziplin ? `disziplin:${disziplin}` : '';
-                const disziplinActive = activeTags.includes(disziplinTagString) ? 'active' : '';
-                const hasOtherTags = Object.keys(otherTags).length > 0;
+                const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
 
                 return `
                 <div class="card" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags)}'">
                     <div class="card__image">
-                        ${disziplin ? `<span class="tag-badge ${disziplinActive}" onclick="event.stopPropagation(); toggleTagInURL('disziplin', '${disziplin}')">disziplin: ${disziplin}</span>` : ''}
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="leaf" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__content">
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasOtherTags ? `<div class="card__tags">${renderTagsHtml(otherTags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>

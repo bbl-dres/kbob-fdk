@@ -6,7 +6,7 @@
     "image": "assets/img/window.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
-    "tags": { "ifcClass": "IfcWindow", "disziplin": "Architektur" },
+    "tags": ["IfcWindow", "Architektur"],
     "classifications": [
       { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
       { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" },
@@ -47,10 +47,10 @@
     "id": "e2",
     "title": "Innentür (Holz)",
     "classification": "IfcDoor",
-    "image": "assets/img/door_interior.jpg", 
+    "image": "assets/img/door_interior.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
-    "tags": { "ifcClass": "IfcDoor", "disziplin": "Architektur" },
+    "tags": ["IfcDoor", "Architektur"],
     "classifications": [
       { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" },
       { "system": "DIN 276", "code": "335", "desc": "Innentüren" }
@@ -88,7 +88,7 @@
     "image": "assets/img/wall.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Tragende Wand aus Beton oder Mauerwerk.",
-    "tags": { "ifcClass": "IfcWall", "disziplin": "Architektur" },
+    "tags": ["IfcWall", "Architektur"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.1", "desc": "Aussenwand Konstruktion" },
         { "system": "DIN 276", "code": "331", "desc": "Tragende Außenwände" }
@@ -124,7 +124,7 @@
     "image": "assets/img/slab.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
-    "tags": { "ifcClass": "IfcSlab", "disziplin": "Tragwerk" },
+    "tags": ["IfcSlab", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C1.1", "desc": "Bodenplatte" },
         { "system": "DIN 276", "code": "322", "desc": "Flachgründungen" }
@@ -158,7 +158,7 @@
     "image": "assets/img/roof_flat.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
-    "tags": { "ifcClass": "IfcSlab", "disziplin": "Architektur" },
+    "tags": ["IfcSlab", "Architektur"],
     "classifications": [
         { "system": "eBKP-H", "code": "F1.2", "desc": "Flachdach befahrbar/begrünt" },
         { "system": "DIN 276", "code": "362", "desc": "Dachbeläge" }
@@ -193,7 +193,7 @@
     "image": "assets/img/column.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
-    "tags": { "ifcClass": "IfcColumn", "disziplin": "Tragwerk" },
+    "tags": ["IfcColumn", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.3", "desc": "Stützen (Konstruktion)" },
         { "system": "DIN 276", "code": "341", "desc": "Tragende Innenbauteile" }
@@ -227,7 +227,7 @@
     "image": "assets/img/beam.jpg",
     "lod": true, "loi": true, "epd": true,
     "subtitle": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
-    "tags": { "ifcClass": "IfcBeam", "disziplin": "Tragwerk" },
+    "tags": ["IfcBeam", "Tragwerk"],
     "classifications": [
         { "system": "eBKP-H", "code": "C2.2", "desc": "Unterzüge, Träger" },
         { "system": "DIN 276", "code": "341", "desc": "Tragende Innenbauteile" }
@@ -260,7 +260,7 @@
     "image": "assets/img/duct_rect.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
-    "tags": { "ifcClass": "IfcDuctSegment", "disziplin": "Haustechnik" },
+    "tags": ["IfcDuctSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D5.1", "desc": "Luftverteilung" },
         { "system": "DIN 276", "code": "431", "desc": "Lüftungsanlagen" }
@@ -297,7 +297,7 @@
     "image": "assets/img/ahu.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
-    "tags": { "ifcClass": "IfcUnitaryEquipment", "disziplin": "Haustechnik" },
+    "tags": ["IfcUnitaryEquipment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D5.2", "desc": "Lüftungsgeräte" },
         { "system": "DIN 276", "code": "431", "desc": "Lüftungsanlagen" }
@@ -334,7 +334,7 @@
     "image": "assets/img/pipe_heating.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
-    "tags": { "ifcClass": "IfcPipeSegment", "disziplin": "Haustechnik" },
+    "tags": ["IfcPipeSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D2.1", "desc": "Wärmeverteilung" },
         { "system": "DIN 276", "code": "421", "desc": "Wärmeversorgungsanlagen" }
@@ -370,7 +370,7 @@
     "image": "assets/img/radiator.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Flachheizkörper Typ 22, mit Thermostatkopf.",
-    "tags": { "ifcClass": "IfcSpaceHeater", "disziplin": "Haustechnik" },
+    "tags": ["IfcSpaceHeater", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D2.2", "desc": "Wärmeabgabe" },
         { "system": "DIN 276", "code": "422", "desc": "Wärmeverteilnetze" }
@@ -405,7 +405,7 @@
     "image": "assets/img/wc.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Wand-WC mit Unterputzspülkasten.",
-    "tags": { "ifcClass": "IfcSanitaryTerminal", "disziplin": "Haustechnik" },
+    "tags": ["IfcSanitaryTerminal", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D8.2", "desc": "Sanitäre Einrichtungen" },
         { "system": "DIN 276", "code": "411", "desc": "Abwasseranlagen" }
@@ -442,7 +442,7 @@
     "image": "assets/img/distribution_board.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Unterverteiler für Stockwerksversorgung.",
-    "tags": { "ifcClass": "IfcDistributionBoard", "disziplin": "Haustechnik" },
+    "tags": ["IfcDistributionBoard", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D4.1", "desc": "Elektrische Verteilung" },
         { "system": "DIN 276", "code": "444", "desc": "Niederspannungsschaltanlagen" }
@@ -478,7 +478,7 @@
     "image": "assets/img/cable_tray.jpg",
     "lod": true, "loi": false, "epd": false,
     "subtitle": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
-    "tags": { "ifcClass": "IfcCableCarrierSegment", "disziplin": "Haustechnik" },
+    "tags": ["IfcCableCarrierSegment", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D4.2", "desc": "Kabelführung" },
         { "system": "DIN 276", "code": "445", "desc": "Kabelanlagen" }
@@ -513,7 +513,7 @@
     "image": "assets/img/elevator.jpg",
     "lod": true, "loi": true, "epd": false,
     "subtitle": "Personenaufzug mit maschinenraumloser Technik (MRL).",
-    "tags": { "ifcClass": "IfcTransportElement", "disziplin": "Haustechnik" },
+    "tags": ["IfcTransportElement", "Haustechnik"],
     "classifications": [
         { "system": "eBKP-H", "code": "D6.1", "desc": "Aufzugsanlagen" },
         { "system": "DIN 276", "code": "461", "desc": "Aufzugsanlagen" }

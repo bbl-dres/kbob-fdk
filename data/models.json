@@ -6,10 +6,7 @@
     "category": "Fachmodelle",
     "subcategory": "Architektur",
     "description": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Architektur", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-AR01", "desc": "Architekturmodell" },
       { "system": "ISO 19650", "code": "5.1.1", "desc": "Architectural model" }
@@ -23,10 +20,7 @@
     "category": "Fachmodelle",
     "subcategory": "Statik",
     "description": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Tragwerk", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-TW01", "desc": "Tragwerksmodell" },
       { "system": "ISO 19650", "code": "5.1.2", "desc": "Structural model" }
@@ -40,10 +34,7 @@
     "category": "Fachmodelle",
     "subcategory": "Haustechnik",
     "description": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Haustechnik", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-HK01", "desc": "HLKS-Modell" },
       { "system": "ISO 19650", "code": "5.1.3", "desc": "MEP model" }
@@ -57,10 +48,7 @@
     "category": "Fachmodelle",
     "subcategory": "Elektrotechnik",
     "description": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Haustechnik", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-EL01", "desc": "Elektromodell" },
       { "system": "ISO 19650", "code": "5.1.4", "desc": "Electrical model" }
@@ -74,10 +62,7 @@
     "category": "Koordination",
     "subcategory": "Zusammenführung",
     "description": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
-    "tags": {
-      "disziplin": "BIM-Koordination",
-      "kategorie": "Koordination"
-    },
+    "tags": ["BIM-Koordination", "Koordination"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-KO01", "desc": "Koordinationsmodell" },
       { "system": "ISO 19650", "code": "5.2.1", "desc": "Federated model" }
@@ -91,10 +76,7 @@
     "category": "Fachmodelle",
     "subcategory": "Landschaftsarchitektur",
     "description": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
-    "tags": {
-      "disziplin": "Landschaftsarchitektur",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Landschaftsarchitektur", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-LA01", "desc": "Aussenraummodell" },
       { "system": "ISO 19650", "code": "5.1.5", "desc": "Landscape model" }
@@ -108,10 +90,7 @@
     "category": "Spezialmodelle",
     "subcategory": "Brandschutz",
     "description": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
-    "tags": {
-      "disziplin": "Brandschutz",
-      "kategorie": "Spezialmodelle"
-    },
+    "tags": ["Brandschutz", "Spezialmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-BS01", "desc": "Brandschutzmodell" },
       { "system": "GEFMA", "code": "190-10", "desc": "Brandschutz" }
@@ -125,10 +104,7 @@
     "category": "Spezialmodelle",
     "subcategory": "Tiefbau",
     "description": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Spezialmodelle"
-    },
+    "tags": ["Tragwerk", "Spezialmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-BG01", "desc": "Baugrubenmodell" },
       { "system": "ISO 19650", "code": "5.3.1", "desc": "Temporary works model" }
@@ -142,10 +118,7 @@
     "category": "Bestand",
     "subcategory": "As-Built",
     "description": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
-    "tags": {
-      "disziplin": "Facility Management",
-      "kategorie": "Bestand"
-    },
+    "tags": ["Facility Management", "Bestand"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-AB01", "desc": "Bestandsmodell" },
       { "system": "ISO 19650", "code": "5.4.1", "desc": "As-built model" }
@@ -159,10 +132,7 @@
     "category": "Fachmodelle",
     "subcategory": "Fassade",
     "description": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Fachmodelle"
-    },
+    "tags": ["Architektur", "Fachmodelle"],
     "classifications": [
       { "system": "KBOB-FM", "code": "FM-FA01", "desc": "Fassadenmodell" },
       { "system": "ISO 19650", "code": "5.1.6", "desc": "Facade model" }

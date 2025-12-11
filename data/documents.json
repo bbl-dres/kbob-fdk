@@ -6,10 +6,7 @@
     "category": "Organisation",
     "subcategory": "Projektmanagement",
     "description": "Beinhaltet Kosten, Termine, Leistungen, Qualität, Organisationsform für die kommende Phase",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Organisation"
-    },
+    "tags": ["Projektmanagement", "Organisation"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "O02001", "desc": "Projektauftrag" },
       { "system": "gif", "code": "1.1.01", "desc": "Projektinitiierung" },
@@ -26,10 +23,7 @@
     "category": "Organisation",
     "subcategory": "Projektmanagement",
     "description": "Bericht über den aktuellen Stand des Projektes und die weiteren Schritte",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Organisation"
-    },
+    "tags": ["Projektmanagement", "Organisation"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "O02007", "desc": "Projektstatusbericht" },
       { "system": "gif", "code": "1.1.07", "desc": "Projektcontrolling" },
@@ -46,10 +40,7 @@
     "category": "Organisation",
     "subcategory": "Qualitätsmanagement",
     "description": "Wird aus der Risikoanalyse entwickelt und soll die Risiken minimieren",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Organisation"
-    },
+    "tags": ["Projektmanagement", "Organisation"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "O04004", "desc": "QM-Plan/Kontrollplan" },
       { "system": "gif", "code": "1.4.04", "desc": "Qualitätssicherung" },
@@ -66,10 +57,7 @@
     "category": "Organisation",
     "subcategory": "Termine",
     "description": "Auflistung von Start- und Endterminen von Aufgaben und Meilensteinen",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Organisation"
-    },
+    "tags": ["Projektmanagement", "Organisation"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "O06001", "desc": "Terminplan" },
       { "system": "gif", "code": "1.6.01", "desc": "Terminplanung" },
@@ -86,10 +74,7 @@
     "category": "Organisation",
     "subcategory": "Technische Protokolle",
     "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt.",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Organisation"
-    },
+    "tags": ["Projektmanagement", "Organisation"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "O15002", "desc": "Abnahmeprotokoll" },
       { "system": "gif", "code": "1.15.02", "desc": "Abnahmedokumentation" },
@@ -106,10 +91,7 @@
     "category": "Verträge und Kosten",
     "subcategory": "Kostenplanung",
     "description": "Kostenaufstellung mit einer Genauigkeit von +/- 10%",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Verträge und Kosten"
-    },
+    "tags": ["Projektmanagement", "Verträge und Kosten"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "K01002", "desc": "Kostenschätzung (KS)" },
       { "system": "gif", "code": "2.1.02", "desc": "Kostenschätzung" },
@@ -126,10 +108,7 @@
     "category": "Verträge und Kosten",
     "subcategory": "Ausschreibungsunterlagen",
     "description": "Ausschreibungsunterlagen (Leistungsverzeichnis) ohne/mit Planunterlagen",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Verträge und Kosten"
-    },
+    "tags": ["Projektmanagement", "Verträge und Kosten"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "K02001", "desc": "Ausschreibung" },
       { "system": "gif", "code": "2.2.01", "desc": "Ausschreibungsunterlagen" },
@@ -146,10 +125,7 @@
     "category": "Verträge und Kosten",
     "subcategory": "Vertragsunterlagen",
     "description": "Vertrag über die Erbringung eines Werkes",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Verträge und Kosten"
-    },
+    "tags": ["Projektmanagement", "Verträge und Kosten"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "K03003", "desc": "Werkvertrag" },
       { "system": "gif", "code": "2.3.03", "desc": "Werkverträge" },
@@ -166,10 +142,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis der energetischen Massnahmen",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Haustechnik", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B07001", "desc": "Energienachweis" },
       { "system": "gif", "code": "3.7.01", "desc": "Energetische Nachweise" },
@@ -186,10 +159,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis über die Einhaltung der Brandschutzverordnung in einem Bauwerk",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Architektur", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B07004", "desc": "Brandschutznachweis" },
       { "system": "gif", "code": "3.7.04", "desc": "Brandschutznachweise" },
@@ -206,10 +176,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "IGM-Konzepte",
     "description": "Beschreibt konkrete Ansätze über den ganzheitlichen Brandschutz eines Bauwerks",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Architektur", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B11122", "desc": "Brandschutzkonzept" },
       { "system": "gif", "code": "3.11.22", "desc": "Brandschutzplanung" },
@@ -226,10 +193,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Fachkonzepte HLKS",
     "description": "Spezifisches Konzept für die Heizung im Bauwerk inkl. grobe Visualisierung",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Haustechnik", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B12401", "desc": "Heizungskonzept" },
       { "system": "gif", "code": "3.12.41", "desc": "HLKS-Konzepte Heizung" },
@@ -246,10 +210,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Fachkonzepte Elektrotechnik",
     "description": "Spezifisches Konzept für die Stromversorgung im Bauwerk inkl. grobe Visualisierung",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Haustechnik", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B12601", "desc": "Elektrokonzept" },
       { "system": "gif", "code": "3.12.61", "desc": "Elektrotechnik-Konzepte" },
@@ -266,10 +227,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Nachweise",
     "description": "Nachweis über die Standsicherheit",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Tragwerk", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B07002", "desc": "Statischer Nachweis" },
       { "system": "gif", "code": "3.7.02", "desc": "Tragwerksnachweise" },
@@ -286,10 +244,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Anleitungen",
     "description": "Angaben des Herstellers zum sachgerechten, bestimmungsgemässen und sicheren Betreiben bzw. Verwenden",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Haustechnik", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B18003", "desc": "Betriebsanleitung" },
       { "system": "gif", "code": "3.18.03", "desc": "Betriebsdokumentation" },
@@ -306,10 +261,7 @@
     "category": "Konzepte und Beschriebe",
     "subcategory": "Technische Verzeichnisse",
     "description": "Verzeichnis/Liste aller vorhandener Räume inkl. Spezifikationen gemäss Vorgaben",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Konzepte und Beschriebe"
-    },
+    "tags": ["Architektur", "Konzepte und Beschriebe"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "B19001", "desc": "Raumverzeichnis" },
       { "system": "gif", "code": "3.19.01", "desc": "Flächenverzeichnisse" },
@@ -326,10 +278,7 @@
     "category": "Visualisierungen",
     "subcategory": "Pläne Architektur",
     "description": "Visualisiert alle für die Ausführung erforderlichen Angaben, wie Abmessungen, Materialien und deren Behandlung im Grundriss",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Visualisierungen"
-    },
+    "tags": ["Architektur", "Visualisierungen"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "V07102", "desc": "Grundrissplan" },
       { "system": "gif", "code": "4.71.02", "desc": "Architekturpläne Grundriss" },
@@ -346,10 +295,7 @@
     "category": "Visualisierungen",
     "subcategory": "Pläne Statik und Konstruktion",
     "description": "Stellt die Bewehrung aus Betonstahl eines Stahlbetonbauteils dar",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Visualisierungen"
-    },
+    "tags": ["Tragwerk", "Visualisierungen"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "V07202", "desc": "Bewehrungsplan" },
       { "system": "gif", "code": "4.72.02", "desc": "Tragwerkspläne Bewehrung" },
@@ -366,10 +312,7 @@
     "category": "Visualisierungen",
     "subcategory": "Pläne Heizung",
     "description": "Visualisiert die Heizungsinstallationen pro Geschoss",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Visualisierungen"
-    },
+    "tags": ["Haustechnik", "Visualisierungen"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "V08101", "desc": "Installationsplan Heizung" },
       { "system": "gif", "code": "4.81.01", "desc": "HLKS-Pläne Heizung" },
@@ -386,10 +329,7 @@
     "category": "Visualisierungen",
     "subcategory": "Objektschutz",
     "description": "Visualisiert die baulichen Brandschutzmassnahmen",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Visualisierungen"
-    },
+    "tags": ["Architektur", "Visualisierungen"],
     "classifications": [
       { "system": "KBOB-DTC", "code": "V09004", "desc": "Brandschutzplan" },
       { "system": "gif", "code": "4.90.04", "desc": "Sicherheitspläne Brandschutz" },

@@ -6,10 +6,7 @@
     "category": "Baustoffe",
     "subcategory": "Massivbau",
     "description": "Umweltproduktdeklaration für Normalbeton der Festigkeitsklasse C25/30",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Baustoffe"
-    },
+    "tags": ["Tragwerk", "Baustoffe"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-B01", "desc": "Beton" },
       { "system": "eBKP-H", "code": "C2.1", "desc": "Ortbeton" }
@@ -25,10 +22,7 @@
     "category": "Baustoffe",
     "subcategory": "Massivbau",
     "description": "Ökobilanz für Bewehrungsstahl nach SN EN 10080",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Baustoffe"
-    },
+    "tags": ["Tragwerk", "Baustoffe"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-S01", "desc": "Betonstahl" },
       { "system": "eBKP-H", "code": "C2.2", "desc": "Bewehrung" }
@@ -44,10 +38,7 @@
     "category": "Baustoffe",
     "subcategory": "Mauerwerk",
     "description": "EPD für Kalksandstein-Mauerwerk nach DIN 106",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Baustoffe"
-    },
+    "tags": ["Architektur", "Baustoffe"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-M01", "desc": "Kalksandstein" },
       { "system": "eBKP-H", "code": "C3.1", "desc": "Mauerwerk" }
@@ -63,10 +54,7 @@
     "category": "Baustoffe",
     "subcategory": "Holzbau",
     "description": "Umweltdaten für Brettschichtholz (BSH) aus Fichtenholz",
-    "tags": {
-      "disziplin": "Tragwerk",
-      "kategorie": "Baustoffe"
-    },
+    "tags": ["Tragwerk", "Baustoffe"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-H01", "desc": "Brettschichtholz" },
       { "system": "eBKP-H", "code": "C4.1", "desc": "Holzkonstruktion" }
@@ -82,10 +70,7 @@
     "category": "Dämmstoffe",
     "subcategory": "Fassade",
     "description": "Ökobilanz für Steinwolle-Dämmplatten",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Dämmstoffe"
-    },
+    "tags": ["Architektur", "Dämmstoffe"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-D01", "desc": "Mineralwolle" },
       { "system": "eBKP-H", "code": "E1.1", "desc": "Wärmedämmung" }
@@ -101,10 +86,7 @@
     "category": "Bauteile",
     "subcategory": "Fenster",
     "description": "EPD für 3-fach Isolierverglasung mit Wärmeschutzbeschichtung",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Bauteile"
-    },
+    "tags": ["Architektur", "Bauteile"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-G01", "desc": "Isolierverglasung" },
       { "system": "eBKP-H", "code": "E2.1", "desc": "Fenster" }
@@ -120,10 +102,7 @@
     "category": "Bauteile",
     "subcategory": "Fassade",
     "description": "Umweltdaten für Aluminium-Pfosten-Riegel-Fassade",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Bauteile"
-    },
+    "tags": ["Architektur", "Bauteile"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-F01", "desc": "Alufassade" },
       { "system": "eBKP-H", "code": "E3.1", "desc": "Fassadenbekleidung" }
@@ -139,10 +118,7 @@
     "category": "Technik",
     "subcategory": "Erneuerbare Energie",
     "description": "Ökobilanz für monokristalline Solarmodule",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Technik"
-    },
+    "tags": ["Haustechnik", "Technik"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-PV01", "desc": "PV-Modul" },
       { "system": "eBKP-H", "code": "D8.1", "desc": "Photovoltaik" }
@@ -158,10 +134,7 @@
     "category": "Technik",
     "subcategory": "Heizung",
     "description": "EPD für Luft-Wasser-Wärmepumpen bis 15 kW",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Technik"
-    },
+    "tags": ["Haustechnik", "Technik"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-WP01", "desc": "Wärmepumpe" },
       { "system": "eBKP-H", "code": "D5.1", "desc": "Wärmeerzeugung" }
@@ -177,10 +150,7 @@
     "category": "Ausbau",
     "subcategory": "Bodenbelag",
     "description": "Umweltproduktdeklaration für Linoleum-Bodenbelag",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Ausbau"
-    },
+    "tags": ["Architektur", "Ausbau"],
     "classifications": [
       { "system": "KBOB-EPD", "code": "EPD-L01", "desc": "Linoleum" },
       { "system": "eBKP-H", "code": "G2.1", "desc": "Bodenbelag" }

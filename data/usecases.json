@@ -6,10 +6,7 @@
     "category": "Koordination",
     "subcategory": "Modellbasiert",
     "description": "Zusammenführung verschiedener Fachmodelle zur Kollisionsprüfung und visuellen Abstimmung",
-    "tags": {
-      "disziplin": "BIM-Koordination",
-      "kategorie": "Koordination"
-    },
+    "tags": ["BIM-Koordination", "Koordination"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-K01", "desc": "Koordinationsmodell" },
       { "system": "ISO 19650", "code": "4.5.1", "desc": "Information coordination" }
@@ -23,10 +20,7 @@
     "category": "Kostenplanung",
     "subcategory": "Quantifizierung",
     "description": "Automatisierte Ableitung von Bauteilmengen aus dem BIM-Modell für Kostenschätzungen",
-    "tags": {
-      "disziplin": "Kostenplanung",
-      "kategorie": "Kostenplanung"
-    },
+    "tags": ["Kostenplanung", "Kostenplanung"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-Q01", "desc": "Mengenermittlung (QTO)" },
       { "system": "ISO 19650", "code": "4.6.2", "desc": "Quantity take-off" }
@@ -40,10 +34,7 @@
     "category": "Qualitätssicherung",
     "subcategory": "Clash Detection",
     "description": "Erkennung und Dokumentation geometrischer Konflikte zwischen Bauteilen verschiedener Fachmodelle",
-    "tags": {
-      "disziplin": "BIM-Koordination",
-      "kategorie": "Qualitätssicherung"
-    },
+    "tags": ["BIM-Koordination", "Qualitätssicherung"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-Q02", "desc": "Kollisionsprüfung" },
       { "system": "ISO 19650", "code": "4.5.3", "desc": "Clash detection" }
@@ -57,10 +48,7 @@
     "category": "Terminplanung",
     "subcategory": "Simulation",
     "description": "Verknüpfung des 3D-Modells mit dem Terminplan zur Visualisierung des Bauablaufs",
-    "tags": {
-      "disziplin": "Projektmanagement",
-      "kategorie": "Terminplanung"
-    },
+    "tags": ["Projektmanagement", "Terminplanung"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-T01", "desc": "4D-Simulation" },
       { "system": "ISO 19650", "code": "4.7.1", "desc": "Construction sequencing" }
@@ -74,10 +62,7 @@
     "category": "Kostenplanung",
     "subcategory": "Kostenkontrolle",
     "description": "Integration von Kosteninformationen in das BIM-Modell für dynamische Kostenüberwachung",
-    "tags": {
-      "disziplin": "Kostenplanung",
-      "kategorie": "Kostenplanung"
-    },
+    "tags": ["Kostenplanung", "Kostenplanung"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-C01", "desc": "5D-Kostenmodell" },
       { "system": "ISO 19650", "code": "4.6.3", "desc": "Cost estimation" }
@@ -91,10 +76,7 @@
     "category": "Flächenmanagement",
     "subcategory": "Analyse",
     "description": "Auswertung von Raumdaten, Flächen und Nutzungsarten aus dem BIM-Modell",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Flächenmanagement"
-    },
+    "tags": ["Architektur", "Flächenmanagement"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-A01", "desc": "Raumanalyse" },
       { "system": "GEFMA", "code": "130-10", "desc": "Flächenmanagement" }
@@ -108,10 +90,7 @@
     "category": "Behörden",
     "subcategory": "Visualisierung",
     "description": "Erstellung von Visualisierungen und Dokumenten für Baubewilligungsverfahren",
-    "tags": {
-      "disziplin": "Architektur",
-      "kategorie": "Behörden"
-    },
+    "tags": ["Architektur", "Behörden"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-V01", "desc": "Baugesuchsvisualisierung" },
       { "system": "ISO 19650", "code": "4.8.1", "desc": "Regulatory approval" }
@@ -125,10 +104,7 @@
     "category": "Nachhaltigkeit",
     "subcategory": "Simulation",
     "description": "Energetische Analyse des Gebäudemodells zur Optimierung der Gebäudeperformance",
-    "tags": {
-      "disziplin": "Haustechnik",
-      "kategorie": "Nachhaltigkeit"
-    },
+    "tags": ["Haustechnik", "Nachhaltigkeit"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-E01", "desc": "Energiesimulation" },
       { "system": "GEFMA", "code": "124-50", "desc": "Energiemanagement" }
@@ -142,10 +118,7 @@
     "category": "Betrieb",
     "subcategory": "Datenübergabe",
     "description": "Strukturierte Übergabe von Modelldaten und Dokumentation an das Facility Management",
-    "tags": {
-      "disziplin": "Facility Management",
-      "kategorie": "Betrieb"
-    },
+    "tags": ["Facility Management", "Betrieb"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-FM01", "desc": "FM-Übergabe" },
       { "system": "GEFMA", "code": "922-10", "desc": "Dokumentation" }
@@ -159,10 +132,7 @@
     "category": "Dokumentation",
     "subcategory": "Bestandsaufnahme",
     "description": "Erstellung und Pflege des As-Built-Modells nach Fertigstellung",
-    "tags": {
-      "disziplin": "BIM-Koordination",
-      "kategorie": "Dokumentation"
-    },
+    "tags": ["BIM-Koordination", "Dokumentation"],
     "classifications": [
       { "system": "KBOB-UC", "code": "UC-D01", "desc": "As-Built Dokumentation" },
       { "system": "ISO 19650", "code": "4.9.1", "desc": "As-built information" }
