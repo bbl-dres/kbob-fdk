@@ -2667,7 +2667,7 @@
                     <li><a href="#" class="nav-link disabled">Fachmodelle</a></li>
                     <li><a href="#documents" class="nav-link" data-route="documents">Dokumente</a></li>
                     <li><a href="#" class="nav-link disabled">Ökobilanzdaten</a></li>
-                    <li><a href="#" class="nav-link disabled">Handbuch & Download</a></li>
+                    <li><a href="#handbook" class="nav-link" data-route="handbook">Handbuch & Download</a></li>
                 </ul>
             </div>
         </nav>
@@ -2940,6 +2940,7 @@
                 case 'home': renderHomePage(); break;
                 case 'catalog': renderCatalogPage(tags); break;
                 case 'documents': renderDocumentsCatalogPage(tags); break;
+                case 'handbook': renderHandbookPage(); break;
                 case 'element': 
                     if(id) {
                         contentArea.classList.add('white-bg'); 
@@ -3297,6 +3298,16 @@
                         </div>
                     </div>
 
+                </div>`;
+
+            setupGlobalSearch();
+        }
+
+        function renderHandbookPage() {
+            contentArea.innerHTML = `
+                <div class="container">
+                    <h1 class="page-title">Handbuch & Download</h1>
+
                     <div class="intro-section">
                         <div class="intro-card">
                             <div class="intro-card__header"></div>
@@ -3338,8 +3349,6 @@
                         </div>
                     </div>
                 </div>`;
-
-            setupGlobalSearch();
         }
 
         function renderCatalogPage(activeTags = []) {
