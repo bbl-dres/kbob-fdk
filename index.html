@@ -3297,7 +3297,7 @@
                 <ul id="main-nav-list">
                     <li><a href="#home" class="nav-link active" data-route="home">Startseite</a></li>
                     <li><a href="#" class="nav-link disabled">Anwendungsfälle</a></li>
-                    <li><a href="#catalog" class="nav-link" data-route="catalog">Elemente</a></li>
+                    <li><a href="#elements" class="nav-link" data-route="elements">Elemente</a></li>
                     <li><a href="#" class="nav-link disabled">Fachmodelle</a></li>
                     <li><a href="#documents" class="nav-link" data-route="documents">Dokumente</a></li>
                     <li><a href="#" class="nav-link disabled">Ökobilanzdaten</a></li>
@@ -3574,7 +3574,7 @@
 
             switch(route) {
                 case 'home': renderHomePage(); break;
-                case 'catalog': renderCatalogPage(tags); break;
+                case 'elements': renderCatalogPage(tags); break;
                 case 'documents': renderDocumentsCatalogPage(tags); break;
                 case 'handbook': renderHandbookPage(); break;
                 case 'element': 
@@ -3582,7 +3582,7 @@
                         contentArea.classList.add('white-bg'); 
                         renderElementDetailPage(id, tags);
                     } else {
-                        navigateWithTags('catalog');
+                        navigateWithTags('elements');
                     }
                     break;
                 case 'document':
