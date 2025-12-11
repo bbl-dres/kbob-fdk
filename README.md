@@ -1,6 +1,6 @@
 # KBOB BIM Data Catalog
 
-A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications (LOI) for building elements and documents.
+A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications (LOI) for building elements and documents in Switzerland.
 
 **Live Demo:** [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 
@@ -12,22 +12,23 @@ A web-based interactive catalog for BIM (Building Information Modeling) requirem
 
 ## Features
 
-- **Dual Catalogs** - Browse 15 building elements and 20 document types
+- **Multiple Catalogs** - Browse 15 building elements, 20 document types, BIM use cases, professional models, and EPD data
 - **Grid & List Views** - Toggle between card grid and table layouts
-- **Search & Filter** - Real-time search with tag-based filtering and A-Z navigation
-- **Detail Pages** - Comprehensive info including classifications (eBKP-H, DIN 276, Uniformat II), IFC mappings, geometry and LOI requirements per phase
-- **Shareable URLs** - Filter states preserved in URL for easy sharing
-- **Responsive Design** - Optimized for desktop and tablet
+- **Search & Filter** - Real-time global search with tag-based filtering (discipline, classification, phase) and A-Z navigation
+- **Detail Pages** - Comprehensive info including classifications (eBKP-H, DIN 276, Uniformat II, KBOB), IFC 4.3 mappings, geometry and LOI requirements per project phase (1-6)
+- **Shareable URLs** - Filter states preserved in URL hash for easy sharing
+- **Swiss Federal Design** - Compliant with Swiss Confederation design guidelines
+- **Responsive Design** - Optimized for desktop, tablet, and mobile
 
 ## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
 | HTML5 | Single-page application structure |
-| CSS3 | Custom properties, Flexbox/Grid layouts |
-| Vanilla JavaScript | No frameworks, zero dependencies |
-| Material Icons | UI iconography |
-| Inter Font | Typography |
+| CSS3 | Swiss Federal Design System, Flexbox/Grid |
+| Vanilla JavaScript | Zero dependencies, ~3,000 lines |
+| Lucide Icons | SVG icon library |
+| Noto Sans | Typography (Google Fonts) |
 | JSON | Static data storage |
 
 ## Getting Started
@@ -57,8 +58,11 @@ Visit [https://davras5.github.io/kbob-fdk/](https://davras5.github.io/kbob-fdk/)
 kbob-fdk/
 ├── index.html          # Main SPA (HTML + CSS + JS)
 ├── data/
-│   ├── elements.json   # 15 building elements
-│   └── documents.json  # 20 document types
+│   ├── elements.json   # 15 building elements with LOI specs
+│   ├── documents.json  # 20 document types
+│   ├── usecases.json   # BIM use cases
+│   ├── models.json     # Professional BIM models
+│   └── epds.json       # Environmental product declarations
 ├── assets/
 │   ├── img/            # Element images
 │   └── readme/         # Preview screenshots
