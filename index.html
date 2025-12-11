@@ -507,7 +507,7 @@
 
         .header__search-input {
             width: 100%;
-            padding: var(--space-sm) 2.5rem var(--space-sm) var(--space-md);
+            padding: var(--space-sm) 3.5rem var(--space-sm) var(--space-md);
             border: 2px solid var(--color-focus-input);
             border-radius: var(--border-radius);
             font-size: var(--text-body-sm);
@@ -547,6 +547,33 @@
         .header__search-submit svg {
             width: 18px;
             height: 18px;
+        }
+
+        .header__search-clear {
+            position: absolute;
+            right: 32px;
+            background: none;
+            border: none;
+            padding: 4px;
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .header__search-clear:hover {
+            color: var(--color-text-primary);
+        }
+
+        .header__search-clear.visible {
+            display: flex;
+        }
+
+        .header__search-clear svg {
+            width: 16px;
+            height: 16px;
         }
 
         /* ============================================
@@ -1243,6 +1270,31 @@
         .search-hero__submit svg {
             width: 24px;
             height: 24px;
+        }
+
+        .search-hero__clear {
+            background: none;
+            border: none;
+            padding: 0 var(--space-md);
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: color var(--transition-fast);
+        }
+
+        .search-hero__clear:hover {
+            color: var(--color-text-primary);
+        }
+
+        .search-hero__clear.visible {
+            display: flex;
+        }
+
+        .search-hero__clear svg {
+            width: 20px;
+            height: 20px;
         }
 
         /* Search Results Section */
@@ -2179,6 +2231,32 @@
             color: var(--color-text-primary);
         }
 
+        /* Clear Input Button */
+        .search-clear-btn {
+            background: none;
+            border: none;
+            padding: 0 var(--space-sm);
+            cursor: pointer;
+            color: var(--color-text-muted);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: color var(--transition-fast);
+        }
+
+        .search-clear-btn:hover {
+            color: var(--color-text-primary);
+        }
+
+        .search-clear-btn.visible {
+            display: flex;
+        }
+
+        .search-clear-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
         /* ============================================
            GLOBAL SEARCH DROPDOWN (Homepage)
            ============================================ */
@@ -2264,8 +2342,8 @@
         }
 
         .search-dropdown-footer:hover {
-            background: var(--color-primary);
-            color: var(--color-white);
+            background: rgba(220, 0, 24, 0.08);
+            color: var(--color-primary);
         }
 
         .search-dropdown-footer svg {
@@ -3916,6 +3994,9 @@
                     </button>
                     <form class="header__search-form" id="headerSearchForm" role="search" aria-label="Website durchsuchen">
                         <input type="search" id="headerSearchInput" class="header__search-input" placeholder="Suche" autocomplete="off">
+                        <button type="button" class="header__search-clear" id="headerSearchClear" aria-label="Suche löschen">
+                            <i data-lucide="x" aria-hidden="true"></i>
+                        </button>
                         <button type="submit" class="header__search-submit" aria-label="Suchen">
                             <i data-lucide="search" aria-hidden="true"></i>
                         </button>
@@ -4960,6 +5041,38 @@
             return html;
         }
 
+        // --- SEARCH CLEAR BUTTON HELPER ---
+        function setupSearchClearButton(inputId, clearBtnId, onClear) {
+            const input = document.getElementById(inputId);
+            const clearBtn = document.getElementById(clearBtnId);
+
+            if (!input || !clearBtn) return;
+
+            // Update clear button visibility based on input value
+            function updateClearVisibility() {
+                if (input.value.length > 0) {
+                    clearBtn.classList.add('visible');
+                } else {
+                    clearBtn.classList.remove('visible');
+                }
+            }
+
+            // Show/hide clear button on input
+            input.addEventListener('input', updateClearVisibility);
+
+            // Clear input when button is clicked
+            clearBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                input.value = '';
+                clearBtn.classList.remove('visible');
+                input.focus();
+                if (onClear) onClear();
+            });
+
+            // Initial visibility check
+            updateClearVisibility();
+        }
+
         function setupGlobalSearch() {
             const searchInput = document.getElementById('globalSearchInput');
             const searchDropdown = document.getElementById('globalSearchDropdown');
@@ -5005,7 +5118,15 @@
                     e.target.classList.contains('search-dropdown-footer')) {
                     searchDropdown.classList.remove('open');
                     searchInput.value = '';
+                    // Hide clear button
+                    const clearBtn = document.getElementById('globalSearchClear');
+                    if (clearBtn) clearBtn.classList.remove('visible');
                 }
+            });
+
+            // Setup clear button
+            setupSearchClearButton('globalSearchInput', 'globalSearchClear', () => {
+                searchDropdown.classList.remove('open');
             });
         }
 
@@ -5066,6 +5187,9 @@
                     toggle.focus(); // Return focus to toggle for accessibility
                 }
             });
+
+            // Setup clear button
+            setupSearchClearButton('headerSearchInput', 'headerSearchClear');
         }
 
         // --- FULL SEARCH (Search Results Page) ---
@@ -5241,6 +5365,9 @@
                         <form class="search-hero__form" id="searchPageForm" role="search">
                             <div class="search-hero__input-wrapper">
                                 <input type="search" id="searchPageInput" class="search-hero__input" value="${currentSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
+                                <button type="button" class="search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="Suche löschen">
+                                    <i data-lucide="x" aria-hidden="true"></i>
+                                </button>
                                 <button type="submit" class="search-hero__submit" aria-label="Suchen">
                                     <i data-lucide="search" aria-hidden="true"></i>
                                 </button>
@@ -5290,6 +5417,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('searchPageInput', 'searchPageClear');
         }
 
         window.switchSearchView = function(view) {
@@ -5311,6 +5441,7 @@
                     <div class="home-search-container">
                         <div class="gallery-filter-wrapper">
                             <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                            <button type="button" class="search-clear-btn" id="globalSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                             <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                         </div>
                         <div id="globalSearchDropdown" class="search-dropdown"></div>
@@ -5525,6 +5656,7 @@
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
                                 <input type="text" id="catalogSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Klassifikation...">
+                                <button type="button" class="search-clear-btn" id="catalogSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('elements', elementsFilterVisible, activeTags.length)}
@@ -5576,6 +5708,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('catalogSearchInput', 'catalogSearchClear');
         }
 
         function renderDocumentsCatalogPage(activeTags = []) {
@@ -5596,6 +5731,7 @@
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
                                 <input type="text" id="documentsSearchInput" class="gallery-filter-input" placeholder="Suche nach Dokumenten oder Kategorie...">
+                                <button type="button" class="search-clear-btn" id="documentsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('documents', documentsFilterVisible, activeTags.length)}
@@ -5648,6 +5784,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('documentsSearchInput', 'documentsSearchClear');
         }
 
         function renderElementDetailPage(id, activeTags = []) {
@@ -5848,6 +5987,7 @@
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
                                 <input type="text" id="usecasesSearchInput" class="gallery-filter-input" placeholder="Suche nach Anwendungsfällen...">
+                                <button type="button" class="search-clear-btn" id="usecasesSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('usecases', usecasesFilterVisible, activeTags.length)}
@@ -5894,6 +6034,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('usecasesSearchInput', 'usecasesSearchClear');
         }
 
         function renderUsecaseDetailPage(id, activeTags = []) {
@@ -5949,6 +6092,7 @@
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
                                 <input type="text" id="modelsSearchInput" class="gallery-filter-input" placeholder="Suche nach Fachmodellen...">
+                                <button type="button" class="search-clear-btn" id="modelsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('models', modelsFilterVisible, activeTags.length)}
@@ -5995,6 +6139,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('modelsSearchInput', 'modelsSearchClear');
         }
 
         function renderModelDetailPage(id, activeTags = []) {
@@ -6050,6 +6197,7 @@
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
                                 <input type="text" id="epdsSearchInput" class="gallery-filter-input" placeholder="Suche nach Ökobilanzdaten...">
+                                <button type="button" class="search-clear-btn" id="epdsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             ${renderFilterButton('epds', epdsFilterVisible, activeTags.length)}
@@ -6096,6 +6244,9 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
+
+            // Setup clear button
+            setupSearchClearButton('epdsSearchInput', 'epdsSearchClear');
         }
 
         function renderEpdDetailPage(id, activeTags = []) {
