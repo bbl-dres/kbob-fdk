@@ -1938,15 +1938,6 @@
         .col-val { font-size: var(--text-body-sm); }
         .col-center { text-align: center; }
 
-        /* Data Badge - styled like normal table text */
-        .data-badge {
-            display: inline-block;
-            background: transparent;
-            color: var(--color-text-secondary);
-            padding: var(--space-sm) var(--space-md);
-            white-space: normal;
-        }
-
         .list-icon-active {
             color: var(--color-success);
             width: 20px;
@@ -3607,7 +3598,7 @@
                 ? data.ifcMapping.map(m => `
                     <tr>
                         <td class="col-val">${m.element}</td>
-                        <td class="col-val"><span class="data-badge">${m.ifc}</span></td>
+                        <td class="col-val">${m.ifc}</td>
                         <td class="col-val">${m.revit}</td>
                     </tr>`).join('') 
                 : '<tr><td colspan="3">-</td></tr>';
@@ -3627,9 +3618,9 @@
                 ? infoRows.map(row => `
                     <tr>
                         <td class="col-val"><span class="info-name-tooltip" title="${row.desc || ''}">${row.name}</span></td>
-                        <td class="col-val"><span class="data-badge">${row.format || '-'}</span></td>
+                        <td class="col-val">${row.format || '-'}</td>
                         <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
-                        <td class="col-val"><span class="data-badge">${row.ifc || '-'}</span></td>
+                        <td class="col-val">${row.ifc || '-'}</td>
                         <td class="col-center">${renderPhaseBadges(row.phases)}</td>
                     </tr>`).join('') 
                 : '<tr><td colspan="5" class="col-center empty-text">Keine Attribute (LOI).</td></tr>';
