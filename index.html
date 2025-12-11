@@ -1757,73 +1757,117 @@
             align-items: flex-start;
         }
 
-        /* Sidebar Filter */
-        .sidebar-filter {
-            width: 240px;
-            flex-shrink: 0;
+        /* Filter Bar (Horizontal) */
+        .filter-bar {
             background: var(--color-white);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
-            overflow: hidden;
-            border: 1px solid var(--color-border);
-            transition: margin var(--transition-normal), opacity var(--transition-normal);
+            border: 1px solid var(--color-border-light);
+            margin-bottom: var(--space-xl);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .sidebar-filter.closed {
+        .filter-bar.closed {
             display: none;
         }
 
-        .sidebar-header {
+        .filter-bar__header {
             background: var(--color-surface);
-            padding: var(--space-md);
-            font-weight: var(--font-weight-bold);
+            padding: var(--space-md) var(--space-lg);
+            font-weight: var(--font-weight-semibold);
             color: var(--color-text-primary);
-            border-bottom: 1px solid var(--color-border-light);
+            border-right: 1px solid var(--color-border-light);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: var(--space-sm);
         }
 
-        .sidebar-reset-btn {
+        .filter-bar__reset {
             background: none;
             border: none;
-            color: var(--color-text-secondary);
-            padding: 0;
+            color: var(--color-text-muted);
+            padding: var(--space-xs);
             cursor: pointer;
             transition: color var(--transition-fast);
             font-family: var(--font-family-primary);
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: var(--border-radius-sm);
         }
 
-        .sidebar-reset-btn:hover {
+        .filter-bar__reset:hover {
             color: var(--color-primary);
+            background: var(--color-bg-light);
         }
 
-        .sidebar-reset-btn [data-lucide] {
-            width: var(--space-lg);
-            height: var(--space-lg);
+        .filter-bar__reset [data-lucide] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .filter-bar__groups {
+            display: flex;
+            flex: 1;
+            flex-wrap: wrap;
         }
 
         .filter-group {
-            border-bottom: 1px solid var(--color-border-light);
+            border-right: 1px solid var(--color-border-light);
+        }
+
+        .filter-group:last-child {
+            border-right: none;
         }
 
         .filter-toggle {
-            padding: var(--space-sm) var(--space-md);
+            padding: var(--space-md) var(--space-lg);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: var(--space-sm);
             cursor: pointer;
-            font-weight: var(--font-weight-semibold);
+            font-weight: var(--font-weight-medium);
             color: var(--color-text-primary);
             transition: background var(--transition-fast);
             font-size: var(--text-body-sm);
+            white-space: nowrap;
         }
 
         .filter-toggle:hover {
-            background: var(--color-surface);
+            background: var(--color-bg-light);
+        }
+
+        .filter-toggle [data-lucide] {
+            width: 16px;
+            height: 16px;
+            color: var(--color-text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-bar__header {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border-light);
+            }
+
+            .filter-bar__groups {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border-light);
+            }
+
+            .filter-group:last-child {
+                border-bottom: none;
+            }
         }
 
         /* ============================================
@@ -2426,7 +2470,6 @@
                 flex-direction: column;
             }
 
-            .sidebar-filter,
             .detail-sidebar {
                 width: 100%;
                 margin-bottom: var(--space-md);
@@ -3439,13 +3482,13 @@
         }
         
         /**
-         * Render sidebar header with optional reset icon
+         * Render filter bar header with optional reset icon
          */
-        function renderSidebarHeader(activeTags) {
+        function renderFilterBarHeader(activeTags) {
             const resetBtn = activeTags.length > 0
-                ? `<button class="sidebar-reset-btn" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i></button>`
+                ? `<button class="filter-bar__reset" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
                 : '';
-            return `<div class="sidebar-header"><span>Filter</span>${resetBtn}</div>`;
+            return `<div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>`;
         }
         
         /**
@@ -3959,6 +4002,7 @@
             contentArea.innerHTML = `
                 <div class="container">
                     <h1 class="page-title">Elemente</h1>
+                    <p class="page-lead">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.</p>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -3973,12 +4017,14 @@
                         </div>
                     </div>
 
-                    <aside class="sidebar-filter ${filterPanelClass}">
-                        ${renderSidebarHeader(activeTags)}
-                        <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                    </aside>
+                    <div class="filter-bar ${filterPanelClass}">
+                        ${renderFilterBarHeader(activeTags)}
+                        <div class="filter-bar__groups">
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        </div>
+                    </div>
 
                     <div class="catalog-layout">
                         <div id="catalogContent" style="flex:1; min-width:0;">
@@ -4027,6 +4073,7 @@
             contentArea.innerHTML = `
                 <div class="container">
                     <h1 class="page-title">Dokumente</h1>
+                    <p class="page-lead">Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.</p>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -4041,17 +4088,19 @@
                         </div>
                     </div>
 
-                    <aside class="sidebar-filter ${filterPanelClass}">
-                        ${renderSidebarHeader(activeTags)}
-                        <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                    </aside>
+                    <div class="filter-bar ${filterPanelClass}">
+                        ${renderFilterBarHeader(activeTags)}
+                        <div class="filter-bar__groups">
+                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                            <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
+                        </div>
+                    </div>
 
                     <div class="catalog-layout">
                         <div id="documentsContent" style="flex:1; min-width:0;">
-                             ${documentsView === 'grid' 
-                                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>` 
+                             ${documentsView === 'grid'
+                                ? `<div class="element-grid">${renderDocGridItemsHTML(filteredByTags, activeTags)}</div>`
                                 : renderDocListItemsHTML(filteredByTags, activeTags)
                             }
                         </div>
