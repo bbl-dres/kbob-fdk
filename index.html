@@ -594,6 +594,7 @@
             font-size: var(--text-display);
             margin: 0 0 var(--space-md) 0;
             padding-top: var(--space-3xl);
+            padding-left: 80px;
             color: var(--color-text-primary);
         }
 
@@ -603,6 +604,7 @@
             color: var(--color-text-muted);
             max-width: 800px;
             margin: 0 0 var(--space-2xl) 0;
+            padding-left: 80px;
         }
 
         /* Handbook Page - Accordion Style (Swiss Federal CD) */
@@ -1010,6 +1012,26 @@
             color: var(--color-text-secondary);
             margin: 0;
             line-height: var(--line-height-normal);
+        }
+
+        .quick-card,
+        .quick-card:hover,
+        .quick-card *,
+        .quick-card:hover * {
+            text-decoration: none !important;
+        }
+
+        .quick-card__kpi {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-text-primary);
+            color: var(--color-text-primary);
+            font-size: var(--text-body-sm);
+            font-weight: var(--font-weight-semibold);
+            padding: var(--space-xs) var(--space-sm);
+            margin-top: var(--space-md);
+            align-self: center;
         }
 
         .quick-card__arrow-btn {
@@ -3930,21 +3952,25 @@
                                 <a href="#elements" class="quick-card" data-route="elements">
                                     <h3 class="quick-card__title">Elemente</h3>
                                     <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                                    <span class="quick-card__kpi">${globalElementsData.length} Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
                                     <h3 class="quick-card__title">Fachmodelle</h3>
                                     <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#documents" class="quick-card" data-route="documents">
                                     <h3 class="quick-card__title">Dokumente</h3>
                                     <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                                    <span class="quick-card__kpi">${globalDocumentsData.length} Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
                                     <h3 class="quick-card__title">Ökobilanzdaten</h3>
                                     <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                                    <span class="quick-card__kpi">0 Datensätze</span>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                             </div>
