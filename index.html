@@ -737,10 +737,17 @@
             color: var(--color-interactive);
         }
 
+        /* Home Page Hero Section Wrapper */
+        .home-hero-section {
+            background-color: var(--color-bg-light);
+            padding: var(--space-2xl) 0;
+            margin-bottom: var(--space-2xl);
+        }
+
         /* Home Page Hero */
         .home-hero {
             text-align: center;
-            margin: var(--space-xl) 0 var(--space-2xl) 0;
+            margin: 0;
         }
 
         .home-hero__title {
@@ -3765,22 +3772,26 @@
         // --- PAGE RENDERERS ---
         function renderHomePage() {
             contentArea.innerHTML = `
-                <div class="container">
-                    <div class="home-hero">
-                        <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                        <p class="home-hero__subtitle">Suche nach Elementen, Dokumenten und Ökobilanzdaten</p>
-                        <div class="home-search-container">
-                            <div class="gallery-filter-wrapper">
-                                <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
+                <div class="home-hero-section">
+                    <div class="container">
+                        <div class="home-hero">
+                            <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
+                            <p class="home-hero__subtitle">Suche nach Elementen, Dokumenten und Ökobilanzdaten</p>
+                            <div class="home-search-container">
+                                <div class="gallery-filter-wrapper">
+                                    <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                                    <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
+                                </div>
+                                <div id="globalSearchDropdown" class="search-dropdown"></div>
                             </div>
-                            <div id="globalSearchDropdown" class="search-dropdown"></div>
-                        </div>
-                        <div class="home-video">
-                            <iframe src="https://www.youtube.com/embed/NEtzaNVVxz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <div class="home-video">
+                                <iframe src="https://www.youtube.com/embed/NEtzaNVVxz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container">
                     <!-- Themen Section -->
                     <section class="home-section">
                         <div class="home-section__header">
