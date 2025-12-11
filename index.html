@@ -788,6 +788,212 @@
         }
 
         /* ============================================
+           HOME PAGE - THEMEN SECTION
+           ============================================ */
+        .home-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .home-section__header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .home-section__title {
+            font-size: var(--text-h2);
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-semibold);
+            margin: 0;
+        }
+
+        .home-section__subtitle {
+            font-size: var(--text-body);
+            color: var(--color-text-muted);
+            margin: var(--space-sm) 0 0 0;
+        }
+
+        /* Quick Access Grid */
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .quick-access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .quick-access-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Quick Access Card */
+        .quick-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .quick-card:hover {
+            border-color: var(--color-interactive);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .quick-card__icon {
+            width: 56px;
+            height: 56px;
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .quick-card__icon i {
+            width: 28px;
+            height: 28px;
+            color: var(--color-surface-dark);
+        }
+
+        .quick-card:hover .quick-card__icon {
+            background: var(--color-interactive);
+        }
+
+        .quick-card:hover .quick-card__icon i {
+            color: var(--color-white);
+        }
+
+        .quick-card__title {
+            font-size: var(--text-h4);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .quick-card:hover .quick-card__title {
+            color: var(--color-interactive);
+        }
+
+        .quick-card__desc {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-muted);
+            margin: 0;
+            flex: 1;
+        }
+
+        .quick-card__arrow {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            width: 20px;
+            height: 20px;
+            color: var(--color-border);
+            transition: all var(--transition-fast);
+        }
+
+        .quick-card:hover .quick-card__arrow {
+            color: var(--color-interactive);
+            transform: translateX(4px);
+        }
+
+        /* About Box */
+        .about-box {
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-2xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-box {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .about-box__content h2 {
+            font-size: var(--text-h2);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-md) 0;
+        }
+
+        .about-box__content p {
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-lg) 0;
+            line-height: 1.7;
+        }
+
+        .about-box__features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 768px) {
+            .about-box__features {
+                justify-content: center;
+            }
+        }
+
+        .about-box__feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .about-box__feature i {
+            width: 18px;
+            height: 18px;
+            color: var(--color-interactive);
+        }
+
+        .about-box__visual {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+        }
+
+        .stat-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            text-align: center;
+            min-width: 120px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-card__number {
+            font-size: var(--text-h1);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-interactive);
+            margin: 0;
+        }
+
+        .stat-card__label {
+            font-size: var(--text-caption);
+            color: var(--color-text-muted);
+            margin: var(--space-xs) 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
            INTRO SECTION - Modern Swiss Design
            ============================================ */
         .intro-section {
@@ -3535,9 +3741,104 @@
                         </div>
                     </div>
 
+                    <!-- Themen Section -->
+                    <section class="home-section">
+                        <div class="home-section__header">
+                            <h2 class="home-section__title">Themen</h2>
+                            <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
+                        </div>
+                        <div class="quick-access-grid">
+                            <a href="#elements" class="quick-card" data-route="elements">
+                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
+                                <div class="quick-card__icon">
+                                    <i data-lucide="layers" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="quick-card__title">Elemente</h3>
+                                <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                            </a>
+                            <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
+                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
+                                <div class="quick-card__icon">
+                                    <i data-lucide="boxes" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="quick-card__title">Fachmodelle</h3>
+                                <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                            </a>
+                            <a href="#documents" class="quick-card" data-route="documents">
+                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
+                                <div class="quick-card__icon">
+                                    <i data-lucide="file-text" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="quick-card__title">Dokumente</h3>
+                                <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                            </a>
+                            <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
+                                <i data-lucide="arrow-right" class="quick-card__arrow" aria-hidden="true"></i>
+                                <div class="quick-card__icon">
+                                    <i data-lucide="leaf" aria-hidden="true"></i>
+                                </div>
+                                <h3 class="quick-card__title">Ökobilanzdaten</h3>
+                                <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- About Section -->
+                    <section class="home-section">
+                        <div class="about-box">
+                            <div class="about-box__content">
+                                <h2>Über den Fachdatenkatalog</h2>
+                                <p>Der KBOB Fachdatenkatalog definiert einheitliche Standards für die digitale Bauwerksdokumentation im Hochbau. Er unterstützt alle Projektphasen und fördert den Datenaustausch zwischen Planern, Bauherren und Betreibern.</p>
+                                <div class="about-box__features">
+                                    <span class="about-box__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        Open Data
+                                    </span>
+                                    <span class="about-box__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        IFC-kompatibel
+                                    </span>
+                                    <span class="about-box__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        SIA-konform
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="about-box__visual">
+                                <div class="stat-card">
+                                    <p class="stat-card__number">120+</p>
+                                    <p class="stat-card__label">Elemente</p>
+                                </div>
+                                <div class="stat-card">
+                                    <p class="stat-card__number">6</p>
+                                    <p class="stat-card__label">Phasen</p>
+                                </div>
+                                <div class="stat-card">
+                                    <p class="stat-card__number">50+</p>
+                                    <p class="stat-card__label">Attribute</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>`;
 
             setupGlobalSearch();
+
+            // Initialize lucide icons for new content
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Setup quick card navigation
+            document.querySelectorAll('.quick-card[data-route]').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const route = card.dataset.route;
+                    if (route) {
+                        window.location.hash = route;
+                    }
+                });
+            });
         }
 
         function renderHandbookPage() {
