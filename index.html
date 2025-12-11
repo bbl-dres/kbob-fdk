@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBOB Fachdatenkatalog - Mockup V3.3</title>
+    <title>KBOB Fachdatenkatalog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -858,6 +858,12 @@
             display: flex;
             gap: var(--space-xl);
             padding: 0 var(--space-xl);
+        }
+
+        .footer-version {
+            color: var(--color-text-muted);
+            font-size: var(--text-body-sm);
+            margin-left: auto;
         }
 
         footer a {
@@ -4069,7 +4075,9 @@
     <footer>
         <div class="footer-content">
            <a href="https://github.com/davras5/kbob-fdk" target="_blank">Quellcode</a>
+           <a href="#" target="_blank">API</a>
            <a href="https://www.admin.ch/gov/de/start/rechtliches.html" target="_blank">Rechtliches</a>
+           <span class="footer-version">Version 1.0.0 | Stand: Dezember 2024</span>
         </div>
     </footer>
 
@@ -5451,8 +5459,8 @@
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="home-hero-section">
-                    <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                    <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
+                    <h1 class="home-hero__title">Fachdatenkatalog für die digitale Bauwerksdokumentation</h1>
+                    <p class="hero__description">Der Fachdatenkatalog der KBOB definiert standardisierte Anforderungen an die BIM-basierte Dokumentation von Hochbauprojekten der öffentlichen Hand in der Schweiz. Er dient als Grundlage für Auftraggeber-Informationsanforderungen (AIA) und BIM-Abwicklungspläne (BAP).</p>
                     <div class="home-search-container">
                         <div class="gallery-filter-wrapper">
                             <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
