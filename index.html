@@ -404,30 +404,82 @@
             font-weight: var(--font-weight-bold);
         }
 
-        /* Language Switch */
-        .lang-switch {
+        /* Top Bar (CD Bund) */
+        .top-bar {
+            background: #3e5060;
+            height: 46px;
             display: flex;
             align-items: center;
+            justify-content: flex-end;
+            padding: 0 var(--space-lg);
+        }
+
+        /* Language Dropdown */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-dropdown__toggle {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: transparent;
+            border: none;
+            color: #fff;
             font-size: var(--text-body-sm);
-        }
-
-        .lang-switch span {
+            font-family: inherit;
             cursor: pointer;
-            color: var(--color-text-secondary);
-            padding: var(--space-xs);
-            transition: color var(--transition-fast);
+            padding: var(--space-sm) var(--space-md);
         }
 
-        .lang-switch span:not(:last-child)::after {
-            content: "|";
-            margin-left: var(--space-xs);
-            color: var(--color-border);
-            cursor: default;
+        .lang-dropdown__toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        .lang-switch span.active,
-        .lang-switch span:hover {
-            color: var(--color-primary);
+        .lang-dropdown__toggle svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .lang-dropdown.open .lang-dropdown__toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .lang-dropdown__menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #3e5060;
+            min-width: 80px;
+            display: none;
+            z-index: var(--z-dropdown);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .lang-dropdown.open .lang-dropdown__menu {
+            display: block;
+        }
+
+        .lang-dropdown__item {
+            display: block;
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            color: #fff;
+            text-decoration: none;
+            font-size: var(--text-body-sm);
+            border: none;
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .lang-dropdown__item:hover,
+        .lang-dropdown__item.active {
+            background: #2a3a4a;
+        }
+
+        .lang-dropdown__item.active {
             font-weight: var(--font-weight-bold);
         }
 
@@ -3980,6 +4032,22 @@
     </style>
 </head>
 <body>
+    <!-- Top Bar with Language Selector (CD Bund) -->
+    <div class="top-bar">
+        <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
+                <span id="currentLang">DE</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="lang-dropdown__menu" role="menu">
+                <button class="lang-dropdown__item active" data-lang="de" role="menuitem">DE</button>
+                <button class="lang-dropdown__item" data-lang="fr" role="menuitem">FR</button>
+                <button class="lang-dropdown__item" data-lang="it" role="menuitem">IT</button>
+                <button class="lang-dropdown__item" data-lang="en" role="menuitem">EN</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="header__top">
             <a href="#home" class="header__branding">
@@ -4004,12 +4072,7 @@
             </a>
             <div class="header__controls">
                 <div class="header__links">
-                    <div class="lang-switch" role="navigation" aria-label="Sprachwahl">
-                        <span class="active" data-lang="de" tabindex="0">DE</span>
-                        <span data-lang="fr" tabindex="0">FR</span>
-                        <span data-lang="it" tabindex="0">IT</span>
-                        <span data-lang="en" tabindex="0">EN</span>
-                    </div>
+                    <a href="https://www.kbob.admin.ch/de/kontakt-kbob" class="header__link" target="_blank">Kontakt</a>
                 </div>
                 <div class="header__search">
                     <button class="header__search-toggle" id="headerSearchToggle" aria-expanded="false" aria-controls="headerSearchForm">
@@ -6379,31 +6442,56 @@
              }, 100);
         }
 
-        // Language Switch
-        function initLanguageSwitch() {
-            const langSwitch = document.querySelector('.lang-switch');
-            if (!langSwitch) return;
+        // Language Dropdown
+        function initLanguageDropdown() {
+            const dropdown = document.getElementById('langDropdown');
+            if (!dropdown) return;
 
-            langSwitch.addEventListener('click', (e) => {
-                const span = e.target.closest('span[data-lang]');
-                if (!span) return;
+            const toggle = dropdown.querySelector('.lang-dropdown__toggle');
+            const menu = dropdown.querySelector('.lang-dropdown__menu');
+            const items = dropdown.querySelectorAll('.lang-dropdown__item');
+            const currentLang = document.getElementById('currentLang');
 
-                // Update active state
-                langSwitch.querySelectorAll('span').forEach(s => s.classList.remove('active'));
-                span.classList.add('active');
+            // Toggle dropdown
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen);
+            });
 
-                // Log selected language (for future implementation)
-                const lang = span.dataset.lang;
-                console.log('Language selected:', lang);
+            // Select language
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const lang = item.dataset.lang;
 
-                // TODO: Implement actual language switching
+                    // Update active state
+                    items.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Update button text
+                    currentLang.textContent = lang.toUpperCase();
+
+                    // Close dropdown
+                    dropdown.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+
+                    console.log('Language selected:', lang);
+                });
+            });
+
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
             });
 
             // Keyboard support
-            langSwitch.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    e.target.click();
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    dropdown.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 }
             });
         }
@@ -6413,7 +6501,7 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-            initLanguageSwitch();
+            initLanguageDropdown();
             initApp();
         });
     </script>
