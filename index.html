@@ -602,9 +602,184 @@
         .home-hero__title {
             font-size: var(--text-display);
             color: var(--color-text-primary);
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-md);
             letter-spacing: -1px;
             font-weight: var(--font-weight-bold);
+        }
+
+        .home-hero__subtitle {
+            font-size: var(--text-h4);
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-xl);
+            font-weight: var(--font-weight-normal);
+        }
+
+        /* Hero Search - Larger variant for home page */
+        .home-hero .hero-search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-search-wrapper {
+            display: flex;
+            height: 56px;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--color-border-light);
+            background: var(--color-white);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .hero-search-wrapper:focus-within {
+            border-color: var(--color-focus);
+            box-shadow: var(--shadow-lg), 0 0 0 3px rgba(102, 175, 233, 0.25);
+        }
+
+        .hero-search-input {
+            flex: 1;
+            padding: 0 var(--space-lg);
+            font-size: var(--text-h4);
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: var(--font-family-primary);
+        }
+
+        .hero-search-input::placeholder {
+            color: var(--color-text-muted);
+        }
+
+        .hero-search-btn {
+            width: 64px;
+            background: var(--color-interactive);
+            color: var(--color-white);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color var(--transition-fast);
+        }
+
+        .hero-search-btn:hover {
+            background: var(--color-interactive-hover);
+        }
+
+        .hero-search-btn [data-lucide] {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Hero Search Dropdown - positioned below hero search */
+        .hero-search-container .search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: var(--space-xs);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        /* ============================================
+           INTRO SECTION - Modern Swiss Design
+           ============================================ */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            margin: var(--space-3xl) 0;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+        }
+
+        .intro-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .intro-card__header {
+            background: var(--color-primary);
+            padding: var(--space-xs) var(--space-lg);
+        }
+
+        .intro-card__body {
+            padding: var(--space-xl);
+        }
+
+        .intro-card__title {
+            font-size: var(--text-h3);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .intro-card__text {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .intro-card__text:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-card__features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .intro-card__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--color-text-secondary);
+            font-size: var(--text-body);
+        }
+
+        .intro-card__feature [data-lucide] {
+            color: var(--color-interactive);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: var(--color-bg-alt);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-caption {
+            font-size: var(--text-body-sm);
+            color: var(--color-text-muted);
+            margin-top: var(--space-md);
+            text-align: center;
         }
 
         /* Info Box Component */
@@ -3084,7 +3259,7 @@
             
             // Close dropdown on click outside
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.central-search-container')) {
+                if (!e.target.closest('.central-search-container') && !e.target.closest('.hero-search-container')) {
                     searchDropdown.classList.remove('open');
                 }
             });
@@ -3112,17 +3287,55 @@
                 <div class="container">
                     <div class="home-hero">
                         <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                        <div class="central-search-container">
-                            <div class="central-search-wrapper">
-                                <input type="text" id="globalSearchInput" class="central-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                <button class="central-search-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
+                        <p class="home-hero__subtitle">Suche nach Elementen, Dokumenten und Ökobilanzdaten</p>
+                        <div class="hero-search-container">
+                            <div class="hero-search-wrapper">
+                                <input type="text" id="globalSearchInput" class="hero-search-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                                <button class="hero-search-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
                             <div id="globalSearchDropdown" class="search-dropdown"></div>
                         </div>
                     </div>
-                    <div class="info-box">
-                        <h2 class="info-box__title">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
-                        <p class="info-box__text">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
+
+                    <div class="intro-section">
+                        <div class="intro-card">
+                            <div class="intro-card__header"></div>
+                            <div class="intro-card__body">
+                                <h2 class="intro-card__title">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
+                                <p class="intro-card__text">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
+                                <ul class="intro-card__features">
+                                    <li class="intro-card__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        <span>Einheitliche Standards für Bauwerksdokumentation</span>
+                                    </li>
+                                    <li class="intro-card__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        <span>Verbindliche Anforderungen für den Hochbau</span>
+                                    </li>
+                                    <li class="intro-card__feature">
+                                        <i data-lucide="check-circle" aria-hidden="true"></i>
+                                        <span>Zentrale Referenz für alle Projektbeteiligten</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="intro-card">
+                            <div class="intro-card__header"></div>
+                            <div class="intro-card__body">
+                                <h2 class="intro-card__title">Einführung in den Fachdatenkatalog</h2>
+                                <div class="video-container">
+                                    <iframe
+                                        src="https://www.youtube-nocookie.com/embed/NEtzaNVVxz0?si=HnhreYPfsOzpVdJJ"
+                                        title="Einführung in den KBOB Fachdatenkatalog"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                                <p class="video-caption">Video-Einführung zur Nutzung des Fachdatenkatalogs</p>
+                            </div>
+                        </div>
                     </div>
                 </div>`;
 
