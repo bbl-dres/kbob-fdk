@@ -579,12 +579,111 @@
         }
 
         /* ============================================
+           BREADCRUMB BAR (Swiss Federal Style)
+           ============================================ */
+        .breadcrumb-bar {
+            background: var(--color-white);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-md) 0;
+        }
+
+        .breadcrumb-bar .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: var(--text-body-sm);
+            color: var(--color-text-secondary);
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--color-interactive);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-nav .breadcrumb-separator {
+            color: var(--color-text-muted);
+            font-size: var(--text-caption);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .breadcrumb-nav .breadcrumb-separator svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .breadcrumb-nav .breadcrumb-current {
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .breadcrumb-nav .breadcrumb-dropdown {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+
+        .breadcrumb-nav .breadcrumb-dropdown svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .page-toolbar {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .toolbar-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            background: var(--color-white);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .toolbar-btn:hover {
+            background: var(--color-surface);
+            color: var(--color-text-primary);
+            border-color: var(--color-border-input);
+        }
+
+        .toolbar-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ============================================
            CONTENT AREA
            ============================================ */
         #content-area {
             flex: 1 0 auto;
             min-height: 600px;
             background-color: var(--color-white);
+            padding-top: var(--space-2xl);
         }
 
         /* ============================================
@@ -3821,6 +3920,22 @@
         </nav>
     </header>
 
+    <div class="breadcrumb-bar" id="breadcrumb-bar">
+        <div class="container">
+            <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="#home">Startseite</a>
+            </nav>
+            <div class="page-toolbar">
+                <button class="toolbar-btn" onclick="window.print()" title="Drucken" aria-label="Seite drucken">
+                    <i data-lucide="printer" aria-hidden="true"></i>
+                </button>
+                <button class="toolbar-btn" onclick="shareCurrentPage()" title="Teilen" aria-label="Seite teilen">
+                    <i data-lucide="share-2" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <main id="content-area">
          <div class="container loading-state">
             <i data-lucide="refresh-cw" class="loading-spinner" aria-hidden="true"></i><br>
@@ -3880,6 +3995,129 @@
 
         // Track which cards have expanded tags (show all tags)
         const expandedCardTags = new Set();
+
+        // ============================================
+        // BREADCRUMB FUNCTIONS
+        // ============================================
+
+        // Route name mappings for breadcrumbs
+        const routeNames = {
+            'home': 'Startseite',
+            'elements': 'Elemente',
+            'element': 'Element',
+            'documents': 'Dokumente',
+            'document': 'Dokument',
+            'usecases': 'Anwendungsfälle',
+            'usecase': 'Anwendungsfall',
+            'models': 'Fachmodelle',
+            'model': 'Fachmodell',
+            'epds': 'Ökobilanzdaten',
+            'epd': 'Ökobilanzdaten',
+            'handbook': 'Handbuch & Download',
+            'search': 'Suchergebnisse'
+        };
+
+        // Get parent route for detail pages
+        const parentRoutes = {
+            'element': 'elements',
+            'document': 'documents',
+            'usecase': 'usecases',
+            'model': 'models',
+            'epd': 'epds'
+        };
+
+        /**
+         * Update breadcrumb navigation based on current route
+         */
+        function updateBreadcrumbs(route, id, itemTitle) {
+            const breadcrumbNav = document.getElementById('breadcrumb-nav');
+            if (!breadcrumbNav) return;
+
+            let breadcrumbs = [];
+
+            // Home is always first
+            breadcrumbs.push({ label: 'Startseite', href: '#home' });
+
+            if (route === 'home') {
+                // Just show Startseite as current (no link)
+                breadcrumbs = [{ label: 'Startseite', href: null, current: true }];
+            } else if (parentRoutes[route]) {
+                // Detail page - show parent category and current item
+                const parentRoute = parentRoutes[route];
+                breadcrumbs.push({
+                    label: routeNames[parentRoute],
+                    href: `#${parentRoute}`
+                });
+                breadcrumbs.push({
+                    label: itemTitle || routeNames[route],
+                    href: null,
+                    current: true
+                });
+            } else {
+                // List/category page
+                breadcrumbs.push({
+                    label: routeNames[route] || route,
+                    href: null,
+                    current: true
+                });
+            }
+
+            // Build HTML
+            const html = breadcrumbs.map((crumb, index) => {
+                if (index > 0) {
+                    const separator = '<span class="breadcrumb-separator"><i data-lucide="chevron-right" aria-hidden="true"></i></span>';
+                    if (crumb.current) {
+                        return `${separator}<span class="breadcrumb-current">${crumb.label}</span>`;
+                    } else {
+                        return `${separator}<a href="${crumb.href}">${crumb.label}</a>`;
+                    }
+                } else {
+                    if (crumb.current) {
+                        return `<span class="breadcrumb-current">${crumb.label}</span>`;
+                    } else {
+                        return `<a href="${crumb.href}">${crumb.label}</a>`;
+                    }
+                }
+            }).join('');
+
+            breadcrumbNav.innerHTML = html;
+
+            // Re-initialize lucide icons for the chevrons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        /**
+         * Share current page using Web Share API or fallback to clipboard
+         */
+        function shareCurrentPage() {
+            const url = window.location.href;
+            const title = document.title;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(() => {
+                    // User cancelled or error
+                    copyToClipboard(url);
+                });
+            } else {
+                copyToClipboard(url);
+            }
+        }
+
+        /**
+         * Copy text to clipboard with toast notification
+         */
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Link in Zwischenablage kopiert', 'success');
+            }).catch(() => {
+                showToast('Kopieren fehlgeschlagen', 'error');
+            });
+        }
 
         // ============================================
         // URL UTILITY FUNCTIONS
@@ -4121,6 +4359,29 @@
                 }
                 link.classList.toggle('active', isActive);
             });
+
+            // Update breadcrumbs
+            let itemTitle = null;
+            if (id) {
+                // Get item title for detail pages
+                if (route === 'element') {
+                    const item = globalElementsData.find(e => e.id === id);
+                    itemTitle = item ? item.title : null;
+                } else if (route === 'document') {
+                    const item = globalDocumentsData.find(d => d.id === id);
+                    itemTitle = item ? item.title : null;
+                } else if (route === 'usecase') {
+                    const item = globalUsecasesData.find(u => u.id === id);
+                    itemTitle = item ? item.title : null;
+                } else if (route === 'model') {
+                    const item = globalModelsData.find(m => m.id === id);
+                    itemTitle = item ? item.title : null;
+                } else if (route === 'epd') {
+                    const item = globalEpdsData.find(e => e.id === id);
+                    itemTitle = item ? item.title : null;
+                }
+            }
+            updateBreadcrumbs(route, id, itemTitle);
 
             contentArea.classList.remove('white-bg');
 
