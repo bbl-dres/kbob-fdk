@@ -1733,6 +1733,20 @@
             background: var(--color-surface-darker);
         }
 
+        /* Count badge for +N / - toggle */
+        .tag-badge--count {
+            background: var(--color-bg-light);
+            color: var(--color-text-muted);
+            border-color: var(--color-border);
+            min-width: 2rem;
+            justify-content: center;
+        }
+
+        .tag-badge--count:hover {
+            background: var(--color-bg-muted);
+            color: var(--color-text-primary);
+        }
+
         /* ============================================
            ALERT SYSTEM
            ============================================ */
@@ -3375,6 +3389,9 @@
         let modelsFilterVisible = false;
         let epdsFilterVisible = false;
 
+        // Track which cards have expanded tags (show all tags)
+        const expandedCardTags = new Set();
+
         // ============================================
         // URL UTILITY FUNCTIONS
         // ============================================
@@ -3718,6 +3735,61 @@
                 return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
             }).join('');
         }
+
+        /**
+         * Toggle card tags expanded state and re-render the tags container
+         */
+        window.toggleCardTags = function(cardId) {
+            event.stopPropagation();
+            if (expandedCardTags.has(cardId)) {
+                expandedCardTags.delete(cardId);
+            } else {
+                expandedCardTags.add(cardId);
+            }
+            // Re-render just the tags container for this card
+            const tagsContainer = document.querySelector(`[data-card-id="${cardId}"] .card__tags`);
+            if (tagsContainer) {
+                const tagsData = JSON.parse(tagsContainer.dataset.tags || '[]');
+                const activeTags = getActiveTagsFromURL();
+                tagsContainer.innerHTML = renderCardTagsHtml(cardId, tagsData, activeTags);
+            }
+        };
+
+        /**
+         * Render tags for card with +N / - toggle (max 2 visible by default)
+         */
+        function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
+            if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
+
+            const maxVisible = 2;
+            const isExpanded = expandedCardTags.has(cardId);
+            const hiddenCount = tagsData.length - maxVisible;
+
+            // If 2 or fewer tags, or expanded, show all tags
+            if (tagsData.length <= maxVisible || isExpanded) {
+                const tagsHtml = tagsData.map(tag => {
+                    const isActive = activeTags.includes(tag);
+                    const activeClass = isActive ? 'active' : '';
+                    return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
+                }).join('');
+
+                // Add collapse button if expanded and has more than maxVisible
+                if (isExpanded && tagsData.length > maxVisible) {
+                    return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="Weniger anzeigen">−</span>`;
+                }
+                return tagsHtml;
+            }
+
+            // Show limited tags with +N button
+            const visibleTags = tagsData.slice(0, maxVisible);
+            const tagsHtml = visibleTags.map(tag => {
+                const isActive = activeTags.includes(tag);
+                const activeClass = isActive ? 'active' : '';
+                return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
+            }).join('');
+
+            return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="${hiddenCount} weitere Tags anzeigen">+${hiddenCount}</span>`;
+        }
         
         /**
          * Render filter bar header with optional reset icon
@@ -3773,9 +3845,10 @@
 
             return items.map(el => {
                 const hasTags = el.tags && Array.isArray(el.tags) && el.tags.length > 0;
+                const cardId = `element-${el.id}`;
 
                 return `
-                <div class="card" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
+                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags)}'">
                     <div class="card__image">
                         ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
@@ -3783,7 +3856,7 @@
                         <div class="card__body">
                             <h3 class="card__title">${el.title}</h3>
                             <p class="card__subtitle">${el.subtitle || el.classification}</p>
-                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(el.tags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(el.tags)}'>${renderCardTagsHtml(cardId, el.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3821,9 +3894,10 @@
 
             return items.map(doc => {
                 const hasTags = doc.tags && Array.isArray(doc.tags) && doc.tags.length > 0;
+                const cardId = `document-${doc.id}`;
 
                 return `
-                <div class="card" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
+                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags)}'">
                     <div class="card__image">
                         ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<i data-lucide="file-text" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
@@ -3831,7 +3905,7 @@
                         <div class="card__body">
                             <h3 class="card__title">${doc.title}</h3>
                             <p class="card__subtitle">${doc.description || doc.category}</p>
-                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(doc.tags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(doc.tags)}'>${renderCardTagsHtml(cardId, doc.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3869,9 +3943,10 @@
 
             return items.map(item => {
                 const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
+                const cardId = `usecase-${item.id}`;
 
                 return `
-                <div class="card" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
+                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="workflow" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
@@ -3879,7 +3954,7 @@
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3917,9 +3992,10 @@
 
             return items.map(item => {
                 const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
+                const cardId = `model-${item.id}`;
 
                 return `
-                <div class="card" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags)}'">
+                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="boxes" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
@@ -3927,7 +4003,7 @@
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -3965,9 +4041,10 @@
 
             return items.map(item => {
                 const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
+                const cardId = `epd-${item.id}`;
 
                 return `
-                <div class="card" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags)}'">
+                <div class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags)}'">
                     <div class="card__image">
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="leaf" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
@@ -3975,7 +4052,7 @@
                         <div class="card__body">
                             <h3 class="card__title">${item.title}</h3>
                             <p class="card__subtitle">${item.description || item.category}</p>
-                            ${hasTags ? `<div class="card__tags">${renderTagsHtml(item.tags, activeTags)}</div>` : ''}
+                            ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
                         </div>
                         <div class="card__footer card__footer--end">
                             <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
