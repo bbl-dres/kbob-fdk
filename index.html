@@ -599,6 +599,79 @@
             color: var(--color-text-primary);
         }
 
+        .page-lead {
+            text-align: center;
+            font-size: var(--text-body);
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: calc(-1 * var(--space-lg)) auto var(--space-2xl) auto;
+        }
+
+        /* Handbook Page */
+        .handbook-section {
+            margin-bottom: var(--space-2xl);
+            max-width: 700px;
+        }
+
+        .handbook-section h2 {
+            font-size: var(--text-h3);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .handbook-section > p {
+            font-size: var(--text-small);
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-md);
+        }
+
+        .handbook-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .handbook-list li {
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .handbook-list li:last-child {
+            border-bottom: none;
+        }
+
+        .handbook-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .handbook-link:hover {
+            color: var(--color-accent);
+        }
+
+        .handbook-link i:first-child {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--color-text-muted);
+        }
+
+        .handbook-link:hover i:first-child {
+            color: var(--color-accent);
+        }
+
+        .handbook-link .external-icon {
+            width: 14px;
+            height: 14px;
+            margin-left: auto;
+            color: var(--color-text-muted);
+        }
+
         /* Home Page Hero */
         .home-hero {
             text-align: center;
@@ -3391,48 +3464,78 @@
             contentArea.innerHTML = `
                 <div class="container">
                     <h1 class="page-title">Handbuch & Download</h1>
+                    <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
 
-                    <div class="intro-section">
-                        <div class="intro-card">
-                            <div class="intro-card__header"></div>
-                            <div class="intro-card__body">
-                                <h2 class="intro-card__title">Der Dokumentationsstandard für Öffentliche Bauherren</h2>
-                                <p class="intro-card__text">Dieser Katalog definiert die verbindlichen Anforderungen an die Bauwerksdokumentation im Hochbau und dient als "Single Source of Truth" für Besteller, Planer, Ersteller und Betreiber.</p>
-                                <ul class="intro-card__features">
-                                    <li class="intro-card__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        <span>Einheitliche Standards für Bauwerksdokumentation</span>
-                                    </li>
-                                    <li class="intro-card__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        <span>Verbindliche Anforderungen für den Hochbau</span>
-                                    </li>
-                                    <li class="intro-card__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        <span>Zentrale Referenz für alle Projektbeteiligten</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <section class="handbook-section">
+                        <h2>Downloads</h2>
+                        <p>Vorlagen und Prüfdateien für die praktische Anwendung der Dokumentationsstandards.</p>
+                        <ul class="handbook-list">
+                            <li>
+                                <a href="#" class="handbook-link">
+                                    <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
+                                    <span>Excel-Vorlagen Bauwerksdokumentation</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="handbook-link">
+                                    <i data-lucide="file-check" aria-hidden="true"></i>
+                                    <span>IDS-Dateien (BIM-Prüfdateien)</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
 
-                        <div class="intro-card">
-                            <div class="intro-card__header"></div>
-                            <div class="intro-card__body">
-                                <h2 class="intro-card__title">Einführung in den Fachdatenkatalog</h2>
-                                <div class="video-container">
-                                    <iframe
-                                        src="https://www.youtube-nocookie.com/embed/NEtzaNVVxz0?si=HnhreYPfsOzpVdJJ"
-                                        title="Einführung in den KBOB Fachdatenkatalog"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin"
-                                        allowfullscreen>
-                                    </iframe>
-                                </div>
-                                <p class="video-caption">Video-Einführung zur Nutzung des Fachdatenkatalogs</p>
-                            </div>
-                        </div>
-                    </div>
+                    <section class="handbook-section">
+                        <h2>Dokumentation</h2>
+                        <p>Anleitungen und Referenzmaterial für Anwender und Entwickler.</p>
+                        <ul class="handbook-list">
+                            <li>
+                                <a href="#" class="handbook-link">
+                                    <i data-lucide="book-open" aria-hidden="true"></i>
+                                    <span>Anwendungshandbuch</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="handbook-link">
+                                    <i data-lucide="code" aria-hidden="true"></i>
+                                    <span>API-Dokumentation</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="handbook-section">
+                        <h2>Vernetzte Datenquellen</h2>
+                        <p>Die Fachdaten sind mit folgenden nationalen Dateninfrastrukturen verknüpft:</p>
+                        <ul class="handbook-list">
+                            <li>
+                                <a href="https://lindas.admin.ch/" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
+                                    <i data-lucide="database" aria-hidden="true"></i>
+                                    <span>LINDAS – Linked Data Service</span>
+                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.i14y.admin.ch/de/home" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
+                                    <i data-lucide="share-2" aria-hidden="true"></i>
+                                    <span>I14Y – Interoperabilitätsplattform</span>
+                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.termdat.bk.admin.ch/" target="_blank" rel="noopener" class="handbook-link handbook-link--external">
+                                    <i data-lucide="languages" aria-hidden="true"></i>
+                                    <span>TERMDAT – Terminologiedatenbank</span>
+                                    <i data-lucide="external-link" aria-hidden="true" class="external-icon"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </section>
                 </div>`;
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
 
         function renderCatalogPage(activeTags = []) {
