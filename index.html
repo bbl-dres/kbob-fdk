@@ -1029,6 +1029,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            position: relative;
+            z-index: var(--z-dropdown);
         }
 
         /* Themen Section - Light background */
@@ -2267,6 +2269,7 @@
         .search-dropdown-footer svg {
             width: 16px;
             height: 16px;
+            pointer-events: none;
         }
 
         /* ============================================
@@ -4996,7 +4999,8 @@
             
             // Close dropdown and navigate on result click
             searchDropdown.addEventListener('click', (e) => {
-                if (e.target.classList.contains('search-dropdown-item')) {
+                if (e.target.classList.contains('search-dropdown-item') ||
+                    e.target.classList.contains('search-dropdown-footer')) {
                     searchDropdown.classList.remove('open');
                     searchInput.value = '';
                 }
