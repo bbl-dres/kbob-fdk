@@ -27,6 +27,7 @@
             --color-interactive: #006699;
             --color-interactive-hover: #005580;
             --color-focus: #66AFE9;
+            --color-focus-input: #6366f1;
 
             /* Neutral Colors */
             --color-black: #000000;
@@ -35,7 +36,7 @@
             --color-text-muted: #718096;
             --color-border: #e2e8f0;
             --color-border-light: #edf2f7;
-            --color-border-input: #cbd5e0;
+            --color-border-input: #9ca3af;
             --color-bg-alt: #f7fafc;
             --color-bg-light: #fafafa;
             --color-white: #FFFFFF;
@@ -1432,7 +1433,8 @@
         }
 
         .gallery-filter-wrapper:focus-within {
-            border-color: var(--color-focus);
+            border-color: var(--color-focus-input);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
         }
 
         .gallery-filter-input {
@@ -4105,7 +4107,6 @@
 
             const searchInput = document.getElementById('documentsSearchInput');
             if(searchInput) {
-                searchInput.focus();
                 searchInput.addEventListener('input', (e) => {
                     document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
                     const searchTerm = e.target.value.toLowerCase();
