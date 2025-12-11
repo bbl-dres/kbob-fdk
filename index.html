@@ -408,10 +408,16 @@
         .top-bar {
             background: #3e5060;
             height: 46px;
+        }
+
+        .top-bar__container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding: 0 var(--space-lg);
         }
 
         /* Language Dropdown */
@@ -472,15 +478,15 @@
             background: transparent;
             text-align: left;
             cursor: pointer;
+            font-family: inherit;
         }
 
-        .lang-dropdown__item:hover,
-        .lang-dropdown__item.active {
-            background: #2a3a4a;
+        .lang-dropdown__item:hover {
+            background: #0066b3;
         }
 
         .lang-dropdown__item.active {
-            font-weight: var(--font-weight-bold);
+            /* Keine spezielle Hintergrundfarbe für aktive Sprache */
         }
 
         /* Header Controls (Kontakt, Search) */
@@ -4034,16 +4040,18 @@
 <body>
     <!-- Top Bar with Language Selector (CD Bund) -->
     <div class="top-bar">
-        <div class="lang-dropdown" id="langDropdown">
-            <button class="lang-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
-                <span id="currentLang">DE</span>
-                <i data-lucide="chevron-down" aria-hidden="true"></i>
-            </button>
-            <div class="lang-dropdown__menu" role="menu">
-                <button class="lang-dropdown__item active" data-lang="de" role="menuitem">DE</button>
-                <button class="lang-dropdown__item" data-lang="fr" role="menuitem">FR</button>
-                <button class="lang-dropdown__item" data-lang="it" role="menuitem">IT</button>
-                <button class="lang-dropdown__item" data-lang="en" role="menuitem">EN</button>
+        <div class="top-bar__container">
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
+                    <span id="currentLang">DE</span>
+                    <i data-lucide="chevron-down" aria-hidden="true"></i>
+                </button>
+                <div class="lang-dropdown__menu" role="menu">
+                    <button class="lang-dropdown__item active" data-lang="de" role="menuitem">DE</button>
+                    <button class="lang-dropdown__item" data-lang="fr" role="menuitem">FR</button>
+                    <button class="lang-dropdown__item" data-lang="it" role="menuitem">IT</button>
+                    <button class="lang-dropdown__item" data-lang="en" role="menuitem">EN</button>
+                </div>
             </div>
         </div>
     </div>
