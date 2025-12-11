@@ -4931,11 +4931,11 @@
 
         function renderPhaseBadges(phases) {
             if(!phases || !Array.isArray(phases)) return '<span class="empty-text">-</span>';
-            const phaseLabels = [2, 3, 4, 5, 6];
+            const allPhases = [2, 3, 4, 5, 6];
             let badgesHtml = '<div class="phase-compact-wrapper">';
-            phases.forEach((isActive, index) => {
-                const statusClass = isActive ? 'active' : 'inactive';
-                badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phaseLabels[index]}">${phaseLabels[index]}</div>`;
+            allPhases.forEach(phase => {
+                const statusClass = phases.includes(phase) ? 'active' : 'inactive';
+                badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phase}">${phase}</div>`;
             });
             badgesHtml += '</div>';
             return badgesHtml;

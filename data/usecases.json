@@ -11,7 +11,7 @@
       { "system": "BIM-D AWF", "code": "000", "desc": "Grundsätzliches" },
       { "system": "SIA", "code": "SIA 2051", "desc": "BIM – Grundlagen zur Anwendung der Methode" }
     ],
-    "phases": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    "phases": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
   {
     "id": "uc010",
@@ -25,7 +25,7 @@
       { "system": "BIM-D AWF", "code": "010", "desc": "Bestandserfassung und -modellierung" },
       { "system": "ISO 19650", "code": "4.3.1", "desc": "Existing conditions modeling" }
     ],
-    "phases": [1, 1, 1, 0, 0, 0, 0, 0, 0, 1]
+    "phases": [1, 2, 3, 10]
   },
   {
     "id": "uc020",
@@ -39,7 +39,7 @@
       { "system": "BIM-D AWF", "code": "020", "desc": "Bedarfsplanung" },
       { "system": "SIA", "code": "SIA 416", "desc": "Flächen und Volumen von Gebäuden" }
     ],
-    "phases": [1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
+    "phases": [1, 2, 3]
   },
   {
     "id": "uc030",
@@ -53,7 +53,7 @@
       { "system": "BIM-D AWF", "code": "030", "desc": "Planungsvarianten" },
       { "system": "SIA", "code": "SIA 112", "desc": "Modell Bauplanung" }
     ],
-    "phases": [1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+    "phases": [1, 2, 3, 4]
   },
   {
     "id": "uc040",
@@ -67,7 +67,7 @@
       { "system": "BIM-D AWF", "code": "040", "desc": "Visualisierung" },
       { "system": "ISO 19650", "code": "4.4.1", "desc": "Design visualization" }
     ],
-    "phases": [0, 1, 1, 1, 1, 1, 1, 1, 0, 0]
+    "phases": [2, 3, 4, 5, 6, 7, 8]
   },
   {
     "id": "uc050",
@@ -81,7 +81,7 @@
       { "system": "BIM-D AWF", "code": "050", "desc": "Koordination der Fachgewerke" },
       { "system": "ISO 19650", "code": "4.5.1", "desc": "Information coordination" }
     ],
-    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+    "phases": [2, 3, 4, 5, 6, 7]
   },
   {
     "id": "uc060",
@@ -95,7 +95,7 @@
       { "system": "BIM-D AWF", "code": "060", "desc": "Planungsfortschrittskontrolle und Qualitätsprüfung" },
       { "system": "ISO 19650", "code": "4.5.2", "desc": "Model validation" }
     ],
-    "phases": [0, 1, 1, 1, 1, 1, 1, 0, 0, 0]
+    "phases": [2, 3, 4, 5, 6, 7]
   },
   {
     "id": "uc070",
@@ -109,7 +109,7 @@
       { "system": "BIM-D AWF", "code": "070", "desc": "Bemessung und Nachweisführung" },
       { "system": "SIA", "code": "SIA 380/1", "desc": "Heizwärmebedarf" }
     ],
-    "phases": [0, 1, 1, 1, 1, 0, 0, 0, 0, 0]
+    "phases": [2, 3, 4, 5]
   },
   {
     "id": "uc080",
@@ -123,7 +123,7 @@
       { "system": "BIM-D AWF", "code": "080", "desc": "Ableitung von Planunterlagen" },
       { "system": "SIA", "code": "SIA 400", "desc": "Planbearbeitung im Bauwesen" }
     ],
-    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
+    "phases": [3, 4, 5, 6, 7, 8]
   },
   {
     "id": "uc090",
@@ -137,7 +137,7 @@
       { "system": "BIM-D AWF", "code": "090", "desc": "Genehmigungsprozess" },
       { "system": "ISO 19650", "code": "4.8.1", "desc": "Regulatory approval" }
     ],
-    "phases": [0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
+    "phases": [4, 5]
   },
   {
     "id": "uc100",
@@ -151,7 +151,7 @@
       { "system": "BIM-D AWF", "code": "100", "desc": "Mengen- und Kostenermittlung" },
       { "system": "SIA", "code": "SN 506 511", "desc": "Baukostenplan Hochbau eBKP-H" }
     ],
-    "phases": [0, 0, 1, 1, 1, 1, 1, 1, 0, 0]
+    "phases": [3, 4, 5, 6, 7, 8]
   },
   {
     "id": "uc110",
@@ -165,7 +165,7 @@
       { "system": "BIM-D AWF", "code": "110", "desc": "Leistungsverzeichnis, Ausschreibung, Vergabe" },
       { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+    "phases": [6]
   },
   {
     "id": "uc120",
@@ -179,7 +179,7 @@
       { "system": "BIM-D AWF", "code": "120", "desc": "Terminplanung der Ausführung" },
       { "system": "ISO 19650", "code": "4.7.1", "desc": "Construction sequencing" }
     ],
-    "phases": [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+    "phases": [4, 5, 6, 7]
   },
   {
     "id": "uc130",
@@ -193,7 +193,7 @@
       { "system": "BIM-D AWF", "code": "130", "desc": "Logistikplanung" },
       { "system": "ISO 19650", "code": "4.7.2", "desc": "Site logistics" }
     ],
-    "phases": [0, 0, 0, 0, 1, 1, 1, 1, 0, 0]
+    "phases": [5, 6, 7, 8]
   },
   {
     "id": "uc140",
@@ -207,7 +207,7 @@
       { "system": "BIM-D AWF", "code": "140", "desc": "Baufortschrittskontrolle" },
       { "system": "ISO 19650", "code": "4.7.3", "desc": "Progress monitoring" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+    "phases": [7, 8]
   },
   {
     "id": "uc150",
@@ -221,7 +221,7 @@
       { "system": "BIM-D AWF", "code": "150", "desc": "Änderungs- und Nachtragsmanagement" },
       { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+    "phases": [7, 8]
   },
   {
     "id": "uc160",
@@ -235,7 +235,7 @@
       { "system": "BIM-D AWF", "code": "160", "desc": "Abrechnung von Bauleistungen" },
       { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+    "phases": [7, 8]
   },
   {
     "id": "uc170",
@@ -249,7 +249,7 @@
       { "system": "BIM-D AWF", "code": "170", "desc": "Abnahme- und Mängelmanagement" },
       { "system": "ISO 19650", "code": "4.8.2", "desc": "Defects management" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+    "phases": [8, 9]
   },
   {
     "id": "uc180",
@@ -263,7 +263,7 @@
       { "system": "BIM-D AWF", "code": "180", "desc": "Inbetriebnahmemanagement" },
       { "system": "GEFMA", "code": "190", "desc": "Betreiberverantwortung" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 0, 1, 1, 0]
+    "phases": [8, 9]
   },
   {
     "id": "uc190",
@@ -277,7 +277,7 @@
       { "system": "BIM-D AWF", "code": "190", "desc": "Projekt- und Bauwerksdokumentation" },
       { "system": "ISO 19650", "code": "4.9.1", "desc": "As-built information" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+    "phases": [7, 8, 9, 10]
   },
   {
     "id": "uc200",
@@ -291,6 +291,6 @@
       { "system": "BIM-D AWF", "code": "200", "desc": "Nutzung für Betrieb und Erhaltung" },
       { "system": "GEFMA", "code": "922", "desc": "Dokumentation im FM" }
     ],
-    "phases": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+    "phases": [9, 10]
   }
 ]
