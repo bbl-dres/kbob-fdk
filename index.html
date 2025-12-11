@@ -1034,37 +1034,6 @@
             height: 120px;
         }
 
-        .quick-card__image {
-            position: relative;
-            margin: calc(-1 * var(--space-xl)) calc(-1 * var(--space-xl)) var(--space-lg) calc(-1 * var(--space-xl));
-            width: calc(100% + 2 * var(--space-xl));
-            height: 120px;
-            overflow: hidden;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .quick-card__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .quick-card__image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-size: var(--text-h4);
-            font-weight: var(--font-weight-semibold);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-
         .quick-card__arrow-btn {
             position: absolute;
             bottom: var(--space-lg);
@@ -4251,10 +4220,7 @@
                             </div>
                             <div class="quick-access-grid">
                                 <a href="#usecases" class="quick-card" data-route="usecases">
-                                    <div class="quick-card__image">
-                                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=120&fit=crop" alt="Anwendungsfälle">
-                                        <span class="quick-card__image-overlay">${globalUsecasesData.length} Datensätze</span>
-                                    </div>
+                                    <span class="quick-card__kpi">${globalUsecasesData.length} Datensätze</span>
                                     <h3 class="quick-card__title">Anwendungsfälle</h3>
                                     <p class="quick-card__desc">BIM-Anwendungsfälle für Planung, Koordination und Betrieb</p>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
@@ -4266,10 +4232,7 @@
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#models" class="quick-card" data-route="models">
-                                    <div class="quick-card__image">
-                                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=120&fit=crop" alt="Fachmodelle">
-                                        <span class="quick-card__image-overlay">${globalModelsData.length} Datensätze</span>
-                                    </div>
+                                    <span class="quick-card__kpi">${globalModelsData.length} Datensätze</span>
                                     <h3 class="quick-card__title">Fachmodelle</h3>
                                     <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
@@ -4281,10 +4244,7 @@
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                                 </a>
                                 <a href="#epds" class="quick-card" data-route="epds">
-                                    <div class="quick-card__image">
-                                        <img src="https://images.unsplash.com/photo-1518173946687-a4c036bc844f?w=400&h=120&fit=crop" alt="Ökobilanzdaten">
-                                        <span class="quick-card__image-overlay">${globalEpdsData.length} Datensätze</span>
-                                    </div>
+                                    <span class="quick-card__kpi">${globalEpdsData.length} Datensätze</span>
                                     <h3 class="quick-card__title">Ökobilanzdaten</h3>
                                     <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
                                     <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
