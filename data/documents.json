@@ -14,7 +14,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Bearbeitungszweck entfällt",
-    "phases": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [1, 2, 3, 4, 5, 6]
   },
   {
     "id": "d2",
@@ -31,7 +31,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "d3",
@@ -48,7 +48,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "d4",
@@ -65,7 +65,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [1, 2, 3, 4, 5, 6]
   },
   {
     "id": "d5",
@@ -82,7 +82,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
-    "phases": [7, 8, 9]
+    "phases": [5, 6]
   },
   {
     "id": "d6",
@@ -116,7 +116,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "d8",
@@ -133,7 +133,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
-    "phases": [4, 5, 6, 7, 8, 9]
+    "phases": [4, 5, 6]
   },
   {
     "id": "d9",
@@ -150,7 +150,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "d10",
@@ -167,7 +167,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "d11",
@@ -184,7 +184,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "d12",
@@ -201,7 +201,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "d13",
@@ -218,7 +218,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "d14",
@@ -235,7 +235,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [3, 4, 5, 6, 7, 8]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "d15",
@@ -252,7 +252,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [7, 8, 9, 10]
+    "phases": [5, 6]
   },
   {
     "id": "d16",
@@ -269,7 +269,7 @@
     ],
     "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "d17",
@@ -286,7 +286,7 @@
     ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
-    "phases": [4, 5, 6, 7, 8, 9, 10]
+    "phases": [4, 5, 6]
   },
   {
     "id": "d18",
@@ -303,7 +303,7 @@
     ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
-    "phases": [4, 5, 6, 7, 8, 9]
+    "phases": [4, 5, 6]
   },
   {
     "id": "d19",
@@ -320,7 +320,7 @@
     ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
-    "phases": [4, 5, 6, 7, 8, 9, 10]
+    "phases": [4, 5, 6]
   },
   {
     "id": "d20",
@@ -337,6 +337,6 @@
     ],
     "formats": ["DWG", "PDF-A"],
     "retention": "bis Ersatz",
-    "phases": [4, 5, 6, 7, 8, 9, 10]
+    "phases": [4, 5, 6]
   }
 ]

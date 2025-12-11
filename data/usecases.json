@@ -12,7 +12,7 @@
       { "system": "BIM-D AWF", "code": "000", "desc": "Grundsätzliches" },
       { "system": "SIA", "code": "SIA 2051", "desc": "BIM – Grundlagen zur Anwendung der Methode" }
     ],
-    "phases": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    "phases": [1, 2, 3, 4, 5, 6]
   },
   {
     "id": "uc010",
@@ -26,7 +26,7 @@
       { "system": "BIM-D AWF", "code": "010", "desc": "Bestandserfassung und -modellierung" },
       { "system": "ISO 19650", "code": "4.3.1", "desc": "Existing conditions modeling" }
     ],
-    "phases": [1, 2, 3, 10]
+    "phases": [1, 2, 3, 6]
   },
   {
     "id": "uc020",
@@ -68,7 +68,7 @@
       { "system": "BIM-D AWF", "code": "040", "desc": "Visualisierung" },
       { "system": "ISO 19650", "code": "4.4.1", "desc": "Design visualization" }
     ],
-    "phases": [2, 3, 4, 5, 6, 7, 8]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "uc050",
@@ -82,7 +82,7 @@
       { "system": "BIM-D AWF", "code": "050", "desc": "Koordination der Fachgewerke" },
       { "system": "ISO 19650", "code": "4.5.1", "desc": "Information coordination" }
     ],
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "uc060",
@@ -96,7 +96,7 @@
       { "system": "BIM-D AWF", "code": "060", "desc": "Planungsfortschrittskontrolle und Qualitätsprüfung" },
       { "system": "ISO 19650", "code": "4.5.2", "desc": "Model validation" }
     ],
-    "phases": [2, 3, 4, 5, 6, 7]
+    "phases": [2, 3, 4, 5, 6]
   },
   {
     "id": "uc070",
@@ -124,7 +124,7 @@
       { "system": "BIM-D AWF", "code": "080", "desc": "Ableitung von Planunterlagen" },
       { "system": "SIA", "code": "SIA 400", "desc": "Planbearbeitung im Bauwesen" }
     ],
-    "phases": [3, 4, 5, 6, 7, 8]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "uc090",
@@ -152,7 +152,7 @@
       { "system": "BIM-D AWF", "code": "100", "desc": "Mengen- und Kostenermittlung" },
       { "system": "SIA", "code": "SN 506 511", "desc": "Baukostenplan Hochbau eBKP-H" }
     ],
-    "phases": [3, 4, 5, 6, 7, 8]
+    "phases": [3, 4, 5, 6]
   },
   {
     "id": "uc110",
@@ -180,7 +180,7 @@
       { "system": "BIM-D AWF", "code": "120", "desc": "Terminplanung der Ausführung" },
       { "system": "ISO 19650", "code": "4.7.1", "desc": "Construction sequencing" }
     ],
-    "phases": [4, 5, 6, 7]
+    "phases": [4, 5, 6]
   },
   {
     "id": "uc130",
@@ -194,7 +194,7 @@
       { "system": "BIM-D AWF", "code": "130", "desc": "Logistikplanung" },
       { "system": "ISO 19650", "code": "4.7.2", "desc": "Site logistics" }
     ],
-    "phases": [5, 6, 7, 8]
+    "phases": [5, 6]
   },
   {
     "id": "uc140",
@@ -208,7 +208,7 @@
       { "system": "BIM-D AWF", "code": "140", "desc": "Baufortschrittskontrolle" },
       { "system": "ISO 19650", "code": "4.7.3", "desc": "Progress monitoring" }
     ],
-    "phases": [7, 8]
+    "phases": [5, 6]
   },
   {
     "id": "uc150",
@@ -222,7 +222,7 @@
       { "system": "BIM-D AWF", "code": "150", "desc": "Änderungs- und Nachtragsmanagement" },
       { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [7, 8]
+    "phases": [5, 6]
   },
   {
     "id": "uc160",
@@ -236,7 +236,7 @@
       { "system": "BIM-D AWF", "code": "160", "desc": "Abrechnung von Bauleistungen" },
       { "system": "SIA", "code": "SIA 118", "desc": "Allgemeine Bedingungen für Bauarbeiten" }
     ],
-    "phases": [7, 8]
+    "phases": [5, 6]
   },
   {
     "id": "uc170",
@@ -250,7 +250,7 @@
       { "system": "BIM-D AWF", "code": "170", "desc": "Abnahme- und Mängelmanagement" },
       { "system": "ISO 19650", "code": "4.8.2", "desc": "Defects management" }
     ],
-    "phases": [8, 9]
+    "phases": [5, 6]
   },
   {
     "id": "uc180",
@@ -264,7 +264,7 @@
       { "system": "BIM-D AWF", "code": "180", "desc": "Inbetriebnahmemanagement" },
       { "system": "GEFMA", "code": "190", "desc": "Betreiberverantwortung" }
     ],
-    "phases": [8, 9]
+    "phases": [5, 6]
   },
   {
     "id": "uc190",
@@ -278,7 +278,7 @@
       { "system": "BIM-D AWF", "code": "190", "desc": "Projekt- und Bauwerksdokumentation" },
       { "system": "ISO 19650", "code": "4.9.1", "desc": "As-built information" }
     ],
-    "phases": [7, 8, 9, 10]
+    "phases": [5, 6]
   },
   {
     "id": "uc200",
@@ -292,6 +292,6 @@
       { "system": "BIM-D AWF", "code": "200", "desc": "Nutzung für Betrieb und Erhaltung" },
       { "system": "GEFMA", "code": "922", "desc": "Dokumentation im FM" }
     ],
-    "phases": [9, 10]
+    "phases": [6]
   }
 ]

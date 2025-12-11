@@ -141,7 +141,7 @@
     ],
     "gwp": 2850,
     "unit": "kg CO₂-eq/Stk",
-    "phases": [4, 5, 6, 7]
+    "phases": [4, 5, 6]
   },
   {
     "id": "epd10",
