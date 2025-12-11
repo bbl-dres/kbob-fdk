@@ -491,20 +491,28 @@
         .contact-section {
             background-color: var(--color-surface-dark);
             color: var(--color-white);
-            min-height: 370px;
-            padding: var(--space-2xl) var(--space-lg);
+            padding: var(--space-2xl) var(--space-xl);
+            flex-shrink: 0;
+        }
+
+        .contact-section .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
             position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex-shrink: 0;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .contact-section .contact-content {
+            flex: 1;
         }
 
         .contact-section h3 {
             color: var(--color-white);
             font-size: var(--text-h3);
             font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-md);
         }
 
         .contact-info {
@@ -523,7 +531,7 @@
         }
 
         .contact-copyright {
-            margin-top: var(--space-lg);
+            margin-top: var(--space-md);
             font-size: var(--text-caption);
             opacity: 0.7;
             max-width: 280px;
@@ -531,10 +539,6 @@
         }
 
         .scroll-top-btn {
-            position: absolute;
-            right: var(--space-lg);
-            top: 50%;
-            transform: translateY(-50%);
             width: 50px;
             height: 50px;
             background: rgba(255,255,255,0.1);
@@ -546,6 +550,8 @@
             align-items: center;
             justify-content: center;
             transition: all var(--transition-fast);
+            flex-shrink: 0;
+            align-self: center;
         }
 
         .scroll-top-btn:hover {
@@ -575,12 +581,12 @@
             color: var(--color-white);
             font-weight: var(--font-weight-normal);
             font-size: var(--text-caption);
-            opacity: 0.9;
+            text-decoration: none;
         }
 
         footer a:hover {
-            opacity: 1;
-            text-decoration: underline;
+            color: var(--color-border);
+            text-decoration: none;
         }
 
         /* ============================================
@@ -596,7 +602,7 @@
         /* Home Page Hero */
         .home-hero {
             text-align: center;
-            margin: var(--space-3xl) 0 var(--space-3xl) 0;
+            margin: var(--space-xl) 0 var(--space-2xl) 0;
         }
 
         .home-hero__title {
@@ -2767,17 +2773,19 @@
 
     <section class="contact-section">
         <div class="container">
-            <h3>Kontakt</h3>
-            <div class="contact-info">
-                Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+            <div class="contact-content">
+                <h3>Kontakt</h3>
+                <div class="contact-info">
+                    Fellerstrasse 21 | CH-3003 Bern | <a href="mailto:kbob@bbl.admin.ch">kbob@bbl.admin.ch</a>
+                </div>
+                <div class="contact-copyright">
+                    © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
+                </div>
             </div>
-            <div class="contact-copyright">
-                © Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren KBOB
-            </div>
+            <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben" aria-label="Nach oben scrollen">
+                <i data-lucide="chevron-up" aria-hidden="true"></i>
+            </button>
         </div>
-        <button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Nach oben" aria-label="Nach oben scrollen">
-            <i data-lucide="chevron-up" aria-hidden="true"></i>
-        </button>
     </section>
 
     <footer>
