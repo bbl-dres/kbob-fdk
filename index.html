@@ -1103,7 +1103,7 @@
 
         /* Home Page Hero */
         .home-hero {
-            text-align: center;
+            text-align: left;
             margin: 0;
         }
 
@@ -1114,19 +1114,24 @@
             padding-top: var(--space-lg);
             letter-spacing: -1px;
             font-weight: var(--font-weight-bold);
+            text-align: left;
         }
 
-        .home-hero__subtitle {
-            font-size: var(--text-h4);
-            color: var(--color-text-muted);
+        .hero__description {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
             margin-bottom: var(--space-xl);
             font-weight: var(--font-weight-normal);
+            padding-left: 80px;
+            text-align: left;
+            line-height: 1.6;
+            max-width: 700px;
         }
 
         /* Home Search Container - for dropdown positioning */
         .home-hero .home-search-container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0;
             position: relative;
         }
 
@@ -1145,17 +1150,6 @@
             width: 64px;
         }
 
-        /* Home Video */
-        .home-video {
-            max-width: 800px;
-            margin: var(--space-2xl) auto 0;
-            aspect-ratio: 16 / 9;
-        }
-        .home-video iframe {
-            width: 100%;
-            height: 100%;
-            border-radius: var(--border-radius);
-        }
 
         /* Home Search Dropdown - positioned below home search */
         .home-search-container .search-dropdown {
@@ -5304,16 +5298,13 @@
                     <div class="container">
                         <div class="home-hero">
                             <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                            <p class="home-hero__subtitle">Suche nach Elementen, Dokumenten und Ökobilanzdaten</p>
+                            <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
                             <div class="home-search-container">
                                 <div class="gallery-filter-wrapper">
                                     <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
                                     <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                                 </div>
                                 <div id="globalSearchDropdown" class="search-dropdown"></div>
-                            </div>
-                            <div class="home-video">
-                                <iframe src="https://www.youtube.com/embed/NEtzaNVVxz0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
