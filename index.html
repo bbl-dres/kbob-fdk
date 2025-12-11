@@ -118,8 +118,9 @@
             --breakpoint-logo: 1024px;  /* Logo full/minimal switch */
 
             /* Component Dimensions */
-            --header-height: 70px;
-            --footer-height: 40px;
+            --header-height: 146px;
+            --nav-height: 64px;
+            --footer-height: 64px;
             --toolbar-height: 46px;
 
             /* =====================
@@ -200,13 +201,13 @@
 
         a {
             color: var(--color-primary);
-            text-decoration: underline;
+            text-decoration: none;
             transition: color var(--transition-fast);
         }
 
         a:hover {
             color: var(--color-primary);
-            text-decoration: underline; /* Swiss Federal: maintain underline on hover */
+            text-decoration: underline;
         }
 
         /* Custom Scrollbar */
@@ -473,8 +474,8 @@
             position: absolute;
             top: calc(100% + var(--space-sm));
             right: 0;
-            width: 200px;
-            border: 2px solid var(--color-interactive);
+            width: 220px;
+            border: 2px solid var(--color-focus-input);
             border-radius: var(--border-radius);
             background: var(--color-white);
             overflow: hidden;
@@ -486,7 +487,7 @@
         }
 
         .header__search.open .header__search-toggle {
-            color: var(--color-interactive);
+            color: var(--color-focus-input);
         }
 
         .header__search-input {
@@ -510,7 +511,7 @@
         }
 
         .header__search-submit:hover {
-            color: var(--color-interactive);
+            color: var(--color-focus-input);
         }
 
         .header__search-submit svg {
@@ -525,12 +526,14 @@
             background: var(--color-white);
             border-top: 1px solid var(--color-border-light);
             border-bottom: 1px solid var(--color-border-light);
+            height: var(--nav-height);
         }
 
         .main-nav .container {
             max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 0 var(--space-xl);
+            height: 100%;
         }
 
         .main-nav ul {
@@ -540,13 +543,16 @@
             display: flex;
             flex-wrap: wrap;
             gap: var(--space-xl);
+            height: 100%;
+            align-items: center;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--color-text-secondary);
-            padding: var(--space-md) 0;
-            display: block;
+            display: flex;
+            align-items: center;
+            height: 100%;
             font-size: var(--text-body);
             transition: color var(--transition-fast);
         }
@@ -558,8 +564,7 @@
 
         .nav-link.active {
             color: var(--color-text-primary);
-            border-bottom: 3px solid var(--color-primary);
-            margin-bottom: -1px;
+            box-shadow: inset 0 -3px 0 var(--color-primary);
         }
 
         .nav-link.active:hover {
@@ -3785,7 +3790,7 @@
             </a>
             <div class="header__controls">
                 <div class="header__links">
-                    <a href="#kontakt" class="header__link">Kontakt</a>
+                    <a href="https://www.kbob.admin.ch/de/kontakt-kbob" class="header__link" target="_blank">Kontakt</a>
                 </div>
                 <div class="header__search">
                     <button class="header__search-toggle" id="headerSearchToggle" aria-expanded="false" aria-controls="headerSearchForm">
