@@ -629,9 +629,10 @@
         /* Simplified structure: removed .breadcrumb-row and .toolbar-row wrappers */
         .breadcrumb-bar__inner {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: stretch;
             padding: var(--space-md) 0;
+            gap: var(--space-sm);
         }
 
         .breadcrumb-nav {
@@ -680,6 +681,7 @@
             display: flex;
             align-items: center;
             gap: var(--space-lg);
+            align-self: flex-end; /* Position toolbar to the right in vertical breadcrumb layout */
         }
 
         .toolbar-btn {
@@ -2743,6 +2745,7 @@
             align-items: center;
             justify-content: space-between;
             padding: var(--space-md) var(--space-lg) var(--space-lg);
+            background: transparent; /* Override generic footer styling */
         }
 
         .card__footer--end {
