@@ -767,9 +767,112 @@
 
         /* Home Page Hero Section Wrapper */
         .home-hero-section {
-            background-color: var(--color-bg-light);
+            background-color: var(--color-white);
             padding: var(--space-2xl) 0;
-            margin-bottom: var(--space-2xl);
+        }
+
+        /* Themen Section - Light background */
+        .home-themen-section {
+            background-color: var(--color-bg-light);
+            padding: var(--space-3xl) 0;
+        }
+
+        .home-themen-section .home-section {
+            margin: 0;
+        }
+
+        /* About Section - BLW Style */
+        .home-about-section {
+            background-color: var(--color-white);
+            padding: var(--space-3xl) 0;
+        }
+
+        .about-blw {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .about-blw {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+        }
+
+        .about-blw__content h2 {
+            font-size: var(--text-h1);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-lg) 0;
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+        }
+
+        .about-blw__content p {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-xl) 0;
+            line-height: 1.7;
+        }
+
+        .about-blw__buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .about-blw__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-lg);
+            border: 1px solid var(--color-border);
+            background: transparent;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: var(--text-body);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .about-blw__btn:hover {
+            border-color: var(--color-primary);
+            background: var(--color-bg-light);
+        }
+
+        .about-blw__btn i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .about-blw__image {
+            position: relative;
+        }
+
+        .about-blw__image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            display: block;
+        }
+
+        .about-blw__image-credit {
+            position: absolute;
+            bottom: var(--space-sm);
+            right: var(--space-sm);
+            font-size: var(--text-caption);
+            color: var(--color-white);
+            background: rgba(0,0,0,0.5);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--border-radius-sm);
+        }
+
+        @media (max-width: 992px) {
+            .about-blw__image {
+                order: -1;
+            }
         }
 
         /* Home Page Hero */
@@ -3815,74 +3918,64 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <!-- Themen Section -->
-                    <section class="home-section">
-                        <div class="home-section__header">
-                            <h2 class="home-section__title">Themen</h2>
-                            <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
-                        </div>
-                        <div class="quick-access-grid">
-                            <a href="#elements" class="quick-card" data-route="elements">
-                                <h3 class="quick-card__title">Elemente</h3>
-                                <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
-                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                            </a>
-                            <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
-                                <h3 class="quick-card__title">Fachmodelle</h3>
-                                <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
-                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                            </a>
-                            <a href="#documents" class="quick-card" data-route="documents">
-                                <h3 class="quick-card__title">Dokumente</h3>
-                                <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
-                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                            </a>
-                            <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
-                                <h3 class="quick-card__title">Ökobilanzdaten</h3>
-                                <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
-                                <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
-                            </a>
-                        </div>
-                    </section>
+                <!-- Section 2: Themen - Light Background -->
+                <div class="home-themen-section">
+                    <div class="container">
+                        <section class="home-section">
+                            <div class="home-section__header">
+                                <h2 class="home-section__title">Themen</h2>
+                                <p class="home-section__subtitle">Entdecken Sie die verschiedenen Bereiche des Fachdatenkatalogs</p>
+                            </div>
+                            <div class="quick-access-grid">
+                                <a href="#elements" class="quick-card" data-route="elements">
+                                    <h3 class="quick-card__title">Elemente</h3>
+                                    <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
+                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                                </a>
+                                <a href="#fachmodelle" class="quick-card" data-route="fachmodelle">
+                                    <h3 class="quick-card__title">Fachmodelle</h3>
+                                    <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
+                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                                </a>
+                                <a href="#documents" class="quick-card" data-route="documents">
+                                    <h3 class="quick-card__title">Dokumente</h3>
+                                    <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
+                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                                </a>
+                                <a href="#oekobilanzdaten" class="quick-card" data-route="oekobilanzdaten">
+                                    <h3 class="quick-card__title">Ökobilanzdaten</h3>
+                                    <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
+                                    <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
 
-                    <!-- About Section -->
-                    <section class="home-section">
-                        <div class="about-box">
-                            <div class="about-box__content">
-                                <h2>Über den Fachdatenkatalog</h2>
-                                <p>Der KBOB Fachdatenkatalog definiert einheitliche Standards für die digitale Bauwerksdokumentation im Hochbau. Er unterstützt alle Projektphasen und fördert den Datenaustausch zwischen Planern, Bauherren und Betreibern.</p>
-                                <div class="about-box__features">
-                                    <span class="about-box__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        Open Data
-                                    </span>
-                                    <span class="about-box__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        IFC-kompatibel
-                                    </span>
-                                    <span class="about-box__feature">
-                                        <i data-lucide="check-circle" aria-hidden="true"></i>
-                                        SIA-konform
-                                    </span>
+                <!-- Section 3: Über den Fachdatenkatalog - White Background, BLW Style -->
+                <div class="home-about-section">
+                    <div class="container">
+                        <div class="about-blw">
+                            <div class="about-blw__content">
+                                <h2>Der KBOB Fachdatenkatalog für morgen</h2>
+                                <p>Wir setzen uns dafür ein, dass Planerinnen und Planer einheitlich und digital zusammenarbeiten können. Ein standardisierter, offener Fachdatenkatalog ist wichtig. Im Fokus der KBOB steht zudem die nachhaltige Bauwerksdokumentation für öffentliche Bauten.</p>
+                                <div class="about-blw__buttons">
+                                    <a href="#handbook" class="about-blw__btn">
+                                        Mehr über den KBOB FDK
+                                        <i data-lucide="arrow-right" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#catalog" class="about-blw__btn">
+                                        Zum Katalog
+                                        <i data-lucide="arrow-right" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="about-box__visual">
-                                <div class="stat-card">
-                                    <p class="stat-card__number">120+</p>
-                                    <p class="stat-card__label">Elemente</p>
-                                </div>
-                                <div class="stat-card">
-                                    <p class="stat-card__number">6</p>
-                                    <p class="stat-card__label">Phasen</p>
-                                </div>
-                                <div class="stat-card">
-                                    <p class="stat-card__number">50+</p>
-                                    <p class="stat-card__label">Attribute</p>
-                                </div>
+                            <div class="about-blw__image">
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop" alt="Modernes Bauprojekt">
+                                <span class="about-blw__image-credit">© Unsplash</span>
                             </div>
                         </div>
-                    </section>
+                    </div>
                 </div>`;
 
             setupGlobalSearch();
