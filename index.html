@@ -814,19 +814,22 @@
         /* ============================================
            SHARED COMPONENTS
            ============================================ */
-        .page-title {
-            text-align: left;
-            font-size: var(--text-display);
-            margin: 0 0 var(--space-md) 0;
+        .page-header {
+            padding-left: 80px;
             padding-top: var(--space-3xl);
+            padding-bottom: var(--space-2xl);
+        }
+
+        .page-title {
+            font-size: var(--text-display);
             color: var(--color-text-primary);
+            margin: 0 0 var(--space-md) 0;
         }
 
         .page-lead {
-            text-align: left;
             font-size: var(--text-body);
             color: var(--color-text-muted);
-            margin: 0 0 var(--space-2xl) 0;
+            margin: 0;
         }
 
         /* Handbook Page - Accordion Style (Swiss Federal CD) */
@@ -991,7 +994,11 @@
 
         /* Home Page Hero Section Wrapper */
         .home-hero-section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-2xl) var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         /* Themen Section - Light background */
@@ -1099,36 +1106,27 @@
         }
 
         /* Home Page Hero */
-        .home-hero {
-            text-align: left;
-            margin: 0;
-        }
-
         .home-hero__title {
             font-size: var(--text-display);
             color: var(--color-text-primary);
-            margin-bottom: var(--space-md);
-            padding-top: var(--space-lg);
+            margin: 0 0 var(--space-md) 0;
             letter-spacing: -1px;
             font-weight: var(--font-weight-bold);
-            text-align: left;
         }
 
         .hero__description {
             font-size: var(--text-body);
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-xl);
+            margin: 0 0 var(--space-xl) 0;
             font-weight: var(--font-weight-normal);
-            padding-left: 80px;
-            text-align: left;
             line-height: 1.6;
             max-width: 700px;
         }
 
         /* Home Search Container - for dropdown positioning */
-        .home-hero .home-search-container {
+        .home-hero-section .home-search-container {
             max-width: 600px;
-            margin: 0;
+            width: 100%;
             position: relative;
         }
 
@@ -3378,16 +3376,13 @@
                 padding-right: var(--space-sm);
             }
 
-            .page-title {
-                font-size: var(--text-h1);
+            .page-header {
                 padding-left: var(--space-md);
                 padding-right: var(--space-md);
             }
 
-            .page-lead {
-                max-width: none;
-                padding-left: var(--space-md);
-                padding-right: var(--space-md);
+            .page-title {
+                font-size: var(--text-h1);
             }
 
             .hero-title {
@@ -5292,18 +5287,14 @@
         function renderHomePage() {
             contentArea.innerHTML = `
                 <div class="home-hero-section">
-                    <div class="container">
-                        <div class="home-hero">
-                            <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
-                            <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
-                            <div class="home-search-container">
-                                <div class="gallery-filter-wrapper">
-                                    <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                                    <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                                </div>
-                                <div id="globalSearchDropdown" class="search-dropdown"></div>
-                            </div>
+                    <h1 class="home-hero__title">Digitale Bauwerksdokumentation</h1>
+                    <p class="hero__description">Der Fachdatenkatalog unterstützt die digitale Bauwerksdokumentation im Hochbau nach KBOB-Standards. Hier finden Sie standardisierte BIM-Elemente, Dokumentvorlagen und Ökobilanzdaten für den gesamten Lebenszyklus Ihres Bauwerks.</p>
+                    <div class="home-search-container">
+                        <div class="gallery-filter-wrapper">
+                            <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
+                            <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                         </div>
+                        <div id="globalSearchDropdown" class="search-dropdown"></div>
                     </div>
                 </div>
 
@@ -5373,8 +5364,10 @@
         function renderHandbookPage() {
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Handbuch & Download</h1>
-                    <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Handbuch & Download</h1>
+                        <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
+                    </div>
 
                     <div class="handbook-accordion">
                         <!-- Downloads Section -->
@@ -5512,8 +5505,10 @@
 
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Elemente</h1>
-                    <p class="page-lead">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Elemente</h1>
+                        <p class="page-lead">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.</p>
+                    </div>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -5583,8 +5578,10 @@
 
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Dokumente</h1>
-                    <p class="page-lead">Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Dokumente</h1>
+                        <p class="page-lead">Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.</p>
+                    </div>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -5839,8 +5836,10 @@
 
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Anwendungsfälle</h1>
-                    <p class="page-lead">BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Anwendungsfälle</h1>
+                        <p class="page-lead">BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.</p>
+                    </div>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -5942,8 +5941,10 @@
 
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Fachmodelle</h1>
-                    <p class="page-lead">Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Fachmodelle</h1>
+                        <p class="page-lead">Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.</p>
+                    </div>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
@@ -6045,8 +6046,10 @@
 
             contentArea.innerHTML = `
                 <div class="container">
-                    <h1 class="page-title">Ökobilanzdaten</h1>
-                    <p class="page-lead">Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.</p>
+                    <div class="page-header">
+                        <h1 class="page-title">Ökobilanzdaten</h1>
+                        <p class="page-lead">Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.</p>
+                    </div>
                     <div class="gallery-filter-container">
                         <div class="gallery-filter-left">
                             <div class="gallery-filter-wrapper">
