@@ -109,9 +109,8 @@
                ===================== */
 
             --container-max-width: 1564px;
-            --container-padding: 16px;
+            --container-padding: var(--space-xl);  /* 32px - consistent edge padding for all sections */
             --grid-gutter: 24px;
-            --content-padding: var(--space-4xl);  /* Horizontal padding for main content areas */
 
             /* Breakpoints */
             --breakpoint-sm: 576px;
@@ -222,11 +221,10 @@
 
         /* Utility Classes */
         .container {
-            width: 95%;
+            width: 100%;
             max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding-left: var(--container-padding);
-            padding-right: var(--container-padding);
+            margin-inline: auto;
+            padding-inline: var(--container-padding);
         }
         .hidden { display: none !important; }
 
@@ -340,9 +338,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--space-lg) var(--space-xl);
+            padding-block: var(--space-lg);
+            padding-inline: var(--container-padding);
             max-width: var(--container-max-width);
-            margin: 0 auto;
+            margin-inline: auto;
             position: relative; /* For mobile lang-switch positioning */
         }
 
@@ -415,8 +414,8 @@
 
         .top-bar__container {
             max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
+            margin-inline: auto;
+            padding-inline: var(--container-padding);
             height: 100%;
             display: flex;
             align-items: center;
@@ -672,8 +671,8 @@
 
         .main-nav .container {
             max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-xl);
+            margin-inline: auto;
+            padding-inline: var(--container-padding);
             height: 100%;
         }
 
@@ -743,8 +742,8 @@
 
         .breadcrumb-bar .container {
             max-width: var(--container-max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-xl);
+            margin-inline: auto;
+            padding-inline: var(--container-padding);
         }
 
         /* Simplified structure: removed .breadcrumb-row and .toolbar-row wrappers */
@@ -847,14 +846,12 @@
         .contact-section {
             background-color: var(--color-surface-dark);
             color: var(--color-white);
-            padding: var(--space-2xl) var(--space-xl);
+            padding-block: var(--space-2xl);
             flex-shrink: 0;
             height: 360px;
         }
 
         .contact-section .container {
-            max-width: var(--container-max-width);
-            margin: 0 auto;
             position: relative;
             display: flex;
             align-items: flex-start;
@@ -930,11 +927,11 @@
 
         .footer-content {
             max-width: var(--container-max-width);
-            margin: 0 auto;
+            margin-inline: auto;
             width: 100%;
             display: flex;
             gap: var(--space-xl);
-            padding: 0 var(--space-xl);
+            padding-inline: var(--container-padding);
         }
 
         .footer-version {
@@ -959,9 +956,8 @@
            SHARED COMPONENTS
            ============================================ */
         .page-header {
-            padding-inline: var(--content-padding);
-            padding-top: var(--space-2xl);
-            padding-bottom: var(--space-3xl);
+            /* horizontal padding handled by parent .container */
+            padding-block: var(--space-2xl) var(--space-3xl);
         }
 
         .page-title {
@@ -1643,7 +1639,7 @@
            ============================================ */
         .home-section {
             margin-block: var(--space-3xl);
-            padding-inline: var(--content-padding);
+            /* padding handled by .container class */
         }
 
         .home-section__header {
@@ -3356,9 +3352,14 @@
 
         /* Tablet and below (max-width: 992px) */
         @media (max-width: 992px) {
+            :root {
+                --container-padding: var(--space-lg);  /* 24px on tablet */
+            }
+
             /* Header responsive */
             .header__top {
-                padding: var(--space-md) var(--space-lg);
+                padding-block: var(--space-md);
+                /* padding-inline inherits from --container-padding */
                 flex-wrap: wrap;
                 gap: var(--space-md);
             }
@@ -3380,7 +3381,7 @@
             .header__controls {
                 position: absolute;
                 top: var(--space-md);
-                right: var(--space-lg);
+                right: var(--container-padding);
             }
 
             .header__search.open .header__search-form {
@@ -3388,7 +3389,7 @@
             }
 
             .main-nav .container {
-                padding: 0 var(--space-lg);
+                /* padding-inline inherits from --container-padding */
             }
 
             .main-nav ul {
@@ -3477,11 +3478,11 @@
             .contact-section {
                 height: auto;
                 min-height: 370px;
-                padding: var(--space-2xl) var(--space-md);
+                /* padding-inline handled by child .container */
             }
 
             .scroll-top-btn {
-                right: var(--space-md);
+                right: var(--container-padding);
                 top: auto;
                 bottom: var(--space-lg);
                 transform: none;
@@ -3491,12 +3492,13 @@
         /* Mobile (max-width: 576px) */
         @media (max-width: 576px) {
             :root {
-                --content-padding: var(--space-md);  /* Reduce content padding on mobile */
+                --container-padding: var(--space-md);  /* Reduce container padding on mobile */
             }
 
             /* Header mobile */
             .header__top {
-                padding: var(--space-md);
+                padding-block: var(--space-md);
+                /* padding-inline inherits from --container-padding */
             }
 
             .header__branding {
@@ -3539,7 +3541,7 @@
             }
 
             .main-nav .container {
-                padding: 0 var(--space-md);
+                /* padding-inline inherits from --container-padding */
             }
 
             .main-nav ul {
@@ -3554,12 +3556,7 @@
                 font-size: var(--text-body-sm);
             }
 
-            .container {
-                padding-left: var(--space-sm);
-                padding-right: var(--space-sm);
-            }
-
-            /* .page-header now inherits from --content-padding variable */
+            /* .container padding-inline inherits from --container-padding variable */
 
             .page-title {
                 font-size: var(--text-h1);
