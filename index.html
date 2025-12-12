@@ -3459,6 +3459,54 @@
             border-color: var(--color-surface-dark);
         }
 
+        /* Usecase Detail Page Styles */
+        .usecase-phases {
+            margin-top: var(--space-lg);
+        }
+
+        .usecase-phases h3 {
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .phases-container {
+            display: flex;
+            gap: var(--space-xs);
+            flex-wrap: wrap;
+        }
+
+        .goals-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .goals-list li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .goals-list li:last-child {
+            border-bottom: none;
+        }
+
+        .goals-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .col-actor {
+            font-weight: var(--font-weight-semibold);
+            vertical-align: top;
+        }
+
         /* Tooltip Name Style for Informationen Table */
         .info-name-tooltip {
             text-decoration: underline;
@@ -6773,6 +6821,46 @@
 
             const backLink = buildHashWithTags('usecases', activeTags, activeCategory);
 
+            // Sidebar navigation links
+            const sidebarLinks = [
+                { id: 'uebersicht', text: 'Übersicht' },
+                { id: 'ziele', text: 'Ziele' },
+                { id: 'rollen', text: 'Rollen' },
+                { id: 'eingaben', text: 'Eingaben' },
+                { id: 'ausgaben', text: 'Ausgaben' }
+            ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+
+            // Render phases badges for overview
+            const phasesHtml = data.phases && data.phases.length > 0
+                ? data.phases.map(p => `<span class="phase-badge active">${p}</span>`).join('')
+                : '<span class="empty-text">Keine Phasen definiert</span>';
+
+            // Render goals list
+            const goalsHtml = data.goals && data.goals.length > 0
+                ? `<ul class="goals-list">${data.goals.map(g => `<li>${g}</li>`).join('')}</ul>`
+                : '<p class="empty-text">Keine Ziele definiert.</p>';
+
+            // Render inputs table
+            const inputsRowsHtml = data.inputs && data.inputs.length > 0
+                ? data.inputs.map(input => `<tr><td class="col-val">${input}</td></tr>`).join('')
+                : '<tr><td class="col-center empty-text">Keine Eingaben definiert.</td></tr>';
+
+            // Render outputs table
+            const outputsRowsHtml = data.outputs && data.outputs.length > 0
+                ? data.outputs.map(output => `<tr><td class="col-val">${output}</td></tr>`).join('')
+                : '<tr><td class="col-center empty-text">Keine Ausgaben definiert.</td></tr>';
+
+            // Render roles RACI table
+            const rolesRowsHtml = data.roles && data.roles.length > 0
+                ? data.roles.map(role => `
+                    <tr>
+                        <td class="col-val col-actor">${role.actor}</td>
+                        <td class="col-val">${role.responsible && role.responsible.length > 0 ? role.responsible.map(r => `<div>• ${r}</div>`).join('') : '-'}</td>
+                        <td class="col-val">${role.contributing && role.contributing.length > 0 ? role.contributing.map(c => `<div>• ${c}</div>`).join('') : '-'}</td>
+                        <td class="col-val">${role.informed && role.informed.length > 0 ? role.informed.map(i => `<div>• ${i}</div>`).join('') : '-'}</td>
+                    </tr>`).join('')
+                : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
+
             contentArea.innerHTML = `
                 <section class="detail-hero">
                     <div class="container detail-hero__inner">
@@ -6787,13 +6875,62 @@
                         </div>
                     </div>
                 </section>
+
                 <div class="container">
-                    <div class="info-box info-box--centered">
-                        <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
-                        <h2 class="info-box__title">In Entwicklung</h2>
-                        <p class="info-box__text">Die Detail-Ansicht für Anwendungsfälle wird derzeit entwickelt.</p>
+                    <div class="detail-layout">
+                        <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
+                        <div class="detail-content-area">
+                            <div class="detail-section" id="uebersicht">
+                                <h2>Übersicht</h2>
+                                <p>${data.description || 'Keine Beschreibung verfügbar.'}</p>
+                                <div class="usecase-phases">
+                                    <h3>Projektphasen</h3>
+                                    <div class="phases-container">${phasesHtml}</div>
+                                </div>
+                            </div>
+
+                            <div class="detail-section" id="ziele">
+                                <h2>Ziele</h2>
+                                ${goalsHtml}
+                            </div>
+
+                            <div class="detail-section" id="rollen">
+                                <h2>Rollen & Verantwortlichkeiten</h2>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="th-w-20">Akteur</th>
+                                            <th>Verantwortlich (R)</th>
+                                            <th>Mitwirkend (C)</th>
+                                            <th>Informiert (I)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>${rolesRowsHtml}</tbody>
+                                </table>
+                            </div>
+
+                            <div class="detail-section" id="eingaben">
+                                <h2>Eingaben</h2>
+                                <p>Erforderliche Informationen und Dokumente für diesen Anwendungsfall.</p>
+                                <table class="data-table">
+                                    <thead><tr><th>Bezeichnung</th></tr></thead>
+                                    <tbody>${inputsRowsHtml}</tbody>
+                                </table>
+                            </div>
+
+                            <div class="detail-section" id="ausgaben">
+                                <h2>Ausgaben</h2>
+                                <p>Ergebnisse und Lieferobjekte dieses Anwendungsfalls.</p>
+                                <table class="data-table">
+                                    <thead><tr><th>Bezeichnung</th></tr></thead>
+                                    <tbody>${outputsRowsHtml}</tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>`;
+
+            setupDetailInteractions();
         }
 
         // ============================================
