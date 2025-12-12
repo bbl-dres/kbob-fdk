@@ -648,7 +648,7 @@
   {
     "id": "uc100",
     "title": "Mengen- und Kostenermittlung",
-    "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc100.jpg",
     "category": "Kostenplanung",
     "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
     "tags": [
