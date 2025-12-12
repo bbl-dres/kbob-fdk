@@ -6,14 +6,10 @@
     "category": "Grundlagen",
     "subcategory": "Projektsetup",
     "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination – unabhängig von Bauvolumen oder Methodik.",
-    "tags": ["Grundlagen", "AIA", "BAP", "Minimalstandard"],
+    "tags": ["Entwicklung", "Planung", "Ausführung", "Betrieb", "Rückbau", "Stufe 1", "Projektmanagement", "Grundlagen"],
     "phases": [1, 2, 3, 4, 5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc000",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "000" },
-      { "system": "SIA", "code": "SIA 2051" }
-    ],
     "standards": ["SIA 2051", "ISO 19650"],
     "goals": [
       "Einheitliche Projektgrundlagen schaffen",
@@ -52,14 +48,10 @@
     "category": "Bestand",
     "subcategory": "Erfassung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
-    "tags": ["Bestandsaufnahme", "Laserscan", "Punktwolke", "Vermessung"],
+    "tags": ["Entwicklung", "Planung", "Betrieb", "Stufe 1", "Stufe 2", "Bestandsaufnahme", "Vermessung"],
     "phases": [1, 2, 3, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc010",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "010" },
-      { "system": "ISO 19650", "code": "4.3.1" }
-    ],
     "standards": ["SIA 405", "ISO 19650"],
     "goals": [
       "Vollständige Dokumentation des Ist-Zustands",
@@ -98,14 +90,10 @@
     "category": "Planung",
     "subcategory": "Bedarf",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
-    "tags": ["Bedarfsplanung", "Raumprogramm", "Flächenmanagement"],
+    "tags": ["Entwicklung", "Planung", "Stufe 1", "Flächenmanagement", "Nutzeranforderungen"],
     "phases": [1, 2],
     "process_url": "https://prozesse.bbl.admin.ch/uc020",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "020" },
-      { "system": "SIA", "code": "SIA 416" }
-    ],
     "standards": ["SIA 416", "DIN 18205"],
     "goals": [
       "Klare Definition der Nutzeranforderungen",
@@ -144,14 +132,10 @@
     "category": "Planung",
     "subcategory": "Variantenvergleich",
     "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
-    "tags": ["Variantenvergleich", "Machbarkeitsstudie", "Entwurf", "Nachhaltigkeit"],
+    "tags": ["Entwicklung", "Planung", "Stufe 1", "Stufe 2", "Variantenvergleich", "Nachhaltigkeit"],
     "phases": [1, 2, 3],
     "process_url": "https://prozesse.bbl.admin.ch/uc030",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "030" },
-      { "system": "SIA", "code": "SIA 112" }
-    ],
     "standards": ["SIA 112", "SNBS"],
     "goals": [
       "Fundierte Entscheidungsgrundlage für Varianten",
@@ -190,14 +174,10 @@
     "category": "Kommunikation",
     "subcategory": "Darstellung",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
-    "tags": ["Visualisierung", "Rendering", "Animation", "Kommunikation"],
+    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 2", "Stufe 3", "Kommunikation", "Visualisierung"],
     "phases": [2, 3, 4, 5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc040",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "040" },
-      { "system": "ISO 19650", "code": "4.4.1" }
-    ],
     "standards": [],
     "goals": [
       "Verständliche Darstellung für Entscheidungsträger",
@@ -236,14 +216,10 @@
     "category": "Koordination",
     "subcategory": "Fachkoordination",
     "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
-    "tags": ["Koordination", "Fachmodelle", "Kollisionsprüfung", "Clash Detection"],
+    "tags": ["Planung", "Ausführung", "Stufe 2", "Stufe 3", "Koordination", "Qualitätssicherung"],
     "phases": [3, 4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc050",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "050" },
-      { "system": "ISO 19650", "code": "4.5.1" }
-    ],
     "standards": ["ISO 19650", "SIA 2051"],
     "goals": [
       "Frühzeitige Erkennung von Planungskonflikten",
@@ -282,14 +258,10 @@
     "category": "Qualitätssicherung",
     "subcategory": "Controlling",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
-    "tags": ["Qualitätssicherung", "Modellprüfung", "Controlling", "Freigabe"],
+    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Qualitätssicherung", "Controlling"],
     "phases": [2, 3, 4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc060",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "060" },
-      { "system": "ISO 19650", "code": "4.5.2" }
-    ],
     "standards": ["ISO 19650", "SIA 2051"],
     "goals": [
       "Sicherstellung der Planungsqualität",
@@ -328,14 +300,10 @@
     "category": "Analyse",
     "subcategory": "Simulation",
     "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
-    "tags": ["Simulation", "Energie", "Statik", "Nachweisführung"],
+    "tags": ["Planung", "Ausführung", "Stufe 2", "Stufe 3", "Simulation", "Nachweisführung"],
     "phases": [3, 4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc070",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "070" },
-      { "system": "SIA", "code": "SIA 380/1" }
-    ],
     "standards": ["SIA 380/1", "SIA 261", "SIA 181"],
     "goals": [
       "Normgerechte Bemessung und Nachweise",
@@ -374,14 +342,10 @@
     "category": "Dokumentation",
     "subcategory": "Planableitung",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
-    "tags": ["Planableitung", "2D-Pläne", "Dokumentation"],
+    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 1", "Stufe 2", "Dokumentation", "Planableitung"],
     "phases": [3, 4, 5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc080",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "080" },
-      { "system": "SIA", "code": "SIA 400" }
-    ],
     "standards": ["SIA 400", "SIA 2014"],
     "goals": [
       "Konsistente Planunterlagen aus einer Datenquelle",
@@ -420,14 +384,10 @@
     "category": "Behörden",
     "subcategory": "Baubewilligung",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
-    "tags": ["Baubewilligung", "Behörden", "Genehmigung"],
+    "tags": ["Planung", "Stufe 1", "Behörden", "Genehmigung"],
     "phases": [3, 4],
     "process_url": "https://prozesse.bbl.admin.ch/uc090",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "090" },
-      { "system": "ISO 19650", "code": "4.8.1" }
-    ],
     "standards": ["RPG", "BauG"],
     "goals": [
       "Vollständige Gesuchsunterlagen",
@@ -466,14 +426,10 @@
     "category": "Kostenplanung",
     "subcategory": "Quantifizierung",
     "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
-    "tags": ["Kostenplanung", "Mengenermittlung", "eBKP-H", "QTO"],
+    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Kostenplanung", "Mengenermittlung"],
     "phases": [2, 3, 4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc100",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "100" },
-      { "system": "SIA", "code": "SN 506 511" }
-    ],
     "standards": ["eBKP-H", "SIA 416", "DIN 276"],
     "goals": [
       "Transparente, nachvollziehbare Kostenermittlung",
@@ -518,14 +474,10 @@
     "category": "Ausschreibung",
     "subcategory": "AVA",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
-    "tags": ["Ausschreibung", "LV", "Vergabe", "AVA"],
+    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Ausschreibung", "Vergabe"],
     "phases": [4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc110",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "110" },
-      { "system": "SIA", "code": "SIA 118" }
-    ],
     "standards": ["SIA 118", "NPK", "BöB"],
     "goals": [
       "Vollständige und präzise Leistungsbeschreibung",
@@ -564,14 +516,10 @@
     "category": "Terminplanung",
     "subcategory": "Bauablauf",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
-    "tags": ["Terminplanung", "4D", "Bauablauf", "Bauprogramm"],
+    "tags": ["Planung", "Ausführung", "Stufe 1", "Stufe 2", "Stufe 3", "Terminplanung", "Bauablauf"],
     "phases": [4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc120",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "120" },
-      { "system": "ISO 19650", "code": "4.7.1" }
-    ],
     "standards": ["SIA 118"],
     "goals": [
       "Realistische Bauablaufplanung",
@@ -610,14 +558,10 @@
     "category": "Bauausführung",
     "subcategory": "Logistik",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
-    "tags": ["Logistik", "Baustelleneinrichtung", "Verkehrsführung"],
+    "tags": ["Ausführung", "Stufe 2", "Stufe 3", "Logistik", "Baustellenorganisation"],
     "phases": [4, 5],
     "process_url": "https://prozesse.bbl.admin.ch/uc130",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "130" },
-      { "system": "ISO 19650", "code": "4.7.2" }
-    ],
     "standards": ["SUVA", "BauAV"],
     "goals": [
       "Effiziente Baustellenorganisation",
@@ -656,14 +600,10 @@
     "category": "Bauausführung",
     "subcategory": "Controlling",
     "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
-    "tags": ["Baufortschritt", "Controlling", "Soll-Ist-Vergleich"],
+    "tags": ["Ausführung", "Stufe 1", "Stufe 2", "Controlling", "Fortschrittskontrolle"],
     "phases": [5],
     "process_url": "https://prozesse.bbl.admin.ch/uc140",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "140" },
-      { "system": "ISO 19650", "code": "4.7.3" }
-    ],
     "standards": ["SIA 118"],
     "goals": [
       "Transparente Fortschrittsdokumentation",
@@ -702,14 +642,10 @@
     "category": "Bauausführung",
     "subcategory": "Änderungen",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
-    "tags": ["Änderungsmanagement", "Nachträge", "Dokumentation"],
+    "tags": ["Ausführung", "Stufe 1", "Änderungsmanagement", "Kostenplanung"],
     "phases": [5],
     "process_url": "https://prozesse.bbl.admin.ch/uc150",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "150" },
-      { "system": "SIA", "code": "SIA 118" }
-    ],
     "standards": ["SIA 118"],
     "goals": [
       "Nachvollziehbare Änderungsdokumentation",
@@ -748,14 +684,10 @@
     "category": "Bauausführung",
     "subcategory": "Abrechnung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
-    "tags": ["Abrechnung", "Kostenkontrolle", "Rechnungsprüfung"],
+    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Kostenplanung", "Abrechnung"],
     "phases": [5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc160",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "160" },
-      { "system": "SIA", "code": "SIA 118" }
-    ],
     "standards": ["SIA 118"],
     "goals": [
       "Korrekte Leistungsabrechnung",
@@ -794,14 +726,10 @@
     "category": "Bauausführung",
     "subcategory": "Qualität",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
-    "tags": ["Mängelmanagement", "Abnahme", "Qualitätssicherung"],
+    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Qualitätssicherung", "Mängelmanagement"],
     "phases": [5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc170",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "170" },
-      { "system": "ISO 19650", "code": "4.8.2" }
-    ],
     "standards": ["SIA 118", "OR"],
     "goals": [
       "Vollständige Mängelerfassung",
@@ -840,14 +768,10 @@
     "category": "Übergabe",
     "subcategory": "Inbetriebnahme",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
-    "tags": ["Inbetriebnahme", "Übergabe", "Gebäudetechnik"],
+    "tags": ["Ausführung", "Betrieb", "Stufe 1", "Stufe 2", "Inbetriebnahme", "Übergabe"],
     "phases": [5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc180",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "180" },
-      { "system": "GEFMA", "code": "190" }
-    ],
     "standards": ["SIA 118", "GEFMA 190"],
     "goals": [
       "Systematische Inbetriebnahme aller Anlagen",
@@ -886,14 +810,10 @@
     "category": "Dokumentation",
     "subcategory": "Bauwerksdokumentation",
     "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation: Projektdokumentation (PD) während Planung und Bau, Objektdokumentation (OD) für den Betrieb, Archivdokumentation (AD) für aufbewahrungspflichtige Unterlagen.",
-    "tags": ["Bauwerksdokumentation", "Projektdokumentation", "Objektdokumentation", "Archiv"],
+    "tags": ["Entwicklung", "Planung", "Ausführung", "Betrieb", "Stufe 1", "Dokumentation"],
     "phases": [1, 2, 3, 4, 5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc190",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "190" },
-      { "system": "KBOB", "code": "BWD" }
-    ],
     "standards": ["KBOB BWD-Richtlinie", "SIA 112"],
     "goals": [
       "Vollständige Projektdokumentation",
@@ -932,14 +852,10 @@
     "category": "Betrieb",
     "subcategory": "FM",
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
-    "tags": ["Facility Management", "CAFM", "Betrieb", "Erhaltung"],
+    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Facility Management", "CAFM"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc200",
     "examples": [],
-    "classifications": [
-      { "system": "BIM-D AWF", "code": "200" },
-      { "system": "GEFMA", "code": "922" }
-    ],
     "standards": ["GEFMA 922", "SIA 469"],
     "goals": [
       "Effiziente Datennutzung im Betrieb",
@@ -978,13 +894,10 @@
     "category": "Betrieb",
     "subcategory": "Gewährleistung",
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
-    "tags": ["Gewährleistung", "Garantie", "Mängelrüge"],
+    "tags": ["Betrieb", "Stufe 1", "Gewährleistung", "Mängelmanagement"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc210",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-01" }
-    ],
     "standards": ["SIA 118", "OR"],
     "goals": [
       "Fristgerechte Geltendmachung von Ansprüchen",
@@ -1023,14 +936,10 @@
     "category": "Betrieb",
     "subcategory": "Wartung",
     "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
-    "tags": ["Wartung", "Inspektion", "Instandhaltung"],
+    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Wartung", "Instandhaltung"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc220",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-02" },
-      { "system": "GEFMA", "code": "124" }
-    ],
     "standards": ["SIA 469", "GEFMA 124"],
     "goals": [
       "Werterhaltung der Anlagen",
@@ -1069,13 +978,10 @@
     "category": "Betrieb",
     "subcategory": "Instandhaltung",
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
-    "tags": ["Instandhaltung", "Instandsetzung", "Reparatur"],
+    "tags": ["Betrieb", "Stufe 1", "Instandhaltung", "Werterhaltung"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc230",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-03" }
-    ],
     "standards": ["SIA 469", "DIN 31051"],
     "goals": [
       "Werterhaltung des Gebäudes",
@@ -1114,13 +1020,10 @@
     "category": "Betrieb",
     "subcategory": "Flächenmanagement",
     "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
-    "tags": ["Flächenmanagement", "Raumbelegung", "Arbeitsplatz"],
+    "tags": ["Betrieb", "Stufe 1", "Stufe 2", "Flächenmanagement", "Arbeitsplatz"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc240",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-04" }
-    ],
     "standards": ["SIA 416", "DIN 277"],
     "goals": [
       "Optimale Flächenauslastung",
@@ -1159,13 +1062,10 @@
     "category": "Betrieb",
     "subcategory": "Energie",
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
-    "tags": ["Energiemanagement", "Monitoring", "Performance", "Nachhaltigkeit"],
+    "tags": ["Betrieb", "Stufe 2", "Stufe 3", "Energiemanagement", "Nachhaltigkeit"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc250",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-05" }
-    ],
     "standards": ["ISO 50001", "SIA 380/1"],
     "goals": [
       "Reduktion Energieverbrauch",
@@ -1204,14 +1104,10 @@
     "category": "Betrieb",
     "subcategory": "Compliance",
     "description": "Erfüllung und Dokumentation der gesetzlichen Betreiberpflichten, Sicherheitsprüfungen und Nachweise.",
-    "tags": ["Betreiberverantwortung", "Sicherheit", "Compliance"],
+    "tags": ["Betrieb", "Stufe 1", "Compliance", "Sicherheit"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc260",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "FM-06" },
-      { "system": "GEFMA", "code": "190" }
-    ],
     "standards": ["GEFMA 190", "VKF", "SUVA"],
     "goals": [
       "Erfüllung gesetzlicher Pflichten",
@@ -1250,13 +1146,10 @@
     "category": "Nachhaltigkeit",
     "subcategory": "Zertifizierung",
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
-    "tags": ["Nachhaltigkeit", "SNBS", "Minergie", "Ökobilanz", "LCA"],
+    "tags": ["Planung", "Ausführung", "Betrieb", "Stufe 2", "Stufe 3", "Nachhaltigkeit", "Zertifizierung"],
     "phases": [2, 3, 4, 5, 6],
     "process_url": "https://prozesse.bbl.admin.ch/uc270",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "NH-01" }
-    ],
     "standards": ["SNBS", "Minergie", "SIA 2032", "SIA 2040"],
     "goals": [
       "Erreichung Nachhaltigkeitszertifikat",
@@ -1295,13 +1188,10 @@
     "category": "Rückbau",
     "subcategory": "Planung",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
-    "tags": ["Rückbau", "Abbruch", "Kreislaufwirtschaft", "Entsorgung"],
+    "tags": ["Rückbau", "Stufe 1", "Stufe 2", "Kreislaufwirtschaft", "Entsorgung"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc280",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "RB-01" }
-    ],
     "standards": ["VVEA", "SIA 430"],
     "goals": [
       "Schadstofffreier Rückbau",
@@ -1340,13 +1230,10 @@
     "category": "Rückbau",
     "subcategory": "Kreislaufwirtschaft",
     "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
-    "tags": ["Bauteilbörse", "Wiederverwendung", "ReUse", "Kreislaufwirtschaft"],
+    "tags": ["Rückbau", "Stufe 2", "Stufe 3", "Kreislaufwirtschaft", "Wiederverwendung"],
     "phases": [6],
     "process_url": "https://prozesse.bbl.admin.ch/uc290",
     "examples": [],
-    "classifications": [
-      { "system": "NRW-HE", "code": "RB-02" }
-    ],
     "standards": ["VVEA", "SIA 430"],
     "goals": [
       "Ressourcenschonung durch Wiederverwendung",
