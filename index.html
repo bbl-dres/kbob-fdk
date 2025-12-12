@@ -2793,6 +2793,174 @@
             }
         }
 
+        /* Filter Group with Dropdown */
+        .filter-group {
+            position: relative;
+        }
+
+        .filter-group.open .filter-toggle {
+            background: var(--color-bg-light);
+        }
+
+        .filter-group.open .filter-toggle [data-lucide] {
+            transform: rotate(180deg);
+        }
+
+        .filter-toggle [data-lucide] {
+            transition: transform var(--transition-fast);
+        }
+
+        .filter-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 280px;
+            max-width: 400px;
+            max-height: 320px;
+            overflow-y: auto;
+            background: var(--color-white);
+            border: 1px solid var(--color-border-input);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            display: none;
+            padding: var(--space-md);
+        }
+
+        .filter-group.open .filter-dropdown {
+            display: block;
+        }
+
+        .filter-dropdown__title {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--space-sm);
+            padding-bottom: var(--space-xs);
+            border-bottom: 1px solid var(--color-border-light);
+        }
+
+        .filter-dropdown__items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .filter-dropdown__item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .filter-dropdown__item:hover {
+            background: var(--color-bg-light);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .filter-dropdown__item.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .filter-dropdown__item.active:hover {
+            background: var(--color-primary-hover);
+        }
+
+        .filter-dropdown__count {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-muted);
+            background: var(--color-surface);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+
+        .filter-dropdown__item.active .filter-dropdown__count {
+            background: rgba(255,255,255,0.2);
+            color: var(--color-white);
+        }
+
+        /* Phase filter specific styles */
+        .filter-dropdown__phases {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .filter-dropdown__phase-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .filter-dropdown__phase-item:hover {
+            background: var(--color-bg-light);
+            border-color: var(--color-primary);
+        }
+
+        .filter-dropdown__phase-item.active {
+            background: var(--color-primary-light);
+            border-color: var(--color-primary);
+        }
+
+        .filter-dropdown__phase-number {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            border: 2px solid var(--color-border-light);
+            border-radius: 50%;
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .filter-dropdown__phase-item.active .filter-dropdown__phase-number {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .filter-dropdown__phase-label {
+            flex: 1;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-primary);
+        }
+
+        /* Mobile adjustments for filter dropdowns */
+        @media (max-width: 768px) {
+            .filter-dropdown {
+                position: fixed;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                min-width: 100%;
+                max-width: 100%;
+                max-height: 60vh;
+                border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            }
+        }
+
         /* ============================================
            GRID VIEW (Card Component - Swiss CD Style)
            ============================================ */
@@ -4362,6 +4530,7 @@
             
             // Parse query params
             const tags = [];
+            const phases = [];
             let searchQuery = '';
             let category = '';
             if (queryPart) {
@@ -4371,11 +4540,17 @@
                         tags.push(tag);
                     }
                 });
+                params.getAll('phase').forEach(phase => {
+                    const phaseNum = parseInt(phase, 10);
+                    if (!isNaN(phaseNum) && phaseNum >= 1 && phaseNum <= 6) {
+                        phases.push(phaseNum);
+                    }
+                });
                 searchQuery = params.get('q') || '';
                 category = params.get('category') || '';
             }
 
-            return { route, id, tags, searchQuery, category };
+            return { route, id, tags, phases, searchQuery, category };
         }
 
         /**
@@ -4395,19 +4570,23 @@
         }
 
         /**
-         * Build a hash string with tags and optional category
+         * Build a hash string with tags, category, and optional phases
          * @param {string} baseHash - The base hash without params (e.g., 'catalog', 'element/e1')
          * @param {string[]} tags - Array of tag strings
          * @param {string} category - Optional category string
+         * @param {number[]} phases - Optional array of phase numbers (for usecases)
          * @returns {string} Complete hash string with params
          */
-        function buildHashWithTags(baseHash, tags, category = '') {
+        function buildHashWithTags(baseHash, tags, category = '', phases = []) {
             const params = [];
             if (tags && tags.length > 0) {
                 tags.forEach(tag => params.push(`tag=${encodeURIComponent(tag)}`));
             }
             if (category) {
                 params.push(`category=${encodeURIComponent(category)}`);
+            }
+            if (phases && phases.length > 0) {
+                phases.forEach(phase => params.push(`phase=${phase}`));
             }
             if (params.length === 0) {
                 return baseHash;
@@ -4420,7 +4599,7 @@
          * @param {string} tag - Tag string (e.g., 'Architektur')
          */
         window.toggleTagInURL = function(tag) {
-            const { route, id, tags, category } = parseHashWithParams();
+            const { route, id, tags, category, phases } = parseHashWithParams();
 
             const tagIndex = tags.indexOf(tag);
             if (tagIndex > -1) {
@@ -4445,8 +4624,8 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL (preserve category)
-            window.location.hash = buildHashWithTags(baseHash, tags, category);
+            // Navigate to new URL (preserve category and phases)
+            window.location.hash = buildHashWithTags(baseHash, tags, category, phases);
         }
 
         /**
@@ -4454,7 +4633,7 @@
          * @param {string} cat - Category string (e.g., 'Grundlagen')
          */
         window.toggleCategoryInURL = function(cat) {
-            const { route, id, tags, category } = parseHashWithParams();
+            const { route, id, tags, category, phases } = parseHashWithParams();
 
             // Toggle: if same category, remove it; otherwise set the new one
             const newCategory = (category === cat) ? '' : cat;
@@ -4473,10 +4652,44 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL (preserve tags)
-            window.location.hash = buildHashWithTags(baseHash, tags, newCategory);
+            // Navigate to new URL (preserve tags and phases)
+            window.location.hash = buildHashWithTags(baseHash, tags, newCategory, phases);
         }
-        
+
+        /**
+         * Toggle a phase in the URL (add if missing, remove if present)
+         * @param {number} phase - Phase number (1-6)
+         */
+        window.togglePhaseInURL = function(phase) {
+            const { route, id, tags, category, phases } = parseHashWithParams();
+            const phaseNum = parseInt(phase, 10);
+
+            const phaseIndex = phases.indexOf(phaseNum);
+            if (phaseIndex > -1) {
+                // Remove phase
+                phases.splice(phaseIndex, 1);
+            } else {
+                // Add phase
+                phases.push(phaseNum);
+            }
+
+            // Build base hash - redirect to list view if on detail page
+            let baseHash = route;
+            if (id) {
+                const routeMap = {
+                    'element': 'elements',
+                    'document': 'documents',
+                    'usecase': 'usecases',
+                    'model': 'models',
+                    'epd': 'epds'
+                };
+                baseHash = routeMap[route] || route;
+            }
+
+            // Navigate to new URL
+            window.location.hash = buildHashWithTags(baseHash, tags, category, phases);
+        }
+
         /**
          * Clear all tags from URL
          */
@@ -4497,13 +4710,14 @@
         }
 
         /**
-         * Navigate to a route while preserving current tags and category
+         * Navigate to a route while preserving current tags, category, and phases
          * @param {string} targetRoute - Target route (e.g., 'catalog', 'documents')
          */
         function navigateWithTags(targetRoute) {
             const tags = getActiveTagsFromURL();
             const category = getActiveCategoryFromURL();
-            window.location.hash = buildHashWithTags(targetRoute, tags, category);
+            const phases = getActivePhasesFromURL();
+            window.location.hash = buildHashWithTags(targetRoute, tags, category, phases);
         }
 
         /**
@@ -4546,6 +4760,76 @@
         function isTagActive(tag) {
             const activeTags = getActiveTagsFromURL();
             return activeTags.includes(tag);
+        }
+
+        // --- FILTER DATA EXTRACTION HELPERS ---
+
+        /**
+         * Extract unique categories from data array
+         * @param {Array} data - Array of data items
+         * @returns {string[]} Sorted array of unique categories
+         */
+        function getUniqueCategories(data) {
+            if (!data || !Array.isArray(data)) return [];
+            const categories = new Set();
+            data.forEach(item => {
+                if (item.category) {
+                    categories.add(item.category);
+                }
+            });
+            return Array.from(categories).sort();
+        }
+
+        /**
+         * Extract unique tags from data array
+         * @param {Array} data - Array of data items
+         * @returns {string[]} Sorted array of unique tags
+         */
+        function getUniqueTags(data) {
+            if (!data || !Array.isArray(data)) return [];
+            const tags = new Set();
+            data.forEach(item => {
+                if (item.tags && Array.isArray(item.tags)) {
+                    item.tags.forEach(tag => tags.add(tag));
+                }
+            });
+            return Array.from(tags).sort();
+        }
+
+        /**
+         * Get phase labels for display
+         */
+        const phaseLabels = {
+            1: 'Strategische Planung',
+            2: 'Vorstudien',
+            3: 'Projektierung',
+            4: 'Ausschreibung',
+            5: 'Realisierung',
+            6: 'Bewirtschaftung'
+        };
+
+        /**
+         * Filter data by active phases (OR logic - item must include at least one selected phase)
+         * @param {Array} data - Array of data items
+         * @param {number[]} activePhases - Array of phase numbers
+         * @returns {Array} Filtered data
+         */
+        function filterDataByPhases(data, activePhases) {
+            if (!activePhases || activePhases.length === 0) {
+                return data;
+            }
+            return data.filter(item => {
+                if (!item.phases || !Array.isArray(item.phases)) return false;
+                return activePhases.some(phase => item.phases.includes(phase));
+            });
+        }
+
+        /**
+         * Get active phases from the current URL
+         * @returns {number[]} Array of phase numbers
+         */
+        function getActivePhasesFromURL() {
+            return parseHashWithParams().phases || [];
         }
 
         // --- INITIALIZATION ---
@@ -4847,7 +5131,177 @@
 
             return `<div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>${activeFiltersHtml}`;
         }
-        
+
+        /**
+         * Toggle filter dropdown open/closed
+         * @param {string} groupId - The filter group identifier
+         */
+        window.toggleFilterDropdown = function(groupId) {
+            event.stopPropagation();
+            const allGroups = document.querySelectorAll('.filter-group');
+            allGroups.forEach(group => {
+                if (group.dataset.filterId === groupId) {
+                    group.classList.toggle('open');
+                } else {
+                    group.classList.remove('open');
+                }
+            });
+        }
+
+        /**
+         * Close all filter dropdowns when clicking outside
+         */
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.filter-group')) {
+                document.querySelectorAll('.filter-group.open').forEach(group => {
+                    group.classList.remove('open');
+                });
+            }
+        });
+
+        /**
+         * Render complete filter bar with category and tags dropdowns
+         * @param {Object} options - Configuration options
+         * @param {Array} options.data - The data array to extract filters from
+         * @param {string[]} options.activeTags - Currently active tags
+         * @param {string} options.activeCategory - Currently active category
+         * @param {number[]} options.activePhases - Currently active phases (for usecases)
+         * @param {boolean} options.showPhases - Whether to show phases filter
+         * @param {string} options.filterPanelClass - CSS class for visibility
+         * @returns {string} HTML string for the filter bar
+         */
+        function renderFilterBar(options) {
+            const {
+                data = [],
+                activeTags = [],
+                activeCategory = '',
+                activePhases = [],
+                showPhases = false,
+                filterPanelClass = ''
+            } = options;
+
+            // Extract unique categories and tags from data
+            const categories = getUniqueCategories(data);
+            const tags = getUniqueTags(data);
+
+            // Count items per category
+            const categoryCounts = {};
+            categories.forEach(cat => {
+                categoryCounts[cat] = data.filter(item => item.category === cat).length;
+            });
+
+            // Count items per tag
+            const tagCounts = {};
+            tags.forEach(tag => {
+                tagCounts[tag] = data.filter(item => item.tags && item.tags.includes(tag)).length;
+            });
+
+            // Render category dropdown items
+            const categoryItemsHtml = categories.map(cat => {
+                const isActive = activeCategory === cat;
+                const count = categoryCounts[cat];
+                return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${cat}')">${cat} <span class="filter-dropdown__count">${count}</span></span>`;
+            }).join('');
+
+            // Render tag dropdown items
+            const tagItemsHtml = tags.map(tag => {
+                const isActive = activeTags.includes(tag);
+                const count = tagCounts[tag];
+                return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')">${tag} <span class="filter-dropdown__count">${count}</span></span>`;
+            }).join('');
+
+            // Render phases dropdown if needed
+            let phasesGroupHtml = '';
+            if (showPhases) {
+                const phasesItemsHtml = [1, 2, 3, 4, 5, 6].map(phase => {
+                    const isActive = activePhases.includes(phase);
+                    const label = phaseLabels[phase];
+                    return `
+                        <div class="filter-dropdown__phase-item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); togglePhaseInURL(${phase})">
+                            <span class="filter-dropdown__phase-number">${phase}</span>
+                            <span class="filter-dropdown__phase-label">${label}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                const activePhasesCount = activePhases.length;
+                phasesGroupHtml = `
+                    <div class="filter-group" data-filter-id="phases">
+                        <div class="filter-toggle" onclick="toggleFilterDropdown('phases')">
+                            Phase ${activePhasesCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activePhasesCount}</span>` : ''}
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
+                        </div>
+                        <div class="filter-dropdown">
+                            <div class="filter-dropdown__title">SIA-Phasen</div>
+                            <div class="filter-dropdown__phases">
+                                ${phasesItemsHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Calculate total active filter count
+            const hasFilters = activeTags.length > 0 || activeCategory || activePhases.length > 0;
+            const resetBtn = hasFilters
+                ? `<button class="filter-bar__reset" onclick="clearAllFilters()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+                : '';
+
+            // Build active filters display
+            let activeFiltersHtml = '';
+            if (hasFilters) {
+                const filterBadges = [];
+                if (activeCategory) {
+                    filterBadges.push(`<span class="tag-badge active" onclick="toggleCategoryInURL('${activeCategory}')">${activeCategory} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+                }
+                activeTags.forEach(tag => {
+                    filterBadges.push(`<span class="tag-badge active" onclick="toggleTagInURL('${tag}')">${tag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+                });
+                activePhases.forEach(phase => {
+                    filterBadges.push(`<span class="tag-badge active" onclick="togglePhaseInURL(${phase})">Phase ${phase} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+                });
+                activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;padding:var(--space-sm) var(--space-lg);border-top:1px solid var(--color-border-light);">${filterBadges.join('')}</div>`;
+            }
+
+            // Count badges for category and tags
+            const activeCategoryCount = activeCategory ? 1 : 0;
+            const activeTagsCount = activeTags.length;
+
+            return `
+                <div class="filter-bar ${filterPanelClass}">
+                    <div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>
+                    <div class="filter-bar__groups">
+                        <div class="filter-group" data-filter-id="category">
+                            <div class="filter-toggle" onclick="toggleFilterDropdown('category')">
+                                Kategorie ${activeCategoryCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activeCategoryCount}</span>` : ''}
+                                <i data-lucide="chevron-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="filter-dropdown">
+                                <div class="filter-dropdown__title">Kategorie wählen</div>
+                                <div class="filter-dropdown__items">
+                                    ${categoryItemsHtml}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group" data-filter-id="tags">
+                            <div class="filter-toggle" onclick="toggleFilterDropdown('tags')">
+                                Tags ${activeTagsCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activeTagsCount}</span>` : ''}
+                                <i data-lucide="chevron-down" aria-hidden="true"></i>
+                            </div>
+                            <div class="filter-dropdown">
+                                <div class="filter-dropdown__title">Tags wählen</div>
+                                <div class="filter-dropdown__items">
+                                    ${tagItemsHtml}
+                                </div>
+                            </div>
+                        </div>
+                        ${phasesGroupHtml}
+                    </div>
+                    ${activeFiltersHtml}
+                </div>
+            `;
+        }
+
         /**
          * Render filter button with reset button (visible when filters active)
          */
@@ -5928,14 +6382,12 @@
                         </div>
                     </div>
 
-                    <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags, activeCategory)}
-                        <div class="filter-bar__groups">
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Klassifikation <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Phase <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </div>
-                    </div>
+                    ${renderFilterBar({
+                        data: globalElementsData,
+                        activeTags: activeTags,
+                        activeCategory: activeCategory,
+                        filterPanelClass: filterPanelClass
+                    })}
 
                     <div id="catalogContent" class="catalog-content">
                         ${elementsView === 'grid'
@@ -5956,7 +6408,7 @@
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = searchFilteredData.filter(el =>
                         el.title.toLowerCase().includes(searchTerm) ||
-                        el.classification.toLowerCase().includes(searchTerm)
+                        (el.classification && el.classification.toLowerCase().includes(searchTerm))
                     );
 
                     const container = document.getElementById('catalogContent');
@@ -6006,14 +6458,12 @@
                         </div>
                     </div>
 
-                    <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags, activeCategory)}
-                        <div class="filter-bar__groups">
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Format <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </div>
-                    </div>
+                    ${renderFilterBar({
+                        data: globalDocumentsData,
+                        activeTags: activeTags,
+                        activeCategory: activeCategory,
+                        filterPanelClass: filterPanelClass
+                    })}
 
                     <div id="documentsContent" class="catalog-content">
                         ${documentsView === 'grid'
@@ -6236,14 +6686,18 @@
         // ============================================
 
         function renderUsecasesCatalogPage(activeTags = [], activeCategory = '') {
-            // Apply both category and tag filtering
+            // Get active phases from URL
+            const activePhases = getActivePhasesFromURL();
+
+            // Apply category, tag, and phases filtering
             let filteredData = filterDataByCategory(globalUsecasesData, activeCategory);
             filteredData = filterDataByTags(filteredData, activeTags);
+            filteredData = filterDataByPhases(filteredData, activePhases);
 
             const filterPanelClass = usecasesFilterVisible ? '' : 'closed';
             const gridActive = usecasesView === 'grid' ? 'active' : '';
             const listActive = usecasesView === 'list' ? 'active' : '';
-            const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
+            const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0) + activePhases.length;
 
             contentArea.innerHTML = `
                 <div class="container">
@@ -6266,13 +6720,14 @@
                         </div>
                     </div>
 
-                    <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags, activeCategory)}
-                        <div class="filter-bar__groups">
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </div>
-                    </div>
+                    ${renderFilterBar({
+                        data: globalUsecasesData,
+                        activeTags: activeTags,
+                        activeCategory: activeCategory,
+                        activePhases: activePhases,
+                        showPhases: true,
+                        filterPanelClass: filterPanelClass
+                    })}
 
                     <div id="usecasesContent" class="catalog-content">
                         ${usecasesView === 'grid'
@@ -6288,6 +6743,7 @@
                     const searchTerm = e.target.value.toLowerCase();
                     let searchFilteredData = filterDataByCategory(globalUsecasesData, activeCategory);
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
+                    searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
                     searchFilteredData = searchFilteredData.filter(item =>
                         item.title.toLowerCase().includes(searchTerm) ||
                         item.category.toLowerCase().includes(searchTerm) ||
@@ -6375,13 +6831,12 @@
                         </div>
                     </div>
 
-                    <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags, activeCategory)}
-                        <div class="filter-bar__groups">
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </div>
-                    </div>
+                    ${renderFilterBar({
+                        data: globalModelsData,
+                        activeTags: activeTags,
+                        activeCategory: activeCategory,
+                        filterPanelClass: filterPanelClass
+                    })}
 
                     <div id="modelsContent" class="catalog-content">
                         ${modelsView === 'grid'
@@ -6484,13 +6939,12 @@
                         </div>
                     </div>
 
-                    <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags, activeCategory)}
-                        <div class="filter-bar__groups">
-                            <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                            <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
-                        </div>
-                    </div>
+                    ${renderFilterBar({
+                        data: globalEpdsData,
+                        activeTags: activeTags,
+                        activeCategory: activeCategory,
+                        filterPanelClass: filterPanelClass
+                    })}
 
                     <div id="epdsContent" class="catalog-content">
                         ${epdsView === 'grid'
