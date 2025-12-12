@@ -4354,18 +4354,12 @@
         let globalEpdsData = [];
         let isDataLoaded = false;
 
-        // Separate view states for elements and documents
-        let elementsView = 'grid';
-        let documentsView = 'grid';
-        let usecasesView = 'grid';
-        let modelsView = 'grid';
-        let epdsView = 'grid';
+        // Filter visibility states (collapsible filter panels)
         let elementsFilterVisible = false;
         let documentsFilterVisible = false;
         let usecasesFilterVisible = false;
         let modelsFilterVisible = false;
         let epdsFilterVisible = false;
-        let searchView = 'list';
         let currentSearchQuery = '';
         let currentSearchSort = 'date-desc';
 
@@ -4533,6 +4527,7 @@
             const phases = [];
             let searchQuery = '';
             let category = '';
+            let view = 'grid'; // Default view
             if (queryPart) {
                 const params = new URLSearchParams(queryPart);
                 params.getAll('tag').forEach(tag => {
@@ -4548,9 +4543,13 @@
                 });
                 searchQuery = params.get('q') || '';
                 category = params.get('category') || '';
+                const viewParam = params.get('view');
+                if (viewParam === 'list' || viewParam === 'grid') {
+                    view = viewParam;
+                }
             }
 
-            return { route, id, tags, phases, searchQuery, category };
+            return { route, id, tags, phases, searchQuery, category, view };
         }
 
         /**
@@ -4570,14 +4569,23 @@
         }
 
         /**
-         * Build a hash string with tags, category, and optional phases
+         * Get active view from the current URL
+         * @returns {string} View mode ('grid' or 'list'), defaults to 'grid'
+         */
+        function getActiveViewFromURL() {
+            return parseHashWithParams().view;
+        }
+
+        /**
+         * Build a hash string with tags, category, phases, and view
          * @param {string} baseHash - The base hash without params (e.g., 'catalog', 'element/e1')
          * @param {string[]} tags - Array of tag strings
          * @param {string} category - Optional category string
          * @param {number[]} phases - Optional array of phase numbers (for usecases)
+         * @param {string} view - Optional view mode ('grid' or 'list')
          * @returns {string} Complete hash string with params
          */
-        function buildHashWithTags(baseHash, tags, category = '', phases = []) {
+        function buildHashWithTags(baseHash, tags, category = '', phases = [], view = '') {
             const params = [];
             if (tags && tags.length > 0) {
                 tags.forEach(tag => params.push(`tag=${encodeURIComponent(tag)}`));
@@ -4587,6 +4595,9 @@
             }
             if (phases && phases.length > 0) {
                 phases.forEach(phase => params.push(`phase=${phase}`));
+            }
+            if (view && (view === 'grid' || view === 'list')) {
+                params.push(`view=${view}`);
             }
             if (params.length === 0) {
                 return baseHash;
@@ -4599,7 +4610,7 @@
          * @param {string} tag - Tag string (e.g., 'Architektur')
          */
         window.toggleTagInURL = function(tag) {
-            const { route, id, tags, category, phases } = parseHashWithParams();
+            const { route, id, tags, category, phases, view } = parseHashWithParams();
 
             const tagIndex = tags.indexOf(tag);
             if (tagIndex > -1) {
@@ -4624,8 +4635,8 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL (preserve category and phases)
-            window.location.hash = buildHashWithTags(baseHash, tags, category, phases);
+            // Navigate to new URL (preserve category, phases, and view)
+            window.location.hash = buildHashWithTags(baseHash, tags, category, phases, view);
         }
 
         /**
@@ -4633,7 +4644,7 @@
          * @param {string} cat - Category string (e.g., 'Grundlagen')
          */
         window.toggleCategoryInURL = function(cat) {
-            const { route, id, tags, category, phases } = parseHashWithParams();
+            const { route, id, tags, category, phases, view } = parseHashWithParams();
 
             // Toggle: if same category, remove it; otherwise set the new one
             const newCategory = (category === cat) ? '' : cat;
@@ -4652,8 +4663,8 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL (preserve tags and phases)
-            window.location.hash = buildHashWithTags(baseHash, tags, newCategory, phases);
+            // Navigate to new URL (preserve tags, phases, and view)
+            window.location.hash = buildHashWithTags(baseHash, tags, newCategory, phases, view);
         }
 
         /**
@@ -4661,7 +4672,7 @@
          * @param {number} phase - Phase number (1-6)
          */
         window.togglePhaseInURL = function(phase) {
-            const { route, id, tags, category, phases } = parseHashWithParams();
+            const { route, id, tags, category, phases, view } = parseHashWithParams();
             const phaseNum = parseInt(phase, 10);
 
             const phaseIndex = phases.indexOf(phaseNum);
@@ -4686,8 +4697,8 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL
-            window.location.hash = buildHashWithTags(baseHash, tags, category, phases);
+            // Navigate to new URL (preserve view)
+            window.location.hash = buildHashWithTags(baseHash, tags, category, phases, view);
         }
 
         /**
@@ -4710,14 +4721,15 @@
         }
 
         /**
-         * Navigate to a route while preserving current tags, category, and phases
+         * Navigate to a route while preserving current tags, category, phases, and view
          * @param {string} targetRoute - Target route (e.g., 'catalog', 'documents')
          */
         function navigateWithTags(targetRoute) {
             const tags = getActiveTagsFromURL();
             const category = getActiveCategoryFromURL();
             const phases = getActivePhasesFromURL();
-            window.location.hash = buildHashWithTags(targetRoute, tags, category, phases);
+            const view = getActiveViewFromURL();
+            window.location.hash = buildHashWithTags(targetRoute, tags, category, phases, view);
         }
 
         /**
@@ -5004,23 +5016,10 @@
         }
 
         // --- VIEW CONTROLS ---
-        window.switchView = function(view, type = 'elements') {
-            if (type === 'elements') {
-                elementsView = view;
-                renderCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-            } else if (type === 'documents') {
-                documentsView = view;
-                renderDocumentsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-            } else if (type === 'usecases') {
-                usecasesView = view;
-                renderUsecasesCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-            } else if (type === 'models') {
-                modelsView = view;
-                renderModelsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-            } else if (type === 'epds') {
-                epdsView = view;
-                renderEpdsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-            }
+        window.switchView = function(view) {
+            // Update URL with new view parameter - this triggers the router to re-render
+            const { route, tags, category, phases } = parseHashWithParams();
+            window.location.hash = buildHashWithTags(route, tags, category, phases, view);
         }
 
         window.toggleFilter = function(type = 'elements') {
@@ -6000,7 +5999,7 @@
                         <p class="search-results__empty-text">Versuchen Sie es mit anderen Suchbegriffen.</p>
                     </div>
                 `;
-            } else if (searchView === 'list') {
+            } else if (getActiveViewFromURL() === 'list') {
                 resultsHtml = `<div class="search-results__list">`;
                 results.forEach(item => {
                     const dateStr = formatSearchDate(item.date);
@@ -6067,10 +6066,10 @@
                                     <i data-lucide="chevron-down" aria-hidden="true"></i>
                                 </button>
                                 <div class="view-switcher toolbar-control">
-                                    <button class="view-btn ${searchView === 'list' ? 'active' : ''}" onclick="switchSearchView('list')" title="Listenansicht" aria-label="Listenansicht">
+                                    <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" onclick="switchSearchView('list')" title="Listenansicht" aria-label="Listenansicht">
                                         <i data-lucide="list" aria-hidden="true"></i>
                                     </button>
-                                    <button class="view-btn ${searchView === 'grid' ? 'active' : ''}" onclick="switchSearchView('grid')" title="Rasteransicht" aria-label="Rasteransicht">
+                                    <button class="view-btn ${getActiveViewFromURL() === 'grid' ? 'active' : ''}" onclick="switchSearchView('grid')" title="Rasteransicht" aria-label="Rasteransicht">
                                         <i data-lucide="layout-grid" aria-hidden="true"></i>
                                     </button>
                                 </div>
@@ -6090,7 +6089,9 @@
                     e.preventDefault();
                     const newQuery = searchInput.value.trim();
                     if (newQuery.length >= 2) {
-                        window.location.hash = `search?q=${encodeURIComponent(newQuery)}`;
+                        const view = getActiveViewFromURL();
+                        const viewParam = view !== 'grid' ? `&view=${view}` : '';
+                        window.location.hash = `search?q=${encodeURIComponent(newQuery)}${viewParam}`;
                     }
                 });
             }
@@ -6104,8 +6105,14 @@
         }
 
         window.switchSearchView = function(view) {
-            searchView = view;
-            renderSearchResultsPage(currentSearchQuery);
+            // Update URL with view parameter for search results
+            const currentView = getActiveViewFromURL();
+            if (view !== currentView) {
+                const newHash = currentSearchQuery
+                    ? `search?q=${encodeURIComponent(currentSearchQuery)}&view=${view}`
+                    : `search?view=${view}`;
+                window.location.hash = newHash;
+            }
         };
 
         window.toggleSearchSort = function() {
@@ -6357,8 +6364,9 @@
             filteredData = filterDataByTags(filteredData, activeTags);
 
             const filterPanelClass = elementsFilterVisible ? '' : 'closed';
-            const gridActive = elementsView === 'grid' ? 'active' : '';
-            const listActive = elementsView === 'list' ? 'active' : '';
+            const currentView = getActiveViewFromURL();
+            const gridActive = currentView === 'grid' ? 'active' : '';
+            const listActive = currentView === 'list' ? 'active' : '';
             const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
@@ -6377,8 +6385,8 @@
                             ${renderFilterButton('elements', elementsFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'elements')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'elements')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -6390,7 +6398,7 @@
                     })}
 
                     <div id="catalogContent" class="catalog-content">
-                        ${elementsView === 'grid'
+                        ${currentView === 'grid'
                             ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
                             : renderListItemsHTML(filteredData, activeTags, activeCategory)
                         }
@@ -6412,7 +6420,7 @@
                     );
 
                     const container = document.getElementById('catalogContent');
-                    container.innerHTML = (elementsView === 'grid')
+                    container.innerHTML = (getActiveViewFromURL() === 'grid')
                         ? `<div class="element-grid">${renderGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
                         : renderListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
@@ -6433,8 +6441,9 @@
             filteredData = filterDataByTags(filteredData, activeTags);
 
             const filterPanelClass = documentsFilterVisible ? '' : 'closed';
-            const gridActive = documentsView === 'grid' ? 'active' : '';
-            const listActive = documentsView === 'list' ? 'active' : '';
+            const currentView = getActiveViewFromURL();
+            const gridActive = currentView === 'grid' ? 'active' : '';
+            const listActive = currentView === 'list' ? 'active' : '';
             const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
@@ -6453,8 +6462,8 @@
                             ${renderFilterButton('documents', documentsFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'documents')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'documents')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -6466,7 +6475,7 @@
                     })}
 
                     <div id="documentsContent" class="catalog-content">
-                        ${documentsView === 'grid'
+                        ${currentView === 'grid'
                             ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
                             : renderDocListItemsHTML(filteredData, activeTags, activeCategory)
                         }
@@ -6489,7 +6498,7 @@
                     );
 
                     const container = document.getElementById('documentsContent');
-                    container.innerHTML = (documentsView === 'grid')
+                    container.innerHTML = (getActiveViewFromURL() === 'grid')
                         ? `<div class="element-grid">${renderDocGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
                         : renderDocListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
@@ -6565,8 +6574,8 @@
                     </tr>`).join('') 
                 : '<tr><td colspan="3" class="col-center empty-text">Keine Dokumente.</td></tr>';
 
-            // Build back link with tags preserved
-            const backLink = buildHashWithTags('elements', activeTags);
+            // Build back link with tags and view preserved
+            const backLink = buildHashWithTags('elements', activeTags, '', [], getActiveViewFromURL());
 
             contentArea.innerHTML = `
                 <section class="detail-hero">
@@ -6655,8 +6664,8 @@
                 return;
             }
 
-            // Build back link with tags and category preserved
-            const backLink = buildHashWithTags('documents', activeTags, activeCategory);
+            // Build back link with tags, category, and view preserved
+            const backLink = buildHashWithTags('documents', activeTags, activeCategory, [], getActiveViewFromURL());
             
             contentArea.innerHTML = `
                 <section class="detail-hero">
@@ -6695,8 +6704,9 @@
             filteredData = filterDataByPhases(filteredData, activePhases);
 
             const filterPanelClass = usecasesFilterVisible ? '' : 'closed';
-            const gridActive = usecasesView === 'grid' ? 'active' : '';
-            const listActive = usecasesView === 'list' ? 'active' : '';
+            const currentView = getActiveViewFromURL();
+            const gridActive = currentView === 'grid' ? 'active' : '';
+            const listActive = currentView === 'list' ? 'active' : '';
             const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0) + activePhases.length;
 
             contentArea.innerHTML = `
@@ -6715,8 +6725,8 @@
                             ${renderFilterButton('usecases', usecasesFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'usecases')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'usecases')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -6730,7 +6740,7 @@
                     })}
 
                     <div id="usecasesContent" class="catalog-content">
-                        ${usecasesView === 'grid'
+                        ${currentView === 'grid'
                             ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
                             : renderUsecasesListItemsHTML(filteredData, activeTags, activeCategory)
                         }
@@ -6750,7 +6760,7 @@
                         item.description.toLowerCase().includes(searchTerm)
                     );
                     const container = document.getElementById('usecasesContent');
-                    container.innerHTML = (usecasesView === 'grid')
+                    container.innerHTML = (getActiveViewFromURL() === 'grid')
                         ? `<div class="element-grid">${renderUsecasesGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
                         : renderUsecasesListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
@@ -6771,7 +6781,7 @@
                 return;
             }
 
-            const backLink = buildHashWithTags('usecases', activeTags, activeCategory);
+            const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
             contentArea.innerHTML = `
                 <section class="detail-hero">
@@ -6806,8 +6816,9 @@
             filteredData = filterDataByTags(filteredData, activeTags);
 
             const filterPanelClass = modelsFilterVisible ? '' : 'closed';
-            const gridActive = modelsView === 'grid' ? 'active' : '';
-            const listActive = modelsView === 'list' ? 'active' : '';
+            const currentView = getActiveViewFromURL();
+            const gridActive = currentView === 'grid' ? 'active' : '';
+            const listActive = currentView === 'list' ? 'active' : '';
             const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
@@ -6826,8 +6837,8 @@
                             ${renderFilterButton('models', modelsFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'models')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'models')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -6839,7 +6850,7 @@
                     })}
 
                     <div id="modelsContent" class="catalog-content">
-                        ${modelsView === 'grid'
+                        ${currentView === 'grid'
                             ? `<div class="element-grid">${renderModelsGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
                             : renderModelsListItemsHTML(filteredData, activeTags, activeCategory)
                         }
@@ -6858,7 +6869,7 @@
                         item.description.toLowerCase().includes(searchTerm)
                     );
                     const container = document.getElementById('modelsContent');
-                    container.innerHTML = (modelsView === 'grid')
+                    container.innerHTML = (getActiveViewFromURL() === 'grid')
                         ? `<div class="element-grid">${renderModelsGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
                         : renderModelsListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
@@ -6879,7 +6890,7 @@
                 return;
             }
 
-            const backLink = buildHashWithTags('models', activeTags, activeCategory);
+            const backLink = buildHashWithTags('models', activeTags, activeCategory, [], getActiveViewFromURL());
 
             contentArea.innerHTML = `
                 <section class="detail-hero">
@@ -6914,8 +6925,9 @@
             filteredData = filterDataByTags(filteredData, activeTags);
 
             const filterPanelClass = epdsFilterVisible ? '' : 'closed';
-            const gridActive = epdsView === 'grid' ? 'active' : '';
-            const listActive = epdsView === 'list' ? 'active' : '';
+            const currentView = getActiveViewFromURL();
+            const gridActive = currentView === 'grid' ? 'active' : '';
+            const listActive = currentView === 'list' ? 'active' : '';
             const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
@@ -6934,8 +6946,8 @@
                             ${renderFilterButton('epds', epdsFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${listActive}" onclick="switchView('list', 'epds')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                            <button class="view-btn ${gridActive}" onclick="switchView('grid', 'epds')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                            <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                            <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                         </div>
                     </div>
 
@@ -6947,7 +6959,7 @@
                     })}
 
                     <div id="epdsContent" class="catalog-content">
-                        ${epdsView === 'grid'
+                        ${currentView === 'grid'
                             ? `<div class="element-grid">${renderEpdsGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
                             : renderEpdsListItemsHTML(filteredData, activeTags, activeCategory)
                         }
@@ -6966,7 +6978,7 @@
                         item.description.toLowerCase().includes(searchTerm)
                     );
                     const container = document.getElementById('epdsContent');
-                    container.innerHTML = (epdsView === 'grid')
+                    container.innerHTML = (getActiveViewFromURL() === 'grid')
                         ? `<div class="element-grid">${renderEpdsGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
                         : renderEpdsListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
@@ -6987,7 +6999,7 @@
                 return;
             }
 
-            const backLink = buildHashWithTags('epds', activeTags, activeCategory);
+            const backLink = buildHashWithTags('epds', activeTags, activeCategory, [], getActiveViewFromURL());
 
             contentArea.innerHTML = `
                 <section class="detail-hero">
