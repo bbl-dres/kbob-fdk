@@ -5,7 +5,7 @@
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Grundlagen",
     "subcategory": "Projektsetup",
-    "description": "Minimale Anforderungen an jedes Bauprojekt: Übergreifende Anwendungsfälle, die die Grundlagen für den Einsatz der BIM-Methode bilden, wie AIA, BAP und Projektbesprechungen. Diese Anforderungen müssen von jedem Projekt erfüllt werden.",
+    "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination, unabhängig von Bauvolumen oder Methodik.",
     "tags": ["BIM-Management", "AIA", "BAP", "Grundlagen", "Minimalstandard"],
     "minimalstandard": true,
     "classifications": [
