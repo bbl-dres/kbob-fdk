@@ -1576,7 +1576,7 @@
   {
     "id": "uc250",
     "title": "Energiemanagement",
-    "image": "https://prozesse.bbl.admin.ch/uc250",
+    "image": "assets/img/usecase/uc250.jpg",
     "category": "Betrieb",
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
     "tags": [
@@ -1693,7 +1693,7 @@
   {
     "id": "uc270",
     "title": "Nachhaltigkeitsnachweise",
-    "image": "https://prozesse.bbl.admin.ch/uc270",
+    "image": "assets/img/usecase/uc270.jpg",
     "category": "Nachhaltigkeit",
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
     "tags": [
