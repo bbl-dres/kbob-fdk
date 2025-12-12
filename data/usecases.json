@@ -2,7 +2,7 @@
   {
     "id": "uc000",
     "title": "Minimalstandard",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Grundlagen",
     "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination, unabhängig von Bauvolumen oder Methodik.",
     "tags": [
@@ -393,7 +393,7 @@
   {
     "id": "uc060",
     "title": "Qualitätsprüfung",
-    "image": "assets/img/usecase/uc060.jpg",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Qualitätssicherung",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": [
@@ -523,7 +523,7 @@
   {
     "id": "uc080",
     "title": "Ableitung von Planunterlagen",
-    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=400&fit=crop",
     "category": "Dokumentation",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": [
@@ -587,7 +587,7 @@
   {
     "id": "uc090",
     "title": "Genehmigungsprozess",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Behörden",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": [
@@ -728,7 +728,7 @@
   {
     "id": "uc110",
     "title": "Leistungsverzeichnis und Ausschreibung",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Ausschreibung",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": [
@@ -854,7 +854,7 @@
   {
     "id": "uc130",
     "title": "Logistikplanung",
-    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
     "category": "Bauausführung",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": [
@@ -916,7 +916,7 @@
   {
     "id": "uc140",
     "title": "Baufortschrittskontrolle",
-    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
     "category": "Bauausführung",
     "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
     "tags": [
@@ -975,7 +975,7 @@
   {
     "id": "uc150",
     "title": "Änderungs- und Nachtragsmanagement",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
     "tags": [
@@ -1033,7 +1033,7 @@
   {
     "id": "uc160",
     "title": "Abrechnung von Bauleistungen",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": [
@@ -1092,7 +1092,7 @@
   {
     "id": "uc170",
     "title": "Abnahme- und Mängelmanagement",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": [
@@ -1152,7 +1152,7 @@
   {
     "id": "uc180",
     "title": "Inbetriebnahmemanagement",
-    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=400&fit=crop",
     "category": "Übergabe",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": [
@@ -1282,7 +1282,7 @@
   {
     "id": "uc200",
     "title": "Nutzung für Betrieb und Erhaltung",
-    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=400&fit=crop",
     "category": "Betrieb",
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": [
@@ -1341,7 +1341,7 @@
   {
     "id": "uc210",
     "title": "Gewährleistungsmanagement",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Betrieb",
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
     "tags": [
@@ -1459,7 +1459,7 @@
   {
     "id": "uc230",
     "title": "Instandhaltungs- und Instandsetzungsmanagement",
-    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
+    "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Betrieb",
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
     "tags": [
