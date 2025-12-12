@@ -264,7 +264,7 @@
   {
     "id": "uc040",
     "title": "Visualisierung",
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc040.jpg",
     "category": "Kommunikation",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": [
@@ -327,7 +327,7 @@
   {
     "id": "uc050",
     "title": "Koordination der Fachgewerke",
-    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "image": "assets/img/usecase/uc050.jpg",
     "category": "Koordination",
     "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
     "tags": [
