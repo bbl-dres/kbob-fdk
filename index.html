@@ -3460,51 +3460,47 @@
         }
 
         /* Usecase Detail Page Styles */
-        .usecase-phases {
-            margin-top: var(--space-lg);
-        }
-
-        .usecase-phases h3 {
-            font-size: var(--text-sm);
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-sm);
-        }
-
         .phases-container {
             display: flex;
             gap: var(--space-xs);
             flex-wrap: wrap;
         }
 
-        .goals-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .phases-container--large .phase-badge {
+            width: 32px;
+            height: 32px;
+            font-size: var(--text-sm);
         }
 
-        .goals-list li {
-            padding: var(--space-sm) 0;
-            padding-left: var(--space-lg);
-            position: relative;
-            border-bottom: 1px solid var(--color-border-light);
-        }
-
-        .goals-list li:last-child {
-            border-bottom: none;
-        }
-
-        .goals-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-            font-weight: var(--font-weight-bold);
+        .phase-badge.inactive {
+            opacity: 0.4;
         }
 
         .col-actor {
             font-weight: var(--font-weight-semibold);
             vertical-align: top;
+        }
+
+        .info-box--inline {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-light);
+            border-radius: var(--border-radius-lg);
+        }
+
+        .info-box--inline .info-box__icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--color-text-muted);
+        }
+
+        .info-box--inline .info-box__text {
+            margin: 0;
+            color: var(--color-text-secondary);
         }
 
         /* Tooltip Name Style for Informationen Table */
@@ -6823,22 +6819,25 @@
 
             // Sidebar navigation links
             const sidebarLinks = [
-                { id: 'uebersicht', text: 'Übersicht' },
+                { id: 'phasen', text: 'Phasen' },
                 { id: 'ziele', text: 'Ziele' },
                 { id: 'rollen', text: 'Rollen' },
                 { id: 'eingaben', text: 'Eingaben' },
-                { id: 'ausgaben', text: 'Ausgaben' }
+                { id: 'ausgaben', text: 'Ausgaben' },
+                { id: 'verknuepfungen', text: 'Verknüpfungen' }
             ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            // Render phases badges for overview
-            const phasesHtml = data.phases && data.phases.length > 0
-                ? data.phases.map(p => `<span class="phase-badge active">${p}</span>`).join('')
-                : '<span class="empty-text">Keine Phasen definiert</span>';
+            // Render all 6 phases (1-6), highlight active ones
+            const allPhases = [1, 2, 3, 4, 5, 6];
+            const phasesHtml = allPhases.map(p => {
+                const isActive = data.phases && data.phases.includes(p);
+                return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${p}</span>`;
+            }).join('');
 
-            // Render goals list
-            const goalsHtml = data.goals && data.goals.length > 0
-                ? `<ul class="goals-list">${data.goals.map(g => `<li>${g}</li>`).join('')}</ul>`
-                : '<p class="empty-text">Keine Ziele definiert.</p>';
+            // Render goals as table
+            const goalsRowsHtml = data.goals && data.goals.length > 0
+                ? data.goals.map(goal => `<tr><td class="col-val">${goal}</td></tr>`).join('')
+                : '<tr><td class="col-center empty-text">Keine Ziele definiert.</td></tr>';
 
             // Render inputs table
             const inputsRowsHtml = data.inputs && data.inputs.length > 0
@@ -6850,14 +6849,14 @@
                 ? data.outputs.map(output => `<tr><td class="col-val">${output}</td></tr>`).join('')
                 : '<tr><td class="col-center empty-text">Keine Ausgaben definiert.</td></tr>';
 
-            // Render roles RACI table
+            // Render roles RACI table (without bullet points)
             const rolesRowsHtml = data.roles && data.roles.length > 0
                 ? data.roles.map(role => `
                     <tr>
                         <td class="col-val col-actor">${role.actor}</td>
-                        <td class="col-val">${role.responsible && role.responsible.length > 0 ? role.responsible.map(r => `<div>• ${r}</div>`).join('') : '-'}</td>
-                        <td class="col-val">${role.contributing && role.contributing.length > 0 ? role.contributing.map(c => `<div>• ${c}</div>`).join('') : '-'}</td>
-                        <td class="col-val">${role.informed && role.informed.length > 0 ? role.informed.map(i => `<div>• ${i}</div>`).join('') : '-'}</td>
+                        <td class="col-val">${role.responsible && role.responsible.length > 0 ? role.responsible.join(', ') : '-'}</td>
+                        <td class="col-val">${role.contributing && role.contributing.length > 0 ? role.contributing.join(', ') : '-'}</td>
+                        <td class="col-val">${role.informed && role.informed.length > 0 ? role.informed.join(', ') : '-'}</td>
                     </tr>`).join('')
                 : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
 
@@ -6880,18 +6879,18 @@
                     <div class="detail-layout">
                         <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                         <div class="detail-content-area">
-                            <div class="detail-section" id="uebersicht">
-                                <h2>Übersicht</h2>
-                                <p>${data.description || 'Keine Beschreibung verfügbar.'}</p>
-                                <div class="usecase-phases">
-                                    <h3>Projektphasen</h3>
-                                    <div class="phases-container">${phasesHtml}</div>
-                                </div>
+                            <div class="detail-section" id="phasen">
+                                <h2>Projektphasen</h2>
+                                <p>Relevante Projektphasen für diesen Anwendungsfall.</p>
+                                <div class="phases-container phases-container--large">${phasesHtml}</div>
                             </div>
 
                             <div class="detail-section" id="ziele">
                                 <h2>Ziele</h2>
-                                ${goalsHtml}
+                                <table class="data-table">
+                                    <thead><tr><th>Beschreibung</th></tr></thead>
+                                    <tbody>${goalsRowsHtml}</tbody>
+                                </table>
                             </div>
 
                             <div class="detail-section" id="rollen">
@@ -6925,6 +6924,17 @@
                                     <thead><tr><th>Bezeichnung</th></tr></thead>
                                     <tbody>${outputsRowsHtml}</tbody>
                                 </table>
+                            </div>
+
+                            <div class="detail-section" id="verknuepfungen">
+                                <h2>Verknüpfungen</h2>
+                                <p>Verknüpfte Dokumente und Elemente für diesen Anwendungsfall.</p>
+                                <div class="info-box info-box--inline">
+                                    <i data-lucide="construction" class="info-box__icon"></i>
+                                    <div>
+                                        <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Dokumente und Elemente angezeigt.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
