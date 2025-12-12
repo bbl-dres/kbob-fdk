@@ -2854,6 +2854,25 @@
             box-shadow: var(--shadow-sm);
         }
 
+        /* Category badge - distinctive styling for category filter */
+        .tag-badge--category {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--text-body-sm);
+        }
+
+        .tag-badge--category:hover {
+            background: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+        }
+
+        .tag-badge--category.active {
+            background: var(--color-surface-dark);
+            border-color: var(--color-surface-dark);
+        }
+
         .card__image img {
             width: 100%;
             height: 100%;
@@ -4363,6 +4382,7 @@
             // Parse query params
             const tags = [];
             let searchQuery = '';
+            let category = '';
             if (queryPart) {
                 const params = new URLSearchParams(queryPart);
                 params.getAll('tag').forEach(tag => {
@@ -4371,9 +4391,10 @@
                     }
                 });
                 searchQuery = params.get('q') || '';
+                category = params.get('category') || '';
             }
 
-            return { route, id, tags, searchQuery };
+            return { route, id, tags, searchQuery, category };
         }
 
         /**
@@ -4383,19 +4404,34 @@
         function getActiveTagsFromURL() {
             return parseHashWithParams().tags;
         }
-        
+
         /**
-         * Build a hash string with tags
+         * Get active category from the current URL
+         * @returns {string} Category string or empty string
+         */
+        function getActiveCategoryFromURL() {
+            return parseHashWithParams().category;
+        }
+
+        /**
+         * Build a hash string with tags and optional category
          * @param {string} baseHash - The base hash without params (e.g., 'catalog', 'element/e1')
          * @param {string[]} tags - Array of tag strings
+         * @param {string} category - Optional category string
          * @returns {string} Complete hash string with params
          */
-        function buildHashWithTags(baseHash, tags) {
-            if (!tags || tags.length === 0) {
+        function buildHashWithTags(baseHash, tags, category = '') {
+            const params = [];
+            if (tags && tags.length > 0) {
+                tags.forEach(tag => params.push(`tag=${encodeURIComponent(tag)}`));
+            }
+            if (category) {
+                params.push(`category=${encodeURIComponent(category)}`);
+            }
+            if (params.length === 0) {
                 return baseHash;
             }
-            const params = tags.map(tag => `tag=${encodeURIComponent(tag)}`).join('&');
-            return `${baseHash}?${params}`;
+            return `${baseHash}?${params.join('&')}`;
         }
         
         /**
@@ -4403,7 +4439,7 @@
          * @param {string} tag - Tag string (e.g., 'Architektur')
          */
         window.toggleTagInURL = function(tag) {
-            const { route, id, tags } = parseHashWithParams();
+            const { route, id, tags, category } = parseHashWithParams();
 
             const tagIndex = tags.indexOf(tag);
             if (tagIndex > -1) {
@@ -4428,8 +4464,36 @@
                 baseHash = routeMap[route] || route;
             }
 
-            // Navigate to new URL
-            window.location.hash = buildHashWithTags(baseHash, tags);
+            // Navigate to new URL (preserve category)
+            window.location.hash = buildHashWithTags(baseHash, tags, category);
+        }
+
+        /**
+         * Toggle a category in the URL (add if not set, remove if same category)
+         * @param {string} cat - Category string (e.g., 'Grundlagen')
+         */
+        window.toggleCategoryInURL = function(cat) {
+            const { route, id, tags, category } = parseHashWithParams();
+
+            // Toggle: if same category, remove it; otherwise set the new one
+            const newCategory = (category === cat) ? '' : cat;
+
+            // Build base hash - redirect to list view if on detail page
+            let baseHash = route;
+            if (id) {
+                // On detail page: redirect to corresponding list view
+                const routeMap = {
+                    'element': 'elements',
+                    'document': 'documents',
+                    'usecase': 'usecases',
+                    'model': 'models',
+                    'epd': 'epds'
+                };
+                baseHash = routeMap[route] || route;
+            }
+
+            // Navigate to new URL (preserve tags)
+            window.location.hash = buildHashWithTags(baseHash, tags, newCategory);
         }
         
         /**
@@ -4452,14 +4516,15 @@
         }
 
         /**
-         * Navigate to a route while preserving current tags
+         * Navigate to a route while preserving current tags and category
          * @param {string} targetRoute - Target route (e.g., 'catalog', 'documents')
          */
         function navigateWithTags(targetRoute) {
             const tags = getActiveTagsFromURL();
-            window.location.hash = buildHashWithTags(targetRoute, tags);
+            const category = getActiveCategoryFromURL();
+            window.location.hash = buildHashWithTags(targetRoute, tags, category);
         }
-        
+
         /**
          * Filter data by active tags (AND logic - must match all tags)
          * @param {Array} data - Array of data items
@@ -4476,6 +4541,20 @@
 
                 return activeTags.every(tag => item.tags.includes(tag));
             });
+        }
+
+        /**
+         * Filter data by active category
+         * @param {Array} data - Array of data items
+         * @param {string} activeCategory - Category string
+         * @returns {Array} Filtered data
+         */
+        function filterDataByCategory(data, activeCategory) {
+            if (!activeCategory) {
+                return data;
+            }
+
+            return data.filter(item => item.category === activeCategory);
         }
 
         /**
@@ -4554,7 +4633,7 @@
         function router() {
             if (!isDataLoaded) return;
 
-            const { route, id, tags, searchQuery } = parseHashWithParams();
+            const { route, id, tags, searchQuery, category } = parseHashWithParams();
 
             // Update nav active states
             document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
@@ -4606,7 +4685,7 @@
                 case 'search': renderSearchResultsPage(searchQuery); break;
                 case 'elements': renderCatalogPage(tags); break;
                 case 'documents': renderDocumentsCatalogPage(tags); break;
-                case 'usecases': renderUsecasesCatalogPage(tags); break;
+                case 'usecases': renderUsecasesCatalogPage(tags, category); break;
                 case 'models': renderModelsCatalogPage(tags); break;
                 case 'epds': renderEpdsCatalogPage(tags); break;
                 case 'handbook': renderHandbookPage(); break;
@@ -4629,7 +4708,7 @@
                 case 'usecase':
                     if(id) {
                         contentArea.classList.add('white-bg');
-                        renderUsecaseDetailPage(id, tags);
+                        renderUsecaseDetailPage(id, tags, category);
                     } else {
                         navigateWithTags('usecases');
                     }
@@ -4669,7 +4748,7 @@
                 renderDocumentsCatalogPage(getActiveTagsFromURL());
             } else if (type === 'usecases') {
                 usecasesView = view;
-                renderUsecasesCatalogPage(getActiveTagsFromURL());
+                renderUsecasesCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
             } else if (type === 'models') {
                 modelsView = view;
                 renderModelsCatalogPage(getActiveTagsFromURL());
@@ -4688,7 +4767,7 @@
                 renderDocumentsCatalogPage(getActiveTagsFromURL());
             } else if (type === 'usecases') {
                 usecasesFilterVisible = !usecasesFilterVisible;
-                renderUsecasesCatalogPage(getActiveTagsFromURL());
+                renderUsecasesCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
             } else if (type === 'models') {
                 modelsFilterVisible = !modelsFilterVisible;
                 renderModelsCatalogPage(getActiveTagsFromURL());
@@ -4766,11 +4845,26 @@
         /**
          * Render filter bar header with optional reset icon
          */
-        function renderFilterBarHeader(activeTags) {
-            const resetBtn = activeTags.length > 0
-                ? `<button class="filter-bar__reset" onclick="clearAllTagsFromURL()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+        function renderFilterBarHeader(activeTags, activeCategory = '') {
+            const hasFilters = activeTags.length > 0 || activeCategory;
+            const resetBtn = hasFilters
+                ? `<button class="filter-bar__reset" onclick="clearAllFilters()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
                 : '';
-            return `<div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>`;
+
+            // Build active filters display
+            let activeFiltersHtml = '';
+            if (hasFilters) {
+                const filterBadges = [];
+                if (activeCategory) {
+                    filterBadges.push(`<span class="tag-badge tag-badge--category active" onclick="toggleCategoryInURL('${activeCategory}')">${activeCategory} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+                }
+                activeTags.forEach(tag => {
+                    filterBadges.push(`<span class="tag-badge active" onclick="toggleTagInURL('${tag}')">${tag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+                });
+                activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-sm);">${filterBadges.join('')}</div>`;
+            }
+
+            return `<div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>${activeFiltersHtml}`;
         }
         
         /**
@@ -4906,16 +5000,18 @@
         }
 
         // Usecases Grid/List Renderers
-        function renderUsecasesGridItemsHTML(items, activeTags = []) {
-            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
+        function renderUsecasesGridItemsHTML(items, activeTags = [], activeCategory = '') {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
 
             return items.map(item => {
                 const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
                 const cardId = `usecase-${item.id}`;
+                const isCategoryActive = activeCategory === item.category;
 
                 return `
-                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
+                <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags, activeCategory)}'">
                     <div class="card__image">
+                        ${item.category ? `<span class="tag-badge tag-badge--category ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
                         ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="workflow" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
                     </div>
                     <div class="card__body">
@@ -4930,8 +5026,8 @@
             `}).join('');
         }
 
-        function renderUsecasesListItemsHTML(items, activeTags = []) {
-            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0);
+        function renderUsecasesListItemsHTML(items, activeTags = [], activeCategory = '') {
+            if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
 
             const headerHtml = `
                 <div class="list-header-row">
@@ -4941,13 +5037,18 @@
                 </div>
             `;
 
-            const itemsHtml = items.map(item => `
-                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags)}'">
-                    <div class="list-col-name">${item.title}</div>
+            const itemsHtml = items.map(item => {
+                const isCategoryActive = activeCategory === item.category;
+                return `
+                <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags, activeCategory)}'">
+                    <div class="list-col-name">
+                        ${item.category ? `<span class="tag-badge tag-badge--category ${isCategoryActive ? 'active' : ''}" style="margin-right:var(--space-sm);" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
+                        ${item.title}
+                    </div>
                     <div class="list-col-desc">${item.description || item.category}</div>
                     <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
                 </div>
-            `).join('');
+            `}).join('');
 
             return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
         }
@@ -6119,12 +6220,15 @@
         // USECASES CATALOG AND DETAIL PAGES
         // ============================================
 
-        function renderUsecasesCatalogPage(activeTags = []) {
-            const filteredByTags = filterDataByTags(globalUsecasesData, activeTags);
+        function renderUsecasesCatalogPage(activeTags = [], activeCategory = '') {
+            // Apply both category and tag filtering
+            let filteredData = filterDataByCategory(globalUsecasesData, activeCategory);
+            filteredData = filterDataByTags(filteredData, activeTags);
 
             const filterPanelClass = usecasesFilterVisible ? '' : 'closed';
             const gridActive = usecasesView === 'grid' ? 'active' : '';
             const listActive = usecasesView === 'list' ? 'active' : '';
+            const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
 
             contentArea.innerHTML = `
                 <div class="container">
@@ -6139,7 +6243,7 @@
                                 <button type="button" class="search-clear-btn" id="usecasesSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                                 <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                             </div>
-                            ${renderFilterButton('usecases', usecasesFilterVisible, activeTags.length)}
+                            ${renderFilterButton('usecases', usecasesFilterVisible, activeFiltersCount)}
                         </div>
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${listActive}" onclick="switchView('list', 'usecases')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
@@ -6148,7 +6252,7 @@
                     </div>
 
                     <div class="filter-bar ${filterPanelClass}">
-                        ${renderFilterBarHeader(activeTags)}
+                        ${renderFilterBarHeader(activeTags, activeCategory)}
                         <div class="filter-bar__groups">
                             <div class="filter-group"><div class="filter-toggle">Disziplin <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
                             <div class="filter-group"><div class="filter-toggle">Kategorie <i data-lucide="chevron-down" aria-hidden="true"></i></div></div>
@@ -6157,8 +6261,8 @@
 
                     <div id="usecasesContent" class="catalog-content">
                         ${usecasesView === 'grid'
-                            ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredByTags, activeTags)}</div>`
-                            : renderUsecasesListItemsHTML(filteredByTags, activeTags)
+                            ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
+                            : renderUsecasesListItemsHTML(filteredData, activeTags, activeCategory)
                         }
                     </div>
                 </div>`;
@@ -6167,16 +6271,17 @@
             if(searchInput) {
                 searchInput.addEventListener('input', (e) => {
                     const searchTerm = e.target.value.toLowerCase();
-                    let filteredData = filterDataByTags(globalUsecasesData, activeTags);
-                    filteredData = filteredData.filter(item =>
+                    let searchFilteredData = filterDataByCategory(globalUsecasesData, activeCategory);
+                    searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
+                    searchFilteredData = searchFilteredData.filter(item =>
                         item.title.toLowerCase().includes(searchTerm) ||
                         item.category.toLowerCase().includes(searchTerm) ||
                         item.description.toLowerCase().includes(searchTerm)
                     );
                     const container = document.getElementById('usecasesContent');
                     container.innerHTML = (usecasesView === 'grid')
-                        ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredData, activeTags)}</div>`
-                        : renderUsecasesListItemsHTML(filteredData, activeTags);
+                        ? `<div class="element-grid">${renderUsecasesGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
+                        : renderUsecasesListItemsHTML(searchFilteredData, activeTags, activeCategory);
                 });
             }
 
@@ -6188,14 +6293,14 @@
             setupSearchClearButton('usecasesSearchInput', 'usecasesSearchClear');
         }
 
-        function renderUsecaseDetailPage(id, activeTags = []) {
+        function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             const data = globalUsecasesData.find(item => item.id === id);
             if(!data) {
                 contentArea.innerHTML = '<div class="container error-state">Anwendungsfall nicht gefunden.</div>';
                 return;
             }
 
-            const backLink = buildHashWithTags('usecases', activeTags);
+            const backLink = buildHashWithTags('usecases', activeTags, activeCategory);
 
             contentArea.innerHTML = `
                 <section class="detail-hero">
