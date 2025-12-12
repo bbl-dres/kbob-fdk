@@ -34,7 +34,7 @@
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
     "category": "Planung",
     "subcategory": "Bedarf",
-    "description": "Erstellen eines generischen Bedarfsmodells bzw. digitalisierte Aufstellung einer Bedarfsplanung mit Raumprogramm und Flächenanforderungen.",
+    "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": ["Bedarfsplanung", "Raumprogramm", "Flächenmanagement"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "020", "desc": "Bedarfsplanung" },
@@ -48,7 +48,7 @@
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Planung",
     "subcategory": "Variantenvergleich",
-    "description": "Erstellung von Planungsvarianten als BIM-Modell zur Vereinfachung der Analyse und Bewertung hinsichtlich Kosten, Terminen und baulich-konstruktiver Gestaltung.",
+    "description": "Erstellung und Dokumentation von Planungsvarianten zur vergleichenden Bewertung hinsichtlich Nachhaltigkeit, Wirtschaftlichkeit, Gestaltung und weiterer projektspezifischer Kriterien.",
     "tags": ["Variantenvergleich", "Machbarkeitsstudie", "Entwurf"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "030", "desc": "Planungsvarianten" },
@@ -62,7 +62,7 @@
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "category": "Kommunikation",
     "subcategory": "Darstellung",
-    "description": "Bedarfsgerechte Visualisierung unter Zuhilfenahme der BIM-Modelle als Basis für Projektkommunikation oder Öffentlichkeitsarbeit (fotorealistische Abbildungen, Animationen).",
+    "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": ["Visualisierung", "Rendering", "Animation", "Kommunikation"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "040", "desc": "Visualisierung" },
@@ -76,7 +76,7 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Koordination",
     "subcategory": "Modellbasiert",
-    "description": "Regelmässiges Zusammenführen der Fachmodelle in einem Koordinationsmodell mit anschliessender automatisierter Kollisionsprüfung und systematischer Konfliktbehebung.",
+    "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
     "tags": ["BIM-Koordination", "Fachmodelle", "Kollisionsprüfung", "Clash Detection"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "050", "desc": "Koordination der Fachgewerke" },
@@ -90,7 +90,7 @@
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=200&fit=crop",
     "category": "Qualitätssicherung",
     "subcategory": "Controlling",
-    "description": "Nutzung des Modells für die Planungsfortschrittskontrolle als Grundlage des Controllings sowie Durchführung der Qualitätsprüfung und Planungsfreigabe.",
+    "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": ["Qualitätssicherung", "Modellprüfung", "Controlling", "Freigabe"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "060", "desc": "Planungsfortschrittskontrolle und Qualitätsprüfung" },
@@ -104,7 +104,7 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "category": "Analyse",
     "subcategory": "Simulation",
-    "description": "Nutzung des Modells für Bemessung und Nachweisführung, einschliesslich Simulationen wie Energie, Tageslicht, Akustik oder Brandschutz.",
+    "description": "Durchführung von Fachkonzepten, Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
     "tags": ["Simulation", "Energie", "Statik", "Nachweisführung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "070", "desc": "Bemessung und Nachweisführung" },
@@ -118,7 +118,7 @@
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Dokumentation",
     "subcategory": "Planableitung",
-    "description": "Ableitung relevanter Teile der Planung aus dem Bauwerksdatenmodell und Überführung in 2D-Planformate gemäss den jeweiligen Richtlinien.",
+    "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": ["Planableitung", "2D-Pläne", "Dokumentation"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "080", "desc": "Ableitung von Planunterlagen" },
@@ -132,7 +132,7 @@
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Behörden",
     "subcategory": "Baubewilligung",
-    "description": "Durchführung der Prüfläufe zur behördlichen Freigabe der Planung auf Basis von BIM-Modellen und den daraus abgeleiteten Unterlagen für das Baubewilligungsverfahren.",
+    "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": ["Baubewilligung", "Behörden", "Genehmigung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "090", "desc": "Genehmigungsprozess" },
@@ -146,7 +146,7 @@
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
     "category": "Kostenplanung",
     "subcategory": "Quantifizierung",
-    "description": "Ermittlung strukturierter und bauteilbezogener Mengen (Volumen, Flächen, Längen, Stückzahlen) anhand des Modells und Aufstellung der Kostenschätzungen nach eBKP-H.",
+    "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
     "tags": ["Kostenplanung", "Mengenermittlung", "eBKP-H", "QTO"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "100", "desc": "Mengen- und Kostenermittlung" },
@@ -160,7 +160,7 @@
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Ausschreibung",
     "subcategory": "AVA",
-    "description": "Modellgestütztes Erzeugen mengenbezogener Positionen des Leistungsverzeichnisses sowie modellbasierte Ausschreibung und Vergabe auf Basis der vorliegenden Planung.",
+    "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": ["Ausschreibung", "LV", "Vergabe", "AVA"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "110", "desc": "Leistungsverzeichnis, Ausschreibung, Vergabe" },
@@ -174,7 +174,7 @@
     "image": "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=400&h=200&fit=crop",
     "category": "Terminplanung",
     "subcategory": "4D-Simulation",
-    "description": "Nutzung eines durch Verknüpfung von Vorgängen der Terminplanung mit den zugehörigen Modellelementen erstellten 4D-Modells zur Darstellung und Überprüfung des geplanten Bauablaufs.",
+    "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
     "tags": ["Terminplanung", "4D-BIM", "Bauablauf", "Simulation"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "120", "desc": "Terminplanung der Ausführung" },
@@ -188,7 +188,7 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Logistik",
-    "description": "Unterstützung der Planung und Kommunikation von Logistikabläufen (Baustelleneinrichtung, Baustelleninfrastruktur, Verkehrsphasen) auf Basis von 4D-Modellen.",
+    "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": ["Logistik", "Baustelleneinrichtung", "Verkehrsführung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "130", "desc": "Logistikplanung" },
@@ -202,7 +202,7 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Controlling",
-    "description": "Nutzung des Modells für die terminliche Baufortschrittskontrolle als Grundlage des Projekt-Controllings.",
+    "description": "ystematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
     "tags": ["Baufortschritt", "Controlling", "Soll-Ist-Vergleich"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "140", "desc": "Baufortschrittskontrolle" },
@@ -216,7 +216,7 @@
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Änderungen",
-    "description": "Nutzung des Modells zur Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung und zur Erfassung von Nachträgen.",
+    "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
     "tags": ["Änderungsmanagement", "Nachträge", "Dokumentation"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "150", "desc": "Änderungs- und Nachtragsmanagement" },
@@ -230,7 +230,7 @@
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Abrechnung",
-    "description": "Nutzung des Modells zur regelmässigen Dokumentation und zur Plausibilisierung von Bauleistungen und Abschlagsrechnungen.",
+    "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": ["Abrechnung", "Kostenkontrolle", "Rechnungsprüfung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "160", "desc": "Abrechnung von Bauleistungen" },
@@ -244,7 +244,7 @@
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Bauausführung",
     "subcategory": "Qualität",
-    "description": "Nutzung des Modells zur Verortung und Dokumentation von Ausführungsmängeln und deren Nachverfolgung zur Behebung sowie zu klärender Punkte.",
+    "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": ["Mängelmanagement", "Abnahme", "Qualitätssicherung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "170", "desc": "Abnahme- und Mängelmanagement" },
@@ -258,7 +258,7 @@
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
     "category": "Übergabe",
     "subcategory": "Inbetriebnahme",
-    "description": "Digitale, modellbasierte Unterstützung der Aufgaben des Inbetriebnahmemanagements von der Planungsphase bis zur Übergabe in den bestimmungsgemässen Betrieb.",
+    "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": ["Inbetriebnahme", "Übergabe", "Gebäudetechnik"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "180", "desc": "Inbetriebnahmemanagement" },
@@ -286,7 +286,7 @@
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop",
     "category": "Betrieb",
     "subcategory": "FM",
-    "description": "Übernahme von Daten aus dem Wie-gebaut-Modell in entsprechende CAFM-Systeme sowie Aktualisierung des Modells im Falle von Instandsetzungsmassnahmen.",
+    "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": ["Facility Management", "CAFM", "Betrieb", "Erhaltung"],
     "classifications": [
       { "system": "BIM-D AWF", "code": "200", "desc": "Nutzung für Betrieb und Erhaltung" },
