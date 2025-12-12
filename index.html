@@ -452,11 +452,6 @@
         .lang-dropdown__toggle svg {
             width: 16px;
             height: 16px;
-            transition: transform var(--transition-fast);
-        }
-
-        .lang-dropdown.open .lang-dropdown__toggle svg {
-            transform: rotate(180deg);
         }
 
         .lang-dropdown__menu {
@@ -4061,8 +4056,8 @@
         <div class="top-bar__container">
             <div class="lang-dropdown" id="langDropdown">
                 <button class="lang-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
-                    <span id="currentLang">DE</span>
                     <i data-lucide="chevron-down" aria-hidden="true"></i>
+                    <span id="currentLang">DE</span>
                 </button>
                 <div class="lang-dropdown__menu" role="menu">
                     <button class="lang-dropdown__item active" data-lang="de" role="menuitem">DE</button>
