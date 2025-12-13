@@ -523,7 +523,7 @@
   {
     "id": "uc080",
     "title": "Ableitung von Planunterlagen",
-    "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=400&fit=crop",
+    "image": "assets/img/usecase/uc080.jpg",
     "category": "Dokumentation",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": [
