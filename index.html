@@ -5270,7 +5270,9 @@
             // Render phases dropdown if needed
             let phasesGroupHtml = '';
             if (showPhases) {
-                const phasesItemsHtml = [1, 2, 3, 4, 5].map(phase => {
+                // Derive phases from phaseLabels object to avoid hardcoding
+                const availablePhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
+                const phasesItemsHtml = availablePhases.map(phase => {
                     const isActive = activePhases.includes(phase);
                     const label = phaseLabels[phase];
                     return `
@@ -5289,7 +5291,7 @@
                             <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </div>
                         <div class="filter-dropdown">
-                            <div class="filter-dropdown__title">SIA-Phasen</div>
+                            <div class="filter-dropdown__title">Phasen</div>
                             <div class="filter-dropdown__phases">
                                 ${phasesItemsHtml}
                             </div>
@@ -5669,7 +5671,8 @@
 
         function renderPhaseBadges(phases) {
             if(!phases || !Array.isArray(phases)) return '<span class="empty-text">-</span>';
-            const allPhases = [1, 2, 3, 4, 5];
+            // Derive phases from phaseLabels object to avoid hardcoding
+            const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
             let badgesHtml = '<div class="phase-compact-wrapper">';
             allPhases.forEach(phase => {
                 const statusClass = phases.includes(phase) ? 'active' : 'inactive';
@@ -6846,8 +6849,8 @@
             ];
             const sidebarLinks = sidebarLinksData.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            // Render all 5 phases (1-5), highlight active ones
-            const allPhases = [1, 2, 3, 4, 5];
+            // Render phases dynamically from phaseLabels, highlight active ones
+            const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
             const phasesHtml = allPhases.map(p => {
                 const isActive = data.phases && data.phases.includes(p);
                 return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${p}</span>`;
