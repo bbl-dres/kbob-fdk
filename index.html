@@ -6476,6 +6476,8 @@
                                 </article>
                             </div>
 
+                            <h2 id="weitere-informationen" class="info-section__header" style="margin-top: var(--space-xl);">Weitere Informationen</h2>
+
                             <div class="handbook-accordion">
                         <!-- Downloads Section -->
                         <div class="accordion-item open">
@@ -6611,15 +6613,10 @@
                             </div>
                         </div>
 
-                    </div>
-
-                    <h2 class="info-section__header" style="margin-top: var(--space-xl);">Weitere Informationen</h2>
-
-                    <div class="handbook-accordion">
                         <!-- Links Section -->
                         <div class="accordion-item open">
                             <button class="accordion-header" aria-expanded="true">
-                                <h3 class="accordion-title">Links</h3>
+                                <h2 class="accordion-title">Links</h2>
                                 <i data-lucide="chevron-down" class="accordion-icon" aria-hidden="true"></i>
                             </button>
                             <div class="accordion-content">
@@ -6701,6 +6698,12 @@
                                             <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
                                         </a>
                                     </li>
+                                    <li class="handbook-toc__item">
+                                        <a href="#weitere-informationen" class="handbook-toc__link">
+                                            <span>Weitere Informationen</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                         </aside>
@@ -6734,7 +6737,7 @@
         // Initialize sticky TOC with scroll highlighting
         function initHandbookToc() {
             const tocItems = document.querySelectorAll('.handbook-toc__item');
-            const sections = document.querySelectorAll('.info-section[id]');
+            const sections = document.querySelectorAll('.info-section[id], h2[id]');
 
             if (!tocItems.length || !sections.length) return;
 
