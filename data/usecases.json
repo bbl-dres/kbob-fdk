@@ -8,12 +8,10 @@
     "tags": [
       "Entwicklung",
       "Planung",
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Rückbau",
-      "Stufe 1",
-      "Projektmanagement",
-      "Grundlagen"
+      "Koordination",
+      "Projektmanagement"
     ],
     "phases": [
       1,
@@ -77,9 +75,7 @@
       "Entwicklung",
       "Planung",
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
-      "Bestandsaufnahme",
+      "Bestandserfassung",
       "Vermessung"
     ],
     "phases": [
@@ -140,10 +136,9 @@
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": [
       "Entwicklung",
-      "Planung",
-      "Stufe 1",
-      "Flächenmanagement",
-      "Nutzeranforderungen"
+      "Bedarfsplanung",
+      "Objektplanung",
+      "Nutzerschaft"
     ],
     "phases": [
       1
@@ -202,10 +197,9 @@
     "tags": [
       "Entwicklung",
       "Planung",
-      "Stufe 1",
-      "Stufe 2",
       "Variantenvergleich",
-      "Nachhaltigkeit"
+      "Nachhaltigkeit",
+      "Objektplanung"
     ],
     "phases": [
       1,
@@ -263,13 +257,12 @@
     "category": "Kommunikation",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": [
+      "Entwicklung",
       "Planung",
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 2",
-      "Stufe 3",
-      "Kommunikation",
-      "Visualisierung"
+      "Visualisierung",
+      "Objektplanung"
     ],
     "phases": [
       1,
@@ -326,11 +319,10 @@
     "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
     "tags": [
       "Planung",
-      "Ausführung",
-      "Stufe 2",
-      "Stufe 3",
+      "Realisierung",
       "Koordination",
-      "Qualitätssicherung"
+      "Qualitätssicherung",
+      "Fachplanung"
     ],
     "phases": [
       2,
@@ -390,12 +382,11 @@
     "category": "Qualitätssicherung",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": [
+      "Entwicklung",
       "Planung",
-      "Ausführung",
-      "Stufe 1",
-      "Stufe 2",
+      "Realisierung",
       "Qualitätssicherung",
-      "Controlling"
+      "Projektmanagement"
     ],
     "phases": [
       1,
@@ -455,11 +446,9 @@
     "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
     "tags": [
       "Planung",
-      "Ausführung",
-      "Stufe 2",
-      "Stufe 3",
-      "Simulation",
-      "Nachweisführung"
+      "Realisierung",
+      "Nachweise",
+      "Fachplanung"
     ],
     "phases": [
       2,
@@ -519,12 +508,10 @@
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": [
       "Planung",
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
       "Dokumentation",
-      "Planableitung"
+      "Objektplanung"
     ],
     "phases": [
       2,
@@ -582,9 +569,9 @@
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": [
       "Planung",
-      "Stufe 1",
-      "Behörden",
-      "Genehmigung"
+      "Genehmigung",
+      "Objektplanung",
+      "Prüfende Instanz"
     ],
     "phases": [
       2
@@ -641,12 +628,11 @@
     "category": "Kostenplanung",
     "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
     "tags": [
+      "Entwicklung",
       "Planung",
-      "Ausführung",
-      "Stufe 1",
-      "Stufe 2",
-      "Kostenplanung",
-      "Mengenermittlung"
+      "Realisierung",
+      "Kosten",
+      "Controlling"
     ],
     "phases": [
       1,
@@ -721,11 +707,9 @@
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": [
       "Planung",
-      "Ausführung",
-      "Stufe 1",
-      "Stufe 2",
-      "Ausschreibung",
-      "Vergabe"
+      "Realisierung",
+      "Ausschreibung und Vergabe",
+      "Projektmanagement"
     ],
     "phases": [
       2,
@@ -784,12 +768,9 @@
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
     "tags": [
       "Planung",
-      "Ausführung",
-      "Stufe 1",
-      "Stufe 2",
-      "Stufe 3",
-      "Terminplanung",
-      "Bauablauf"
+      "Realisierung",
+      "Termine",
+      "Bauausführung"
     ],
     "phases": [
       2,
@@ -846,11 +827,10 @@
     "category": "Bauausführung",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": [
-      "Ausführung",
-      "Stufe 2",
-      "Stufe 3",
+      "Planung",
+      "Realisierung",
       "Logistik",
-      "Baustellenorganisation"
+      "Bauausführung"
     ],
     "phases": [
       2,
@@ -908,11 +888,10 @@
     "category": "Bauausführung",
     "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
     "tags": [
-      "Ausführung",
-      "Stufe 1",
-      "Stufe 2",
+      "Realisierung",
+      "Qualitätssicherung",
       "Controlling",
-      "Fortschrittskontrolle"
+      "Projektsteuerung"
     ],
     "phases": [
       3
@@ -967,10 +946,10 @@
     "category": "Bauausführung",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
     "tags": [
-      "Ausführung",
-      "Stufe 1",
+      "Realisierung",
       "Änderungsmanagement",
-      "Kostenplanung"
+      "Kosten",
+      "Bauausführung"
     ],
     "phases": [
       3
@@ -1025,11 +1004,10 @@
     "category": "Bauausführung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": [
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 1",
-      "Kostenplanung",
-      "Abrechnung"
+      "Kosten",
+      "Bauausführung"
     ],
     "phases": [
       3,
@@ -1084,11 +1062,11 @@
     "category": "Bauausführung",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": [
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 1",
+      "Abnahme",
       "Qualitätssicherung",
-      "Mängelmanagement"
+      "Bauausführung"
     ],
     "phases": [
       3,
@@ -1144,12 +1122,11 @@
     "category": "Übergabe",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": [
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
       "Inbetriebnahme",
-      "Übergabe"
+      "Abnahme",
+      "Facility Management"
     ],
     "phases": [
       3,
@@ -1209,10 +1186,10 @@
     "tags": [
       "Entwicklung",
       "Planung",
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 1",
-      "Dokumentation"
+      "Dokumentation",
+      "Projektmanagement"
     ],
     "phases": [
       1,
@@ -1273,10 +1250,8 @@
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
-      "Facility Management",
-      "CAFM"
+      "Dokumentation",
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1332,9 +1307,8 @@
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Gewährleistung",
-      "Mängelmanagement"
+      "Qualitätssicherung",
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1390,10 +1364,7 @@
     "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
-      "Wartung",
-      "Instandhaltung"
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1450,9 +1421,7 @@
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Instandhaltung",
-      "Werterhaltung"
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1508,10 +1477,8 @@
     "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Stufe 2",
-      "Flächenmanagement",
-      "Arbeitsplatz"
+      "Bedarfsplanung",
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1567,10 +1534,8 @@
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
     "tags": [
       "Betrieb",
-      "Stufe 2",
-      "Stufe 3",
-      "Energiemanagement",
-      "Nachhaltigkeit"
+      "Nachhaltigkeit",
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1627,9 +1592,9 @@
     "description": "Erfüllung und Dokumentation der gesetzlichen Betreiberpflichten, Sicherheitsprüfungen und Nachweise.",
     "tags": [
       "Betrieb",
-      "Stufe 1",
-      "Compliance",
-      "Sicherheit"
+      "Qualitätssicherung",
+      "Risikomanagement",
+      "Facility Management"
     ],
     "phases": [
       4
@@ -1683,11 +1648,10 @@
     "category": "Nachhaltigkeit",
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
     "tags": [
+      "Entwicklung",
       "Planung",
-      "Ausführung",
+      "Realisierung",
       "Betrieb",
-      "Stufe 2",
-      "Stufe 3",
       "Nachhaltigkeit",
       "Zertifizierung"
     ],
@@ -1751,11 +1715,8 @@
     "category": "Rückbau",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
     "tags": [
-      "Rückbau",
-      "Stufe 1",
-      "Stufe 2",
-      "Kreislaufwirtschaft",
-      "Entsorgung"
+      "Abbruch",
+      "Nachhaltigkeit"
     ],
     "phases": [
       5
@@ -1810,11 +1771,8 @@
     "category": "Rückbau",
     "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
     "tags": [
-      "Rückbau",
-      "Stufe 2",
-      "Stufe 3",
-      "Kreislaufwirtschaft",
-      "Wiederverwendung"
+      "Abbruch",
+      "Nachhaltigkeit"
     ],
     "phases": [
       5
