@@ -6476,7 +6476,7 @@
                     let searchFilteredData = filterDataByCategory(globalElementsData, activeCategory);
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = searchFilteredData.filter(el =>
-                        el.title.toLowerCase().includes(searchTerm) ||
+                        (el.title && el.title.toLowerCase().includes(searchTerm)) ||
                         (el.classification && el.classification.toLowerCase().includes(searchTerm))
                     );
 
@@ -6553,9 +6553,9 @@
                     let searchFilteredData = filterDataByCategory(globalDocumentsData, activeCategory);
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = searchFilteredData.filter(doc =>
-                        doc.title.toLowerCase().includes(searchTerm) ||
-                        doc.category.toLowerCase().includes(searchTerm) ||
-                        doc.description.toLowerCase().includes(searchTerm)
+                        (doc.title && doc.title.toLowerCase().includes(searchTerm)) ||
+                        (doc.category && doc.category.toLowerCase().includes(searchTerm)) ||
+                        (doc.description && doc.description.toLowerCase().includes(searchTerm))
                     );
 
                     const container = document.getElementById('documentsContent');
@@ -6809,9 +6809,9 @@
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
                     searchFilteredData = searchFilteredData.filter(item =>
-                        item.title.toLowerCase().includes(searchTerm) ||
-                        item.category.toLowerCase().includes(searchTerm) ||
-                        item.description.toLowerCase().includes(searchTerm)
+                        (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                        (item.category && item.category.toLowerCase().includes(searchTerm)) ||
+                        (item.description && item.description.toLowerCase().includes(searchTerm))
                     );
                     const container = document.getElementById('usecasesContent');
                     container.innerHTML = (getActiveViewFromURL() === 'grid')
@@ -7036,9 +7036,9 @@
                     let searchFilteredData = filterDataByCategory(globalModelsData, activeCategory);
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = searchFilteredData.filter(item =>
-                        item.title.toLowerCase().includes(searchTerm) ||
-                        item.category.toLowerCase().includes(searchTerm) ||
-                        item.description.toLowerCase().includes(searchTerm)
+                        (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                        (item.category && item.category.toLowerCase().includes(searchTerm)) ||
+                        (item.description && item.description.toLowerCase().includes(searchTerm))
                     );
                     const container = document.getElementById('modelsContent');
                     container.innerHTML = (getActiveViewFromURL() === 'grid')
@@ -7145,9 +7145,9 @@
                     let searchFilteredData = filterDataByCategory(globalEpdsData, activeCategory);
                     searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
                     searchFilteredData = searchFilteredData.filter(item =>
-                        item.title.toLowerCase().includes(searchTerm) ||
-                        item.category.toLowerCase().includes(searchTerm) ||
-                        item.description.toLowerCase().includes(searchTerm)
+                        (item.title && item.title.toLowerCase().includes(searchTerm)) ||
+                        (item.category && item.category.toLowerCase().includes(searchTerm)) ||
+                        (item.description && item.description.toLowerCase().includes(searchTerm))
                     );
                     const container = document.getElementById('epdsContent');
                     container.innerHTML = (getActiveViewFromURL() === 'grid')
