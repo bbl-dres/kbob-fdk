@@ -1,766 +1,1432 @@
 [
   {
-    "id": "d1",
+    "id": "O01001",
+    "title": "Immobilienhandbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Das Immobilienhandbuch regelt die Abläufe, Zuständigkeiten, Kompetenzen sowie die Formen der Zusammenarbeit im Immobilienmanagement",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [4]
+  },
+  {
+    "id": "O01002",
+    "title": "Organigramm Stammorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Grafische Darstellung des logischen Aufbaus einer Stammorganisation",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [4]
+  },
+  {
+    "id": "O01003",
+    "title": "Adressverzeichnis Stammorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller Namen und Adressen einer Stammorganisation",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O02001",
     "title": "Projektauftrag",
     "image": "",
     "category": "Organisation",
     "description": "Beinhaltet Kosten, Termine, Leistungen, Qualität, Organisationsform für die kommende Phase",
-    "tags": [
-      "Projektmanagement",
-      "Organisation"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "O02001",
-        "desc": "Projektauftrag"
-      },
-      {
-        "system": "gif",
-        "code": "1.1.01",
-        "desc": "Projektinitiierung"
-      },
-      {
-        "system": "GEFMA",
-        "code": "100-10",
-        "desc": "Strategisches FM - Projektmanagement"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Bearbeitungszweck entfällt",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "phases": [1, 2, 3]
   },
   {
-    "id": "d2",
+    "id": "O02002",
+    "title": "Projekthandbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Das Projekthandbuch regelt die Abläufe, Zuständigkeiten, Kompetenzen, sowie die Formen der Zusammenarbeit im Projektmanagement",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02003",
+    "title": "Organigramm Projektorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Grafische Darstellung des logischen Aufbaus einer Projektorganisation",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02004",
+    "title": "Adressverzeichnis Projektorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller Namen und Adressen einer Projektorganisation (inkl. Unternehmerliste)",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3, 4]
+  },
+  {
+    "id": "O02005",
+    "title": "Projektmanagementkonzept",
+    "image": "",
+    "category": "Organisation",
+    "description": "Konzept zum Planen, Steuern und Kontrollieren von Projekten",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02006",
+    "title": "Vorgehenskonzept",
+    "image": "",
+    "category": "Organisation",
+    "description": "Beschreibung über das Vorgehen bei der Umsetzung von Bau- und Planungsleitungen der kommenden Projektphasen",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02007",
     "title": "Projektstatusbericht",
     "image": "",
     "category": "Organisation",
     "description": "Bericht über den aktuellen Stand des Projektes und die weiteren Schritte",
-    "tags": [
-      "Projektmanagement",
-      "Organisation"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "O02007",
-        "desc": "Projektstatusbericht"
-      },
-      {
-        "system": "gif",
-        "code": "1.1.07",
-        "desc": "Projektcontrolling"
-      },
-      {
-        "system": "GEFMA",
-        "code": "100-12",
-        "desc": "Strategisches FM - Berichtswesen"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "phases": [1, 2, 3]
   },
   {
-    "id": "d3",
-    "title": "QM-Plan / Kontrollplan",
+    "id": "O02008",
+    "title": "Funktionendiagramm",
+    "image": "",
+    "category": "Organisation",
+    "description": "Aufstellung aller Aufgaben, Verantwortungen und Kompetenzen",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02009",
+    "title": "Projektantrag",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antrag an eine übergeordnete Stelle für die Freigabe von weiteren Projektphasen",
+    "tags": ["Koordination", "Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O02010",
+    "title": "Projektänderungsantrag",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antrag an eine übergeordnete Stelle für die Freigabe von Projektänderungen",
+    "tags": ["Änderungsmanagement", "Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O03001",
+    "title": "Betriebsführungshandbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Regelt die Abläufe, Zuständigkeiten, Kompetenzen sowie die Formen der Zusammenarbeit im Facility Management",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O03002",
+    "title": "Organigramm Betriebsorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Grafische Darstellung des logischen Aufbaus einer Betriebsorganisation",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [4]
+  },
+  {
+    "id": "O03003",
+    "title": "Adressverzeichnis Betriebsorganisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller Namen und Adressen einer Betriebsorganisation",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O04001",
+    "title": "Risikoanalyse",
+    "image": "",
+    "category": "Organisation",
+    "description": "Risikoanalyse (Top-Down) wird bei jedem Phasenstart wiederholt revidiert",
+    "tags": ["Risikomanagement", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O04002",
+    "title": "PQM-Konzept/Handbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Beschrieb wie das PQM System in diesem spezifischen Projekt gehandhabt wird",
+    "tags": ["Qualitätssicherung", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O04003",
+    "title": "PQM-Vereinbarung",
+    "image": "",
+    "category": "Organisation",
+    "description": "PQM wird zwischen Bauherrschaft und Auftragnehmer vereinbart",
+    "tags": ["Qualitätssicherung", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O04004",
+    "title": "QM-Plan/Kontrollplan",
     "image": "",
     "category": "Organisation",
     "description": "Wird aus der Risikoanalyse entwickelt und soll die Risiken minimieren",
-    "tags": [
-      "Projektmanagement",
-      "Organisation"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "O04004",
-        "desc": "QM-Plan/Kontrollplan"
-      },
-      {
-        "system": "gif",
-        "code": "1.4.04",
-        "desc": "Qualitätssicherung"
-      },
-      {
-        "system": "GEFMA",
-        "code": "700-10",
-        "desc": "Qualitätsmanagement"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "tags": ["Qualitätssicherung", "Risikomanagement"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3]
   },
   {
-    "id": "d4",
+    "id": "O04005",
+    "title": "PQM-Prüfnachweis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Jeder Beteiligte liefert seine Nachweisdokumente ans PQM",
+    "tags": ["Qualitätssicherung", "Nachweise/Bemessung und Nachweisführung/Gutachten"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [3]
+  },
+  {
+    "id": "O04006",
+    "title": "PQM-Überwachung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Festgelegte Massnahmen aus der Überprüfung des Kontrollplans",
+    "tags": ["Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O04051",
+    "title": "Checkliste",
+    "image": "",
+    "category": "Organisation",
+    "description": "Checkliste für die Überprüfung von Qualität und Abläufen im Allgemeinen",
+    "tags": ["Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "keine Aufbewahrung",
+    "phases": [3]
+  },
+  {
+    "id": "O04052",
+    "title": "Wartungscheckliste",
+    "image": "",
+    "category": "Organisation",
+    "description": "Checkliste für die Wartung von Anlagen",
+    "tags": ["Betrieb", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O04101",
+    "title": "Regulatorienhandbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Handbuch/Sammlung aller wichtigen Regulatorien, welche das Bauwerk und deren Anlagen betreffen",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [4]
+  },
+  {
+    "id": "O05001",
+    "title": "Informationskonzept",
+    "image": "",
+    "category": "Organisation",
+    "description": "Konzept zur Festlegung der Verbreitung von Informationen über Bauwerke und Projekte",
+    "tags": ["Dokumentation", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2]
+  },
+  {
+    "id": "O05002",
+    "title": "Kommunikationskonzept",
+    "image": "",
+    "category": "Organisation",
+    "description": "Konzept über die Art und Form Kommunikation innerhalb einer Organisation und gegen Aussen",
+    "tags": ["Dokumentation", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2]
+  },
+  {
+    "id": "O05003",
+    "title": "Datenaustauschvereinbarung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Vereinbarung über den projektspezifischen Datenaustausch",
+    "tags": ["Dokumentation", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O05004",
+    "title": "Dokumentationskonzept",
+    "image": "",
+    "category": "Organisation",
+    "description": "Beschreibt die Anforderungen an die Bauwerksdokumentation",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O05005",
+    "title": "DM-Handbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Regelt die Datenmanagement-Prozesse sowie Inhalte und Formen der Bauwerksdokumentation",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [1, 2, 3, 4]
+  },
+  {
+    "id": "O05006",
+    "title": "DM-Prüfprotokoll",
+    "image": "",
+    "category": "Organisation",
+    "description": "Qualitätsprüfprotokoll für die Bauwerksdokumentation",
+    "tags": ["Dokumentation", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3, 4]
+  },
+  {
+    "id": "O06001",
     "title": "Terminplan",
     "image": "",
     "category": "Organisation",
     "description": "Auflistung von Start- und Endterminen von Aufgaben und Meilensteinen",
-    "tags": [
-      "Projektmanagement",
-      "Organisation"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "O06001",
-        "desc": "Terminplan"
-      },
-      {
-        "system": "gif",
-        "code": "1.6.01",
-        "desc": "Terminplanung"
-      },
-      {
-        "system": "RICS",
-        "code": "PM-SCH-01",
-        "desc": "Project Scheduling"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "tags": ["Termine"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "5 Jahre",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "phases": [1, 2, 3]
   },
   {
-    "id": "d5",
+    "id": "O06002",
+    "title": "Netzplan",
+    "image": "",
+    "category": "Organisation",
+    "description": "Darstellung aller planerischen und baulichen Abhängigkeiten",
+    "tags": ["Termine", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O07001",
+    "title": "Piketteinsatzplan",
+    "image": "",
+    "category": "Organisation",
+    "description": "Organisation der Piketteinsätze über einen bestimmten Zeitraum",
+    "tags": ["Betrieb", "Termine"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O07002",
+    "title": "Reinigungseinsatzplan",
+    "image": "",
+    "category": "Organisation",
+    "description": "Organisation der Reinigungseinsätze über einen bestimmten Zeitraum",
+    "tags": ["Betrieb", "Termine"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O07003",
+    "title": "Wartungsplan",
+    "image": "",
+    "category": "Organisation",
+    "description": "Übersicht der geplanten bzw. der zu planenden Wartungen",
+    "tags": ["Betrieb", "Termine"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O08001",
+    "title": "Dokumentenverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller relevanten Dokumente gemäss KBOB/IPB-Empfehlung",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [1, 2, 3, 4]
+  },
+  {
+    "id": "O08002",
+    "title": "Planverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller relevanten Pläne gemäss KBOB/IPB-Empfehlung",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [1, 2, 3, 4]
+  },
+  {
+    "id": "O09001",
+    "title": "Telefonverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis mit Mitarbeitern und Telefonnummern",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O09002",
+    "title": "Mieter-/Eigentümerverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis der Mieter und Eigentümer",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O10001",
+    "title": "Sitzungs- und Beschlussprotokoll",
+    "image": "",
+    "category": "Organisation",
+    "description": "Dokumentation von relevanten Vorgängen und deren Reihenfolge, Zeitpunkt, Auftraggeber und Verantwortliche im Rahmen von Besprechungen",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10002",
+    "title": "Übergabeprotokoll Bewirtschaftung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Protokoll der Übergabe der Bewirtschaftung an den Bewirtschafter oder einen Betreiber",
+    "tags": ["Abnahme", "Inbetriebnahme"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O10003",
+    "title": "Übergabeprotokoll Mietvertrag",
+    "image": "",
+    "category": "Organisation",
+    "description": "Protokoll der Übergabe/Übernahme eines Mietobjekts",
+    "tags": ["Abnahme", "Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10004",
+    "title": "Aktennotiz",
+    "image": "",
+    "category": "Organisation",
+    "description": "Schriftlich festgehaltene relevante und kurze Information",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10005",
+    "title": "Pendenzenliste",
+    "image": "",
+    "category": "Organisation",
+    "description": "Zusammenstellung aller schwebenden, unerledigten Angelegenheiten",
+    "tags": ["Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "keine Aufbewahrung",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10006",
+    "title": "Projektänderungsverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller Projektänderungen",
+    "tags": ["Änderungsmanagement", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O10007",
+    "title": "Behördenkorrespondenz",
+    "image": "",
+    "category": "Organisation",
+    "description": "Korrespondenzdokumente an und von Behörden mit wichtigen aufbewahrungsrelevanten Informationen",
+    "tags": ["Genehmigung", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10008",
+    "title": "Interne Korrespondenz",
+    "image": "",
+    "category": "Organisation",
+    "description": "Korrespondenz innerhalb des Unternehmens mit wichtigen aufbewahrungsrelevanten Informationen",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10009",
+    "title": "Korrespondenz mit Beauftragten",
+    "image": "",
+    "category": "Organisation",
+    "description": "Korrespondenz an und von Beauftragten mit wichtigen aufbewahrungsrelevanten Informationen",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10010",
+    "title": "Korrespondenz mit Mietern",
+    "image": "",
+    "category": "Organisation",
+    "description": "Sämtliche Korrespondenz an und von Mietvertragspartnern",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10011",
+    "title": "Allgemeine Korrespondenz",
+    "image": "",
+    "category": "Organisation",
+    "description": "Weitere allgemeine Korrespondenz mit wichtigen aufbewahrungsrelevanten Informationen",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10012",
+    "title": "Mängelrüge",
+    "image": "",
+    "category": "Organisation",
+    "description": "Schriftliche Meldung von Mängeln an einem Mietobjekt",
+    "tags": ["Abnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O10013",
+    "title": "Kündigungsschreiben",
+    "image": "",
+    "category": "Organisation",
+    "description": "Kündigungsschreiben eines Mietverhältnisses",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10014",
+    "title": "Beschlussverzeichnis",
+    "image": "",
+    "category": "Organisation",
+    "description": "Verzeichnis aller Beschlüsse aus den Beschlussprotokollen",
+    "tags": ["Koordination", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10015",
+    "title": "Schadensmeldung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Offizielle Meldung eines Schadens an den Bewirtschafter/Eigentümer",
+    "tags": ["Betrieb", "Risikomanagement"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10016",
+    "title": "Wartungsmeldung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Offizielle Meldung einer Wartungsmassnahme",
+    "tags": ["Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10017",
+    "title": "Störungsmeldung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Offizielle Meldung einer Störung einer Anlage",
+    "tags": ["Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O10018",
+    "title": "Politischer Vorstoss",
+    "image": "",
+    "category": "Organisation",
+    "description": "Anfragen aus der Politik zur Stellungnahme durch den Bauherren",
+    "tags": ["Genehmigung", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10019",
+    "title": "Rechtsfall",
+    "image": "",
+    "category": "Organisation",
+    "description": "Dokumente zu einem Rechtsfall",
+    "tags": ["Dokumentation", "Risikomanagement"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O10020",
+    "title": "Korrespondenz Dritte",
+    "image": "",
+    "category": "Organisation",
+    "description": "Korrespondenz mit weiteren Rollen rund um ein Bauwerk",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O11001",
+    "title": "Schlüssel- und Kartenquittung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bestätigung für den Erhalt von Schlüsseln und Karten",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O12001",
+    "title": "Publikation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Veröffentlichung von Informationen zu Bauwerken und Bauprojekten",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O12002",
+    "title": "Öffentlichkeitsarbeit",
+    "image": "",
+    "category": "Organisation",
+    "description": "Korrespondenz, Artikel etc. für die Öffentlichkeitsarbeit (inkl. Präsentationen und Anlässe)",
+    "tags": ["Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [1, 2, 3]
+  },
+  {
+    "id": "O13001",
+    "title": "Gesuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13002",
+    "title": "Gesuch Kanalisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss eines Bauwerks an die Kanalisation",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13003",
+    "title": "Gesuch Elektrizität",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung einer elektrischen Anlage an das Elektrizitätsnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13004",
+    "title": "Gesuch Kabelfernsehen",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Kabelfernseh-Netz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13005",
+    "title": "Gesuch Gas",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Gasnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13006",
+    "title": "Gesuch Wasser",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Wasserversorgung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13007",
+    "title": "Gesuch Fernheizung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Fernheizung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13008",
+    "title": "Gesuch Erdsondennutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zur Nutzung von Erdwärme mittels Erdsonden",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13009",
+    "title": "Gesuch Grundwassernutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zur Nutzung von Grundwasser zu Heiz- oder Kühlzwecken",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13010",
+    "title": "Gesuch Oberflächengewässernutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zur Nutzung von Oberflächengewässer (Fluss oder See) zu Heiz- oder Kühlzwecken",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13011",
+    "title": "Gesuch Bedarfsnachweiskühlung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zur Bewilligung von Kältenutzung (Bedarfsnachweis nach Kühlung)",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13012",
+    "title": "Gesuch Telekommunikation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Telekommunikationsnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13013",
+    "title": "Gesuch für Spezialbewilligungen",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für weitere Bewilligungen",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13014",
+    "title": "Gesuch Feuerpolizei",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular an die Feuerpolizei",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13015",
+    "title": "Baugesuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für die Baubewilligung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13016",
+    "title": "Konzessionsgesuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zum Erhalt von Konzessionen",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13017",
+    "title": "Subventionsantrag",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für Subventionsleistungen",
+    "tags": ["Genehmigung", "Kosten"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13018",
+    "title": "Gesuch Werbung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular zur Präsentation von Werbung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13019",
+    "title": "Gesuch Bahntechnik",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für die Bahntechnik im Plangenehmigungsverfahren (PGV)",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13020",
+    "title": "Gesuch Denkmalpflege",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für die Denkmalpflege",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [2]
+  },
+  {
+    "id": "O13101",
+    "title": "Mietformular",
+    "image": "",
+    "category": "Organisation",
+    "description": "Antragsformular für die Miete einer Räumlichkeit",
+    "tags": ["Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O14001",
+    "title": "Bewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung/Entscheid",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14002",
+    "title": "Bewilligung Kanalisation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss eines Bauwerks an die Kanalisation",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14003",
+    "title": "Bewilligung Elektrizität",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung einer elektrischen Anlage an das Elektrizitätsnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14004",
+    "title": "Bewilligung Kabelfernsehen",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Kabelfernseh-Netz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14005",
+    "title": "Bewilligung Gas",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Gasnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14006",
+    "title": "Bewilligung Wasser",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Wasserversorgung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14007",
+    "title": "Bewilligung Fernheizung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Fernheizung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14008",
+    "title": "Bewilligung Erdsondennutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung zur Nutzung von Erdwärme mittels Erdsonden",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14009",
+    "title": "Bewilligung Grundwassernutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung zur Nutzung von Grundwasser zu Heiz- oder Kühlzwecken",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14010",
+    "title": "Bewilligung Oberflächengewässernutzung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung zur Nutzung von Oberflächengewässer (Fluss oder See) zu Heiz- oder Kühlzwecken",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14011",
+    "title": "Bewilligung Bedarfsnachweiskühlung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung von Kältenutzung (Bedarfsnachweis nach Kühlung)",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14012",
+    "title": "Bewilligung Telekommunikation",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Telekommunikationsnetz",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14013",
+    "title": "Spezialbewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für weitere Themenbereiche",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14014",
+    "title": "Entscheid Feuerpolizei",
+    "image": "",
+    "category": "Organisation",
+    "description": "Baubewilligung von der Feuerpolizei",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O14015",
+    "title": "Baubewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Baubewilligung inkl. unterzeichnete Pläne",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14016",
+    "title": "Baurechtsentscheid",
+    "image": "",
+    "category": "Organisation",
+    "description": "Baurechtsentscheid (Erstinstanzliches Organ bei Baurechtsfällen)",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14017",
+    "title": "Entscheid Umweltbehörde",
+    "image": "",
+    "category": "Organisation",
+    "description": "Entscheid über die Baubewilligung von der Umweltbehörde",
+    "tags": ["Genehmigung", "Nachhaltigkeit"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14018",
+    "title": "Behördenentscheid (Diverse)",
+    "image": "",
+    "category": "Organisation",
+    "description": "Weitere Behördenentscheide",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14019",
+    "title": "Betriebsbewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für die Inbetriebnahme eines Bauwerks",
+    "tags": ["Genehmigung", "Inbetriebnahme"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [3]
+  },
+  {
+    "id": "O14020",
+    "title": "Konzessionsbewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für eine Konzession",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14021",
+    "title": "Subventionszusage",
+    "image": "",
+    "category": "Organisation",
+    "description": "Zusage eines Subventionsantrages",
+    "tags": ["Genehmigung", "Kosten"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14022",
+    "title": "Bewilligung Werbung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung zur Präsentation von Werbung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14023",
+    "title": "Bewilligung Bahntechnik",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für die Bahntechnik im Plangenehmigungsverfahren (PGV)",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14024",
+    "title": "Bewilligung Denkmalpflege",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung der Denkmalpflege",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2]
+  },
+  {
+    "id": "O14050",
+    "title": "Behördliche Auflagen",
+    "image": "",
+    "category": "Organisation",
+    "description": "Von einer Behörde vorgeschriebene Auflagen im Rahmen einer Bewilligung",
+    "tags": ["Genehmigung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [2, 3]
+  },
+  {
+    "id": "O14101",
+    "title": "Zutrittsbewilligung",
+    "image": "",
+    "category": "Organisation",
+    "description": "Bewilligung für den Zutritt in eine Baustelle oder ein bestehendes Bauwerk",
+    "tags": ["Genehmigung", "Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [3, 4]
+  },
+  {
+    "id": "O14102",
+    "title": "Parkkarte",
+    "image": "",
+    "category": "Organisation",
+    "description": "Parkbewilligung",
+    "tags": ["Betrieb"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Bearbeitungszweck entfällt",
+    "phases": [4]
+  },
+  {
+    "id": "O15001",
+    "title": "Vorabnahmeprotokoll",
+    "image": "",
+    "category": "Organisation",
+    "description": "Vorabnahmeprotokoll wird im Rahmen einer Abnahme während der Objektfertigstellung geführt",
+    "tags": ["Abnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [3]
+  },
+  {
+    "id": "O15002",
     "title": "Abnahmeprotokoll",
     "image": "",
     "category": "Organisation",
-    "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt.",
-    "tags": [
-      "Projektmanagement",
-      "Organisation"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "O15002",
-        "desc": "Abnahmeprotokoll"
-      },
-      {
-        "system": "gif",
-        "code": "1.15.02",
-        "desc": "Abnahmedokumentation"
-      },
-      {
-        "system": "RICS",
-        "code": "PM-HND-02",
-        "desc": "Handover Documentation"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt",
+    "tags": ["Abnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
-    "phases": [
-      3,
-      4
-    ]
+    "phases": [3, 4]
   },
   {
-    "id": "d6",
-    "title": "Kostenschätzung (KS)",
+    "id": "O15003",
+    "title": "Protokoll integrale Tests",
     "image": "",
-    "category": "Verträge und Kosten",
-    "description": "Kostenaufstellung mit einer Genauigkeit von +/- 10%",
-    "tags": [
-      "Projektmanagement",
-      "Verträge und Kosten"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "K01002",
-        "desc": "Kostenschätzung (KS)"
-      },
-      {
-        "system": "gif",
-        "code": "2.1.02",
-        "desc": "Kostenschätzung"
-      },
-      {
-        "system": "RICS",
-        "code": "QS-EST-02",
-        "desc": "Cost Estimate"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "5 Jahre",
-    "phases": [
-      1,
-      2
-    ]
-  },
-  {
-    "id": "d7",
-    "title": "Ausschreibung",
-    "image": "",
-    "category": "Verträge und Kosten",
-    "description": "Ausschreibungsunterlagen (Leistungsverzeichnis) ohne/mit Planunterlagen",
-    "tags": [
-      "Projektmanagement",
-      "Verträge und Kosten"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "K02001",
-        "desc": "Ausschreibung"
-      },
-      {
-        "system": "gif",
-        "code": "2.2.01",
-        "desc": "Ausschreibungsunterlagen"
-      },
-      {
-        "system": "RICS",
-        "code": "QS-TEN-01",
-        "desc": "Tender Documentation"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "5 Jahre",
-    "phases": [
-      2,
-      3,
-      4
-    ]
-  },
-  {
-    "id": "d8",
-    "title": "Werkvertrag",
-    "image": "",
-    "category": "Verträge und Kosten",
-    "description": "Vertrag über die Erbringung eines Werkes",
-    "tags": [
-      "Projektmanagement",
-      "Verträge und Kosten"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "K03003",
-        "desc": "Werkvertrag"
-      },
-      {
-        "system": "gif",
-        "code": "2.3.03",
-        "desc": "Werkverträge"
-      },
-      {
-        "system": "RICS",
-        "code": "QS-CON-03",
-        "desc": "Works Contract"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
+    "category": "Organisation",
+    "description": "Abnahmeprotokoll der integralen Tests",
+    "tags": ["Abnahme", "Inbetriebnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "12 Jahre",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [3, 4]
   },
   {
-    "id": "d9",
-    "title": "Energienachweis",
+    "id": "O15004",
+    "title": "Inbetriebnahmeprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Nachweis der energetischen Massnahmen",
-    "tags": [
-      "Haustechnik",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B07001",
-        "desc": "Energienachweis"
-      },
-      {
-        "system": "gif",
-        "code": "3.7.01",
-        "desc": "Energetische Nachweise"
-      },
-      {
-        "system": "GEFMA",
-        "code": "124-50",
-        "desc": "Energiemanagement - Nachweise"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Inbetriebnahmeprotokoll wird bei der Inbetriebnahme eines Objektes oder Anlage geführt",
+    "tags": ["Inbetriebnahme", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [3, 4]
   },
   {
-    "id": "d10",
-    "title": "Brandschutznachweis",
+    "id": "O15005",
+    "title": "Mängelliste",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Nachweis über die Einhaltung der Brandschutzverordnung in einem Bauwerk",
-    "tags": [
-      "Architektur",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B07004",
-        "desc": "Brandschutznachweis"
-      },
-      {
-        "system": "gif",
-        "code": "3.7.04",
-        "desc": "Brandschutznachweise"
-      },
-      {
-        "system": "GEFMA",
-        "code": "190-20",
-        "desc": "Sicherheit - Brandschutz"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Verzeichnis aller Mängel",
+    "tags": ["Abnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [3, 4]
   },
   {
-    "id": "d11",
-    "title": "Brandschutzkonzept",
+    "id": "O15006",
+    "title": "Inspektionsprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Beschreibt konkrete Ansätze über den ganzheitlichen Brandschutz eines Bauwerks",
-    "tags": [
-      "Architektur",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B11122",
-        "desc": "Brandschutzkonzept"
-      },
-      {
-        "system": "gif",
-        "code": "3.11.22",
-        "desc": "Brandschutzplanung"
-      },
-      {
-        "system": "GEFMA",
-        "code": "190-10",
-        "desc": "Sicherheit - Brandschutzkonzeption"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Protokoll mit Ergebnissen und Massnahmen im Rahmen einer Inspektion",
+    "tags": ["Betrieb", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
   },
   {
-    "id": "d12",
-    "title": "Heizungskonzept",
+    "id": "O15008",
+    "title": "Ereignisprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Spezifisches Konzept für die Heizung im Bauwerk inkl. grobe Visualisierung",
-    "tags": [
-      "Haustechnik",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B12401",
-        "desc": "Heizungskonzept"
-      },
-      {
-        "system": "gif",
-        "code": "3.12.41",
-        "desc": "HLKS-Konzepte Heizung"
-      },
-      {
-        "system": "GEFMA",
-        "code": "420-10",
-        "desc": "TGM - Wärmeversorgung"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Liste von meldepflichtigen Ereignissen im Rahmen eines Prozesses",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
   },
   {
-    "id": "d13",
-    "title": "Elektrokonzept",
+    "id": "O15009",
+    "title": "Rissprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Spezifisches Konzept für die Stromversorgung im Bauwerk inkl. grobe Visualisierung",
-    "tags": [
-      "Haustechnik",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B12601",
-        "desc": "Elektrokonzept"
-      },
-      {
-        "system": "gif",
-        "code": "3.12.61",
-        "desc": "Elektrotechnik-Konzepte"
-      },
-      {
-        "system": "GEFMA",
-        "code": "440-10",
-        "desc": "TGM - Elektrotechnik"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      1,
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Dokumentation über Risse/Schäden an den Bestandsbauten während der Bauzeit",
+    "tags": ["Qualitätssicherung", "Bestandserfassung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [3]
   },
   {
-    "id": "d14",
-    "title": "Statischer Nachweis",
+    "id": "O15010",
+    "title": "Schlussprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Nachweis über die Standsicherheit",
-    "tags": [
-      "Tragwerk",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B07002",
-        "desc": "Statischer Nachweis"
-      },
-      {
-        "system": "gif",
-        "code": "3.7.02",
-        "desc": "Tragwerksnachweise"
-      },
-      {
-        "system": "RICS",
-        "code": "BS-STR-02",
-        "desc": "Structural Certification"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Festhalten der abschliessenden Prüfung des Bauwerk nach Ablauf der Garantiefrist (SIA118, Art. 177)",
+    "tags": ["Abnahme", "Qualitätssicherung"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [4]
   },
   {
-    "id": "d15",
-    "title": "Betriebsanleitung",
+    "id": "O15011",
+    "title": "Massnahmenkatalog",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Angaben des Herstellers zum sachgerechten, bestimmungsgemässen und sicheren Betreiben bzw. Verwenden",
-    "tags": [
-      "Haustechnik",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B18003",
-        "desc": "Betriebsanleitung"
-      },
-      {
-        "system": "gif",
-        "code": "3.18.03",
-        "desc": "Betriebsdokumentation"
-      },
-      {
-        "system": "GEFMA",
-        "code": "922-10",
-        "desc": "Dokumentation - Betriebsanleitungen"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Liste geplanter Massnahmen",
+    "tags": ["Betrieb", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
   },
   {
-    "id": "d16",
-    "title": "Raumverzeichnis",
+    "id": "O15012",
+    "title": "Instandsetzungsprotokoll",
     "image": "",
-    "category": "Konzepte und Beschriebe",
-    "description": "Verzeichnis/Liste aller vorhandener Räume inkl. Spezifikationen gemäss Vorgaben",
-    "tags": [
-      "Architektur",
-      "Konzepte und Beschriebe"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "B19001",
-        "desc": "Raumverzeichnis"
-      },
-      {
-        "system": "gif",
-        "code": "3.19.01",
-        "desc": "Flächenverzeichnisse"
-      },
-      {
-        "system": "GEFMA",
-        "code": "130-20",
-        "desc": "Flächenmanagement - Raumdaten"
-      }
-    ],
-    "formats": [
-      "PDF-A",
-      "Office-Format"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Protokoll einer Reparatur",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
   },
   {
-    "id": "d17",
-    "title": "Grundrissplan",
+    "id": "O15013",
+    "title": "Installationsattest",
     "image": "",
-    "category": "Visualisierungen",
-    "description": "Visualisiert alle für die Ausführung erforderlichen Angaben, wie Abmessungen, Materialien und deren Behandlung im Grundriss",
-    "tags": [
-      "Architektur",
-      "Visualisierungen"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "V07102",
-        "desc": "Grundrissplan"
-      },
-      {
-        "system": "gif",
-        "code": "4.71.02",
-        "desc": "Architekturpläne Grundriss"
-      },
-      {
-        "system": "RICS",
-        "code": "DWG-FLP-01",
-        "desc": "Floor Plans"
-      }
-    ],
-    "formats": [
-      "DWG",
-      "PDF-A"
-    ],
+    "category": "Organisation",
+    "description": "Anzeige für die Fertigstellung bzw. Prüfung von Gefahrenmeldeanlagen",
+    "tags": ["Abnahme", "Nachweise/Bemessung und Nachweisführung/Gutachten"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [3, 4]
   },
   {
-    "id": "d18",
-    "title": "Bewehrungsplan",
+    "id": "O16001",
+    "title": "Baujournal",
     "image": "",
-    "category": "Visualisierungen",
-    "description": "Stellt die Bewehrung aus Betonstahl eines Stahlbetonbauteils dar",
-    "tags": [
-      "Tragwerk",
-      "Visualisierungen"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "V07202",
-        "desc": "Bewehrungsplan"
-      },
-      {
-        "system": "gif",
-        "code": "4.72.02",
-        "desc": "Tragwerkspläne Bewehrung"
-      },
-      {
-        "system": "RICS",
-        "code": "DWG-RFT-01",
-        "desc": "Reinforcement Drawings"
-      }
-    ],
-    "formats": [
-      "DWG",
-      "PDF-A"
-    ],
-    "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "category": "Organisation",
+    "description": "Zusammenstellung aller während der Bauzeit relevanten Ereignisse, Entscheide, Aufgaben etc. in zeitlicher Abfolge",
+    "tags": ["Dokumentation", "Koordination"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "12 Jahre",
+    "phases": [3]
   },
   {
-    "id": "d19",
-    "title": "Installationsplan Heizung",
+    "id": "O16002",
+    "title": "Betriebsjournal",
     "image": "",
-    "category": "Visualisierungen",
-    "description": "Visualisiert die Heizungsinstallationen pro Geschoss",
-    "tags": [
-      "Haustechnik",
-      "Visualisierungen"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "V08101",
-        "desc": "Installationsplan Heizung"
-      },
-      {
-        "system": "gif",
-        "code": "4.81.01",
-        "desc": "HLKS-Pläne Heizung"
-      },
-      {
-        "system": "GEFMA",
-        "code": "420-91",
-        "desc": "TGM - Heizungspläne"
-      }
-    ],
-    "formats": [
-      "DWG",
-      "PDF-A"
-    ],
+    "category": "Organisation",
+    "description": "Journal zum Festhalten von Ereignissen, Veränderungen etc. in einem Bauwerk während der Betriebsphase",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [4]
   },
   {
-    "id": "d20",
-    "title": "Brandschutzplan",
+    "id": "O16003",
+    "title": "Besucherjournal",
     "image": "",
-    "category": "Visualisierungen",
-    "description": "Visualisiert die baulichen Brandschutzmassnahmen",
-    "tags": [
-      "Architektur",
-      "Visualisierungen"
-    ],
-    "classifications": [
-      {
-        "system": "KBOB-DTC",
-        "code": "V09004",
-        "desc": "Brandschutzplan"
-      },
-      {
-        "system": "gif",
-        "code": "4.90.04",
-        "desc": "Sicherheitspläne Brandschutz"
-      },
-      {
-        "system": "GEFMA",
-        "code": "190-91",
-        "desc": "Sicherheit - Brandschutzpläne"
-      }
-    ],
-    "formats": [
-      "DWG",
-      "PDF-A"
-    ],
+    "category": "Organisation",
+    "description": "Registration der angemeldeten Besucher inkl. weiteren Angaben zum Aufenthalt und Dauer",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O16004",
+    "title": "Parkplatzjournal",
+    "image": "",
+    "category": "Organisation",
+    "description": "Registration der angemeldeten Parkplatznutzer inkl. weiteren Angaben zum Aufenthalt und Dauer",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O16005",
+    "title": "Ereignisjournal",
+    "image": "",
+    "category": "Organisation",
+    "description": "Registration aller wichtigen Ereignisse in und um ein Bauwerk",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "5 Jahre",
+    "phases": [4]
+  },
+  {
+    "id": "O16006",
+    "title": "Logbuch",
+    "image": "",
+    "category": "Organisation",
+    "description": "Automatische Registration aller wichtigen Ereignisse einer Anlage",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
     "retention": "bis Ersatz",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [4]
+  },
+  {
+    "id": "O16007",
+    "title": "Wartungsjournal",
+    "image": "",
+    "category": "Organisation",
+    "description": "Liste der durchgeführten Wartungen",
+    "tags": ["Betrieb", "Dokumentation"],
+    "formats": ["PDF-A", "Office-Format"],
+    "retention": "bis Ersatz",
+    "phases": [3, 4]
   }
 ]
