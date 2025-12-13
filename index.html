@@ -1129,6 +1129,99 @@
             }
         }
 
+        /* Handbook Layout with Sticky TOC (BLW Style) */
+        .handbook-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: var(--space-3xl);
+            align-items: start;
+            margin: var(--space-xl) 0 var(--space-3xl) 0;
+        }
+
+        .handbook-main {
+            min-width: 0;
+        }
+
+        .handbook-main .info-sections {
+            margin: 0;
+        }
+
+        /* Sticky Table of Contents */
+        .handbook-toc {
+            position: sticky;
+            top: var(--space-xl);
+            background: var(--color-white);
+            border-left: 1px solid var(--color-border);
+            padding-left: var(--space-xl);
+        }
+
+        .handbook-toc__title {
+            font-size: var(--text-h3);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-lg) 0;
+        }
+
+        .handbook-toc__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .handbook-toc__item {
+            border-left: 2px solid transparent;
+            margin-left: calc(-1 * var(--space-xl) - 1px);
+            padding-left: calc(var(--space-xl) - 1px);
+        }
+
+        .handbook-toc__item.active {
+            border-left-color: var(--color-primary);
+        }
+
+        .handbook-toc__link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) 0;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--text-body);
+            line-height: 1.4;
+            border-bottom: 1px solid var(--color-border-light);
+            transition: color var(--transition-fast);
+        }
+
+        .handbook-toc__link:hover {
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .handbook-toc__item.active .handbook-toc__link {
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .handbook-toc__icon {
+            width: 16px;
+            height: 16px;
+            color: var(--color-text-muted);
+            flex-shrink: 0;
+        }
+
+        /* Responsive: Hide TOC on smaller screens */
+        @media (max-width: 1100px) {
+            .handbook-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .handbook-toc {
+                display: none;
+            }
+        }
+
         /* Download Item List */
         .download-list {
             list-style: none;
@@ -6343,43 +6436,76 @@
                         <p class="page-lead">Alle Ressourcen zur Bauwerksdokumentation im Hochbau: Vorlagen, Prüfdateien und technische Schnittstellen.</p>
                     </div>
 
-                    <!-- Info Sections: Problem, Lösung, Kontext -->
-                    <div class="info-sections">
-                        <!-- Abschnitt 1: Das Problem -->
-                        <article class="info-section">
-                            <div class="info-section__content">
-                                <h2 class="info-section__header">Von Silos zu Standards</h2>
-                                <p class="info-section__description">Die Digitalisierung im Bauwesen scheitert oft nicht an fehlender Technologie, sondern an fehlender Datenharmonisierung. Jeder Akteur – von der Architektin über den Fachplaner bis zur Betreiberin – definiert Bauwerksattribute unterschiedlich. Das führt zu Medienbrüchen, manuellen Nachbearbeitungen und Informationsverlust über den gesamten Lebenszyklus. Der KBOB Fachdatenkatalog schafft ein gemeinsames Vokabular: standardisierte Bausteine für BIM-Prozesse, die durchgängige Datenflüsse ermöglichen.</p>
-                            </div>
-                            <figure class="info-section__figure">
-                                <img src="assets/silos.jpg" alt="Datensilos im Bauwesen" class="info-section__image">
-                                <figcaption class="info-section__caption">Ohne gemeinsame Standards bleiben Daten in Silos gefangen. Der Fachdatenkatalog schafft Durchgängigkeit.</figcaption>
-                            </figure>
-                        </article>
+                    <!-- Handbook Layout with Sticky TOC -->
+                    <div class="handbook-layout">
+                        <!-- Main Content -->
+                        <div class="handbook-main">
+                            <!-- Info Sections: Problem, Lösung, Kontext -->
+                            <div class="info-sections">
+                                <!-- Abschnitt 1: Das Problem -->
+                                <article id="silos-zu-standards" class="info-section">
+                                    <div class="info-section__content">
+                                        <h2 class="info-section__header">Von Silos zu Standards</h2>
+                                        <p class="info-section__description">Die Digitalisierung im Bauwesen scheitert oft nicht an fehlender Technologie, sondern an fehlender Datenharmonisierung. Jeder Akteur – von der Architektin über den Fachplaner bis zur Betreiberin – definiert Bauwerksattribute unterschiedlich. Das führt zu Medienbrüchen, manuellen Nachbearbeitungen und Informationsverlust über den gesamten Lebenszyklus. Der KBOB Fachdatenkatalog schafft ein gemeinsames Vokabular: standardisierte Bausteine für BIM-Prozesse, die durchgängige Datenflüsse ermöglichen.</p>
+                                    </div>
+                                    <figure class="info-section__figure">
+                                        <img src="assets/silos.jpg" alt="Datensilos im Bauwesen" class="info-section__image">
+                                        <figcaption class="info-section__caption">Ohne gemeinsame Standards bleiben Daten in Silos gefangen. Der Fachdatenkatalog schafft Durchgängigkeit.</figcaption>
+                                    </figure>
+                                </article>
 
-                        <!-- Abschnitt 2: Die Lösung -->
-                        <article class="info-section info-section--reverse">
-                            <div class="info-section__content">
-                                <h2 class="info-section__header">Klare Spielregeln für den Informationsaustausch</h2>
-                                <p class="info-section__description">Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt – der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.</p>
-                            </div>
-                            <figure class="info-section__figure">
-                                <img src="assets/lifecycle.jpg" alt="Informationsmanagement nach ISO 19650" class="info-section__image">
-                                <figcaption class="info-section__caption">Informationsmanagement nach ISO 19650. Der Fachdatenkatalog definiert die LOIN-Bausteine für den Datenaustausch zwischen Auftraggeber und Auftragnehmer.</figcaption>
-                            </figure>
-                        </article>
+                                <!-- Abschnitt 2: Die Lösung -->
+                                <article id="informationsaustausch" class="info-section info-section--reverse">
+                                    <div class="info-section__content">
+                                        <h2 class="info-section__header">Klare Spielregeln für den Informationsaustausch</h2>
+                                        <p class="info-section__description">Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt – der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.</p>
+                                    </div>
+                                    <figure class="info-section__figure">
+                                        <img src="assets/lifecycle.jpg" alt="Informationsmanagement nach ISO 19650" class="info-section__image">
+                                        <figcaption class="info-section__caption">Informationsmanagement nach ISO 19650. Der Fachdatenkatalog definiert die LOIN-Bausteine für den Datenaustausch zwischen Auftraggeber und Auftragnehmer.</figcaption>
+                                    </figure>
+                                </article>
 
-                        <!-- Abschnitt 3: Der grössere Kontext -->
-                        <article class="info-section">
-                            <div class="info-section__content">
-                                <h2 class="info-section__header">Ein Baustein im Datenökosystem Schweiz</h2>
-                                <p class="info-section__description">Der Fachdatenkatalog ist Teil der Massnahme «Vereinfachung des Bauens durch bessere Dateninteroperabilität» der Strategie Digitale Schweiz und orientiert sich an den Prinzipien der eCH-0279 Architekturvision 2050. Ziel ist ein offener, nicht diskriminierender Standard, der allen Baubeteiligten hilft – von der Entlastung bei Routineaufgaben bis zur nahtlosen Integration von BIM-Daten in Facility-Management-Systeme. Open Source, damit alle profitieren.</p>
+                                <!-- Abschnitt 3: Der grössere Kontext -->
+                                <article id="datenoekosystem" class="info-section">
+                                    <div class="info-section__content">
+                                        <h2 class="info-section__header">Ein Baustein im Datenökosystem Schweiz</h2>
+                                        <p class="info-section__description">Der Fachdatenkatalog ist Teil der Massnahme «Vereinfachung des Bauens durch bessere Dateninteroperabilität» der Strategie Digitale Schweiz und orientiert sich an den Prinzipien der eCH-0279 Architekturvision 2050. Ziel ist ein offener, nicht diskriminierender Standard, der allen Baubeteiligten hilft – von der Entlastung bei Routineaufgaben bis zur nahtlosen Integration von BIM-Daten in Facility-Management-Systeme. Open Source, damit alle profitieren.</p>
+                                    </div>
+                                    <figure class="info-section__figure">
+                                        <img src="assets/ecosystem.jpg" alt="Datenökosystem Schweiz" class="info-section__image">
+                                        <figcaption class="info-section__caption">Der Fachdatenkatalog als Teil der Schweizer Datenstrategie – eingebettet in digital.swiss, eCH-Standards und das Datenökosystem Schweiz.</figcaption>
+                                    </figure>
+                                </article>
                             </div>
-                            <figure class="info-section__figure">
-                                <img src="assets/ecosystem.jpg" alt="Datenökosystem Schweiz" class="info-section__image">
-                                <figcaption class="info-section__caption">Der Fachdatenkatalog als Teil der Schweizer Datenstrategie – eingebettet in digital.swiss, eCH-Standards und das Datenökosystem Schweiz.</figcaption>
-                            </figure>
-                        </article>
+                        </div>
+
+                        <!-- Sticky Table of Contents -->
+                        <aside class="handbook-toc" aria-label="Inhaltsverzeichnis">
+                            <h2 class="handbook-toc__title">Inhaltsverzeichnis</h2>
+                            <nav>
+                                <ul class="handbook-toc__list">
+                                    <li class="handbook-toc__item active">
+                                        <a href="#silos-zu-standards" class="handbook-toc__link">
+                                            <span>Von Silos zu Standards</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="handbook-toc__item">
+                                        <a href="#informationsaustausch" class="handbook-toc__link">
+                                            <span>Klare Spielregeln für den Informationsaustausch</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="handbook-toc__item">
+                                        <a href="#datenoekosystem" class="handbook-toc__link">
+                                            <span>Ein Baustein im Datenökosystem Schweiz</span>
+                                            <i data-lucide="corner-down-left" class="handbook-toc__icon" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </aside>
                     </div>
 
                     <div class="handbook-accordion">
@@ -6585,6 +6711,9 @@
 
             // Initialize accordion functionality
             initAccordion();
+
+            // Initialize sticky TOC for handbook page
+            initHandbookToc();
         }
 
         function initAccordion() {
@@ -6597,6 +6726,54 @@
                     item.classList.toggle('open');
                     header.setAttribute('aria-expanded', !isOpen);
                 });
+            });
+        }
+
+        // Initialize sticky TOC with scroll highlighting
+        function initHandbookToc() {
+            const tocItems = document.querySelectorAll('.handbook-toc__item');
+            const sections = document.querySelectorAll('.info-section[id]');
+
+            if (!tocItems.length || !sections.length) return;
+
+            // Intersection Observer for scroll-based highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetId = entry.target.id;
+                        tocItems.forEach(item => {
+                            const link = item.querySelector('a');
+                            if (link && link.getAttribute('href') === '#' + targetId) {
+                                item.classList.add('active');
+                            } else {
+                                item.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+
+            // Smooth scroll on TOC link click
+            tocItems.forEach(item => {
+                const link = item.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').substring(1);
+                        const target = document.getElementById(targetId);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                }
             });
         }
 
