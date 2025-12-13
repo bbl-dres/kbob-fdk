@@ -23,7 +23,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc000",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 2051",
@@ -90,7 +90,7 @@
       3,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc010",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 405",
@@ -152,7 +152,7 @@
       1,
       2
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc020",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 416",
@@ -216,7 +216,7 @@
       2,
       3
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc030",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 112",
@@ -283,7 +283,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc040",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [],
     "goals": [
@@ -343,7 +343,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc050",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "ISO 19650",
@@ -410,7 +410,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc060",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "ISO 19650",
@@ -474,7 +474,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc070",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 380/1",
@@ -541,7 +541,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc080",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 400",
@@ -600,7 +600,7 @@
       3,
       4
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc090",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "RPG",
@@ -665,7 +665,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc100",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "eBKP-H",
@@ -743,7 +743,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc110",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -807,7 +807,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc120",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -868,7 +868,7 @@
       4,
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc130",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SUVA",
@@ -929,7 +929,7 @@
     "phases": [
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc140",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -987,7 +987,7 @@
     "phases": [
       5
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc150",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1047,7 +1047,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc160",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1106,7 +1106,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc170",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1167,7 +1167,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc180",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1234,7 +1234,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc190",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "KBOB BWD-Richtlinie",
@@ -1295,7 +1295,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc200",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "GEFMA 922",
@@ -1353,7 +1353,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc210",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1412,7 +1412,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc220",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 469",
@@ -1471,7 +1471,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc230",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 469",
@@ -1530,7 +1530,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc240",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SIA 416",
@@ -1589,7 +1589,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc250",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "ISO 50001",
@@ -1648,7 +1648,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc260",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "GEFMA 190",
@@ -1712,7 +1712,7 @@
       5,
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc270",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "SNBS",
@@ -1775,7 +1775,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc280",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "VVEA",
@@ -1834,7 +1834,7 @@
     "phases": [
       6
     ],
-    "process_url": "https://prozesse.bbl.admin.ch/uc290",
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
     "standards": [
       "VVEA",
