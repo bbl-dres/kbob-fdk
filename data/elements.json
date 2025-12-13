@@ -2,7 +2,6 @@
   {
     "id": "e1",
     "title": "Fenster (Aussen)",
-    "classification": "IfcWindow",
     "image": "assets/img/window.jpg",
     "category": "Architektur",
     "description": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
@@ -45,7 +44,6 @@
   {
     "id": "e2",
     "title": "Innentür (Holz)",
-    "classification": "IfcDoor",
     "image": "assets/img/door_interior.jpg",
     "category": "Architektur",
     "description": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
@@ -82,7 +80,6 @@
   {
     "id": "e3",
     "title": "Wand (Massiv)",
-    "classification": "IfcWall",
     "image": "assets/img/wall.jpg",
     "category": "Architektur",
     "description": "Tragende Wand aus Beton oder Mauerwerk.",
@@ -117,7 +114,6 @@
   {
     "id": "e4",
     "title": "Bodenplatte (Stahlbeton)",
-    "classification": "IfcSlab",
     "image": "assets/img/slab.jpg",
     "category": "Tragwerk",
     "description": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
@@ -150,7 +146,6 @@
   {
     "id": "e5",
     "title": "Dach (Flachdach)",
-    "classification": "IfcSlab",
     "image": "assets/img/roof_flat.jpg",
     "category": "Architektur",
     "description": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
@@ -184,7 +179,6 @@
   {
     "id": "e6",
     "title": "Stütze (Fertigteil)",
-    "classification": "IfcColumn",
     "image": "assets/img/column.jpg",
     "category": "Tragwerk",
     "description": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
@@ -217,7 +211,6 @@
   {
     "id": "e7",
     "title": "Unterzug (Stahlbeton)",
-    "classification": "IfcBeam",
     "image": "assets/img/beam.jpg",
     "category": "Tragwerk",
     "description": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
@@ -249,7 +242,6 @@
   {
     "id": "e8",
     "title": "Lüftungskanal (rechteckig)",
-    "classification": "IfcDuctSegment",
     "image": "assets/img/duct_rect.jpg",
     "category": "Haustechnik",
     "description": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
@@ -285,7 +277,6 @@
   {
     "id": "e9",
     "title": "Lüftungsgerät (Zentralgerät)",
-    "classification": "IfcAirTerminalBox",
     "image": "assets/img/ahu.jpg",
     "category": "Haustechnik",
     "description": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
@@ -321,7 +312,6 @@
   {
     "id": "e10",
     "title": "Heizungsrohr",
-    "classification": "IfcPipeSegment",
     "image": "assets/img/pipe_heating.jpg",
     "category": "Haustechnik",
     "description": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
@@ -356,7 +346,6 @@
   {
     "id": "e11",
     "title": "Heizkörper (Flachheizkörper)",
-    "classification": "IfcSpaceHeater",
     "image": "assets/img/radiator.jpg",
     "category": "Haustechnik",
     "description": "Flachheizkörper Typ 22, mit Thermostatkopf.",
@@ -390,7 +379,6 @@
   {
     "id": "e12",
     "title": "Sanitärobjekt (WC)",
-    "classification": "IfcSanitaryTerminal",
     "image": "assets/img/wc.jpg",
     "category": "Haustechnik",
     "description": "Wand-WC mit Unterputzspülkasten.",
@@ -426,7 +414,6 @@
   {
     "id": "e13",
     "title": "Elektroverteiler (UV)",
-    "classification": "IfcDistributionBoard",
     "image": "assets/img/distribution_board.jpg",
     "category": "Haustechnik",
     "description": "Unterverteiler für Stockwerksversorgung.",
@@ -461,7 +448,6 @@
   {
     "id": "e14",
     "title": "Kabeltrasse",
-    "classification": "IfcCableCarrierSegment",
     "image": "assets/img/cable_tray.jpg",
     "category": "Haustechnik",
     "description": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
@@ -495,7 +481,6 @@
   {
     "id": "e15",
     "title": "Aufzug",
-    "classification": "IfcTransportElement",
     "image": "assets/img/elevator.jpg",
     "category": "Haustechnik",
     "description": "Personenaufzug mit maschinenraumloser Technik (MRL).",
