@@ -6836,15 +6836,16 @@
             const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
             // Sidebar navigation links
-            const sidebarLinks = [
+            const sidebarLinksData = [
                 { id: 'phasen', text: 'Phasen' },
                 { id: 'ziele', text: 'Ziele' },
                 { id: 'rollen', text: 'Rollen' },
                 { id: 'eingaben', text: 'Eingaben' },
                 { id: 'ausgaben', text: 'Ausgaben' },
-                { id: 'prozess', text: 'Prozess' },
+                ...(data.process_url ? [{ id: 'prozess', text: 'Prozess' }] : []),
                 { id: 'verknuepfungen', text: 'Verknüpfungen' }
-            ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+            ];
+            const sidebarLinks = sidebarLinksData.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
             // Render all 6 phases (1-6), highlight active ones
             const allPhases = [1, 2, 3, 4, 5, 6];
@@ -6945,17 +6946,18 @@
                                 </table>
                             </div>
 
+                            ${data.process_url ? `
                             <div class="detail-section" id="prozess">
                                 <h2>Prozess</h2>
                                 <p>BPMN-Prozessdiagramm für diesen Anwendungsfall.</p>
                                 <div class="bpmn-viewer-container">
                                     <iframe
-                                        src="https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52"
+                                        src="${data.process_url}"
                                         title="BPMN Prozessdiagramm"
                                         allowfullscreen>
                                     </iframe>
                                 </div>
-                            </div>
+                            </div>` : ''}
 
                             <div class="detail-section" id="verknuepfungen">
                                 <h2>Verknüpfungen</h2>
