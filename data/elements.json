@@ -6,8 +6,11 @@
     "category": "Architektur",
     "description": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
     "tags": [
-      "IfcWindow",
-      "Architektur"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Objektplanung"
     ],
     "classifications": [
       {
@@ -248,8 +251,11 @@
     "category": "Architektur",
     "description": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
     "tags": [
-      "IfcDoor",
-      "Architektur"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Objektplanung"
     ],
     "classifications": [
       {
@@ -441,8 +447,11 @@
     "category": "Architektur",
     "description": "Tragende Wand aus Beton oder Mauerwerk.",
     "tags": [
-      "IfcWall",
-      "Architektur"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Objektplanung"
     ],
     "classifications": [
       {
@@ -613,8 +622,11 @@
     "category": "Tragwerk",
     "description": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
     "tags": [
-      "IfcSlab",
-      "Tragwerk"
+      "Planung",
+      "Realisierung",
+      "Dokumentation",
+      "Nachweise",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -762,8 +774,11 @@
     "category": "Architektur",
     "description": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
     "tags": [
-      "IfcSlab",
-      "Architektur"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Objektplanung"
     ],
     "classifications": [
       {
@@ -919,8 +934,11 @@
     "category": "Tragwerk",
     "description": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
     "tags": [
-      "IfcColumn",
-      "Tragwerk"
+      "Planung",
+      "Realisierung",
+      "Dokumentation",
+      "Nachweise",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1069,8 +1087,11 @@
     "category": "Tragwerk",
     "description": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
     "tags": [
-      "IfcBeam",
-      "Tragwerk"
+      "Planung",
+      "Realisierung",
+      "Dokumentation",
+      "Nachweise",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1212,8 +1233,11 @@
     "category": "Haustechnik",
     "description": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
     "tags": [
-      "IfcDuctSegment",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1390,8 +1414,11 @@
     "category": "Haustechnik",
     "description": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
     "tags": [
-      "IfcUnitaryEquipment",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1572,8 +1599,11 @@
     "category": "Haustechnik",
     "description": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
     "tags": [
-      "IfcPipeSegment",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1744,8 +1774,11 @@
     "category": "Haustechnik",
     "description": "Flachheizkörper Typ 22, mit Thermostatkopf.",
     "tags": [
-      "IfcSpaceHeater",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -1906,8 +1939,11 @@
     "category": "Haustechnik",
     "description": "Wand-WC mit Unterputzspülkasten.",
     "tags": [
-      "IfcSanitaryTerminal",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -2084,8 +2120,11 @@
     "category": "Haustechnik",
     "description": "Unterverteiler für Stockwerksversorgung.",
     "tags": [
-      "IfcDistributionBoard",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -2255,8 +2294,11 @@
     "category": "Haustechnik",
     "description": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
     "tags": [
-      "IfcCableCarrierSegment",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
@@ -2413,8 +2455,11 @@
     "category": "Haustechnik",
     "description": "Personenaufzug mit maschinenraumloser Technik (MRL).",
     "tags": [
-      "IfcTransportElement",
-      "Haustechnik"
+      "Planung",
+      "Realisierung",
+      "Betrieb",
+      "Dokumentation",
+      "Fachplanung"
     ],
     "classifications": [
       {
