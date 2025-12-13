@@ -4968,6 +4968,9 @@
         function router() {
             if (!isDataLoaded) return;
 
+            // Scroll to top when navigating to a new page
+            window.scrollTo(0, 0);
+
             const { route, id, tags, searchQuery, category } = parseHashWithParams();
 
             // Update nav active states
