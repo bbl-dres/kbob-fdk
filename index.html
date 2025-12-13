@@ -4596,7 +4596,7 @@
                 });
                 params.getAll('phase').forEach(phase => {
                     const phaseNum = parseInt(phase, 10);
-                    if (!isNaN(phaseNum) && phaseNum >= 1 && phaseNum <= 6) {
+                    if (!isNaN(phaseNum) && phaseNum >= 1 && phaseNum <= 5) {
                         phases.push(phaseNum);
                     }
                 });
@@ -4728,7 +4728,7 @@
 
         /**
          * Toggle a phase in the URL (add if missing, remove if present)
-         * @param {number} phase - Phase number (1-6)
+         * @param {number} phase - Phase number (1-5)
          */
         window.togglePhaseInURL = function(phase) {
             const { route, id, tags, category, phases, view } = parseHashWithParams();
@@ -4871,12 +4871,11 @@
          * Get phase labels for display
          */
         const phaseLabels = {
-            1: 'Strategische Planung',
-            2: 'Vorstudien',
-            3: 'Projektierung',
-            4: 'Ausschreibung',
-            5: 'Realisierung',
-            6: 'Bewirtschaftung'
+            1: 'Entwicklung',
+            2: 'Planung',
+            3: 'Ausführung',
+            4: 'Betrieb',
+            5: 'Rückbau'
         };
 
         /**
@@ -5271,7 +5270,7 @@
             // Render phases dropdown if needed
             let phasesGroupHtml = '';
             if (showPhases) {
-                const phasesItemsHtml = [1, 2, 3, 4, 5, 6].map(phase => {
+                const phasesItemsHtml = [1, 2, 3, 4, 5].map(phase => {
                     const isActive = activePhases.includes(phase);
                     const label = phaseLabels[phase];
                     return `
@@ -5670,11 +5669,11 @@
 
         function renderPhaseBadges(phases) {
             if(!phases || !Array.isArray(phases)) return '<span class="empty-text">-</span>';
-            const allPhases = [2, 3, 4, 5, 6];
+            const allPhases = [1, 2, 3, 4, 5];
             let badgesHtml = '<div class="phase-compact-wrapper">';
             allPhases.forEach(phase => {
                 const statusClass = phases.includes(phase) ? 'active' : 'inactive';
-                badgesHtml += `<div class="phase-badge ${statusClass}" title="Phase ${phase}">${phase}</div>`;
+                badgesHtml += `<div class="phase-badge ${statusClass}" title="${phaseLabels[phase] || 'Phase ' + phase}">${phase}</div>`;
             });
             badgesHtml += '</div>';
             return badgesHtml;
@@ -6674,7 +6673,7 @@
                                 <h2>Geometrie</h2>
                                 <p>Definiert die geometrischen Anforderungen an das Modellelement pro Phase.</p>
                                 <table class="data-table">
-                                    <thead><tr><th class="th-w-20">Element</th><th>Beschreibung</th><th class="th-w-phases">Phasen (2-6)</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Element</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                                     <tbody>${geomRowsHtml}</tbody>
                                 </table>
                             </div>
@@ -6688,7 +6687,7 @@
                                         <th class="th-w-format">Format</th>
                                         <th class="th-w-list">Liste</th>
                                         <th>IFC Mapping</th>
-                                        <th class="th-w-phases">Phasen (2-6)</th>
+                                        <th class="th-w-phases">Phasen (1-5)</th>
                                     </tr></thead>
                                     <tbody>${infoRowsHtml}</tbody>
                                 </table>
@@ -6698,7 +6697,7 @@
                                 <h2>Dokumentation</h2>
                                 <p>Erforderliche Dokumente, die mit dem Element verknüpft oder geliefert werden müssen.</p>
                                 <table class="data-table">
-                                    <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (2-6)</th></tr></thead>
+                                    <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                                     <tbody>${docRowsHtml}</tbody>
                                 </table>
                             </div>
@@ -6847,8 +6846,8 @@
             ];
             const sidebarLinks = sidebarLinksData.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-            // Render all 6 phases (1-6), highlight active ones
-            const allPhases = [1, 2, 3, 4, 5, 6];
+            // Render all 5 phases (1-5), highlight active ones
+            const allPhases = [1, 2, 3, 4, 5];
             const phasesHtml = allPhases.map(p => {
                 const isActive = data.phases && data.phases.includes(p);
                 return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${p}</span>`;

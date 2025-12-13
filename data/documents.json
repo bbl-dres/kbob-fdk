@@ -35,9 +35,7 @@
       1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -73,11 +71,10 @@
     ],
     "retention": "5 Jahre",
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -113,11 +110,10 @@
     ],
     "retention": "5 Jahre",
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -156,9 +152,7 @@
       1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -194,8 +188,8 @@
     ],
     "retention": "12 Jahre",
     "phases": [
-      5,
-      6
+      3,
+      4
     ]
   },
   {
@@ -231,8 +225,8 @@
     ],
     "retention": "5 Jahre",
     "phases": [
-      2,
-      3
+      1,
+      2
     ]
   },
   {
@@ -268,10 +262,9 @@
     ],
     "retention": "5 Jahre",
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -307,9 +300,9 @@
     ],
     "retention": "12 Jahre",
     "phases": [
-      4,
-      5,
-      6
+      2,
+      3,
+      4
     ]
   },
   {
@@ -345,10 +338,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -384,10 +376,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -423,11 +414,10 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -463,11 +453,10 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -503,11 +492,10 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -543,10 +531,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -582,8 +569,8 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
-      5,
-      6
+      3,
+      4
     ]
   },
   {
@@ -619,10 +606,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ]
   },
   {
@@ -658,9 +644,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
-      4,
-      5,
-      6
+      2,
+      3,
+      4
     ]
   },
   {
@@ -696,9 +682,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
-      4,
-      5,
-      6
+      2,
+      3,
+      4
     ]
   },
   {
@@ -734,9 +720,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
-      4,
-      5,
-      6
+      2,
+      3,
+      4
     ]
   },
   {
@@ -772,9 +758,9 @@
     ],
     "retention": "bis Ersatz",
     "phases": [
-      4,
-      5,
-      6
+      2,
+      3,
+      4
     ]
   }
 ]

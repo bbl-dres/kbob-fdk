@@ -19,9 +19,7 @@
       1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -87,8 +85,7 @@
     "phases": [
       1,
       2,
-      3,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -149,8 +146,7 @@
       "Nutzeranforderungen"
     ],
     "phases": [
-      1,
-      2
+      1
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -213,8 +209,7 @@
     ],
     "phases": [
       1,
-      2,
-      3
+      2
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -277,11 +272,10 @@
       "Visualisierung"
     ],
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -339,9 +333,8 @@
       "Qualitätssicherung"
     ],
     "phases": [
-      3,
-      4,
-      5
+      2,
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -405,10 +398,9 @@
       "Controlling"
     ],
     "phases": [
+      1,
       2,
-      3,
-      4,
-      5
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -470,9 +462,8 @@
       "Nachweisführung"
     ],
     "phases": [
-      3,
-      4,
-      5
+      2,
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -536,10 +527,9 @@
       "Planableitung"
     ],
     "phases": [
+      2,
       3,
-      4,
-      5,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -597,8 +587,7 @@
       "Genehmigung"
     ],
     "phases": [
-      3,
-      4
+      2
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -660,10 +649,9 @@
       "Mengenermittlung"
     ],
     "phases": [
+      1,
       2,
-      3,
-      4,
-      5
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -740,8 +728,8 @@
       "Vergabe"
     ],
     "phases": [
-      4,
-      5
+      2,
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -804,8 +792,8 @@
       "Bauablauf"
     ],
     "phases": [
-      4,
-      5
+      2,
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -865,8 +853,8 @@
       "Baustellenorganisation"
     ],
     "phases": [
-      4,
-      5
+      2,
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -927,7 +915,7 @@
       "Fortschrittskontrolle"
     ],
     "phases": [
-      5
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -985,7 +973,7 @@
       "Kostenplanung"
     ],
     "phases": [
-      5
+      3
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1044,8 +1032,8 @@
       "Abrechnung"
     ],
     "phases": [
-      5,
-      6
+      3,
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1103,8 +1091,8 @@
       "Mängelmanagement"
     ],
     "phases": [
-      5,
-      6
+      3,
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1164,8 +1152,8 @@
       "Übergabe"
     ],
     "phases": [
-      5,
-      6
+      3,
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1230,9 +1218,7 @@
       1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1293,7 +1279,7 @@
       "CAFM"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1351,7 +1337,7 @@
       "Mängelmanagement"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1410,7 +1396,7 @@
       "Instandhaltung"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1469,7 +1455,7 @@
       "Werterhaltung"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1528,7 +1514,7 @@
       "Arbeitsplatz"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1587,7 +1573,7 @@
       "Nachhaltigkeit"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1646,7 +1632,7 @@
       "Sicherheit"
     ],
     "phases": [
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1706,11 +1692,10 @@
       "Zertifizierung"
     ],
     "phases": [
+      1,
       2,
       3,
-      4,
-      5,
-      6
+      4
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1773,7 +1758,7 @@
       "Entsorgung"
     ],
     "phases": [
-      6
+      5
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],
@@ -1832,7 +1817,7 @@
       "Wiederverwendung"
     ],
     "phases": [
-      6
+      5
     ],
     "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
     "examples": [],

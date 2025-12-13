@@ -5,40 +5,240 @@
     "image": "assets/img/window.jpg",
     "category": "Architektur",
     "description": "Standard-Aussenfenster mit 3-fach Verglasung und Holz-Alu Rahmen.",
-    "tags": ["IfcWindow", "Architektur"],
+    "tags": [
+      "IfcWindow",
+      "Architektur"
+    ],
     "classifications": [
-      { "system": "eBKP-H", "code": "E4.1", "desc": "Fenster, Fenstertüren" },
-      { "system": "Uniformat II 2010", "code": "B2020", "desc": "Exterior Windows" }
+      {
+        "system": "eBKP-H",
+        "code": "E4.1",
+        "desc": "Fenster, Fenstertüren"
+      },
+      {
+        "system": "Uniformat II 2010",
+        "code": "B2020",
+        "desc": "Exterior Windows"
+      }
     ],
     "ifcMapping": [
-      { "element": "Fenster", "ifc": "IfcWindow.WINDOW", "revit": "Windows" },
-      { "element": "Oberlicht", "ifc": "IfcWindow.SKYLIGHT", "revit": "Windows" }
+      {
+        "element": "Fenster",
+        "ifc": "IfcWindow.WINDOW",
+        "revit": "Windows"
+      },
+      {
+        "element": "Oberlicht",
+        "ifc": "IfcWindow.SKYLIGHT",
+        "revit": "Windows"
+      }
     ],
     "geometry": [
-        { "name": "Länge", "desc": "Gesamtlänge des Elements", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Breite", "desc": "Gesamtbreite des Elements", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Höhe", "desc": "Gesamthöhe des Elements", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Brüstungshöhe", "desc": "Abstand von OKFFB bis Unterkante Fenster", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Repräsentative Modellierung", "desc": "Vereinfachte Darstellung für Pläne 1:50", "phases": [4, 5, 6] },
-        { "name": "Zubehör", "desc": "Griffe, Bänder, Beschläge", "phases": [5, 6] },
-        { "name": "Glasleisten", "desc": "Detaillierte Profilierung", "phases": [5, 6] }
+      {
+        "name": "Länge",
+        "desc": "Gesamtlänge des Elements",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Breite",
+        "desc": "Gesamtbreite des Elements",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Höhe",
+        "desc": "Gesamthöhe des Elements",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Brüstungshöhe",
+        "desc": "Abstand von OKFFB bis Unterkante Fenster",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Repräsentative Modellierung",
+        "desc": "Vereinfachte Darstellung für Pläne 1:50",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Zubehör",
+        "desc": "Griffe, Bänder, Beschläge",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Glasleisten",
+        "desc": "Detaillierte Profilierung",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "Wärmedurchgangskoeffizient", "desc": "U-Wert des Fensters (W/m²K)", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Pset_WindowCommon.ThermalTransmittance" },
-        { "name": "Schallschutzklasse", "desc": "Anforderung an Schalldämmung", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_WindowCommon.AcousticRating" },
-        { "name": "Feuerwiderstand", "desc": "Brandschutzklasse nach VKF", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_WindowCommon.FireRating" },
-        { "name": "IsExternal", "desc": "Definiert, ob das Bauteil zur Aussenhülle gehört", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_WindowCommon.IsExternal" },
-        { "name": "GlazingAreaFraction", "desc": "Verhältnis Glasfläche zu Rahmenfläche", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Pset_WindowCommon.GlazingAreaFraction" },
-        { "name": "SecurityRating", "desc": "Einbruchschutzklasse (RC1-RC6)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_WindowCommon.SecurityRating" },
-        { "name": "SolarHeatGainCoefficient", "desc": "g-Wert (Gesamtenergiedurchlassgrad)", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Pset_WindowCommon.SolarHeatGainCoefficient" },
-        { "name": "Hersteller", "desc": "Name des Fensterherstellers", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" }
+      {
+        "name": "Wärmedurchgangskoeffizient",
+        "desc": "U-Wert des Fensters (W/m²K)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.ThermalTransmittance"
+      },
+      {
+        "name": "Schallschutzklasse",
+        "desc": "Anforderung an Schalldämmung",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.AcousticRating"
+      },
+      {
+        "name": "Feuerwiderstand",
+        "desc": "Brandschutzklasse nach VKF",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.FireRating"
+      },
+      {
+        "name": "IsExternal",
+        "desc": "Definiert, ob das Bauteil zur Aussenhülle gehört",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.IsExternal"
+      },
+      {
+        "name": "GlazingAreaFraction",
+        "desc": "Verhältnis Glasfläche zu Rahmenfläche",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.GlazingAreaFraction"
+      },
+      {
+        "name": "SecurityRating",
+        "desc": "Einbruchschutzklasse (RC1-RC6)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.SecurityRating"
+      },
+      {
+        "name": "SolarHeatGainCoefficient",
+        "desc": "g-Wert (Gesamtenergiedurchlassgrad)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WindowCommon.SolarHeatGainCoefficient"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Name des Fensterherstellers",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      }
     ],
     "documentation": [
-        { "name": "Vorschriften", "desc": "Relevante Normen und Richtlinien (SIA 331, EN 14351)", "phases": [2] },
-        { "name": "Produktdatenblatt", "desc": "Technisches Datenblatt des Herstellers", "phases": [4, 5, 6] },
-        { "name": "Leistungsverzeichnis", "desc": "NPK-Positionen für Ausschreibung", "phases": [3, 4] },
-        { "name": "Montageanleitung", "desc": "Einbauhinweise und Anschlussdetails", "phases": [5, 6] },
-        { "name": "Wartungsanleitung", "desc": "Pflege- und Wartungsintervalle", "phases": [6] }
+      {
+        "name": "Vorschriften",
+        "desc": "Relevante Normen und Richtlinien (SIA 331, EN 14351)",
+        "phases": [
+          1
+        ]
+      },
+      {
+        "name": "Produktdatenblatt",
+        "desc": "Technisches Datenblatt des Herstellers",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Leistungsverzeichnis",
+        "desc": "NPK-Positionen für Ausschreibung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Montageanleitung",
+        "desc": "Einbauhinweise und Anschlussdetails",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wartungsanleitung",
+        "desc": "Pflege- und Wartungsintervalle",
+        "phases": [
+          4
+        ]
+      }
     ]
   },
   {
@@ -47,34 +247,191 @@
     "image": "assets/img/door_interior.jpg",
     "category": "Architektur",
     "description": "Einflügelige Innentür, Holzwerkstoff, deckend gestrichen.",
-    "tags": ["IfcDoor", "Architektur"],
+    "tags": [
+      "IfcDoor",
+      "Architektur"
+    ],
     "classifications": [
-      { "system": "eBKP-H", "code": "C2.1", "desc": "Innentüren" }
+      {
+        "system": "eBKP-H",
+        "code": "C2.1",
+        "desc": "Innentüren"
+      }
     ],
     "ifcMapping": [
-       { "element": "Tür", "ifc": "IfcDoor.DOOR", "revit": "Doors" }
+      {
+        "element": "Tür",
+        "ifc": "IfcDoor.DOOR",
+        "revit": "Doors"
+      }
     ],
     "geometry": [
-        { "name": "Durchgangslichte", "desc": "Freie Durchgangsbreite", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Durchgangshöhe", "desc": "Freie Durchgangshöhe", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Türblattstärke", "desc": "Dicke des Türblatts", "phases": [4, 5, 6] },
-        { "name": "Aufschlagrichtung", "desc": "Links/Rechts öffnend", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Zargendetail", "desc": "Modellierung der Türzarge", "phases": [4, 5, 6] },
-        { "name": "Beschläge", "desc": "Drücker, Schloss, Bänder", "phases": [5, 6] }
+      {
+        "name": "Durchgangslichte",
+        "desc": "Freie Durchgangsbreite",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Durchgangshöhe",
+        "desc": "Freie Durchgangshöhe",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Türblattstärke",
+        "desc": "Dicke des Türblatts",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Aufschlagrichtung",
+        "desc": "Links/Rechts öffnend",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Zargendetail",
+        "desc": "Modellierung der Türzarge",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Beschläge",
+        "desc": "Drücker, Schloss, Bänder",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "FireRating", "desc": "Feuerwiderstandsklasse VKF (EI30, EI60)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DoorCommon.FireRating" },
-        { "name": "AcousticRating", "desc": "Schalldämmmaß Rw (dB)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DoorCommon.AcousticRating" },
-        { "name": "IsExternal", "desc": "Außentür (ja/nein)", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_DoorCommon.IsExternal" },
-        { "name": "SelfClosing", "desc": "Mit Türschliesser ausgestattet", "format": "Boolean", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_DoorCommon.SelfClosing" },
-        { "name": "SecurityRating", "desc": "Einbruchschutzklasse", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DoorCommon.SecurityRating" },
-        { "name": "HandicapAccessible", "desc": "Rollstuhlgängig nach SIA 500", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_DoorCommon.HandicapAccessible" }
+      {
+        "name": "FireRating",
+        "desc": "Feuerwiderstandsklasse VKF (EI30, EI60)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.FireRating"
+      },
+      {
+        "name": "AcousticRating",
+        "desc": "Schalldämmmaß Rw (dB)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.AcousticRating"
+      },
+      {
+        "name": "IsExternal",
+        "desc": "Außentür (ja/nein)",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.IsExternal"
+      },
+      {
+        "name": "SelfClosing",
+        "desc": "Mit Türschliesser ausgestattet",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.SelfClosing"
+      },
+      {
+        "name": "SecurityRating",
+        "desc": "Einbruchschutzklasse",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.SecurityRating"
+      },
+      {
+        "name": "HandicapAccessible",
+        "desc": "Rollstuhlgängig nach SIA 500",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DoorCommon.HandicapAccessible"
+      }
     ],
     "documentation": [
-        { "name": "Montageanleitung", "desc": "Anweisungen für Einbau", "phases": [5, 6] },
-        { "name": "Türliste", "desc": "Übersicht aller Türen mit Anforderungen", "phases": [3, 4, 5] },
-        { "name": "Brandschutznachweis", "desc": "VKF-Zulassung für Brandschutztüren", "phases": [4, 5, 6] },
-        { "name": "Wartungsplan", "desc": "Intervalle für Beschlags- und Schliesserprüfung", "phases": [6] }
+      {
+        "name": "Montageanleitung",
+        "desc": "Anweisungen für Einbau",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Türliste",
+        "desc": "Übersicht aller Türen mit Anforderungen",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Brandschutznachweis",
+        "desc": "VKF-Zulassung für Brandschutztüren",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wartungsplan",
+        "desc": "Intervalle für Beschlags- und Schliesserprüfung",
+        "phases": [
+          4
+        ]
+      }
     ]
   },
   {
@@ -83,32 +440,170 @@
     "image": "assets/img/wall.jpg",
     "category": "Architektur",
     "description": "Tragende Wand aus Beton oder Mauerwerk.",
-    "tags": ["IfcWall", "Architektur"],
+    "tags": [
+      "IfcWall",
+      "Architektur"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "C2.1", "desc": "Aussenwand Konstruktion" }
+      {
+        "system": "eBKP-H",
+        "code": "C2.1",
+        "desc": "Aussenwand Konstruktion"
+      }
     ],
     "ifcMapping": [
-        { "element": "Wand", "ifc": "IfcWall.SOLIDWALL", "revit": "Walls" },
-        { "element": "Schacht", "ifc": "IfcWall.SHEAR", "revit": "Walls" }
+      {
+        "element": "Wand",
+        "ifc": "IfcWall.SOLIDWALL",
+        "revit": "Walls"
+      },
+      {
+        "element": "Schacht",
+        "ifc": "IfcWall.SHEAR",
+        "revit": "Walls"
+      }
     ],
     "geometry": [
-        { "name": "Wandstärke", "desc": "Dicke der Wandkonstruktion", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Höhe", "desc": "Geschosshöhe oder Teilhöhe", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Länge", "desc": "Wandlänge im Grundriss", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Öffnungen", "desc": "Aussparungen für Türen, Fenster, Durchbrüche", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Schichtaufbau", "desc": "Mehrschichtige Darstellung (Putz, Dämmung)", "phases": [4, 5, 6] }
+      {
+        "name": "Wandstärke",
+        "desc": "Dicke der Wandkonstruktion",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Höhe",
+        "desc": "Geschosshöhe oder Teilhöhe",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Länge",
+        "desc": "Wandlänge im Grundriss",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Öffnungen",
+        "desc": "Aussparungen für Türen, Fenster, Durchbrüche",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Schichtaufbau",
+        "desc": "Mehrschichtige Darstellung (Putz, Dämmung)",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "LoadBearing", "desc": "Tragendes Bauteil", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_WallCommon.LoadBearing" },
-        { "name": "IsExternal", "desc": "Aussenwand", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_WallCommon.IsExternal" },
-        { "name": "FireRating", "desc": "Feuerwiderstand (REI)", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_WallCommon.FireRating" },
-        { "name": "ThermalTransmittance", "desc": "U-Wert (W/m²K)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_WallCommon.ThermalTransmittance" },
-        { "name": "AcousticRating", "desc": "Schalldämmung Rw (dB)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_WallCommon.AcousticRating" }
+      {
+        "name": "LoadBearing",
+        "desc": "Tragendes Bauteil",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WallCommon.LoadBearing"
+      },
+      {
+        "name": "IsExternal",
+        "desc": "Aussenwand",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WallCommon.IsExternal"
+      },
+      {
+        "name": "FireRating",
+        "desc": "Feuerwiderstand (REI)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WallCommon.FireRating"
+      },
+      {
+        "name": "ThermalTransmittance",
+        "desc": "U-Wert (W/m²K)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WallCommon.ThermalTransmittance"
+      },
+      {
+        "name": "AcousticRating",
+        "desc": "Schalldämmung Rw (dB)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_WallCommon.AcousticRating"
+      }
     ],
     "documentation": [
-        { "name": "Statiknachweis", "desc": "Tragwerksnachweis nach SIA 260ff", "phases": [3, 4, 5] },
-        { "name": "Brandschutzkonzept", "desc": "Nachweis Feuerwiderstand", "phases": [3, 4, 5] },
-        { "name": "Wärmeschutznachweis", "desc": "Nachweis nach SIA 380/1", "phases": [4, 5] }
+      {
+        "name": "Statiknachweis",
+        "desc": "Tragwerksnachweis nach SIA 260ff",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Brandschutzkonzept",
+        "desc": "Nachweis Feuerwiderstand",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Wärmeschutznachweis",
+        "desc": "Nachweis nach SIA 380/1",
+        "phases": [
+          2,
+          3
+        ]
+      }
     ]
   },
   {
@@ -117,30 +612,147 @@
     "image": "assets/img/slab.jpg",
     "category": "Tragwerk",
     "description": "Fundamentplatte aus Stahlbeton, ortbetoniert.",
-    "tags": ["IfcSlab", "Tragwerk"],
+    "tags": [
+      "IfcSlab",
+      "Tragwerk"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "C1.1", "desc": "Bodenplatte" }
+      {
+        "system": "eBKP-H",
+        "code": "C1.1",
+        "desc": "Bodenplatte"
+      }
     ],
     "ifcMapping": [
-        { "element": "Bodenplatte", "ifc": "IfcSlab.BASESLAB", "revit": "Floors" }
+      {
+        "element": "Bodenplatte",
+        "ifc": "IfcSlab.BASESLAB",
+        "revit": "Floors"
+      }
     ],
     "geometry": [
-        { "name": "Stärke", "desc": "Statisch erforderliche Dicke", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Gefälle", "desc": "Modellierung von Gefälle für Entwässerung", "phases": [4, 5, 6] },
-        { "name": "Aussparungen", "desc": "Durchbrüche für Leitungen und Schächte", "phases": [3, 4, 5, 6] },
-        { "name": "Fugen", "desc": "Arbeitsfugen und Dehnfugen", "phases": [4, 5, 6] }
+      {
+        "name": "Stärke",
+        "desc": "Statisch erforderliche Dicke",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Gefälle",
+        "desc": "Modellierung von Gefälle für Entwässerung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Aussparungen",
+        "desc": "Durchbrüche für Leitungen und Schächte",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Fugen",
+        "desc": "Arbeitsfugen und Dehnfugen",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "LoadBearing", "desc": "Ist das Bauteil tragend", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_SlabCommon.LoadBearing" },
-        { "name": "ConcreteGrade", "desc": "Betonsorte (z.B. C25/30)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial" },
-        { "name": "ExposureClass", "desc": "Expositionsklasse nach SIA 262", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_ConcreteElementGeneral.ExposureClass" },
-        { "name": "ReinforcementVolume", "desc": "Bewehrungsgehalt (kg/m³)", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Qto_SlabBaseQuantities.ReinforcementVolume" }
+      {
+        "name": "LoadBearing",
+        "desc": "Ist das Bauteil tragend",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SlabCommon.LoadBearing"
+      },
+      {
+        "name": "ConcreteGrade",
+        "desc": "Betonsorte (z.B. C25/30)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial"
+      },
+      {
+        "name": "ExposureClass",
+        "desc": "Expositionsklasse nach SIA 262",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ConcreteElementGeneral.ExposureClass"
+      },
+      {
+        "name": "ReinforcementVolume",
+        "desc": "Bewehrungsgehalt (kg/m³)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Qto_SlabBaseQuantities.ReinforcementVolume"
+      }
     ],
     "documentation": [
-        { "name": "Bewehrungsplan", "desc": "Planung der Armierung", "phases": [4, 5] },
-        { "name": "Schalungsplan", "desc": "Planung der Schalung", "phases": [4, 5] },
-        { "name": "Betonierprotokoll", "desc": "Dokumentation der Betonierarbeiten", "phases": [5, 6] },
-        { "name": "Baugrundgutachten", "desc": "Geotechnischer Bericht", "phases": [2, 3] }
+      {
+        "name": "Bewehrungsplan",
+        "desc": "Planung der Armierung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Schalungsplan",
+        "desc": "Planung der Schalung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Betonierprotokoll",
+        "desc": "Dokumentation der Betonierarbeiten",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Baugrundgutachten",
+        "desc": "Geotechnischer Bericht",
+        "phases": [
+          1,
+          2
+        ]
+      }
     ]
   },
   {
@@ -149,31 +761,155 @@
     "image": "assets/img/roof_flat.jpg",
     "category": "Architektur",
     "description": "Warmdachkonstruktion mit Abdichtung und extensiver Begrünung.",
-    "tags": ["IfcSlab", "Architektur"],
+    "tags": [
+      "IfcSlab",
+      "Architektur"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "F1.2", "desc": "Flachdach befahrbar/begrünt" }
+      {
+        "system": "eBKP-H",
+        "code": "F1.2",
+        "desc": "Flachdach befahrbar/begrünt"
+      }
     ],
     "ifcMapping": [
-        { "element": "Dachdecke", "ifc": "IfcSlab.ROOF", "revit": "Roofs" }
+      {
+        "element": "Dachdecke",
+        "ifc": "IfcSlab.ROOF",
+        "revit": "Roofs"
+      }
     ],
     "geometry": [
-        { "name": "Schichtaufbau", "desc": "Modellierung der einzelnen Schichten (Dämmung, Abdichtung, Substrat)", "phases": [5, 6] },
-        { "name": "Gesamtdicke", "desc": "Raumbedarf der Konstruktion", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Gefälle", "desc": "Entwässerungsgefälle (min. 2%)", "phases": [3, 4, 5, 6] },
-        { "name": "Attika", "desc": "Randausbildung und Anschlüsse", "phases": [4, 5, 6] },
-        { "name": "Durchdringungen", "desc": "Aussparungen für Dachabläufe, Lüftung", "phases": [3, 4, 5, 6] }
+      {
+        "name": "Schichtaufbau",
+        "desc": "Modellierung der einzelnen Schichten (Dämmung, Abdichtung, Substrat)",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Gesamtdicke",
+        "desc": "Raumbedarf der Konstruktion",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Gefälle",
+        "desc": "Entwässerungsgefälle (min. 2%)",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Attika",
+        "desc": "Randausbildung und Anschlüsse",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Durchdringungen",
+        "desc": "Aussparungen für Dachabläufe, Lüftung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "IsExternal", "desc": "Aussenbauteil", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_SlabCommon.IsExternal" },
-        { "name": "ThermalTransmittance", "desc": "U-Wert des Aufbaus (W/m²K)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_SlabCommon.ThermalTransmittance" },
-        { "name": "LoadBearing", "desc": "Tragende Dachkonstruktion", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_SlabCommon.LoadBearing" },
-        { "name": "SurfaceTreatment", "desc": "Oberflächenbehandlung (Kies, Begrünung, Belag)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_SlabCommon.SurfaceTreatment" }
+      {
+        "name": "IsExternal",
+        "desc": "Aussenbauteil",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SlabCommon.IsExternal"
+      },
+      {
+        "name": "ThermalTransmittance",
+        "desc": "U-Wert des Aufbaus (W/m²K)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SlabCommon.ThermalTransmittance"
+      },
+      {
+        "name": "LoadBearing",
+        "desc": "Tragende Dachkonstruktion",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SlabCommon.LoadBearing"
+      },
+      {
+        "name": "SurfaceTreatment",
+        "desc": "Oberflächenbehandlung (Kies, Begrünung, Belag)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SlabCommon.SurfaceTreatment"
+      }
     ],
     "documentation": [
-        { "name": "Detailpläne", "desc": "Anschlussdetails Attika, Durchdringungen", "phases": [4, 5] },
-        { "name": "Abdichtungskonzept", "desc": "Planung der Dachabdichtung", "phases": [3, 4, 5] },
-        { "name": "Entwässerungsplan", "desc": "Planung Dachentwässerung", "phases": [3, 4, 5] },
-        { "name": "Wartungsanleitung", "desc": "Pflege Dachbegrünung und Kontrollen", "phases": [6] }
+      {
+        "name": "Detailpläne",
+        "desc": "Anschlussdetails Attika, Durchdringungen",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Abdichtungskonzept",
+        "desc": "Planung der Dachabdichtung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Entwässerungsplan",
+        "desc": "Planung Dachentwässerung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Wartungsanleitung",
+        "desc": "Pflege Dachbegrünung und Kontrollen",
+        "phases": [
+          4
+        ]
+      }
     ]
   },
   {
@@ -182,30 +918,148 @@
     "image": "assets/img/column.jpg",
     "category": "Tragwerk",
     "description": "Vorgefertigte Stütze aus Stahlbeton oder Spannbeton.",
-    "tags": ["IfcColumn", "Tragwerk"],
+    "tags": [
+      "IfcColumn",
+      "Tragwerk"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "C2.3", "desc": "Stützen (Konstruktion)" }
+      {
+        "system": "eBKP-H",
+        "code": "C2.3",
+        "desc": "Stützen (Konstruktion)"
+      }
     ],
     "ifcMapping": [
-        { "element": "Stütze", "ifc": "IfcColumn.COLUMN", "revit": "Structural Columns" }
+      {
+        "element": "Stütze",
+        "ifc": "IfcColumn.COLUMN",
+        "revit": "Structural Columns"
+      }
     ],
     "geometry": [
-        { "name": "Querschnitt", "desc": "Abmessungen (b/h oder Durchmesser)", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Länge", "desc": "Gesamtlänge inkl. Einspannung", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Konsolen", "desc": "Auflager für Träger", "phases": [4, 5, 6] },
-        { "name": "Anschlussdetails", "desc": "Kopf- und Fussausbildung", "phases": [4, 5, 6] }
+      {
+        "name": "Querschnitt",
+        "desc": "Abmessungen (b/h oder Durchmesser)",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Länge",
+        "desc": "Gesamtlänge inkl. Einspannung",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Konsolen",
+        "desc": "Auflager für Träger",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Anschlussdetails",
+        "desc": "Kopf- und Fussausbildung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "FireRating", "desc": "Feuerwiderstand (R60, R90)", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_ColumnCommon.FireRating" },
-        { "name": "LoadBearing", "desc": "Tragend", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_ColumnCommon.LoadBearing" },
-        { "name": "ConcreteGrade", "desc": "Betonsorte", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial" },
-        { "name": "PrecastNumber", "desc": "Fertigteilnummer", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_PrecastConcreteElementGeneral.TypeDesignation" }
+      {
+        "name": "FireRating",
+        "desc": "Feuerwiderstand (R60, R90)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ColumnCommon.FireRating"
+      },
+      {
+        "name": "LoadBearing",
+        "desc": "Tragend",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ColumnCommon.LoadBearing"
+      },
+      {
+        "name": "ConcreteGrade",
+        "desc": "Betonsorte",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial"
+      },
+      {
+        "name": "PrecastNumber",
+        "desc": "Fertigteilnummer",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PrecastConcreteElementGeneral.TypeDesignation"
+      }
     ],
     "documentation": [
-        { "name": "Versetzplan", "desc": "Logistikplan für Montage", "phases": [5, 6] },
-        { "name": "Werkplanung", "desc": "Fertigungszeichnungen Fertigteilwerk", "phases": [4, 5] },
-        { "name": "Statiknachweis", "desc": "Bemessung nach SIA 262", "phases": [3, 4] },
-        { "name": "Abnahmeprotokoll", "desc": "Qualitätskontrolle Fertigteil", "phases": [5, 6] }
+      {
+        "name": "Versetzplan",
+        "desc": "Logistikplan für Montage",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Werkplanung",
+        "desc": "Fertigungszeichnungen Fertigteilwerk",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Statiknachweis",
+        "desc": "Bemessung nach SIA 262",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Abnahmeprotokoll",
+        "desc": "Qualitätskontrolle Fertigteil",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   },
   {
@@ -214,29 +1068,141 @@
     "image": "assets/img/beam.jpg",
     "category": "Tragwerk",
     "description": "Tragender Balken aus Stahlbeton, ortbetoniert oder als Fertigteil.",
-    "tags": ["IfcBeam", "Tragwerk"],
+    "tags": [
+      "IfcBeam",
+      "Tragwerk"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "C2.2", "desc": "Unterzüge, Träger" }
+      {
+        "system": "eBKP-H",
+        "code": "C2.2",
+        "desc": "Unterzüge, Träger"
+      }
     ],
     "ifcMapping": [
-        { "element": "Unterzug", "ifc": "IfcBeam.BEAM", "revit": "Structural Framing" }
+      {
+        "element": "Unterzug",
+        "ifc": "IfcBeam.BEAM",
+        "revit": "Structural Framing"
+      }
     ],
     "geometry": [
-        { "name": "Querschnitt", "desc": "Breite und Höhe (b/h)", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Spannweite", "desc": "Länge zwischen Auflagern", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Voutenausbildung", "desc": "Variable Querschnittshöhe", "phases": [4, 5, 6] },
-        { "name": "Aussparungen", "desc": "Durchbrüche für Leitungsführung", "phases": [3, 4, 5, 6] }
+      {
+        "name": "Querschnitt",
+        "desc": "Breite und Höhe (b/h)",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Spannweite",
+        "desc": "Länge zwischen Auflagern",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Voutenausbildung",
+        "desc": "Variable Querschnittshöhe",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Aussparungen",
+        "desc": "Durchbrüche für Leitungsführung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "LoadBearing", "desc": "Tragend", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_BeamCommon.LoadBearing" },
-        { "name": "FireRating", "desc": "Feuerwiderstand", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_BeamCommon.FireRating" },
-        { "name": "Span", "desc": "Systemspannweite", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_BeamCommon.Span" },
-        { "name": "ConcreteGrade", "desc": "Betonsorte", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial" }
+      {
+        "name": "LoadBearing",
+        "desc": "Tragend",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_BeamCommon.LoadBearing"
+      },
+      {
+        "name": "FireRating",
+        "desc": "Feuerwiderstand",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_BeamCommon.FireRating"
+      },
+      {
+        "name": "Span",
+        "desc": "Systemspannweite",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_BeamCommon.Span"
+      },
+      {
+        "name": "ConcreteGrade",
+        "desc": "Betonsorte",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ConcreteElementGeneral.ConstructionMaterial"
+      }
     ],
     "documentation": [
-        { "name": "Bewehrungsplan", "desc": "Armierungszeichnung", "phases": [4, 5] },
-        { "name": "Schalungsplan", "desc": "Schalungszeichnung", "phases": [4, 5] },
-        { "name": "Statiknachweis", "desc": "Tragwerksberechnung", "phases": [3, 4] }
+      {
+        "name": "Bewehrungsplan",
+        "desc": "Armierungszeichnung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Schalungsplan",
+        "desc": "Schalungszeichnung",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Statiknachweis",
+        "desc": "Tragwerksberechnung",
+        "phases": [
+          2
+        ]
+      }
     ]
   },
   {
@@ -245,33 +1211,176 @@
     "image": "assets/img/duct_rect.jpg",
     "category": "Haustechnik",
     "description": "Rechteckiger Lüftungskanal aus verzinktem Stahlblech.",
-    "tags": ["IfcDuctSegment", "Haustechnik"],
+    "tags": [
+      "IfcDuctSegment",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D5.1", "desc": "Luftverteilung" }
+      {
+        "system": "eBKP-H",
+        "code": "D5.1",
+        "desc": "Luftverteilung"
+      }
     ],
     "ifcMapping": [
-        { "element": "Kanal rechteckig", "ifc": "IfcDuctSegment.RIGIDSEGMENT", "revit": "Ducts" },
-        { "element": "Kanal rund", "ifc": "IfcDuctSegment.RIGIDSEGMENT", "revit": "Ducts" }
+      {
+        "element": "Kanal rechteckig",
+        "ifc": "IfcDuctSegment.RIGIDSEGMENT",
+        "revit": "Ducts"
+      },
+      {
+        "element": "Kanal rund",
+        "ifc": "IfcDuctSegment.RIGIDSEGMENT",
+        "revit": "Ducts"
+      }
     ],
     "geometry": [
-        { "name": "Querschnitt", "desc": "Breite x Höhe (mm)", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Länge", "desc": "Kanallänge", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Wandstärke", "desc": "Blechdicke", "phases": [4, 5, 6] },
-        { "name": "Dämmung", "desc": "Wärme- und Schalldämmung", "phases": [4, 5, 6] }
+      {
+        "name": "Querschnitt",
+        "desc": "Breite x Höhe (mm)",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Länge",
+        "desc": "Kanallänge",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wandstärke",
+        "desc": "Blechdicke",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Dämmung",
+        "desc": "Wärme- und Schalldämmung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "NominalWidth", "desc": "Nennbreite", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.NominalWidth" },
-        { "name": "NominalHeight", "desc": "Nennhöhe", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.NominalHeight" },
-        { "name": "FlowRate", "desc": "Volumenstrom (m³/h)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.FlowRate" },
-        { "name": "PressureClass", "desc": "Dichtheitsklasse (A, B, C, D)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.PressureClass" },
-        { "name": "FireRating", "desc": "Brandschutzklasse", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.FireRating" },
-        { "name": "InsulationThickness", "desc": "Dämmstärke", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Pset_DuctSegmentTypeCommon.InsulationThickness" }
+      {
+        "name": "NominalWidth",
+        "desc": "Nennbreite",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.NominalWidth"
+      },
+      {
+        "name": "NominalHeight",
+        "desc": "Nennhöhe",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.NominalHeight"
+      },
+      {
+        "name": "FlowRate",
+        "desc": "Volumenstrom (m³/h)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.FlowRate"
+      },
+      {
+        "name": "PressureClass",
+        "desc": "Dichtheitsklasse (A, B, C, D)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.PressureClass"
+      },
+      {
+        "name": "FireRating",
+        "desc": "Brandschutzklasse",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.FireRating"
+      },
+      {
+        "name": "InsulationThickness",
+        "desc": "Dämmstärke",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DuctSegmentTypeCommon.InsulationThickness"
+      }
     ],
     "documentation": [
-        { "name": "Lüftungsschema", "desc": "Prinzipschema der Lüftungsanlage", "phases": [3, 4] },
-        { "name": "Kanalnetzberechnung", "desc": "Druckverlustberechnung", "phases": [3, 4] },
-        { "name": "Montageanleitung", "desc": "Einbauhinweise", "phases": [5, 6] },
-        { "name": "Abnahmeprotokoll", "desc": "Dichtigkeitsprüfung", "phases": [5, 6] }
+      {
+        "name": "Lüftungsschema",
+        "desc": "Prinzipschema der Lüftungsanlage",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Kanalnetzberechnung",
+        "desc": "Druckverlustberechnung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Montageanleitung",
+        "desc": "Einbauhinweise",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Abnahmeprotokoll",
+        "desc": "Dichtigkeitsprüfung",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   },
   {
@@ -280,33 +1389,180 @@
     "image": "assets/img/ahu.jpg",
     "category": "Haustechnik",
     "description": "Zentrales Lüftungsgerät mit Wärmerückgewinnung.",
-    "tags": ["IfcUnitaryEquipment", "Haustechnik"],
+    "tags": [
+      "IfcUnitaryEquipment",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D5.2", "desc": "Lüftungsgeräte" }
+      {
+        "system": "eBKP-H",
+        "code": "D5.2",
+        "desc": "Lüftungsgeräte"
+      }
     ],
     "ifcMapping": [
-        { "element": "Monoblockgerät", "ifc": "IfcUnitaryEquipment.AIRHANDLER", "revit": "Mechanical Equipment" }
+      {
+        "element": "Monoblockgerät",
+        "ifc": "IfcUnitaryEquipment.AIRHANDLER",
+        "revit": "Mechanical Equipment"
+      }
     ],
     "geometry": [
-        { "name": "Bounding Box", "desc": "Aussenmasse (L x B x H)", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Anschlusspositionen", "desc": "Lage der Kanalanschlüsse", "phases": [3, 4, 5, 6] },
-        { "name": "Wartungszugang", "desc": "Platzbedarf für Service", "phases": [4, 5, 6] }
+      {
+        "name": "Bounding Box",
+        "desc": "Aussenmasse (L x B x H)",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Anschlusspositionen",
+        "desc": "Lage der Kanalanschlüsse",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wartungszugang",
+        "desc": "Platzbedarf für Service",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "AirFlowRate", "desc": "Nenn-Volumenstrom (m³/h)", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_AirTerminalBoxTypeCommon.AirFlowRate" },
-        { "name": "HeatRecoveryEfficiency", "desc": "Wärmerückgewinnungsgrad (%)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_AirTerminalBoxTypeCommon.HeatRecoveryEfficiency" },
-        { "name": "PowerInput", "desc": "Elektrische Anschlussleistung (kW)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_ElectricalDeviceCommon.PowerInput" },
-        { "name": "SoundPowerLevel", "desc": "Schallleistungspegel (dB(A))", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_SoundGeneration.SoundPowerLevel" },
-        { "name": "FilterClass", "desc": "Filterklasse (F7, F9, H13)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_FilterTypeCommon.FilterClass" },
-        { "name": "Hersteller", "desc": "Gerätehersteller", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" },
-        { "name": "Modell", "desc": "Typenbezeichnung", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.ModelReference" }
+      {
+        "name": "AirFlowRate",
+        "desc": "Nenn-Volumenstrom (m³/h)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_AirTerminalBoxTypeCommon.AirFlowRate"
+      },
+      {
+        "name": "HeatRecoveryEfficiency",
+        "desc": "Wärmerückgewinnungsgrad (%)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_AirTerminalBoxTypeCommon.HeatRecoveryEfficiency"
+      },
+      {
+        "name": "PowerInput",
+        "desc": "Elektrische Anschlussleistung (kW)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ElectricalDeviceCommon.PowerInput"
+      },
+      {
+        "name": "SoundPowerLevel",
+        "desc": "Schallleistungspegel (dB(A))",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SoundGeneration.SoundPowerLevel"
+      },
+      {
+        "name": "FilterClass",
+        "desc": "Filterklasse (F7, F9, H13)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_FilterTypeCommon.FilterClass"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Gerätehersteller",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      },
+      {
+        "name": "Modell",
+        "desc": "Typenbezeichnung",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.ModelReference"
+      }
     ],
     "documentation": [
-        { "name": "Leistungsnachweis", "desc": "Auslegungsberechnung", "phases": [3, 4] },
-        { "name": "Produktdatenblatt", "desc": "Technische Daten Hersteller", "phases": [4, 5, 6] },
-        { "name": "Inbetriebnahmeprotokoll", "desc": "Einregulierung und Abnahme", "phases": [5, 6] },
-        { "name": "Wartungsanleitung", "desc": "Service-Intervalle und Anleitungen", "phases": [6] },
-        { "name": "Ersatzteilliste", "desc": "Empfohlene Ersatzteile", "phases": [6] }
+      {
+        "name": "Leistungsnachweis",
+        "desc": "Auslegungsberechnung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Produktdatenblatt",
+        "desc": "Technische Daten Hersteller",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Inbetriebnahmeprotokoll",
+        "desc": "Einregulierung und Abnahme",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wartungsanleitung",
+        "desc": "Service-Intervalle und Anleitungen",
+        "phases": [
+          4
+        ]
+      },
+      {
+        "name": "Ersatzteilliste",
+        "desc": "Empfohlene Ersatzteile",
+        "phases": [
+          4
+        ]
+      }
     ]
   },
   {
@@ -315,32 +1571,170 @@
     "image": "assets/img/pipe_heating.jpg",
     "category": "Haustechnik",
     "description": "Heizungsrohr aus Stahlrohr oder Kupfer mit Wärmedämmung.",
-    "tags": ["IfcPipeSegment", "Haustechnik"],
+    "tags": [
+      "IfcPipeSegment",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D2.1", "desc": "Wärmeverteilung" }
+      {
+        "system": "eBKP-H",
+        "code": "D2.1",
+        "desc": "Wärmeverteilung"
+      }
     ],
     "ifcMapping": [
-        { "element": "Heizleitung", "ifc": "IfcPipeSegment.RIGIDSEGMENT", "revit": "Pipes" }
+      {
+        "element": "Heizleitung",
+        "ifc": "IfcPipeSegment.RIGIDSEGMENT",
+        "revit": "Pipes"
+      }
     ],
     "geometry": [
-        { "name": "Aussendurchmesser", "desc": "Rohrdurchmesser inkl. Dämmung", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Länge", "desc": "Rohrlänge", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Dämmstärke", "desc": "Dicke der Rohrisolation", "phases": [4, 5, 6] },
-        { "name": "Systemtrennung", "desc": "Farbe/Kennzeichnung nach System", "phases": [4, 5, 6] }
+      {
+        "name": "Aussendurchmesser",
+        "desc": "Rohrdurchmesser inkl. Dämmung",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Länge",
+        "desc": "Rohrlänge",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Dämmstärke",
+        "desc": "Dicke der Rohrisolation",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Systemtrennung",
+        "desc": "Farbe/Kennzeichnung nach System",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "NominalDiameter", "desc": "Nennweite (DN)", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.NominalDiameter" },
-        { "name": "OperatingPressure", "desc": "Betriebsdruck (bar)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.OperatingPressure" },
-        { "name": "OperatingTemperature", "desc": "Vorlauf-/Rücklauftemperatur (°C)", "format": "String", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.OperatingTemperature" },
-        { "name": "Material", "desc": "Rohrmaterial (Stahl, Kupfer, PE-X)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.Material" },
-        { "name": "InsulationClass", "desc": "Dämmklasse nach SIA 380/1", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.InsulationClass" },
-        { "name": "FlowRate", "desc": "Volumenstrom (l/h)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_PipeSegmentTypeCommon.FlowRate" }
+      {
+        "name": "NominalDiameter",
+        "desc": "Nennweite (DN)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.NominalDiameter"
+      },
+      {
+        "name": "OperatingPressure",
+        "desc": "Betriebsdruck (bar)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.OperatingPressure"
+      },
+      {
+        "name": "OperatingTemperature",
+        "desc": "Vorlauf-/Rücklauftemperatur (°C)",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.OperatingTemperature"
+      },
+      {
+        "name": "Material",
+        "desc": "Rohrmaterial (Stahl, Kupfer, PE-X)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.Material"
+      },
+      {
+        "name": "InsulationClass",
+        "desc": "Dämmklasse nach SIA 380/1",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.InsulationClass"
+      },
+      {
+        "name": "FlowRate",
+        "desc": "Volumenstrom (l/h)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_PipeSegmentTypeCommon.FlowRate"
+      }
     ],
     "documentation": [
-        { "name": "Heizungsschema", "desc": "Hydraulikschema", "phases": [3, 4] },
-        { "name": "Rohrnetzberechnung", "desc": "Hydraulische Berechnung", "phases": [3, 4] },
-        { "name": "Druckprüfprotokoll", "desc": "Dichtheitsprüfung", "phases": [5, 6] },
-        { "name": "Isolationsnachweis", "desc": "Nachweis Wärmedämmung", "phases": [4, 5] }
+      {
+        "name": "Heizungsschema",
+        "desc": "Hydraulikschema",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Rohrnetzberechnung",
+        "desc": "Hydraulische Berechnung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Druckprüfprotokoll",
+        "desc": "Dichtheitsprüfung",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Isolationsnachweis",
+        "desc": "Nachweis Wärmedämmung",
+        "phases": [
+          2,
+          3
+        ]
+      }
     ]
   },
   {
@@ -349,31 +1743,160 @@
     "image": "assets/img/radiator.jpg",
     "category": "Haustechnik",
     "description": "Flachheizkörper Typ 22, mit Thermostatkopf.",
-    "tags": ["IfcSpaceHeater", "Haustechnik"],
+    "tags": [
+      "IfcSpaceHeater",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D2.2", "desc": "Wärmeabgabe" }
+      {
+        "system": "eBKP-H",
+        "code": "D2.2",
+        "desc": "Wärmeabgabe"
+      }
     ],
     "ifcMapping": [
-        { "element": "Heizkörper", "ifc": "IfcSpaceHeater.RADIATOR", "revit": "Mechanical Equipment" }
+      {
+        "element": "Heizkörper",
+        "ifc": "IfcSpaceHeater.RADIATOR",
+        "revit": "Mechanical Equipment"
+      }
     ],
     "geometry": [
-        { "name": "Baulänge", "desc": "Breite des Heizkörpers", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Bauhöhe", "desc": "Höhe des Heizkörpers", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Bautiefe", "desc": "Tiefe (Typ abhängig)", "phases": [3, 4, 5, 6] },
-        { "name": "Anschlussart", "desc": "Seitlich, unten mittig", "phases": [3, 4, 5, 6] }
+      {
+        "name": "Baulänge",
+        "desc": "Breite des Heizkörpers",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Bauhöhe",
+        "desc": "Höhe des Heizkörpers",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Bautiefe",
+        "desc": "Tiefe (Typ abhängig)",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Anschlussart",
+        "desc": "Seitlich, unten mittig",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "HeatOutput", "desc": "Wärmeleistung bei 75/65/20 (W)", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_SpaceHeaterTypeCommon.HeatOutput" },
-        { "name": "HeaterType", "desc": "Heizkörpertyp (10, 11, 21, 22, 33)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_SpaceHeaterTypeCommon.HeaterType" },
-        { "name": "TemperatureClassification", "desc": "Vorlauf-/Rücklauftemperatur", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_SpaceHeaterTypeCommon.TemperatureClassification" },
-        { "name": "ControlType", "desc": "Thermostatventil, Rücklauftemperaturbegrenzer", "format": "String", "list": true, "phases": [4, 5, 6], "ifc": "Pset_SpaceHeaterTypeCommon.ControlType" },
-        { "name": "Hersteller", "desc": "Heizkörperhersteller", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" }
+      {
+        "name": "HeatOutput",
+        "desc": "Wärmeleistung bei 75/65/20 (W)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SpaceHeaterTypeCommon.HeatOutput"
+      },
+      {
+        "name": "HeaterType",
+        "desc": "Heizkörpertyp (10, 11, 21, 22, 33)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SpaceHeaterTypeCommon.HeaterType"
+      },
+      {
+        "name": "TemperatureClassification",
+        "desc": "Vorlauf-/Rücklauftemperatur",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SpaceHeaterTypeCommon.TemperatureClassification"
+      },
+      {
+        "name": "ControlType",
+        "desc": "Thermostatventil, Rücklauftemperaturbegrenzer",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SpaceHeaterTypeCommon.ControlType"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Heizkörperhersteller",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      }
     ],
     "documentation": [
-        { "name": "Heizflächenberechnung", "desc": "Raumweise Heizlastberechnung", "phases": [3, 4] },
-        { "name": "Produktdatenblatt", "desc": "Technische Daten Hersteller", "phases": [4, 5, 6] },
-        { "name": "Montagehinweise", "desc": "Einbauanleitung", "phases": [5, 6] },
-        { "name": "Einregulierprotokoll", "desc": "Hydraulischer Abgleich", "phases": [5, 6] }
+      {
+        "name": "Heizflächenberechnung",
+        "desc": "Raumweise Heizlastberechnung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Produktdatenblatt",
+        "desc": "Technische Daten Hersteller",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Montagehinweise",
+        "desc": "Einbauanleitung",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Einregulierprotokoll",
+        "desc": "Hydraulischer Abgleich",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   },
   {
@@ -382,33 +1905,176 @@
     "image": "assets/img/wc.jpg",
     "category": "Haustechnik",
     "description": "Wand-WC mit Unterputzspülkasten.",
-    "tags": ["IfcSanitaryTerminal", "Haustechnik"],
+    "tags": [
+      "IfcSanitaryTerminal",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D8.2", "desc": "Sanitäre Einrichtungen" }
+      {
+        "system": "eBKP-H",
+        "code": "D8.2",
+        "desc": "Sanitäre Einrichtungen"
+      }
     ],
     "ifcMapping": [
-        { "element": "WC", "ifc": "IfcSanitaryTerminal.TOILETPAN", "revit": "Plumbing Fixtures" },
-        { "element": "Urinal", "ifc": "IfcSanitaryTerminal.URINAL", "revit": "Plumbing Fixtures" }
+      {
+        "element": "WC",
+        "ifc": "IfcSanitaryTerminal.TOILETPAN",
+        "revit": "Plumbing Fixtures"
+      },
+      {
+        "element": "Urinal",
+        "ifc": "IfcSanitaryTerminal.URINAL",
+        "revit": "Plumbing Fixtures"
+      }
     ],
     "geometry": [
-        { "name": "Ausladung", "desc": "Tiefe ab Wand", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Breite", "desc": "Breite der Keramik", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Sitzhöhe", "desc": "Höhe der Oberkante", "phases": [3, 4, 5, 6] },
-        { "name": "Vorwandelement", "desc": "Installationselement", "phases": [4, 5, 6] }
+      {
+        "name": "Ausladung",
+        "desc": "Tiefe ab Wand",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Breite",
+        "desc": "Breite der Keramik",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Sitzhöhe",
+        "desc": "Höhe der Oberkante",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Vorwandelement",
+        "desc": "Installationselement",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "FlushType", "desc": "Spülart (2-Mengen, Druckspüler)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_SanitaryTerminalTypeToiletPan.FlushType" },
-        { "name": "FlushVolume", "desc": "Spülwassermenge (l)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_SanitaryTerminalTypeToiletPan.FlushVolume" },
-        { "name": "MountingType", "desc": "Wandhängend oder Bodenstehend", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_SanitaryTerminalTypeToiletPan.MountingType" },
-        { "name": "WaterRating", "desc": "Wasserlabel (A-G)", "format": "String", "list": true, "phases": [4, 5, 6], "ifc": "Pset_SanitaryTerminalTypeToiletPan.WaterRating" },
-        { "name": "Hersteller", "desc": "Keramikhersteller", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" },
-        { "name": "Farbton", "desc": "Keramikfarbe", "format": "String", "list": true, "phases": [4, 5, 6], "ifc": "Pset_SanitaryTerminalTypeToiletPan.Color" }
+      {
+        "name": "FlushType",
+        "desc": "Spülart (2-Mengen, Druckspüler)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SanitaryTerminalTypeToiletPan.FlushType"
+      },
+      {
+        "name": "FlushVolume",
+        "desc": "Spülwassermenge (l)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SanitaryTerminalTypeToiletPan.FlushVolume"
+      },
+      {
+        "name": "MountingType",
+        "desc": "Wandhängend oder Bodenstehend",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SanitaryTerminalTypeToiletPan.MountingType"
+      },
+      {
+        "name": "WaterRating",
+        "desc": "Wasserlabel (A-G)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SanitaryTerminalTypeToiletPan.WaterRating"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Keramikhersteller",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      },
+      {
+        "name": "Farbton",
+        "desc": "Keramikfarbe",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_SanitaryTerminalTypeToiletPan.Color"
+      }
     ],
     "documentation": [
-        { "name": "Sanitärschemata", "desc": "Isometrische Darstellung", "phases": [3, 4] },
-        { "name": "Produktdatenblatt", "desc": "Technische Daten", "phases": [4, 5, 6] },
-        { "name": "Montagehinweise", "desc": "Einbauanleitung Vorwandsystem", "phases": [5, 6] },
-        { "name": "Pflegeanleitung", "desc": "Reinigung und Wartung", "phases": [6] }
+      {
+        "name": "Sanitärschemata",
+        "desc": "Isometrische Darstellung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Produktdatenblatt",
+        "desc": "Technische Daten",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Montagehinweise",
+        "desc": "Einbauanleitung Vorwandsystem",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Pflegeanleitung",
+        "desc": "Reinigung und Wartung",
+        "phases": [
+          4
+        ]
+      }
     ]
   },
   {
@@ -417,32 +2083,169 @@
     "image": "assets/img/distribution_board.jpg",
     "category": "Haustechnik",
     "description": "Unterverteiler für Stockwerksversorgung.",
-    "tags": ["IfcDistributionBoard", "Haustechnik"],
+    "tags": [
+      "IfcDistributionBoard",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D4.1", "desc": "Elektrische Verteilung" }
+      {
+        "system": "eBKP-H",
+        "code": "D4.1",
+        "desc": "Elektrische Verteilung"
+      }
     ],
     "ifcMapping": [
-        { "element": "Unterverteiler", "ifc": "IfcDistributionBoard.DISTRIBUTIONBOARD", "revit": "Electrical Equipment" }
+      {
+        "element": "Unterverteiler",
+        "ifc": "IfcDistributionBoard.DISTRIBUTIONBOARD",
+        "revit": "Electrical Equipment"
+      }
     ],
     "geometry": [
-        { "name": "Aussenmasse", "desc": "Breite x Höhe x Tiefe", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Einbautiefe", "desc": "Tiefe bei Unterputzmontage", "phases": [3, 4, 5, 6] },
-        { "name": "Montagehöhe", "desc": "Höhe Oberkante ab OKFFB", "phases": [3, 4, 5, 6] }
+      {
+        "name": "Aussenmasse",
+        "desc": "Breite x Höhe x Tiefe",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Einbautiefe",
+        "desc": "Tiefe bei Unterputzmontage",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Montagehöhe",
+        "desc": "Höhe Oberkante ab OKFFB",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "NumberOfPhases", "desc": "Anzahl Phasen (1 oder 3)", "format": "Integer", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_DistributionBoardTypeCommon.NumberOfPhases" },
-        { "name": "RatedCurrent", "desc": "Bemessungsstrom (A)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_DistributionBoardTypeCommon.RatedCurrent" },
-        { "name": "NumberOfModules", "desc": "Anzahl Teilungseinheiten", "format": "Integer", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_DistributionBoardTypeCommon.NumberOfModules" },
-        { "name": "IPRating", "desc": "Schutzart (IP20, IP44, IP65)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_DistributionBoardTypeCommon.IPRating" },
-        { "name": "ShortCircuitRating", "desc": "Kurzschlussfestigkeit (kA)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_DistributionBoardTypeCommon.ShortCircuitRating" },
-        { "name": "Hersteller", "desc": "Verteilerhersteller", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" }
+      {
+        "name": "NumberOfPhases",
+        "desc": "Anzahl Phasen (1 oder 3)",
+        "format": "Integer",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DistributionBoardTypeCommon.NumberOfPhases"
+      },
+      {
+        "name": "RatedCurrent",
+        "desc": "Bemessungsstrom (A)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DistributionBoardTypeCommon.RatedCurrent"
+      },
+      {
+        "name": "NumberOfModules",
+        "desc": "Anzahl Teilungseinheiten",
+        "format": "Integer",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DistributionBoardTypeCommon.NumberOfModules"
+      },
+      {
+        "name": "IPRating",
+        "desc": "Schutzart (IP20, IP44, IP65)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DistributionBoardTypeCommon.IPRating"
+      },
+      {
+        "name": "ShortCircuitRating",
+        "desc": "Kurzschlussfestigkeit (kA)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_DistributionBoardTypeCommon.ShortCircuitRating"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Verteilerhersteller",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      }
     ],
     "documentation": [
-        { "name": "Einlinienschema", "desc": "Übersichtsschaltplan", "phases": [3, 4] },
-        { "name": "Stromlaufplan", "desc": "Detaillierter Schaltplan", "phases": [4, 5] },
-        { "name": "Verteilerlayout", "desc": "Bestückungsplan", "phases": [4, 5] },
-        { "name": "Selektivitätsnachweis", "desc": "Nachweis Selektivität Schutzgeräte", "phases": [4, 5] },
-        { "name": "Prüfprotokoll", "desc": "Erstprüfung nach NIV", "phases": [5, 6] }
+      {
+        "name": "Einlinienschema",
+        "desc": "Übersichtsschaltplan",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Stromlaufplan",
+        "desc": "Detaillierter Schaltplan",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Verteilerlayout",
+        "desc": "Bestückungsplan",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Selektivitätsnachweis",
+        "desc": "Nachweis Selektivität Schutzgeräte",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Prüfprotokoll",
+        "desc": "Erstprüfung nach NIV",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   },
   {
@@ -451,31 +2254,156 @@
     "image": "assets/img/cable_tray.jpg",
     "category": "Haustechnik",
     "description": "Kabelrinne oder Kabelkanal für die Leitungsführung.",
-    "tags": ["IfcCableCarrierSegment", "Haustechnik"],
+    "tags": [
+      "IfcCableCarrierSegment",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D4.2", "desc": "Kabelführung" }
+      {
+        "system": "eBKP-H",
+        "code": "D4.2",
+        "desc": "Kabelführung"
+      }
     ],
     "ifcMapping": [
-        { "element": "Kabelrinne", "ifc": "IfcCableCarrierSegment.CABLETRAY", "revit": "Cable Trays" },
-        { "element": "Kabelleiter", "ifc": "IfcCableCarrierSegment.CABLELADDER", "revit": "Cable Trays" }
+      {
+        "element": "Kabelrinne",
+        "ifc": "IfcCableCarrierSegment.CABLETRAY",
+        "revit": "Cable Trays"
+      },
+      {
+        "element": "Kabelleiter",
+        "ifc": "IfcCableCarrierSegment.CABLELADDER",
+        "revit": "Cable Trays"
+      }
     ],
     "geometry": [
-        { "name": "Breite", "desc": "Trassenbreite", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Höhe", "desc": "Seitenhöhe", "phases": [3, 4, 5, 6] },
-        { "name": "Länge", "desc": "Segmentlänge", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Befestigung", "desc": "Abhängung, Wandbefestigung", "phases": [4, 5, 6] }
+      {
+        "name": "Breite",
+        "desc": "Trassenbreite",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Höhe",
+        "desc": "Seitenhöhe",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Länge",
+        "desc": "Segmentlänge",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Befestigung",
+        "desc": "Abhängung, Wandbefestigung",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "NominalWidth", "desc": "Nennbreite (mm)", "format": "Real", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_CableCarrierSegmentTypeCommon.NominalWidth" },
-        { "name": "NominalHeight", "desc": "Nennhöhe (mm)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_CableCarrierSegmentTypeCommon.NominalHeight" },
-        { "name": "Material", "desc": "Werkstoff (Stahl verzinkt, Alu, Kunststoff)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_CableCarrierSegmentTypeCommon.Material" },
-        { "name": "LoadCapacity", "desc": "Traglast (kg/m)", "format": "Real", "list": false, "phases": [4, 5, 6], "ifc": "Pset_CableCarrierSegmentTypeCommon.LoadCapacity" },
-        { "name": "FireRating", "desc": "Funktionserhalt bei Brand (E30, E90)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_CableCarrierSegmentTypeCommon.FireRating" }
+      {
+        "name": "NominalWidth",
+        "desc": "Nennbreite (mm)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_CableCarrierSegmentTypeCommon.NominalWidth"
+      },
+      {
+        "name": "NominalHeight",
+        "desc": "Nennhöhe (mm)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_CableCarrierSegmentTypeCommon.NominalHeight"
+      },
+      {
+        "name": "Material",
+        "desc": "Werkstoff (Stahl verzinkt, Alu, Kunststoff)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_CableCarrierSegmentTypeCommon.Material"
+      },
+      {
+        "name": "LoadCapacity",
+        "desc": "Traglast (kg/m)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_CableCarrierSegmentTypeCommon.LoadCapacity"
+      },
+      {
+        "name": "FireRating",
+        "desc": "Funktionserhalt bei Brand (E30, E90)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_CableCarrierSegmentTypeCommon.FireRating"
+      }
     ],
     "documentation": [
-        { "name": "Trassenplan", "desc": "Übersicht Kabelführung", "phases": [3, 4] },
-        { "name": "Belegungsplan", "desc": "Kabelbelegung je Trasse", "phases": [4, 5] },
-        { "name": "Montagehinweise", "desc": "Einbau und Befestigung", "phases": [5, 6] }
+      {
+        "name": "Trassenplan",
+        "desc": "Übersicht Kabelführung",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Belegungsplan",
+        "desc": "Kabelbelegung je Trasse",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Montagehinweise",
+        "desc": "Einbau und Befestigung",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   },
   {
@@ -484,36 +2412,212 @@
     "image": "assets/img/elevator.jpg",
     "category": "Haustechnik",
     "description": "Personenaufzug mit maschinenraumloser Technik (MRL).",
-    "tags": ["IfcTransportElement", "Haustechnik"],
+    "tags": [
+      "IfcTransportElement",
+      "Haustechnik"
+    ],
     "classifications": [
-        { "system": "eBKP-H", "code": "D6.1", "desc": "Aufzugsanlagen" }
+      {
+        "system": "eBKP-H",
+        "code": "D6.1",
+        "desc": "Aufzugsanlagen"
+      }
     ],
     "ifcMapping": [
-        { "element": "Personenaufzug", "ifc": "IfcTransportElement.ELEVATOR", "revit": "Specialty Equipment" }
+      {
+        "element": "Personenaufzug",
+        "ifc": "IfcTransportElement.ELEVATOR",
+        "revit": "Specialty Equipment"
+      }
     ],
     "geometry": [
-        { "name": "Schachtmasse", "desc": "Lichte Schachtmasse (B x T)", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Kabinenmasse", "desc": "Innenmasse Kabine", "phases": [3, 4, 5, 6] },
-        { "name": "Schachtgrube", "desc": "Tiefe unter unterstem Halt", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Schachtkopf", "desc": "Höhe über oberstem Halt", "phases": [2, 3, 4, 5, 6] },
-        { "name": "Türöffnung", "desc": "Lichte Türbreite und -höhe", "phases": [3, 4, 5, 6] }
+      {
+        "name": "Schachtmasse",
+        "desc": "Lichte Schachtmasse (B x T)",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Kabinenmasse",
+        "desc": "Innenmasse Kabine",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Schachtgrube",
+        "desc": "Tiefe unter unterstem Halt",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Schachtkopf",
+        "desc": "Höhe über oberstem Halt",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Türöffnung",
+        "desc": "Lichte Türbreite und -höhe",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
     ],
     "information": [
-        { "name": "LoadCapacity", "desc": "Tragfähigkeit (kg / Personen)", "format": "String", "list": true, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.LoadCapacity" },
-        { "name": "NumberOfStops", "desc": "Anzahl Haltestellen", "format": "Integer", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.NumberOfStops" },
-        { "name": "Speed", "desc": "Nenngeschwindigkeit (m/s)", "format": "Real", "list": false, "phases": [3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.Speed" },
-        { "name": "DriveType", "desc": "Antriebsart (Seil, Hydraulik, MRL)", "format": "String", "list": true, "phases": [3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.DriveType" },
-        { "name": "FiremanLift", "desc": "Feuerwehraufzug", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.FiremanLift" },
-        { "name": "HandicapAccessible", "desc": "Rollstuhlgerecht nach SIA 500", "format": "Boolean", "list": false, "phases": [2, 3, 4, 5, 6], "ifc": "Pset_TransportElementElevator.HandicapAccessible" },
-        { "name": "Hersteller", "desc": "Aufzugshersteller", "format": "String", "list": false, "phases": [4, 5, 6], "ifc": "Pset_ManufacturerTypeInformation.Manufacturer" }
+      {
+        "name": "LoadCapacity",
+        "desc": "Tragfähigkeit (kg / Personen)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.LoadCapacity"
+      },
+      {
+        "name": "NumberOfStops",
+        "desc": "Anzahl Haltestellen",
+        "format": "Integer",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.NumberOfStops"
+      },
+      {
+        "name": "Speed",
+        "desc": "Nenngeschwindigkeit (m/s)",
+        "format": "Real",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.Speed"
+      },
+      {
+        "name": "DriveType",
+        "desc": "Antriebsart (Seil, Hydraulik, MRL)",
+        "format": "String",
+        "list": true,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.DriveType"
+      },
+      {
+        "name": "FiremanLift",
+        "desc": "Feuerwehraufzug",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.FiremanLift"
+      },
+      {
+        "name": "HandicapAccessible",
+        "desc": "Rollstuhlgerecht nach SIA 500",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_TransportElementElevator.HandicapAccessible"
+      },
+      {
+        "name": "Hersteller",
+        "desc": "Aufzugshersteller",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4
+        ],
+        "ifc": "Pset_ManufacturerTypeInformation.Manufacturer"
+      }
     ],
     "documentation": [
-        { "name": "Schachtplan", "desc": "Schnittzeichnung Aufzugsschacht", "phases": [3, 4, 5] },
-        { "name": "Leistungsverzeichnis", "desc": "Ausschreibungsunterlagen", "phases": [3, 4] },
-        { "name": "Produktdatenblatt", "desc": "Technische Daten Hersteller", "phases": [4, 5, 6] },
-        { "name": "Montageplan", "desc": "Einbauzeichnung", "phases": [5, 6] },
-        { "name": "Wartungsvertrag", "desc": "Service-Vereinbarung", "phases": [6] },
-        { "name": "SVTI-Abnahme", "desc": "Behördliche Abnahme", "phases": [5, 6] }
+      {
+        "name": "Schachtplan",
+        "desc": "Schnittzeichnung Aufzugsschacht",
+        "phases": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "Leistungsverzeichnis",
+        "desc": "Ausschreibungsunterlagen",
+        "phases": [
+          2
+        ]
+      },
+      {
+        "name": "Produktdatenblatt",
+        "desc": "Technische Daten Hersteller",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Montageplan",
+        "desc": "Einbauzeichnung",
+        "phases": [
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Wartungsvertrag",
+        "desc": "Service-Vereinbarung",
+        "phases": [
+          4
+        ]
+      },
+      {
+        "name": "SVTI-Abnahme",
+        "desc": "Behördliche Abnahme",
+        "phases": [
+          3,
+          4
+        ]
+      }
     ]
   }
 ]
