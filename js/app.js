@@ -4,30 +4,64 @@
  */
 
 /**
+ * Load data from JSON files (fallback method)
+ */
+async function loadDataFromJson() {
+    const [elementsResponse, documentsResponse, usecasesResponse, modelsResponse, epdsResponse] = await Promise.all([
+        fetch('data/elements.json'),
+        fetch('data/documents.json'),
+        fetch('data/usecases.json'),
+        fetch('data/models.json'),
+        fetch('data/epds.json')
+    ]);
+
+    if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
+    if (!documentsResponse.ok) throw new Error(`Documents: HTTP error! status: ${documentsResponse.status}`);
+    if (!usecasesResponse.ok) throw new Error(`Usecases: HTTP error! status: ${usecasesResponse.status}`);
+    if (!modelsResponse.ok) throw new Error(`Models: HTTP error! status: ${modelsResponse.status}`);
+    if (!epdsResponse.ok) throw new Error(`EPDs: HTTP error! status: ${epdsResponse.status}`);
+
+    return {
+        elements: await elementsResponse.json(),
+        documents: await documentsResponse.json(),
+        usecases: await usecasesResponse.json(),
+        models: await modelsResponse.json(),
+        epds: await epdsResponse.json()
+    };
+}
+
+/**
  * Initialize the application
  */
 async function initApp() {
     try {
-        // Load all data in parallel
-        const [elementsResponse, documentsResponse, usecasesResponse, modelsResponse, epdsResponse] = await Promise.all([
-            fetch('data/elements.json'),
-            fetch('data/documents.json'),
-            fetch('data/usecases.json'),
-            fetch('data/models.json'),
-            fetch('data/epds.json')
-        ]);
+        let data = null;
 
-        if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
-        if (!documentsResponse.ok) throw new Error(`Documents: HTTP error! status: ${documentsResponse.status}`);
-        if (!usecasesResponse.ok) throw new Error(`Usecases: HTTP error! status: ${usecasesResponse.status}`);
-        if (!modelsResponse.ok) throw new Error(`Models: HTTP error! status: ${modelsResponse.status}`);
-        if (!epdsResponse.ok) throw new Error(`EPDs: HTTP error! status: ${epdsResponse.status}`);
+        // Try Supabase first if configured
+        if (typeof isSupabaseConfigured === 'function' && isSupabaseConfigured()) {
+            console.log('Loading data from Supabase...');
+            data = await fetchAllDataFromSupabase();
 
-        globalElementsData = await elementsResponse.json();
-        globalDocumentsData = await documentsResponse.json();
-        globalUsecasesData = await usecasesResponse.json();
-        globalModelsData = await modelsResponse.json();
-        globalEpdsData = await epdsResponse.json();
+            if (data) {
+                console.log('Data loaded from Supabase successfully');
+            } else {
+                console.warn('Supabase fetch failed, falling back to JSON files');
+            }
+        }
+
+        // Fall back to JSON files if Supabase is not configured or failed
+        if (!data) {
+            console.log('Loading data from JSON files...');
+            data = await loadDataFromJson();
+            console.log('Data loaded from JSON files successfully');
+        }
+
+        // Assign to global variables
+        globalElementsData = data.elements;
+        globalDocumentsData = data.documents;
+        globalUsecasesData = data.usecases;
+        globalModelsData = data.models;
+        globalEpdsData = data.epds;
 
         isDataLoaded = true;
 
@@ -45,7 +79,7 @@ async function initApp() {
             <div class="container error-state">
                 <i data-lucide="alert-circle" class="status-icon status-icon--error icon--3xl" aria-hidden="true"></i><br>
                 <h2>Fehler beim Laden der Daten</h2>
-                <p>Konnte JSON-Dateien nicht laden.</p>
+                <p>Konnte Daten nicht laden.</p>
                 <br><span class="error-detail">${error.message}</span>
             </div>`;
         lucide.createIcons();
