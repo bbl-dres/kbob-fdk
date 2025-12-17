@@ -1,7 +1,63 @@
 /**
  * KBOB Fachdatenkatalog - Page Renderers
- * All page rendering functions
+ * Consolidated page rendering functions
  */
+
+// ============================================
+// CATALOG PAGE CONFIGURATION
+// ============================================
+
+/**
+ * Configuration for catalog pages
+ */
+const catalogPageConfig = {
+    elements: {
+        title: 'Elemente',
+        lead: 'Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.',
+        searchPlaceholder: 'Suche nach Elementen oder Klassifikation...',
+        searchInputId: 'catalogSearchInput',
+        searchClearId: 'catalogSearchClear',
+        contentId: 'catalogContent',
+        filterType: 'elements'
+    },
+    documents: {
+        title: 'Dokumente',
+        lead: 'Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.',
+        searchPlaceholder: 'Suche nach Dokumenten oder Kategorie...',
+        searchInputId: 'documentsSearchInput',
+        searchClearId: 'documentsSearchClear',
+        contentId: 'documentsContent',
+        filterType: 'documents'
+    },
+    usecases: {
+        title: 'Anwendungsfälle',
+        lead: 'BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.',
+        searchPlaceholder: 'Suche nach Anwendungsfällen...',
+        searchInputId: 'usecasesSearchInput',
+        searchClearId: 'usecasesSearchClear',
+        contentId: 'usecasesContent',
+        filterType: 'usecases',
+        hasPhases: true
+    },
+    models: {
+        title: 'Fachmodelle',
+        lead: 'Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.',
+        searchPlaceholder: 'Suche nach Fachmodellen...',
+        searchInputId: 'modelsSearchInput',
+        searchClearId: 'modelsSearchClear',
+        contentId: 'modelsContent',
+        filterType: 'models'
+    },
+    epds: {
+        title: 'Ökobilanzdaten',
+        lead: 'Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.',
+        searchPlaceholder: 'Suche nach Ökobilanzdaten...',
+        searchInputId: 'epdsSearchInput',
+        searchClearId: 'epdsSearchClear',
+        contentId: 'epdsContent',
+        filterType: 'epds'
+    }
+};
 
 // ============================================
 // HOME PAGE
@@ -60,10 +116,7 @@ function renderHomePage() {
         </section>`;
 
     setupGlobalSearch();
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    refreshIcons();
 
     document.querySelectorAll('.quick-card[data-route]').forEach(card => {
         card.addEventListener('click', (e) => {
@@ -190,191 +243,60 @@ function renderSearchResultsPage(query) {
         });
     }
 
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
+    refreshIcons();
     setupSearchClearButton('searchPageInput', 'searchPageClear');
 }
 
 // ============================================
-// CATALOG PAGES
+// GENERIC CATALOG PAGE RENDERER
 // ============================================
 
-function renderCatalogPage(activeTags = [], activeCategory = '') {
-    let filteredData = filterDataByCategory(globalElementsData, activeCategory);
+/**
+ * Generic catalog page renderer
+ * @param {string} type - Catalog type key (elements, documents, usecases, models, epds)
+ * @param {string[]} activeTags - Active tag filters
+ * @param {string} activeCategory - Active category filter
+ */
+function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
+    const pageConfig = catalogPageConfig[type];
+    const typeConfig = catalogTypeConfig[type];
+
+    if (!pageConfig || !typeConfig) {
+        contentArea.innerHTML = '<div class="container error-state">Seite nicht gefunden.</div>';
+        return;
+    }
+
+    // Get active phases for usecases
+    const activePhases = typeConfig.hasPhases ? getActivePhasesFromURL() : [];
+
+    // Apply filters
+    let filteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
     filteredData = filterDataByTags(filteredData, activeTags);
-
-    const filterPanelClass = elementsFilterVisible ? '' : 'closed';
-    const currentView = getActiveViewFromURL();
-    const gridActive = currentView === 'grid' ? 'active' : '';
-    const listActive = currentView === 'list' ? 'active' : '';
-    const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
-
-    contentArea.innerHTML = `
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Elemente</h1>
-                <p class="page-lead">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen pro Projektphase.</p>
-            </div>
-            <div class="gallery-filter-container">
-                <div class="gallery-filter-left">
-                    <div class="gallery-filter-wrapper">
-                        <input type="text" id="catalogSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Klassifikation...">
-                        <button type="button" class="search-clear-btn" id="catalogSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                        <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                    </div>
-                    ${renderFilterButton('elements', elementsFilterVisible, activeFiltersCount)}
-                </div>
-                <div class="view-switcher toolbar-control">
-                    <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                    <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
-                </div>
-            </div>
-
-            ${renderFilterBar({
-                data: globalElementsData,
-                activeTags: activeTags,
-                activeCategory: activeCategory,
-                filterPanelClass: filterPanelClass
-            })}
-
-            <div id="catalogContent" class="catalog-content">
-                ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
-                    : renderListItemsHTML(filteredData, activeTags, activeCategory)
-                }
-            </div>
-        </div>`;
-
-    const searchInput = document.getElementById('catalogSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
-            const searchTerm = e.target.value.toLowerCase();
-
-            let searchFilteredData = filterDataByCategory(globalElementsData, activeCategory);
-            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            searchFilteredData = searchFilteredData.filter(el =>
-                (el.title && el.title.toLowerCase().includes(searchTerm)) ||
-                (el.classification && el.classification.toLowerCase().includes(searchTerm))
-            );
-
-            const container = document.getElementById('catalogContent');
-            container.innerHTML = (getActiveViewFromURL() === 'grid')
-                ? `<div class="element-grid">${renderGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderListItemsHTML(searchFilteredData, activeTags, activeCategory);
-        });
+    if (typeConfig.hasPhases) {
+        filteredData = filterDataByPhases(filteredData, activePhases);
     }
 
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    setupSearchClearButton('catalogSearchInput', 'catalogSearchClear');
-}
-
-function renderDocumentsCatalogPage(activeTags = [], activeCategory = '') {
-    let filteredData = filterDataByCategory(globalDocumentsData, activeCategory);
-    filteredData = filterDataByTags(filteredData, activeTags);
-
-    const filterPanelClass = documentsFilterVisible ? '' : 'closed';
-    const currentView = getActiveViewFromURL();
-    const gridActive = currentView === 'grid' ? 'active' : '';
-    const listActive = currentView === 'list' ? 'active' : '';
-    const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
-
-    contentArea.innerHTML = `
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Dokumente</h1>
-                <p class="page-lead">Dokumenttypen und Vorlagen für die standardisierte Bauwerksdokumentation im Hochbau.</p>
-            </div>
-            <div class="gallery-filter-container">
-                <div class="gallery-filter-left">
-                    <div class="gallery-filter-wrapper">
-                        <input type="text" id="documentsSearchInput" class="gallery-filter-input" placeholder="Suche nach Dokumenten oder Kategorie...">
-                        <button type="button" class="search-clear-btn" id="documentsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                        <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                    </div>
-                    ${renderFilterButton('documents', documentsFilterVisible, activeFiltersCount)}
-                </div>
-                <div class="view-switcher toolbar-control">
-                    <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                    <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
-                </div>
-            </div>
-
-            ${renderFilterBar({
-                data: globalDocumentsData,
-                activeTags: activeTags,
-                activeCategory: activeCategory,
-                filterPanelClass: filterPanelClass
-            })}
-
-            <div id="documentsContent" class="catalog-content">
-                ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderDocGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
-                    : renderDocListItemsHTML(filteredData, activeTags, activeCategory)
-                }
-            </div>
-        </div>`;
-
-    const searchInput = document.getElementById('documentsSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
-            const searchTerm = e.target.value.toLowerCase();
-
-            let searchFilteredData = filterDataByCategory(globalDocumentsData, activeCategory);
-            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            searchFilteredData = searchFilteredData.filter(doc =>
-                (doc.title && doc.title.toLowerCase().includes(searchTerm)) ||
-                (doc.category && doc.category.toLowerCase().includes(searchTerm)) ||
-                (doc.description && doc.description.toLowerCase().includes(searchTerm))
-            );
-
-            const container = document.getElementById('documentsContent');
-            container.innerHTML = (getActiveViewFromURL() === 'grid')
-                ? `<div class="element-grid">${renderDocGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderDocListItemsHTML(searchFilteredData, activeTags, activeCategory);
-        });
-    }
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    setupSearchClearButton('documentsSearchInput', 'documentsSearchClear');
-}
-
-function renderUsecasesCatalogPage(activeTags = [], activeCategory = '') {
-    const activePhases = getActivePhasesFromURL();
-
-    let filteredData = filterDataByCategory(globalUsecasesData, activeCategory);
-    filteredData = filterDataByTags(filteredData, activeTags);
-    filteredData = filterDataByPhases(filteredData, activePhases);
-
-    const filterPanelClass = usecasesFilterVisible ? '' : 'closed';
+    const filterPanelClass = typeConfig.getFilterVisible() ? '' : 'closed';
     const currentView = getActiveViewFromURL();
     const gridActive = currentView === 'grid' ? 'active' : '';
     const listActive = currentView === 'list' ? 'active' : '';
     const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0) + activePhases.length;
 
+    // Render page
     contentArea.innerHTML = `
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">Anwendungsfälle</h1>
-                <p class="page-lead">BIM-Anwendungsfälle für Planung, Koordination, Kostenmanagement und Betrieb.</p>
+                <h1 class="page-title">${pageConfig.title}</h1>
+                <p class="page-lead">${pageConfig.lead}</p>
             </div>
             <div class="gallery-filter-container">
                 <div class="gallery-filter-left">
                     <div class="gallery-filter-wrapper">
-                        <input type="text" id="usecasesSearchInput" class="gallery-filter-input" placeholder="Suche nach Anwendungsfällen...">
-                        <button type="button" class="search-clear-btn" id="usecasesSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
+                        <input type="text" id="${pageConfig.searchInputId}" class="gallery-filter-input" placeholder="${pageConfig.searchPlaceholder}">
+                        <button type="button" class="search-clear-btn" id="${pageConfig.searchClearId}" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                         <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                     </div>
-                    ${renderFilterButton('usecases', usecasesFilterVisible, activeFiltersCount)}
+                    ${renderFilterButton(pageConfig.filterType, typeConfig.getFilterVisible(), activeFiltersCount)}
                 </div>
                 <div class="view-switcher toolbar-control">
                     <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
@@ -383,186 +305,74 @@ function renderUsecasesCatalogPage(activeTags = [], activeCategory = '') {
             </div>
 
             ${renderFilterBar({
-                data: globalUsecasesData,
+                data: typeConfig.getData(),
                 activeTags: activeTags,
                 activeCategory: activeCategory,
                 activePhases: activePhases,
-                showPhases: true,
+                showPhases: typeConfig.hasPhases || false,
                 filterPanelClass: filterPanelClass
             })}
 
-            <div id="usecasesContent" class="catalog-content">
+            <div id="${pageConfig.contentId}" class="catalog-content">
                 ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderUsecasesGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
-                    : renderUsecasesListItemsHTML(filteredData, activeTags, activeCategory)
+                    ? `<div class="element-grid">${renderGenericGridItems(type, filteredData, activeTags, activeCategory)}</div>`
+                    : renderGenericListItems(type, filteredData, activeTags, activeCategory)
                 }
             </div>
         </div>`;
 
-    const searchInput = document.getElementById('usecasesSearchInput');
+    // Setup search input handler
+    const searchInput = document.getElementById(pageConfig.searchInputId);
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
+            document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
             const searchTerm = e.target.value.toLowerCase();
-            let searchFilteredData = filterDataByCategory(globalUsecasesData, activeCategory);
+
+            // Apply all filters plus search term
+            let searchFilteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
             searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
+            if (typeConfig.hasPhases) {
+                searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
+            }
+
+            // Filter by search term using configured search fields
             searchFilteredData = searchFilteredData.filter(item =>
-                (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-                (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-                (item.description && item.description.toLowerCase().includes(searchTerm))
+                typeConfig.searchFields.some(field =>
+                    item[field] && item[field].toLowerCase().includes(searchTerm)
+                )
             );
-            const container = document.getElementById('usecasesContent');
+
+            const container = document.getElementById(pageConfig.contentId);
             container.innerHTML = (getActiveViewFromURL() === 'grid')
-                ? `<div class="element-grid">${renderUsecasesGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderUsecasesListItemsHTML(searchFilteredData, activeTags, activeCategory);
+                ? `<div class="element-grid">${renderGenericGridItems(type, searchFilteredData, activeTags, activeCategory)}</div>`
+                : renderGenericListItems(type, searchFilteredData, activeTags, activeCategory);
         });
     }
 
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
+    refreshIcons();
+    setupSearchClearButton(pageConfig.searchInputId, pageConfig.searchClearId);
+}
 
-    setupSearchClearButton('usecasesSearchInput', 'usecasesSearchClear');
+// ============================================
+// BACKWARD COMPATIBLE CATALOG PAGE WRAPPERS
+// ============================================
+
+function renderCatalogPage(activeTags = [], activeCategory = '') {
+    renderGenericCatalogPage('elements', activeTags, activeCategory);
+}
+
+function renderDocumentsCatalogPage(activeTags = [], activeCategory = '') {
+    renderGenericCatalogPage('documents', activeTags, activeCategory);
+}
+
+function renderUsecasesCatalogPage(activeTags = [], activeCategory = '') {
+    renderGenericCatalogPage('usecases', activeTags, activeCategory);
 }
 
 function renderModelsCatalogPage(activeTags = [], activeCategory = '') {
-    let filteredData = filterDataByCategory(globalModelsData, activeCategory);
-    filteredData = filterDataByTags(filteredData, activeTags);
-
-    const filterPanelClass = modelsFilterVisible ? '' : 'closed';
-    const currentView = getActiveViewFromURL();
-    const gridActive = currentView === 'grid' ? 'active' : '';
-    const listActive = currentView === 'list' ? 'active' : '';
-    const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
-
-    contentArea.innerHTML = `
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Fachmodelle</h1>
-                <p class="page-lead">Domänenspezifische BIM-Modelle für Architektur, Tragwerk, Haustechnik und weitere Fachbereiche.</p>
-            </div>
-            <div class="gallery-filter-container">
-                <div class="gallery-filter-left">
-                    <div class="gallery-filter-wrapper">
-                        <input type="text" id="modelsSearchInput" class="gallery-filter-input" placeholder="Suche nach Fachmodellen...">
-                        <button type="button" class="search-clear-btn" id="modelsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                        <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                    </div>
-                    ${renderFilterButton('models', modelsFilterVisible, activeFiltersCount)}
-                </div>
-                <div class="view-switcher toolbar-control">
-                    <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                    <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
-                </div>
-            </div>
-
-            ${renderFilterBar({
-                data: globalModelsData,
-                activeTags: activeTags,
-                activeCategory: activeCategory,
-                filterPanelClass: filterPanelClass
-            })}
-
-            <div id="modelsContent" class="catalog-content">
-                ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderModelsGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
-                    : renderModelsListItemsHTML(filteredData, activeTags, activeCategory)
-                }
-            </div>
-        </div>`;
-
-    const searchInput = document.getElementById('modelsSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            let searchFilteredData = filterDataByCategory(globalModelsData, activeCategory);
-            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            searchFilteredData = searchFilteredData.filter(item =>
-                (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-                (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-                (item.description && item.description.toLowerCase().includes(searchTerm))
-            );
-            const container = document.getElementById('modelsContent');
-            container.innerHTML = (getActiveViewFromURL() === 'grid')
-                ? `<div class="element-grid">${renderModelsGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderModelsListItemsHTML(searchFilteredData, activeTags, activeCategory);
-        });
-    }
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    setupSearchClearButton('modelsSearchInput', 'modelsSearchClear');
+    renderGenericCatalogPage('models', activeTags, activeCategory);
 }
 
 function renderEpdsCatalogPage(activeTags = [], activeCategory = '') {
-    let filteredData = filterDataByCategory(globalEpdsData, activeCategory);
-    filteredData = filterDataByTags(filteredData, activeTags);
-
-    const filterPanelClass = epdsFilterVisible ? '' : 'closed';
-    const currentView = getActiveViewFromURL();
-    const gridActive = currentView === 'grid' ? 'active' : '';
-    const listActive = currentView === 'list' ? 'active' : '';
-    const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0);
-
-    contentArea.innerHTML = `
-        <div class="container">
-            <div class="page-header">
-                <h1 class="page-title">Ökobilanzdaten</h1>
-                <p class="page-lead">Umweltproduktdeklarationen (EPD) und Ökobilanzkennwerte für Baumaterialien und Gebäudetechnik.</p>
-            </div>
-            <div class="gallery-filter-container">
-                <div class="gallery-filter-left">
-                    <div class="gallery-filter-wrapper">
-                        <input type="text" id="epdsSearchInput" class="gallery-filter-input" placeholder="Suche nach Ökobilanzdaten...">
-                        <button type="button" class="search-clear-btn" id="epdsSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
-                        <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
-                    </div>
-                    ${renderFilterButton('epds', epdsFilterVisible, activeFiltersCount)}
-                </div>
-                <div class="view-switcher toolbar-control">
-                    <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                    <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
-                </div>
-            </div>
-
-            ${renderFilterBar({
-                data: globalEpdsData,
-                activeTags: activeTags,
-                activeCategory: activeCategory,
-                filterPanelClass: filterPanelClass
-            })}
-
-            <div id="epdsContent" class="catalog-content">
-                ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderEpdsGridItemsHTML(filteredData, activeTags, activeCategory)}</div>`
-                    : renderEpdsListItemsHTML(filteredData, activeTags, activeCategory)
-                }
-            </div>
-        </div>`;
-
-    const searchInput = document.getElementById('epdsSearchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            let searchFilteredData = filterDataByCategory(globalEpdsData, activeCategory);
-            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            searchFilteredData = searchFilteredData.filter(item =>
-                (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-                (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-                (item.description && item.description.toLowerCase().includes(searchTerm))
-            );
-            const container = document.getElementById('epdsContent');
-            container.innerHTML = (getActiveViewFromURL() === 'grid')
-                ? `<div class="element-grid">${renderEpdsGridItemsHTML(searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderEpdsListItemsHTML(searchFilteredData, activeTags, activeCategory);
-        });
-    }
-
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-
-    setupSearchClearButton('epdsSearchInput', 'epdsSearchClear');
+    renderGenericCatalogPage('epds', activeTags, activeCategory);
 }

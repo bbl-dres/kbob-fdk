@@ -1,13 +1,76 @@
 /**
  * KBOB Fachdatenkatalog - Item Renderers
- * Grid and list renderers for all data types
+ * Consolidated grid and list renderers for all data types
  */
+
+// ============================================
+// CATALOG TYPE CONFIGURATION
+// ============================================
+
+/**
+ * Configuration for each catalog type
+ * Used by generic render functions to generate type-specific output
+ */
+const catalogTypeConfig = {
+    elements: {
+        routePrefix: 'element',
+        cardIdPrefix: 'element',
+        icon: 'image',
+        subtitleField: 'classification', // fallback field for subtitle
+        searchFields: ['title', 'classification'],
+        getData: () => globalElementsData,
+        getFilterVisible: () => elementsFilterVisible,
+        setFilterVisible: (val) => { elementsFilterVisible = val; }
+    },
+    documents: {
+        routePrefix: 'document',
+        cardIdPrefix: 'document',
+        icon: 'file-text',
+        subtitleField: 'category',
+        searchFields: ['title', 'category', 'description'],
+        getData: () => globalDocumentsData,
+        getFilterVisible: () => documentsFilterVisible,
+        setFilterVisible: (val) => { documentsFilterVisible = val; }
+    },
+    usecases: {
+        routePrefix: 'usecase',
+        cardIdPrefix: 'usecase',
+        icon: 'workflow',
+        subtitleField: 'category',
+        searchFields: ['title', 'category', 'description'],
+        getData: () => globalUsecasesData,
+        getFilterVisible: () => usecasesFilterVisible,
+        setFilterVisible: (val) => { usecasesFilterVisible = val; },
+        hasPhases: true
+    },
+    models: {
+        routePrefix: 'model',
+        cardIdPrefix: 'model',
+        icon: 'boxes',
+        subtitleField: 'category',
+        searchFields: ['title', 'category', 'description'],
+        getData: () => globalModelsData,
+        getFilterVisible: () => modelsFilterVisible,
+        setFilterVisible: (val) => { modelsFilterVisible = val; }
+    },
+    epds: {
+        routePrefix: 'epd',
+        cardIdPrefix: 'epd',
+        icon: 'leaf',
+        subtitleField: 'category',
+        searchFields: ['title', 'category', 'description'],
+        getData: () => globalEpdsData,
+        getFilterVisible: () => epdsFilterVisible,
+        setFilterVisible: (val) => { epdsFilterVisible = val; }
+    }
+};
+
+// ============================================
+// TAG RENDERING HELPERS
+// ============================================
 
 /**
  * Render tags HTML for full view
- * @param {Array} tagsData - Array of tag strings
- * @param {string[]} activeTags - Currently active tags
- * @returns {string} HTML string
  */
 function renderTagsHtml(tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData)) return '';
@@ -20,7 +83,6 @@ function renderTagsHtml(tagsData, activeTags = []) {
 
 /**
  * Toggle card tags expanded state
- * @param {string} cardId - Card identifier
  */
 window.toggleCardTags = function(cardId) {
     event.stopPropagation();
@@ -39,10 +101,6 @@ window.toggleCardTags = function(cardId) {
 
 /**
  * Render tags for card with +N / - toggle (max 2 visible by default)
- * @param {string} cardId - Card identifier
- * @param {Array} tagsData - Array of tag strings
- * @param {string[]} activeTags - Currently active tags
- * @returns {string} HTML string
  */
 function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
@@ -51,13 +109,14 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     const isExpanded = expandedCardTags.has(cardId);
     const hiddenCount = tagsData.length - maxVisible;
 
-    if (tagsData.length <= maxVisible || isExpanded) {
-        const tagsHtml = tagsData.map(tag => {
-            const isActive = activeTags.includes(tag);
-            const activeClass = isActive ? 'active' : '';
-            return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
-        }).join('');
+    const renderTag = (tag) => {
+        const isActive = activeTags.includes(tag);
+        const activeClass = isActive ? 'active' : '';
+        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
+    };
 
+    if (tagsData.length <= maxVisible || isExpanded) {
+        const tagsHtml = tagsData.map(renderTag).join('');
         if (isExpanded && tagsData.length > maxVisible) {
             return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="Weniger anzeigen">−</span>`;
         }
@@ -65,19 +124,16 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     }
 
     const visibleTags = tagsData.slice(0, maxVisible);
-    const tagsHtml = visibleTags.map(tag => {
-        const isActive = activeTags.includes(tag);
-        const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${tag}')" title="Filter: ${tag}">${tag}</span>`;
-    }).join('');
-
+    const tagsHtml = visibleTags.map(renderTag).join('');
     return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags('${cardId}')" title="${hiddenCount} weitere Tags anzeigen">+${hiddenCount}</span>`;
 }
 
+// ============================================
+// UTILITY RENDERERS
+// ============================================
+
 /**
  * Render no results message
- * @param {boolean} hasActiveTags - Whether there are active filters
- * @returns {string} HTML string
  */
 function renderNoResults(hasActiveTags) {
     if (hasActiveTags) {
@@ -94,8 +150,6 @@ function renderNoResults(hasActiveTags) {
 
 /**
  * Render phase badges
- * @param {number[]} phases - Array of phase numbers
- * @returns {string} HTML string
  */
 function renderPhaseBadges(phases) {
     if (!phases || !Array.isArray(phases)) return '<span class="empty-text">-</span>';
@@ -109,267 +163,137 @@ function renderPhaseBadges(phases) {
     return badgesHtml;
 }
 
+/**
+ * Refresh Lucide icons (utility to avoid repetition)
+ */
+function refreshIcons() {
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+}
+
 // ============================================
-// ELEMENTS RENDERERS
+// GENERIC GRID RENDERER
+// ============================================
+
+/**
+ * Generic grid renderer for all catalog types
+ * @param {string} type - Catalog type key (elements, documents, usecases, models, epds)
+ * @param {Array} items - Array of data items
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @returns {string} HTML string
+ */
+function renderGenericGridItems(type, items, activeTags = [], activeCategory = '') {
+    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
+
+    const config = catalogTypeConfig[type];
+    if (!config) return renderNoResults(false);
+
+    return items.map(item => {
+        const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
+        const cardId = `${config.cardIdPrefix}-${item.id}`;
+        const isCategoryActive = activeCategory === item.category;
+        const subtitle = item.description || item[config.subtitleField] || '';
+
+        return `
+        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
+            <div class="card__image">
+                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
+                ${item.image ? `<img src="${item.image}" alt="${item.title}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
+            </div>
+            <div class="card__body">
+                <h3 class="card__title">${item.title}</h3>
+                <p class="card__subtitle">${subtitle}</p>
+                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
+            </div>
+            <footer class="card__footer card__footer--end">
+                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+            </footer>
+        </article>
+    `}).join('');
+}
+
+// ============================================
+// GENERIC LIST RENDERER
+// ============================================
+
+/**
+ * Generic list renderer for all catalog types
+ * @param {string} type - Catalog type key
+ * @param {Array} items - Array of data items
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @returns {string} HTML string
+ */
+function renderGenericListItems(type, items, activeTags = [], activeCategory = '') {
+    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
+
+    const config = catalogTypeConfig[type];
+    if (!config) return renderNoResults(false);
+
+    const headerHtml = `
+        <div class="list-header-row">
+            <div class="list-col-name">Name</div>
+            <div class="list-col-desc">Beschreibung</div>
+            <div class="list-col-tags">Tags</div>
+        </div>
+    `;
+
+    const itemsHtml = items.map(item => {
+        const subtitle = item.description || item[config.subtitleField] || '';
+        return `
+        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
+            <div class="list-col-name">${item.title}</div>
+            <div class="list-col-desc">${subtitle}</div>
+            <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
+        </div>
+    `}).join('');
+
+    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+}
+
+// ============================================
+// BACKWARD COMPATIBLE WRAPPERS
+// These maintain the original function names for compatibility
 // ============================================
 
 function renderGridItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    return items.map(el => {
-        const hasTags = el.tags && Array.isArray(el.tags) && el.tags.length > 0;
-        const cardId = `element-${el.id}`;
-        const isCategoryActive = activeCategory === el.category;
-
-        return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags, activeCategory)}'">
-            <div class="card__image">
-                ${el.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${el.category}')">${el.category}</span>` : ''}
-                ${el.image ? `<img src="${el.image}" alt="${el.title}">` : '<i data-lucide="image" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
-            </div>
-            <div class="card__body">
-                <h3 class="card__title">${el.title}</h3>
-                <p class="card__subtitle">${el.description || el.classification}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(el.tags)}'>${renderCardTagsHtml(cardId, el.tags, activeTags)}</div>` : ''}
-            </div>
-            <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-            </footer>
-        </article>
-    `}).join('');
+    return renderGenericGridItems('elements', items, activeTags, activeCategory);
 }
 
 function renderListItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    const headerHtml = `
-        <div class="list-header-row">
-            <div class="list-col-name">Name</div>
-            <div class="list-col-desc">Beschreibung</div>
-            <div class="list-col-tags">Tags</div>
-        </div>
-    `;
-
-    const itemsHtml = items.map(el => {
-        return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('element/' + el.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${el.title}</div>
-            <div class="list-col-desc">${el.description || el.classification}</div>
-            <div class="list-col-tags">${renderTagsHtml(el.tags, activeTags)}</div>
-        </div>
-    `}).join('');
-
-    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+    return renderGenericListItems('elements', items, activeTags, activeCategory);
 }
 
-// ============================================
-// DOCUMENTS RENDERERS
-// ============================================
-
 function renderDocGridItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    return items.map(doc => {
-        const hasTags = doc.tags && Array.isArray(doc.tags) && doc.tags.length > 0;
-        const cardId = `document-${doc.id}`;
-        const isCategoryActive = activeCategory === doc.category;
-
-        return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags, activeCategory)}'">
-            <div class="card__image">
-                ${doc.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${doc.category}')">${doc.category}</span>` : ''}
-                ${doc.image ? `<img src="${doc.image}" alt="${doc.title}">` : '<i data-lucide="file-text" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
-            </div>
-            <div class="card__body">
-                <h3 class="card__title">${doc.title}</h3>
-                <p class="card__subtitle">${doc.description || doc.category}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(doc.tags)}'>${renderCardTagsHtml(cardId, doc.tags, activeTags)}</div>` : ''}
-            </div>
-            <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-            </footer>
-        </article>
-    `}).join('');
+    return renderGenericGridItems('documents', items, activeTags, activeCategory);
 }
 
 function renderDocListItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    const headerHtml = `
-        <div class="list-header-row">
-            <div class="list-col-name">Name</div>
-            <div class="list-col-desc">Beschreibung</div>
-            <div class="list-col-tags">Tags</div>
-        </div>
-    `;
-
-    const itemsHtml = items.map(doc => {
-        return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('document/' + doc.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${doc.title}</div>
-            <div class="list-col-desc">${doc.description || doc.category}</div>
-            <div class="list-col-tags">${renderTagsHtml(doc.tags, activeTags)}</div>
-        </div>
-    `}).join('');
-
-    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+    return renderGenericListItems('documents', items, activeTags, activeCategory);
 }
 
-// ============================================
-// USECASES RENDERERS
-// ============================================
-
 function renderUsecasesGridItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    return items.map(item => {
-        const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
-        const cardId = `usecase-${item.id}`;
-        const isCategoryActive = activeCategory === item.category;
-
-        return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags, activeCategory)}'">
-            <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
-                ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="workflow" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
-            </div>
-            <div class="card__body">
-                <h3 class="card__title">${item.title}</h3>
-                <p class="card__subtitle">${item.description || item.category}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-            </div>
-            <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-            </footer>
-        </article>
-    `}).join('');
+    return renderGenericGridItems('usecases', items, activeTags, activeCategory);
 }
 
 function renderUsecasesListItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    const headerHtml = `
-        <div class="list-header-row">
-            <div class="list-col-name">Name</div>
-            <div class="list-col-desc">Beschreibung</div>
-            <div class="list-col-tags">Tags</div>
-        </div>
-    `;
-
-    const itemsHtml = items.map(item => {
-        return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('usecase/' + item.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${item.title}</div>
-            <div class="list-col-desc">${item.description || item.category}</div>
-            <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
-        </div>
-    `}).join('');
-
-    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+    return renderGenericListItems('usecases', items, activeTags, activeCategory);
 }
 
-// ============================================
-// MODELS RENDERERS
-// ============================================
-
 function renderModelsGridItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    return items.map(item => {
-        const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
-        const cardId = `model-${item.id}`;
-        const isCategoryActive = activeCategory === item.category;
-
-        return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags, activeCategory)}'">
-            <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
-                ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="boxes" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
-            </div>
-            <div class="card__body">
-                <h3 class="card__title">${item.title}</h3>
-                <p class="card__subtitle">${item.description || item.category}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-            </div>
-            <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-            </footer>
-        </article>
-    `}).join('');
+    return renderGenericGridItems('models', items, activeTags, activeCategory);
 }
 
 function renderModelsListItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    const headerHtml = `
-        <div class="list-header-row">
-            <div class="list-col-name">Name</div>
-            <div class="list-col-desc">Beschreibung</div>
-            <div class="list-col-tags">Tags</div>
-        </div>
-    `;
-
-    const itemsHtml = items.map(item => {
-        return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('model/' + item.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${item.title}</div>
-            <div class="list-col-desc">${item.description || item.category}</div>
-            <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
-        </div>
-    `}).join('');
-
-    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+    return renderGenericListItems('models', items, activeTags, activeCategory);
 }
 
-// ============================================
-// EPDS RENDERERS
-// ============================================
-
 function renderEpdsGridItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    return items.map(item => {
-        const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
-        const cardId = `epd-${item.id}`;
-        const isCategoryActive = activeCategory === item.category;
-
-        return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags, activeCategory)}'">
-            <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${item.category}')">${item.category}</span>` : ''}
-                ${item.image ? `<img src="${item.image}" alt="${item.title}">` : '<i data-lucide="leaf" class="placeholder-icon icon--xl" aria-hidden="true"></i>'}
-            </div>
-            <div class="card__body">
-                <h3 class="card__title">${item.title}</h3>
-                <p class="card__subtitle">${item.description || item.category}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
-            </div>
-            <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
-            </footer>
-        </article>
-    `}).join('');
+    return renderGenericGridItems('epds', items, activeTags, activeCategory);
 }
 
 function renderEpdsListItemsHTML(items, activeTags = [], activeCategory = '') {
-    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
-
-    const headerHtml = `
-        <div class="list-header-row">
-            <div class="list-col-name">Name</div>
-            <div class="list-col-desc">Beschreibung</div>
-            <div class="list-col-tags">Tags</div>
-        </div>
-    `;
-
-    const itemsHtml = items.map(item => {
-        return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags('epd/' + item.id, activeTags, activeCategory)}'">
-            <div class="list-col-name">${item.title}</div>
-            <div class="list-col-desc">${item.description || item.category}</div>
-            <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
-        </div>
-    `}).join('');
-
-    return `<div class="element-list-container">${headerHtml}${itemsHtml}</div>`;
+    return renderGenericListItems('epds', items, activeTags, activeCategory);
 }

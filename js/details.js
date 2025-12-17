@@ -144,17 +144,64 @@ function renderElementDetailPage(id, activeTags = []) {
 }
 
 // ============================================
-// DOCUMENT DETAIL PAGE
+// PLACEHOLDER DETAIL PAGE CONFIGURATION
 // ============================================
 
-function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalDocumentsData.find(doc => doc.id === id);
-    if (!data) {
-        contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden. Detail-Seite für Dokumente ist noch in Entwicklung.</div>';
+/**
+ * Configuration for placeholder detail pages (documents, models, epds)
+ */
+const placeholderDetailConfig = {
+    documents: {
+        getData: () => globalDocumentsData,
+        backRoute: 'documents',
+        icon: 'file-text',
+        notFoundText: 'Dokument nicht gefunden. Detail-Seite für Dokumente ist noch in Entwicklung.',
+        defaultDescription: 'Ein Dokument des KBOB Datenkatalogs.',
+        infoBoxText: 'Die Detail-Ansicht für Dokumente wird derzeit entwickelt.'
+    },
+    models: {
+        getData: () => globalModelsData,
+        backRoute: 'models',
+        icon: 'boxes',
+        notFoundText: 'Fachmodell nicht gefunden.',
+        defaultDescription: 'Ein Fachmodell des KBOB Datenkatalogs.',
+        infoBoxText: 'Die Detail-Ansicht für Fachmodelle wird derzeit entwickelt.'
+    },
+    epds: {
+        getData: () => globalEpdsData,
+        backRoute: 'epds',
+        icon: 'leaf',
+        notFoundText: 'Ökobilanzdaten nicht gefunden.',
+        defaultDescription: 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.',
+        infoBoxText: 'Die Detail-Ansicht für Ökobilanzdaten wird derzeit entwickelt.'
+    }
+};
+
+// ============================================
+// GENERIC PLACEHOLDER DETAIL PAGE
+// ============================================
+
+/**
+ * Generic renderer for placeholder detail pages
+ * @param {string} type - Placeholder type key (documents, models, epds)
+ * @param {string} id - Item ID
+ * @param {string[]} activeTags - Active tag filters
+ * @param {string} activeCategory - Active category filter
+ */
+function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory = '') {
+    const config = placeholderDetailConfig[type];
+    if (!config) {
+        contentArea.innerHTML = '<div class="container error-state">Unbekannter Seitentyp.</div>';
         return;
     }
 
-    const backLink = buildHashWithTags('documents', activeTags, activeCategory, [], getActiveViewFromURL());
+    const data = config.getData().find(item => item.id === id);
+    if (!data) {
+        contentArea.innerHTML = `<div class="container error-state">${config.notFoundText}</div>`;
+        return;
+    }
+
+    const backLink = buildHashWithTags(config.backRoute, activeTags, activeCategory, [], getActiveViewFromURL());
 
     contentArea.innerHTML = `
         <section class="detail-hero">
@@ -162,11 +209,11 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
                 <div class="hero-content">
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || 'Ein Dokument des KBOB Datenkatalogs.'}</p>
+                    <p class="hero-subtitle">${data.description || config.defaultDescription}</p>
                     <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
                 </div>
             </div>
         </section>
@@ -174,9 +221,17 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="info-box info-box--centered">
                 <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
                 <h2 class="info-box__title">In Entwicklung</h2>
-                <p class="info-box__text">Die Detail-Ansicht für Dokumente wird derzeit entwickelt.</p>
+                <p class="info-box__text">${config.infoBoxText}</p>
             </div>
         </div>`;
+}
+
+// ============================================
+// BACKWARD COMPATIBLE WRAPPERS
+// ============================================
+
+function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
+    renderPlaceholderDetailPage('documents', id, activeTags, activeCategory);
 }
 
 // ============================================
@@ -327,76 +382,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     setupDetailInteractions();
 }
 
-// ============================================
-// MODEL DETAIL PAGE
-// ============================================
-
 function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalModelsData.find(item => item.id === id);
-    if (!data) {
-        contentArea.innerHTML = '<div class="container error-state">Fachmodell nicht gefunden.</div>';
-        return;
-    }
-
-    const backLink = buildHashWithTags('models', activeTags, activeCategory, [], getActiveViewFromURL());
-
-    contentArea.innerHTML = `
-        <section class="detail-hero">
-            <div class="container detail-hero__inner">
-                <div class="hero-content">
-                    <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                    <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || 'Ein Fachmodell des KBOB Datenkatalogs.'}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                </div>
-                <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <div class="info-box info-box--centered">
-                <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
-                <h2 class="info-box__title">In Entwicklung</h2>
-                <p class="info-box__text">Die Detail-Ansicht für Fachmodelle wird derzeit entwickelt.</p>
-            </div>
-        </div>`;
+    renderPlaceholderDetailPage('models', id, activeTags, activeCategory);
 }
 
-// ============================================
-// EPD DETAIL PAGE
-// ============================================
-
 function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalEpdsData.find(item => item.id === id);
-    if (!data) {
-        contentArea.innerHTML = '<div class="container error-state">Ökobilanzdaten nicht gefunden.</div>';
-        return;
-    }
-
-    const backLink = buildHashWithTags('epds', activeTags, activeCategory, [], getActiveViewFromURL());
-
-    contentArea.innerHTML = `
-        <section class="detail-hero">
-            <div class="container detail-hero__inner">
-                <div class="hero-content">
-                    <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
-                    <h1 class="hero-title">${data.title}</h1>
-                    <p class="hero-subtitle">${data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.'}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
-                </div>
-                <div class="hero-image-container">
-                    ${data.image ? `<img src="${data.image}" alt="${data.title}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
-                </div>
-            </div>
-        </section>
-        <div class="container">
-            <div class="info-box info-box--centered">
-                <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
-                <h2 class="info-box__title">In Entwicklung</h2>
-                <p class="info-box__text">Die Detail-Ansicht für Ökobilanzdaten wird derzeit entwickelt.</p>
-            </div>
-        </div>`;
+    renderPlaceholderDetailPage('epds', id, activeTags, activeCategory);
 }
 
 // ============================================

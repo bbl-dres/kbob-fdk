@@ -1,99 +1,125 @@
 /**
  * KBOB Fachdatenkatalog - Search Functionality
- * Global and full search implementations
+ * Consolidated search implementations
  */
+
+// ============================================
+// SEARCH CONFIGURATION
+// ============================================
+
+/**
+ * Configuration for search across data types
+ */
+const searchDataTypes = [
+    {
+        key: 'usecases',
+        resultKey: 'anwendungsfaelle',
+        label: 'Anwendungsfälle',
+        type: 'Anwendungsfall',
+        routePrefix: 'usecase',
+        getData: () => globalUsecasesData,
+        searchFields: ['title', 'category', 'description'],
+        descriptionField: 'description'
+    },
+    {
+        key: 'elements',
+        resultKey: 'elemente',
+        label: 'Elemente',
+        type: 'Element',
+        routePrefix: 'element',
+        getData: () => globalElementsData,
+        searchFields: ['title', 'classification', 'description'],
+        descriptionField: 'classification' // fallback for description
+    },
+    {
+        key: 'models',
+        resultKey: 'fachmodelle',
+        label: 'Fachmodelle',
+        type: 'Fachmodell',
+        routePrefix: 'model',
+        getData: () => globalModelsData,
+        searchFields: ['title', 'category', 'description'],
+        descriptionField: 'description'
+    },
+    {
+        key: 'documents',
+        resultKey: 'dokumente',
+        label: 'Dokumente',
+        type: 'Dokument',
+        routePrefix: 'document',
+        getData: () => globalDocumentsData,
+        searchFields: ['title', 'category', 'description'],
+        descriptionField: 'description'
+    },
+    {
+        key: 'epds',
+        resultKey: 'oekobilanzdaten',
+        label: 'Ökobilanzdaten',
+        type: 'EPD',
+        routePrefix: 'epd',
+        getData: () => globalEpdsData,
+        searchFields: ['title', 'category', 'description'],
+        descriptionField: 'description'
+    }
+];
+
+// ============================================
+// SEARCH HELPERS
+// ============================================
+
+/**
+ * Search items by term across specified fields
+ */
+function searchItems(data, searchFields, searchTerm) {
+    return data.filter(item =>
+        searchFields.some(field =>
+            item[field] && item[field].toLowerCase().includes(searchTerm)
+        )
+    );
+}
+
+// ============================================
+// GLOBAL SEARCH (Homepage Dropdown)
+// ============================================
 
 /**
  * Perform global search across all data types (for homepage dropdown)
- * @param {string} query - Search query
- * @returns {Object} Results organized by type
  */
 function performGlobalSearch(query) {
-    const results = {
-        anwendungsfaelle: [],
-        elemente: [],
-        fachmodelle: [],
-        dokumente: [],
-        oekobilanzdaten: []
-    };
+    const results = {};
+    searchDataTypes.forEach(dt => {
+        results[dt.resultKey] = [];
+    });
 
     const searchTerm = query.toLowerCase().trim();
     if (searchTerm.length < 2) return results;
 
-    // Search Elements
-    results.elemente = globalElementsData
-        .filter(el =>
-            (el.title && el.title.toLowerCase().includes(searchTerm)) ||
-            (el.classification && el.classification.toLowerCase().includes(searchTerm)) ||
-            (el.description && el.description.toLowerCase().includes(searchTerm))
-        )
-        .slice(0, 3);
-
-    // Search Documents
-    results.dokumente = globalDocumentsData
-        .filter(doc =>
-            (doc.title && doc.title.toLowerCase().includes(searchTerm)) ||
-            (doc.category && doc.category.toLowerCase().includes(searchTerm)) ||
-            (doc.description && doc.description.toLowerCase().includes(searchTerm))
-        )
-        .slice(0, 3);
-
-    // Search Usecases
-    results.anwendungsfaelle = globalUsecasesData
-        .filter(item =>
-            (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))
-        )
-        .slice(0, 3);
-
-    // Search Models
-    results.fachmodelle = globalModelsData
-        .filter(item =>
-            (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))
-        )
-        .slice(0, 3);
-
-    // Search EPDs
-    results.oekobilanzdaten = globalEpdsData
-        .filter(item =>
-            (item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))
-        )
-        .slice(0, 3);
+    searchDataTypes.forEach(dataType => {
+        results[dataType.resultKey] = searchItems(
+            dataType.getData(),
+            dataType.searchFields,
+            searchTerm
+        ).slice(0, 3);
+    });
 
     return results;
 }
 
 /**
  * Render search dropdown HTML
- * @param {Object} results - Search results
- * @param {string} query - Search query
- * @returns {string} HTML string
  */
 function renderSearchDropdown(results, query) {
-    const categories = [
-        { key: 'anwendungsfaelle', label: 'Anwendungsfälle', hashPrefix: 'usecase' },
-        { key: 'elemente', label: 'Elemente', hashPrefix: 'element' },
-        { key: 'fachmodelle', label: 'Fachmodelle', hashPrefix: 'model' },
-        { key: 'dokumente', label: 'Dokumente', hashPrefix: 'document' },
-        { key: 'oekobilanzdaten', label: 'Ökobilanzdaten', hashPrefix: 'epd' }
-    ];
-
     let hasAnyResults = false;
     let html = '';
 
-    categories.forEach(cat => {
-        const items = results[cat.key];
+    searchDataTypes.forEach(dataType => {
+        const items = results[dataType.resultKey];
         if (items && items.length > 0) {
             hasAnyResults = true;
             html += `<div class="search-dropdown-group">`;
-            html += `<div class="search-dropdown-header">${cat.label}</div>`;
+            html += `<div class="search-dropdown-header">${dataType.label}</div>`;
             items.forEach(item => {
-                html += `<a class="search-dropdown-item" href="#${cat.hashPrefix}/${item.id}">${item.title}</a>`;
+                html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${item.id}">${item.title}</a>`;
             });
             html += `</div>`;
         }
@@ -112,11 +138,73 @@ function renderSearchDropdown(results, query) {
     return html;
 }
 
+// ============================================
+// FULL SEARCH (Search Results Page)
+// ============================================
+
+/**
+ * Perform full search across all categories (for search results page)
+ */
+function performFullSearch(query) {
+    const results = [];
+    const searchTerm = query.toLowerCase().trim();
+    if (searchTerm.length < 2) return results;
+
+    searchDataTypes.forEach(dataType => {
+        const matchingItems = searchItems(
+            dataType.getData(),
+            dataType.searchFields,
+            searchTerm
+        );
+
+        matchingItems.forEach(item => {
+            results.push({
+                type: dataType.type,
+                category: dataType.routePrefix,
+                id: item.id,
+                title: item.title,
+                description: item.description || item[dataType.descriptionField] || '',
+                date: item.date || null
+            });
+        });
+    });
+
+    // Sort results
+    if (currentSearchSort === 'date-desc') {
+        results.sort((a, b) => {
+            if (!a.date && !b.date) return 0;
+            if (!a.date) return 1;
+            if (!b.date) return -1;
+            return new Date(b.date) - new Date(a.date);
+        });
+    } else if (currentSearchSort === 'date-asc') {
+        results.sort((a, b) => {
+            if (!a.date && !b.date) return 0;
+            if (!a.date) return 1;
+            if (!b.date) return -1;
+            return new Date(a.date) - new Date(b.date);
+        });
+    }
+
+    return results;
+}
+
+/**
+ * Format date for search results display
+ */
+function formatSearchDate(dateStr) {
+    if (!dateStr) return '';
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return '';
+    return date.toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// ============================================
+// SEARCH UI SETUP
+// ============================================
+
 /**
  * Setup search clear button functionality
- * @param {string} inputId - Input element ID
- * @param {string} clearBtnId - Clear button ID
- * @param {Function} onClear - Optional callback when cleared
  */
 function setupSearchClearButton(inputId, clearBtnId, onClear) {
     const input = document.getElementById(inputId);
@@ -125,11 +213,7 @@ function setupSearchClearButton(inputId, clearBtnId, onClear) {
     if (!input || !clearBtn) return;
 
     function updateClearVisibility() {
-        if (input.value.length > 0) {
-            clearBtn.classList.add('visible');
-        } else {
-            clearBtn.classList.remove('visible');
-        }
+        clearBtn.classList.toggle('visible', input.value.length > 0);
     }
 
     input.addEventListener('input', updateClearVisibility);
@@ -258,131 +342,12 @@ function setupHeaderSearch() {
     setupSearchClearButton('headerSearchInput', 'headerSearchClear');
 }
 
-/**
- * Perform full search across all categories (for search results page)
- * @param {string} query - Search query
- * @returns {Array} Combined results with metadata
- */
-function performFullSearch(query) {
-    const results = [];
-    const searchTerm = query.toLowerCase().trim();
-    if (searchTerm.length < 2) return results;
-
-    // Search Use Cases
-    globalUsecasesData.forEach(item => {
-        if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))) {
-            results.push({
-                type: 'Anwendungsfall',
-                category: 'usecase',
-                id: item.id,
-                title: item.title,
-                description: item.description || '',
-                date: item.date || null
-            });
-        }
-    });
-
-    // Search Elements
-    globalElementsData.forEach(item => {
-        if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.classification && item.classification.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))) {
-            results.push({
-                type: 'Element',
-                category: 'element',
-                id: item.id,
-                title: item.title,
-                description: item.description || item.classification || '',
-                date: item.date || null
-            });
-        }
-    });
-
-    // Search Models
-    globalModelsData.forEach(item => {
-        if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))) {
-            results.push({
-                type: 'Fachmodell',
-                category: 'model',
-                id: item.id,
-                title: item.title,
-                description: item.description || '',
-                date: item.date || null
-            });
-        }
-    });
-
-    // Search Documents
-    globalDocumentsData.forEach(item => {
-        if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))) {
-            results.push({
-                type: 'Dokument',
-                category: 'document',
-                id: item.id,
-                title: item.title,
-                description: item.description || '',
-                date: item.date || null
-            });
-        }
-    });
-
-    // Search EPDs
-    globalEpdsData.forEach(item => {
-        if ((item.title && item.title.toLowerCase().includes(searchTerm)) ||
-            (item.category && item.category.toLowerCase().includes(searchTerm)) ||
-            (item.description && item.description.toLowerCase().includes(searchTerm))) {
-            results.push({
-                type: 'EPD',
-                category: 'epd',
-                id: item.id,
-                title: item.title,
-                description: item.description || '',
-                date: item.date || null
-            });
-        }
-    });
-
-    // Sort results
-    if (currentSearchSort === 'date-desc') {
-        results.sort((a, b) => {
-            if (!a.date && !b.date) return 0;
-            if (!a.date) return 1;
-            if (!b.date) return -1;
-            return new Date(b.date) - new Date(a.date);
-        });
-    } else if (currentSearchSort === 'date-asc') {
-        results.sort((a, b) => {
-            if (!a.date && !b.date) return 0;
-            if (!a.date) return 1;
-            if (!b.date) return -1;
-            return new Date(a.date) - new Date(b.date);
-        });
-    }
-
-    return results;
-}
-
-/**
- * Format date for search results display
- * @param {string} dateStr - Date string
- * @returns {string} Formatted date
- */
-function formatSearchDate(dateStr) {
-    if (!dateStr) return '';
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) return '';
-    return date.toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' });
-}
+// ============================================
+// SEARCH VIEW CONTROLS
+// ============================================
 
 /**
  * Switch search view mode
- * @param {string} view - View mode ('grid' or 'list')
  */
 window.switchSearchView = function(view) {
     const currentView = getActiveViewFromURL();

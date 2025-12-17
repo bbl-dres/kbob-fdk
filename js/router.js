@@ -127,23 +127,13 @@ window.switchView = function(view) {
 
 /**
  * Toggle filter visibility for a specific type
+ * Uses catalogTypeConfig from renderers.js for configuration
  * @param {string} type - Filter type
  */
 window.toggleFilter = function(type = 'elements') {
-    if (type === 'elements') {
-        elementsFilterVisible = !elementsFilterVisible;
-        renderCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-    } else if (type === 'documents') {
-        documentsFilterVisible = !documentsFilterVisible;
-        renderDocumentsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-    } else if (type === 'usecases') {
-        usecasesFilterVisible = !usecasesFilterVisible;
-        renderUsecasesCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-    } else if (type === 'models') {
-        modelsFilterVisible = !modelsFilterVisible;
-        renderModelsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
-    } else if (type === 'epds') {
-        epdsFilterVisible = !epdsFilterVisible;
-        renderEpdsCatalogPage(getActiveTagsFromURL(), getActiveCategoryFromURL());
+    const config = catalogTypeConfig[type];
+    if (config) {
+        config.setFilterVisible(!config.getFilterVisible());
+        renderGenericCatalogPage(type, getActiveTagsFromURL(), getActiveCategoryFromURL());
     }
 }
