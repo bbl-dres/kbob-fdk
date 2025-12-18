@@ -23,6 +23,16 @@
       "DIN276": [
         "KG 466 – hydraulikanlagen",
         "KG 481 – Automationseinrichtungen"
+      ],
+      "eBKP-H": [
+        "C02 – Wandkonstruktion",
+        "D02 – Gebäudeautomation",
+        "D02.02 – Automationsebene",
+        "D02.03 – Feldebene",
+        "D07 – Lufttechnische Anlage",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor",
+        "G03 – Wandbekleidung"
       ]
     },
     "ifcMapping": [
@@ -269,6 +279,11 @@
         "KG454 – Elektroackustische Anlagen",
         "KG455 – Audiovisuelle Medien- und Antennenanlagen",
         "KG483 – Automationsmanagement"
+      ],
+      "eBKP-H": [
+        "D01.10 – Installation Schwachstrom",
+        "D01.11 – Verbraucher Schwachstrom",
+        "D03.03 – Videoüberwachungsanlage"
       ]
     },
     "ifcMapping": [
@@ -587,6 +602,9 @@
         "351 – Deckenkonstruktionen",
         "355 – Elementierte Deckenkonstruktionen",
         "361 – Dachkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C04.01 – Geschossdecke"
       ]
     },
     "ifcMapping": [
@@ -947,6 +965,11 @@
         "KG 465 – Krananlagen",
         "KG 466 – Hydraulikanlagen",
         "KG469 – Sonstiges zur KG 460 (Förderanlagen)"
+      ],
+      "eBKP-H": [
+        "C04.02 – Innen liegende Treppe, Rampe",
+        "C04.06 – Aussen liegende Treppe, Rampe",
+        "D12 – Beförderungsanlage"
       ]
     },
     "ifcMapping": [
@@ -1262,6 +1285,9 @@
         "KG 421 – Wärmeerzeugunganlagen",
         "KG 473 – Medienversorgsunganlagen, Medizin- und labortechnische Anlagen",
         "KG 474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D10 – Gastechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -1570,6 +1596,14 @@
       "DIN276": [
         "324 – gründungsbeläge",
         "353 – Deckenbeläge"
+      ],
+      "eBKP-H": [
+        "C01.03 – Bodenplatte",
+        "E01.01 – Wandabdichtung unter Terrain",
+        "E01.02 – Aussenwärmedämmung unter Terrain",
+        "E02.02 – Aussenwärmedämmsystem",
+        "F01.01 – Dachabdichtung unter Terrain",
+        "G02 – Bodenbelag"
       ]
     },
     "ifcMapping": [
@@ -1997,6 +2031,11 @@
         "322 – Flachgründungen und Bodenplatten",
         "324 – Gründungsbeläge",
         "325 – Abdichtungen und Bekleidungen"
+      ],
+      "eBKP-H": [
+        "C01.02 – Fundament",
+        "C01.03 – Bodenplatte",
+        "G02 – Bodenbelag"
       ]
     },
     "ifcMapping": [
@@ -2343,6 +2382,12 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D04 – Technische Brandschutzanlage",
+        "D04.03 – Nasslöschanlage",
+        "D04.04 – Trockenlöschanlage",
+        "D08 – Wassertechnische Anlage"
       ]
     },
     "ifcMapping": [],
@@ -2587,6 +2632,12 @@
         "363 – Dachbeläge",
         "364 – Dachbekleidungen",
         "365 – Elementierte Dachkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "C04.04 – Konstruktion Flachdach",
+        "C04.05 – Konstruktion geneigtes Dach",
+        "F01 – Dachhaut"
       ]
     },
     "ifcMapping": [
@@ -2885,6 +2936,15 @@
       ],
       "DIN276": [
         "363 – Dachbeläge"
+      ],
+      "eBKP-H": [
+        "C04.04 – Konstruktion Flachdach",
+        "C04.05 – Konstruktion geneigtes Dach",
+        "E01.01 – Wandabdichtung unter Terrain",
+        "E01.02 – Aussenwärmedämmung unter Terrain",
+        "E02.02 – Aussenwärmedämmsystem",
+        "F01 – Dachhaut",
+        "F01.01 – Dachabdichtung unter Terrain"
       ]
     },
     "ifcMapping": [
@@ -3240,6 +3300,9 @@
         "KG455 – Audiovisuelle Medien- und Antennenanlagen",
         "KG457 – Datenüberstragungsnetze (Kommunikations-, sicherheits- und informationstechnische Anlagen)",
         "KG485 – Datenübertragungsnetze (Gebäude- und Anlagenautomation)"
+      ],
+      "eBKP-H": [
+        "D03.03 – Videoüberwachungsanlage"
       ]
     },
     "ifcMapping": [
@@ -3535,6 +3598,13 @@
         "355 – Elementierte Deckenkonstruktionen",
         "363 – Dachbeläge",
         "364 – Dachbegleidungen"
+      ],
+      "eBKP-H": [
+        "C04.01 – Geschossdecke",
+        "G01 – Trennwand, Innentür, Innentor",
+        "G02 – Bodenbelag",
+        "G03 – Wandbekleidung",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -3925,6 +3995,12 @@
       "DIN276": [
         "354 – Deckenbekleidungen",
         "364 – Dachbegleidungen"
+      ],
+      "eBKP-H": [
+        "C04.01 – Geschossdecke",
+        "E01.02 – Aussenwärmedämmung unter Terrain",
+        "E02.02 – Aussenwärmedämmsystem",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -4251,6 +4327,10 @@
       "DIN276": [
         "KG 324 – Gründungsbeläge",
         "KG 353 – Deckenbeläge"
+      ],
+      "eBKP-H": [
+        "C01.03 – Bodenplatte",
+        "G02 – Bodenbelag"
       ]
     },
     "ifcMapping": [
@@ -4499,6 +4579,9 @@
         "KG 451 – Telekommunikationsanlagen",
         "KG 475 – Datenübertragungsnetze",
         "KG 482 – Schaltschranke, automationsschwerpunkte"
+      ],
+      "eBKP-H": [
+        "D01 – Elektroanlage"
       ]
     },
     "ifcMapping": [
@@ -4770,6 +4853,12 @@
       ],
       "DIN276": [
         "KG449 – Sonstige zur Elektrische Anlagen"
+      ],
+      "eBKP-H": [
+        "D01.10 – Installation Schwachstrom",
+        "D01.11 – Verbraucher Schwachstrom",
+        "D05 – Wärmetechnische Anlage",
+        "D06 – Kältetechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -5073,6 +5162,9 @@
       ],
       "DIN276": [
         "KG461 – Aufzugsanlagen"
+      ],
+      "eBKP-H": [
+        "D12 – Beförderungsanlage"
       ]
     },
     "ifcMapping": [],
@@ -5307,6 +5399,10 @@
         "344 – Innenwandöffnungen",
         "352 – Deckenöffnungen",
         "362 – Dachöffnungen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage",
+        "E03.01 – Fenster"
       ]
     },
     "ifcMapping": [
@@ -5613,6 +5709,11 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D04 – Technische Brandschutzanlage",
+        "D04.03 – Nasslöschanlage",
+        "D04.04 – Trockenlöschanlage"
       ]
     },
     "ifcMapping": [],
@@ -5838,6 +5939,10 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D04.03 – Nasslöschanlage",
+        "D04.04 – Trockenlöschanlage"
       ]
     },
     "ifcMapping": [],
@@ -6061,6 +6166,11 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage",
+        "D07.02 – Luftaufbereitung",
+        "D10 – Gastechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -6295,6 +6405,13 @@
       ],
       "DIN276": [
         "322 – Flachgründungen und Bodenplatten"
+      ],
+      "eBKP-H": [
+        "C01 – Fundament, Bodenplatte",
+        "C01.02 – Fundament",
+        "C02 – Wandkonstruktion",
+        "C03 – Stützenkonstruktion",
+        "C04 – Deckenkonstruktion, Dachkonstruktion"
       ]
     },
     "ifcMapping": [
@@ -6593,6 +6710,10 @@
       "DIN276": [
         "322 – Flachgründungen und Bodenplatten",
         "323 – Tiefgründungen"
+      ],
+      "eBKP-H": [
+        "C01.02 – Fundament",
+        "C04.01 – Geschossdecke"
       ]
     },
     "ifcMapping": [],
@@ -6870,7 +6991,11 @@
     "category": "Architektur",
     "description": "Bauwerk mit Schutzfunktion an einem Standort; trägt Adresse und gebäudespezifische Informationen.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C – Konstruktion Gebäude"
+      ]
+    },
     "ifcMapping": [],
     "geometry": [],
     "information": [
@@ -7035,7 +7160,14 @@
     "category": "Architektur",
     "description": "Geometrische Darstellung des natürlichen Bodenprofils; inkl. Katasterparzellen.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C01.03 – Bodenplatte",
+        "E03.02 – Aussentür",
+        "G01.05 – Innentür",
+        "G02 – Bodenbelag"
+      ]
+    },
     "ifcMapping": [
       {
         "element": "Katasterparzelle",
@@ -7184,6 +7316,9 @@
         "349 - Sonstiges zur KG340 (Innenwande/Vertikale Baukonstruktionen, innen)",
         "359 - Sonstiges zur KG350 (Decken/horizontale Baukonstruktionen)",
         "369 - Sonstiges zur KG360 (Dächer)"
+      ],
+      "eBKP-H": [
+        "G05.05 – Absturz-, Anprallschutzeinrichtung"
       ]
     },
     "ifcMapping": [
@@ -7396,7 +7531,13 @@
     "category": "Architektur",
     "description": "Projektfläche mit Referenzpunkt für lokales und globales Koordinatensystem (WGS84).",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "E – Äussere Wandbekleidung Gebäude",
+        "G – Ausbau Gebäude"
+      ]
+    },
     "ifcMapping": [
       {
         "element": "Referenzpunkt",
@@ -7472,6 +7613,9 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D08 – Wassertechnische Anlage"
       ]
     },
     "ifcMapping": [],
@@ -7703,6 +7847,11 @@
         "381 – Allgemeinen Einbauten",
         "473 – Medienversorgungsanlagen, Medizin- und labortechnische Anlagen",
         "610 – Allgemeine Ausstattung"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "E – Äussere Wandbekleidung Gebäude",
+        "G – Ausbau Gebäude"
       ]
     },
     "ifcMapping": [
@@ -8004,6 +8153,16 @@
         "KG 455 – Audiovisuelle Medien- und Antennenanlagen",
         "KG 457 – Datenübertragungsnetze",
         "KG 484 – Kabel, Leitungen und Verlegesysteme"
+      ],
+      "eBKP-H": [
+        "C01.03 – Bodenplatte",
+        "C02 – Wandkonstruktion",
+        "C04.01 – Geschossdecke",
+        "D01.04 – Installation Starkstrom",
+        "D01.10 – Installation Schwachstrom",
+        "G02 – Bodenbelag",
+        "G03 – Wandbekleidung",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -8222,6 +8381,10 @@
         "KG 455 – Audiovisuelle Medien- und Antennenanlagen",
         "KG 457 – Datenübertragungsnetze",
         "KG 484 – Kabel, Leitungen und Verlegesysteme"
+      ],
+      "eBKP-H": [
+        "D01.04 – Installation Starkstrom",
+        "D01.10 – Installation Schwachstrom"
       ]
     },
     "ifcMapping": [
@@ -8415,6 +8578,11 @@
       "DIN276": [
         "KG 434 – Kälteanlagen",
         "KG 475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "D06 – Kältetechnische Anlage",
+        "D07 – Lufttechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -8669,6 +8837,9 @@
       ],
       "DIN276": [
         "KG445 – Beleuchtungsanlagen"
+      ],
+      "eBKP-H": [
+        "D01.05 – Verbraucher Starkstrom: Leuchten"
       ]
     },
     "ifcMapping": [
@@ -8886,6 +9057,10 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D07 – Lufttechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -9151,6 +9326,12 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D06 – Kältetechnische Anlage",
+        "D07 – Lufttechnische Anlage",
+        "D07.02 – Luftaufbereitung"
       ]
     },
     "ifcMapping": [
@@ -9415,6 +9596,13 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage",
+        "G01 – Trennwand, Innentür, Innentor",
+        "G02 – Bodenbelag",
+        "G03 – Wandbekleidung",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -9650,6 +9838,11 @@
         "KG432 – Teilklimaanlagen",
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "D07 – Lufttechnische Anlage",
+        "D07.04 – Luftverteilung"
       ]
     },
     "ifcMapping": [
@@ -9908,6 +10101,10 @@
         "KG432 – Teilklimaanlagen",
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage",
+        "D07.04 – Luftverteilung"
       ]
     },
     "ifcMapping": [
@@ -10161,6 +10358,9 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -10367,7 +10567,13 @@
     "category": "Architektur",
     "description": "Durchbruch, Vertiefung oder Nische in Bauelementen; ohne Tür/Fenster; für Durchgang oder Technik.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "E03.01 – Fenster",
+        "E03.02 – Aussentür",
+        "G01.05 – Innentür"
+      ]
+    },
     "ifcMapping": [
       {
         "element": "Öffnung für Technik",
@@ -10518,7 +10724,13 @@
     "category": "Architektur",
     "description": "Geplante Öffnung für Technikleitungen; MEP erstellt Anfrage, ARC/STR gibt frei und integriert.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "E – Äussere Wandbekleidung Gebäude",
+        "G – Ausbau Gebäude"
+      ]
+    },
     "ifcMapping": [],
     "geometry": [],
     "information": [],
@@ -10533,7 +10745,11 @@
     "category": "Allgemein",
     "description": "Grundinstanz mit Einheiten, Koordinatensystem, Georeferenzierung und Projektkontext.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C – Konstruktion Gebäude"
+      ]
+    },
     "ifcMapping": [],
     "geometry": [],
     "information": [
@@ -10655,6 +10871,11 @@
         "KG 412 – Wasseranlagen",
         "KG 421 – Wärmeerzeugunganlagen",
         "KG 422 – Wärmeverteilnetze"
+      ],
+      "eBKP-H": [
+        "D05.04 – Wärmeverteilung",
+        "D06.04 – Kälteverteilung",
+        "D08.04 – Wasserverteilung"
       ]
     },
     "ifcMapping": [
@@ -10911,6 +11132,11 @@
       "DIN276": [
         "351 – Deckenkonstruktionen",
         "355 – Elementierte Deckenkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "E – Äussere Wandbekleidung Gebäude",
+        "G – Ausbau Gebäude"
       ]
     },
     "ifcMapping": [
@@ -11288,6 +11514,12 @@
       ],
       "DIN276": [
         "Néant"
+      ],
+      "eBKP-H": [
+        "G01 – Trennwand, Innentür, Innentor",
+        "G02 – Bodenbelag",
+        "G03 – Wandbekleidung",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -11581,6 +11813,11 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D07 – Lufttechnische Anlage",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor"
       ]
     },
     "ifcMapping": [
@@ -11873,6 +12110,10 @@
         "KG 431 – Lüftunganlagen",
         "KG 474 – Feuerlöschanlagen",
         "KG 484 – Kabel, Leitungen und Verlegesysteme"
+      ],
+      "eBKP-H": [
+        "D08.04 – Wasserverteilung",
+        "D10 – Gastechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -12213,6 +12454,9 @@
         "KG 431 – Lüftunganlagen",
         "KG 474 – Feuerlöschanlagen",
         "KG 484 – Kabel, Leitungen und Verlegesysteme"
+      ],
+      "eBKP-H": [
+        "D08.04 – Wasserverteilung"
       ]
     },
     "ifcMapping": [
@@ -12482,6 +12726,10 @@
       "DIN276": [
         "KG 412 – Wasseranlagen",
         "KG 473 – Medienversorgungsanlagen, Medizin- und labortechnische Anlagen"
+      ],
+      "eBKP-H": [
+        "D08 – Wassertechnische Anlage",
+        "D09 – Abwassertechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -12796,6 +13044,10 @@
         "KG 444 – Niederspannungsinstallationsanlagen",
         "KG 451 – Telekommunikationsanlagen",
         "KG 457 – Datenübertragungsnetze"
+      ],
+      "eBKP-H": [
+        "D01.04 – Installation Starkstrom",
+        "D02.06 – Schaltgerätekombination"
       ]
     },
     "ifcMapping": [
@@ -13040,6 +13292,12 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D06 – Kältetechnische Anlage",
+        "D07 – Lufttechnische Anlage",
+        "D08 – Wassertechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -13324,6 +13582,11 @@
       "DIN276": [
         "KG 399 – Sonstiges zur KG390 (Sonstige Maßnahmen für Baukonstruktionen)",
         "KG 429 – Sonstiges zur KG420 (Wärmeversorgungsalagen)"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D08.04 – Wasserverteilung",
+        "D10 – Gastechnische Anlage"
       ]
     },
     "ifcMapping": [],
@@ -13534,6 +13797,10 @@
       ],
       "DIN276": [
         "KG445 – Beleuchtungsanlagen"
+      ],
+      "eBKP-H": [
+        "D01.05 – Verbraucher Starkstrom: Leuchten",
+        "D03 – Sicherheitsanlage"
       ]
     },
     "ifcMapping": [
@@ -13744,6 +14011,9 @@
       ],
       "DIN276": [
         "KG 444 – Niederspannungsinstallationsanlagen"
+      ],
+      "eBKP-H": [
+        "D01 – Elektroanlage"
       ]
     },
     "ifcMapping": [
@@ -13974,6 +14244,14 @@
         "KG 421 – Wärmeerzeugunganlagen",
         "KG 442 – Eigenstromversorgunganlagen",
         "KG 475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "C02 – Wandkonstruktion",
+        "D01.01 – Anlage Erzeugung Starkstrom",
+        "D05 – Wärmetechnische Anlage",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor",
+        "G03 – Wandbekleidung"
       ]
     },
     "ifcMapping": [
@@ -14259,6 +14537,11 @@
       ],
       "DIN276": [
         "KG474 – Feuerlöschanlagen"
+      ],
+      "eBKP-H": [
+        "D04.03 – Nasslöschanlage",
+        "D04.04 – Trockenlöschanlage",
+        "D08 – Wassertechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -14484,6 +14767,9 @@
         "351 – Deckenkonstruktionen",
         "355 – Elementierte Deckenkonstruktionen",
         "361 – Dachkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude"
       ]
     },
     "ifcMapping": [
@@ -14850,6 +15136,9 @@
         "KG 451 – telekommunikationsanlagen",
         "KG 455 – Audiovisuelle Medien- und Antennenanlegen",
         "KG 457 – datenübertragungsnetze"
+      ],
+      "eBKP-H": [
+        "D01.04 – Installation Starkstrom"
       ]
     },
     "ifcMapping": [
@@ -15057,6 +15346,9 @@
       ],
       "DIN276": [
         "KG 481 – Automationseinrichtungen"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude"
       ]
     },
     "ifcMapping": [
@@ -15268,6 +15560,13 @@
       "DIN276": [
         "KG 442 – Eigenstromversorgungsanlagen",
         "KG 475 – prozesswärme-, Kälte- und -Luftanlagen"
+      ],
+      "eBKP-H": [
+        "C02 – Wandkonstruktion",
+        "D01.01 – Anlage Erzeugung Starkstrom",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor",
+        "G03 – Wandbekleidung"
       ]
     },
     "ifcMapping": [
@@ -15545,6 +15844,9 @@
       ],
       "DIN276": [
         "KG 442 – Eigenstromversorgungsanlagen"
+      ],
+      "eBKP-H": [
+        "D01 – Elektroanlage"
       ]
     },
     "ifcMapping": [
@@ -15827,6 +16129,9 @@
       "DIN276": [
         "333 – Aussenstützen",
         "343 – Innenstützen"
+      ],
+      "eBKP-H": [
+        "C03 – Stützenkonstruktion"
       ]
     },
     "ifcMapping": [
@@ -16143,6 +16448,11 @@
       ],
       "DIN276": [
         "323 – Tiefgründungen"
+      ],
+      "eBKP-H": [
+        "C01.02 – Fundament",
+        "C01.03 – Bodenplatte",
+        "G02 – Bodenbelag"
       ]
     },
     "ifcMapping": [
@@ -16482,6 +16792,11 @@
       ],
       "DIN276": [
         "323 – Tiefgründungen"
+      ],
+      "eBKP-H": [
+        "C01.02 – Fundament",
+        "C01.03 – Bodenplatte",
+        "G02 – Bodenbelag"
       ]
     },
     "ifcMapping": [],
@@ -16752,6 +17067,11 @@
       ],
       "DIN276": [
         "KG 441 – Hoch- und Mittelspannungsanlagen"
+      ],
+      "eBKP-H": [
+        "D01.02 – Transformierung Starkstrom",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor"
       ]
     },
     "ifcMapping": [
@@ -17034,6 +17354,14 @@
         "351 – Deckenkonstruktionen",
         "353 – Deckenbeläge",
         "355 – Elementierte Deckenkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C01 – Fundament, Bodenplatte",
+        "C02 – Wandkonstruktion",
+        "C03 – Stützenkonstruktion",
+        "C04 – Deckenkonstruktion, Dachkonstruktion",
+        "C04.02 – Innen liegende Treppe, Rampe",
+        "C04.06 – Aussen liegende Treppe, Rampe"
       ]
     },
     "ifcMapping": [],
@@ -17259,7 +17587,16 @@
     "category": "Architektur",
     "description": "Treppe aus Holz/Metall mit Wangen, Stufen und ggf. Setzstufen; aufliegend oder freistehend.",
     "tags": [],
-    "classifications": {},
+    "classifications": {
+      "eBKP-H": [
+        "C01 – Fundament, Bodenplatte",
+        "C02 – Wandkonstruktion",
+        "C03 – Stützenkonstruktion",
+        "C04 – Deckenkonstruktion, Dachkonstruktion",
+        "C04.02 – Innen liegende Treppe, Rampe",
+        "C04.06 – Aussen liegende Treppe, Rampe"
+      ]
+    },
     "ifcMapping": [],
     "geometry": [],
     "information": [
@@ -17459,6 +17796,10 @@
         "344 – Innenwandöffnungen",
         "352 – Deckenöffnungen",
         "362 – Dachöffnungen"
+      ],
+      "eBKP-H": [
+        "E03.02 – Aussentür",
+        "G01.05 – Innentür"
       ]
     },
     "ifcMapping": [
@@ -17816,6 +18157,15 @@
         "KG433 – Klimaanlagen",
         "KG434 – Kälteanlagen",
         "KG475 – Prozesswärme-, kälte- und -luftanlagen"
+      ],
+      "eBKP-H": [
+        "D05.04 – Wärmeverteilung",
+        "D06.04 – Kälteverteilung",
+        "D07 – Lufttechnische Anlage",
+        "D07.02 – Luftaufbereitung",
+        "D08.05 – Wasser: Armatur, Apparat",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor"
       ]
     },
     "ifcMapping": [],
@@ -18029,6 +18379,13 @@
       ],
       "DIN276": [
         "337 – Elementierte Außenwandkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C04.01 – Geschossdecke",
+        "E01.02 – Aussenwärmedämmung unter Terrain",
+        "E02 – Äussere Wandbekleidung über Terrain",
+        "E02.02 – Aussenwärmedämmsystem",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -18307,6 +18664,13 @@
         "342 – Nichttragende Innenwände",
         "345 – Innenwändbekleidungen",
         "346 – Elementierte Innenwandkonstruktionen"
+      ],
+      "eBKP-H": [
+        "C02 – Wandkonstruktion",
+        "G01 – Trennwand, Innentür, Innentor",
+        "G02 – Bodenbelag",
+        "G03 – Wandbekleidung",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -18806,6 +19170,14 @@
         "335 – Außenwandbekleidungen außen",
         "336 – Außenwandbekleidungen innen",
         "345 – Innenwandbekleidungen"
+      ],
+      "eBKP-H": [
+        "C02 – Wandkonstruktion",
+        "E01.01 – Wandabdichtung unter Terrain",
+        "E01.02 – Aussenwärmedämmung unter Terrain",
+        "E02.02 – Aussenwärmedämmsystem",
+        "F01.01 – Dachabdichtung unter Terrain",
+        "G03 – Wandbekleidung"
       ]
     },
     "ifcMapping": [
@@ -19163,6 +19535,15 @@
       ],
       "DIN276": [
         "KG 423 – RaumHeizflächen"
+      ],
+      "eBKP-H": [
+        "C01.03 – Bodenplatte",
+        "C04.01 – Geschossdecke",
+        "D05 – Wärmetechnische Anlage",
+        "D05.05 – Wärmeabgabe",
+        "D06 – Kältetechnische Anlage",
+        "G02 – Bodenbelag",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -19442,6 +19823,13 @@
       ],
       "DIN276": [
         "KG 423 – RaumHeizflächen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D05.05 – Wärmeabgabe",
+        "D06 – Kältetechnische Anlage",
+        "E03.03 – Aussentor",
+        "G01.06 – Innentor"
       ]
     },
     "ifcMapping": [
@@ -19692,6 +20080,9 @@
       "DIN276": [
         "KG 412 – Wasseranlagen",
         "KG 421 – Wärmeerzeugungsanlagen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -19948,6 +20339,10 @@
       "DIN276": [
         "KG 412 – Wasseranlagen",
         "KG 421 – Wärmeerzeugungsanlagen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D08 – Wassertechnische Anlage"
       ]
     },
     "ifcMapping": [
@@ -20235,6 +20630,10 @@
       ],
       "DIN276": [
         "KG 423 – RaumHeizflächen"
+      ],
+      "eBKP-H": [
+        "D05 – Wärmetechnische Anlage",
+        "D05.05 – Wärmeabgabe"
       ]
     },
     "ifcMapping": [
@@ -20493,6 +20892,13 @@
       ],
       "DIN276": [
         "KG 411 – Abwasseranlagen"
+      ],
+      "eBKP-H": [
+        "C04.04 – Konstruktion Flachdach",
+        "C04.05 – Konstruktion geneigtes Dach",
+        "D08 – Wassertechnische Anlage",
+        "D08.04 – Wasserverteilung",
+        "F01 – Dachhaut"
       ]
     },
     "ifcMapping": [
@@ -20712,6 +21118,9 @@
       ],
       "DIN276": [
         "Néant"
+      ],
+      "eBKP-H": [
+        "D02.04 – Raumautomation"
       ]
     },
     "ifcMapping": [
@@ -20889,6 +21298,10 @@
       "DIN276": [
         "KG 354 – Deckenbekleidungen",
         "KG 364 – Dachbekleidungen"
+      ],
+      "eBKP-H": [
+        "C04.01 – Geschossdecke",
+        "G04 – Deckenbekleidung"
       ]
     },
     "ifcMapping": [
@@ -21113,6 +21526,10 @@
       "DIN276": [
         "KG 300 – Bauwerk – Baukonstruktionen",
         "KG 350 – Decken"
+      ],
+      "eBKP-H": [
+        "C – Konstruktion Gebäude",
+        "C04.01 – Geschossdecke"
       ]
     },
     "ifcMapping": [
