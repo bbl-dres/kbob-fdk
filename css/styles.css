@@ -3221,7 +3221,7 @@ footer a:hover {
 .th-w-20 { width: 20%; }
 .th-w-format { width: 100px; }
 .th-w-list { width: 80px; text-align: center !important; }
-.th-w-phases { width: 200px; text-align: center !important; }
+.th-w-phases { width: 200px; text-align: left; }
 
 /* Table Cell Utilities */
 .col-val { font-size: var(--text-body-sm); }
@@ -3237,7 +3237,7 @@ footer a:hover {
 .phase-compact-wrapper {
     display: flex;
     gap: var(--space-xs);
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .phase-badge {

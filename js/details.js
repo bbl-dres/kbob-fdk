@@ -46,9 +46,9 @@ function renderElementDetailPage(id, activeTags = []) {
             <tr>
                 <td class="col-val">${escapeHtml(row.name || '')}</td>
                 <td class="col-val">${escapeHtml(row.desc || '')}</td>
-                <td class="col-center">${renderPhaseBadges(row.phases)}</td>
+                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
-        : '<tr><td colspan="3" class="col-center empty-text">Keine Daten.</td></tr>';
+        : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
 
     const infoRows = data.information && Array.isArray(data.information) ? data.information : [];
     const infoRowsHtml = infoRows.length > 0
@@ -58,9 +58,9 @@ function renderElementDetailPage(id, activeTags = []) {
                 <td class="col-val">${escapeHtml(row.format || '-')}</td>
                 <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
                 <td class="col-val">${escapeHtml(row.ifc || '-')}</td>
-                <td class="col-center">${renderPhaseBadges(row.phases)}</td>
+                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
-        : '<tr><td colspan="5" class="col-center empty-text">Keine Attribute (LOI).</td></tr>';
+        : '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
 
     const docRows = data.documentation && Array.isArray(data.documentation) ? data.documentation : [];
     const docRowsHtml = docRows.length > 0
@@ -68,9 +68,9 @@ function renderElementDetailPage(id, activeTags = []) {
             <tr>
                 <td class="col-val">${escapeHtml(row.name || '')}</td>
                 <td class="col-val">${escapeHtml(row.desc || '')}</td>
-                <td class="col-center">${renderPhaseBadges(row.phases)}</td>
+                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
-        : '<tr><td colspan="3" class="col-center empty-text">Keine Dokumente.</td></tr>';
+        : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
 
     const backLink = buildHashWithTags('elements', activeTags, '', [], getActiveViewFromURL());
 
@@ -301,7 +301,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     if (hasPracticeExample) generalLinks.push({ id: 'praxisbeispiel', text: 'Praxisbeispiel' });
 
     if (generalLinks.length > 0) {
-        sidebarHtml += '<span class="nav-group-label">Allgemeiner Teil</span>';
         sidebarHtml += generalLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
     }
 
@@ -312,12 +311,10 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     if (hasProcess) detailLinks.push({ id: 'prozess', text: 'Prozess' });
 
     if (detailLinks.length > 0) {
-        sidebarHtml += '<span class="nav-group-label">Umsetzungsdetails</span>';
         sidebarHtml += detailLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
     }
 
     // VERKNÜPFUNGEN (always shown as placeholder)
-    sidebarHtml += '<span class="nav-group-label">Verknüpfungen</span>';
     sidebarHtml += '<a href="#dokumente" class="sidebar-link" data-target="dokumente">Dokumente</a>';
     sidebarHtml += '<a href="#elemente" class="sidebar-link" data-target="elemente">Elemente</a>';
 
