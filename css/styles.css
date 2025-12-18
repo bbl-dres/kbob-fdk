@@ -3460,11 +3460,12 @@ footer a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 34px;
+    height: 34px;
     background: var(--color-white);
     color: var(--color-text-primary);
     border: 1px solid var(--color-border-input);
     border-radius: var(--border-radius-full);
-    padding: var(--space-xs) var(--space-sm);
     font-size: var(--text-body-sm);
     font-weight: var(--font-weight-medium);
     cursor: help;
@@ -3491,9 +3492,21 @@ footer a:hover {
     flex-wrap: wrap;
 }
 
+/* Large phase badge uses tag-badge styling (pill shape) */
 .phases-container--large .phase-badge {
-    padding: var(--space-xs) var(--space-md);
-    font-size: var(--text-body-sm);
+    width: auto;
+    height: auto;
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+}
+
+.phases-container--large .phase-badge:hover {
+    background-color: var(--color-bg-light);
+    border-color: var(--color-text-muted);
+}
+
+.phases-container--large .phase-badge.active:hover {
+    background: var(--color-surface-darker);
 }
 
 .col-actor {
@@ -4349,8 +4362,9 @@ th[aria-sort='ascending'] .table__sorter span::after {
 }
 
 .usecase-list--numbered li {
-    padding-left: var(--space-xl);
+    padding-left: 40px;
     counter-increment: step-counter;
+    font-size: var(--text-body);
 }
 
 .usecase-list--numbered li::before {
@@ -4358,8 +4372,8 @@ th[aria-sort='ascending'] .table__sorter span::after {
     position: absolute;
     left: 0;
     top: var(--space-sm);
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     background-color: var(--color-surface-dark);
     color: var(--color-white);
     border-radius: var(--border-radius-full);
@@ -4441,9 +4455,10 @@ th[aria-sort='ascending'] .table__sorter span::after {
 .detailed-steps-list > li {
     counter-increment: main-step;
     padding: var(--space-md) 0;
-    padding-left: var(--space-2xl);
+    padding-left: 40px;
     position: relative;
     border-bottom: 1px solid var(--color-border-light);
+    font-size: var(--text-body);
 }
 
 .detailed-steps-list > li:last-child {
@@ -4524,9 +4539,13 @@ th[aria-sort='ascending'] .table__sorter span::after {
         font-size: var(--text-body-xs);
     }
 
+    .usecase-list--numbered li {
+        padding-left: var(--space-xl);
+    }
+
     .usecase-list--numbered li::before {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         font-size: var(--text-body-xs);
     }
 }
