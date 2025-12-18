@@ -330,7 +330,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Build goals list HTML
     const goalsHtml = hasGoals
-        ? `<ul class="usecase-list">${data.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ul>`
+        ? `<ol class="usecase-list usecase-list--numbered">${data.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ol>`
         : '';
 
     // Build prerequisites table HTML
@@ -401,7 +401,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Build quality criteria HTML
     const qualityCriteriaHtml = hasQualityCriteria
-        ? `<ul class="usecase-list">${data.qualityCriteria.map(criterion => `<li>${escapeHtml(criterion)}</li>`).join('')}</ul>`
+        ? `<ol class="usecase-list usecase-list--numbered">${data.qualityCriteria.map(criterion => `<li>${escapeHtml(criterion)}</li>`).join('')}</ol>`
         : '';
 
     // Build roles table HTML
@@ -457,21 +457,18 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     ${hasPrerequisites ? `
                     <div class="detail-section" id="voraussetzungen">
                         <h2>Voraussetzungen</h2>
-                        <p>Anforderungen an Auftraggeber und Auftragnehmer für die erfolgreiche Umsetzung.</p>
                         ${prerequisitesHtml}
                     </div>` : ''}
 
                     ${hasImplementation ? `
                     <div class="detail-section" id="umsetzung">
                         <h2>Umsetzung</h2>
-                        <p>Schritte zur Umsetzung dieses Anwendungsfalls.</p>
                         ${implementationHtml}
                     </div>` : ''}
 
                     ${hasInputsOutputs ? `
                     <div class="detail-section" id="input-output">
                         <h2>Input / Output</h2>
-                        <p>Erforderliche Eingaben und erwartete Ergebnisse.</p>
                         ${ioHtml}
                     </div>` : ''}
 
@@ -485,7 +482,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     ${hasQualityCriteria ? `
                     <div class="detail-section" id="qualitaetskriterien">
                         <h2>Qualitätskriterien</h2>
-                        <p>Kriterien zur Bewertung der erfolgreichen Umsetzung.</p>
                         ${qualityCriteriaHtml}
                     </div>` : ''}
 
