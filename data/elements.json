@@ -21095,5 +21095,246 @@
         ]
       }
     ]
+  },
+  {
+    "id": "e81",
+    "version": "1.0",
+    "lastChange": "2024-12-18",
+    "title": "Geschoss",
+    "image": "",
+    "category": "Architektur",
+    "description": "Horizontale Ebene eines Gebäudes, die alle Räume auf gleicher Höhe umfasst. Dient der vertikalen Gliederung des Gebäudes.",
+    "tags": [],
+    "classifications": {
+      "Uniformat II 2010": [
+        "A1010 – Standard Foundations",
+        "B1010 – Floor Construction"
+      ],
+      "DIN276": [
+        "KG 300 – Bauwerk – Baukonstruktionen",
+        "KG 350 – Decken"
+      ]
+    },
+    "ifcMapping": [
+      {
+        "element": "Geschoss",
+        "ifc": "IfcBuildingStorey",
+        "revit": "Level"
+      },
+      {
+        "element": "Erdgeschoss",
+        "ifc": "IfcBuildingStorey",
+        "revit": "Level"
+      },
+      {
+        "element": "Obergeschoss",
+        "ifc": "IfcBuildingStorey",
+        "revit": "Level"
+      },
+      {
+        "element": "Untergeschoss",
+        "ifc": "IfcBuildingStorey",
+        "revit": "Level"
+      },
+      {
+        "element": "Dachgeschoss",
+        "ifc": "IfcBuildingStorey",
+        "revit": "Level"
+      }
+    ],
+    "geometry": [
+      {
+        "name": "Geschosshöhe",
+        "desc": "Höhe vom Fertigfußboden bis zur Unterkante der darüberliegenden Decke",
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "Brutto-Grundfläche",
+        "desc": "Gesamtfläche des Geschosses einschließlich Konstruktionsflächen",
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "Netto-Grundfläche",
+        "desc": "Nutzbare Fläche des Geschosses ohne Konstruktionsflächen",
+        "phases": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "Höhe über Terrain",
+        "desc": "Absolute Höhe des Fertigfußbodens bezogen auf das Gelände",
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    ],
+    "information": [
+      {
+        "name": "Objektebene",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [],
+        "ifc": ""
+      },
+      {
+        "name": "IFC-Klasse (a)",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": ""
+      },
+      {
+        "name": "IFC-Typ (a)",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": ""
+      },
+      {
+        "name": "benutzerdefinierter IFC-Typ (a)",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": ""
+      },
+      {
+        "name": "Objektname (a)",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": ""
+      },
+      {
+        "name": "Geschossnummer",
+        "desc": "Nummerierung des Geschosses (z.B. 0 für EG, -1 für UG1)",
+        "format": "Integer",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": "Pset_BuildingStoreyCommon.EntranceLevel"
+      },
+      {
+        "name": "Geschossbezeichnung",
+        "desc": "Bezeichnung des Geschosses (z.B. EG, OG1, UG1)",
+        "format": "String",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": "IfcBuildingStorey.Name"
+      },
+      {
+        "name": "Ist Oberirdisch",
+        "desc": "Kennzeichnung ob das Geschoss oberirdisch liegt",
+        "format": "Boolean",
+        "list": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": "Pset_BuildingStoreyCommon.AboveGround"
+      },
+      {
+        "name": "Status (p)",
+        "desc": "",
+        "format": "String",
+        "list": false,
+        "phases": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ifc": ""
+      }
+    ],
+    "documentation": [
+      {
+        "name": "Grundrissplan",
+        "desc": "",
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Schnittplan",
+        "desc": "",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "Vorschriften",
+        "desc": "",
+        "phases": [
+          2,
+          3,
+          4
+        ]
+      }
+    ]
   }
 ]
