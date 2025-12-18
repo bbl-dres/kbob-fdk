@@ -316,7 +316,7 @@
     "title": "Koordination der Fachgewerke",
     "image": "assets/img/usecase/uc050.jpg",
     "category": "Koordination",
-    "description": "Systematische Abstimmung der Fachplanungen, Erkennung von Konflikten zwischen Gewerken und koordinierte Konfliktbehebung.",
+    "description": "Systematische Koordination der Fachplanungen zur frühzeitigen Erkennung und Behebung von Konflikten.",
     "tags": [
       "Planung",
       "Realisierung",
@@ -328,26 +328,106 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
-    "examples": [],
-    "standards": [
-      "ISO 19650",
-      "SIA 2051"
-    ],
+    "definition": "Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Fachplanungen (Architektur, Tragwerk, Haustechnik, Elektro etc.) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und logische Konflikte zwischen den Gewerken frühzeitig erkannt und in einem strukturierten Prozess behoben. Dieser Anwendungsfall ist zentral für die Qualitätssicherung in der Planungsphase und reduziert kostenintensive Änderungen während der Bauausführung erheblich.",
     "goals": [
-      "Frühzeitige Erkennung von Planungskonflikten",
-      "Reduzierung von Kollisionen auf der Baustelle",
-      "Verbesserte Abstimmung zwischen Gewerken"
+      "Frühzeitige Erkennung von Planungskonflikten vor Baubeginn",
+      "Reduzierung von Kollisionen und Nacharbeiten auf der Baustelle",
+      "Verbesserte Abstimmung und Kommunikation zwischen den Fachplanern",
+      "Sicherstellung der Ausführbarkeit der Planung",
+      "Nachvollziehbare Dokumentation aller Koordinationsentscheidungen"
+    ],
+    "prerequisites": {
+      "client": [
+        "Definition der Koordinationsanforderungen im AIA",
+        "Festlegung der Prüfintervalle und Meilensteine",
+        "Bereitstellung einer gemeinsamen Datenumgebung (CDE)",
+        "Klärung der Verantwortlichkeiten zwischen den Planungsbeteiligten"
+      ],
+      "contractor": [
+        "Erstellung der Fachmodelle gemäss vereinbarter Modellierungsrichtlinien",
+        "Einhaltung der definierten Liefertermine für Modellstände",
+        "Verwendung einheitlicher Koordinatensysteme und Geschossdefinitionen",
+        "Bereitschaft zur zeitnahen Konfliktbehebung"
+      ]
+    },
+    "implementation": [
+      "Zusammenführung der Fachmodelle im Koordinationsmodell",
+      "Durchführung regelbasierter Kollisionsprüfungen",
+      "Klassifizierung und Priorisierung der erkannten Konflikte",
+      "Zuweisung der Konflikte an verantwortliche Fachplaner",
+      "Koordinationsbesprechung zur Konfliktlösung",
+      "Überprüfung der umgesetzten Lösungen im aktualisierten Modell",
+      "Dokumentation und Archivierung der Koordinationsergebnisse"
     ],
     "inputs": [
-      "Fachmodelle (Architektur, Tragwerk, TGA)",
-      "Koordinationsregeln",
-      "Prüfkriterien"
+      "Fachmodelle (Architektur, Tragwerk, HLKS, Elektro, Sanitär)",
+      "Koordinationsregeln und Toleranzvorgaben",
+      "Prüfkriterien und Kollisionsmatrix",
+      "BIM-Abwicklungsplan (BAP) mit Koordinationsvorgaben"
     ],
     "outputs": [
-      "Koordinationsmodell",
-      "Kollisionsbericht",
-      "Protokoll Konfliktbehebung"
+      "Koordinationsmodell (zusammengeführte Fachmodelle)",
+      "Kollisionsbericht mit klassifizierten Konflikten",
+      "Protokoll der Koordinationsbesprechungen",
+      "Dokumentation der Konfliktlösungen"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung der Koordination",
+        "substeps": [
+          "Definition der Kollisionsmatrix (welche Gewerke werden gegeneinander geprüft)",
+          "Festlegung der Toleranzen je Gewerkkombination",
+          "Einrichtung des Koordinationsmodells und der Prüfumgebung"
+        ]
+      },
+      {
+        "step": "Modellzusammenführung",
+        "substeps": [
+          "Import der aktuellen Fachmodellstände",
+          "Prüfung der korrekten Positionierung und Referenzierung",
+          "Visuelle Kontrolle auf offensichtliche Abweichungen"
+        ]
+      },
+      {
+        "step": "Kollisionsprüfung",
+        "substeps": [
+          "Ausführung der automatisierten Kollisionsprüfungen",
+          "Filterung und Gruppierung der Ergebnisse",
+          "Klassifizierung nach Schweregrad (kritisch, mittel, gering)"
+        ]
+      },
+      {
+        "step": "Konfliktbewertung und -zuweisung",
+        "substeps": [
+          "Analyse der Konflikte und Bestimmung der Ursachen",
+          "Zuweisung an verantwortliche Fachplaner",
+          "Festlegung von Bearbeitungsfristen"
+        ]
+      },
+      {
+        "step": "Koordinationsbesprechung",
+        "substeps": [
+          "Durchführung der Besprechung mit allen Beteiligten",
+          "Diskussion und Entscheidung zu Lösungsansätzen",
+          "Protokollierung der Entscheidungen"
+        ]
+      },
+      {
+        "step": "Nachverfolgung und Abschluss",
+        "substeps": [
+          "Kontrolle der umgesetzten Änderungen im neuen Modellstand",
+          "Verifizierung der Konfliktbehebung",
+          "Archivierung der Koordinationsdokumentation"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Alle kritischen Kollisionen sind vor Planungsfreigabe behoben",
+      "Nachvollziehbare Dokumentation aller Koordinationsentscheidungen",
+      "Einhaltung der vereinbarten Prüfintervalle",
+      "Vollständigkeit der geprüften Gewerkkombinationen",
+      "Termingerechte Konfliktbehebung durch die Fachplaner"
     ],
     "roles": [
       {
@@ -373,6 +453,12 @@
           "Kollisionsbericht"
         ]
       }
+    ],
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "examples": [],
+    "standards": [
+      "ISO 19650",
+      "SIA 2051"
     ]
   },
   {
@@ -626,7 +712,7 @@
     "title": "Mengen- und Kostenermittlung",
     "image": "assets/img/usecase/uc100.jpg",
     "category": "Kostenplanung",
-    "description": "Ermittlung von Mengen (Volumen, Flächen, Längen, Stückzahlen) und Aufstellung von Kostenschätzungen bzw. Kostenberechnungen nach eBKP-H.",
+    "description": "Ermittlung von Mengen und Aufstellung von Kostenschätzungen nach eBKP-H für transparente Kostenplanung.",
     "tags": [
       "Entwicklung",
       "Planung",
@@ -639,27 +725,99 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
-    "examples": [],
-    "standards": [
-      "eBKP-H",
-      "SIA 416",
-      "DIN 276"
-    ],
+    "definition": "Die Mengen- und Kostenermittlung umfasst die systematische Erfassung aller relevanten Mengen (Volumen, Flächen, Längen, Stückzahlen) aus Planungsunterlagen oder BIM-Modellen sowie deren Verknüpfung mit Kostenkennwerten zur Erstellung von Kostenschätzungen und Kostenberechnungen. Dieser Anwendungsfall bildet die Grundlage für fundierte Investitionsentscheidungen und ermöglicht eine kontinuierliche Kostenverfolgung über alle Projektphasen. Die Mengenermittlung erfolgt idealerweise modellbasiert, wobei die Qualität der Ergebnisse direkt von der Modellqualität und den definierten Modellierungsrichtlinien abhängt.",
     "goals": [
-      "Transparente, nachvollziehbare Kostenermittlung",
-      "Frühzeitige Kostensicherheit für Entscheidungen",
-      "Vergleichbarkeit von Planungsvarianten"
+      "Transparente und nachvollziehbare Kostenermittlung auf Basis einheitlicher Mengengerüste",
+      "Frühzeitige Kostensicherheit als Grundlage für Investitionsentscheidungen",
+      "Vergleichbarkeit von Planungsvarianten durch konsistente Bewertungsmethodik",
+      "Reduktion des manuellen Aufwands durch automatisierte Mengenauswertung aus dem Modell",
+      "Erhöhung der Planungsqualität durch kontinuierliche Kostenkontrolle"
+    ],
+    "prerequisites": {
+      "client": [
+        "Definition der Kostengenauigkeit je Phase im AIA",
+        "Bereitstellung der Kostenkennwerte und Benchmarks",
+        "Festlegung der Kostengliederung nach eBKP-H oder projektspezifisch",
+        "Freigabe der Modellierungsrichtlinien für mengenrelevante Bauteile"
+      ],
+      "contractor": [
+        "Erstellung des BIM-Modells gemäss BAP mit mengenrelevanten Informationen",
+        "Sicherstellung der geometrischen Konsistenz der Bauteile",
+        "Zuweisung der korrekten Klassifizierungen (eBKP-H) zu allen Elementen",
+        "Bereitstellung der erforderlichen Bauteilinformationen (Material, Schichtaufbau)"
+      ]
+    },
+    "implementation": [
+      "Definition der Mengenanforderungen und Auswertungsregeln im BAP",
+      "Qualitätsprüfung des Modells auf Vollständigkeit und Klassifizierung",
+      "Extraktion der Mengen aus dem BIM-Modell mittels Auswertungssoftware",
+      "Manuelle Ergänzung nicht modellierter Positionen",
+      "Verknüpfung der Mengen mit Kostenkennwerten nach eBKP-H",
+      "Plausibilisierung der Ergebnisse durch Vergleich mit Referenzprojekten",
+      "Dokumentation und Freigabe der Kostenermittlung"
     ],
     "inputs": [
-      "Planungsunterlagen (2D oder 3D)",
-      "Raumprogramm / Flächenprogramm",
-      "Kostenkennwerte (eBKP-H)"
+      "Planungsunterlagen (2D oder 3D-Modell)",
+      "Raumprogramm und Flächenprogramm",
+      "Kostenkennwerte nach eBKP-H",
+      "Modellierungsrichtlinien und Auswertungsregeln",
+      "Referenzdaten aus vergleichbaren Projekten"
     ],
     "outputs": [
-      "Mengengerüst nach Bauteilen",
-      "Kostenschätzung / Kostenberechnung",
-      "Kostenvergleich bei Varianten"
+      "Mengengerüst nach Bauteilen und eBKP-H-Gliederung",
+      "Kostenschätzung bzw. Kostenberechnung",
+      "Kostenvergleich bei Planungsvarianten",
+      "Dokumentation der Auswertungsmethodik"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung der Mengenermittlung",
+        "substeps": [
+          "Abstimmung der Kostengenauigkeit mit dem Auftraggeber",
+          "Festlegung der Auswertungsregeln im BAP",
+          "Einrichtung der Auswertungssoftware und Schnittstellen"
+        ]
+      },
+      {
+        "step": "Modellprüfung",
+        "substeps": [
+          "Prüfung auf Vollständigkeit der relevanten Bauteile",
+          "Kontrolle der eBKP-H-Klassifizierungen",
+          "Identifikation von Modellierungsfehlern (Duplikate, Überschneidungen)"
+        ]
+      },
+      {
+        "step": "Mengenextraktion",
+        "substeps": [
+          "Ausführung der automatisierten Mengenauswertung",
+          "Export der Mengen nach eBKP-H-Struktur",
+          "Dokumentation der verwendeten Auswertungsregeln"
+        ]
+      },
+      {
+        "step": "Kostenberechnung",
+        "substeps": [
+          "Zuordnung der Kostenkennwerte zu den Mengenpositionen",
+          "Berechnung der Gesamtkosten nach eBKP-H",
+          "Ergänzung von Nebenkosten und Reserven"
+        ]
+      },
+      {
+        "step": "Qualitätssicherung und Freigabe",
+        "substeps": [
+          "Plausibilitätsprüfung durch Vergleich mit Kennwerten",
+          "Review durch Kostenplaner und Projektleitung",
+          "Dokumentation und Archivierung der Ergebnisse"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständigkeit der Mengenermittlung (alle relevanten Positionen erfasst)",
+      "Nachvollziehbarkeit der Auswertungsmethodik",
+      "Konsistenz zwischen Modell und Mengengerüst",
+      "Einhaltung der definierten Kostengenauigkeit je Phase",
+      "Plausibilität im Vergleich zu Referenzprojekten"
     ],
     "roles": [
       {
@@ -697,6 +855,13 @@
         ],
         "informed": []
       }
+    ],
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "examples": [],
+    "standards": [
+      "eBKP-H",
+      "SIA 416",
+      "DIN 276"
     ]
   },
   {
@@ -1182,7 +1347,7 @@
     "title": "Projekt- und Bauwerksdokumentation",
     "image": "assets/img/usecase/uc190.jpg",
     "category": "Dokumentation",
-    "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation: Projektdokumentation (PD) während Planung und Bau, Objektdokumentation (OD) für den Betrieb, Archivdokumentation (AD) für aufbewahrungspflichtige Unterlagen.",
+    "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation für Planung, Betrieb und Archivierung.",
     "tags": [
       "Entwicklung",
       "Planung",
@@ -1197,26 +1362,108 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
-    "examples": [],
-    "standards": [
-      "KBOB BWD-Richtlinie",
-      "SIA 112"
-    ],
+    "definition": "Die Projekt- und Bauwerksdokumentation umfasst die systematische Erfassung, Strukturierung und Übergabe aller projektrelevanten Dokumente über den gesamten Lebenszyklus eines Bauwerks. Sie gliedert sich in drei Bereiche: Die Projektdokumentation (PD) enthält alle während Planung und Bau erstellten Unterlagen. Die Objektdokumentation (OD) wird für den Gebäudebetrieb übergeben und enthält alle für Betrieb und Instandhaltung relevanten Informationen. Die Archivdokumentation (AD) umfasst rechtlich und historisch aufbewahrungspflichtige Unterlagen. Dieser Anwendungsfall stellt sicher, dass alle Informationen strukturiert, vollständig und in den richtigen Formaten an die jeweiligen Empfänger übergeben werden.",
     "goals": [
-      "Vollständige Projektdokumentation",
-      "Geordnete Übergabe an Betrieb",
-      "Rechtssichere Archivierung"
+      "Vollständige und strukturierte Projektdokumentation über alle Phasen",
+      "Geordnete Übergabe der betriebsrelevanten Dokumentation an den Eigentümer/Betreiber",
+      "Rechtssichere Archivierung aufbewahrungspflichtiger Unterlagen",
+      "Nachvollziehbarkeit aller Planungs- und Bauentscheidungen",
+      "Effiziente Informationsnutzung für Betrieb und spätere Umbaumassnahmen"
+    ],
+    "prerequisites": {
+      "client": [
+        "Definition der Dokumentationsanforderungen im AIA (Umfang, Formate, Struktur)",
+        "Festlegung der Übergabemeilensteine und Abnahmekriterien",
+        "Bereitstellung der Dokumentenstruktur nach KBOB BWD-Richtlinie",
+        "Klärung der Archivierungsanforderungen und Aufbewahrungsfristen"
+      ],
+      "contractor": [
+        "Kontinuierliche Dokumentation aller Planungs- und Bauleistungen",
+        "Einhaltung der vereinbarten Dokumentenformate und Namenskonventionen",
+        "Erstellung der Revisionspläne und As-Built-Dokumentation",
+        "Zusammenstellung aller Prüfprotokolle, Nachweise und Zertifikate"
+      ]
+    },
+    "implementation": [
+      "Definition der Dokumentenstruktur und Ablagekonventionen",
+      "Einrichtung des Dokumentenmanagementsystems (CDE)",
+      "Kontinuierliche Erfassung und Ablage der Projektdokumentation",
+      "Qualitätsprüfung auf Vollständigkeit und Konformität",
+      "Erstellung der Revisions- und As-Built-Unterlagen",
+      "Zusammenstellung der Objektdokumentation für den Betrieb",
+      "Übergabe und Abnahme der Dokumentation durch den Empfänger",
+      "Archivierung der aufbewahrungspflichtigen Unterlagen"
     ],
     "inputs": [
-      "Alle Projektunterlagen",
-      "Revisionspläne",
-      "Prüfprotokolle und Nachweise"
+      "Alle Projektunterlagen (Pläne, Berichte, Berechnungen)",
+      "Revisionspläne und As-Built-Modelle",
+      "Prüfprotokolle, Abnahmen und Nachweise",
+      "Produkt- und Herstellerdokumentationen",
+      "Betriebsanleitungen und Wartungsvorschriften"
     ],
     "outputs": [
-      "Projektdokumentation (PD)",
-      "Objektdokumentation (OD)",
-      "Archivdokumentation (AD)"
+      "Projektdokumentation (PD) - Planungs- und Baudokumentation",
+      "Objektdokumentation (OD) - Betriebsdokumentation",
+      "Archivdokumentation (AD) - Rechtlich aufbewahrungspflichtige Unterlagen",
+      "Übergabeprotokoll mit Vollständigkeitsnachweis"
+    ],
+    "practiceExample": null,
+    "detailedSteps": [
+      {
+        "step": "Vorbereitung und Strukturierung",
+        "substeps": [
+          "Abstimmung der Dokumentationsanforderungen mit dem Auftraggeber",
+          "Definition der Dokumentenstruktur nach KBOB BWD-Richtlinie",
+          "Einrichtung des Dokumentenmanagementsystems (CDE)"
+        ]
+      },
+      {
+        "step": "Projektdokumentation (PD)",
+        "substeps": [
+          "Kontinuierliche Erfassung aller Planungsunterlagen",
+          "Dokumentation der Bauprozesse und Entscheidungen",
+          "Versionierung und Änderungsverfolgung"
+        ]
+      },
+      {
+        "step": "Revisionsdokumentation",
+        "substeps": [
+          "Erstellung der Revisionspläne nach Bauabschluss",
+          "Aktualisierung der BIM-Modelle auf As-Built-Stand",
+          "Dokumentation aller Abweichungen von der Planung"
+        ]
+      },
+      {
+        "step": "Objektdokumentation (OD)",
+        "substeps": [
+          "Zusammenstellung aller betriebsrelevanten Dokumente",
+          "Integration der Wartungsanleitungen und Betriebsvorschriften",
+          "Aufbereitung für CAFM-Systeme (bei Bedarf)"
+        ]
+      },
+      {
+        "step": "Qualitätsprüfung und Übergabe",
+        "substeps": [
+          "Prüfung auf Vollständigkeit anhand der Checkliste",
+          "Formale Abnahme durch den Empfänger",
+          "Erstellung des Übergabeprotokolls"
+        ]
+      },
+      {
+        "step": "Archivdokumentation (AD)",
+        "substeps": [
+          "Identifikation der aufbewahrungspflichtigen Unterlagen",
+          "Archivierung gemäss rechtlicher Anforderungen",
+          "Dokumentation der Aufbewahrungsfristen"
+        ]
+      }
+    ],
+    "qualityCriteria": [
+      "Vollständigkeit der Dokumentation gemäss AIA-Anforderungen",
+      "Einhaltung der vereinbarten Formate und Strukturvorgaben",
+      "Nachvollziehbare Versionierung und Änderungshistorie",
+      "Erfolgreiche Übergabe an alle definierten Empfänger",
+      "Rechtskonforme Archivierung mit dokumentierten Aufbewahrungsfristen"
     ],
     "roles": [
       {
@@ -1240,6 +1487,12 @@
           "Liefertermine"
         ]
       }
+    ],
+    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "examples": [],
+    "standards": [
+      "KBOB BWD-Richtlinie",
+      "SIA 112"
     ]
   },
   {

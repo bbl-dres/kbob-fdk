@@ -248,6 +248,17 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
 // USECASE DETAIL PAGE
 // ============================================
 
+/**
+ * Helper function to check if data exists and is not empty
+ */
+function hasData(value) {
+    if (value === null || value === undefined) return false;
+    if (typeof value === 'string' && value.trim() === '') return false;
+    if (Array.isArray(value) && value.length === 0) return false;
+    if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) return false;
+    return true;
+}
+
 function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalUsecasesData.find(item => item.id === id);
     if (!data) {
@@ -264,36 +275,156 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
-    const sidebarLinksData = [
-        { id: 'phasen', text: 'Phasen' },
-        { id: 'ziele', text: 'Ziele' },
-        { id: 'rollen', text: 'Rollen' },
-        { id: 'eingaben', text: 'Eingaben' },
-        { id: 'ausgaben', text: 'Ausgaben' },
-        ...(safeProcessUrl ? [{ id: 'prozess', text: 'Prozess' }] : []),
-        { id: 'verknuepfungen', text: 'Verknüpfungen' }
-    ];
-    const sidebarLinks = sidebarLinksData.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+    // Determine which sections have data (for conditional rendering)
+    const hasPhases = hasData(data.phases);
+    const hasDefinition = hasData(data.definition);
+    const hasGoals = hasData(data.goals);
+    const hasPrerequisites = hasData(data.prerequisites) && (hasData(data.prerequisites.client) || hasData(data.prerequisites.contractor));
+    const hasImplementation = hasData(data.implementation);
+    const hasInputsOutputs = hasData(data.inputs) || hasData(data.outputs);
+    const hasPracticeExample = hasData(data.practiceExample);
+    const hasDetailedSteps = hasData(data.detailedSteps);
+    const hasQualityCriteria = hasData(data.qualityCriteria);
+    const hasRoles = hasData(data.roles);
+    const hasProcess = !!safeProcessUrl;
 
+    // Build sidebar with group labels
+    let sidebarHtml = '';
+
+    // ALLGEMEINER TEIL
+    const generalLinks = [];
+    if (hasPhases) generalLinks.push({ id: 'phasen', text: 'Phasen' });
+    if (hasDefinition) generalLinks.push({ id: 'definition', text: 'Definition' });
+    if (hasGoals) generalLinks.push({ id: 'nutzen', text: 'Nutzen' });
+    if (hasPrerequisites) generalLinks.push({ id: 'voraussetzungen', text: 'Voraussetzungen' });
+    if (hasImplementation) generalLinks.push({ id: 'umsetzung', text: 'Umsetzung' });
+    if (hasInputsOutputs) generalLinks.push({ id: 'input-output', text: 'Input / Output' });
+    if (hasPracticeExample) generalLinks.push({ id: 'praxisbeispiel', text: 'Praxisbeispiel' });
+
+    if (generalLinks.length > 0) {
+        sidebarHtml += '<span class="nav-group-label">Allgemeiner Teil</span>';
+        sidebarHtml += generalLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+    }
+
+    // UMSETZUNGSDETAILS
+    const detailLinks = [];
+    if (hasDetailedSteps) detailLinks.push({ id: 'detaillierte-schritte', text: 'Detaillierte Schritte' });
+    if (hasQualityCriteria) detailLinks.push({ id: 'qualitaetskriterien', text: 'Qualitätskriterien' });
+    if (hasRoles) detailLinks.push({ id: 'beteiligte-akteure', text: 'Beteiligte Akteure' });
+    if (hasProcess) detailLinks.push({ id: 'prozess', text: 'Prozess' });
+
+    if (detailLinks.length > 0) {
+        sidebarHtml += '<span class="nav-group-label">Umsetzungsdetails</span>';
+        sidebarHtml += detailLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+    }
+
+    // VERKNÜPFUNGEN (always shown as placeholder)
+    sidebarHtml += '<span class="nav-group-label">Verknüpfungen</span>';
+    sidebarHtml += '<a href="#dokumente" class="sidebar-link" data-target="dokumente">Dokumente</a>';
+    sidebarHtml += '<a href="#elemente" class="sidebar-link" data-target="elemente">Elemente</a>';
+
+    // Build phases HTML
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
     const phasesHtml = allPhases.map(p => {
         const isActive = data.phases && data.phases.includes(p);
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    const goalsRowsHtml = data.goals && Array.isArray(data.goals) && data.goals.length > 0
-        ? data.goals.map(goal => `<tr><td class="col-val">${escapeHtml(goal)}</td></tr>`).join('')
-        : '<tr><td class="col-center empty-text">Keine Ziele definiert.</td></tr>';
+    // Build goals list HTML
+    const goalsHtml = hasGoals
+        ? `<ul class="usecase-list">${data.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ul>`
+        : '';
 
-    const inputsRowsHtml = data.inputs && Array.isArray(data.inputs) && data.inputs.length > 0
-        ? data.inputs.map(input => `<tr><td class="col-val">${escapeHtml(input)}</td></tr>`).join('')
-        : '<tr><td class="col-center empty-text">Keine Eingaben definiert.</td></tr>';
+    // Build prerequisites table HTML
+    let prerequisitesHtml = '';
+    if (hasPrerequisites) {
+        const clientItems = data.prerequisites.client || [];
+        const contractorItems = data.prerequisites.contractor || [];
+        const maxRows = Math.max(clientItems.length, contractorItems.length);
 
-    const outputsRowsHtml = data.outputs && Array.isArray(data.outputs) && data.outputs.length > 0
-        ? data.outputs.map(output => `<tr><td class="col-val">${escapeHtml(output)}</td></tr>`).join('')
-        : '<tr><td class="col-center empty-text">Keine Ausgaben definiert.</td></tr>';
+        let tableRows = '';
+        for (let i = 0; i < maxRows; i++) {
+            const clientItem = clientItems[i] ? escapeHtml(clientItems[i]) : '';
+            const contractorItem = contractorItems[i] ? escapeHtml(contractorItems[i]) : '';
+            tableRows += `<tr><td class="col-val">${clientItem}</td><td class="col-val">${contractorItem}</td></tr>`;
+        }
 
-    const rolesRowsHtml = data.roles && Array.isArray(data.roles) && data.roles.length > 0
+        prerequisitesHtml = `
+            <table class="data-table prerequisites-table">
+                <thead><tr><th>Auftraggeber (AG)</th><th>Auftragnehmer (AN)</th></tr></thead>
+                <tbody>${tableRows}</tbody>
+            </table>`;
+    }
+
+    // Build implementation list HTML
+    const implementationHtml = hasImplementation
+        ? `<ol class="usecase-list usecase-list--numbered">${data.implementation.map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol>`
+        : '';
+
+    // Build input/output table HTML
+    let ioHtml = '';
+    if (hasInputsOutputs) {
+        const inputs = data.inputs || [];
+        const outputs = data.outputs || [];
+        const maxRows = Math.max(inputs.length, outputs.length);
+
+        let tableRows = '';
+        for (let i = 0; i < maxRows; i++) {
+            const inputItem = inputs[i] ? escapeHtml(inputs[i]) : '';
+            const outputItem = outputs[i] ? escapeHtml(outputs[i]) : '';
+            tableRows += `<tr><td class="col-val">${inputItem}</td><td class="col-val">${outputItem}</td></tr>`;
+        }
+
+        ioHtml = `
+            <table class="data-table io-table">
+                <thead><tr><th>Input</th><th>Output</th></tr></thead>
+                <tbody>${tableRows}</tbody>
+            </table>`;
+    }
+
+    // Build practice example HTML
+    let practiceExampleHtml = '';
+    if (hasPracticeExample) {
+        const example = data.practiceExample;
+        const exampleImage = example.image ? escapeHtml(example.image) : '';
+        const exampleTitle = escapeHtml(example.title || '');
+        const exampleDesc = escapeHtml(example.description || '');
+
+        practiceExampleHtml = `
+            <div class="practice-example-card">
+                ${exampleImage ? `<div class="practice-example-card__image"><img src="${exampleImage}" alt="${exampleTitle}"></div>` : ''}
+                <div class="practice-example-card__content">
+                    <h3 class="practice-example-card__title">${exampleTitle}</h3>
+                    <p class="practice-example-card__description">${exampleDesc}</p>
+                </div>
+            </div>`;
+    }
+
+    // Build detailed steps HTML
+    let detailedStepsHtml = '';
+    if (hasDetailedSteps) {
+        detailedStepsHtml = '<ol class="detailed-steps-list">';
+        data.detailedSteps.forEach(item => {
+            detailedStepsHtml += `<li><strong>${escapeHtml(item.step)}</strong>`;
+            if (item.substeps && item.substeps.length > 0) {
+                detailedStepsHtml += '<ul class="detailed-steps-list__substeps">';
+                item.substeps.forEach(substep => {
+                    detailedStepsHtml += `<li>${escapeHtml(substep)}</li>`;
+                });
+                detailedStepsHtml += '</ul>';
+            }
+            detailedStepsHtml += '</li>';
+        });
+        detailedStepsHtml += '</ol>';
+    }
+
+    // Build quality criteria HTML
+    const qualityCriteriaHtml = hasQualityCriteria
+        ? `<ul class="usecase-list">${data.qualityCriteria.map(criterion => `<li>${escapeHtml(criterion)}</li>`).join('')}</ul>`
+        : '';
+
+    // Build roles table HTML
+    const rolesRowsHtml = hasRoles
         ? data.roles.map(role => `
             <tr>
                 <td class="col-val col-actor">${escapeHtml(role.actor || '')}</td>
@@ -320,24 +451,72 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
         <div class="container">
             <div class="detail-layout">
-                <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
+                <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
+
+                    ${hasPhases ? `
                     <div class="detail-section" id="phasen">
                         <h2>Projekt-/Lebenszyklusphasen</h2>
                         <p>Relevante Projektphasen für diesen Anwendungsfall.</p>
                         <div class="phases-container phases-container--large">${phasesHtml}</div>
-                    </div>
+                    </div>` : ''}
 
-                    <div class="detail-section" id="ziele">
-                        <h2>Ziele</h2>
-                        <table class="data-table">
-                            <thead><tr><th>Beschreibung</th></tr></thead>
-                            <tbody>${goalsRowsHtml}</tbody>
-                        </table>
-                    </div>
+                    ${hasDefinition ? `
+                    <div class="detail-section" id="definition">
+                        <h2>Definition</h2>
+                        <p class="definition-text">${escapeHtml(data.definition)}</p>
+                    </div>` : ''}
 
-                    <div class="detail-section" id="rollen">
-                        <h2>Rollen & Verantwortlichkeiten</h2>
+                    ${hasGoals ? `
+                    <div class="detail-section" id="nutzen">
+                        <h2>Nutzen</h2>
+                        ${goalsHtml}
+                    </div>` : ''}
+
+                    ${hasPrerequisites ? `
+                    <div class="detail-section" id="voraussetzungen">
+                        <h2>Voraussetzungen</h2>
+                        <p>Anforderungen an Auftraggeber und Auftragnehmer für die erfolgreiche Umsetzung.</p>
+                        ${prerequisitesHtml}
+                    </div>` : ''}
+
+                    ${hasImplementation ? `
+                    <div class="detail-section" id="umsetzung">
+                        <h2>Umsetzung</h2>
+                        <p>Schritte zur Umsetzung dieses Anwendungsfalls.</p>
+                        ${implementationHtml}
+                    </div>` : ''}
+
+                    ${hasInputsOutputs ? `
+                    <div class="detail-section" id="input-output">
+                        <h2>Input / Output</h2>
+                        <p>Erforderliche Eingaben und erwartete Ergebnisse.</p>
+                        ${ioHtml}
+                    </div>` : ''}
+
+                    ${hasPracticeExample ? `
+                    <div class="detail-section" id="praxisbeispiel">
+                        <h2>Praxisbeispiel</h2>
+                        ${practiceExampleHtml}
+                    </div>` : ''}
+
+                    ${hasDetailedSteps ? `
+                    <div class="detail-section" id="detaillierte-schritte">
+                        <h2>Detaillierte Schritte</h2>
+                        <p>Ausführliche Beschreibung der einzelnen Umsetzungsschritte.</p>
+                        ${detailedStepsHtml}
+                    </div>` : ''}
+
+                    ${hasQualityCriteria ? `
+                    <div class="detail-section" id="qualitaetskriterien">
+                        <h2>Qualitätskriterien</h2>
+                        <p>Kriterien zur Bewertung der erfolgreichen Umsetzung.</p>
+                        ${qualityCriteriaHtml}
+                    </div>` : ''}
+
+                    ${hasRoles ? `
+                    <div class="detail-section" id="beteiligte-akteure">
+                        <h2>Beteiligte Akteure</h2>
                         <table class="data-table">
                             <thead>
                                 <tr>
@@ -349,27 +528,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                             </thead>
                             <tbody>${rolesRowsHtml}</tbody>
                         </table>
-                    </div>
+                    </div>` : ''}
 
-                    <div class="detail-section" id="eingaben">
-                        <h2>Eingaben</h2>
-                        <p>Erforderliche Informationen und Dokumente für diesen Anwendungsfall.</p>
-                        <table class="data-table">
-                            <thead><tr><th>Bezeichnung</th></tr></thead>
-                            <tbody>${inputsRowsHtml}</tbody>
-                        </table>
-                    </div>
-
-                    <div class="detail-section" id="ausgaben">
-                        <h2>Ausgaben</h2>
-                        <p>Ergebnisse und Lieferobjekte dieses Anwendungsfalls.</p>
-                        <table class="data-table">
-                            <thead><tr><th>Bezeichnung</th></tr></thead>
-                            <tbody>${outputsRowsHtml}</tbody>
-                        </table>
-                    </div>
-
-                    ${safeProcessUrl ? `
+                    ${hasProcess ? `
                     <div class="detail-section" id="prozess">
                         <h2>Prozess</h2>
                         <p>BPMN-Prozessdiagramm für diesen Anwendungsfall.</p>
@@ -383,13 +544,22 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         </div>
                     </div>` : ''}
 
-                    <div class="detail-section" id="verknuepfungen">
-                        <h2>Verknüpfungen</h2>
-                        <p>Verknüpfte Dokumente und Elemente für diesen Anwendungsfall.</p>
+                    <div class="detail-section" id="dokumente">
+                        <h2>Dokumente</h2>
                         <div class="info-box info-box--inline">
                             <i data-lucide="construction" class="info-box__icon"></i>
                             <div>
-                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Dokumente und Elemente angezeigt.</p>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Dokumente angezeigt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section" id="elemente">
+                        <h2>Elemente</h2>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
                             </div>
                         </div>
                     </div>

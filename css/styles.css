@@ -4294,3 +4294,246 @@ th[aria-sort='ascending'] .table__sorter span::after {
     background: var(--color-info);
 }
 
+/* ============================================
+   USECASE DETAIL PAGE - EXTENDED STYLES
+   ============================================ */
+
+/* Sidebar Group Labels */
+.nav-group-label {
+    display: block;
+    padding: var(--space-sm) var(--space-md);
+    padding-top: var(--space-md);
+    font-size: var(--text-body-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-left: 2px solid transparent;
+}
+
+.nav-group-label:first-child {
+    padding-top: 0;
+}
+
+/* Definition Text */
+.definition-text {
+    font-size: var(--text-body);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    max-width: 75ch;
+}
+
+/* Usecase Lists */
+.usecase-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.usecase-list li {
+    position: relative;
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.usecase-list li:last-child {
+    border-bottom: none;
+}
+
+.usecase-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: calc(var(--space-sm) + 0.5em);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+/* Numbered Usecase List */
+.usecase-list--numbered {
+    list-style: none;
+    counter-reset: step-counter;
+}
+
+.usecase-list--numbered li {
+    padding-left: var(--space-xl);
+    counter-increment: step-counter;
+}
+
+.usecase-list--numbered li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: var(--space-sm);
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-semibold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prerequisites Table */
+.prerequisites-table {
+    table-layout: fixed;
+}
+
+.prerequisites-table th {
+    width: 50%;
+}
+
+/* Input/Output Table */
+.io-table {
+    table-layout: fixed;
+}
+
+.io-table th {
+    width: 50%;
+}
+
+/* Practice Example Card */
+.practice-example-card {
+    display: flex;
+    gap: var(--space-lg);
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
+}
+
+.practice-example-card__image {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+.practice-example-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.practice-example-card__content {
+    flex: 1;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.practice-example-card__title {
+    font-size: var(--text-h4);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.practice-example-card__description {
+    font-size: var(--text-body);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Detailed Steps List */
+.detailed-steps-list {
+    list-style: none;
+    counter-reset: main-step;
+    padding: 0;
+    margin: 0;
+}
+
+.detailed-steps-list > li {
+    counter-increment: main-step;
+    padding: var(--space-md) 0;
+    padding-left: var(--space-2xl);
+    position: relative;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.detailed-steps-list > li:last-child {
+    border-bottom: none;
+}
+
+.detailed-steps-list > li::before {
+    content: counter(main-step);
+    position: absolute;
+    left: 0;
+    top: var(--space-md);
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailed-steps-list > li > strong {
+    display: block;
+    font-size: var(--text-body);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+/* Substeps */
+.detailed-steps-list__substeps {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-sm) 0 0 0;
+}
+
+.detailed-steps-list__substeps li {
+    position: relative;
+    padding: var(--space-xs) 0;
+    padding-left: var(--space-md);
+    color: var(--color-text-secondary);
+    font-size: var(--text-body-sm);
+    line-height: 1.5;
+}
+
+.detailed-steps-list__substeps li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+}
+
+/* Responsive: Usecase Extended Styles */
+@media (max-width: 768px) {
+    .practice-example-card {
+        flex-direction: column;
+    }
+
+    .practice-example-card__image {
+        flex: 0 0 auto;
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .nav-group-label {
+        padding-top: var(--space-sm);
+        font-size: var(--text-body-xs);
+    }
+
+    .detailed-steps-list > li {
+        padding-left: var(--space-xl);
+    }
+
+    .detailed-steps-list > li::before {
+        width: 24px;
+        height: 24px;
+        font-size: var(--text-body-xs);
+    }
+}
+
