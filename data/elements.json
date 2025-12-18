@@ -2,10 +2,10 @@
   {
     "id": "e1",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-15",
     "title": "Aktuator",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Mechanische Vorrichtung zur Umwandlung von Energie (Luft, Strom, Flüssigkeit) in Bewegung zur Steuerung von Systemen.",
     "tags": [],
     "classifications": {
@@ -252,10 +252,10 @@
   {
     "id": "e2",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-22",
     "title": "Audiovisuelles Gerät",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Gerät zum Anzeigen, Aufnehmen, Übertragen oder Empfangen von Audio-/Videodaten; fest oder mobil installiert.",
     "tags": [],
     "classifications": {
@@ -567,10 +567,10 @@
   {
     "id": "e3",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-08",
     "title": "Balken",
-    "image": "",
-    "category": "",
+    "image": "assets/img/beam.jpg",
+    "category": "Tragwerk",
     "description": "Lineares, meist horizontales Tragwerk zur Lastaufnahme und -weiterleitung durch Biegung; inkl. Fachwerkträger.",
     "tags": [],
     "classifications": {
@@ -917,10 +917,10 @@
   {
     "id": "e4",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-11",
     "title": "Beförderungsgerät (ausschl. Fah",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Anlage zur horizontalen/vertikalen Beförderung von Personen oder Gütern: Rolltreppen, Hebebühnen, Rollbänder etc.",
     "tags": [],
     "classifications": {
@@ -1231,10 +1231,10 @@
   {
     "id": "e5",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-03",
     "title": "Behälter",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Volumen zur Speicherung von Flüssigkeiten/Gasen (Tanks, Speicher) oder zur Druckregulierung in Netzen.",
     "tags": [],
     "classifications": {
@@ -1556,10 +1556,10 @@
   {
     "id": "e6",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-18",
     "title": "Bodenbelag",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Nicht tragende Einzelschichten auf Böden: Beläge, Dämmung, Abdichtung – innen und aussen.",
     "tags": [],
     "classifications": {
@@ -1981,10 +1981,10 @@
   {
     "id": "e7",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-25",
     "title": "Bodenplatte",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Horizontales Konstruktionselement auf dem Boden; tragend (Fundamentplatte) oder nicht tragend.",
     "tags": [],
     "classifications": {
@@ -2331,10 +2331,10 @@
   {
     "id": "e8",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-30",
     "title": "Brandschutzkupplung",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Anschlusssystem zur externen Wasserzufuhr für das Feuerlöschnetz.",
     "tags": [],
     "classifications": {
@@ -2567,10 +2567,10 @@
   {
     "id": "e9",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-14",
     "title": "Dach",
-    "image": "",
-    "category": "",
+    "image": "assets/img/roof_flat.jpg",
+    "category": "Architektur",
     "description": "Flächiges Abschlusselement im oberen Gebäudeteil; Massivbau oder Leichtbau mit Dachstuhl.",
     "tags": [],
     "classifications": {
@@ -2873,10 +2873,10 @@
   {
     "id": "e10",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-05",
     "title": "Dachbelag",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Nicht tragende Einzelschichten auf Dächern: Abdichtung, Dämmung, Verkleidung.",
     "tags": [],
     "classifications": {
@@ -3226,10 +3226,10 @@
   {
     "id": "e11",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-21",
     "title": "Daten Gerät",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Gerät zum Austausch von Computerdaten; fest oder mobil, ohne primäre Audio-/Videofunktion.",
     "tags": [],
     "classifications": {
@@ -3514,10 +3514,10 @@
   {
     "id": "e12",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-28",
     "title": "Decke",
-    "image": "",
-    "category": "",
+    "image": "assets/img/slab.jpg",
+    "category": "Tragwerk",
     "description": "Horizontales Flächenelement zur vertikalen Raumunterteilung mit tragenden Schichten.",
     "tags": [],
     "classifications": {
@@ -3912,10 +3912,10 @@
   {
     "id": "e13",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-12",
     "title": "Deckenverkleidung",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Nicht tragende Einzelschichten an Decken (ohne abgehängte Decken): Verkleidung, Dämmung, Membranen.",
     "tags": [],
     "classifications": {
@@ -4237,10 +4237,10 @@
   {
     "id": "e14",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-19",
     "title": "Doppelboden",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Demontierbare Bodenkonstruktion für einfachen Zugang zur darunterliegenden Technik.",
     "tags": [],
     "classifications": {
@@ -4482,10 +4482,10 @@
   {
     "id": "e15",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-07",
     "title": "Elektrischer Schaltschrank",
-    "image": "",
-    "category": "",
+    "image": "assets/img/distribution_board.jpg",
+    "category": "Elektro",
     "description": "Kasten zur Stromverteilung mit Schutz-, Mess- und Steuergeräten.",
     "tags": [],
     "classifications": {
@@ -4758,10 +4758,10 @@
   {
     "id": "e16",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-12-02",
     "title": "Elektrisches Gerät",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Fest oder mobil installiertes Gerät für Strombetrieb; ohne Kommunikations-/Heiz-/Kühlgeräte.",
     "tags": [],
     "classifications": {
@@ -5061,10 +5061,10 @@
   {
     "id": "e17",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-09",
     "title": "Fahrstuhl",
-    "image": "",
-    "category": "",
+    "image": "assets/img/elevator.jpg",
+    "category": "Elektro",
     "description": "Transporteinrichtung zur vertikalen Beförderung von Personen/Gütern in geschlossener Kabine.",
     "tags": [],
     "classifications": {
@@ -5290,10 +5290,10 @@
   {
     "id": "e18",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-14",
     "title": "Fenster",
-    "image": "",
-    "category": "",
+    "image": "assets/img/window.jpg",
+    "category": "Architektur",
     "description": "Bauelement für Lichteinfall und Belüftung; vertikale oder horizontale Öffnungen mit Rahmen und Flügeln.",
     "tags": [],
     "classifications": {
@@ -5601,10 +5601,10 @@
   {
     "id": "e19",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-03",
     "title": "Feuerlöscheinrichtung",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Zentrale Aufbewahrung von Brandschutzmaterial: Feuerlöscher, Schläuche, Kupplungen.",
     "tags": [],
     "classifications": {
@@ -5826,10 +5826,10 @@
   {
     "id": "e20",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-25",
     "title": "Feuerlöscher",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Tragbares oder stationäres Gerät zur Brandbekämpfung mittels Löschmittel.",
     "tags": [],
     "classifications": {
@@ -6044,10 +6044,10 @@
   {
     "id": "e21",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-17",
     "title": "Filter",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Vorrichtung zur Entfernung von Partikeln oder Gasen aus der Luft in Lüftungsanlagen.",
     "tags": [],
     "classifications": {
@@ -6282,10 +6282,10 @@
   {
     "id": "e22",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-28",
     "title": "Flächenfundament",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Stahlbetonfundament zur direkten Lastübertragung auf den Baugrund unter Wänden/Stützen.",
     "tags": [],
     "classifications": {
@@ -6580,10 +6580,10 @@
   {
     "id": "e23",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-09",
     "title": "Fundamentbalken",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Balken zur Lastverteilung auf Flächen- oder Tiefgründungen.",
     "tags": [],
     "classifications": {
@@ -6864,10 +6864,10 @@
   {
     "id": "e24",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-05",
     "title": "Gebäude",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Bauwerk mit Schutzfunktion an einem Standort; trägt Adresse und gebäudespezifische Informationen.",
     "tags": [],
     "classifications": {},
@@ -7029,10 +7029,10 @@
   {
     "id": "e25",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-21",
     "title": "Gelände",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Geometrische Darstellung des natürlichen Bodenprofils; inkl. Katasterparzellen.",
     "tags": [],
     "classifications": {},
@@ -7164,10 +7164,10 @@
   {
     "id": "e26",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-28",
     "title": "Geländer",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Vertikale Schutzbarriere an Absturzstellen; bestehend aus Handlauf, Pfosten und Füllungen.",
     "tags": [],
     "classifications": {
@@ -7390,10 +7390,10 @@
   {
     "id": "e27",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-19",
     "title": "Grundstück",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Projektfläche mit Referenzpunkt für lokales und globales Koordinatensystem (WGS84).",
     "tags": [],
     "classifications": {},
@@ -7460,10 +7460,10 @@
   {
     "id": "e28",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-27",
     "title": "Hydrant",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Wasseranschluss für Feuerwehrschläuche; innen (Steigleitung) oder aussen (Stadtnetz).",
     "tags": [],
     "classifications": {
@@ -7688,10 +7688,10 @@
   {
     "id": "e29",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-14",
     "title": "Inneneinrichtung",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Möbel und Einrichtungsgegenstände, befestigt oder frei; ohne technische Ausrüstungen.",
     "tags": [],
     "classifications": {
@@ -7979,10 +7979,10 @@
   {
     "id": "e30",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-25",
     "title": "Kabeltrasse",
-    "image": "",
-    "category": "",
+    "image": "assets/img/cable_tray.jpg",
+    "category": "Elektro",
     "description": "Vorrichtung zur Führung elektrischer Kabel; offen oder geschlossen, an Wand/Decke/Boden.",
     "tags": [],
     "classifications": {
@@ -8197,10 +8197,10 @@
   {
     "id": "e31",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-03",
     "title": "Kableltrasse-formteil",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Verbindungsstücke für Kabeltrassen: Winkel, T-Stücke, Reduzierstücke.",
     "tags": [],
     "classifications": {
@@ -8400,10 +8400,10 @@
   {
     "id": "e32",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-12-11",
     "title": "Kälteerzeugung",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Gerät zur Kühlung von Flüssigkeiten mittels Kältekreislauf für Gebäudeklimatisierung.",
     "tags": [],
     "classifications": {
@@ -8657,10 +8657,10 @@
   {
     "id": "e33",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-08",
     "title": "Leuchte",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Vorrichtung zur künstlichen Beleuchtung; inkl. Lampe, Trafo und Zubehör.",
     "tags": [],
     "classifications": {
@@ -8870,10 +8870,10 @@
   {
     "id": "e34",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-30",
     "title": "Luft-Luft-Wärmetauscher",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Gerät zur Wärmeübertragung zwischen zwei Luftströmen; typisch für Lüftung mit Wärmerückgewinnung.",
     "tags": [],
     "classifications": {
@@ -9134,10 +9134,10 @@
   {
     "id": "e35",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-31",
     "title": "Luftaufbereitungsanlage",
-    "image": "",
-    "category": "",
+    "image": "assets/img/ahu.jpg",
+    "category": "HLKS",
     "description": "Anlage zum Filtern, Heizen, Kühlen, Be-/Entfeuchten und Verteilen von Luft.",
     "tags": [],
     "classifications": {
@@ -9398,10 +9398,10 @@
   {
     "id": "e36",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-05",
     "title": "Lüftungsauslass",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Endpunkt zwischen Luftverteilungssystem und Raum; verschiedene Formen und Funktionen.",
     "tags": [],
     "classifications": {
@@ -9633,10 +9633,10 @@
   {
     "id": "e37",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-14",
     "title": "Lüftungskanal",
-    "image": "",
-    "category": "",
+    "image": "assets/img/duct_rect.jpg",
+    "category": "HLKS",
     "description": "Kanal zur Verteilung aufbereiteter Luft im Gebäude.",
     "tags": [],
     "classifications": {
@@ -9891,10 +9891,10 @@
   {
     "id": "e38",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-22",
     "title": "Lüftungskanalformteil",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Verbindungsstücke für Lüftungskanäle: Winkel, Adapter, T-Stücke, Stopfen.",
     "tags": [],
     "classifications": {
@@ -10145,10 +10145,10 @@
   {
     "id": "e39",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-01",
     "title": "Lüftungsschalldämpfer",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Element zur Reduktion der Schallübertragung durch Lüftungskanäle.",
     "tags": [],
     "classifications": {
@@ -10361,10 +10361,10 @@
   {
     "id": "e40",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-28",
     "title": "Öffnung",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Durchbruch, Vertiefung oder Nische in Bauelementen; ohne Tür/Fenster; für Durchgang oder Technik.",
     "tags": [],
     "classifications": {},
@@ -10512,10 +10512,10 @@
   {
     "id": "e41",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-15",
     "title": "Öffnungsanfrage",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Geplante Öffnung für Technikleitungen; MEP erstellt Anfrage, ARC/STR gibt frei und integriert.",
     "tags": [],
     "classifications": {},
@@ -10527,10 +10527,10 @@
   {
     "id": "e42",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-19",
     "title": "Projekt",
     "image": "",
-    "category": "",
+    "category": "Allgemein",
     "description": "Grundinstanz mit Einheiten, Koordinatensystem, Georeferenzierung und Projektkontext.",
     "tags": [],
     "classifications": {},
@@ -10621,10 +10621,10 @@
   {
     "id": "e43",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-18",
     "title": "Pumpe",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Gerät zur mechanischen Bewegung von Flüssigkeiten/Schlämmen durch Rohrleitungen.",
     "tags": [],
     "classifications": {
@@ -10898,10 +10898,10 @@
   {
     "id": "e44",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-24",
     "title": "Rampe",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Geneigte Fläche zur Verbindung verschiedener Ebenen; begehbar oder befahrbar.",
     "tags": [],
     "classifications": {
@@ -11276,10 +11276,10 @@
   {
     "id": "e45",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-10",
     "title": "Raum",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Physisch oder virtuell begrenztes Volumen; innen oder aussen, nach Nutzung/Anforderungen unterteilt.",
     "tags": [],
     "classifications": {
@@ -11563,10 +11563,10 @@
   {
     "id": "e46",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-08",
     "title": "Regelklappe",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Element zur Steuerung des Luftstroms in Kanälen; manuell oder motorisch.",
     "tags": [],
     "classifications": {
@@ -11820,10 +11820,10 @@
   {
     "id": "e47",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-27",
     "title": "Rohr",
-    "image": "",
-    "category": "",
+    "image": "assets/img/pipe_heating.jpg",
+    "category": "HLKS",
     "description": "Element mit meist kreisförmigem Querschnitt zum Transport von Flüssigkeiten, Gasen oder Feststoffen.",
     "tags": [],
     "classifications": {
@@ -12160,10 +12160,10 @@
   {
     "id": "e48",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-22",
     "title": "Rohrverbindung",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Formstücke für Rohrleitungen: Winkel, Adapter, T-Stücke, Stopfen.",
     "tags": [],
     "classifications": {
@@ -12469,10 +12469,10 @@
   {
     "id": "e49",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-11",
     "title": "Sanitäranlage",
-    "image": "",
-    "category": "",
+    "image": "assets/img/wc.jpg",
+    "category": "HLKS",
     "description": "Gerät mit Wasserversorgung und meist Abwasseranschluss: WC, Waschbecken, Dusche etc.",
     "tags": [],
     "classifications": {
@@ -12780,10 +12780,10 @@
   {
     "id": "e50",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-26",
     "title": "Schalter",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Elektrisches Zubehör zur Steuerung und Modulation von Stromkreisen.",
     "tags": [],
     "classifications": {
@@ -13028,10 +13028,10 @@
   {
     "id": "e51",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-03",
     "title": "Schlauchtrommel",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Flexibler Schlauch auf Trommel, angeschlossen an Hydranten zur Brandbekämpfung.",
     "tags": [],
     "classifications": {
@@ -13310,10 +13310,10 @@
   {
     "id": "e52",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-03",
     "title": "Schornstein",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Vertikales Abzugsrohr für Abgase von Wärmeerzeugern; vorgefertigt oder vor Ort gebaut.",
     "tags": [],
     "classifications": {
@@ -13522,10 +13522,10 @@
   {
     "id": "e53",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-05",
     "title": "Sicherheitsbeleuchtung",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Notbeleuchtung zur Kennzeichnung von Fluchtwegen.",
     "tags": [],
     "classifications": {
@@ -13730,10 +13730,10 @@
   {
     "id": "e54",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-09",
     "title": "Sicherungskasten",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Schutzvorrichtung zur automatischen Unterbrechung bei Überlast, Kurzschluss oder Fehlerstrom.",
     "tags": [],
     "classifications": {
@@ -13959,10 +13959,10 @@
   {
     "id": "e55",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-12-18",
     "title": "Solarpanel",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Kollektor zur Umwandlung von Sonnenenergie in Strom (PV) oder Wärme (thermisch).",
     "tags": [],
     "classifications": {
@@ -14247,10 +14247,10 @@
   {
     "id": "e56",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-15",
     "title": "Sprinkler",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Automatische Wasserlöschanlage mit Löschköpfen, die bei Hitze auslösen.",
     "tags": [],
     "classifications": {
@@ -14464,10 +14464,10 @@
   {
     "id": "e57",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-30",
     "title": "Stabtragwerkselement",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Lineares Konstruktionselement (Pfette, Sparren etc.) zur Lastübertragung durch Biegung/Druck/Zug.",
     "tags": [],
     "classifications": {
@@ -14833,10 +14833,10 @@
   {
     "id": "e58",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-22",
     "title": "Steckdose",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Einbauvorrichtung für elektrische, Multimedia- oder Datenanschlüsse.",
     "tags": [],
     "classifications": {
@@ -15037,10 +15037,10 @@
   {
     "id": "e59",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-17",
     "title": "Steuerungspanel",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Gerät zur Überwachung und Steuerung in der Gebäudeautomation; physisch oder logisch.",
     "tags": [],
     "classifications": {
@@ -15255,10 +15255,10 @@
   {
     "id": "e60",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-08",
     "title": "Stromerzeuger",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Gerät zur Umwandlung kinetischer Energie in Elektrizität; Motor/Turbine mit Generator.",
     "tags": [],
     "classifications": {
@@ -15533,10 +15533,10 @@
   {
     "id": "e61",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-19",
     "title": "Stromspeicher",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Gerät zur Speicherung und Abgabe elektrischer Energie; chemisch, kapazitiv oder induktiv.",
     "tags": [],
     "classifications": {
@@ -15811,10 +15811,10 @@
   {
     "id": "e62",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-22",
     "title": "Stütze",
-    "image": "",
-    "category": "",
+    "image": "assets/img/column.jpg",
+    "category": "Tragwerk",
     "description": "Meist vertikales Tragwerk zur Aufnahme und Übertragung von Druck- und Horizontallasten.",
     "tags": [],
     "classifications": {
@@ -16130,10 +16130,10 @@
   {
     "id": "e63",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-17",
     "title": "Tiefgründung",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Fundament zur Lastübertragung auf tiefere Bodenschichten durch Reibung/Spitzendruck; z.B. Pfähle.",
     "tags": [],
     "classifications": {
@@ -16470,10 +16470,10 @@
   {
     "id": "e64",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-25",
     "title": "Tiefgründung (Senkkasten)",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Tiefes Fundament (Senkkasten) zur Lastübertragung auf tiefere Bodenschichten.",
     "tags": [],
     "classifications": {
@@ -16737,10 +16737,10 @@
   {
     "id": "e65",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-11",
     "title": "Transformator",
     "image": "",
-    "category": "",
+    "category": "Elektro",
     "description": "Elektrisches Bauteil zur Änderung von Spannung und Stromstärke zwischen Stromkreisen.",
     "tags": [],
     "classifications": {
@@ -17017,10 +17017,10 @@
   {
     "id": "e66",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-14",
     "title": "Treppe (Beton)",
     "image": "",
-    "category": "",
+    "category": "Tragwerk",
     "description": "Betontreppe zur Verbindung verschiedener Ebenen; aufliegend oder freistehend.",
     "tags": [],
     "classifications": {
@@ -17253,10 +17253,10 @@
   {
     "id": "e67",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-12-05",
     "title": "Treppe (nicht Beton)",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Treppe aus Holz/Metall mit Wangen, Stufen und ggf. Setzstufen; aufliegend oder freistehend.",
     "tags": [],
     "classifications": {},
@@ -17441,10 +17441,10 @@
   {
     "id": "e68",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-01",
     "title": "Tür",
-    "image": "",
-    "category": "",
+    "image": "assets/img/door_interior.jpg",
+    "category": "Architektur",
     "description": "Bauelement für kontrollierten Zugang; Rahmen mit beweglichen Türblättern und Beschlägen.",
     "tags": [],
     "classifications": {
@@ -17798,10 +17798,10 @@
   {
     "id": "e69",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-09-14",
     "title": "Ventilator",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Mechanisches Element zur Luftbewegung im Lüftungssystem; zentral oder dezentral.",
     "tags": [],
     "classifications": {
@@ -18017,10 +18017,10 @@
   {
     "id": "e70",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-01-29",
     "title": "Vorhangfassade",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Verglaste Fassade ausserhalb der Geschossdecken; Tragstruktur mit Paneelen und Dämmung.",
     "tags": [],
     "classifications": {
@@ -18280,10 +18280,10 @@
   {
     "id": "e71",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-06-10",
     "title": "Wand",
-    "image": "",
-    "category": "",
+    "image": "assets/img/wall.jpg",
+    "category": "Architektur",
     "description": "Vertikales Flächenelement zur Raumunterteilung; tragend oder nicht tragend, mit Schichten.",
     "tags": [],
     "classifications": {
@@ -18791,10 +18791,10 @@
   {
     "id": "e72",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-11-19",
     "title": "Wandverkleidung",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Nicht tragende Schichten an Wänden: Verkleidung, Dämmung, Abdichtung, Sockelleisten.",
     "tags": [],
     "classifications": {
@@ -19150,10 +19150,10 @@
   {
     "id": "e73",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-03-26",
     "title": "Wärme- Kälteverteilung - Fläche",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Flächenheizung/-kühlung durch Strahlung: Fussbodenheizung, aktive Decken etc.",
     "tags": [],
     "classifications": {
@@ -19429,10 +19429,10 @@
   {
     "id": "e74",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-08-05",
     "title": "Wärme- Kälteverteilung - Konvek",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Heizgerät mit Strahlung und/oder Konvektion: Konvektoren, Röhrenheizkörper.",
     "tags": [],
     "classifications": {
@@ -19678,10 +19678,10 @@
   {
     "id": "e75",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-05-21",
     "title": "Wärmeerzeugung - Dampf",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Druckbehälter zur Dampferzeugung (>100°C) für Heizprozesse.",
     "tags": [],
     "classifications": {
@@ -19934,10 +19934,10 @@
   {
     "id": "e76",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-10-12",
     "title": "Wärmeerzeugung - Wasser",
     "image": "",
-    "category": "",
+    "category": "HLKS",
     "description": "Druckbehälter zur Warmwassererzeugung für Heizanwendungen.",
     "tags": [],
     "classifications": {
@@ -20223,10 +20223,10 @@
   {
     "id": "e77",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-02-24",
     "title": "Wärmeverteilung - Heizkörper",
-    "image": "",
-    "category": "",
+    "image": "assets/img/radiator.jpg",
+    "category": "HLKS",
     "description": "Wärmeverteiler mit Strahlung/Konvektion: Heizkörper, Handtuchtrockner.",
     "tags": [],
     "classifications": {
@@ -20481,10 +20481,10 @@
   {
     "id": "e78",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-07-29",
     "title": "Wasserrinne",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Rohrsystem zur Regenwassersammlung am Fuss von Dachschrägen.",
     "tags": [],
     "classifications": {
@@ -20700,10 +20700,10 @@
   {
     "id": "e79",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-12-09",
     "title": "Zone",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Gruppe von Räumen mit gemeinsamen Nutzungs- oder Leistungsanforderungen; optional.",
     "tags": [],
     "classifications": {
@@ -20874,10 +20874,10 @@
   {
     "id": "e80",
     "version": "1.0",
-    "lastChange": "",
+    "lastChange": "2024-04-11",
     "title": "Zwischendecke",
     "image": "",
-    "category": "",
+    "category": "Architektur",
     "description": "Abgehängte Decke zum Verbergen von Technik; demontierbare Platten für Wartungszugang.",
     "tags": [],
     "classifications": {
