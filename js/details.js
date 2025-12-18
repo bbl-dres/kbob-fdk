@@ -295,11 +295,121 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
 }
 
 // ============================================
-// BACKWARD COMPATIBLE WRAPPERS
+// DOCUMENT DETAIL PAGE
 // ============================================
 
 function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
-    renderPlaceholderDetailPage('documents', id, activeTags, activeCategory);
+    const data = globalDocumentsData.find(doc => doc.id === id);
+    if (!data) {
+        contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden.</div>';
+        return;
+    }
+
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || 'Ein Dokument des KBOB Datenkatalogs.');
+    const safeImage = escapeHtml(data.image || '');
+
+    // Check for phases
+    const documentPhases = data.phases && Array.isArray(data.phases) ? data.phases : [];
+    const hasPhases = documentPhases.length > 0;
+
+    // Build phases HTML
+    const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
+    const phasesHtml = allPhases.map(p => {
+        const isActive = documentPhases.includes(p);
+        return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
+    }).join('');
+
+    // Build sidebar links
+    const sidebarLinks = [
+        { id: 'phasen', text: 'Phasen' },
+        { id: 'klassifizierung', text: 'Klassifizierung' },
+        { id: 'details', text: 'Details' },
+        { id: 'elemente', text: 'Elemente' },
+        { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
+    ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
+
+    // Build classifications table rows
+    const classRows = data.classifications && Array.isArray(data.classifications)
+        ? data.classifications.map(c => `<tr><td class="col-val">${escapeHtml(c.system || '')}</td><td class="col-val">${escapeHtml(c.code || '')} - ${escapeHtml(c.desc || '')}</td></tr>`).join('')
+        : '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+
+    // Build details table rows
+    const formatsText = data.formats && Array.isArray(data.formats) ? data.formats.join(', ') : '-';
+    const retentionText = data.retention || '-';
+
+    const backLink = buildHashWithTags('documents', activeTags, activeCategory, [], getActiveViewFromURL());
+
+    contentArea.innerHTML = `
+        <section class="detail-hero">
+            <div class="container detail-hero__inner">
+                <div class="hero-content">
+                    <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
+                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                </div>
+                <div class="hero-image-container">
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="detail-layout">
+                <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
+                <div class="detail-content-area">
+                    ${hasPhases ? `
+                    <div id="phasen" class="detail-section">
+                        <h2>Projekt-/Lebenszyklusphasen</h2>
+                        <p>Relevante Projektphasen für dieses Dokument.</p>
+                        <div class="phases-container phases-container--large">${phasesHtml}</div>
+                    </div>` : ''}
+
+                    <div id="klassifizierung" class="detail-section">
+                        <h2>Klassifizierung</h2>
+                        <table class="data-table">
+                            <thead><tr><th class="th-w-20">Klassifizierung</th><th>Nummer - Beschreibung</th></tr></thead>
+                            <tbody>${classRows}</tbody>
+                        </table>
+                    </div>
+
+                    <div id="details" class="detail-section">
+                        <h2>Details</h2>
+                        <table class="data-table">
+                            <thead><tr><th class="th-w-20">Attribut</th><th>Wert</th></tr></thead>
+                            <tbody>
+                                <tr><td class="col-val">Formate</td><td class="col-val">${escapeHtml(formatsText)}</td></tr>
+                                <tr><td class="col-val">Aufbewahrung</td><td class="col-val">${escapeHtml(retentionText)}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="elemente" class="detail-section">
+                        <h2>Elemente</h2>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="anwendungsfaelle" class="detail-section">
+                        <h2>Anwendungsfälle</h2>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+    setupDetailInteractions();
 }
 
 // ============================================
