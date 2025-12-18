@@ -283,7 +283,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const hasImplementation = hasData(data.implementation);
     const hasInputsOutputs = hasData(data.inputs) || hasData(data.outputs);
     const hasPracticeExample = hasData(data.practiceExample);
-    const hasDetailedSteps = hasData(data.detailedSteps);
     const hasQualityCriteria = hasData(data.qualityCriteria);
     const hasRoles = hasData(data.roles);
     const hasProcess = !!safeProcessUrl;
@@ -308,7 +307,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // UMSETZUNGSDETAILS
     const detailLinks = [];
-    if (hasDetailedSteps) detailLinks.push({ id: 'detaillierte-schritte', text: 'Detaillierte Schritte' });
     if (hasQualityCriteria) detailLinks.push({ id: 'qualitaetskriterien', text: 'Qualitätskriterien' });
     if (hasRoles) detailLinks.push({ id: 'beteiligte-akteure', text: 'Beteiligte Akteure' });
     if (hasProcess) detailLinks.push({ id: 'prozess', text: 'Prozess' });
@@ -400,23 +398,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </div>`;
     }
 
-    // Build detailed steps HTML
-    let detailedStepsHtml = '';
-    if (hasDetailedSteps) {
-        detailedStepsHtml = '<ol class="detailed-steps-list">';
-        data.detailedSteps.forEach(item => {
-            detailedStepsHtml += `<li><strong>${escapeHtml(item.step)}</strong>`;
-            if (item.substeps && item.substeps.length > 0) {
-                detailedStepsHtml += '<ul class="detailed-steps-list__substeps">';
-                item.substeps.forEach(substep => {
-                    detailedStepsHtml += `<li>${escapeHtml(substep)}</li>`;
-                });
-                detailedStepsHtml += '</ul>';
-            }
-            detailedStepsHtml += '</li>';
-        });
-        detailedStepsHtml += '</ol>';
-    }
 
     // Build quality criteria HTML
     const qualityCriteriaHtml = hasQualityCriteria
@@ -500,12 +481,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         ${practiceExampleHtml}
                     </div>` : ''}
 
-                    ${hasDetailedSteps ? `
-                    <div class="detail-section" id="detaillierte-schritte">
-                        <h2>Detaillierte Schritte</h2>
-                        <p>Ausführliche Beschreibung der einzelnen Umsetzungsschritte.</p>
-                        ${detailedStepsHtml}
-                    </div>` : ''}
 
                     ${hasQualityCriteria ? `
                     <div class="detail-section" id="qualitaetskriterien">

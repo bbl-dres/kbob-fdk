@@ -84,32 +84,6 @@
       "Überwachung der Einhaltung der vereinbarten Standards"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Projektinitialisierung",
-        "substeps": [
-          "Festlegung der Projektziele und BIM-Anforderungen",
-          "Erstellung der AIA mit Informationsanforderungen",
-          "Auswahl der geeigneten Werkzeuge und Plattformen"
-        ]
-      },
-      {
-        "step": "BAP-Erstellung",
-        "substeps": [
-          "Workshop mit allen Projektbeteiligten",
-          "Definition der Rollen und Verantwortlichkeiten",
-          "Festlegung der Prozesse und Meilensteine"
-        ]
-      },
-      {
-        "step": "Umsetzung und Überwachung",
-        "substeps": [
-          "Einrichtung der Projektumgebung",
-          "Schulung der Projektbeteiligten",
-          "Regelmässige Überprüfung der Einhaltung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige und freigegebene AIA vorhanden",
       "BAP von allen Beteiligten unterzeichnet",
@@ -201,40 +175,6 @@
       "Qualitätsprüfung und Übergabe an den Auftraggeber"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung",
-        "substeps": [
-          "Sichtung vorhandener Pläne und Unterlagen",
-          "Festlegung der Aufnahmemethodik",
-          "Planung der Messkampagne"
-        ]
-      },
-      {
-        "step": "Datenerfassung",
-        "substeps": [
-          "Durchführung der Vermessung/Scan-Aufnahme",
-          "Fotodokumentation des Bestands",
-          "Erfassung von Details und Besonderheiten"
-        ]
-      },
-      {
-        "step": "Datenaufbereitung",
-        "substeps": [
-          "Registrierung und Bereinigung der Punktwolken",
-          "Export in die geforderten Formate",
-          "Erstellung des Bestandsmodells (falls gefordert)"
-        ]
-      },
-      {
-        "step": "Qualitätssicherung",
-        "substeps": [
-          "Prüfung auf Vollständigkeit",
-          "Kontrolle der Genauigkeit",
-          "Dokumentation und Übergabe"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung des definierten Aufnahmebereichs",
       "Einhaltung der geforderten Genauigkeit",
@@ -325,40 +265,6 @@
       "Abstimmung und Freigabe durch den Auftraggeber"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Anforderungsanalyse",
-        "substeps": [
-          "Erfassung der strategischen Projektziele",
-          "Identifikation aller Nutzergruppen",
-          "Analyse bestehender Prozesse und Abläufe"
-        ]
-      },
-      {
-        "step": "Bedarfsermittlung",
-        "substeps": [
-          "Durchführung von Nutzerworkshops",
-          "Ermittlung des Flächenbedarfs je Nutzungseinheit",
-          "Definition der funktionalen Zusammenhänge"
-        ]
-      },
-      {
-        "step": "Raumprogramm-Erstellung",
-        "substeps": [
-          "Zusammenstellung des Raumprogramms",
-          "Erstellung des Funktionsdiagramms",
-          "Dokumentation der Qualitätsanforderungen"
-        ]
-      },
-      {
-        "step": "Abstimmung und Freigabe",
-        "substeps": [
-          "Präsentation bei den Stakeholdern",
-          "Einarbeitung von Rückmeldungen",
-          "Formale Freigabe des Raumprogramms"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Nutzeranforderungen",
       "Nachvollziehbare Herleitung des Flächenbedarfs",
@@ -450,40 +356,6 @@
       "Dokumentation des Variantenentscheids"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Variantenentwicklung",
-        "substeps": [
-          "Analyse der Randbedingungen und Potenziale",
-          "Entwicklung unterschiedlicher Konzeptansätze",
-          "Ausarbeitung der Varianten auf vergleichbarem Niveau"
-        ]
-      },
-      {
-        "step": "Bewertungsvorbereitung",
-        "substeps": [
-          "Festlegung der Bewertungskriterien",
-          "Definition der Gewichtung",
-          "Erstellung der Bewertungsmatrix"
-        ]
-      },
-      {
-        "step": "Variantenbewertung",
-        "substeps": [
-          "Systematische Bewertung jeder Variante",
-          "Berechnung der Gesamtnutzwerte",
-          "Sensitivitätsanalyse der Ergebnisse"
-        ]
-      },
-      {
-        "step": "Entscheidungsfindung",
-        "substeps": [
-          "Präsentation der Bewertungsergebnisse",
-          "Diskussion im Entscheidungsgremium",
-          "Dokumentation und Kommunikation des Entscheids"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Mindestens zwei vergleichbare Varianten entwickelt",
       "Nachvollziehbare Bewertungskriterien und Gewichtung",
@@ -572,40 +444,6 @@
       "Abstimmung und finale Freigabe"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Konzeption",
-        "substeps": [
-          "Abstimmung des Visualisierungskonzepts",
-          "Festlegung der darzustellenden Ansichten",
-          "Definition des Detaillierungsgrads"
-        ]
-      },
-      {
-        "step": "Modellaufbereitung",
-        "substeps": [
-          "Import und Optimierung des Planungsmodells",
-          "Ergänzung von Umgebung und Kontext",
-          "Zuweisung von Materialien und Texturen"
-        ]
-      },
-      {
-        "step": "Visualisierungserstellung",
-        "substeps": [
-          "Einrichtung der Beleuchtung",
-          "Rendering der Darstellungen",
-          "Postproduktion und Nachbearbeitung"
-        ]
-      },
-      {
-        "step": "Abstimmung und Lieferung",
-        "substeps": [
-          "Präsentation der Entwürfe",
-          "Einarbeitung von Korrekturen",
-          "Lieferung in den finalen Formaten"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Zielgruppengerechte Darstellungsqualität",
       "Konsistenz mit dem aktuellen Planungsstand",
@@ -673,56 +511,6 @@
       "Dokumentation der Konfliktlösungen"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung der Koordination",
-        "substeps": [
-          "Definition der Kollisionsmatrix (welche Gewerke werden gegeneinander geprüft)",
-          "Festlegung der Toleranzen je Gewerkkombination",
-          "Einrichtung des Koordinationsmodells und der Prüfumgebung"
-        ]
-      },
-      {
-        "step": "Modellzusammenführung",
-        "substeps": [
-          "Import der aktuellen Fachmodellstände",
-          "Prüfung der korrekten Positionierung und Referenzierung",
-          "Visuelle Kontrolle auf offensichtliche Abweichungen"
-        ]
-      },
-      {
-        "step": "Kollisionsprüfung",
-        "substeps": [
-          "Ausführung der automatisierten Kollisionsprüfungen",
-          "Filterung und Gruppierung der Ergebnisse",
-          "Klassifizierung nach Schweregrad (kritisch, mittel, gering)"
-        ]
-      },
-      {
-        "step": "Konfliktbewertung und -zuweisung",
-        "substeps": [
-          "Analyse der Konflikte und Bestimmung der Ursachen",
-          "Zuweisung an verantwortliche Fachplaner",
-          "Festlegung von Bearbeitungsfristen"
-        ]
-      },
-      {
-        "step": "Koordinationsbesprechung",
-        "substeps": [
-          "Durchführung der Besprechung mit allen Beteiligten",
-          "Diskussion und Entscheidung zu Lösungsansätzen",
-          "Protokollierung der Entscheidungen"
-        ]
-      },
-      {
-        "step": "Nachverfolgung und Abschluss",
-        "substeps": [
-          "Kontrolle der umgesetzten Änderungen im neuen Modellstand",
-          "Verifizierung der Konfliktbehebung",
-          "Archivierung der Koordinationsdokumentation"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Alle kritischen Kollisionen sind vor Planungsfreigabe behoben",
       "Nachvollziehbare Dokumentation aller Koordinationsentscheidungen",
@@ -845,40 +633,6 @@
       "Überwachung der Mängelbehebung und Freigabe"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Prüfvorbereitung",
-        "substeps": [
-          "Zusammenstellung der Prüfkriterien",
-          "Konfiguration der Prüfsoftware",
-          "Festlegung der Prüfabläufe"
-        ]
-      },
-      {
-        "step": "Automatisierte Prüfung",
-        "substeps": [
-          "Ausführung der regelbasierten Modellprüfung",
-          "Auswertung und Klassifizierung der Ergebnisse",
-          "Erstellung des Prüfberichts"
-        ]
-      },
-      {
-        "step": "Manuelle Prüfung",
-        "substeps": [
-          "Fachliche Plausibilitätsprüfung",
-          "Prüfung auf Normkonformität",
-          "Bewertung der Planungsqualität"
-        ]
-      },
-      {
-        "step": "Freigabeprozess",
-        "substeps": [
-          "Dokumentation aller Prüfergebnisse",
-          "Abstimmung mit den Planungsbeteiligten",
-          "Formale Freigabe oder Rückweisung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Durchführung aller definierten Prüfungen",
       "Nachvollziehbare Dokumentation der Prüfergebnisse",
@@ -970,40 +724,6 @@
       "Einreichung bei Behörden und Prüfstellen"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Datenübernahme",
-        "substeps": [
-          "Export relevanter Modelldaten",
-          "Import in die Berechnungssoftware",
-          "Plausibilisierung der übernommenen Geometrien"
-        ]
-      },
-      {
-        "step": "Modellergänzung",
-        "substeps": [
-          "Zuweisung von Materialeigenschaften",
-          "Definition der Randbedingungen",
-          "Festlegung der Lastannahmen"
-        ]
-      },
-      {
-        "step": "Berechnung",
-        "substeps": [
-          "Durchführung der Berechnungen",
-          "Auswertung der Ergebnisse",
-          "Optimierung bei Bedarf"
-        ]
-      },
-      {
-        "step": "Dokumentation",
-        "substeps": [
-          "Erstellung der Nachweisdokumente",
-          "Zusammenstellung für Behörden",
-          "Archivierung der Berechnungsunterlagen"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständigkeit aller erforderlichen Nachweise",
       "Einhaltung der relevanten Normen und Richtlinien",
@@ -1093,40 +813,6 @@
       "Prüfung und Freigabe der Planunterlagen"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Einrichtung",
-        "substeps": [
-          "Definition der Schnitt- und Ansichtsebenen",
-          "Konfiguration der Darstellungsregeln",
-          "Einrichtung der Plotvorlagen"
-        ]
-      },
-      {
-        "step": "Planableitung",
-        "substeps": [
-          "Generierung der Grundrisse je Geschoss",
-          "Erstellung der Schnitte und Ansichten",
-          "Ableitung der Detailpläne"
-        ]
-      },
-      {
-        "step": "Nachbearbeitung",
-        "substeps": [
-          "Ergänzung von Beschriftungen und Massen",
-          "Platzierung von Legenden und Planköpfen",
-          "Anpassung der Darstellungsqualität"
-        ]
-      },
-      {
-        "step": "Freigabe",
-        "substeps": [
-          "Interne Qualitätsprüfung",
-          "Export in die Lieferformate",
-          "Verteilung und Archivierung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständigkeit aller geforderten Plantypen",
       "Einhaltung der Darstellungsstandards (SIA 400)",
@@ -1217,40 +903,6 @@
       "Begleitung des Bewilligungsverfahrens"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung",
-        "substeps": [
-          "Analyse der Bewilligungsvoraussetzungen",
-          "Klärung mit den zuständigen Behörden",
-          "Zusammenstellung der Checkliste"
-        ]
-      },
-      {
-        "step": "Unterlagenerstellung",
-        "substeps": [
-          "Erstellung der Baueingabepläne",
-          "Zusammenstellung aller Nachweise",
-          "Verfassen der Baubeschreibung"
-        ]
-      },
-      {
-        "step": "Einreichung",
-        "substeps": [
-          "Formale Prüfung auf Vollständigkeit",
-          "Einreichung der Gesuchsunterlagen",
-          "Bezahlung der Gebühren"
-        ]
-      },
-      {
-        "step": "Verfahrensbegleitung",
-        "substeps": [
-          "Beantwortung behördlicher Rückfragen",
-          "Ergänzung fehlender Unterlagen",
-          "Entgegennahme der Baubewilligung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständigkeit aller Gesuchsunterlagen",
       "Einhaltung der formalen Anforderungen",
@@ -1319,48 +971,6 @@
       "Dokumentation der Auswertungsmethodik"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung der Mengenermittlung",
-        "substeps": [
-          "Abstimmung der Kostengenauigkeit mit dem Auftraggeber",
-          "Festlegung der Auswertungsregeln im BAP",
-          "Einrichtung der Auswertungssoftware und Schnittstellen"
-        ]
-      },
-      {
-        "step": "Modellprüfung",
-        "substeps": [
-          "Prüfung auf Vollständigkeit der relevanten Bauteile",
-          "Kontrolle der eBKP-H-Klassifizierungen",
-          "Identifikation von Modellierungsfehlern (Duplikate, Überschneidungen)"
-        ]
-      },
-      {
-        "step": "Mengenextraktion",
-        "substeps": [
-          "Ausführung der automatisierten Mengenauswertung",
-          "Export der Mengen nach eBKP-H-Struktur",
-          "Dokumentation der verwendeten Auswertungsregeln"
-        ]
-      },
-      {
-        "step": "Kostenberechnung",
-        "substeps": [
-          "Zuordnung der Kostenkennwerte zu den Mengenpositionen",
-          "Berechnung der Gesamtkosten nach eBKP-H",
-          "Ergänzung von Nebenkosten und Reserven"
-        ]
-      },
-      {
-        "step": "Qualitätssicherung und Freigabe",
-        "substeps": [
-          "Plausibilitätsprüfung durch Vergleich mit Kennwerten",
-          "Review durch Kostenplaner und Projektleitung",
-          "Dokumentation und Archivierung der Ergebnisse"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständigkeit der Mengenermittlung (alle relevanten Positionen erfasst)",
       "Nachvollziehbarkeit der Auswertungsmethodik",
@@ -1495,40 +1105,6 @@
       "Prüfung der Angebote und Vergabeempfehlung"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Leistungsverzeichnis",
-        "substeps": [
-          "Gliederung nach NPK-Kapiteln",
-          "Beschreibung der Positionen",
-          "Ermittlung der Mengen aus dem Modell"
-        ]
-      },
-      {
-        "step": "Ausschreibungsvorbereitung",
-        "substeps": [
-          "Zusammenstellung der Vergabeunterlagen",
-          "Definition der Vertragsbedingungen",
-          "Festlegung der Fristen"
-        ]
-      },
-      {
-        "step": "Durchführung",
-        "substeps": [
-          "Versand der Ausschreibungsunterlagen",
-          "Beantwortung von Bieterfragen",
-          "Submission und Angebotsöffnung"
-        ]
-      },
-      {
-        "step": "Vergabe",
-        "substeps": [
-          "Formale und materielle Angebotsprüfung",
-          "Erstellung der Vergabeempfehlung",
-          "Vergabeentscheid und Vertragsabschluss"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige und eindeutige Leistungsbeschreibung",
       "Korrekte Mengenermittlung aus dem Modell",
@@ -1618,40 +1194,6 @@
       "Abstimmung und Freigabe des Bauprogramms"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Strukturierung",
-        "substeps": [
-          "Gliederung in Bauabschnitte",
-          "Definition der Arbeitspakete",
-          "Festlegung der Meilensteine"
-        ]
-      },
-      {
-        "step": "Terminplanung",
-        "substeps": [
-          "Ermittlung der Vorgangsdauern",
-          "Definition der Abhängigkeiten",
-          "Berechnung des kritischen Pfads"
-        ]
-      },
-      {
-        "step": "4D-Verknüpfung",
-        "substeps": [
-          "Zuordnung der Modellelemente zu Vorgängen",
-          "Erstellung der 4D-Simulation",
-          "Visualisierung des Baufortschritts"
-        ]
-      },
-      {
-        "step": "Optimierung",
-        "substeps": [
-          "Analyse von Terminrisiken",
-          "Optimierung des Bauablaufs",
-          "Abstimmung mit den Unternehmern"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Realistische Vorgangsdauern und Ressourcenansätze",
       "Berücksichtigung aller Abhängigkeiten",
@@ -1742,40 +1284,6 @@
       "Fortschreibung der Logistikplanung während der Bauphase"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Analyse",
-        "substeps": [
-          "Aufnahme der örtlichen Gegebenheiten",
-          "Identifikation von Restriktionen",
-          "Ermittlung des Platzbedarfs"
-        ]
-      },
-      {
-        "step": "Einrichtungsplanung",
-        "substeps": [
-          "Anordnung der Baustelleneinrichtung",
-          "Planung der Erschliessung",
-          "Definition der Verkehrswege"
-        ]
-      },
-      {
-        "step": "Logistikkonzept",
-        "substeps": [
-          "Planung der Materialanlieferung",
-          "Organisation der Lagerflächen",
-          "Entsorgungskonzept"
-        ]
-      },
-      {
-        "step": "Verkehrsführung",
-        "substeps": [
-          "Erstellung des Signalisationsplans",
-          "Abstimmung mit Behörden",
-          "Kommunikation an Betroffene"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Einhaltung aller Sicherheitsvorschriften",
       "Effizienter Materialfluss ohne Engpässe",
@@ -1864,40 +1372,6 @@
       "Ableitung und Nachverfolgung von Massnahmen"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Erfassung",
-        "substeps": [
-          "Durchführung der Baustellenbegehung",
-          "Fotodokumentation des Bauzustands",
-          "Erfassung des Fertigstellungsgrads"
-        ]
-      },
-      {
-        "step": "Dokumentation",
-        "substeps": [
-          "Aktualisierung der Terminplanung",
-          "Nachführung des 4D-Modells",
-          "Erstellung des Fortschrittsberichts"
-        ]
-      },
-      {
-        "step": "Analyse",
-        "substeps": [
-          "Soll-Ist-Vergleich der Termine",
-          "Identifikation von Abweichungen",
-          "Analyse der Ursachen"
-        ]
-      },
-      {
-        "step": "Steuerung",
-        "substeps": [
-          "Ableitung von Massnahmen",
-          "Abstimmung mit den Unternehmern",
-          "Nachverfolgung der Umsetzung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Regelmässige und vollständige Fortschrittserfassung",
       "Aktuelle Soll-Ist-Vergleiche",
@@ -1986,40 +1460,6 @@
       "Verwaltung und Abrechnung der Nachträge"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Erfassung",
-        "substeps": [
-          "Dokumentation des Änderungsantrags",
-          "Klassifizierung nach Ursache",
-          "Zuweisung an verantwortliche Stelle"
-        ]
-      },
-      {
-        "step": "Bewertung",
-        "substeps": [
-          "Ermittlung der Kostenauswirkungen",
-          "Analyse der Terminauswirkungen",
-          "Bewertung der technischen Machbarkeit"
-        ]
-      },
-      {
-        "step": "Entscheidung",
-        "substeps": [
-          "Vorlage an Entscheidungsträger",
-          "Freigabe oder Ablehnung",
-          "Dokumentation der Entscheidung"
-        ]
-      },
-      {
-        "step": "Umsetzung",
-        "substeps": [
-          "Nachführung der Unterlagen",
-          "Information aller Beteiligten",
-          "Abrechnung der Nachträge"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Änderungen",
       "Nachvollziehbare Kostenauswirkungen",
@@ -2107,40 +1547,6 @@
       "Nachführung der Kostenkontrolle"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Aufmass",
-        "substeps": [
-          "Gemeinsame Aufnahme vor Ort",
-          "Dokumentation der ausgeführten Mengen",
-          "Protokollierung von Abweichungen"
-        ]
-      },
-      {
-        "step": "Rechnungsprüfung",
-        "substeps": [
-          "Formale Prüfung der Rechnung",
-          "Mengenabgleich mit Aufmass",
-          "Preisliche Prüfung"
-        ]
-      },
-      {
-        "step": "Freigabe",
-        "substeps": [
-          "Dokumentation der Prüfergebnisse",
-          "Berechnung von Abzügen",
-          "Freigabe zur Zahlung"
-        ]
-      },
-      {
-        "step": "Controlling",
-        "substeps": [
-          "Nachführung der Kostenkontrolle",
-          "Prognose der Endkosten",
-          "Reporting an Auftraggeber"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Korrekte Erfassung der ausgeführten Leistungen",
       "Nachvollziehbare Rechnungsprüfung",
@@ -2230,40 +1636,6 @@
       "Erstellung der Abnahmeprotokolle"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Abnahmevorbereitung",
-        "substeps": [
-          "Terminierung der Abnahmebegehung",
-          "Zusammenstellung der Prüfunterlagen",
-          "Einladung aller Beteiligten"
-        ]
-      },
-      {
-        "step": "Abnahmebegehung",
-        "substeps": [
-          "Systematische Begehung aller Bereiche",
-          "Erfassung der Mängel mit Foto und Verortung",
-          "Bewertung des Fertigstellungsgrads"
-        ]
-      },
-      {
-        "step": "Mängelverfolgung",
-        "substeps": [
-          "Übermittlung der Mängelliste",
-          "Festlegung der Behebungsfristen",
-          "Nachverfolgung der Bearbeitung"
-        ]
-      },
-      {
-        "step": "Abschluss",
-        "substeps": [
-          "Nachkontrolle der Mängelbehebung",
-          "Erstellung des Abnahmeprotokolls",
-          "Dokumentation für die Gewährleistung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Mängel",
       "Präzise Verortung und Dokumentation",
@@ -2355,40 +1727,6 @@
       "Übergabe an den Betreiber mit Protokoll"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Planung",
-        "substeps": [
-          "Erstellung des IBN-Konzepts",
-          "Terminplanung der Prüfungen",
-          "Koordination mit Unternehmern"
-        ]
-      },
-      {
-        "step": "Funktionsprüfung",
-        "substeps": [
-          "Prüfung der Einzelkomponenten",
-          "Test der Gesamtsysteme",
-          "Dokumentation der Prüfergebnisse"
-        ]
-      },
-      {
-        "step": "Einweisung",
-        "substeps": [
-          "Schulung des Betriebspersonals",
-          "Übergabe der Anleitungen",
-          "Dokumentation der Einweisungen"
-        ]
-      },
-      {
-        "step": "Übergabe",
-        "substeps": [
-          "Zusammenstellung der Dokumentation",
-          "Formale Übergabe an Betreiber",
-          "Erstellung des Übergabeprotokolls"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Funktionsprüfung aller Anlagen",
       "Dokumentierte Einweisung des Personals",
@@ -2459,56 +1797,6 @@
       "Übergabeprotokoll mit Vollständigkeitsnachweis"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung und Strukturierung",
-        "substeps": [
-          "Abstimmung der Dokumentationsanforderungen mit dem Auftraggeber",
-          "Definition der Dokumentenstruktur nach KBOB BWD-Richtlinie",
-          "Einrichtung des Dokumentenmanagementsystems (CDE)"
-        ]
-      },
-      {
-        "step": "Projektdokumentation (PD)",
-        "substeps": [
-          "Kontinuierliche Erfassung aller Planungsunterlagen",
-          "Dokumentation der Bauprozesse und Entscheidungen",
-          "Versionierung und Änderungsverfolgung"
-        ]
-      },
-      {
-        "step": "Revisionsdokumentation",
-        "substeps": [
-          "Erstellung der Revisionspläne nach Bauabschluss",
-          "Aktualisierung der BIM-Modelle auf As-Built-Stand",
-          "Dokumentation aller Abweichungen von der Planung"
-        ]
-      },
-      {
-        "step": "Objektdokumentation (OD)",
-        "substeps": [
-          "Zusammenstellung aller betriebsrelevanten Dokumente",
-          "Integration der Wartungsanleitungen und Betriebsvorschriften",
-          "Aufbereitung für CAFM-Systeme (bei Bedarf)"
-        ]
-      },
-      {
-        "step": "Qualitätsprüfung und Übergabe",
-        "substeps": [
-          "Prüfung auf Vollständigkeit anhand der Checkliste",
-          "Formale Abnahme durch den Empfänger",
-          "Erstellung des Übergabeprotokolls"
-        ]
-      },
-      {
-        "step": "Archivdokumentation (AD)",
-        "substeps": [
-          "Identifikation der aufbewahrungspflichtigen Unterlagen",
-          "Archivierung gemäss rechtlicher Anforderungen",
-          "Dokumentation der Aufbewahrungsfristen"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständigkeit der Dokumentation gemäss AIA-Anforderungen",
       "Einhaltung der vereinbarten Formate und Strukturvorgaben",
@@ -2625,40 +1913,6 @@
       "Etablierung von Prozessen zur Datenpflege"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Datenanalyse",
-        "substeps": [
-          "Erfassung der CAFM-Anforderungen",
-          "Mapping der vorhandenen Daten",
-          "Identifikation von Lücken"
-        ]
-      },
-      {
-        "step": "Datenaufbereitung",
-        "substeps": [
-          "Konvertierung in Zielformate",
-          "Qualitätsprüfung der Daten",
-          "Ergänzung fehlender Informationen"
-        ]
-      },
-      {
-        "step": "Datenimport",
-        "substeps": [
-          "Import der Stammdaten",
-          "Verknüpfung mit Rauminformationen",
-          "Validierung der importierten Daten"
-        ]
-      },
-      {
-        "step": "Nutzung",
-        "substeps": [
-          "Schulung der Anwender",
-          "Etablierung der Pflegeprozesse",
-          "Kontinuierliche Aktualisierung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständiger Import aller relevanten Daten",
       "Korrekte Verknüpfung mit Rauminformationen",
@@ -2746,40 +2000,6 @@
       "Vorbereitung der Schlussbegehung vor Fristablauf"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Fristen-Setup",
-        "substeps": [
-          "Erfassung aller Gewährleistungsfristen",
-          "Einrichtung von Erinnerungen",
-          "Definition der Verantwortlichkeiten"
-        ]
-      },
-      {
-        "step": "Mängelerfassung",
-        "substeps": [
-          "Entgegennahme von Mängelmeldungen",
-          "Dokumentation mit Verortung",
-          "Klassifizierung der Mängel"
-        ]
-      },
-      {
-        "step": "Mängelrüge",
-        "substeps": [
-          "Erstellung der formalen Mängelrüge",
-          "Fristgerechte Übermittlung",
-          "Dokumentation des Versands"
-        ]
-      },
-      {
-        "step": "Abschluss",
-        "substeps": [
-          "Schlussbegehung vor Fristablauf",
-          "Dokumentation des Abschlusses",
-          "Archivierung der Unterlagen"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Fristen",
       "Fristgerechte Geltendmachung von Ansprüchen",
@@ -2867,40 +2087,6 @@
       "Auswertung und Optimierung der Wartungsstrategie"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Planung",
-        "substeps": [
-          "Erfassung der Anlagen im CAFM",
-          "Definition der Wartungsintervalle",
-          "Erstellung des Wartungskalenders"
-        ]
-      },
-      {
-        "step": "Disposition",
-        "substeps": [
-          "Planung der Wartungstermine",
-          "Beauftragung der Servicefirmen",
-          "Koordination mit Nutzern"
-        ]
-      },
-      {
-        "step": "Durchführung",
-        "substeps": [
-          "Durchführung der Wartungsarbeiten",
-          "Protokollierung der Tätigkeiten",
-          "Erfassung von Auffälligkeiten"
-        ]
-      },
-      {
-        "step": "Auswertung",
-        "substeps": [
-          "Analyse der Wartungsdaten",
-          "Ableitung von Optimierungen",
-          "Aktualisierung der Pläne"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Anlagen",
       "Einhaltung der Wartungsintervalle",
@@ -2987,40 +2173,6 @@
       "Aktualisierung der Zustandsdaten"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Zustandserfassung",
-        "substeps": [
-          "Regelmässige Begehungen",
-          "Dokumentation von Schäden",
-          "Bewertung des Zustands"
-        ]
-      },
-      {
-        "step": "Massnahmenplanung",
-        "substeps": [
-          "Priorisierung der Massnahmen",
-          "Kostenermittlung",
-          "Budgetplanung"
-        ]
-      },
-      {
-        "step": "Ausführung",
-        "substeps": [
-          "Beauftragung der Arbeiten",
-          "Überwachung der Durchführung",
-          "Abnahme der Leistungen"
-        ]
-      },
-      {
-        "step": "Dokumentation",
-        "substeps": [
-          "Erfassung im CAFM-System",
-          "Aktualisierung der Zustandsdaten",
-          "Archivierung der Unterlagen"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Aktuelle Zustandsdokumentation",
       "Nachvollziehbare Priorisierung",
@@ -3108,40 +2260,6 @@
       "Optimierung basierend auf Nutzungsdaten"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Datengrundlage",
-        "substeps": [
-          "Übernahme der Flächendaten",
-          "Klassifizierung nach SIA 416",
-          "Erfassung im CAFM-System"
-        ]
-      },
-      {
-        "step": "Belegungsplanung",
-        "substeps": [
-          "Zuordnung zu Organisationseinheiten",
-          "Arbeitsplatzvergabe",
-          "Dokumentation der Belegung"
-        ]
-      },
-      {
-        "step": "Auswertung",
-        "substeps": [
-          "Berechnung der Kennzahlen",
-          "Analyse der Flächeneffizienz",
-          "Erstellung von Reports"
-        ]
-      },
-      {
-        "step": "Optimierung",
-        "substeps": [
-          "Identifikation von Potenzialen",
-          "Umsetzung von Anpassungen",
-          "Monitoring der Wirkung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Aktuelle Flächendaten im System",
       "Transparente Belegungssituation",
@@ -3230,40 +2348,6 @@
       "Reporting und kontinuierliche Verbesserung"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Setup",
-        "substeps": [
-          "Einrichtung der Messpunkte",
-          "Definition der Zielwerte",
-          "Konfiguration des Monitorings"
-        ]
-      },
-      {
-        "step": "Monitoring",
-        "substeps": [
-          "Automatische Verbrauchserfassung",
-          "Visualisierung der Daten",
-          "Alarmierung bei Abweichungen"
-        ]
-      },
-      {
-        "step": "Analyse",
-        "substeps": [
-          "Auswertung der Verbräuche",
-          "Benchmarking mit Referenzwerten",
-          "Identifikation von Anomalien"
-        ]
-      },
-      {
-        "step": "Optimierung",
-        "substeps": [
-          "Ableitung von Massnahmen",
-          "Umsetzung der Optimierungen",
-          "Erfolgskontrolle"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Verbrauchserfassung",
       "Transparentes Energie-Reporting",
@@ -3351,40 +2435,6 @@
       "Archivierung der Nachweisdokumente"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Anforderungsanalyse",
-        "substeps": [
-          "Identifikation der Prüfpflichten",
-          "Erfassung im CAFM-System",
-          "Erstellung des Prüfkalenders"
-        ]
-      },
-      {
-        "step": "Prüfplanung",
-        "substeps": [
-          "Terminierung der Prüfungen",
-          "Beauftragung der Prüfstellen",
-          "Koordination der Zugänge"
-        ]
-      },
-      {
-        "step": "Prüfdurchführung",
-        "substeps": [
-          "Begleitung der Prüfungen",
-          "Entgegennahme der Berichte",
-          "Dokumentation der Ergebnisse"
-        ]
-      },
-      {
-        "step": "Nachbearbeitung",
-        "substeps": [
-          "Behebung festgestellter Mängel",
-          "Nachprüfung bei Bedarf",
-          "Archivierung der Dokumente"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Erfassung aller Prüfpflichten",
       "Fristgerechte Durchführung der Prüfungen",
@@ -3479,40 +2529,6 @@
       "Begleitung des Zertifizierungsverfahrens"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Vorbereitung",
-        "substeps": [
-          "Analyse der Anforderungen",
-          "Festlegung der Ziele",
-          "Vorzertifizierung (falls möglich)"
-        ]
-      },
-      {
-        "step": "Datenerfassung",
-        "substeps": [
-          "Extraktion aus BIM-Modell",
-          "Erfassung von Materialdaten",
-          "Sammlung der Nachweise"
-        ]
-      },
-      {
-        "step": "Berechnungen",
-        "substeps": [
-          "Erstellung der Ökobilanz",
-          "LCC-Berechnung",
-          "Komfortnachweis"
-        ]
-      },
-      {
-        "step": "Zertifizierung",
-        "substeps": [
-          "Zusammenstellung der Dokumentation",
-          "Einreichung beim Zertifizierer",
-          "Begleitung der Prüfung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Erfüllung aller Zertifizierungskriterien",
       "Nachvollziehbare Berechnungsgrundlagen",
@@ -3599,40 +2615,6 @@
       "Ausschreibung und Vergabe der Rückbauarbeiten"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Bestandsanalyse",
-        "substeps": [
-          "Sichtung der Dokumentation",
-          "Schadstoffuntersuchung",
-          "Materialinventar erstellen"
-        ]
-      },
-      {
-        "step": "Konzeptentwicklung",
-        "substeps": [
-          "Rückbauphasen definieren",
-          "Sicherheitskonzept erstellen",
-          "Wiederverwendung planen"
-        ]
-      },
-      {
-        "step": "Entsorgungsplanung",
-        "substeps": [
-          "Stoffflüsse definieren",
-          "Entsorgungswege festlegen",
-          "Genehmigungen einholen"
-        ]
-      },
-      {
-        "step": "Ausschreibung",
-        "substeps": [
-          "Erstellung der Ausschreibungsunterlagen",
-          "Vergabe der Arbeiten",
-          "Überwachung der Ausführung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Vollständige Schadstofferfassung",
       "Sicheres Rückbaukonzept",
@@ -3719,40 +2701,6 @@
       "Dokumentation der erfolgreichen Wiederverwendung"
     ],
     "practiceExample": null,
-    "detailedSteps": [
-      {
-        "step": "Erfassung",
-        "substeps": [
-          "Identifikation geeigneter Bauteile",
-          "Fotodokumentation",
-          "Erfassung technischer Daten"
-        ]
-      },
-      {
-        "step": "Bewertung",
-        "substeps": [
-          "Zustandsbewertung",
-          "Prüfung der Wiederverwendbarkeit",
-          "Wertermittlung"
-        ]
-      },
-      {
-        "step": "Katalogisierung",
-        "substeps": [
-          "Erstellung des Bauteilpasses",
-          "Eintrag in Bauteilbörse",
-          "Marketing der Bauteile"
-        ]
-      },
-      {
-        "step": "Vermittlung",
-        "substeps": [
-          "Abgleich mit Nachfrage",
-          "Organisation der Übergabe",
-          "Dokumentation der Wiederverwendung"
-        ]
-      }
-    ],
     "qualityCriteria": [
       "Systematische Erfassung aller Potenziale",
       "Aussagekräftige Dokumentation",
