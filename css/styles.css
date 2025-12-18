@@ -3489,7 +3489,6 @@ footer a:hover {
     width: auto;
     height: auto;
     padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--border-radius-md);
     font-size: var(--text-sm);
 }
 
