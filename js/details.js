@@ -65,8 +65,8 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    const classRows = data.classifications && Array.isArray(data.classifications)
-        ? data.classifications.map(c => `<tr><td class="col-val">${escapeHtml(c.system || '')}</td><td class="col-val">${escapeHtml(c.code || '')} - ${escapeHtml(c.desc || '')}</td></tr>`).join('')
+    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
+        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
         : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
 
     const ifcRows = data.ifcMapping && Array.isArray(data.ifcMapping)
@@ -335,8 +335,8 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     // Build classifications table rows
-    const classRows = data.classifications && Array.isArray(data.classifications)
-        ? data.classifications.map(c => `<tr><td class="col-val">${escapeHtml(c.system || '')}</td><td class="col-val">${escapeHtml(c.code || '')} - ${escapeHtml(c.desc || '')}</td></tr>`).join('')
+    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
+        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
         : '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
 
     // Build details table rows

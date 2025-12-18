@@ -9,25 +9,13 @@
       "Tragwerk",
       "Baustoffe"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-B01",
-        "desc": "Beton"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "C2.1",
-        "desc": "Ortbeton"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-B01 – Beton"],
+      "eBKP-H": ["C2.1 – Ortbeton"]
+    },
     "gwp": 238,
     "unit": "kg CO₂-eq/m³",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd2",
@@ -39,25 +27,13 @@
       "Tragwerk",
       "Baustoffe"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-S01",
-        "desc": "Betonstahl"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "C2.2",
-        "desc": "Bewehrung"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-S01 – Betonstahl"],
+      "eBKP-H": ["C2.2 – Bewehrung"]
+    },
     "gwp": 1420,
     "unit": "kg CO₂-eq/t",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd3",
@@ -69,25 +45,13 @@
       "Architektur",
       "Baustoffe"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-M01",
-        "desc": "Kalksandstein"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "C3.1",
-        "desc": "Mauerwerk"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-M01 – Kalksandstein"],
+      "eBKP-H": ["C3.1 – Mauerwerk"]
+    },
     "gwp": 152,
     "unit": "kg CO₂-eq/m³",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd4",
@@ -99,25 +63,13 @@
       "Tragwerk",
       "Baustoffe"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-H01",
-        "desc": "Brettschichtholz"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "C4.1",
-        "desc": "Holzkonstruktion"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-H01 – Brettschichtholz"],
+      "eBKP-H": ["C4.1 – Holzkonstruktion"]
+    },
     "gwp": -680,
     "unit": "kg CO₂-eq/m³",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd5",
@@ -129,25 +81,13 @@
       "Architektur",
       "Dämmstoffe"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-D01",
-        "desc": "Mineralwolle"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "E1.1",
-        "desc": "Wärmedämmung"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-D01 – Mineralwolle"],
+      "eBKP-H": ["E1.1 – Wärmedämmung"]
+    },
     "gwp": 1.2,
     "unit": "kg CO₂-eq/kg",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd6",
@@ -159,25 +99,13 @@
       "Architektur",
       "Bauteile"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-G01",
-        "desc": "Isolierverglasung"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "E2.1",
-        "desc": "Fenster"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-G01 – Isolierverglasung"],
+      "eBKP-H": ["E2.1 – Fenster"]
+    },
     "gwp": 28.5,
     "unit": "kg CO₂-eq/m²",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd7",
@@ -189,25 +117,13 @@
       "Architektur",
       "Bauteile"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-F01",
-        "desc": "Alufassade"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "E3.1",
-        "desc": "Fassadenbekleidung"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-F01 – Alufassade"],
+      "eBKP-H": ["E3.1 – Fassadenbekleidung"]
+    },
     "gwp": 12.8,
     "unit": "kg CO₂-eq/kg",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd8",
@@ -219,25 +135,13 @@
       "Haustechnik",
       "Technik"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-PV01",
-        "desc": "PV-Modul"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "D8.1",
-        "desc": "Photovoltaik"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-PV01 – PV-Modul"],
+      "eBKP-H": ["D8.1 – Photovoltaik"]
+    },
     "gwp": 45,
     "unit": "kg CO₂-eq/m²",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd9",
@@ -249,25 +153,13 @@
       "Haustechnik",
       "Technik"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-WP01",
-        "desc": "Wärmepumpe"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "D5.1",
-        "desc": "Wärmeerzeugung"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-WP01 – Wärmepumpe"],
+      "eBKP-H": ["D5.1 – Wärmeerzeugung"]
+    },
     "gwp": 2850,
     "unit": "kg CO₂-eq/Stk",
-    "phases": [
-      2,
-      3,
-      4
-    ]
+    "phases": [2, 3, 4]
   },
   {
     "id": "epd10",
@@ -279,23 +171,12 @@
       "Architektur",
       "Ausbau"
     ],
-    "classifications": [
-      {
-        "system": "KBOB-EPD",
-        "code": "EPD-L01",
-        "desc": "Linoleum"
-      },
-      {
-        "system": "eBKP-H",
-        "code": "G2.1",
-        "desc": "Bodenbelag"
-      }
-    ],
+    "classifications": {
+      "KBOB-EPD": ["EPD-L01 – Linoleum"],
+      "eBKP-H": ["G2.1 – Bodenbelag"]
+    },
     "gwp": 4.2,
     "unit": "kg CO₂-eq/m²",
-    "phases": [
-      3,
-      4
-    ]
+    "phases": [3, 4]
   }
 ]

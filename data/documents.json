@@ -19,18 +19,10 @@
     "phases": [
       4
     ],
-    "classifications": [
-      {
-        "system": "GEFMA",
-        "code": "100",
-        "desc": "Immobilienmanagement"
-      },
-      {
-        "system": "SIA",
-        "code": "D 0165",
-        "desc": "Dokumentation Hochbau"
-      }
-    ]
+    "classifications": {
+      "GEFMA": ["100 – Immobilienmanagement"],
+      "SIA": ["D 0165 – Dokumentation Hochbau"]
+    }
   },
   {
     "id": "O01002",
@@ -96,23 +88,11 @@
       2,
       3
     ],
-    "classifications": [
-      {
-        "system": "GEFMA",
-        "code": "200",
-        "desc": "Projektmanagement"
-      },
-      {
-        "system": "GIF",
-        "code": "PM-01",
-        "desc": "Projektauftrag"
-      },
-      {
-        "system": "RCIS",
-        "code": "A.1.1",
-        "desc": "Projektinitiierung"
-      }
-    ]
+    "classifications": {
+      "GEFMA": ["200 – Projektmanagement"],
+      "GIF": ["PM-01 – Projektauftrag"],
+      "RCIS": ["A.1.1 – Projektinitiierung"]
+    }
   },
   {
     "id": "O02002",
@@ -121,18 +101,10 @@
     "title": "Projekthandbuch",
     "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
-    "classifications": [
-      {
-        "system": "GEFMA",
-        "code": "200",
-        "desc": "Projektmanagement"
-      },
-      {
-        "system": "SIA",
-        "code": "D 0165",
-        "desc": "Dokumentation Hochbau"
-      }
-    ],
+    "classifications": {
+      "GEFMA": ["200 – Projektmanagement"],
+      "SIA": ["D 0165 – Dokumentation Hochbau"]
+    },
     "description": "Das Projekthandbuch regelt die Abläufe, Zuständigkeiten, Kompetenzen, sowie die Formen der Zusammenarbeit im Projektmanagement",
     "tags": [
       "Koordination",
