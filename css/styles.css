@@ -3264,9 +3264,13 @@ footer a:hover {
 
 .phase-badge.inactive {
     background: var(--color-white);
-    color: var(--color-text-muted);
-    border-color: var(--color-border-light);
-    opacity: 0.6;
+    color: var(--color-text-primary);
+    border-color: var(--color-border-input);
+}
+
+.phase-badge.inactive:hover {
+    background-color: var(--color-bg-light);
+    border-color: var(--color-text-muted);
 }
 
 /* Usecase Detail Page Styles */
