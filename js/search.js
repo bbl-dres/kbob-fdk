@@ -226,6 +226,8 @@ function setupSearchClearButton(inputId, clearBtnId, onClear) {
         input.value = '';
         clearBtn.classList.remove('visible');
         input.focus();
+        // Dispatch input event to trigger re-filtering and re-rendering
+        input.dispatchEvent(new Event('input', { bubbles: true }));
         if (onClear) onClear();
     });
 
