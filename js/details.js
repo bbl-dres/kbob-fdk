@@ -19,12 +19,49 @@ function renderElementDetailPage(id, activeTags = []) {
     const safeDesc = escapeHtml(data.description || 'Ein Standard-Element des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
+    // Derive phases from geometry, information, and documentation arrays
+    const derivedPhases = new Set();
+    if (data.geometry && Array.isArray(data.geometry)) {
+        data.geometry.forEach(item => {
+            if (item.phases && Array.isArray(item.phases)) {
+                item.phases.forEach(p => derivedPhases.add(p));
+            }
+        });
+    }
+    if (data.information && Array.isArray(data.information)) {
+        data.information.forEach(item => {
+            if (item.phases && Array.isArray(item.phases)) {
+                item.phases.forEach(p => derivedPhases.add(p));
+            }
+        });
+    }
+    if (data.documentation && Array.isArray(data.documentation)) {
+        data.documentation.forEach(item => {
+            if (item.phases && Array.isArray(item.phases)) {
+                item.phases.forEach(p => derivedPhases.add(p));
+            }
+        });
+    }
+    const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
+    const hasPhases = elementPhases.length > 0;
+
+    // Find linked use cases (usecases that might be relevant to this element)
+    const linkedUsecases = globalUsecasesData ? globalUsecasesData.filter(uc => {
+        // Check if usecase phases overlap with element phases
+        if (uc.phases && Array.isArray(uc.phases) && elementPhases.length > 0) {
+            return uc.phases.some(p => elementPhases.includes(p));
+        }
+        return false;
+    }) : [];
+
     const sidebarLinks = [
+        { id: 'phasen', text: 'Phasen' },
         { id: 'klassifizierung', text: 'Klassifizierung' },
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'informationen', text: 'Informationen' },
-        { id: 'dokumentation', text: 'Dokumente' }
+        { id: 'dokumentation', text: 'Dokumente' },
+        { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     const classRows = data.classifications && Array.isArray(data.classifications)
@@ -72,6 +109,13 @@ function renderElementDetailPage(id, activeTags = []) {
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
 
+    // Build phases HTML (similar to usecase detail)
+    const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
+    const phasesHtml = allPhases.map(p => {
+        const isActive = elementPhases.includes(p);
+        return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
+    }).join('');
+
     const backLink = buildHashWithTags('elements', activeTags, '', [], getActiveViewFromURL());
 
     contentArea.innerHTML = `
@@ -93,6 +137,13 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
+                    ${hasPhases ? `
+                    <div id="phasen" class="detail-section">
+                        <h2>Projekt-/Lebenszyklusphasen</h2>
+                        <p>Relevante Projektphasen für dieses Element.</p>
+                        <div class="phases-container phases-container--large">${phasesHtml}</div>
+                    </div>` : ''}
+
                     <div id="klassifizierung" class="detail-section">
                         <h2>Klassifizierung</h2>
                         <table class="data-table">
@@ -137,6 +188,16 @@ function renderElementDetailPage(id, activeTags = []) {
                             <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                             <tbody>${docRowsHtml}</tbody>
                         </table>
+                    </div>
+
+                    <div id="anwendungsfaelle" class="detail-section">
+                        <h2>Anwendungsfälle</h2>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
