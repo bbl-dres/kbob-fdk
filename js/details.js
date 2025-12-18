@@ -278,7 +278,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
     const phasesHtml = allPhases.map(p => {
         const isActive = data.phases && data.phases.includes(p);
-        return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${p}</span>`;
+        return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
     const goalsRowsHtml = data.goals && Array.isArray(data.goals) && data.goals.length > 0
@@ -323,7 +323,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
                     <div class="detail-section" id="phasen">
-                        <h2>Projektphasen</h2>
+                        <h2>Projekt-/Lebenszyklusphasen</h2>
                         <p>Relevante Projektphasen für diesen Anwendungsfall.</p>
                         <div class="phases-container phases-container--large">${phasesHtml}</div>
                     </div>
