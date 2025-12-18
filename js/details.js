@@ -24,7 +24,7 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'informationen', text: 'Informationen' },
-        { id: 'dokumentation', text: 'Dokumentation' }
+        { id: 'dokumentation', text: 'Dokumente' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     const classRows = data.classifications && Array.isArray(data.classifications)
@@ -111,7 +111,6 @@ function renderElementDetailPage(id, activeTags = []) {
 
                     <div id="geometrie" class="detail-section">
                         <h2>Geometrie</h2>
-                        <p>Definiert die geometrischen Anforderungen an das Modellelement pro Phase.</p>
                         <table class="data-table">
                             <thead><tr><th class="th-w-20">Element</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                             <tbody>${geomRowsHtml}</tbody>
@@ -120,7 +119,6 @@ function renderElementDetailPage(id, activeTags = []) {
 
                     <div id="informationen" class="detail-section">
                         <h2>Informationen</h2>
-                        <p>Alphanumerische Attribute (LOI), die dem Element zugewiesen werden müssen.</p>
                         <table class="data-table">
                             <thead><tr>
                                 <th class="th-w-20">Name</th>
@@ -134,8 +132,7 @@ function renderElementDetailPage(id, activeTags = []) {
                     </div>
 
                     <div id="dokumentation" class="detail-section">
-                        <h2>Dokumentation</h2>
-                        <p>Erforderliche Dokumente, die mit dem Element verknüpft oder geliefert werden müssen.</p>
+                        <h2>Dokumente</h2>
                         <table class="data-table">
                             <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                             <tbody>${docRowsHtml}</tbody>
