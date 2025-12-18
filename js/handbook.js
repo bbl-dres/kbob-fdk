@@ -21,7 +21,7 @@ function renderHandbookPage() {
                         <article id="silos-zu-standards" class="info-section">
                             <div class="info-section__content">
                                 <h2 class="info-section__header">Von Silos zu Standards</h2>
-                                <p class="info-section__description">Die Digitalisierung im Bauwesen scheitert oft nicht an fehlender Technologie, sondern an fehlender Datenharmonisierung. Jeder Akteur – von der Architektin über den Fachplaner bis zur Betreiberin – definiert Bauwerksattribute unterschiedlich. Das führt zu Medienbrüchen, manuellen Nachbearbeitungen und Informationsverlust über den gesamten Lebenszyklus. Der KBOB Fachdatenkatalog schafft ein gemeinsames Vokabular: standardisierte Bausteine für BIM-Prozesse, die durchgängige Datenflüsse ermöglichen.</p>
+                                <p class="info-section__description">Die Digitalisierung im Bauwesen scheitert oft nicht an fehlender Technologie, sondern an fehlender Datenharmonisierung. Fachplaner verschiedener Disziplinen und Auftraggeber definieren Fachbegriffe und Datenstrukturen oft unterschiedlich. Das führt zu Medienbrüchen, manuellen Nachbearbeitungen und Informationsverlust über den gesamten Lebenszyklus. Der KBOB Fachdatenkatalog schafft ein gemeinsames Vokabular: standardisierte Bausteine für BIM-Prozesse, die durchgängige Datenflüsse ermöglichen.</p>
                             </div>
                             <figure class="info-section__figure">
                                 <img src="assets/silos.jpg" alt="Datensilos im Bauwesen" class="info-section__image">
@@ -33,7 +33,7 @@ function renderHandbookPage() {
                         <article id="informationsaustausch" class="info-section">
                             <div class="info-section__content">
                                 <h2 class="info-section__header">Klare Spielregeln für den Informationsaustausch</h2>
-                                <p class="info-section__description">Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt – der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.</p>
+                                <p class="info-section__description">Im BIM-Prozess nach ISO 19650 definiert der Auftraggeber (AG), welche Informationen er benötigt, und der Auftragnehmer (AN) liefert sie. Doch was genau soll geliefert werden? Der Fachdatenkatalog beantwortet diese Frage mit standardisierten LOIN (Level of Information Need): Für jeden Anwendungsfall und jede Projektphase ist definiert, welche geometrischen und alphanumerischen Anforderungen ein Bauelement erfüllen muss. So wird aus abstrakten Auftraggeberinformationsanforderungen (AIA) ein konkreter, prüfbarer Datenstandard.</p>
                             </div>
                             <figure class="info-section__figure">
                                 <img src="assets/lifecycle.jpg" alt="Informationsmanagement nach ISO 19650" class="info-section__image">
@@ -45,7 +45,7 @@ function renderHandbookPage() {
                         <article id="datenoekosystem" class="info-section">
                             <div class="info-section__content">
                                 <h2 class="info-section__header">Ein Baustein im Datenökosystem Schweiz</h2>
-                                <p class="info-section__description">Der Fachdatenkatalog ist Teil der Massnahme «Vereinfachung des Bauens durch bessere Dateninteroperabilität» der Strategie Digitale Schweiz und orientiert sich an den Prinzipien der eCH-0279 Architekturvision 2050. Ziel ist ein offener, nicht diskriminierender Standard, der allen Baubeteiligten hilft – von der Entlastung bei Routineaufgaben bis zur nahtlosen Integration von BIM-Daten in Facility-Management-Systeme. Open Source, damit alle profitieren.</p>
+                                <p class="info-section__description">Der Fachdatenkatalog ist Teil der Massnahme «Vereinfachung des Bauens durch bessere Dateninteroperabilität» der Strategie Digitale Schweiz und orientiert sich an den Prinzipien der eCH-0279 Architekturvision 2050. Ziel ist ein offener Standard nach dem Once-Only-Prinzip: Daten einmal strukturiert erfassen, über alle Phasen und Systeme hinweg nutzen. Open Source, damit alle profitieren.</p>
                             </div>
                             <figure class="info-section__figure">
                                 <img src="assets/ecosystem.jpg" alt="Datenökosystem Schweiz" class="info-section__image">
