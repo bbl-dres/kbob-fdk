@@ -570,7 +570,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: var(--space-md) 0;
+    padding-block: var(--space-md);
     gap: var(--space-sm);
 }
 
