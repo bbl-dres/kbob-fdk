@@ -4159,22 +4159,6 @@ th[aria-sort='ascending'] .table__sorter span::after {
     width: 50%;
 }
 
-/* Numbered List Table (for Nutzen, Umsetzung, Qualitätskriterien) */
-.numbered-list-table {
-    table-layout: fixed;
-}
-
-.th-w-number {
-    width: 50px;
-    text-align: center !important;
-}
-
-.col-number {
-    text-align: center;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-secondary);
-}
-
 /* Practice Example Card */
 .practice-example-card {
     display: flex;
