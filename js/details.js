@@ -460,7 +460,7 @@ function renderMetadataTable(data) {
             <table class="data-table">
                 <tbody>
                     <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${safeCategory}</td></tr>
-                    <tr><td class="col-val metadata-label">Kennung</td><td class="col-val">${safeId}</td></tr>
+                    <tr><td class="col-val metadata-label">ID</td><td class="col-val">${safeId}</td></tr>
                     <tr><td class="col-val metadata-label">Version</td><td class="col-val">${safeVersion}</td></tr>
                     <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formattedDate}</td></tr>
                 </tbody>
