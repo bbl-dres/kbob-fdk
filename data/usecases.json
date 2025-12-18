@@ -6,10 +6,6 @@
     "category": "Grundlagen",
     "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination, unabhängig von Bauvolumen oder Methodik.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
-      "Betrieb",
       "Koordination",
       "Projektmanagement"
     ],
@@ -129,9 +125,6 @@
     "category": "Planung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Betrieb",
       "Bestandserfassung",
       "Vermessung"
     ],
@@ -257,7 +250,6 @@
     "category": "Planung",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": [
-      "Entwicklung",
       "Bedarfsplanung",
       "Objektplanung",
       "Nutzerschaft"
@@ -382,8 +374,6 @@
     "category": "Planung",
     "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
     "tags": [
-      "Entwicklung",
-      "Planung",
       "Variantenvergleich",
       "Nachhaltigkeit",
       "Objektplanung"
@@ -509,10 +499,6 @@
     "category": "Kommunikation",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
-      "Betrieb",
       "Visualisierung",
       "Objektplanung"
     ],
@@ -635,8 +621,6 @@
     "category": "Koordination",
     "description": "Systematische Koordination der Fachplanungen zur frühzeitigen Erkennung und Behebung von Konflikten.",
     "tags": [
-      "Planung",
-      "Realisierung",
       "Koordination",
       "Qualitätssicherung",
       "Fachplanung"
@@ -785,9 +769,6 @@
     "category": "Qualitätssicherung",
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
       "Qualitätssicherung",
       "Projektmanagement"
     ],
@@ -913,8 +894,6 @@
     "category": "Analyse",
     "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
     "tags": [
-      "Planung",
-      "Realisierung",
       "Nachweise",
       "Fachplanung"
     ],
@@ -1040,9 +1019,6 @@
     "category": "Dokumentation",
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": [
-      "Planung",
-      "Realisierung",
-      "Betrieb",
       "Dokumentation",
       "Objektplanung"
     ],
@@ -1166,7 +1142,6 @@
     "category": "Behörden",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": [
-      "Planung",
       "Genehmigung",
       "Objektplanung",
       "Prüfende Instanz"
@@ -1291,9 +1266,6 @@
     "category": "Kostenplanung",
     "description": "Ermittlung von Mengen und Aufstellung von Kostenschätzungen nach eBKP-H für transparente Kostenplanung.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
       "Kosten",
       "Controlling"
     ],
@@ -1448,8 +1420,6 @@
     "category": "Ausschreibung",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": [
-      "Planung",
-      "Realisierung",
       "Ausschreibung und Vergabe",
       "Projektmanagement"
     ],
@@ -1574,8 +1544,6 @@
     "category": "Terminplanung",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
     "tags": [
-      "Planung",
-      "Realisierung",
       "Termine",
       "Bauausführung"
     ],
@@ -1699,8 +1667,6 @@
     "category": "Bauausführung",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": [
-      "Planung",
-      "Realisierung",
       "Logistik",
       "Bauausführung"
     ],
@@ -1825,7 +1791,6 @@
     "category": "Bauausführung",
     "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
     "tags": [
-      "Realisierung",
       "Qualitätssicherung",
       "Controlling",
       "Projektsteuerung"
@@ -1948,7 +1913,6 @@
     "category": "Bauausführung",
     "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
     "tags": [
-      "Realisierung",
       "Änderungsmanagement",
       "Kosten",
       "Bauausführung"
@@ -2071,8 +2035,6 @@
     "category": "Bauausführung",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": [
-      "Realisierung",
-      "Betrieb",
       "Kosten",
       "Bauausführung"
     ],
@@ -2194,8 +2156,6 @@
     "category": "Bauausführung",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": [
-      "Realisierung",
-      "Betrieb",
       "Abnahme",
       "Qualitätssicherung",
       "Bauausführung"
@@ -2319,8 +2279,6 @@
     "category": "Übergabe",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": [
-      "Realisierung",
-      "Betrieb",
       "Inbetriebnahme",
       "Abnahme",
       "Facility Management"
@@ -2446,10 +2404,6 @@
     "category": "Dokumentation",
     "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation für Planung, Betrieb und Archivierung.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
-      "Betrieb",
       "Dokumentation",
       "Projektmanagement"
     ],
@@ -2599,7 +2553,6 @@
     "category": "Betrieb",
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": [
-      "Betrieb",
       "Dokumentation",
       "Facility Management"
     ],
@@ -2721,7 +2674,6 @@
     "category": "Betrieb",
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
     "tags": [
-      "Betrieb",
       "Qualitätssicherung",
       "Facility Management"
     ],
@@ -2843,7 +2795,6 @@
     "category": "Betrieb",
     "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
     "tags": [
-      "Betrieb",
       "Facility Management"
     ],
     "phases": [
@@ -2965,7 +2916,6 @@
     "category": "Betrieb",
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
     "tags": [
-      "Betrieb",
       "Facility Management"
     ],
     "phases": [
@@ -3086,7 +3036,6 @@
     "category": "Betrieb",
     "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
     "tags": [
-      "Betrieb",
       "Bedarfsplanung",
       "Facility Management"
     ],
@@ -3208,7 +3157,6 @@
     "category": "Betrieb",
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
     "tags": [
-      "Betrieb",
       "Nachhaltigkeit",
       "Facility Management"
     ],
@@ -3331,7 +3279,6 @@
     "category": "Betrieb",
     "description": "Erfüllung und Dokumentation der gesetzlichen Betreiberpflichten, Sicherheitsprüfungen und Nachweise.",
     "tags": [
-      "Betrieb",
       "Qualitätssicherung",
       "Risikomanagement",
       "Facility Management"
@@ -3453,10 +3400,6 @@
     "category": "Nachhaltigkeit",
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
     "tags": [
-      "Entwicklung",
-      "Planung",
-      "Realisierung",
-      "Betrieb",
       "Nachhaltigkeit",
       "Zertifizierung"
     ],
@@ -3585,7 +3528,6 @@
     "category": "Rückbau",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
     "tags": [
-      "Abbruch",
       "Nachhaltigkeit"
     ],
     "phases": [
@@ -3706,7 +3648,6 @@
     "category": "Rückbau",
     "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
     "tags": [
-      "Abbruch",
       "Nachhaltigkeit"
     ],
     "phases": [
