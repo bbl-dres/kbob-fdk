@@ -54,7 +54,6 @@ a {
 }
 
 a:hover {
-    color: var(--color-primary);
     text-decoration: underline;
 }
 
@@ -145,10 +144,6 @@ a:hover {
 
 /* Interactive Icon (inherits link color) */
 .icon--interactive {
-    color: var(--color-primary);
-}
-
-.icon--interactive:hover {
     color: var(--color-primary);
 }
 
@@ -344,9 +339,7 @@ header {
     background: #0066b3;
 }
 
-.lang-dropdown__item.active {
-    /* Keine spezielle Hintergrundfarbe für aktive Sprache */
-}
+/* Active language item has no special background - inherits base styles */
 
 /* Header Controls (Kontakt, Search) */
 .header__controls {
@@ -479,26 +472,11 @@ header {
     height: 18px;
 }
 
+/* Extends .clear-btn with absolute positioning */
 .header__search-clear {
     position: absolute;
     right: 32px;
-    background: none;
-    border: none;
     padding: 4px;
-    cursor: pointer;
-    color: var(--color-text-muted);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease;
-}
-
-.header__search-clear:hover {
-    color: var(--color-text-primary);
-}
-
-.header__search-clear.visible {
-    display: flex;
 }
 
 .header__search-clear svg {
@@ -516,10 +494,8 @@ header {
     height: var(--nav-height);
 }
 
+/* Note: max-width, margin-inline, padding-inline inherited from .container */
 .main-nav .container {
-    max-width: var(--container-max-width);
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
     height: 100%;
 }
 
@@ -587,11 +563,7 @@ header {
     background: var(--color-white);
 }
 
-.breadcrumb-bar .container {
-    max-width: var(--container-max-width);
-    margin-inline: auto;
-    padding-inline: var(--container-padding);
-}
+/* Note: Inherits max-width, margin-inline, padding-inline from .container */
 
 /* Simplified structure: removed .breadcrumb-row and .toolbar-row wrappers */
 .breadcrumb-bar__inner {
@@ -1379,24 +1351,9 @@ footer a:hover {
     height: 24px;
 }
 
+/* Extends .clear-btn */
 .search-hero__clear {
-    background: none;
-    border: none;
     padding: 0 var(--space-md);
-    cursor: pointer;
-    color: var(--color-text-muted);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: color var(--transition-fast);
-}
-
-.search-hero__clear:hover {
-    color: var(--color-text-primary);
-}
-
-.search-hero__clear.visible {
-    display: flex;
 }
 
 .search-hero__clear svg {
@@ -1748,34 +1705,11 @@ footer a:hover {
     text-decoration: none !important;
 }
 
+/* Extends .arrow-btn with absolute positioning for quick-card */
 .quick-card__arrow-btn {
     position: absolute;
     bottom: var(--space-lg);
     right: var(--space-lg);
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--color-primary);
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-fast);
-}
-
-.quick-card__arrow-btn i {
-    width: 20px;
-    height: 20px;
-    color: var(--color-primary);
-    transition: color var(--transition-fast);
-}
-
-.quick-card:hover .quick-card__arrow-btn {
-    background: transparent;
-    border-color: var(--color-primary);
-}
-
-.quick-card:hover .quick-card__arrow-btn i {
-    color: var(--color-primary);
 }
 
 /* About Box */
@@ -2129,6 +2063,47 @@ footer a:hover {
     font-size: var(--text-h4);
 }
 
+/* Arrow Button - Shared base for card arrow buttons */
+.arrow-btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.arrow-btn svg,
+.arrow-btn i {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    stroke: var(--color-primary);
+    transition: color var(--transition-fast), stroke var(--transition-fast);
+}
+
+/* Clear Button - Shared base for search clear buttons */
+.clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.clear-btn:hover {
+    color: var(--color-text-primary);
+}
+
+.clear-btn.visible {
+    display: flex;
+}
+
 /* ============================================
    TOGGLE SWITCH (Swiss Federal Design)
    ============================================ */
@@ -2338,25 +2313,9 @@ footer a:hover {
     color: var(--color-text-primary);
 }
 
-/* Clear Input Button */
+/* Clear Input Button - Extends .clear-btn */
 .search-clear-btn {
-    background: none;
-    border: none;
     padding: 0 var(--space-sm);
-    cursor: pointer;
-    color: var(--color-text-muted);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    transition: color var(--transition-fast);
-}
-
-.search-clear-btn:hover {
-    color: var(--color-text-primary);
-}
-
-.search-clear-btn.visible {
-    display: flex;
 }
 
 .search-clear-btn svg {
@@ -2629,24 +2588,7 @@ footer a:hover {
     border-color: var(--color-surface-darker);
 }
 
-/* Reset Filter Button - extends filter-btn with danger hover */
-.reset-filter-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    cursor: pointer;
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-primary);
-    background: var(--color-white);
-    border: 1px solid var(--color-border-input);
-    border-radius: var(--border-radius);
-    padding: 0 var(--space-md);
-    height: var(--toolbar-height);
-    font-family: var(--font-family-primary);
-    font-size: var(--text-body-sm);
-    transition: all var(--transition-fast);
-}
-
+/* Reset Filter Button - extends .filter-btn with danger hover */
 .reset-filter-btn:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
@@ -3013,15 +2955,6 @@ footer a:hover {
     color: var(--color-primary);
 }
 
-.card:hover .card__arrow-btn {
-    background: transparent;
-    border-color: var(--color-primary);
-}
-
-.card:hover .card__arrow-btn svg {
-    stroke: var(--color-primary);
-}
-
 .card__image {
     height: 200px;
     background: var(--color-bg-light);
@@ -3105,35 +3038,15 @@ footer a:hover {
     justify-content: flex-end;
 }
 
+/* Extends .arrow-btn with card-specific properties */
 .card__arrow-btn {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--color-primary);
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    transition: all var(--transition-fast);
     flex-shrink: 0;
 }
 
 .card__arrow-btn svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--color-primary);
     stroke-width: 2;
     fill: none;
-    transition: stroke var(--transition-fast);
-}
-
-.card__arrow-btn:hover {
-    background: transparent;
-    border-color: var(--color-primary);
-}
-
-.card__arrow-btn:hover svg {
-    stroke: var(--color-primary);
 }
 
 /* ============================================
@@ -3650,10 +3563,6 @@ footer a:hover {
         width: 200px;
     }
 
-    .main-nav .container {
-        /* padding-inline inherits from --container-padding */
-    }
-
     .main-nav ul {
         gap: var(--space-lg);
     }
@@ -3802,10 +3711,6 @@ footer a:hover {
         width: 180px;
     }
 
-    .main-nav .container {
-        /* padding-inline inherits from --container-padding */
-    }
-
     .main-nav ul {
         gap: var(--space-md);
         overflow-x: auto;
@@ -3817,8 +3722,6 @@ footer a:hover {
         white-space: nowrap;
         font-size: var(--text-body-sm);
     }
-
-    /* .container padding-inline inherits from --container-padding variable */
 
     .page-title {
         font-size: var(--text-h1);

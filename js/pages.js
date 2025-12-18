@@ -71,7 +71,7 @@ function renderHomePage() {
             <div class="home-search-container">
                 <div class="gallery-filter-wrapper">
                     <input type="text" id="globalSearchInput" class="gallery-filter-input" placeholder="Suche nach Elementen oder Dokumenten..." autocomplete="off">
-                    <button type="button" class="search-clear-btn" id="globalSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
+                    <button type="button" class="clear-btn search-clear-btn" id="globalSearchClear" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                     <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                 </div>
                 <div id="globalSearchDropdown" class="search-dropdown"></div>
@@ -89,27 +89,27 @@ function renderHomePage() {
                     <a href="#usecases" class="quick-card" data-route="usecases">
                         <h3 class="quick-card__title">Anwendungsfälle</h3>
                         <p class="quick-card__desc">BIM-Anwendungsfälle für Planung, Koordination und Betrieb</p>
-                        <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#elements" class="quick-card" data-route="elements">
                         <h3 class="quick-card__title">Elemente</h3>
                         <p class="quick-card__desc">Standardisierte BIM-Elemente für den Hochbau mit LOD- und LOI-Anforderungen</p>
-                        <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#models" class="quick-card" data-route="models">
                         <h3 class="quick-card__title">Fachmodelle</h3>
                         <p class="quick-card__desc">Domänenspezifische Modelle für Architektur, Statik und Gebäudetechnik</p>
-                        <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#documents" class="quick-card" data-route="documents">
                         <h3 class="quick-card__title">Dokumente</h3>
                         <p class="quick-card__desc">Dokumenttypen und Vorlagen für die Bauwerksdokumentation</p>
-                        <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                     <a href="#epds" class="quick-card" data-route="epds">
                         <h3 class="quick-card__title">Ökobilanzdaten</h3>
                         <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
-                        <span class="quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
                 </div>
             </div>
@@ -204,7 +204,7 @@ function renderSearchResultsPage(query) {
                 <form class="search-hero__form" id="searchPageForm" role="search">
                     <div class="search-hero__input-wrapper">
                         <input type="search" id="searchPageInput" class="search-hero__input" value="${safeSearchQuery}" placeholder="Suchbegriff eingeben..." autocomplete="off">
-                        <button type="button" class="search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="Suche löschen">
+                        <button type="button" class="clear-btn search-hero__clear ${currentSearchQuery ? 'visible' : ''}" id="searchPageClear" aria-label="Suche löschen">
                             <i data-lucide="x" aria-hidden="true"></i>
                         </button>
                         <button type="submit" class="search-hero__submit" aria-label="Suchen">
@@ -304,7 +304,7 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                 <div class="gallery-filter-left">
                     <div class="gallery-filter-wrapper">
                         <input type="text" id="${pageConfig.searchInputId}" class="gallery-filter-input" placeholder="${pageConfig.searchPlaceholder}">
-                        <button type="button" class="search-clear-btn" id="${pageConfig.searchClearId}" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
+                        <button type="button" class="clear-btn search-clear-btn" id="${pageConfig.searchClearId}" aria-label="Suche löschen"><i data-lucide="x" aria-hidden="true"></i></button>
                         <button class="gallery-filter-btn" aria-label="Suchen"><i data-lucide="search" aria-hidden="true"></i></button>
                     </div>
                     ${renderFilterButton(pageConfig.filterType, typeConfig.getFilterVisible(), activeFiltersCount)}

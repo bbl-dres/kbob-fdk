@@ -214,7 +214,7 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
                 ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
             </div>
             <footer class="card__footer card__footer--end">
-                <span class="card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+                <span class="arrow-btn card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
             </footer>
         </article>
     `}).join('');

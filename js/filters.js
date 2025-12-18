@@ -210,7 +210,7 @@ function renderFilterButton(type, isVisible, activeTagCount) {
     const activeClass = isVisible ? 'active' : '';
 
     const resetBtn = activeTagCount > 0
-        ? `<button class="reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
+        ? `<button class="filter-btn reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
         : '';
 
     return `
