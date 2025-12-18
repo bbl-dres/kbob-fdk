@@ -6,7 +6,7 @@
     "title": "Aktuator",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Mechanische Vorrichtung zur Umwandlung von Energie (Luft, Strom, Flüssigkeit) in Bewegung zur Steuerung von Systemen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -256,7 +256,7 @@
     "title": "Audiovisuelles Gerät",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zum Anzeigen, Aufnehmen, Übertragen oder Empfangen von Audio-/Videodaten; fest oder mobil installiert.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -571,7 +571,7 @@
     "title": "Balken",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Lineares, meist horizontales Tragwerk zur Lastaufnahme und -weiterleitung durch Biegung; inkl. Fachwerkträger.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -921,7 +921,7 @@
     "title": "Beförderungsgerät (ausschl. Fah",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Anlage zur horizontalen/vertikalen Beförderung von Personen oder Gütern: Rolltreppen, Hebebühnen, Rollbänder etc.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -1235,7 +1235,7 @@
     "title": "Behälter",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Volumen zur Speicherung von Flüssigkeiten/Gasen (Tanks, Speicher) oder zur Druckregulierung in Netzen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -1560,7 +1560,7 @@
     "title": "Bodenbelag",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Nicht tragende Einzelschichten auf Böden: Beläge, Dämmung, Abdichtung – innen und aussen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -1985,7 +1985,7 @@
     "title": "Bodenplatte",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Horizontales Konstruktionselement auf dem Boden; tragend (Fundamentplatte) oder nicht tragend.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -2335,7 +2335,7 @@
     "title": "Brandschutzkupplung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Anschlusssystem zur externen Wasserzufuhr für das Feuerlöschnetz.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -2571,7 +2571,7 @@
     "title": "Dach",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Flächiges Abschlusselement im oberen Gebäudeteil; Massivbau oder Leichtbau mit Dachstuhl.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -2877,7 +2877,7 @@
     "title": "Dachbelag",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Nicht tragende Einzelschichten auf Dächern: Abdichtung, Dämmung, Verkleidung.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -3230,7 +3230,7 @@
     "title": "Daten Gerät",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zum Austausch von Computerdaten; fest oder mobil, ohne primäre Audio-/Videofunktion.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -3518,7 +3518,7 @@
     "title": "Decke",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Horizontales Flächenelement zur vertikalen Raumunterteilung mit tragenden Schichten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -3916,7 +3916,7 @@
     "title": "Deckenverkleidung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Nicht tragende Einzelschichten an Decken (ohne abgehängte Decken): Verkleidung, Dämmung, Membranen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -4241,7 +4241,7 @@
     "title": "Doppelboden",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Demontierbare Bodenkonstruktion für einfachen Zugang zur darunterliegenden Technik.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -4486,7 +4486,7 @@
     "title": "Elektrischer Schaltschrank",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Kasten zur Stromverteilung mit Schutz-, Mess- und Steuergeräten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -4762,7 +4762,7 @@
     "title": "Elektrisches Gerät",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Fest oder mobil installiertes Gerät für Strombetrieb; ohne Kommunikations-/Heiz-/Kühlgeräte.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -5065,7 +5065,7 @@
     "title": "Fahrstuhl",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Transporteinrichtung zur vertikalen Beförderung von Personen/Gütern in geschlossener Kabine.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -5294,7 +5294,7 @@
     "title": "Fenster",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Bauelement für Lichteinfall und Belüftung; vertikale oder horizontale Öffnungen mit Rahmen und Flügeln.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -5605,7 +5605,7 @@
     "title": "Feuerlöscheinrichtung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Zentrale Aufbewahrung von Brandschutzmaterial: Feuerlöscher, Schläuche, Kupplungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -5830,7 +5830,7 @@
     "title": "Feuerlöscher",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Tragbares oder stationäres Gerät zur Brandbekämpfung mittels Löschmittel.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -6048,7 +6048,7 @@
     "title": "Filter",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vorrichtung zur Entfernung von Partikeln oder Gasen aus der Luft in Lüftungsanlagen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -6286,7 +6286,7 @@
     "title": "Flächenfundament",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Stahlbetonfundament zur direkten Lastübertragung auf den Baugrund unter Wänden/Stützen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -6584,7 +6584,7 @@
     "title": "Fundamentbalken",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Balken zur Lastverteilung auf Flächen- oder Tiefgründungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -6868,7 +6868,7 @@
     "title": "Gebäude",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Bauwerk mit Schutzfunktion an einem Standort; trägt Adresse und gebäudespezifische Informationen.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [],
@@ -7033,7 +7033,7 @@
     "title": "Gelände",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Geometrische Darstellung des natürlichen Bodenprofils; inkl. Katasterparzellen.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [
@@ -7168,7 +7168,7 @@
     "title": "Geländer",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vertikale Schutzbarriere an Absturzstellen; bestehend aus Handlauf, Pfosten und Füllungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -7394,7 +7394,7 @@
     "title": "Grundstück",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Projektfläche mit Referenzpunkt für lokales und globales Koordinatensystem (WGS84).",
     "tags": [],
     "classifications": {},
     "ifcMapping": [
@@ -7464,7 +7464,7 @@
     "title": "Hydrant",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Wasseranschluss für Feuerwehrschläuche; innen (Steigleitung) oder aussen (Stadtnetz).",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -7692,7 +7692,7 @@
     "title": "Inneneinrichtung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Möbel und Einrichtungsgegenstände, befestigt oder frei; ohne technische Ausrüstungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -7983,7 +7983,7 @@
     "title": "Kabeltrasse",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vorrichtung zur Führung elektrischer Kabel; offen oder geschlossen, an Wand/Decke/Boden.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -8201,7 +8201,7 @@
     "title": "Kableltrasse-formteil",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Verbindungsstücke für Kabeltrassen: Winkel, T-Stücke, Reduzierstücke.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -8404,7 +8404,7 @@
     "title": "Kälteerzeugung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur Kühlung von Flüssigkeiten mittels Kältekreislauf für Gebäudeklimatisierung.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -8661,7 +8661,7 @@
     "title": "Leuchte",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vorrichtung zur künstlichen Beleuchtung; inkl. Lampe, Trafo und Zubehör.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -8874,7 +8874,7 @@
     "title": "Luft-Luft-Wärmetauscher",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur Wärmeübertragung zwischen zwei Luftströmen; typisch für Lüftung mit Wärmerückgewinnung.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -9138,7 +9138,7 @@
     "title": "Luftaufbereitungsanlage",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Anlage zum Filtern, Heizen, Kühlen, Be-/Entfeuchten und Verteilen von Luft.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -9402,7 +9402,7 @@
     "title": "Lüftungsauslass",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Endpunkt zwischen Luftverteilungssystem und Raum; verschiedene Formen und Funktionen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -9637,7 +9637,7 @@
     "title": "Lüftungskanal",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Kanal zur Verteilung aufbereiteter Luft im Gebäude.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -9895,7 +9895,7 @@
     "title": "Lüftungskanalformteil",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Verbindungsstücke für Lüftungskanäle: Winkel, Adapter, T-Stücke, Stopfen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -10149,7 +10149,7 @@
     "title": "Lüftungsschalldämpfer",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Element zur Reduktion der Schallübertragung durch Lüftungskanäle.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -10365,7 +10365,7 @@
     "title": "Öffnung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Durchbruch, Vertiefung oder Nische in Bauelementen; ohne Tür/Fenster; für Durchgang oder Technik.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [
@@ -10516,7 +10516,7 @@
     "title": "Öffnungsanfrage",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Geplante Öffnung für Technikleitungen; MEP erstellt Anfrage, ARC/STR gibt frei und integriert.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [],
@@ -10531,7 +10531,7 @@
     "title": "Projekt",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Grundinstanz mit Einheiten, Koordinatensystem, Georeferenzierung und Projektkontext.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [],
@@ -10625,7 +10625,7 @@
     "title": "Pumpe",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur mechanischen Bewegung von Flüssigkeiten/Schlämmen durch Rohrleitungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -10902,7 +10902,7 @@
     "title": "Rampe",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Geneigte Fläche zur Verbindung verschiedener Ebenen; begehbar oder befahrbar.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -11280,7 +11280,7 @@
     "title": "Raum",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Physisch oder virtuell begrenztes Volumen; innen oder aussen, nach Nutzung/Anforderungen unterteilt.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -11567,7 +11567,7 @@
     "title": "Regelklappe",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Element zur Steuerung des Luftstroms in Kanälen; manuell oder motorisch.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -11824,7 +11824,7 @@
     "title": "Rohr",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Element mit meist kreisförmigem Querschnitt zum Transport von Flüssigkeiten, Gasen oder Feststoffen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -12164,7 +12164,7 @@
     "title": "Rohrverbindung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Formstücke für Rohrleitungen: Winkel, Adapter, T-Stücke, Stopfen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -12473,7 +12473,7 @@
     "title": "Sanitäranlage",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät mit Wasserversorgung und meist Abwasseranschluss: WC, Waschbecken, Dusche etc.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -12784,7 +12784,7 @@
     "title": "Schalter",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Elektrisches Zubehör zur Steuerung und Modulation von Stromkreisen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -13032,7 +13032,7 @@
     "title": "Schlauchtrommel",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Flexibler Schlauch auf Trommel, angeschlossen an Hydranten zur Brandbekämpfung.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -13314,7 +13314,7 @@
     "title": "Schornstein",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vertikales Abzugsrohr für Abgase von Wärmeerzeugern; vorgefertigt oder vor Ort gebaut.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -13526,7 +13526,7 @@
     "title": "Sicherheitsbeleuchtung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Notbeleuchtung zur Kennzeichnung von Fluchtwegen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -13734,7 +13734,7 @@
     "title": "Sicherungskasten",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Schutzvorrichtung zur automatischen Unterbrechung bei Überlast, Kurzschluss oder Fehlerstrom.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -13963,7 +13963,7 @@
     "title": "Solarpanel",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Kollektor zur Umwandlung von Sonnenenergie in Strom (PV) oder Wärme (thermisch).",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -14251,7 +14251,7 @@
     "title": "Sprinkler",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Automatische Wasserlöschanlage mit Löschköpfen, die bei Hitze auslösen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -14468,7 +14468,7 @@
     "title": "Stabtragwerkselement",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Lineares Konstruktionselement (Pfette, Sparren etc.) zur Lastübertragung durch Biegung/Druck/Zug.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -14837,7 +14837,7 @@
     "title": "Steckdose",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Einbauvorrichtung für elektrische, Multimedia- oder Datenanschlüsse.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -15041,7 +15041,7 @@
     "title": "Steuerungspanel",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur Überwachung und Steuerung in der Gebäudeautomation; physisch oder logisch.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -15259,7 +15259,7 @@
     "title": "Stromerzeuger",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur Umwandlung kinetischer Energie in Elektrizität; Motor/Turbine mit Generator.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -15537,7 +15537,7 @@
     "title": "Stromspeicher",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gerät zur Speicherung und Abgabe elektrischer Energie; chemisch, kapazitiv oder induktiv.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -15815,7 +15815,7 @@
     "title": "Stütze",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Meist vertikales Tragwerk zur Aufnahme und Übertragung von Druck- und Horizontallasten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -16134,7 +16134,7 @@
     "title": "Tiefgründung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Fundament zur Lastübertragung auf tiefere Bodenschichten durch Reibung/Spitzendruck; z.B. Pfähle.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -16474,7 +16474,7 @@
     "title": "Tiefgründung (Senkkasten)",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Tiefes Fundament (Senkkasten) zur Lastübertragung auf tiefere Bodenschichten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -16741,7 +16741,7 @@
     "title": "Transformator",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Elektrisches Bauteil zur Änderung von Spannung und Stromstärke zwischen Stromkreisen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -17021,7 +17021,7 @@
     "title": "Treppe (Beton)",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Betontreppe zur Verbindung verschiedener Ebenen; aufliegend oder freistehend.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -17257,7 +17257,7 @@
     "title": "Treppe (nicht Beton)",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Treppe aus Holz/Metall mit Wangen, Stufen und ggf. Setzstufen; aufliegend oder freistehend.",
     "tags": [],
     "classifications": {},
     "ifcMapping": [],
@@ -17445,7 +17445,7 @@
     "title": "Tür",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Bauelement für kontrollierten Zugang; Rahmen mit beweglichen Türblättern und Beschlägen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -17802,7 +17802,7 @@
     "title": "Ventilator",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Mechanisches Element zur Luftbewegung im Lüftungssystem; zentral oder dezentral.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -18021,7 +18021,7 @@
     "title": "Vorhangfassade",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Verglaste Fassade ausserhalb der Geschossdecken; Tragstruktur mit Paneelen und Dämmung.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -18284,7 +18284,7 @@
     "title": "Wand",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Vertikales Flächenelement zur Raumunterteilung; tragend oder nicht tragend, mit Schichten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -18795,7 +18795,7 @@
     "title": "Wandverkleidung",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Nicht tragende Schichten an Wänden: Verkleidung, Dämmung, Abdichtung, Sockelleisten.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -19154,7 +19154,7 @@
     "title": "Wärme- Kälteverteilung - Fläche",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Flächenheizung/-kühlung durch Strahlung: Fussbodenheizung, aktive Decken etc.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -19433,7 +19433,7 @@
     "title": "Wärme- Kälteverteilung - Konvek",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Heizgerät mit Strahlung und/oder Konvektion: Konvektoren, Röhrenheizkörper.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -19682,7 +19682,7 @@
     "title": "Wärmeerzeugung - Dampf",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Druckbehälter zur Dampferzeugung (>100°C) für Heizprozesse.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -19938,7 +19938,7 @@
     "title": "Wärmeerzeugung - Wasser",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Druckbehälter zur Warmwassererzeugung für Heizanwendungen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -20227,7 +20227,7 @@
     "title": "Wärmeverteilung - Heizkörper",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Wärmeverteiler mit Strahlung/Konvektion: Heizkörper, Handtuchtrockner.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -20485,7 +20485,7 @@
     "title": "Wasserrinne",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Rohrsystem zur Regenwassersammlung am Fuss von Dachschrägen.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -20704,7 +20704,7 @@
     "title": "Zone",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Gruppe von Räumen mit gemeinsamen Nutzungs- oder Leistungsanforderungen; optional.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
@@ -20878,7 +20878,7 @@
     "title": "Zwischendecke",
     "image": "",
     "category": "",
-    "description": "",
+    "description": "Abgehängte Decke zum Verbergen von Technik; demontierbare Platten für Wartungszugang.",
     "tags": [],
     "classifications": {
       "Uniformat II 2010": [
