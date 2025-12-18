@@ -10716,27 +10716,6 @@
     ]
   },
   {
-    "id": "e41",
-    "version": "1.0",
-    "lastChange": "2024-10-15",
-    "title": "Öffnungsanfrage",
-    "image": "",
-    "category": "Architektur",
-    "description": "Geplante Öffnung für Technikleitungen; MEP erstellt Anfrage, ARC/STR gibt frei und integriert.",
-    "tags": [],
-    "classifications": {
-      "eBKP-H": [
-        "C – Konstruktion Gebäude",
-        "E – Äussere Wandbekleidung Gebäude",
-        "G – Ausbau Gebäude"
-      ]
-    },
-    "ifcMapping": [],
-    "geometry": [],
-    "information": [],
-    "documentation": []
-  },
-  {
     "id": "e42",
     "version": "1.0",
     "lastChange": "2024-02-19",
