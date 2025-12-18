@@ -4,7 +4,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Immobilienhandbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Das Immobilienhandbuch regelt die Abläufe, Zuständigkeiten, Kompetenzen sowie die Formen der Zusammenarbeit im Immobilienmanagement",
     "tags": [
@@ -37,7 +37,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Organigramm Stammorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Grafische Darstellung des logischen Aufbaus einer Stammorganisation",
     "tags": [
@@ -58,7 +58,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Adressverzeichnis Stammorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Namen und Adressen einer Stammorganisation",
     "tags": [
@@ -79,7 +79,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Projektauftrag",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Beinhaltet Kosten, Termine, Leistungen, Qualität, Organisationsform für die kommende Phase",
     "tags": [
@@ -119,7 +119,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Projekthandbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "classifications": [
       {
@@ -154,7 +154,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Organigramm Projektorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Grafische Darstellung des logischen Aufbaus einer Projektorganisation",
     "tags": [
@@ -177,7 +177,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Adressverzeichnis Projektorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Namen und Adressen einer Projektorganisation (inkl. Unternehmerliste)",
     "tags": [
@@ -201,7 +201,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Projektmanagementkonzept",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Konzept zum Planen, Steuern und Kontrollieren von Projekten",
     "tags": [
@@ -224,7 +224,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Vorgehenskonzept",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Beschreibung über das Vorgehen bei der Umsetzung von Bau- und Planungsleitungen der kommenden Projektphasen",
     "tags": [
@@ -247,7 +247,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Projektstatusbericht",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bericht über den aktuellen Stand des Projektes und die weiteren Schritte",
     "tags": [
@@ -270,7 +270,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Funktionendiagramm",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Aufstellung aller Aufgaben, Verantwortungen und Kompetenzen",
     "tags": [
@@ -293,7 +293,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Projektantrag",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antrag an eine übergeordnete Stelle für die Freigabe von weiteren Projektphasen",
     "tags": [
@@ -316,7 +316,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Projektänderungsantrag",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antrag an eine übergeordnete Stelle für die Freigabe von Projektänderungen",
     "tags": [
@@ -339,7 +339,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Betriebsführungshandbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Regelt die Abläufe, Zuständigkeiten, Kompetenzen sowie die Formen der Zusammenarbeit im Facility Management",
     "tags": [
@@ -361,7 +361,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Organigramm Betriebsorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Grafische Darstellung des logischen Aufbaus einer Betriebsorganisation",
     "tags": [
@@ -382,7 +382,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Adressverzeichnis Betriebsorganisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Namen und Adressen einer Betriebsorganisation",
     "tags": [
@@ -403,7 +403,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Risikoanalyse",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Risikoanalyse (Top-Down) wird bei jedem Phasenstart wiederholt revidiert",
     "tags": [
@@ -426,7 +426,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "PQM-Konzept/Handbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Beschrieb wie das PQM System in diesem spezifischen Projekt gehandhabt wird",
     "tags": [
@@ -449,7 +449,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "PQM-Vereinbarung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "PQM wird zwischen Bauherrschaft und Auftragnehmer vereinbart",
     "tags": [
@@ -471,7 +471,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "QM-Plan/Kontrollplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Wird aus der Risikoanalyse entwickelt und soll die Risiken minimieren",
     "tags": [
@@ -493,7 +493,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "PQM-Prüfnachweis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Jeder Beteiligte liefert seine Nachweisdokumente ans PQM",
     "tags": [
@@ -514,7 +514,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "PQM-Überwachung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Festgelegte Massnahmen aus der Überprüfung des Kontrollplans",
     "tags": [
@@ -535,7 +535,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Checkliste",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Checkliste für die Überprüfung von Qualität und Abläufen im Allgemeinen",
     "tags": [
@@ -555,7 +555,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Wartungscheckliste",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Checkliste für die Wartung von Anlagen",
     "tags": [
@@ -577,7 +577,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Regulatorienhandbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Handbuch/Sammlung aller wichtigen Regulatorien, welche das Bauwerk und deren Anlagen betreffen",
     "tags": [
@@ -598,7 +598,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Informationskonzept",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Konzept zur Festlegung der Verbreitung von Informationen über Bauwerke und Projekte",
     "tags": [
@@ -620,7 +620,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Kommunikationskonzept",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Konzept über die Art und Form Kommunikation innerhalb einer Organisation und gegen Aussen",
     "tags": [
@@ -642,7 +642,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Datenaustauschvereinbarung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Vereinbarung über den projektspezifischen Datenaustausch",
     "tags": [
@@ -665,7 +665,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Dokumentationskonzept",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Beschreibt die Anforderungen an die Bauwerksdokumentation",
     "tags": [
@@ -686,7 +686,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "DM-Handbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Regelt die Datenmanagement-Prozesse sowie Inhalte und Formen der Bauwerksdokumentation",
     "tags": [
@@ -709,7 +709,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "DM-Prüfprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Qualitätsprüfprotokoll für die Bauwerksdokumentation",
     "tags": [
@@ -733,7 +733,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Terminplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Auflistung von Start- und Endterminen von Aufgaben und Meilensteinen",
     "tags": [
@@ -755,7 +755,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Netzplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Darstellung aller planerischen und baulichen Abhängigkeiten",
     "tags": [
@@ -777,7 +777,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Piketteinsatzplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Organisation der Piketteinsätze über einen bestimmten Zeitraum",
     "tags": [
@@ -798,7 +798,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Reinigungseinsatzplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Organisation der Reinigungseinsätze über einen bestimmten Zeitraum",
     "tags": [
@@ -819,7 +819,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Wartungsplan",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Übersicht der geplanten bzw. der zu planenden Wartungen",
     "tags": [
@@ -841,7 +841,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Dokumentenverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller relevanten Dokumente gemäss KBOB/IPB-Empfehlung",
     "tags": [
@@ -864,7 +864,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Planverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller relevanten Pläne gemäss KBOB/IPB-Empfehlung",
     "tags": [
@@ -887,7 +887,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Telefonverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis mit Mitarbeitern und Telefonnummern",
     "tags": [
@@ -908,7 +908,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Mieter-/Eigentümerverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis der Mieter und Eigentümer",
     "tags": [
@@ -929,7 +929,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Sitzungs- und Beschlussprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Dokumentation von relevanten Vorgängen und deren Reihenfolge, Zeitpunkt, Auftraggeber und Verantwortliche im Rahmen von Besprechungen",
     "tags": [
@@ -952,7 +952,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Übergabeprotokoll Bewirtschaftung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Protokoll der Übergabe der Bewirtschaftung an den Bewirtschafter oder einen Betreiber",
     "tags": [
@@ -974,7 +974,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Übergabeprotokoll Mietvertrag",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Protokoll der Übergabe/Übernahme eines Mietobjekts",
     "tags": [
@@ -995,7 +995,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Aktennotiz",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Schriftlich festgehaltene relevante und kurze Information",
     "tags": [
@@ -1017,7 +1017,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Pendenzenliste",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Zusammenstellung aller schwebenden, unerledigten Angelegenheiten",
     "tags": [
@@ -1039,7 +1039,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Projektänderungsverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Projektänderungen",
     "tags": [
@@ -1061,7 +1061,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Behördenkorrespondenz",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Korrespondenzdokumente an und von Behörden mit wichtigen aufbewahrungsrelevanten Informationen",
     "tags": [
@@ -1084,7 +1084,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Interne Korrespondenz",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Korrespondenz innerhalb des Unternehmens mit wichtigen aufbewahrungsrelevanten Informationen",
     "tags": [
@@ -1106,7 +1106,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Korrespondenz mit Beauftragten",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Korrespondenz an und von Beauftragten mit wichtigen aufbewahrungsrelevanten Informationen",
     "tags": [
@@ -1129,7 +1129,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Korrespondenz mit Mietern",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Sämtliche Korrespondenz an und von Mietvertragspartnern",
     "tags": [
@@ -1150,7 +1150,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Allgemeine Korrespondenz",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Weitere allgemeine Korrespondenz mit wichtigen aufbewahrungsrelevanten Informationen",
     "tags": [
@@ -1172,7 +1172,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Mängelrüge",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Schriftliche Meldung von Mängeln an einem Mietobjekt",
     "tags": [
@@ -1194,7 +1194,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Kündigungsschreiben",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Kündigungsschreiben eines Mietverhältnisses",
     "tags": [
@@ -1215,7 +1215,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Beschlussverzeichnis",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Beschlüsse aus den Beschlussprotokollen",
     "tags": [
@@ -1238,7 +1238,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Schadensmeldung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Offizielle Meldung eines Schadens an den Bewirtschafter/Eigentümer",
     "tags": [
@@ -1259,7 +1259,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Wartungsmeldung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Offizielle Meldung einer Wartungsmassnahme",
     "tags": [
@@ -1279,7 +1279,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Störungsmeldung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Offizielle Meldung einer Störung einer Anlage",
     "tags": [
@@ -1299,7 +1299,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Politischer Vorstoss",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Anfragen aus der Politik zur Stellungnahme durch den Bauherren",
     "tags": [
@@ -1322,7 +1322,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Rechtsfall",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Dokumente zu einem Rechtsfall",
     "tags": [
@@ -1345,7 +1345,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Korrespondenz Dritte",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Korrespondenz mit weiteren Rollen rund um ein Bauwerk",
     "tags": [
@@ -1367,7 +1367,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Schlüssel- und Kartenquittung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bestätigung für den Erhalt von Schlüsseln und Karten",
     "tags": [
@@ -1388,7 +1388,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Publikation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Veröffentlichung von Informationen zu Bauwerken und Bauprojekten",
     "tags": [
@@ -1410,7 +1410,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Öffentlichkeitsarbeit",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Korrespondenz, Artikel etc. für die Öffentlichkeitsarbeit (inkl. Präsentationen und Anlässe)",
     "tags": [
@@ -1432,7 +1432,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Gesuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular",
     "tags": [
@@ -1452,7 +1452,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Gesuch Kanalisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss eines Bauwerks an die Kanalisation",
     "tags": [
@@ -1472,7 +1472,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Gesuch Elektrizität",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung einer elektrischen Anlage an das Elektrizitätsnetz",
     "tags": [
@@ -1492,7 +1492,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Gesuch Kabelfernsehen",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Kabelfernseh-Netz",
     "tags": [
@@ -1512,7 +1512,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Gesuch Gas",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Gasnetz",
     "tags": [
@@ -1532,7 +1532,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Gesuch Wasser",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Wasserversorgung",
     "tags": [
@@ -1552,7 +1552,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Gesuch Fernheizung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Fernheizung",
     "tags": [
@@ -1572,7 +1572,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Gesuch Erdsondennutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zur Nutzung von Erdwärme mittels Erdsonden",
     "tags": [
@@ -1593,7 +1593,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Gesuch Grundwassernutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zur Nutzung von Grundwasser zu Heiz- oder Kühlzwecken",
     "tags": [
@@ -1614,7 +1614,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Gesuch Oberflächengewässernutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zur Nutzung von Oberflächengewässer (Fluss oder See) zu Heiz- oder Kühlzwecken",
     "tags": [
@@ -1635,7 +1635,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Gesuch Bedarfsnachweiskühlung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zur Bewilligung von Kältenutzung (Bedarfsnachweis nach Kühlung)",
     "tags": [
@@ -1656,7 +1656,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Gesuch Telekommunikation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Telekommunikationsnetz",
     "tags": [
@@ -1676,7 +1676,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Gesuch für Spezialbewilligungen",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für weitere Bewilligungen",
     "tags": [
@@ -1696,7 +1696,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Gesuch Feuerpolizei",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular an die Feuerpolizei",
     "tags": [
@@ -1716,7 +1716,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Baugesuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für die Baubewilligung",
     "tags": [
@@ -1736,7 +1736,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Konzessionsgesuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zum Erhalt von Konzessionen",
     "tags": [
@@ -1756,7 +1756,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Subventionsantrag",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für Subventionsleistungen",
     "tags": [
@@ -1777,7 +1777,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Gesuch Werbung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular zur Präsentation von Werbung",
     "tags": [
@@ -1797,7 +1797,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Gesuch Bahntechnik",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für die Bahntechnik im Plangenehmigungsverfahren (PGV)",
     "tags": [
@@ -1817,7 +1817,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Gesuch Denkmalpflege",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für die Denkmalpflege",
     "tags": [
@@ -1837,7 +1837,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Mietformular",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Antragsformular für die Miete einer Räumlichkeit",
     "tags": [
@@ -1857,7 +1857,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Bewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung/Entscheid",
     "tags": [
@@ -1877,7 +1877,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Bewilligung Kanalisation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss eines Bauwerks an die Kanalisation",
     "tags": [
@@ -1897,7 +1897,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Bewilligung Elektrizität",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung einer elektrischen Anlage an das Elektrizitätsnetz",
     "tags": [
@@ -1917,7 +1917,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Bewilligung Kabelfernsehen",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Kabelfernseh-Netz",
     "tags": [
@@ -1937,7 +1937,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Bewilligung Gas",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Gasnetz",
     "tags": [
@@ -1957,7 +1957,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Bewilligung Wasser",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Wasserversorgung",
     "tags": [
@@ -1977,7 +1977,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Bewilligung Fernheizung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an die Fernheizung",
     "tags": [
@@ -1997,7 +1997,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Bewilligung Erdsondennutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung zur Nutzung von Erdwärme mittels Erdsonden",
     "tags": [
@@ -2018,7 +2018,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Bewilligung Grundwassernutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung zur Nutzung von Grundwasser zu Heiz- oder Kühlzwecken",
     "tags": [
@@ -2039,7 +2039,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Bewilligung Oberflächengewässernutzung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung zur Nutzung von Oberflächengewässer (Fluss oder See) zu Heiz- oder Kühlzwecken",
     "tags": [
@@ -2060,7 +2060,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Bewilligung Bedarfsnachweiskühlung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung von Kältenutzung (Bedarfsnachweis nach Kühlung)",
     "tags": [
@@ -2081,7 +2081,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Bewilligung Telekommunikation",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Anschluss, Stilllegung, Änderung eines Bauwerks an das Telekommunikationsnetz",
     "tags": [
@@ -2101,7 +2101,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Spezialbewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für weitere Themenbereiche",
     "tags": [
@@ -2121,7 +2121,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Entscheid Feuerpolizei",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Baubewilligung von der Feuerpolizei",
     "tags": [
@@ -2142,7 +2142,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Baubewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Baubewilligung inkl. unterzeichnete Pläne",
     "tags": [
@@ -2162,7 +2162,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Baurechtsentscheid",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Baurechtsentscheid (Erstinstanzliches Organ bei Baurechtsfällen)",
     "tags": [
@@ -2182,7 +2182,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Entscheid Umweltbehörde",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Entscheid über die Baubewilligung von der Umweltbehörde",
     "tags": [
@@ -2203,7 +2203,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Behördenentscheid (Diverse)",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Weitere Behördenentscheide",
     "tags": [
@@ -2223,7 +2223,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Betriebsbewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für die Inbetriebnahme eines Bauwerks",
     "tags": [
@@ -2244,7 +2244,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Konzessionsbewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für eine Konzession",
     "tags": [
@@ -2264,7 +2264,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Subventionszusage",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Zusage eines Subventionsantrages",
     "tags": [
@@ -2285,7 +2285,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Bewilligung Werbung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung zur Präsentation von Werbung",
     "tags": [
@@ -2305,7 +2305,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Bewilligung Bahntechnik",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für die Bahntechnik im Plangenehmigungsverfahren (PGV)",
     "tags": [
@@ -2325,7 +2325,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Bewilligung Denkmalpflege",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung der Denkmalpflege",
     "tags": [
@@ -2345,7 +2345,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Behördliche Auflagen",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Von einer Behörde vorgeschriebene Auflagen im Rahmen einer Bewilligung",
     "tags": [
@@ -2366,7 +2366,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Zutrittsbewilligung",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Bewilligung für den Zutritt in eine Baustelle oder ein bestehendes Bauwerk",
     "tags": [
@@ -2388,7 +2388,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Parkkarte",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Parkbewilligung",
     "tags": [
@@ -2408,7 +2408,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Vorabnahmeprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Vorabnahmeprotokoll wird im Rahmen einer Abnahme während der Objektfertigstellung geführt",
     "tags": [
@@ -2429,7 +2429,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Abnahmeprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Das Abnahmeprotokoll wird bei der Abnahme nach Abschluss der Objektfertigstellung geführt und wird zum Festhalten des Sachverhaltes benötigt",
     "tags": [
@@ -2451,7 +2451,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Protokoll integrale Tests",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Abnahmeprotokoll der integralen Tests",
     "tags": [
@@ -2474,7 +2474,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Inbetriebnahmeprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Inbetriebnahmeprotokoll wird bei der Inbetriebnahme eines Objektes oder Anlage geführt",
     "tags": [
@@ -2496,7 +2496,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Mängelliste",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Verzeichnis aller Mängel",
     "tags": [
@@ -2518,7 +2518,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Inspektionsprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Protokoll mit Ergebnissen und Massnahmen im Rahmen einer Inspektion",
     "tags": [
@@ -2539,7 +2539,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Ereignisprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Liste von meldepflichtigen Ereignissen im Rahmen eines Prozesses",
     "tags": [
@@ -2560,7 +2560,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Rissprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Dokumentation über Risse/Schäden an den Bestandsbauten während der Bauzeit",
     "tags": [
@@ -2581,7 +2581,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Schlussprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Festhalten der abschliessenden Prüfung des Bauwerk nach Ablauf der Garantiefrist (SIA118, Art. 177)",
     "tags": [
@@ -2602,7 +2602,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Massnahmenkatalog",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Liste geplanter Massnahmen",
     "tags": [
@@ -2623,7 +2623,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Instandsetzungsprotokoll",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Protokoll einer Reparatur",
     "tags": [
@@ -2644,7 +2644,7 @@
     "version": "1.2",
     "lastChange": "2024-08-10",
     "title": "Installationsattest",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Anzeige für die Fertigstellung bzw. Prüfung von Gefahrenmeldeanlagen",
     "tags": [
@@ -2666,7 +2666,7 @@
     "version": "2.0",
     "lastChange": "2024-09-05",
     "title": "Baujournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Zusammenstellung aller während der Bauzeit relevanten Ereignisse, Entscheide, Aufgaben etc. in zeitlicher Abfolge",
     "tags": [
@@ -2687,7 +2687,7 @@
     "version": "1.0",
     "lastChange": "2024-10-18",
     "title": "Betriebsjournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Journal zum Festhalten von Ereignissen, Veränderungen etc. in einem Bauwerk während der Betriebsphase",
     "tags": [
@@ -2708,7 +2708,7 @@
     "version": "1.1",
     "lastChange": "2024-11-12",
     "title": "Besucherjournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Registration der angemeldeten Besucher inkl. weiteren Angaben zum Aufenthalt und Dauer",
     "tags": [
@@ -2729,7 +2729,7 @@
     "version": "1.2",
     "lastChange": "2024-12-01",
     "title": "Parkplatzjournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Registration der angemeldeten Parkplatznutzer inkl. weiteren Angaben zum Aufenthalt und Dauer",
     "tags": [
@@ -2750,7 +2750,7 @@
     "version": "2.0",
     "lastChange": "2025-01-08",
     "title": "Ereignisjournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Registration aller wichtigen Ereignisse in und um ein Bauwerk",
     "tags": [
@@ -2771,7 +2771,7 @@
     "version": "1.0",
     "lastChange": "2024-06-15",
     "title": "Logbuch",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Automatische Registration aller wichtigen Ereignisse einer Anlage",
     "tags": [
@@ -2792,7 +2792,7 @@
     "version": "1.1",
     "lastChange": "2024-07-22",
     "title": "Wartungsjournal",
-    "image": "",
+    "image": "assets/img/document/organization.jpg",
     "category": "Organisation",
     "description": "Liste der durchgeführten Wartungen",
     "tags": [
