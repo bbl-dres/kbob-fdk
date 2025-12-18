@@ -1,6 +1,8 @@
 [
   {
     "id": "m1",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Architekturmodell",
     "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -19,27 +21,45 @@
       {
         "name": "Wand",
         "description": "Tragende und nichttragende Wände inkl. Innenwände",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Decke",
         "description": "Geschossdecken und Flachdächer",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Fenster",
         "description": "Fensterelemente mit Rahmen und Verglasung",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Tür",
         "description": "Innen- und Aussentüren",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m2",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Tragwerksmodell",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -57,22 +77,36 @@
       {
         "name": "Fundament",
         "description": "Einzel- und Streifenfundamente",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Stütze",
         "description": "Tragende Stützen aus Beton oder Stahl",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Träger",
         "description": "Decken- und Dachträger",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m3",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "HLKS-Modell",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -90,22 +124,36 @@
       {
         "name": "Lüftungskanal",
         "description": "Rechteck- und Rundkanäle für Lüftungsanlagen",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Heizungsrohr",
         "description": "Rohrleitungen für Heizungsverteilung",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Sanitärleitung",
         "description": "Trink- und Abwasserleitungen",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m4",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Elektromodell",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -123,22 +171,34 @@
       {
         "name": "Kabeltrasse",
         "description": "Kabelrinnen und Kabelkanäle",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Schalter",
         "description": "Lichtschalter und Taster",
-        "phases": [3, 4]
+        "phases": [
+          3,
+          4
+        ]
       },
       {
         "name": "Steckdose",
         "description": "Steckdosen und Anschlussdosen",
-        "phases": [3, 4]
+        "phases": [
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m5",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Koordinationsmodell",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "category": "Koordination",
@@ -156,6 +216,8 @@
   },
   {
     "id": "m6",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Aussenraummodell",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -173,17 +235,26 @@
       {
         "name": "Gelände",
         "description": "Geländemodellierung und Topografie",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Bepflanzung",
         "description": "Bäume, Sträucher und Grünflächen",
-        "phases": [3, 4]
+        "phases": [
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m7",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Brandschutzmodell",
     "image": "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=400&h=200&fit=crop",
     "category": "Spezialmodelle",
@@ -201,17 +272,27 @@
       {
         "name": "Brandwand",
         "description": "Brandabschnittstrennende Wände",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Fluchtweg",
         "description": "Fluchtwege und Notausgänge",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       }
     ]
   },
   {
     "id": "m8",
+    "version": "2.0",
+    "lastChange": "2025-01-08",
     "title": "Baugrubenmodell",
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "category": "Spezialmodelle",
@@ -229,17 +310,25 @@
       {
         "name": "Spundwand",
         "description": "Stahlspundwände zur Baugrubensicherung",
-        "phases": [2, 3]
+        "phases": [
+          2,
+          3
+        ]
       },
       {
         "name": "Anker",
         "description": "Verpressanker und Rückverankerung",
-        "phases": [2, 3]
+        "phases": [
+          2,
+          3
+        ]
       }
     ]
   },
   {
     "id": "m9",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Bestandsmodell",
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
     "category": "Bestand",
@@ -256,6 +345,8 @@
   },
   {
     "id": "m10",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Fassadenmodell",
     "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "category": "Fachmodelle",
@@ -273,12 +364,20 @@
       {
         "name": "Fassadenpaneel",
         "description": "Fassadenverkleidung und Paneele",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "name": "Fensterrahmen",
         "description": "Fensterrahmen und Fassadenanschlüsse",
-        "phases": [2, 3, 4]
+        "phases": [
+          2,
+          3,
+          4
+        ]
       }
     ]
   }

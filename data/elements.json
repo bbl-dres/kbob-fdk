@@ -1,6 +1,8 @@
 [
   {
     "id": "e1",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Fenster (Aussen)",
     "image": "assets/img/window.jpg",
     "category": "Architektur",
@@ -246,6 +248,8 @@
   },
   {
     "id": "e2",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Innentür (Holz)",
     "image": "assets/img/door_interior.jpg",
     "category": "Architektur",
@@ -442,6 +446,8 @@
   },
   {
     "id": "e3",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Wand (Massiv)",
     "image": "assets/img/wall.jpg",
     "category": "Architektur",
@@ -617,6 +623,8 @@
   },
   {
     "id": "e4",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Bodenplatte (Stahlbeton)",
     "image": "assets/img/slab.jpg",
     "category": "Tragwerk",
@@ -769,6 +777,8 @@
   },
   {
     "id": "e5",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Dach (Flachdach)",
     "image": "assets/img/roof_flat.jpg",
     "category": "Architektur",
@@ -929,6 +939,8 @@
   },
   {
     "id": "e6",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Stütze (Fertigteil)",
     "image": "assets/img/column.jpg",
     "category": "Tragwerk",
@@ -1082,6 +1094,8 @@
   },
   {
     "id": "e7",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Unterzug (Stahlbeton)",
     "image": "assets/img/beam.jpg",
     "category": "Tragwerk",
@@ -1228,6 +1242,8 @@
   },
   {
     "id": "e8",
+    "version": "2.0",
+    "lastChange": "2025-01-08",
     "title": "Lüftungskanal (rechteckig)",
     "image": "assets/img/duct_rect.jpg",
     "category": "Haustechnik",
@@ -1409,6 +1425,8 @@
   },
   {
     "id": "e9",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Lüftungsgerät (Zentralgerät)",
     "image": "assets/img/ahu.jpg",
     "category": "Haustechnik",
@@ -1594,6 +1612,8 @@
   },
   {
     "id": "e10",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Heizungsrohr",
     "image": "assets/img/pipe_heating.jpg",
     "category": "Haustechnik",
@@ -1769,6 +1789,8 @@
   },
   {
     "id": "e11",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Heizkörper (Flachheizkörper)",
     "image": "assets/img/radiator.jpg",
     "category": "Haustechnik",
@@ -1934,6 +1956,8 @@
   },
   {
     "id": "e12",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Sanitärobjekt (WC)",
     "image": "assets/img/wc.jpg",
     "category": "Haustechnik",
@@ -2115,6 +2139,8 @@
   },
   {
     "id": "e13",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Elektroverteiler (UV)",
     "image": "assets/img/distribution_board.jpg",
     "category": "Haustechnik",
@@ -2289,6 +2315,8 @@
   },
   {
     "id": "e14",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Kabeltrasse",
     "image": "assets/img/cable_tray.jpg",
     "category": "Haustechnik",
@@ -2450,6 +2478,8 @@
   },
   {
     "id": "e15",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Aufzug",
     "image": "assets/img/elevator.jpg",
     "category": "Haustechnik",
