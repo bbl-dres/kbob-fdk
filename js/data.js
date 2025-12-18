@@ -90,3 +90,17 @@ function getUniqueTags(data) {
     });
     return Array.from(tags).sort();
 }
+
+/**
+ * Sort data by title alphabetically (A-Z)
+ * @param {Array} data - Array of data items
+ * @returns {Array} Sorted array
+ */
+function sortDataByTitle(data) {
+    if (!data || !Array.isArray(data)) return [];
+    return [...data].sort((a, b) => {
+        const titleA = (a.title || '').toLowerCase();
+        const titleB = (b.title || '').toLowerCase();
+        return titleA.localeCompare(titleB, 'de');
+    });
+}
