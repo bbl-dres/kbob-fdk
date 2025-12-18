@@ -3227,6 +3227,7 @@ footer a:hover {
 /* Table Cell Utilities */
 .col-val { font-size: var(--text-body-sm); }
 .col-center { text-align: center; }
+.metadata-label { font-weight: 500; width: 180px; }
 
 .list-icon-active {
     color: var(--color-surface-dark);

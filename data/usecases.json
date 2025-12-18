@@ -1,6 +1,8 @@
 [
   {
     "id": "uc000",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Minimalstandard",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Grundlagen",
@@ -94,6 +96,8 @@
   },
   {
     "id": "uc010",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Bestandserfassung",
     "image": "assets/img/usecase/uc010.jpg",
     "category": "Planung",
@@ -185,6 +189,8 @@
   },
   {
     "id": "uc020",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Bedarfsplanung",
     "image": "assets/img/usecase/uc020.jpg",
     "category": "Planung",
@@ -275,6 +281,8 @@
   },
   {
     "id": "uc030",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Planungsvarianten",
     "image": "assets/img/usecase/uc030.jpg",
     "category": "Planung",
@@ -366,6 +374,8 @@
   },
   {
     "id": "uc040",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Visualisierung",
     "image": "assets/img/usecase/uc040.jpg",
     "category": "Kommunikation",
@@ -454,6 +464,8 @@
   },
   {
     "id": "uc050",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Koordination der Fachgewerke",
     "image": "assets/img/usecase/uc050.jpg",
     "category": "Koordination",
@@ -552,6 +564,8 @@
   },
   {
     "id": "uc060",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Qualitätsprüfung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Qualitätssicherung",
@@ -643,6 +657,8 @@
   },
   {
     "id": "uc070",
+    "version": "2.0",
+    "lastChange": "2025-01-08",
     "title": "Bemessung und Nachweisführung",
     "image": "assets/img/usecase/uc070.jpg",
     "category": "Analyse",
@@ -734,6 +750,8 @@
   },
   {
     "id": "uc080",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Ableitung von Planunterlagen",
     "image": "assets/img/usecase/uc080.jpg",
     "category": "Dokumentation",
@@ -823,6 +841,8 @@
   },
   {
     "id": "uc090",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Genehmigungsprozess",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Behörden",
@@ -913,6 +933,8 @@
   },
   {
     "id": "uc100",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Mengen- und Kostenermittlung",
     "image": "assets/img/usecase/uc100.jpg",
     "category": "Kostenplanung",
@@ -1025,6 +1047,8 @@
   },
   {
     "id": "uc110",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Leistungsverzeichnis und Ausschreibung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Ausschreibung",
@@ -1115,6 +1139,8 @@
   },
   {
     "id": "uc120",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Terminplanung der Ausführung",
     "image": "assets/img/usecase/uc120.jpg",
     "category": "Terminplanung",
@@ -1204,6 +1230,8 @@
   },
   {
     "id": "uc130",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Logistikplanung",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
     "category": "Bauausführung",
@@ -1294,6 +1322,8 @@
   },
   {
     "id": "uc140",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Baufortschrittskontrolle",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
     "category": "Bauausführung",
@@ -1382,6 +1412,8 @@
   },
   {
     "id": "uc150",
+    "version": "2.0",
+    "lastChange": "2025-01-08",
     "title": "Änderungs- und Nachtragsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
@@ -1470,6 +1502,8 @@
   },
   {
     "id": "uc160",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Abrechnung von Bauleistungen",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
@@ -1557,6 +1591,8 @@
   },
   {
     "id": "uc170",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Abnahme- und Mängelmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Bauausführung",
@@ -1646,6 +1682,8 @@
   },
   {
     "id": "uc180",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Inbetriebnahmemanagement",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=400&fit=crop",
     "category": "Übergabe",
@@ -1737,6 +1775,8 @@
   },
   {
     "id": "uc190",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Projekt- und Bauwerksdokumentation",
     "image": "assets/img/usecase/uc190.jpg",
     "category": "Dokumentation",
@@ -1836,6 +1876,8 @@
   },
   {
     "id": "uc200",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Nutzung für Betrieb und Erhaltung",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=400&fit=crop",
     "category": "Betrieb",
@@ -1923,6 +1965,8 @@
   },
   {
     "id": "uc210",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Gewährleistungsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Betrieb",
@@ -2010,6 +2054,8 @@
   },
   {
     "id": "uc220",
+    "version": "1.2",
+    "lastChange": "2024-12-01",
     "title": "Wartungs- und Inspektionsmanagement",
     "image": "assets/img/usecase/uc220.jpg",
     "category": "Betrieb",
@@ -2097,6 +2143,8 @@
   },
   {
     "id": "uc230",
+    "version": "2.0",
+    "lastChange": "2025-01-08",
     "title": "Instandhaltungs- und Instandsetzungsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
     "category": "Betrieb",
@@ -2183,6 +2231,8 @@
   },
   {
     "id": "uc240",
+    "version": "1.0",
+    "lastChange": "2024-06-15",
     "title": "Flächen- und Raumbelegungsmanagement",
     "image": "assets/img/usecase/uc240.jpg",
     "category": "Betrieb",
@@ -2270,6 +2320,8 @@
   },
   {
     "id": "uc250",
+    "version": "1.1",
+    "lastChange": "2024-07-22",
     "title": "Energiemanagement",
     "image": "assets/img/usecase/uc250.jpg",
     "category": "Betrieb",
@@ -2358,6 +2410,8 @@
   },
   {
     "id": "uc260",
+    "version": "1.2",
+    "lastChange": "2024-08-10",
     "title": "Betreiberverantwortung",
     "image": "assets/img/usecase/uc260.jpg",
     "category": "Betrieb",
@@ -2445,6 +2499,8 @@
   },
   {
     "id": "uc270",
+    "version": "2.0",
+    "lastChange": "2024-09-05",
     "title": "Nachhaltigkeitsnachweise",
     "image": "assets/img/usecase/uc270.jpg",
     "category": "Nachhaltigkeit",
@@ -2539,6 +2595,8 @@
   },
   {
     "id": "uc280",
+    "version": "1.0",
+    "lastChange": "2024-10-18",
     "title": "Rückbauplanung",
     "image": "assets/img/usecase/uc280.jpg",
     "category": "Rückbau",
@@ -2625,6 +2683,8 @@
   },
   {
     "id": "uc290",
+    "version": "1.1",
+    "lastChange": "2024-11-12",
     "title": "Bauteilbörse und Wiederverwendung",
     "image": "assets/img/usecase/uc290.jpg",
     "category": "Rückbau",

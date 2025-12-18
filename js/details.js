@@ -55,6 +55,7 @@ function renderElementDetailPage(id, activeTags = []) {
     }) : [];
 
     const sidebarLinks = [
+        { id: 'metadaten', text: 'Metadaten' },
         { id: 'phasen', text: 'Phasen' },
         { id: 'klassifizierung', text: 'Klassifizierung' },
         { id: 'ifc', text: 'IFC-Klasse' },
@@ -137,6 +138,8 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
+                    ${renderMetadataTable(data)}
+
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
                         <h2>Projekt-/Lebenszyklusphasen</h2>
@@ -323,6 +326,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Build sidebar links
     const sidebarLinks = [
+        { id: 'metadaten', text: 'Metadaten' },
         { id: 'phasen', text: 'Phasen' },
         { id: 'klassifizierung', text: 'Klassifizierung' },
         { id: 'details', text: 'Details' },
@@ -360,6 +364,8 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
+                    ${renderMetadataTable(data)}
+
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
                         <h2>Projekt-/Lebenszyklusphasen</h2>
@@ -427,6 +433,41 @@ function hasData(value) {
     return true;
 }
 
+/**
+ * Format ISO date (YYYY-MM-DD) to German/Swiss format (DD.MM.YYYY)
+ */
+function formatDateToGerman(isoDate) {
+    if (!isoDate) return '—';
+    const parts = isoDate.split('-');
+    if (parts.length !== 3) return isoDate;
+    return `${parts[2]}.${parts[1]}.${parts[0]}`;
+}
+
+/**
+ * Render metadata table section
+ * @param {Object} data - Item data with id, version, lastChange, category
+ * @returns {string} HTML for metadata table
+ */
+function renderMetadataTable(data) {
+    const safeCategory = escapeHtml(data.category || '—');
+    const safeId = escapeHtml(data.id || '—');
+    const safeVersion = escapeHtml(data.version || '—');
+    const formattedDate = formatDateToGerman(data.lastChange);
+
+    return `
+        <div id="metadaten" class="detail-section">
+            <h2>Metadaten</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${safeCategory}</td></tr>
+                    <tr><td class="col-val metadata-label">Kennung</td><td class="col-val">${safeId}</td></tr>
+                    <tr><td class="col-val metadata-label">Version</td><td class="col-val">${safeVersion}</td></tr>
+                    <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formattedDate}</td></tr>
+                </tbody>
+            </table>
+        </div>`;
+}
+
 function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalUsecasesData.find(item => item.id === id);
     if (!data) {
@@ -457,6 +498,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Build sidebar with group labels
     let sidebarHtml = '';
+
+    // Metadaten always first
+    sidebarHtml += '<a href="#metadaten" class="sidebar-link" data-target="metadaten">Metadaten</a>';
 
     // ALLGEMEINER TEIL
     const generalLinks = [];
@@ -599,6 +643,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
+                    ${renderMetadataTable(data)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
@@ -726,6 +771,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Build sidebar links
     const sidebarLinks = [];
+    sidebarLinks.push({ id: 'metadaten', text: 'Metadaten' });
     if (hasPhases) sidebarLinks.push({ id: 'phasen', text: 'Phasen' });
     sidebarLinks.push({ id: 'elemente', text: 'Elemente' });
     sidebarLinks.push({ id: 'anwendungsfaelle', text: 'Anwendungsfälle' });
@@ -770,6 +816,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
+                    ${renderMetadataTable(data)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
