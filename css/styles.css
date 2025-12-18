@@ -3488,7 +3488,7 @@ footer a:hover {
 /* Usecase Detail Page Styles */
 .phases-container {
     display: flex;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
     flex-wrap: wrap;
 }
 
