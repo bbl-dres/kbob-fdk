@@ -7392,7 +7392,7 @@
     "version": "1.0",
     "lastChange": "2024-08-19",
     "title": "Grundstück",
-    "image": "",
+    "image": "assets/img/element/grundstück.jpg",
     "category": "Architektur",
     "description": "Projektfläche mit Referenzpunkt für lokales und globales Koordinatensystem (WGS84).",
     "tags": [],
