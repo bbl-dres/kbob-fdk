@@ -3579,7 +3579,7 @@
     "version": "1.0",
     "lastChange": "2024-03-28",
     "title": "Decke",
-    "image": "",
+    "image": "assets/img/element/decke.jpg",
     "category": "Tragwerk",
     "description": "Horizontales Flächenelement zur vertikalen Raumunterteilung mit tragenden Schichten.",
     "tags": [],
