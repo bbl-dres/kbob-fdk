@@ -537,9 +537,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build goals list HTML
+    // Build goals table HTML
     const goalsHtml = hasGoals
-        ? `<ol class="usecase-list usecase-list--numbered">${data.goals.map(goal => `<li>${escapeHtml(goal)}</li>`).join('')}</ol>`
+        ? `<table class="data-table numbered-list-table">
+                <thead><tr><th class="th-w-number">#</th><th>Beschreibung</th></tr></thead>
+                <tbody>${data.goals.map((goal, index) => `<tr><td class="col-number">${index + 1}</td><td class="col-val">${escapeHtml(goal)}</td></tr>`).join('')}</tbody>
+            </table>`
         : '';
 
     // Build prerequisites table HTML
@@ -563,9 +566,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build implementation list HTML
+    // Build implementation table HTML
     const implementationHtml = hasImplementation
-        ? `<ol class="usecase-list usecase-list--numbered">${data.implementation.map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol>`
+        ? `<table class="data-table numbered-list-table">
+                <thead><tr><th class="th-w-number">#</th><th>Beschreibung</th></tr></thead>
+                <tbody>${data.implementation.map((step, index) => `<tr><td class="col-number">${index + 1}</td><td class="col-val">${escapeHtml(step)}</td></tr>`).join('')}</tbody>
+            </table>`
         : '';
 
     // Build input/output table HTML
@@ -608,9 +614,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
 
-    // Build quality criteria HTML
+    // Build quality criteria table HTML
     const qualityCriteriaHtml = hasQualityCriteria
-        ? `<ol class="usecase-list usecase-list--numbered">${data.qualityCriteria.map(criterion => `<li>${escapeHtml(criterion)}</li>`).join('')}</ol>`
+        ? `<table class="data-table numbered-list-table">
+                <thead><tr><th class="th-w-number">#</th><th>Beschreibung</th></tr></thead>
+                <tbody>${data.qualityCriteria.map((criterion, index) => `<tr><td class="col-number">${index + 1}</td><td class="col-val">${escapeHtml(criterion)}</td></tr>`).join('')}</tbody>
+            </table>`
         : '';
 
     // Build roles table HTML
