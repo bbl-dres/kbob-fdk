@@ -88,6 +88,28 @@ function renderHandbookPage() {
                                             </div>
                                         </div>
                                     </li>
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">Revit Vorlagen</a>
+                                            <div class="download-item__meta">
+                                                <span>ZIP</span>
+                                                <span>–</span>
+                                                <span>–</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="download-item">
+                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <div class="download-item__content">
+                                            <a href="#" class="download-item__link">ArchiCAD Vorlagen</a>
+                                            <div class="download-item__meta">
+                                                <span>ZIP</span>
+                                                <span>–</span>
+                                                <span>–</span>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
