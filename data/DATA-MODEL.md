@@ -232,7 +232,7 @@ erDiagram
         lastChange date
         title string
         description text
-        domain enumeration
+        category enumeration
         tags tag_array
         phases phase_array
         abbreviation string
@@ -695,35 +695,26 @@ The `informationProvider` and `informationRequester` attributes use the followin
 | Attribute | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `id` | Identifier | ✓ | Pattern: letter 'm' followed by number |
-| `domain` | Enumeration | ✓ | Construction domain (see below) |
+| `category` | Enumeration | ✓ | Model category (see below) |
 | `abbreviation` | String | ✓ | Standard abbreviation (e.g., HOH - ARCH) |
 | `elements` | Model Element Collection | ✓ | Element types contained in model |
 | `classifications` | Classification Map | ○ | Optional classification codes |
 
-#### Model Domains
+#### Model Categories
 
-Model domains are organized by construction type to support the full range of Swiss public infrastructure projects:
+Model categories organize BIM models by their purpose and scope:
 
-| Domain | German | Abbreviation | Description |
-|--------|--------|--------------|-------------|
-| Allgemein | General | ALG | Cross-domain coordination and reference models (coordination, terrain, survey, cadastral) |
-| Hochbau | Building Construction | HOH | Building construction models (architecture, structure, MEP, interior) |
-| Mobiler öffentlicher Verkehr | Public Transit | MOV | Public transportation models (tram, bus, track, overhead lines) |
-| Tunnel | Tunnel | TUN | Tunnel construction models (civil works, systems, safety) |
-| Strasse | Roads | STR | Road construction models (pavement, drainage, signage, lighting) |
-| Anlagenbau | Plant Engineering | ANL | Industrial plant models (process engineering, mechanical, electrical) |
-| Kunstbauten | Engineering Structures | KUB | Civil engineering structures (noise barriers, culverts, special objects) |
-| Stützmauer | Retaining Walls | STM | Retaining wall models |
-| Unterführung | Underpasses | UNT | Underpass models |
-| Stege und Fussgängerüberführung | Pedestrian Bridges | FUB | Pedestrian bridge and walkway models |
-| Brücke | Bridges | BRU | Bridge construction models (superstructure, substructure, prestressing) |
-| Wasserbauwerke | Hydraulic Structures | WAS | Water engineering models (shore structures, culverts) |
-| Werkleitungen | Utilities | WKL | Utility infrastructure models (water, sewage, power, gas, telecom) |
-| Bauzustände | Construction Phases | BZT | Temporary works and phasing models |
+| Category | German | Description |
+|----------|--------|-------------|
+| Fachmodelle | Discipline Models | Single-discipline BIM models (architecture, structure, MEP, etc.) |
+| Koordination | Coordination | Merged coordination models for clash detection and model integration |
+| Spezialmodelle | Special Models | Purpose-specific models (fire protection, excavation, etc.) |
+| Bestand | As-Built | Digital twin of completed building for operations and maintenance |
 
-#### Model Types by Domain
+#### Model Types by Construction Domain
 
-Each domain contains specific model types. Examples include:
+Beyond the category, models can be further classified by their construction domain. This reference information describes typical model types used in different construction sectors:
+
 
 **Allgemein (ALG):**
 | Model Type | Description |
@@ -903,7 +894,7 @@ C 2.1
 
 4. **Standard References** – Referenced standards should use official designations (e.g., "SIA 2051", "ISO 19650-1", "VDI 2552 Blatt 12.2")
 
-5. **Model Domain-Abbreviation Consistency** – Model abbreviations must follow the pattern: Domain Abbreviation + " - " + Model Type Code
+5. **Model Category Consistency** – Model category values must be one of the defined categories (Fachmodelle, Koordination, Spezialmodelle, Bestand)
 
 ---
 
@@ -936,6 +927,7 @@ C 2.1
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 1.4 | – | Changed Model entity attribute from `domain` to `category` for consistency with shared attributes across all entities; Updated Model Categories to match actual data values (Fachmodelle, Koordination, Spezialmodelle, Bestand); Retained construction domain reference information as supplementary classification |
 | 1.3 | – | Updated Document categories to KBOB/IPB Dokumenttypenkatalog structure (O, K, B, V); Updated UseCase categories to VDI 2552 Blatt 12.2 Anwendungsfeld values (22 categories); Added VDI 2552 information exchange roles (Informationsbereitstellende/Informationsbestellende); Updated Model entity to use domain-based categorization with 14 construction domains; Enhanced lifecycle phases section with VDI 2552 Blatt 12.2 descriptions; Expanded tagging system descriptions per VDI 2552 Blatt 12.2 Anhang B1; Added documentation types and quality requirements for Documents |
 | 1.2 | – | Added Tagging System section based on VDI 2552 Blatt 12.2; renamed Project Phases to Lifecycle Phases with WUP/SIA/HOAI references and multi-language support; added Localization section; added Strategic Alignment with Swiss digital transformation initiatives; expanded eBKP-H codes to complete list; comprehensive Entity Relationship Diagram update with ISO 19650-aligned UseCase-centric model, software mappings (IFC, Revit, Archicad), and relationship documentation |
 | 1.1 | – | Restructured as conceptual model; added goals, principles, business rules |
