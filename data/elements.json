@@ -7298,7 +7298,7 @@
     "version": "1.0",
     "lastChange": "2024-11-28",
     "title": "Geländer",
-    "image": "",
+    "image": "assets/img/element/geländer.jpg",
     "category": "Architektur",
     "description": "Vertikale Schutzbarriere an Absturzstellen; bestehend aus Handlauf, Pfosten und Füllungen.",
     "tags": [],
@@ -8827,7 +8827,7 @@
     "version": "1.0",
     "lastChange": "2024-04-08",
     "title": "Leuchte",
-    "image": "",
+    "image": "assets/img/element/leuchte.jpg",
     "category": "Elektro",
     "description": "Vorrichtung zur künstlichen Beleuchtung; inkl. Lampe, Trafo und Zubehör.",
     "tags": [],
@@ -10714,27 +10714,6 @@
         ]
       }
     ]
-  },
-  {
-    "id": "e41",
-    "version": "1.0",
-    "lastChange": "2024-10-15",
-    "title": "Öffnungsanfrage",
-    "image": "",
-    "category": "Architektur",
-    "description": "Geplante Öffnung für Technikleitungen; MEP erstellt Anfrage, ARC/STR gibt frei und integriert.",
-    "tags": [],
-    "classifications": {
-      "eBKP-H": [
-        "C – Konstruktion Gebäude",
-        "E – Äussere Wandbekleidung Gebäude",
-        "G – Ausbau Gebäude"
-      ]
-    },
-    "ifcMapping": [],
-    "geometry": [],
-    "information": [],
-    "documentation": []
   },
   {
     "id": "e42",

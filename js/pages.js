@@ -286,6 +286,8 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
     if (typeConfig.hasPhases) {
         filteredData = filterDataByPhases(filteredData, activePhases);
     }
+    // Sort by title (A-Z)
+    filteredData = sortDataByTitle(filteredData);
 
     const filterPanelClass = typeConfig.getFilterVisible() ? '' : 'closed';
     const currentView = getActiveViewFromURL();
@@ -311,7 +313,7 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                 </div>
                 <div class="search-results__controls">
                     <button class="search-results__sort">
-                        <span>Nach Namen sortieren (Absteigend)</span>
+                        <span>Sortiert nach Titel (A-Z)</span>
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </button>
                     <div class="view-switcher toolbar-control">
@@ -358,6 +360,8 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                     item[field] && item[field].toLowerCase().includes(searchTerm)
                 )
             );
+            // Sort by title (A-Z)
+            searchFilteredData = sortDataByTitle(searchFilteredData);
 
             const container = document.getElementById(pageConfig.contentId);
             container.innerHTML = (getActiveViewFromURL() === 'grid')
