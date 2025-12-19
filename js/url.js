@@ -3,56 +3,9 @@
  * URL parsing and building functions
  */
 
-// ============================================
-// URL STATE CACHING
-// ============================================
-
-/**
- * Cached URL state to avoid repeated parsing
- * @type {URLState|null}
- */
-let cachedURLState = null;
-
-/**
- * Last hash value used for cache validation
- * @type {string}
- */
-let cachedHash = '';
-
-/**
- * Get the current URL state, using cache if valid
- * @returns {URLState} Parsed URL state object
- */
-function getCurrentURLState() {
-    const currentHash = window.location.hash;
-    if (cachedURLState && cachedHash === currentHash) {
-        return cachedURLState;
-    }
-    cachedURLState = parseHashWithParams();
-    cachedHash = currentHash;
-    return cachedURLState;
-}
-
-/**
- * Invalidate the URL state cache
- * Called automatically on hashchange
- */
-function invalidateURLCache() {
-    cachedURLState = null;
-    cachedHash = '';
-}
-
-// Invalidate cache on hash change
-window.addEventListener('hashchange', invalidateURLCache);
-
-// ============================================
-// URL PARSING
-// ============================================
-
 /**
  * Parse the current hash and extract route, id, and parameters
- * Note: Prefer using getCurrentURLState() for cached access
- * @returns {URLState} { route, id, tags, phases, searchQuery, category, view }
+ * @returns {Object} { route, id, tags, phases, searchQuery, category, view }
  */
 function parseHashWithParams() {
     const fullHash = window.location.hash.slice(1) || 'home';
@@ -109,16 +62,12 @@ function parseHashWithParams() {
     return { route, id, tags, phases, searchQuery, category, view };
 }
 
-// ============================================
-// URL STATE ACCESSORS (using cache)
-// ============================================
-
 /**
  * Get active tags from the current URL
  * @returns {string[]} Array of tag strings
  */
 function getActiveTagsFromURL() {
-    return getCurrentURLState().tags;
+    return parseHashWithParams().tags;
 }
 
 /**
@@ -126,15 +75,15 @@ function getActiveTagsFromURL() {
  * @returns {string} Category string or empty string
  */
 function getActiveCategoryFromURL() {
-    return getCurrentURLState().category;
+    return parseHashWithParams().category;
 }
 
 /**
  * Get active view from the current URL
- * @returns {'grid'|'list'} View mode, defaults to 'grid'
+ * @returns {string} View mode ('grid' or 'list'), defaults to 'grid'
  */
 function getActiveViewFromURL() {
-    return getCurrentURLState().view;
+    return parseHashWithParams().view;
 }
 
 /**
@@ -142,7 +91,7 @@ function getActiveViewFromURL() {
  * @returns {number[]} Array of phase numbers
  */
 function getActivePhasesFromURL() {
-    return getCurrentURLState().phases || [];
+    return parseHashWithParams().phases || [];
 }
 
 /**
@@ -261,6 +210,9 @@ window.clearAllFilters = function(type) {
  * @param {string} targetRoute - Target route
  */
 function navigateWithTags(targetRoute) {
-    const state = getCurrentURLState();
-    window.location.hash = buildHashWithTags(targetRoute, state.tags, state.category, state.phases, state.view);
+    const tags = getActiveTagsFromURL();
+    const category = getActiveCategoryFromURL();
+    const phases = getActivePhasesFromURL();
+    const view = getActiveViewFromURL();
+    window.location.hash = buildHashWithTags(targetRoute, tags, category, phases, view);
 }

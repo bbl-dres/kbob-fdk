@@ -10,7 +10,7 @@
 function renderElementDetailPage(id, activeTags = []) {
     const data = globalElementsData.find(element => element.id === id);
     if (!data) {
-        showUserError('notFound', `Element with id "${id}" not found`);
+        contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>';
         return;
     }
 
@@ -44,6 +44,15 @@ function renderElementDetailPage(id, activeTags = []) {
     }
     const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
     const hasPhases = elementPhases.length > 0;
+
+    // Find linked use cases (usecases that might be relevant to this element)
+    const linkedUsecases = globalUsecasesData ? globalUsecasesData.filter(uc => {
+        // Check if usecase phases overlap with element phases
+        if (uc.phases && Array.isArray(uc.phases) && elementPhases.length > 0) {
+            return uc.phases.some(p => elementPhases.includes(p));
+        }
+        return false;
+    }) : [];
 
     const sidebarLinks = [
         { id: 'metadaten', text: 'Metadaten' },
@@ -248,13 +257,13 @@ const placeholderDetailConfig = {
 function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory = '') {
     const config = placeholderDetailConfig[type];
     if (!config) {
-        showUserError('pageError', `Unknown page type: ${type}`);
+        contentArea.innerHTML = '<div class="container error-state">Unbekannter Seitentyp.</div>';
         return;
     }
 
     const data = config.getData().find(item => item.id === id);
     if (!data) {
-        showUserError('notFound', `${type} with id "${id}" not found`);
+        contentArea.innerHTML = `<div class="container error-state">${escapeHtml(config.notFoundText)}</div>`;
         return;
     }
 
@@ -295,7 +304,7 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
 function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalDocumentsData.find(doc => doc.id === id);
     if (!data) {
-        showUserError('notFound', `Document with id "${id}" not found`);
+        contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden.</div>';
         return;
     }
 
@@ -468,7 +477,7 @@ function renderMetadataTable(data, entityType, title) {
 function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalUsecasesData.find(item => item.id === id);
     if (!data) {
-        showUserError('notFound', `Usecase with id "${id}" not found`);
+        contentArea.innerHTML = '<div class="container error-state">Anwendungsfall nicht gefunden.</div>';
         return;
     }
 
@@ -757,7 +766,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalModelsData.find(item => item.id === id);
     if (!data) {
-        showUserError('notFound', `Model with id "${id}" not found`);
+        contentArea.innerHTML = '<div class="container error-state">Fachmodell nicht gefunden.</div>';
         return;
     }
 
@@ -867,7 +876,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
     const data = globalEpdsData.find(item => item.id === id);
     if (!data) {
-        showUserError('notFound', `EPD with id "${id}" not found`);
+        contentArea.innerHTML = '<div class="container error-state">Ökobilanzdaten nicht gefunden.</div>';
         return;
     }
 

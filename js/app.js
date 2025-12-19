@@ -74,7 +74,15 @@ async function initApp() {
         window.addEventListener('hashchange', router);
         router();
     } catch (error) {
-        showUserError('dataLoad', error);
+        console.error("Fehler beim Laden der Daten:", error);
+        contentArea.innerHTML = `
+            <div class="container error-state">
+                <i data-lucide="alert-circle" class="status-icon status-icon--error icon--3xl" aria-hidden="true"></i><br>
+                <h2>Fehler beim Laden der Daten</h2>
+                <p>Konnte Daten nicht laden.</p>
+                <br><span class="error-detail">${error.message}</span>
+            </div>`;
+        lucide.createIcons();
     }
 }
 
