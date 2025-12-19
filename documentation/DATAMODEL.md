@@ -235,17 +235,17 @@ erDiagram
 
 All entities share a base set of attributes for identification, versioning, and discoverability:
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Unique identifier within entity type |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | Entity-specific pattern | ✓ | Unique identifier within entity type |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
-| `category` | String | Entity-specific | ✓ | Primary grouping for filtering |
+| `category` | String | Entity-specific vocabulary | ✓ | Primary grouping for filtering |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
-| `phases` | Collection[Integer] | – | ○ | Applicable lifecycle phases (1–5) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
+| `phases` | Collection[Integer] | 1–5 | ○ | Applicable lifecycle phases |
 
 ### 3.2 Lifecycle Phases
 
@@ -403,17 +403,17 @@ The tagging system implements the `Anwendungsfeld` metadata from VDI 2552 Blatt 
 
 #### Attributes
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Pattern: letter 'e' followed by number (e.g., e1, e15) |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | `e{n}` | ✓ | Unique identifier (e.g., e1, e15) |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
 | `category` | String | ElementCategory | ✓ | Discipline grouping |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
-| `phases` | Collection[Integer] | – | ○ | Applicable lifecycle phases (1–5) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
+| `phases` | Collection[Integer] | 1–5 | ○ | Applicable lifecycle phases |
 | `classifications` | Object | – | ○ | Codes from multiple classification systems |
 | `ifcMapping` | Collection[IFCMapping] | – | ○ | Mappings to IFC classes and authoring tools |
 | `geometry` | Collection[GeometryRequirement] | – | ✓ | LOG specifications per phase |
@@ -424,39 +424,39 @@ The tagging system implements the `Anwendungsfeld` metadata from VDI 2552 Blatt 
 
 ##### IFC Mapping
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `element` | String | – | ✓ | Element variant description |
-| `ifc` | String | – | ✓ | IFC 4.3 class and predefined type |
+| `ifc` | String | IFC 4.3 schema | ✓ | IFC class and predefined type |
 | `revit` | String | – | ○ | Revit family/category mapping |
 | `archicad` | String | – | ○ | ArchiCAD object mapping |
 
 ##### Geometry Requirement (LOG)
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `name` | String | – | ✓ | Geometry property name |
 | `desc` | String | – | ✓ | Description of the requirement |
-| `phases` | Collection[Integer] | – | ✓ | Phases where this geometry is required |
+| `phases` | Collection[Integer] | 1–5 | ✓ | Phases where this geometry is required |
 
 ##### Information Requirement (LOI)
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `name` | String | – | ✓ | Property name |
 | `desc` | String | – | ✓ | Description and purpose |
 | `format` | String | DataFormat | ✓ | Data type |
 | `list` | Boolean | – | ✓ | Whether value comes from controlled vocabulary |
-| `phases` | Collection[Integer] | – | ✓ | Phases where this information is required |
-| `ifc` | String | – | ○ | IFC PropertySet and property reference |
+| `phases` | Collection[Integer] | 1–5 | ✓ | Phases where this information is required |
+| `ifc` | String | IFC 4.3 schema | ○ | IFC PropertySet and property reference |
 
 ##### Documentation Requirement
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `name` | String | – | ✓ | Document type name |
 | `desc` | String | – | ✓ | Description and purpose |
-| `phases` | Collection[Integer] | – | ✓ | Phases where this document is required |
+| `phases` | Collection[Integer] | 1–5 | ✓ | Phases where this document is required |
 
 #### Controlled Vocabularies
 
@@ -464,16 +464,16 @@ The tagging system implements the `Anwendungsfeld` metadata from VDI 2552 Blatt 
 
 Element categories are organized by discipline/domain to align with typical BIM model structures:
 
-| Value | Description |
-|-------|-------------|
-| Architektur | Architectural elements (windows, doors, walls, roofs, facades) |
-| Tragwerk | Structural elements (columns, beams, slabs, foundations, reinforcement) |
-| Gebäudetechnik HLKS | HVAC and plumbing elements (heating, ventilation, cooling, sanitary) |
-| Gebäudetechnik Elektro | Electrical elements (power distribution, lighting, building automation) |
-| Ausbau | Interior finishing (floors, ceilings, partitions, furnishings) |
-| Umgebung | Site elements (landscaping, paving, external infrastructure) |
-| Brandschutz | Fire protection elements (fire compartments, fire stops, sprinklers) |
-| Transportanlagen | Vertical transport (elevators, escalators, lifts) |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Architecture | Architektur | Architectural elements (windows, doors, walls, roofs, facades) |
+| Structure | Tragwerk | Structural elements (columns, beams, slabs, foundations, reinforcement) |
+| MEP HVAC | Gebäudetechnik HLKS | HVAC and plumbing elements (heating, ventilation, cooling, sanitary) |
+| MEP Electrical | Gebäudetechnik Elektro | Electrical elements (power distribution, lighting, building automation) |
+| Interior Finishes | Ausbau | Interior finishing (floors, ceilings, partitions, furnishings) |
+| Site | Umgebung | Site elements (landscaping, paving, external infrastructure) |
+| Fire Protection | Brandschutz | Fire protection elements (fire compartments, fire stops, sprinklers) |
+| Vertical Transport | Transportanlagen | Vertical transport (elevators, escalators, lifts) |
 
 ##### DataFormat
 
@@ -499,17 +499,17 @@ Element categories are organized by discipline/domain to align with typical BIM 
 
 #### Attributes
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Pattern: category letter + 5-digit number (e.g., O01001, K02003) |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | `{O\|K\|B\|V}{nnnnn}` | ✓ | Unique identifier (e.g., O01001, K02003) |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
 | `category` | String | DocumentCategory | ✓ | Document category per KBOB |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
-| `phases` | Collection[Integer] | – | ○ | Applicable lifecycle phases (1–5) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
+| `phases` | Collection[Integer] | 1–5 | ○ | Applicable lifecycle phases |
 | `formats` | Collection[String] | FileFormat | ✓ | Acceptable file formats |
 | `retention` | String | RetentionPolicy | ✓ | Retention policy |
 | `documentationType` | String | DocumentationType | ○ | Type of documentation |
@@ -522,44 +522,44 @@ Element categories are organized by discipline/domain to align with typical BIM 
 
 Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
-| Code | Category | Description |
-|------|----------|-------------|
-| O | Organisation | Project and operations organization documents |
-| K | Verträge und Kosten | Commercial and contractual documents |
-| B | Konzepte und Beschriebe | Planning concepts and technical descriptions |
-| V | Visualisierungen | Plans, drawings, and visual representations |
+| Code | Value (EN) | Value (DE) | Description |
+|------|------------|------------|-------------|
+| O | Organisation | Organisation | Project and operations organization documents |
+| K | Contracts and Costs | Verträge und Kosten | Commercial and contractual documents |
+| B | Concepts and Descriptions | Konzepte und Beschriebe | Planning concepts and technical descriptions |
+| V | Visualizations | Visualisierungen | Plans, drawings, and visual representations |
 
 ##### FileFormat
 
-| Value | Description |
-|-------|-------------|
-| PDF-A | Archival PDF for long-term preservation |
-| PDF | Standard PDF for general documents |
-| Office-Format | Editable office documents (Word, Excel, PowerPoint) |
-| DWG | CAD drawings (AutoCAD format) |
-| IFC | Industry Foundation Classes model files |
-| BCF | BIM Collaboration Format for issues |
-| Native | Original authoring application format |
-| andere | Other formats as specified |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| PDF-A | PDF-A | Archival PDF for long-term preservation |
+| PDF | PDF | Standard PDF for general documents |
+| Office Format | Office-Format | Editable office documents (Word, Excel, PowerPoint) |
+| DWG | DWG | CAD drawings (AutoCAD format) |
+| IFC | IFC | Industry Foundation Classes model files |
+| BCF | BCF | BIM Collaboration Format for issues |
+| Native | Native | Original authoring application format |
+| Other | andere | Other formats as specified |
 
 ##### RetentionPolicy
 
-| Value | German | Description |
-|-------|--------|-------------|
-| keine Aufbewahrung | No retention | No retention required |
-| 5 Jahre | 5 years | 5 years from creation |
-| 12 Jahre | 12 years | 12 years from creation (legal requirement) |
-| bis Ersatz | Until replacement | Until superseded by newer version |
-| bis Bearbeitungszweck entfällt | Until purpose fulfilled | Until processing purpose no longer applies |
-| Gebäudelebensdauer | Building lifecycle | Entire building lifecycle |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| No retention | keine Aufbewahrung | No retention required |
+| 5 years | 5 Jahre | 5 years from creation |
+| 12 years | 12 Jahre | 12 years from creation (legal requirement) |
+| Until replacement | bis Ersatz | Until superseded by newer version |
+| Until purpose fulfilled | bis Bearbeitungszweck entfällt | Until processing purpose no longer applies |
+| Building lifecycle | Gebäudelebensdauer | Entire building lifecycle |
 
 ##### QualityGuideline
 
-| Value | Description |
-|-------|-------------|
-| CAD-Richtlinie | CAD standard compliance required |
-| CAFM-Richtlinie | CAFM system compatibility required |
-| BIM-Richtlinie | BIM standard compliance required |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| CAD Guideline | CAD-Richtlinie | CAD standard compliance required |
+| CAFM Guideline | CAFM-Richtlinie | CAFM system compatibility required |
+| BIM Guideline | BIM-Richtlinie | BIM standard compliance required |
 
 ---
 
@@ -577,19 +577,19 @@ Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
 #### Attributes
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Pattern: 'uc' + 3-digit number (e.g., uc001, uc030) |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | `uc{nnn}` | ✓ | Unique identifier (e.g., uc001, uc030) |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
 | `category` | String | UseCaseCategory | ✓ | Use case category per VDI 2552 Blatt 12.2 |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
-| `phases` | Collection[Integer] | – | ○ | Applicable lifecycle phases (1–5) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
+| `phases` | Collection[Integer] | 1–5 | ○ | Applicable lifecycle phases |
 | `definition` | String | – | ✓ | Formal definition of the use case |
-| `goals` | Collection[String] | – | ✓ | Objectives (minimum 1) |
+| `goals` | Collection[String] | min. 1 | ✓ | Objectives |
 | `inputs` | Collection[String] | – | ✓ | Required inputs and preconditions |
 | `outputs` | Collection[String] | – | ✓ | Deliverables and results |
 | `roles` | Collection[RoleDefinition] | – | ✓ | RACI responsibility matrix |
@@ -597,14 +597,14 @@ Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 | `implementation` | Collection[String] | – | ✓ | Implementation steps |
 | `qualityCriteria` | Collection[String] | – | ✓ | Acceptance and quality criteria |
 | `standards` | Collection[String] | – | ○ | Referenced standards (SIA, ISO) |
-| `process_url` | String | – | ○ | Link to BPMN process diagram |
+| `process_url` | String | URL | ○ | Link to BPMN process diagram |
 
 #### Nested Structures
 
 ##### Role Definition (RACI)
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `actor` | String | – | ✓ | Role name (e.g., BIM-Manager, Projektleiter) |
 | `responsible` | Collection[String] | – | ○ | Tasks this role performs (R) |
 | `contributing` | Collection[String] | – | ○ | Tasks this role contributes to (A/C) |
@@ -612,8 +612,8 @@ Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
 ##### Prerequisites
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `client` | Collection[String] | – | ✓ | Auftraggeber prerequisites |
 | `contractor` | Collection[String] | – | ✓ | Auftragnehmer prerequisites |
 
@@ -623,51 +623,51 @@ Document categories follow the KBOB/IPB Bauwerksdokumentation structure:
 
 Use case categories align with the Anwendungsfeld metadata from VDI 2552 Blatt 12.2:
 
-| Value | German | Description |
-|-------|--------|-------------|
-| Abnahme | Acceptance | Use cases for project/partial acceptance processes |
-| Änderungsmanagement | Change Management | Use cases for change tracking, quantification, and billing |
-| Ausschreibung und Vergabe | Tendering and Procurement | Use cases for tender preparation and award processes |
-| Bedarfsplanung | Requirements Planning | Use cases for project requirements and variant studies |
-| Bestandserfassung | Asset Capture | Use cases for capturing existing conditions and assets |
-| Betrieb | Operations | Use cases supporting building operations and optimization |
-| Dokumentation | Documentation | Use cases for documentation and archiving purposes |
-| Genehmigung | Approval | Use cases concerning approval and permit processes |
-| Inbetriebnahme | Commissioning | Use cases supporting commissioning processes |
-| Koordination | Coordination | Use cases for coordinating deliverables, models, communication |
-| Kosten | Costs | Use cases for cost estimation, verification, optimization |
-| Logistik | Logistics | Use cases supporting logistics processes |
-| Machbarkeit | Feasibility | Use cases for feasibility studies and project studies |
-| Nachhaltigkeit | Sustainability | Use cases for sustainability assessment and optimization |
-| Nachweise | Verification | Use cases for analysis, calculations, expert reports |
-| Qualitätssicherung | Quality Assurance | Use cases for quality assurance and progress control |
-| Risikomanagement | Risk Management | Use cases for risk identification, assessment, tracking |
-| Termine | Scheduling | Use cases for schedule planning and verification |
-| Variantenvergleich | Variant Comparison | Use cases for comparing design alternatives |
-| Versicherung | Insurance | Use cases supporting insurance processes |
-| Visualisierung | Visualization | Use cases for graphical representation and analysis |
-| Sonstiges | Other | Use cases not fitting other categories |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Acceptance | Abnahme | Use cases for project/partial acceptance processes |
+| Change Management | Änderungsmanagement | Use cases for change tracking, quantification, and billing |
+| Tendering and Procurement | Ausschreibung und Vergabe | Use cases for tender preparation and award processes |
+| Requirements Planning | Bedarfsplanung | Use cases for project requirements and variant studies |
+| Asset Capture | Bestandserfassung | Use cases for capturing existing conditions and assets |
+| Operations | Betrieb | Use cases supporting building operations and optimization |
+| Documentation | Dokumentation | Use cases for documentation and archiving purposes |
+| Approval | Genehmigung | Use cases concerning approval and permit processes |
+| Commissioning | Inbetriebnahme | Use cases supporting commissioning processes |
+| Coordination | Koordination | Use cases for coordinating deliverables, models, communication |
+| Costs | Kosten | Use cases for cost estimation, verification, optimization |
+| Logistics | Logistik | Use cases supporting logistics processes |
+| Feasibility | Machbarkeit | Use cases for feasibility studies and project studies |
+| Sustainability | Nachhaltigkeit | Use cases for sustainability assessment and optimization |
+| Verification | Nachweise | Use cases for analysis, calculations, expert reports |
+| Quality Assurance | Qualitätssicherung | Use cases for quality assurance and progress control |
+| Risk Management | Risikomanagement | Use cases for risk identification, assessment, tracking |
+| Scheduling | Termine | Use cases for schedule planning and verification |
+| Variant Comparison | Variantenvergleich | Use cases for comparing design alternatives |
+| Insurance | Versicherung | Use cases supporting insurance processes |
+| Visualization | Visualisierung | Use cases for graphical representation and analysis |
+| Other | Sonstiges | Use cases not fitting other categories |
 
 ##### InformationExchangeRole
 
 The `informationProvider` and `informationRequester` attributes use the following role values per VDI 2552 Blatt 12.2 Anhang B2:
 
-| Value | German | Description |
-|-------|--------|-------------|
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
 | Asset Management | Asset Management | Commercial property management |
-| Bauausführung | Construction Execution | Contractors responsible for site setup and operations |
-| Bauherren-/Eigentümerschaft | Client/Owner | Party commissioning the project economically and technically |
+| Construction Execution | Bauausführung | Contractors responsible for site setup and operations |
+| Client/Owner | Bauherren-/Eigentümerschaft | Party commissioning the project economically and technically |
 | Controlling | Controlling | Measure planning, actual data capture, variance analysis |
-| Fachplanung | Specialist Planning | Planning offices for structure, MEP, building physics, fire protection, etc. |
+| Specialist Planning | Fachplanung | Planning offices for structure, MEP, building physics, fire protection, etc. |
 | Facility Management | Facility Management | Building, system, and facility management and organization |
-| Projektmanagement | Project Management | Non-delegable client-side leadership functions |
-| Projektsteuerung | Project Control | Delegable client functions per AHO (consulting, coordination, control) |
+| Project Management | Projektmanagement | Non-delegable client-side leadership functions |
+| Project Control | Projektsteuerung | Delegable client functions per AHO (consulting, coordination, control) |
 | Property Management | Property Management | Technical property management |
-| Nutzerschaft | Building Users | Parties using the building for their core activities |
-| Objektplanung | Object Planning | Architectural services per HOAI Annex 10 |
-| Vermessung | Surveying | Measurement capture of areas, plots, or infrastructure |
-| Prüfende Instanz | Review Authority | Building authorities, expert reviewers, fire department, etc. |
-| Zertifizierung | Certification | Conformity verification with certification systems |
+| Building Users | Nutzerschaft | Parties using the building for their core activities |
+| Object Planning | Objektplanung | Architectural services per HOAI Annex 10 |
+| Surveying | Vermessung | Measurement capture of areas, plots, or infrastructure |
+| Review Authority | Prüfende Instanz | Building authorities, expert reviewers, fire department, etc. |
+| Certification | Zertifizierung | Conformity verification with certification systems |
 
 ---
 
@@ -681,17 +681,17 @@ The `informationProvider` and `informationRequester` attributes use the followin
 
 #### Attributes
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Pattern: letter 'm' followed by number (e.g., m1, m10) |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | `m{n}` | ✓ | Unique identifier (e.g., m1, m10) |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
 | `category` | String | ModelCategory | ✓ | Model category |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
-| `phases` | Collection[Integer] | – | ○ | Applicable lifecycle phases (1–5) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
+| `phases` | Collection[Integer] | 1–5 | ○ | Applicable lifecycle phases |
 | `abbreviation` | String | – | ✓ | Standard abbreviation (e.g., HOH - ARCH) |
 | `elements` | Collection[ModelElement] | – | ✓ | Element types contained in model |
 | `classifications` | Object | – | ○ | Optional classification codes |
@@ -700,11 +700,11 @@ The `informationProvider` and `informationRequester` attributes use the followin
 
 ##### Model Element
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
 | `name` | String | – | ✓ | Element type name |
 | `description` | String | – | ○ | Element description and scope |
-| `phases` | Collection[Integer] | – | ○ | Phases where element appears in model |
+| `phases` | Collection[Integer] | 1–5 | ○ | Phases where element appears in model |
 
 #### Controlled Vocabularies
 
@@ -712,12 +712,12 @@ The `informationProvider` and `informationRequester` attributes use the followin
 
 Model categories organize BIM models by their purpose and scope:
 
-| Value | German | Description |
-|-------|--------|-------------|
-| Fachmodelle | Discipline Models | Single-discipline BIM models (architecture, structure, MEP, etc.) |
-| Koordination | Coordination | Merged coordination models for clash detection and model integration |
-| Spezialmodelle | Special Models | Purpose-specific models (fire protection, excavation, etc.) |
-| Bestand | As-Built | Digital twin of completed building for operations and maintenance |
+| Value (EN) | Value (DE) | Description |
+|------------|------------|-------------|
+| Discipline Models | Fachmodelle | Single-discipline BIM models (architecture, structure, MEP, etc.) |
+| Coordination | Koordination | Merged coordination models for clash detection and model integration |
+| Special Models | Spezialmodelle | Purpose-specific models (fire protection, excavation, etc.) |
+| As-Built | Bestand | Digital twin of completed building for operations and maintenance |
 
 #### Reference: Model Types by Construction Domain
 
@@ -774,23 +774,23 @@ Beyond the category, models can be further classified by their construction doma
 
 #### Attributes
 
-| Attribute | Format | Enumeration | Required | Description |
-|-----------|--------|-------------|----------|-------------|
-| `id` | String | – | ✓ | Pattern: 'kbob-' + group + sequence (e.g., kbob-01-042) |
-| `uuid` | String | – | ✓ | Universal unique identifier for external reference |
+| Attribute | Format | Constraint | Required | Description |
+|-----------|--------|------------|----------|-------------|
+| `id` | String | `kbob-{nn}-{nnn}` | ✓ | Unique identifier (e.g., kbob-01-042) |
+| `uuid` | String | UUID v4 | ✓ | Universal unique identifier for external reference |
 | `version` | String | – | ✓ | Version indicator for change tracking |
-| `lastChange` | Date | – | ✓ | Date of last modification (ISO 8601) |
+| `lastChange` | Date | ISO 8601 | ✓ | Date of last modification |
 | `title` | String | – | ✓ | Human-readable display name |
 | `image` | String | – | ✓ | Visual representation reference |
 | `category` | String | EPDCategory | ✓ | Material category |
 | `subcategory` | String | – | ✓ | Specific material group |
 | `description` | String | – | ✓ | Detailed explanation of purpose and scope |
-| `tags` | Collection[String] | Anwendungsfeld | ✓ | Keywords for search and filtering (minimum 1) |
+| `tags` | Collection[String] | Anwendungsfeld; min. 1 | ✓ | Keywords for search and filtering |
 | `unit` | String | ReferenceUnit | ✓ | Functional/reference unit |
-| `gwp` | Double | – | ✓ | Global Warming Potential (kg CO₂-eq) |
-| `ubp` | Double | – | ✓ | Umweltbelastungspunkte (Points) |
-| `penrt` | Double | – | ✓ | Primary Energy Non-Renewable Total (MJ) |
-| `pert` | Double | – | ✓ | Primary Energy Renewable Total (MJ) |
+| `gwp` | Double | ≥ 0 | ✓ | Global Warming Potential (kg CO₂-eq) |
+| `ubp` | Double | ≥ 0 | ✓ | Umweltbelastungspunkte (Points) |
+| `penrt` | Double | ≥ 0 | ✓ | Primary Energy Non-Renewable Total (MJ) |
+| `pert` | Double | ≥ 0 | ✓ | Primary Energy Renewable Total (MJ) |
 | `density` | String | – | ○ | Material density |
 | `biogenicCarbon` | Double | – | ○ | Biogenic carbon content |
 
@@ -798,12 +798,12 @@ Beyond the category, models can be further classified by their construction doma
 
 ##### EPDCategory
 
-| Value | Typical Subcategories |
-|-------|----------------------|
-| Baumaterialien | Beton, Mauerwerk, Holz, Metall, Dämmstoffe, Glas |
-| Energie | Strom, Wärme, Kälte |
-| Gebäudetechnik | Heizung, Lüftung, Sanitär, Elektro |
-| Transporte | LKW, Bahn, Schiff |
+| Value (EN) | Value (DE) | Typical Subcategories |
+|------------|------------|----------------------|
+| Building Materials | Baumaterialien | Beton, Mauerwerk, Holz, Metall, Dämmstoffe, Glas |
+| Energy | Energie | Strom, Wärme, Kälte |
+| Building Services | Gebäudetechnik | Heizung, Lüftung, Sanitär, Elektro |
+| Transport | Transporte | LKW, Bahn, Schiff |
 
 ##### ReferenceUnit
 
@@ -834,11 +834,11 @@ Beyond the category, models can be further classified by their construction doma
 
 | Entity | Pattern | Example | Rule |
 |--------|---------|---------|------|
-| Element | `e` + number | e1, e15 | Unique within Elements |
-| Document | Letter + 5 digits | O01001, K02003 | First letter indicates KBOB category |
-| UseCase | `uc` + 3 digits | uc001, uc030 | Sequential numbering |
-| Model | `m` + number | m1, m10 | Unique within Models |
-| EPD | `kbob-` + group + sequence | kbob-01-042 | Aligned with KBOB database |
+| Element | `e{n}` | e1, e15 | Unique within Elements |
+| Document | `{O\|K\|B\|V}{nnnnn}` | O01001, K02003 | First letter indicates KBOB category |
+| UseCase | `uc{nnn}` | uc001, uc030 | Sequential numbering |
+| Model | `m{n}` | m1, m10 | Unique within Models |
+| EPD | `kbob-{nn}-{nnn}` | kbob-01-042 | Aligned with KBOB database |
 
 ### 5.2 Integrity Rules
 
@@ -901,7 +901,8 @@ Beyond the category, models can be further classified by their construction doma
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.0 | – | Complete document restructure: reorganized into Introduction, Conceptual Model, Shared Concepts, Entity Specifications, Constraints and Rules, and Appendices; standardized all entity attribute tables with consistent Format/Enumeration columns; unified entity specification template (Overview, Attributes, Nested Structures, Controlled Vocabularies); moved Glossary and Changelog to appendices |
+| 2.1 | – | Renamed "Enumeration" column to "Constraint" across all attribute tables; added specific constraint patterns for ID fields (e{n}, uc{nnn}, m{n}, etc.); added ISO 8601 constraint for date fields; added range constraints (1–5) for phase fields; added minimum cardinality constraints (min. 1) where applicable; added schema constraints (IFC 4.3, UUID v4) for reference fields; added value range constraints (≥ 0) for numeric environmental indicators; standardized all controlled vocabulary tables to consistent column order: Value (EN) \| Value (DE) \| Description |
+| 2.0 | – | Complete document restructure: reorganized into Introduction, Conceptual Model, Shared Concepts, Entity Specifications, Constraints and Rules, and Appendices; standardized all entity attribute tables with consistent Format/Constraint columns; unified entity specification template (Overview, Attributes, Nested Structures, Controlled Vocabularies); moved Glossary and Changelog to appendices |
 | 1.4 | – | Changed Model entity attribute from `domain` to `category` for consistency with shared attributes across all entities; Updated Model Categories to match actual data values (Fachmodelle, Koordination, Spezialmodelle, Bestand); Retained construction domain reference information as supplementary classification |
 | 1.3 | – | Updated Document categories to KBOB/IPB Dokumenttypenkatalog structure (O, K, B, V); Updated UseCase categories to VDI 2552 Blatt 12.2 Anwendungsfeld values (22 categories); Added VDI 2552 information exchange roles (Informationsbereitstellende/Informationsbestellende); Updated Model entity to use domain-based categorization with 14 construction domains; Enhanced lifecycle phases section with VDI 2552 Blatt 12.2 descriptions; Expanded tagging system descriptions per VDI 2552 Blatt 12.2 Anhang B1; Added documentation types and quality requirements for Documents |
 | 1.2 | – | Added Tagging System section based on VDI 2552 Blatt 12.2; renamed Project Phases to Lifecycle Phases with WUP/SIA/HOAI references and multi-language support; added Localization section; added Strategic Alignment with Swiss digital transformation initiatives; expanded eBKP-H codes to complete list; comprehensive Entity Relationship Diagram update with ISO 19650-aligned UseCase-centric model, software mappings (IFC, Revit, Archicad), and relationship documentation |
