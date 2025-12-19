@@ -265,13 +265,6 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="link" class="external-item__icon" aria-hidden="true"></i>
-                                    <a href="https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/bundesarchitektur/register.html" target="_blank" rel="noopener" class="external-item__link">
-                                        Register
-                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="external-item">
-                                    <i data-lucide="link" class="external-item__icon" aria-hidden="true"></i>
                                     <a href="https://www.kbob.admin.ch/de/mustervertraege-und-publikationen" target="_blank" rel="noopener" class="external-item__link">
                                         KBOB Musterverträge und Publikationen
                                         <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
