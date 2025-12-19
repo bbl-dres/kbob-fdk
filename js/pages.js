@@ -178,19 +178,15 @@ function renderSearchResultsPage(query) {
             const safeId = escapeHtml(item.id || '');
             const safeCat = escapeHtml(item.category || '');
             resultsHtml += `
-                <div class="search-result-card">
+                <a href="#${safeCat}/${safeId}" class="search-result-card">
                     <div class="search-result-card__meta">
                         <span class="search-result-card__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-card__date">${dateStr}</span>` : ''}
                     </div>
-                    <h3 class="search-result-card__title"><a href="#${safeCat}/${safeId}">${safeTitle}</a></h3>
+                    <h3 class="search-result-card__title">${safeTitle}</h3>
                     <p class="search-result-card__desc">${safeDesc}</p>
-                    <div class="search-result-card__footer">
-                        <a href="#${safeCat}/${safeId}" class="search-result-card__link" aria-label="${safeTitle} öffnen">
-                            <i data-lucide="arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+                    <span class="arrow-btn search-result-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                </a>
             `;
         });
         resultsHtml += `</div>`;
