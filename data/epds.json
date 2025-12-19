@@ -1,182 +1,374 @@
 [
   {
-    "id": "epd1",
-    "title": "Beton C25/30",
+    "id": "kbob-01-042",
+    "title": "Betonfertigteil, Normalbeton, ab Werk",
     "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=200&fit=crop",
-    "category": "Baustoffe",
-    "description": "Umweltproduktdeklaration für Normalbeton der Festigkeitsklasse C25/30",
+    "category": "Baumaterialien",
+    "subcategory": "Beton",
+    "description": "KBOB Ökobilanzdaten für Betonfertigteil, Normalbeton, ab Werk",
     "tags": [
       "Tragwerk",
       "Baustoffe"
     ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-B01 – Beton"],
-      "eBKP-H": ["C2.1 – Ortbeton"]
-    },
-    "gwp": 238,
-    "unit": "kg CO₂-eq/m³",
-    "phases": [2, 3, 4]
+    "uuid": "F6DCDEFA-AFE6-44CB-8B68-3527ABFDC011",
+    "unit": "kg",
+    "gwp": 0.177,
+    "ubp": 282.0,
+    "penrt": 0.432,
+    "pert": 0.0948,
+    "density": "2500"
   },
   {
-    "id": "epd2",
-    "title": "Betonstahl",
-    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
-    "category": "Baustoffe",
-    "description": "Ökobilanz für Bewehrungsstahl nach SN EN 10080",
-    "tags": [
-      "Tragwerk",
-      "Baustoffe"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-S01 – Betonstahl"],
-      "eBKP-H": ["C2.2 – Bewehrung"]
-    },
-    "gwp": 1420,
-    "unit": "kg CO₂-eq/t",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd3",
-    "title": "Kalksandstein",
-    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
-    "category": "Baustoffe",
-    "description": "EPD für Kalksandstein-Mauerwerk nach DIN 106",
-    "tags": [
-      "Architektur",
-      "Baustoffe"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-M01 – Kalksandstein"],
-      "eBKP-H": ["C3.1 – Mauerwerk"]
-    },
-    "gwp": 152,
-    "unit": "kg CO₂-eq/m³",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd4",
-    "title": "Konstruktionsholz",
-    "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
-    "category": "Baustoffe",
-    "description": "Umweltdaten für Brettschichtholz (BSH) aus Fichtenholz",
-    "tags": [
-      "Tragwerk",
-      "Baustoffe"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-H01 – Brettschichtholz"],
-      "eBKP-H": ["C4.1 – Holzkonstruktion"]
-    },
-    "gwp": -680,
-    "unit": "kg CO₂-eq/m³",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd5",
-    "title": "Mineralwolle",
-    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
-    "category": "Dämmstoffe",
-    "description": "Ökobilanz für Steinwolle-Dämmplatten",
-    "tags": [
-      "Architektur",
-      "Dämmstoffe"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-D01 – Mineralwolle"],
-      "eBKP-H": ["E1.1 – Wärmedämmung"]
-    },
-    "gwp": 1.2,
-    "unit": "kg CO₂-eq/kg",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd6",
-    "title": "Dreifachverglasung",
-    "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
-    "category": "Bauteile",
-    "description": "EPD für 3-fach Isolierverglasung mit Wärmeschutzbeschichtung",
-    "tags": [
-      "Architektur",
-      "Bauteile"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-G01 – Isolierverglasung"],
-      "eBKP-H": ["E2.1 – Fenster"]
-    },
-    "gwp": 28.5,
-    "unit": "kg CO₂-eq/m²",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd7",
-    "title": "Aluminiumfassade",
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
-    "category": "Bauteile",
-    "description": "Umweltdaten für Aluminium-Pfosten-Riegel-Fassade",
-    "tags": [
-      "Architektur",
-      "Bauteile"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-F01 – Alufassade"],
-      "eBKP-H": ["E3.1 – Fassadenbekleidung"]
-    },
-    "gwp": 12.8,
-    "unit": "kg CO₂-eq/kg",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd8",
-    "title": "Photovoltaikmodul",
-    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=200&fit=crop",
-    "category": "Technik",
-    "description": "Ökobilanz für monokristalline Solarmodule",
-    "tags": [
-      "Haustechnik",
-      "Technik"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-PV01 – PV-Modul"],
-      "eBKP-H": ["D8.1 – Photovoltaik"]
-    },
-    "gwp": 45,
-    "unit": "kg CO₂-eq/m²",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd9",
-    "title": "Wärmepumpe Luft/Wasser",
-    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
-    "category": "Technik",
-    "description": "EPD für Luft-Wasser-Wärmepumpen bis 15 kW",
-    "tags": [
-      "Haustechnik",
-      "Technik"
-    ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-WP01 – Wärmepumpe"],
-      "eBKP-H": ["D5.1 – Wärmeerzeugung"]
-    },
-    "gwp": 2850,
-    "unit": "kg CO₂-eq/Stk",
-    "phases": [2, 3, 4]
-  },
-  {
-    "id": "epd10",
-    "title": "Linoleum",
+    "id": "kbob-11-008",
+    "title": "Keramik-/Steinzeugplatte, 9 mm",
     "image": "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400&h=200&fit=crop",
-    "category": "Ausbau",
-    "description": "Umweltproduktdeklaration für Linoleum-Bodenbelag",
+    "category": "Baumaterialien",
+    "subcategory": "Bodenbeläge",
+    "description": "KBOB Ökobilanzdaten für Keramik-/Steinzeugplatte, 9 mm",
     "tags": [
       "Architektur",
       "Ausbau"
     ],
-    "classifications": {
-      "KBOB-EPD": ["EPD-L01 – Linoleum"],
-      "eBKP-H": ["G2.1 – Bodenbelag"]
-    },
-    "gwp": 4.2,
-    "unit": "kg CO₂-eq/m²",
-    "phases": [3, 4]
+    "uuid": "414EEBBE-85C4-4869-A411-29C0097ADA38",
+    "unit": "m2",
+    "gwp": 18.2,
+    "ubp": 86800.0,
+    "penrt": 83.1,
+    "pert": 4.49,
+    "density": "18"
+  },
+  {
+    "id": "kbob-10-014",
+    "title": "Aerogel-Vlies",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Dämmstoffe",
+    "description": "KBOB Ökobilanzdaten für Aerogel-Vlies",
+    "tags": [
+      "Architektur",
+      "Dämmstoffe"
+    ],
+    "uuid": "9EC4E12B-5E75-4A0B-84DA-A1A5F152A4BC",
+    "unit": "kg",
+    "gwp": 48.7,
+    "ubp": 73600.0,
+    "penrt": 230.0,
+    "pert": 12.6,
+    "density": "150"
+  },
+  {
+    "id": "kbob-05-026",
+    "title": "Rahmenverbreiterung, PVC",
+    "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Fassaden & Fenster",
+    "description": "KBOB Ökobilanzdaten für Rahmenverbreiterung, PVC",
+    "tags": [
+      "Architektur",
+      "Bauteile"
+    ],
+    "uuid": "bbb96c85-8f12-4104-b774-2203f3d542e6",
+    "unit": "m2",
+    "gwp": 69.7,
+    "ubp": 99700.0,
+    "penrt": 306.0,
+    "pert": 42.0,
+    "density": "15",
+    "biogenicCarbon": 0.778
+  },
+  {
+    "id": "kbob-07-002",
+    "title": "Brettschichtholz",
+    "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Holzwerkstoffe",
+    "description": "KBOB Ökobilanzdaten für Brettschichtholz",
+    "tags": [
+      "Tragwerk",
+      "Baustoffe"
+    ],
+    "uuid": "1095B95F-6036-45CA-B450-7A3A8E1897BB",
+    "unit": "kg",
+    "gwp": 0.335,
+    "ubp": 769.0,
+    "penrt": 1.53,
+    "pert": 8.14,
+    "density": "439",
+    "biogenicCarbon": 0.446
+  },
+  {
+    "id": "kbob-07-023",
+    "title": "Konstruktionsvollholz",
+    "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Holzwerkstoffe",
+    "description": "KBOB Ökobilanzdaten für Konstruktionsvollholz",
+    "tags": [
+      "Tragwerk",
+      "Baustoffe"
+    ],
+    "uuid": "dff243df-ce92-429c-b6f4-a1e3ca114b16",
+    "unit": "kg",
+    "gwp": 0.288,
+    "ubp": 689.0,
+    "penrt": 1.24,
+    "pert": 8.28,
+    "density": "436",
+    "biogenicCarbon": 0.45
+  },
+  {
+    "id": "kbob-06-004",
+    "title": "Chromnickelstahlblech 18/8 blank",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Metalle",
+    "description": "KBOB Ökobilanzdaten für Chromnickelstahlblech 18/8 blank",
+    "tags": [
+      "Tragwerk",
+      "Baustoffe"
+    ],
+    "uuid": "0FE00428-0CF6-4CC1-A4B1-BA186F56D57E",
+    "unit": "kg",
+    "gwp": 4.12,
+    "ubp": 9710.0,
+    "penrt": 14.6,
+    "pert": 2.41,
+    "density": "7900"
+  },
+  {
+    "id": "kbob-06-012",
+    "title": "Stahlprofil, blank",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Metalle",
+    "description": "KBOB Ökobilanzdaten für Stahlprofil, blank",
+    "tags": [
+      "Tragwerk",
+      "Baustoffe"
+    ],
+    "uuid": "4DC70979-B6CA-4DA5-A291-6F1A082EE475",
+    "unit": "kg",
+    "gwp": 0.737,
+    "ubp": 1290.0,
+    "penrt": 3.38,
+    "pert": 0.255,
+    "density": "7850"
+  },
+  {
+    "id": "kbob-00-016",
+    "title": "Tiefgründung, Ortbetonbohrpfahl, 1200 mm",
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Vorbereitungsarbeiten",
+    "description": "KBOB Ökobilanzdaten für Tiefgründung, Ortbetonbohrpfahl, 1200 mm",
+    "tags": [
+      "Tragwerk",
+      "Baustoffe"
+    ],
+    "uuid": "DEED59B5-BB81-4104-9BAE-D78266DC439E",
+    "unit": "m",
+    "gwp": 379.0,
+    "ubp": 579000.0,
+    "penrt": 751.0,
+    "pert": 70.8
+  },
+  {
+    "id": "kbob-03-009",
+    "title": "Hartsandsteinplatte",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
+    "category": "Baumaterialien",
+    "subcategory": "Zuschlagstoffe",
+    "description": "KBOB Ökobilanzdaten für Hartsandsteinplatte",
+    "tags": [
+      "Architektur",
+      "Baustoffe"
+    ],
+    "uuid": "B787C33A-9D88-414E-84DE-3E087E3639ED",
+    "unit": "kg",
+    "gwp": 0.0406,
+    "ubp": 112.0,
+    "penrt": 0.275,
+    "pert": 0.046,
+    "density": "2500"
+  },
+  {
+    "id": "kbob-41-009",
+    "title": "Biogas",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Energie",
+    "subcategory": "Brennstoffe",
+    "description": "KBOB Ökobilanzdaten für Biogas",
+    "tags": [
+      "Energie",
+      "Wärme"
+    ],
+    "uuid": "273feaeb-5b51-4f6b-b42a-f27eb5e1973f",
+    "unit": "kWh",
+    "gwp": 0.124,
+    "ubp": 155.0,
+    "penrt": 0.293,
+    "pert": 0.0289
+  },
+  {
+    "id": "kbob-42-002",
+    "title": "Heizzentrale Gas",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Energie",
+    "subcategory": "Fernwärme",
+    "description": "KBOB Ökobilanzdaten für Heizzentrale Gas",
+    "tags": [
+      "Energie",
+      "Wärme"
+    ],
+    "uuid": "4c27aa48-dc77-421c-b747-3cd7bde6ee17",
+    "unit": "kWh",
+    "gwp": 0.301,
+    "ubp": 365.0,
+    "penrt": 1.4,
+    "pert": 0.0147
+  },
+  {
+    "id": "kbob-42-017",
+    "title": "Fernwärme mit Nutzung Kehrichtwärme, Durchschnitt Netze CH",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Energie",
+    "subcategory": "Fernwärme",
+    "description": "KBOB Ökobilanzdaten für Fernwärme mit Nutzung Kehrichtwärme, Durchschnitt Netze CH",
+    "tags": [
+      "Energie",
+      "Wärme"
+    ],
+    "uuid": "a8516884-b484-4e68-8e30-608d276fa1c0",
+    "unit": "kWh",
+    "gwp": 0.0658,
+    "ubp": 123.0,
+    "penrt": 0.335,
+    "pert": 0.439
+  },
+  {
+    "id": "kbob-43-014",
+    "title": "Elektrospeicherofen (Strom CH zertifiziert)",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Energie",
+    "subcategory": "Strom",
+    "description": "KBOB Ökobilanzdaten für Elektrospeicherofen (Strom CH zertifiziert)",
+    "tags": [
+      "Energie",
+      "Elektro"
+    ],
+    "uuid": "65f87076-fa16-4403-8fae-232d7c9c2f36",
+    "unit": "kWh",
+    "gwp": 0.0175,
+    "ubp": 87.4,
+    "penrt": 0.041,
+    "pert": 1.16
+  },
+  {
+    "id": "kbob-31-024",
+    "title": "Wärmeabgabe über Fussbodenheizung",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Gebäudetechnik",
+    "subcategory": "Heizung",
+    "description": "KBOB Ökobilanzdaten für Wärmeabgabe über Fussbodenheizung",
+    "tags": [
+      "Haustechnik",
+      "Technik"
+    ],
+    "uuid": "a9814d97-ccf9-4349-934d-b70b67622da2",
+    "unit": "m2",
+    "gwp": 5.05,
+    "ubp": 7380.0,
+    "penrt": 21.8,
+    "pert": 1.45
+  },
+  {
+    "id": "kbob-32-002",
+    "title": "Lüftungsanlage Wohnen, PE-Kanäle, inkl. Küchenabluft",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Gebäudetechnik",
+    "subcategory": "Lüftung",
+    "description": "KBOB Ökobilanzdaten für Lüftungsanlage Wohnen, PE-Kanäle, inkl. Küchenabluft",
+    "tags": [
+      "Haustechnik",
+      "Technik"
+    ],
+    "uuid": "7a17dc11-ba34-4e71-9b81-43b85add04f2",
+    "unit": "m2",
+    "gwp": 8.25,
+    "ubp": 21300.0,
+    "penrt": 30.7,
+    "pert": 2.52
+  },
+  {
+    "id": "kbob-32-006",
+    "title": "Lüftungsanlage, spez. Luftmenge 4 m3/hm2 EBF",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
+    "category": "Gebäudetechnik",
+    "subcategory": "Lüftung",
+    "description": "KBOB Ökobilanzdaten für Lüftungsanlage, spez. Luftmenge 4 m3/hm2 EBF",
+    "tags": [
+      "Haustechnik",
+      "Technik"
+    ],
+    "uuid": "5ecd5719-455c-4f94-a425-6d53871c374e",
+    "unit": "m2",
+    "gwp": 30.6,
+    "ubp": 69900.0,
+    "penrt": 104.0,
+    "pert": 9.19
+  },
+  {
+    "id": "kbob-63-001",
+    "title": "Fernreisezug Schweiz",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Transporte",
+    "subcategory": "Gütertransport",
+    "description": "KBOB Ökobilanzdaten für Fernreisezug Schweiz",
+    "tags": [
+      "Transport",
+      "Logistik"
+    ],
+    "uuid": "936c7fc5-c2f5-47e7-98e0-d63c9dfdad2c",
+    "unit": "pkm",
+    "gwp": 0.0069,
+    "ubp": 29.1,
+    "penrt": 0.0431,
+    "pert": 0.0723
+  },
+  {
+    "id": "kbob-62-016",
+    "title": "Lastwagen, Durchschnitt",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Transporte",
+    "subcategory": "Personentransport",
+    "description": "KBOB Ökobilanzdaten für Lastwagen, Durchschnitt",
+    "tags": [
+      "Transport",
+      "Mobilität"
+    ],
+    "uuid": "5fa8d2dc-1163-4b0d-914a-9c5964a00a41",
+    "unit": "tkm",
+    "gwp": 0.142,
+    "ubp": 263.0,
+    "penrt": 0.601,
+    "pert": 0.0285
+  },
+  {
+    "id": "kbob-61-010",
+    "title": "Mix Stromprodukte aus erneuerbaren Energien in Personenwagen",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
+    "category": "Transporte",
+    "subcategory": "Treibstoffe",
+    "description": "KBOB Ökobilanzdaten für Mix Stromprodukte aus erneuerbaren Energien in Personenwagen",
+    "tags": [
+      "Transport",
+      "Energie"
+    ],
+    "uuid": "0648099d-a023-44a0-bf23-9a7c41cb7493",
+    "unit": "kWh",
+    "gwp": 0.0481,
+    "ubp": 197.0,
+    "penrt": 0.033,
+    "pert": 1.16
   }
 ]
