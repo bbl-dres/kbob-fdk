@@ -1430,6 +1430,7 @@ footer a:hover {
 
 .search-result-item:hover {
     background-color: var(--color-background);
+    text-decoration: none;
 }
 
 .search-result-item:hover .search-result-item__title {
