@@ -72,9 +72,9 @@ function renderElementDetailPage(id, activeTags = []) {
     const ifcRows = data.ifcMapping && Array.isArray(data.ifcMapping)
         ? data.ifcMapping.map(m => `
             <tr>
-                <td class="col-val">${escapeHtml(m.element || '')}</td>
-                <td class="col-val">${escapeHtml(m.ifc || '')}</td>
-                <td class="col-val">${escapeHtml(m.revit || '')}</td>
+                <td class="col-val">${escapeHtml(m.element || '-')}</td>
+                <td class="col-val">${escapeHtml(m.ifc || '-')}</td>
+                <td class="col-val">${escapeHtml(m.revit || '-')}</td>
             </tr>`).join('')
         : '<tr><td colspan="3">-</td></tr>';
 
@@ -82,8 +82,8 @@ function renderElementDetailPage(id, activeTags = []) {
     const geomRowsHtml = geomRows.length > 0
         ? geomRows.map(row => `
             <tr>
-                <td class="col-val">${escapeHtml(row.name || '')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '')}</td>
+                <td class="col-val">${escapeHtml(row.name || '-')}</td>
+                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
@@ -104,8 +104,8 @@ function renderElementDetailPage(id, activeTags = []) {
     const docRowsHtml = docRows.length > 0
         ? docRows.map(row => `
             <tr>
-                <td class="col-val">${escapeHtml(row.name || '')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '')}</td>
+                <td class="col-val">${escapeHtml(row.name || '-')}</td>
+                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
