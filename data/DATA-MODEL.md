@@ -6,13 +6,13 @@ This document describes the data model used in the KBOB BIM Data Catalog, a web-
 
 The application manages five main entity types:
 
-| Entity | File | Description | Count |
+| Entity | File | Description |
 |--------|------|-------------|-------|
-| **Elements** | `elements.json` | Building elements with LOI specs | 15 |
-| **Documents** | `documents.json` | Document types & retention policies | 130+ |
-| **Use Cases** | `usecases.json` | BIM use cases with RACI roles | 30 |
-| **Models** | `models.json` | BIM model types | 10 |
-| **EPDs** | `epds.json` | Environmental Product Declarations | 10 |
+| **Elements** | `elements.json` | Building elements with LOI specs |
+| **Documents** | `documents.json` | Document types & retention policies |
+| **Use Cases** | `usecases.json` | BIM use cases with RACI roles |
+| **Models** | `models.json` | BIM model types |
+| **EPDs** | `epds.json` | Environmental Product Declarations |
 
 ---
 
