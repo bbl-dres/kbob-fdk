@@ -716,7 +716,7 @@ Model categories organize BIM models by their purpose and scope:
 Beyond the category, models can be further classified by their construction domain. This reference information describes typical model types used in different construction sectors:
 
 
-**Allgemein (ALG):**
+**Allgemein:**
 | Model Type | Description |
 |------------|-------------|
 | Allgemeines Koordinationsmodell | General coordination model with project origin and georeferencing (WGS84) |
@@ -725,7 +725,7 @@ Beyond the category, models can be further classified by their construction doma
 | Umgebungsmodell | Surrounding context (e.g., from 4D city model) |
 | Baubereichs-/Bauperimetermodell | Construction area envelope per phasing |
 
-**Hochbau (HOH):**
+**Hochbau:**
 | Model Type | Description |
 |------------|-------------|
 | Hochbau Koordinationsmodell | Building coordination model |
@@ -739,7 +739,7 @@ Beyond the category, models can be further classified by their construction doma
 | Sanitärmodell | Sanitary systems |
 | Elektromodell | Electrical systems |
 
-**Werkleitungen (WKL):**
+**Werkleitungen:**
 | Model Type | Description |
 |------------|-------------|
 | Werkleitung Koordinationsmodell | Utility coordination model |
