@@ -5,11 +5,10 @@
     "lastChange": "2024-06-15",
     "title": "Minimalstandard",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Grundlagen",
+    "category": "Koordination",
     "description": "Verbindliche Basisanforderungen für jedes Bauprojekt: Informationsanforderungen, Abwicklungsplanung und Projektkoordination, unabhängig von Bauvolumen oder Methodik.",
     "tags": [
-      "Koordination",
-      "Projektmanagement"
+      "Koordination"
     ],
     "phases": [
       1,
@@ -100,11 +99,10 @@
     "lastChange": "2024-07-22",
     "title": "Bestandserfassung",
     "image": "assets/img/usecase/uc010.jpg",
-    "category": "Planung",
+    "category": "Bestandserfassung",
     "description": "Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.",
     "tags": [
-      "Bestandserfassung",
-      "Vermessung"
+      "Bestandserfassung"
     ],
     "phases": [
       1,
@@ -128,7 +126,7 @@
       "Anforderungen an Detaillierungsgrad"
     ],
     "outputs": [
-      "Punktwolke / Vermessungsdaten",
+      "Punktwolke / Bestandserfassungsdaten",
       "Bestandsdokumentation",
       "Bestandsmodell (optional)"
     ],
@@ -193,12 +191,11 @@
     "lastChange": "2024-08-10",
     "title": "Bedarfsplanung",
     "image": "assets/img/usecase/uc020.jpg",
-    "category": "Planung",
+    "category": "Bedarfsplanung",
     "description": "Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.",
     "tags": [
       "Bedarfsplanung",
-      "Objektplanung",
-      "Nutzerschaft"
+      "Koordination"
     ],
     "phases": [
       1
@@ -285,12 +282,12 @@
     "lastChange": "2024-09-05",
     "title": "Planungsvarianten",
     "image": "assets/img/usecase/uc030.jpg",
-    "category": "Planung",
+    "category": "Variantenvergleich",
     "description": "Erstellung und Bewertung von Planungsvarianten anhand projektspezifischer Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft.",
     "tags": [
       "Variantenvergleich",
       "Nachhaltigkeit",
-      "Objektplanung"
+      "Koordination"
     ],
     "phases": [
       1,
@@ -378,11 +375,11 @@
     "lastChange": "2024-10-18",
     "title": "Visualisierung",
     "image": "assets/img/usecase/uc040.jpg",
-    "category": "Kommunikation",
+    "category": "Visualisierung",
     "description": "Bedarfsgerechte Visualisierung des Bauvorhabens für Projektkommunikation, Entscheidungsfindung oder Öffentlichkeitsarbeit (Darstellungen, Animationen, Rundgänge).",
     "tags": [
       "Visualisierung",
-      "Objektplanung"
+      "Koordination"
     ],
     "phases": [
       1,
@@ -469,17 +466,16 @@
     "title": "Koordination der Fachgewerke",
     "image": "assets/img/usecase/uc050.jpg",
     "category": "Koordination",
-    "description": "Systematische Koordination der Fachplanungen zur frühzeitigen Erkennung und Behebung von Konflikten.",
+    "description": "Systematische Koordination der Koordinationen zur frühzeitigen Erkennung und Behebung von Konflikten.",
     "tags": [
       "Koordination",
-      "Qualitätssicherung",
-      "Fachplanung"
+      "Qualitätssicherung"
     ],
     "phases": [
       2,
       3
     ],
-    "definition": "Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Fachplanungen (Architektur, Tragwerk, Haustechnik, Elektro etc.) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und logische Konflikte zwischen den Gewerken frühzeitig erkannt und in einem strukturierten Prozess behoben. Dieser Anwendungsfall ist zentral für die Qualitätssicherung in der Planungsphase und reduziert kostenintensive Änderungen während der Bauausführung erheblich.",
+    "definition": "Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Koordinationen (Architektur, Tragwerk, Haustechnik, Elektro etc.) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und logische Konflikte zwischen den Gewerken frühzeitig erkannt und in einem strukturierten Prozess behoben. Dieser Anwendungsfall ist zentral für die Qualitätssicherung in der Planungsphase und reduziert kostenintensive Änderungen während der Koordination erheblich.",
     "goals": [
       "Frühzeitige Erkennung von Planungskonflikten vor Baubeginn",
       "Reduzierung von Kollisionen und Nacharbeiten auf der Baustelle",
@@ -572,7 +568,7 @@
     "description": "Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.",
     "tags": [
       "Qualitätssicherung",
-      "Projektmanagement"
+      "Koordination"
     ],
     "phases": [
       1,
@@ -661,11 +657,11 @@
     "lastChange": "2025-01-08",
     "title": "Bemessung und Nachweisführung",
     "image": "assets/img/usecase/uc070.jpg",
-    "category": "Analyse",
+    "category": "Nachweise",
     "description": "Durchführung von Berechnungen und Simulationen (Statik, Energie, Tageslicht, Akustik, Brandschutz) zur Bemessung und für behördliche Nachweise.",
     "tags": [
       "Nachweise",
-      "Fachplanung"
+      "Koordination"
     ],
     "phases": [
       2,
@@ -722,7 +718,7 @@
         "Definition der erforderlichen Nachweise im AIA",
         "Festlegung der anzuwendenden Normen und Richtlinien",
         "Bereitstellung behördlicher Anforderungen und Auflagen",
-        "Klärung der Schnittstellen zwischen Fachplanungen"
+        "Klärung der Schnittstellen zwischen Koordinationen"
       ],
       "contractor": [
         "Fachkompetenz für die jeweiligen Berechnungen",
@@ -758,7 +754,7 @@
     "description": "Erstellung der erforderlichen Planunterlagen (Grundrisse, Schnitte, Ansichten, Details) gemäss den jeweiligen Richtlinien und Normen.",
     "tags": [
       "Dokumentation",
-      "Objektplanung"
+      "Koordination"
     ],
     "phases": [
       2,
@@ -845,12 +841,11 @@
     "lastChange": "2024-07-22",
     "title": "Genehmigungsprozess",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Behörden",
+    "category": "Genehmigung",
     "description": "Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.",
     "tags": [
       "Genehmigung",
-      "Objektplanung",
-      "Prüfende Instanz"
+      "Koordination"
     ],
     "phases": [
       2
@@ -937,11 +932,10 @@
     "lastChange": "2024-08-10",
     "title": "Mengen- und Kostenermittlung",
     "image": "assets/img/usecase/uc100.jpg",
-    "category": "Kostenplanung",
+    "category": "Kosten",
     "description": "Ermittlung von Mengen und Aufstellung von Kostenschätzungen nach eBKP-H für transparente Kostenplanung.",
     "tags": [
-      "Kosten",
-      "Controlling"
+      "Kosten"
     ],
     "phases": [
       1,
@@ -1051,11 +1045,11 @@
     "lastChange": "2024-09-05",
     "title": "Leistungsverzeichnis und Ausschreibung",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Ausschreibung",
+    "category": "Ausschreibung und Vergabe",
     "description": "Erstellung von Leistungsverzeichnissen mit Mengenpositionen, Durchführung der Ausschreibung und Vergabe auf Basis der Planungsunterlagen.",
     "tags": [
       "Ausschreibung und Vergabe",
-      "Projektmanagement"
+      "Koordination"
     ],
     "phases": [
       2,
@@ -1143,11 +1137,11 @@
     "lastChange": "2024-10-18",
     "title": "Terminplanung der Ausführung",
     "image": "assets/img/usecase/uc120.jpg",
-    "category": "Terminplanung",
+    "category": "Termine",
     "description": "Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.",
     "tags": [
       "Termine",
-      "Bauausführung"
+      "Koordination"
     ],
     "phases": [
       2,
@@ -1234,11 +1228,11 @@
     "lastChange": "2024-11-12",
     "title": "Logistikplanung",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
-    "category": "Bauausführung",
+    "category": "Logistik",
     "description": "Planung und Dokumentation von Baustelleneinrichtung, Baustelleninfrastruktur, Materialflüssen und Verkehrsphasen.",
     "tags": [
       "Logistik",
-      "Bauausführung"
+      "Koordination"
     ],
     "phases": [
       2,
@@ -1326,12 +1320,12 @@
     "lastChange": "2024-12-01",
     "title": "Baufortschrittskontrolle",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=400&fit=crop",
-    "category": "Bauausführung",
-    "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Controlling.",
+    "category": "Qualitätssicherung",
+    "description": "Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Kosten.",
     "tags": [
       "Qualitätssicherung",
-      "Controlling",
-      "Projektsteuerung"
+      "Kosten",
+      "Koordination"
     ],
     "phases": [
       3
@@ -1369,7 +1363,7 @@
       {
         "actor": "Projektleiter",
         "responsible": [
-          "Controlling",
+          "Kosten",
           "Steuerung"
         ],
         "contributing": [],
@@ -1378,7 +1372,7 @@
         ]
       }
     ],
-    "definition": "Die Baufortschrittskontrolle umfasst die systematische Erfassung und Dokumentation des tatsächlichen Baufortschritts als Grundlage für Soll-Ist-Vergleiche und das Projekt-Controlling. Sie ermöglicht die frühzeitige Erkennung von Abweichungen und bildet die Basis für Steuerungsmassnahmen. Die modellbasierte Fortschrittserfassung erlaubt eine visuelle Darstellung des aktuellen Bauzustands.",
+    "definition": "Die Baufortschrittskontrolle umfasst die systematische Erfassung und Dokumentation des tatsächlichen Baufortschritts als Grundlage für Soll-Ist-Vergleiche und das Projekt-Kosten. Sie ermöglicht die frühzeitige Erkennung von Abweichungen und bildet die Basis für Steuerungsmassnahmen. Die modellbasierte Fortschrittserfassung erlaubt eine visuelle Darstellung des aktuellen Bauzustands.",
     "prerequisites": {
       "client": [
         "Definition der Reporting-Anforderungen",
@@ -1416,12 +1410,12 @@
     "lastChange": "2025-01-08",
     "title": "Änderungs- und Nachtragsmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Bauausführung",
-    "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie Erfassung und Bewertung von Nachträgen.",
+    "category": "Änderungsmanagement",
+    "description": "Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Koordination sowie Erfassung und Bewertung von Nachträgen.",
     "tags": [
       "Änderungsmanagement",
       "Kosten",
-      "Bauausführung"
+      "Koordination"
     ],
     "phases": [
       3
@@ -1468,7 +1462,7 @@
         "informed": []
       }
     ],
-    "definition": "Das Änderungs- und Nachtragsmanagement umfasst die systematische Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Bauausführung sowie die Erfassung und Bewertung von Nachträgen. Es stellt sicher, dass alle Änderungen nachvollziehbar dokumentiert werden und deren Auswirkungen auf Kosten und Termine transparent bewertet werden.",
+    "definition": "Das Änderungs- und Nachtragsmanagement umfasst die systematische Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Koordination sowie die Erfassung und Bewertung von Nachträgen. Es stellt sicher, dass alle Änderungen nachvollziehbar dokumentiert werden und deren Auswirkungen auf Kosten und Termine transparent bewertet werden.",
     "prerequisites": {
       "client": [
         "Definition des Änderungsfreigabeprozesses",
@@ -1506,11 +1500,11 @@
     "lastChange": "2024-06-15",
     "title": "Abrechnung von Bauleistungen",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Bauausführung",
+    "category": "Kosten",
     "description": "Dokumentation der ausgeführten Leistungen und Plausibilisierung von Abschlagsrechnungen und Schlussabrechnungen.",
     "tags": [
       "Kosten",
-      "Bauausführung"
+      "Koordination"
     ],
     "phases": [
       3,
@@ -1595,12 +1589,12 @@
     "lastChange": "2024-07-22",
     "title": "Abnahme- und Mängelmanagement",
     "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
-    "category": "Bauausführung",
+    "category": "Abnahme",
     "description": "Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.",
     "tags": [
       "Abnahme",
       "Qualitätssicherung",
-      "Bauausführung"
+      "Koordination"
     ],
     "phases": [
       3,
@@ -1686,12 +1680,12 @@
     "lastChange": "2024-08-10",
     "title": "Inbetriebnahmemanagement",
     "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=400&fit=crop",
-    "category": "Übergabe",
+    "category": "Inbetriebnahme",
     "description": "Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.",
     "tags": [
       "Inbetriebnahme",
       "Abnahme",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       3,
@@ -1783,7 +1777,7 @@
     "description": "Strukturierte Zusammenstellung der Bauwerksdokumentation für Planung, Betrieb und Archivierung.",
     "tags": [
       "Dokumentation",
-      "Projektmanagement"
+      "Koordination"
     ],
     "phases": [
       1,
@@ -1884,7 +1878,7 @@
     "description": "Übergabe und Nutzung der Bauwerksdokumentation für Betrieb, Instandhaltung und Erneuerung, inkl. Anbindung an CAFM-Systeme wo sinnvoll.",
     "tags": [
       "Dokumentation",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -1973,7 +1967,7 @@
     "description": "Verfolgung und Dokumentation von Gewährleistungsansprüchen, Fristen und Mängelrügen während der Garantiezeit.",
     "tags": [
       "Qualitätssicherung",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2061,7 +2055,7 @@
     "category": "Betrieb",
     "description": "Planung, Durchführung und Dokumentation von Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen.",
     "tags": [
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2150,7 +2144,7 @@
     "category": "Betrieb",
     "description": "Erfassung, Priorisierung und Durchführung von Instandhaltungs- und Instandsetzungsmassnahmen zur Werterhaltung.",
     "tags": [
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2239,7 +2233,7 @@
     "description": "Verwaltung und Optimierung der Flächennutzung, Raumbelegung und Arbeitsplatzvergabe.",
     "tags": [
       "Bedarfsplanung",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2328,7 +2322,7 @@
     "description": "Monitoring und Steuerung der Gebäudeperformance, Erfassung von Verbräuchen und Optimierung der Energieeffizienz.",
     "tags": [
       "Nachhaltigkeit",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2419,7 +2413,7 @@
     "tags": [
       "Qualitätssicherung",
       "Risikomanagement",
-      "Facility Management"
+      "Betrieb"
     ],
     "phases": [
       4
@@ -2507,7 +2501,7 @@
     "description": "Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.",
     "tags": [
       "Nachhaltigkeit",
-      "Zertifizierung"
+      "Nachweise"
     ],
     "phases": [
       1,
@@ -2543,7 +2537,7 @@
         "actor": "Nachhaltigkeitsberater",
         "responsible": [
           "Erstellung Nachweise",
-          "Zertifizierungsprozess"
+          "Nachweisesprozess"
         ],
         "contributing": [],
         "informed": []
@@ -2564,32 +2558,32 @@
     "definition": "Die Nachhaltigkeitsnachweise umfassen die Erstellung aller erforderlichen Dokumentationen für Nachhaltigkeitszertifizierungen wie SNBS, Minergie oder DGNB. Dies beinhaltet Ökobilanzen, Lebenszykluskosten-Berechnungen sowie Komfort- und Gesundheitsnachweise. Der modellbasierte Ansatz ermöglicht eine effiziente Datenextraktion und konsistente Berechnungsgrundlagen.",
     "prerequisites": {
       "client": [
-        "Festlegung des angestrebten Zertifizierungsstandards",
+        "Festlegung des angestrebten Nachweisesstandards",
         "Frühzeitige Integration der Anforderungen in die Planung",
-        "Bereitstellung des Zertifizierungsbudgets",
+        "Bereitstellung des Nachweisesbudgets",
         "Commitment zur nachhaltigen Bauweise"
       ],
       "contractor": [
-        "Akkreditierung als Zertifizierungsstelle",
+        "Akkreditierung als Nachweisesstelle",
         "Kenntnisse der Bewertungssysteme",
         "Erfahrung mit Ökobilanzierung (SIA 2032)",
         "Kompetenz in LCC-Berechnungen"
       ]
     },
     "implementation": [
-      "Analyse der Zertifizierungsanforderungen",
+      "Analyse der Nachweisesanforderungen",
       "Integration der Kriterien in die Planung",
       "Erfassung der relevanten Daten aus dem Modell",
       "Durchführung der Berechnungen und Simulationen",
       "Zusammenstellung der Nachweisdokumentation",
-      "Begleitung des Zertifizierungsverfahrens"
+      "Begleitung des Nachweisesverfahrens"
     ],
     "practiceExample": null,
     "qualityCriteria": [
-      "Erfüllung aller Zertifizierungskriterien",
+      "Erfüllung aller Nachweiseskriterien",
       "Nachvollziehbare Berechnungsgrundlagen",
       "Vollständige Nachweisdokumentation",
-      "Erfolgreiche Zertifizierung",
+      "Erfolgreiche Nachweise",
       "Optimierte Umweltwirkung"
     ]
   },
@@ -2599,7 +2593,7 @@
     "lastChange": "2024-10-18",
     "title": "Rückbauplanung",
     "image": "assets/img/usecase/uc280.jpg",
-    "category": "Rückbau",
+    "category": "Sonstiges",
     "description": "Planung des Rückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und Entsorgungskonzept.",
     "tags": [
       "Nachhaltigkeit"
@@ -2687,7 +2681,7 @@
     "lastChange": "2024-11-12",
     "title": "Bauteilbörse und Wiederverwendung",
     "image": "assets/img/usecase/uc290.jpg",
-    "category": "Rückbau",
+    "category": "Sonstiges",
     "description": "Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten.",
     "tags": [
       "Nachhaltigkeit"

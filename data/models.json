@@ -8,8 +8,8 @@
     "category": "Fachmodelle",
     "description": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
     "tags": [
-      "Architektur",
-      "Fachmodelle"
+      "Koordination",
+      "Visualisierung"
     ],
     "phases": [
       1,
@@ -65,8 +65,8 @@
     "category": "Fachmodelle",
     "description": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
     "tags": [
-      "Tragwerk",
-      "Fachmodelle"
+      "Nachweise",
+      "Koordination"
     ],
     "phases": [
       2,
@@ -112,8 +112,8 @@
     "category": "Fachmodelle",
     "description": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
     "tags": [
-      "Haustechnik",
-      "Fachmodelle"
+      "Koordination",
+      "Betrieb"
     ],
     "phases": [
       2,
@@ -159,8 +159,8 @@
     "category": "Fachmodelle",
     "description": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
     "tags": [
-      "Haustechnik",
-      "Fachmodelle"
+      "Koordination",
+      "Betrieb"
     ],
     "phases": [
       2,
@@ -204,8 +204,8 @@
     "category": "Koordination",
     "description": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
     "tags": [
-      "BIM-Koordination",
-      "Koordination"
+      "Koordination",
+      "Qualitätssicherung"
     ],
     "phases": [
       2,
@@ -223,8 +223,8 @@
     "category": "Fachmodelle",
     "description": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
     "tags": [
-      "Landschaftsarchitektur",
-      "Fachmodelle"
+      "Koordination",
+      "Visualisierung"
     ],
     "phases": [
       2,
@@ -260,8 +260,8 @@
     "category": "Spezialmodelle",
     "description": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
     "tags": [
-      "Brandschutz",
-      "Spezialmodelle"
+      "Nachweise",
+      "Genehmigung"
     ],
     "phases": [
       2,
@@ -298,8 +298,8 @@
     "category": "Spezialmodelle",
     "description": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
     "tags": [
-      "Tragwerk",
-      "Spezialmodelle"
+      "Nachweise",
+      "Koordination"
     ],
     "phases": [
       2,
@@ -334,8 +334,8 @@
     "category": "Bestand",
     "description": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
     "tags": [
-      "Facility Management",
-      "Bestand"
+      "Betrieb",
+      "Bestandserfassung"
     ],
     "phases": [
       3,
@@ -352,8 +352,8 @@
     "category": "Fachmodelle",
     "description": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
     "tags": [
-      "Architektur",
-      "Fachmodelle"
+      "Koordination",
+      "Visualisierung"
     ],
     "phases": [
       2,

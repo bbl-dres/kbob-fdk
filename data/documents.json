@@ -470,7 +470,7 @@
     "description": "Jeder Beteiligte liefert seine Nachweisdokumente ans PQM",
     "tags": [
       "Qualitätssicherung",
-      "Nachweise/Bemessung und Nachweisführung/Gutachten"
+      "Nachweise"
     ],
     "formats": [
       "PDF-A",
@@ -2621,7 +2621,7 @@
     "description": "Anzeige für die Fertigstellung bzw. Prüfung von Gefahrenmeldeanlagen",
     "tags": [
       "Abnahme",
-      "Nachweise/Bemessung und Nachweisführung/Gutachten"
+      "Nachweise"
     ],
     "formats": [
       "PDF-A",
