@@ -726,38 +726,38 @@ Model domains are organized by construction type to support the full range of Sw
 Each domain contains specific model types. Examples include:
 
 **Allgemein (ALG):**
-| Model Type | Abbreviation | Description |
-|------------|--------------|-------------|
-| Allgemeines Koordinationsmodell | ALG - KOOM | General coordination model with project origin and georeferencing (LV95) |
-| Geländemodell | ALG - GELM | Topography model including cadastral data |
-| Scanmodell | ALG - SCAN | Point cloud data |
-| Umgebungsmodell | ALG - UMGB | Surrounding context (e.g., from 4D city model) |
-| Baubereichs-/Bauperimetermodell | ALG - PERI | Construction area envelope per phasing |
+| Model Type | Description |
+|------------|-------------|
+| Allgemeines Koordinationsmodell | General coordination model with project origin and georeferencing (WGS84) |
+| Geländemodell | Topography model including cadastral data |
+| Scanmodell | Point cloud data |
+| Umgebungsmodell | Surrounding context (e.g., from 4D city model) |
+| Baubereichs-/Bauperimetermodell | Construction area envelope per phasing |
 
 **Hochbau (HOH):**
-| Model Type | Abbreviation | Description |
-|------------|--------------|-------------|
-| Hochbau Koordinationsmodell | HOH - KOOM | Building coordination model |
-| Architekturmodell | HOH - ARCH | Architectural design model |
-| Tragwerksmodell | HOH - TRWK | Structural model |
-| Aussparungsmodell | HOH - AUSS | Openings and penetrations |
-| Raummodell | HOH - RAUM | Room/space model |
-| Brandschutzmodell | HOH - BRAN | Fire protection model |
-| Lüftungsmodell | HOH - LUFT | Ventilation systems |
-| Heizungsmodell | HOH - HEIZ | Heating systems |
-| Sanitärmodell | HOH - SANI | Sanitary systems |
-| Elektromodell | HOH - ELEK | Electrical systems |
+| Model Type | Description |
+|------------|-------------|
+| Hochbau Koordinationsmodell | Building coordination model |
+| Architekturmodell | Architectural design model |
+| Tragwerksmodell | Structural model |
+| Aussparungsmodell | Openings and penetrations |
+| Raummodell | Room/space model |
+| Brandschutzmodell | Fire protection model |
+| Lüftungsmodell | Ventilation systems |
+| Heizungsmodell | Heating systems |
+| Sanitärmodell | Sanitary systems |
+| Elektromodell | Electrical systems |
 
 **Werkleitungen (WKL):**
-| Model Type | Abbreviation | Description |
-|------------|--------------|-------------|
-| Werkleitung Koordinationsmodell | WKL - KOOM | Utility coordination model |
-| Wasserversorgungsmodell | WKL - WASS | Water supply |
-| Abwasserleitungsmodell | WKL - ABWA | Sewage/drainage |
-| Elektroversorungsmodell | WKL - ELEK | Power distribution |
-| Gasversorgungsmodell | WKL - GASV | Gas supply |
-| Fernwärmeversorgungsmodell | WKL - FEWA | District heating |
-| Beleuchtungsmodell | WKL - OBEL | Street lighting |
+| Model Type | Description |
+|------------|-------------|
+| Werkleitung Koordinationsmodell | Utility coordination model |
+| Wasserversorgungsmodell | Water supply |
+| Abwasserleitungsmodell | Sewage/drainage |
+| Elektroversorungsmodell | Power distribution |
+| Gasversorgungsmodell | Gas supply |
+| Fernwärmeversorgungsmodell | District heating |
+| Beleuchtungsmodell | Street lighting |
 
 #### Model Element Structure
 
