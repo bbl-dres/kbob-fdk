@@ -364,14 +364,24 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
             searchFilteredData = sortDataByTitle(searchFilteredData);
 
             const container = document.getElementById(pageConfig.contentId);
-            container.innerHTML = (getActiveViewFromURL() === 'grid')
+            const isGridView = getActiveViewFromURL() === 'grid';
+            container.innerHTML = isGridView
                 ? `<div class="element-grid">${renderGenericGridItems(type, searchFilteredData, activeTags, activeCategory)}</div>`
                 : renderGenericListItems(type, searchFilteredData, activeTags, activeCategory);
+            refreshIcons();
+            if (isGridView && typeof fitAllCardTagsToSingleRow === 'function') {
+                fitAllCardTagsToSingleRow();
+            }
         });
     }
 
     refreshIcons();
     setupSearchClearButton(pageConfig.searchInputId, pageConfig.searchClearId);
+
+    // Fit card tags to single row in grid view
+    if (getActiveViewFromURL() === 'grid' && typeof fitAllCardTagsToSingleRow === 'function') {
+        fitAllCardTagsToSingleRow();
+    }
 }
 
 // ============================================

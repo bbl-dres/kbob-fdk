@@ -2920,6 +2920,11 @@ footer a:hover {
     flex-wrap: wrap;
 }
 
+/* Hidden tag in collapsed single-row view */
+.card__tags .tag-badge--hidden {
+    display: none;
+}
+
 .card__footer {
     display: flex;
     align-items: center;
