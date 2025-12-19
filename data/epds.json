@@ -10,6 +10,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.2",
+    "lastChange": "2024-07-15",
     "uuid": "F6DCDEFA-AFE6-44CB-8B68-3527ABFDC011",
     "unit": "kg",
     "gwp": 0.177,
@@ -29,6 +31,8 @@
       "Architektur",
       "Ausbau"
     ],
+    "version": "1.0",
+    "lastChange": "2024-03-22",
     "uuid": "414EEBBE-85C4-4869-A411-29C0097ADA38",
     "unit": "m2",
     "gwp": 18.2,
@@ -48,6 +52,8 @@
       "Architektur",
       "Dämmstoffe"
     ],
+    "version": "2.0",
+    "lastChange": "2024-09-10",
     "uuid": "9EC4E12B-5E75-4A0B-84DA-A1A5F152A4BC",
     "unit": "kg",
     "gwp": 48.7,
@@ -67,6 +73,8 @@
       "Architektur",
       "Bauteile"
     ],
+    "version": "1.1",
+    "lastChange": "2024-05-08",
     "uuid": "bbb96c85-8f12-4104-b774-2203f3d542e6",
     "unit": "m2",
     "gwp": 69.7,
@@ -87,6 +95,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.3",
+    "lastChange": "2024-11-02",
     "uuid": "1095B95F-6036-45CA-B450-7A3A8E1897BB",
     "unit": "kg",
     "gwp": 0.335,
@@ -107,6 +117,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.0",
+    "lastChange": "2024-02-18",
     "uuid": "dff243df-ce92-429c-b6f4-a1e3ca114b16",
     "unit": "kg",
     "gwp": 0.288,
@@ -127,6 +139,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.1",
+    "lastChange": "2024-06-30",
     "uuid": "0FE00428-0CF6-4CC1-A4B1-BA186F56D57E",
     "unit": "kg",
     "gwp": 4.12,
@@ -146,6 +160,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.0",
+    "lastChange": "2024-04-12",
     "uuid": "4DC70979-B6CA-4DA5-A291-6F1A082EE475",
     "unit": "kg",
     "gwp": 0.737,
@@ -165,6 +181,8 @@
       "Tragwerk",
       "Baustoffe"
     ],
+    "version": "1.2",
+    "lastChange": "2024-08-25",
     "uuid": "DEED59B5-BB81-4104-9BAE-D78266DC439E",
     "unit": "m",
     "gwp": 379.0,
@@ -183,6 +201,8 @@
       "Architektur",
       "Baustoffe"
     ],
+    "version": "1.0",
+    "lastChange": "2024-01-15",
     "uuid": "B787C33A-9D88-414E-84DE-3E087E3639ED",
     "unit": "kg",
     "gwp": 0.0406,
@@ -202,6 +222,8 @@
       "Energie",
       "Wärme"
     ],
+    "version": "2.1",
+    "lastChange": "2024-10-05",
     "uuid": "273feaeb-5b51-4f6b-b42a-f27eb5e1973f",
     "unit": "kWh",
     "gwp": 0.124,
@@ -220,6 +242,8 @@
       "Energie",
       "Wärme"
     ],
+    "version": "1.0",
+    "lastChange": "2024-03-01",
     "uuid": "4c27aa48-dc77-421c-b747-3cd7bde6ee17",
     "unit": "kWh",
     "gwp": 0.301,
@@ -238,6 +262,8 @@
       "Energie",
       "Wärme"
     ],
+    "version": "1.1",
+    "lastChange": "2024-07-20",
     "uuid": "a8516884-b484-4e68-8e30-608d276fa1c0",
     "unit": "kWh",
     "gwp": 0.0658,
@@ -256,6 +282,8 @@
       "Energie",
       "Elektro"
     ],
+    "version": "1.0",
+    "lastChange": "2024-02-28",
     "uuid": "65f87076-fa16-4403-8fae-232d7c9c2f36",
     "unit": "kWh",
     "gwp": 0.0175,
@@ -274,6 +302,8 @@
       "Haustechnik",
       "Technik"
     ],
+    "version": "1.2",
+    "lastChange": "2024-09-18",
     "uuid": "a9814d97-ccf9-4349-934d-b70b67622da2",
     "unit": "m2",
     "gwp": 5.05,
@@ -292,6 +322,8 @@
       "Haustechnik",
       "Technik"
     ],
+    "version": "1.0",
+    "lastChange": "2024-04-05",
     "uuid": "7a17dc11-ba34-4e71-9b81-43b85add04f2",
     "unit": "m2",
     "gwp": 8.25,
@@ -310,6 +342,8 @@
       "Haustechnik",
       "Technik"
     ],
+    "version": "1.1",
+    "lastChange": "2024-06-14",
     "uuid": "5ecd5719-455c-4f94-a425-6d53871c374e",
     "unit": "m2",
     "gwp": 30.6,
@@ -328,6 +362,8 @@
       "Transport",
       "Logistik"
     ],
+    "version": "1.0",
+    "lastChange": "2024-05-22",
     "uuid": "936c7fc5-c2f5-47e7-98e0-d63c9dfdad2c",
     "unit": "pkm",
     "gwp": 0.0069,
@@ -346,6 +382,8 @@
       "Transport",
       "Mobilität"
     ],
+    "version": "1.3",
+    "lastChange": "2024-08-08",
     "uuid": "5fa8d2dc-1163-4b0d-914a-9c5964a00a41",
     "unit": "tkm",
     "gwp": 0.142,
@@ -364,6 +402,8 @@
       "Transport",
       "Energie"
     ],
+    "version": "2.0",
+    "lastChange": "2024-11-12",
     "uuid": "0648099d-a023-44a0-bf23-9a7c41cb7493",
     "unit": "kWh",
     "gwp": 0.0481,

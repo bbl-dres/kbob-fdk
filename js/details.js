@@ -868,7 +868,166 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 }
 
 function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
-    renderPlaceholderDetailPage('epds', id, activeTags, activeCategory);
+    const data = globalEpdsData.find(item => item.id === id);
+    if (!data) {
+        contentArea.innerHTML = '<div class="container error-state">Ökobilanzdaten nicht gefunden.</div>';
+        return;
+    }
+
+    // Escape main content
+    const safeTitle = escapeHtml(data.title || '');
+    const safeDesc = escapeHtml(data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.');
+    const safeImage = escapeHtml(data.image || '');
+
+    const backLink = buildHashWithTags('epds', activeTags, activeCategory, [], getActiveViewFromURL());
+
+    // Determine which sections have data
+    const hasMaterialProperties = hasData(data.density) || hasData(data.biogenicCarbon);
+
+    // Build sidebar links
+    const sidebarLinks = [];
+    sidebarLinks.push({ id: 'metadaten', text: 'Metadaten' });
+    sidebarLinks.push({ id: 'umweltindikatoren', text: 'Umweltindikatoren' });
+    sidebarLinks.push({ id: 'energie', text: 'Energie' });
+    if (hasMaterialProperties) {
+        sidebarLinks.push({ id: 'materialeigenschaften', text: 'Materialeigenschaften' });
+    }
+
+    const sidebarHtml = sidebarLinks.map(link =>
+        `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
+    ).join('');
+
+    // Format category with subcategory
+    const categoryDisplay = data.subcategory
+        ? `${escapeHtml(data.category)} › ${escapeHtml(data.subcategory)}`
+        : escapeHtml(data.category || '—');
+
+    // Format numbers for display
+    const formatNumber = (num) => {
+        if (num === null || num === undefined) return '—';
+        return typeof num === 'number' ? num.toLocaleString('de-CH') : escapeHtml(String(num));
+    };
+
+    // Build material properties rows (only if data exists)
+    let materialPropertiesHtml = '';
+    if (hasMaterialProperties) {
+        const densityUnit = data.unit === 'm2' ? 'kg/m²' : 'kg/m³';
+        materialPropertiesHtml = `
+            <div id="materialeigenschaften" class="detail-section">
+                <h2>Materialeigenschaften</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th class="th-w-40">Eigenschaft</th>
+                            <th class="th-w-30">Wert</th>
+                            <th>Einheit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${hasData(data.density) ? `<tr>
+                            <td class="col-val">Rohdichte</td>
+                            <td class="col-val col-right">${formatNumber(data.density)}</td>
+                            <td class="col-val">${densityUnit}</td>
+                        </tr>` : ''}
+                        ${hasData(data.biogenicCarbon) ? `<tr>
+                            <td class="col-val">Biogener Kohlenstoff</td>
+                            <td class="col-val col-right">${formatNumber(data.biogenicCarbon)}</td>
+                            <td class="col-val">kg C</td>
+                        </tr>` : ''}
+                    </tbody>
+                </table>
+            </div>`;
+    }
+
+    contentArea.innerHTML = `
+        <section class="detail-hero">
+            <div class="container detail-hero__inner">
+                <div class="hero-content">
+                    <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
+                    <h1 class="hero-title">${safeTitle}</h1>
+                    <p class="hero-subtitle">${safeDesc}</p>
+                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                </div>
+                <div class="hero-image-container">
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="detail-layout">
+                <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
+                <div class="detail-content-area">
+                    <div id="metadaten" class="detail-section">
+                        <h2>Metadaten</h2>
+                        <table class="data-table">
+                            <tbody>
+                                <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${categoryDisplay}</td></tr>
+                                <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.id || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">Version</td><td class="col-val">${escapeHtml(data.version || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.lastChange)}</td></tr>
+                                <tr><td class="col-val metadata-label">UUID</td><td class="col-val"><code>${escapeHtml(data.uuid || '—')}</code></td></tr>
+                                <tr><td class="col-val metadata-label">Bezugsgrösse</td><td class="col-val">${escapeHtml(data.unit || '—')}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="umweltindikatoren" class="detail-section">
+                        <h2>Umweltindikatoren</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-w-40">Indikator</th>
+                                    <th class="th-w-30">Wert</th>
+                                    <th>Einheit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-val">Treibhauspotenzial (GWP)</td>
+                                    <td class="col-val col-right">${formatNumber(data.gwp)}</td>
+                                    <td class="col-val">kg CO₂-eq</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-val">Umweltbelastungspunkte (UBP)</td>
+                                    <td class="col-val col-right">${formatNumber(data.ubp)}</td>
+                                    <td class="col-val">UBP</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="energie" class="detail-section">
+                        <h2>Energie</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-w-40">Indikator</th>
+                                    <th class="th-w-30">Wert</th>
+                                    <th>Einheit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-val">Primärenergie nicht erneuerbar (PENRT)</td>
+                                    <td class="col-val col-right">${formatNumber(data.penrt)}</td>
+                                    <td class="col-val">kWh oil-eq</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-val">Primärenergie erneuerbar (PERT)</td>
+                                    <td class="col-val col-right">${formatNumber(data.pert)}</td>
+                                    <td class="col-val">kWh oil-eq</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    ${materialPropertiesHtml}
+                </div>
+            </div>
+        </div>`;
+
+    setupDetailInteractions();
 }
 
 // ============================================
