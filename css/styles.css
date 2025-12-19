@@ -2482,10 +2482,10 @@ footer a:hover {
     border-color: var(--color-surface-darker);
 }
 
-/* Reset Filter Button - extends .filter-btn with danger hover */
+/* Reset Filter Button - extends .filter-btn with subtle hover */
 .reset-filter-btn:hover {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    color: var(--color-text-primary);
+    border-color: var(--color-text-muted);
     background: var(--color-white);
 }
 
@@ -2577,7 +2577,7 @@ footer a:hover {
 }
 
 .filter-bar__reset:hover {
-    color: var(--color-primary);
+    color: var(--color-text-primary);
     background: var(--color-bg-light);
 }
 
@@ -2719,18 +2719,19 @@ footer a:hover {
 
 .filter-dropdown__item:hover {
     background: var(--color-bg-light);
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: var(--color-text-muted);
+    color: var(--color-text-primary);
 }
 
 .filter-dropdown__item.active {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-surface-dark);
+    border-color: var(--color-surface-dark);
     color: var(--color-white);
 }
 
 .filter-dropdown__item.active:hover {
-    background: var(--color-primary-hover);
+    background: var(--color-surface-darker);
+    border-color: var(--color-surface-darker);
 }
 
 .filter-dropdown__count {
@@ -2767,12 +2768,12 @@ footer a:hover {
 
 .filter-dropdown__phase-item:hover {
     background: var(--color-bg-light);
-    border-color: var(--color-primary);
+    border-color: var(--color-text-muted);
 }
 
 .filter-dropdown__phase-item.active {
-    background: var(--color-primary-light);
-    border-color: var(--color-primary);
+    background: var(--color-surface-alt);
+    border-color: var(--color-surface-dark);
 }
 
 .filter-dropdown__phase-number {
@@ -2790,8 +2791,8 @@ footer a:hover {
 }
 
 .filter-dropdown__phase-item.active .filter-dropdown__phase-number {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+    background: var(--color-surface-dark);
+    border-color: var(--color-surface-dark);
     color: var(--color-white);
 }
 
