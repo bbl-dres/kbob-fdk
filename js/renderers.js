@@ -99,38 +99,139 @@ window.toggleCardTags = function(event, cardId) {
         const tagsData = JSON.parse(tagsContainer.dataset.tags || '[]');
         const activeTags = getActiveTagsFromURL();
         tagsContainer.innerHTML = renderCardTagsHtml(cardId, tagsData, activeTags);
+        // After toggling, fit tags if collapsed
+        if (!expandedCardTags.has(cardId)) {
+            fitCardTagsToSingleRow(tagsContainer);
+        }
     }
 };
 
 /**
- * Render tags for card with +N / - toggle (max 2 visible by default)
+ * Render tags for card with +N / - toggle
+ * In collapsed mode, renders all tags initially for measurement, then fitCardTagsToSingleRow hides overflow
  */
 function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
 
-    const maxVisible = 2;
     const isExpanded = expandedCardTags.has(cardId);
-    const hiddenCount = tagsData.length - maxVisible;
 
-    const renderTag = (tag) => {
+    const renderTag = (tag, index) => {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
+        return `<span class="tag-badge ${activeClass}" data-tag-index="${index}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
     };
 
-    if (tagsData.length <= maxVisible || isExpanded) {
-        const tagsHtml = tagsData.map(renderTag).join('');
-        if (isExpanded && tagsData.length > maxVisible) {
-            return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Weniger anzeigen">−</span>`;
-        }
-        return tagsHtml;
+    const tagsHtml = tagsData.map((tag, index) => renderTag(tag, index)).join('');
+
+    if (isExpanded) {
+        // Expanded: show all tags + collapse button
+        return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Weniger anzeigen">−</span>`;
     }
 
-    const visibleTags = tagsData.slice(0, maxVisible);
-    const tagsHtml = visibleTags.map(renderTag).join('');
-    return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="${hiddenCount} weitere Tags anzeigen">+${hiddenCount}</span>`;
+    // Collapsed: render all tags + count badge placeholder (will be adjusted by fitCardTagsToSingleRow)
+    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Mehr anzeigen">+${tagsData.length}</span>`;
 }
+
+/**
+ * Fit card tags to a single row by hiding overflow tags
+ * @param {HTMLElement} container - The .card__tags container element
+ */
+function fitCardTagsToSingleRow(container) {
+    if (!container) return;
+
+    const tags = container.querySelectorAll('.tag-badge:not(.tag-badge--count)');
+    const countBadge = container.querySelector('.tag-badge--count');
+
+    if (tags.length === 0) return;
+
+    // Reset all tags to visible for measurement
+    tags.forEach(tag => tag.classList.remove('tag-badge--hidden'));
+    if (countBadge) countBadge.classList.remove('tag-badge--hidden');
+
+    // Get the baseline top position from the first tag
+    const firstTagTop = tags[0].offsetTop;
+
+    // Find which tags overflow to a second row
+    let hiddenCount = 0;
+    let firstOverflowIndex = -1;
+
+    // First pass: find where overflow starts (without count badge interfering)
+    if (countBadge) countBadge.classList.add('tag-badge--hidden');
+
+    for (let i = 0; i < tags.length; i++) {
+        if (tags[i].offsetTop > firstTagTop) {
+            firstOverflowIndex = i;
+            break;
+        }
+    }
+
+    if (firstOverflowIndex === -1) {
+        // All tags fit in one row, hide count badge
+        if (countBadge) countBadge.classList.add('tag-badge--hidden');
+        return;
+    }
+
+    // Show count badge and re-measure (it might push earlier tags to overflow)
+    if (countBadge) countBadge.classList.remove('tag-badge--hidden');
+
+    // Hide tags from the overflow point onward
+    for (let i = firstOverflowIndex; i < tags.length; i++) {
+        tags[i].classList.add('tag-badge--hidden');
+        hiddenCount++;
+    }
+
+    // Re-check if count badge causes earlier tags to overflow
+    // Iterate backwards from firstOverflowIndex to find the stable fit
+    for (let i = firstOverflowIndex - 1; i >= 0; i--) {
+        // Check if count badge is now on a second row
+        if (countBadge && countBadge.offsetTop > firstTagTop) {
+            tags[i].classList.add('tag-badge--hidden');
+            hiddenCount++;
+        } else {
+            break;
+        }
+    }
+
+    // Update count badge text
+    if (countBadge) {
+        if (hiddenCount > 0) {
+            countBadge.textContent = `+${hiddenCount}`;
+            countBadge.title = `${hiddenCount} weitere Tags anzeigen`;
+            countBadge.classList.remove('tag-badge--hidden');
+        } else {
+            countBadge.classList.add('tag-badge--hidden');
+        }
+    }
+}
+
+/**
+ * Fit all card tags on the page to single rows
+ * Call this after rendering cards or on window resize
+ */
+window.fitAllCardTagsToSingleRow = function() {
+    document.querySelectorAll('.card__tags').forEach(container => {
+        const cardEl = container.closest('[data-card-id]');
+        if (cardEl) {
+            const cardId = cardEl.dataset.cardId;
+            // Only fit collapsed cards
+            if (!expandedCardTags.has(cardId)) {
+                fitCardTagsToSingleRow(container);
+            }
+        }
+    });
+};
+
+// Debounced resize handler for fitting card tags
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (typeof fitAllCardTagsToSingleRow === 'function') {
+            fitAllCardTagsToSingleRow();
+        }
+    }, 150);
+});
 
 // ============================================
 // UTILITY RENDERERS
