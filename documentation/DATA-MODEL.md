@@ -288,16 +288,9 @@ The catalog supports multiple classification systems to enable cross-referencing
 | KBOB | Federal standard | Switzerland | Swiss federal building classification |
 | IFC | ISO 16739-1:2024 | International | Open BIM data exchange |
 
-#### eBKP-H Code Structure
+#### eBKP-H Codes
 
-```
-C 2.1
-│ │ └── Detail level (Gliederung)
-│ └──── Main group (Hauptgruppe)  
-└────── Building part (Bauwerksgruppe)
-```
-
-#### eBKP-H Building Part Codes (Bauwerksgruppen)
+This is only an overview of the main standard.
 
 | Code | German | English |
 |------|--------|---------|
@@ -313,6 +306,16 @@ C 2.1
 | W | Baunebenkosten | Construction ancillary costs |
 | Y | Reserve | Reserve |
 | Z | Mehrwertsteuer | VAT |
+
+#### DIN 276 Codes
+
+This is only an overview of the main standard.
+- TBD
+
+#### Uniformat II Codes
+
+This is only an overview of the main standard.
+- TBD
 
 ### 3.4 Tagging System
 
