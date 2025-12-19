@@ -7,7 +7,7 @@
     "image": "",
     "category": "Elektro",
     "description": "Mechanische Vorrichtung zur Umwandlung von Energie (Luft, Strom, Flüssigkeit) in Bewegung zur Steuerung von Systemen.",
-    "tags": [],
+    "tags": ["Automation", "Steuerung", "Antrieb"],
     "classifications": {
       "Uniformat II 2010": [
         "D8010.10 – Integrated Automation Control of Equipment",
@@ -267,7 +267,7 @@
     "image": "",
     "category": "Elektro",
     "description": "Gerät zum Anzeigen, Aufnehmen, Übertragen oder Empfangen von Audio-/Videodaten; fest oder mobil installiert.",
-    "tags": [],
+    "tags": ["Multimedia", "Kommunikation"],
     "classifications": {
       "Uniformat II 2010": [
         "D6020 - Voice Communications",
@@ -5387,7 +5387,7 @@
     "image": "assets/img/element/window.jpg",
     "category": "Architektur",
     "description": "Bauelement für Lichteinfall und Belüftung; vertikale oder horizontale Öffnungen mit Rahmen und Flügeln.",
-    "tags": [],
+    "tags": ["Fassade", "Tageslicht", "Belüftung", "Aussenhülle"],
     "classifications": {
       "Uniformat II 2010": [
         "B2020 – Exterior Windows",
@@ -8830,7 +8830,7 @@
     "image": "assets/img/element/leuchte.jpg",
     "category": "Elektro",
     "description": "Vorrichtung zur künstlichen Beleuchtung; inkl. Lampe, Trafo und Zubehör.",
-    "tags": [],
+    "tags": ["Beleuchtung", "Innenraum", "Energieeffizienz"],
     "classifications": {
       "Uniformat II 2010": [
         "D5040.50 – Lighting Fixtures"
@@ -12697,7 +12697,7 @@
     "image": "assets/img/element/wc.jpg",
     "category": "HLKS",
     "description": "Gerät mit Wasserversorgung und meist Abwasseranschluss: WC, Waschbecken, Dusche etc.",
-    "tags": [],
+    "tags": ["Sanitär", "Hygiene", "Wasser"],
     "classifications": {
       "Uniformat II 2010": [
         "D2010.60 – Plumbing Fixtures"
@@ -17762,7 +17762,7 @@
     "image": "assets/img/element/door_interior.jpg",
     "category": "Architektur",
     "description": "Bauelement für kontrollierten Zugang; Rahmen mit beweglichen Türblättern und Beschlägen.",
-    "tags": [],
+    "tags": ["Zugang", "Innenraum", "Sicherheit", "Brandschutz"],
     "classifications": {
       "Uniformat II 2010": [
         "B2050 – Exterior Doors and Grilles",
