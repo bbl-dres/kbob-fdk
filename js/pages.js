@@ -157,14 +157,14 @@ function renderSearchResultsPage(query) {
             const safeId = escapeHtml(item.id || '');
             const safeCat = escapeHtml(item.category || '');
             resultsHtml += `
-                <div class="search-result-item">
+                <a href="#${safeCat}/${safeId}" class="search-result-item">
                     <div class="search-result-item__meta">
                         <span class="search-result-item__type">${safeType}</span>
                         ${dateStr ? `<span class="search-result-item__date">${dateStr}</span>` : ''}
                     </div>
-                    <h3 class="search-result-item__title"><a href="#${safeCat}/${safeId}">${safeTitle}</a></h3>
+                    <h3 class="search-result-item__title">${safeTitle}</h3>
                     <p class="search-result-item__desc">${safeDesc}</p>
-                </div>
+                </a>
             `;
         });
         resultsHtml += `</div>`;
