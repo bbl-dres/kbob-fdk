@@ -270,6 +270,13 @@ function renderHandbookPage() {
                                         <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
+                                <div class="external-item">
+                                    <i data-lucide="link" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="https://www.kbob.admin.ch/de/mustervertraege-und-publikationen" target="_blank" rel="noopener" class="external-item__link">
+                                        KBOB Musterverträge und Publikationen
+                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
