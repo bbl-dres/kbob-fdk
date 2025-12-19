@@ -1045,12 +1045,22 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
 
                     <div id="elemente" class="detail-section">
                         <h2>Elemente</h2>
-                        <p class="empty-text">Diese Funktion wird derzeit entwickelt.</p>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="anwendungsfaelle" class="detail-section">
                         <h2>Anwendungsfälle</h2>
-                        <p class="empty-text">Diese Funktion wird derzeit entwickelt.</p>
+                        <div class="info-box info-box--inline">
+                            <i data-lucide="construction" class="info-box__icon"></i>
+                            <div>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
