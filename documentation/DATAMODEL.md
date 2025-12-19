@@ -282,7 +282,7 @@ The catalog supports multiple classification systems to enable cross-referencing
 
 | System | Standard | Region | Primary Use |
 |--------|----------|--------|-------------|
-| eBKP-H | SN 506 511 | Switzerland | Cost planning for building construction |
+| eBKP-H | SN 506 511:2020 | Switzerland | Cost planning for building construction |
 | DIN 276 | DIN 276:2018 | Germany/DACH | Cost classification |
 | Uniformat II | ASTM E1557 | International | Elemental cost classification |
 | KBOB | Federal standard | Switzerland | Swiss federal building classification |
@@ -290,7 +290,7 @@ The catalog supports multiple classification systems to enable cross-referencing
 
 ### eBKP-H Codes
 
-This is only an overview of the main standard.
+This is only an overview of the main groups (Hauptgruppen). SN 506 511 defines a hierarchical four-level structure with over 500 elements at the most detailed level.
 
 | Code | Value (EN) | Value (DE) |
 |------|------------|------------|
@@ -309,13 +309,36 @@ This is only an overview of the main standard.
 
 ### DIN 276 Codes
 
-This is only an overview of the main standard.
-- TBD
+This is only an overview of the main cost groups (Kostengruppen der 1. Ebene). DIN 276:2018-12 defines a hierarchical three-level structure with approximately 150 cost groups at the most detailed level.
+
+| Code | Value (EN) | Value (DE) |
+|------|------------|------------|
+| 100 | Site | Grundstück |
+| 200 | Preliminary works | Vorbereitende Maßnahmen |
+| 300 | Building – Construction | Bauwerk – Baukonstruktionen |
+| 400 | Building – Technical installations | Bauwerk – Technische Anlagen |
+| 500 | External works | Außenanlagen und Freiflächen |
+| 600 | Furnishings and artwork | Ausstattung und Kunstwerke |
+| 700 | Ancillary construction costs | Baunebenkosten |
+| 800 | Financing | Finanzierung |
 
 ### Uniformat II Codes
 
-This is only an overview of the main standard.
-- TBD
+This is only an overview of the Level 1 major group elements. ASTM E1557 defines a hierarchical four-level structure with over 300 individual elements at the most detailed level.
+
+| Code | Value (EN) | Value (DE) |
+|------|------------|------------|
+| A | Substructure | Unterbau |
+| B | Shell | Rohbau/Gebäudehülle |
+| C | Interiors | Innenausbau |
+| D | Services | Gebäudetechnik |
+| E | Equipment & Furnishings | Ausstattung und Einrichtung |
+| F | Special Construction & Demolition | Sonderbauteile und Abbruch |
+| G | Building Sitework | Aussenanlagen |
+
+---
+
+These replace the existing "TBD" sections. I've added context about the hierarchy depth (three-level for DIN 276, four-level for Uniformat II) and approximate element counts to give readers a sense of the full scope.
 
 ## 3.4 Tagging System
 
