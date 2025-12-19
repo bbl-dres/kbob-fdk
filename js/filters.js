@@ -125,7 +125,7 @@ function renderFilterBar(options) {
         phasesGroupHtml = `
             <div class="filter-group" data-filter-id="phases">
                 <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'phases')">
-                    Phase ${activePhasesCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activePhasesCount}</span>` : ''}
+                    Phase ${activePhasesCount > 0 ? `<span class="filter-count-badge">${activePhasesCount}</span>` : ''}
                     <i data-lucide="chevron-down" aria-hidden="true"></i>
                 </div>
                 <div class="filter-dropdown">
@@ -170,7 +170,7 @@ function renderFilterBar(options) {
             <div class="filter-bar__groups">
                 <div class="filter-group" data-filter-id="category">
                     <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'category')">
-                        Kategorie ${activeCategoryCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activeCategoryCount}</span>` : ''}
+                        Kategorie ${activeCategoryCount > 0 ? `<span class="filter-count-badge">${activeCategoryCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
                     <div class="filter-dropdown">
@@ -182,7 +182,7 @@ function renderFilterBar(options) {
                 </div>
                 <div class="filter-group" data-filter-id="tags">
                     <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'tags')">
-                        Tags ${activeTagsCount > 0 ? `<span class="filter-count-badge" style="background:var(--color-primary);color:white;padding:2px 6px;border-radius:10px;font-size:11px;margin-left:4px;">${activeTagsCount}</span>` : ''}
+                        Tags ${activeTagsCount > 0 ? `<span class="filter-count-badge">${activeTagsCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
                     <div class="filter-dropdown">

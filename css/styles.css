@@ -2494,7 +2494,7 @@ footer a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-text-primary);
+    background: var(--color-surface-dark);
     color: var(--color-white);
     font-size: var(--text-caption);
     font-weight: var(--font-weight-semibold);
@@ -2513,7 +2513,7 @@ footer a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-primary);
+    background: var(--color-surface-dark);
     color: var(--color-white);
     font-size: var(--text-caption);
     font-weight: var(--font-weight-bold);
@@ -2772,8 +2772,9 @@ footer a:hover {
 }
 
 .filter-dropdown__phase-item.active {
-    background: var(--color-surface-alt);
+    background: var(--color-surface-dark);
     border-color: var(--color-surface-dark);
+    color: var(--color-white);
 }
 
 .filter-dropdown__phase-number {
@@ -2800,6 +2801,15 @@ footer a:hover {
     flex: 1;
     font-size: var(--font-size-sm);
     color: var(--color-text-primary);
+}
+
+.filter-dropdown__phase-item.active .filter-dropdown__phase-label {
+    color: var(--color-white);
+}
+
+.filter-dropdown__phase-item.active:hover {
+    background: var(--color-surface-darker);
+    border-color: var(--color-surface-darker);
 }
 
 /* Mobile adjustments for filter dropdowns */
