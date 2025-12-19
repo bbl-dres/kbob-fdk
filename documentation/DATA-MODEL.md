@@ -251,27 +251,13 @@ All entities share a base set of attributes for identification, versioning, and 
 
 All phase-dependent attributes reference the lifecycle phases of a building or asset. The phase model is based on VDI 2552 Blatt 12.2, which aligns with research by Bergische Universität Wuppertal (WUP) and provides a region-neutral framework compatible with national standards.
 
-#### Phase Definitions
-
-| Phase | German | French | Italian | English |
-|-------|--------|--------|---------|---------|
-| 1 | Entwicklung | Développement | Sviluppo | Development |
-| 2 | Planung | Planification | Progettazione | Planning |
-| 3 | Realisierung | Réalisation | Realizzazione | Construction |
-| 4 | Betrieb | Exploitation | Gestione | Operations |
-| 5 | Abbruch | Déconstruction | Decostruzione | Demolition |
-
-#### Phase Descriptions
-
-Per VDI 2552 Blatt 12.2 Anhang B3:
-
-| Phase | Description |
-|-------|-------------|
-| Entwicklung | Comprises the main processes of "project development" in the narrower sense and "awarding of planning services" (e.g., feasibility studies for existing buildings) |
-| Planung | Consists of basic evaluation, preliminary planning, design planning, approval planning, and execution planning (e.g., object and specialist planning) |
-| Realisierung | Includes awarding of construction work, work preparation, construction execution, and construction acceptance (e.g., fabrication and assembly planning) |
-| Betrieb | Encompasses the awarding of building services, operations, and use (e.g., operator responsibility) |
-| Abbruch | Includes demolition planning and demolition execution (e.g., decommissioning management) |
+| Phase | English | German | French | Italian | Description |
+|-------|---------|--------|--------|---------|-------------|
+| 1 | Development | Entwicklung | Développement | Sviluppo | Comprises project development and awarding of planning services (e.g., feasibility studies for existing buildings) |
+| 2 | Planning | Planung | Planification | Progettazione | Consists of basic evaluation, preliminary planning, design planning, approval planning, and execution planning (e.g., object and specialist planning) |
+| 3 | Construction | Realisierung | Réalisation | Realizzazione | Includes awarding of construction work, work preparation, construction execution, and construction acceptance (e.g., fabrication and assembly planning) |
+| 4 | Operations | Betrieb | Exploitation | Gestione | Encompasses awarding of building services, operations, and use (e.g., operator responsibility) |
+| 5 | Demolition | Abbruch | Déconstruction | Decostruzione | Includes demolition planning and demolition execution (e.g., decommissioning management) |
 
 #### Phase Standard Mappings
 
