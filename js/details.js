@@ -928,7 +928,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                     <thead>
                         <tr>
                             <th class="th-w-40">Eigenschaft</th>
-                            <th class="th-w-30">Wert</th>
+                            <th class="th-w-30 col-right">Wert</th>
                             <th>Einheit</th>
                         </tr>
                     </thead>
@@ -997,7 +997,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                             <thead>
                                 <tr>
                                     <th class="th-w-40">Indikator</th>
-                                    <th class="th-w-30">Wert</th>
+                                    <th class="th-w-30 col-right">Wert</th>
                                     <th>Einheit</th>
                                 </tr>
                             </thead>
@@ -1022,7 +1022,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                             <thead>
                                 <tr>
                                     <th class="th-w-40">Indikator</th>
-                                    <th class="th-w-30">Wert</th>
+                                    <th class="th-w-30 col-right">Wert</th>
                                     <th>Einheit</th>
                                 </tr>
                             </thead>
