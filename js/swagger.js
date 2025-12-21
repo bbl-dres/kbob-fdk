@@ -49,10 +49,6 @@ function renderApiDocsPage() {
     initSwaggerUI();
 }
 
-// Track if we're on the API docs page
-let isOnApiDocsPage = false;
-let swaggerHashListener = null;
-
 /**
  * Initialize Swagger UI with the OpenAPI specification from edge function
  */
@@ -68,42 +64,6 @@ function initSwaggerUI() {
         return;
     }
 
-    isOnApiDocsPage = true;
-
-    // Remove previous listener if exists
-    if (swaggerHashListener) {
-        window.removeEventListener('hashchange', swaggerHashListener);
-    }
-
-    // Listen for hash changes from Swagger UI and prefix with api-docs/
-    swaggerHashListener = function(e) {
-        if (!isOnApiDocsPage) return;
-
-        const hash = window.location.hash;
-
-        // If hash is just #/ or empty, set it to #api-docs
-        if (hash === '#/' || hash === '#') {
-            history.replaceState(null, '', '#api-docs');
-            return;
-        }
-
-        // If hash starts with #/ but not #/api-docs, prefix it
-        if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
-            const swaggerPath = hash.slice(2); // Remove #/
-            history.replaceState(null, '', '#api-docs/' + swaggerPath);
-        }
-    };
-
-    window.addEventListener('hashchange', swaggerHashListener);
-
-    // Extract Swagger path from current URL if we're loading with a deep link
-    let initialHash = window.location.hash;
-    if (initialHash.startsWith('#api-docs/')) {
-        // Convert #api-docs/elements/get_elements to #/elements/get_elements for Swagger
-        const swaggerPath = initialHash.slice(9); // Remove #api-docs
-        history.replaceState(null, '', '#/' + swaggerPath.slice(1)); // Set to #/xxx for Swagger to pick up
-    }
-
     // Get API URL from config
     const apiUrl = (typeof CONFIG !== 'undefined' && CONFIG.apiUrl)
         ? CONFIG.apiUrl
@@ -115,7 +75,7 @@ function initSwaggerUI() {
     SwaggerUIBundle({
         url: apiUrl,
         dom_id: '#swagger-ui',
-        deepLinking: true,
+        deepLinking: false,
         presets: useStandalone
             ? [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset]
             : [SwaggerUIBundle.presets.apis],
@@ -124,25 +84,6 @@ function initSwaggerUI() {
         defaultModelExpandDepth: 1,
         docExpansion: 'list',
         filter: true,
-        tryItOutEnabled: true,
-        // After Swagger loads, restore the api-docs prefix
-        onComplete: () => {
-            const hash = window.location.hash;
-            if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
-                const swaggerPath = hash.slice(2);
-                if (swaggerPath) {
-                    history.replaceState(null, '', '#api-docs/' + swaggerPath);
-                } else {
-                    history.replaceState(null, '', '#api-docs');
-                }
-            }
-        }
+        tryItOutEnabled: true
     });
-}
-
-/**
- * Clean up when leaving the API docs page
- */
-function cleanupSwaggerUI() {
-    isOnApiDocsPage = false;
 }
