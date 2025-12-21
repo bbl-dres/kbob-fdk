@@ -4484,9 +4484,19 @@ th[aria-sort='ascending'] .table__sorter span::after {
     font-family: var(--font-family-primary);
 }
 
-/* Hide the top bar info since we have our own hero */
-#swagger-ui .swagger-ui .info {
+/* Hide the info title/description since we have our own hero, but keep auth visible */
+#swagger-ui .swagger-ui .info hgroup,
+#swagger-ui .swagger-ui .info .description,
+#swagger-ui .swagger-ui .info .base-url,
+#swagger-ui .swagger-ui .info .link,
+#swagger-ui .swagger-ui .info .title {
     display: none;
+}
+
+/* Make sure the info section itself is visible for the auth button */
+#swagger-ui .swagger-ui .info {
+    margin: 0 !important;
+    padding: var(--space-sm) var(--space-md) !important;
 }
 
 /* Hide schemes selector */
