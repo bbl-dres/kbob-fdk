@@ -1306,6 +1306,24 @@
       "type": "string"
     }
   },
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "apikey",
+      "description": "Supabase API Key (anon key for public read access)"
+    },
+    "BearerAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization",
+      "description": "Bearer token (use 'Bearer <your-api-key>')"
+    }
+  },
+  "security": [
+    { "ApiKeyAuth": [] },
+    { "BearerAuth": [] }
+  ],
   "externalDocs": {
     "description": "PostgREST Documentation",
     "url": "https://postgrest.org/en/v14/references/api.html"

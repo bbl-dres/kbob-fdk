@@ -3,8 +3,18 @@
  * API documentation with embedded Swagger UI
  */
 
-// Supabase anon key for public read access
-const SUPABASE_ANON_KEY = 'sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS';
+/**
+ * Get the Supabase anon key from CONFIG or fallback
+ * @returns {string} The API key
+ */
+function getSupabaseAnonKey() {
+    // Try to get from CONFIG (loaded from config.js)
+    if (typeof CONFIG !== 'undefined' && CONFIG.supabase && CONFIG.supabase.anonKey && CONFIG.supabase.anonKey !== 'YOUR_SUPABASE_ANON_KEY') {
+        return CONFIG.supabase.anonKey;
+    }
+    // Return empty string if no valid key - user will need to use Authorize button
+    return '';
+}
 
 /**
  * Render the API documentation page with Swagger UI
@@ -47,10 +57,10 @@ function renderApiDocsPage() {
                                 </div>
                             </div>
                             <div class="api-info-card">
-                                <i data-lucide="key" class="api-info-card__icon"></i>
+                                <i data-lucide="shield-check" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
-                                    <h3>API Key (Header: apikey)</h3>
-                                    <code>${SUPABASE_ANON_KEY}</code>
+                                    <h3>Authentifizierung</h3>
+                                    <span>Klicken Sie auf <strong>"Authorize"</strong> im API Explorer und geben Sie Ihren Supabase API-Key ein</span>
                                 </div>
                             </div>
                             <div class="api-info-card">
@@ -60,6 +70,18 @@ function renderApiDocsPage() {
                                     <span>JSON, CSV</span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="api-auth-info" style="margin-top: 1.5rem; padding: 1rem; background: var(--color-surface-secondary, #f5f5f5); border-radius: 8px; border-left: 4px solid var(--color-primary, #d32f2f);">
+                            <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="key" style="width: 1.2rem; height: 1.2rem;"></i>
+                                API-Authentifizierung erforderlich
+                            </h4>
+                            <p style="margin: 0 0 0.5rem 0;">Um die API zu testen, benötigen Sie einen Supabase API-Key. Fügen Sie diesen in beide Felder im "Authorize"-Dialog ein:</p>
+                            <ul style="margin: 0; padding-left: 1.5rem;">
+                                <li><strong>ApiKeyAuth:</strong> Ihr API-Key</li>
+                                <li><strong>BearerAuth:</strong> Bearer [Ihr API-Key]</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -155,10 +177,19 @@ function initSwaggerUI() {
         showExtensions: true,
         showCommonExtensions: true,
         tryItOutEnabled: true,
-        // Inject the API key header into all requests
+        // Inject the API key header into all requests (if available from CONFIG)
         requestInterceptor: (request) => {
-            request.headers['apikey'] = SUPABASE_ANON_KEY;
-            request.headers['Authorization'] = `Bearer ${SUPABASE_ANON_KEY}`;
+            const apiKey = getSupabaseAnonKey();
+            if (apiKey) {
+                // Only set headers if we have a valid API key from CONFIG
+                // Otherwise, rely on the Authorize button for authentication
+                if (!request.headers['apikey']) {
+                    request.headers['apikey'] = apiKey;
+                }
+                if (!request.headers['Authorization']) {
+                    request.headers['Authorization'] = `Bearer ${apiKey}`;
+                }
+            }
             return request;
         },
         // After Swagger loads, restore the api-docs prefix
