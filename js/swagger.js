@@ -3,6 +3,9 @@
  * API documentation with embedded Swagger UI
  */
 
+// Supabase anon key for public read access
+const SUPABASE_ANON_KEY = 'sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS';
+
 /**
  * Render the API documentation page with Swagger UI
  */
@@ -49,10 +52,10 @@ function renderApiDocsPage() {
                                 </div>
                             </div>
                             <div class="api-info-card">
-                                <i data-lucide="shield-check" class="api-info-card__icon"></i>
+                                <i data-lucide="key" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
-                                    <h3>Authentifizierung</h3>
-                                    <span>Öffentlicher Lesezugriff (anon key)</span>
+                                    <h3>API Key (Header: apikey)</h3>
+                                    <code>${SUPABASE_ANON_KEY}</code>
                                 </div>
                             </div>
                             <div class="api-info-card">
@@ -67,7 +70,7 @@ function renderApiDocsPage() {
 
                     <div id="swagger-container" class="detail-section">
                         <h2>API Explorer</h2>
-                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser.</p>
+                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Der API-Key wird automatisch mitgesendet.</p>
                         <div id="swagger-ui"></div>
                     </div>
                 </div>
@@ -114,7 +117,12 @@ function initSwaggerUI() {
         filter: true,
         showExtensions: true,
         showCommonExtensions: true,
-        tryItOutEnabled: false,
-        supportedSubmitMethods: []
+        tryItOutEnabled: true,
+        // Inject the API key header into all requests
+        requestInterceptor: (request) => {
+            request.headers['apikey'] = SUPABASE_ANON_KEY;
+            request.headers['Authorization'] = `Bearer ${SUPABASE_ANON_KEY}`;
+            return request;
+        }
     });
 }
