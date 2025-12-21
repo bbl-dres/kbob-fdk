@@ -62,7 +62,8 @@ const routeNames = {
     'epds': 'Ökobilanzdaten',
     'epd': 'Ökobilanzdaten',
     'handbook': 'Handbuch & Downloads',
-    'search': 'Suchergebnisse'
+    'search': 'Suchergebnisse',
+    'api-docs': 'REST API Dokumentation'
 };
 
 // Parent route mappings for detail pages (also used for detail-to-list redirects)
@@ -71,7 +72,8 @@ const parentRoutes = {
     'document': 'documents',
     'usecase': 'usecases',
     'model': 'models',
-    'epd': 'epds'
+    'epd': 'epds',
+    'api-docs': 'handbook'
 };
 
 // Phase labels for display

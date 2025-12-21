@@ -67,6 +67,10 @@ function router() {
         case 'models': renderModelsCatalogPage(tags, category); break;
         case 'epds': renderEpdsCatalogPage(tags, category); break;
         case 'handbook': renderHandbookPage(); break;
+        case 'api-docs':
+            contentArea.classList.add('white-bg');
+            renderApiDocsPage();
+            break;
         case 'element':
             if (id) {
                 contentArea.classList.add('white-bg');

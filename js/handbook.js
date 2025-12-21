@@ -198,9 +198,9 @@ function renderHandbookPage() {
                                 <p class="accordion-description">Programmatische Schnittstellen für den Datenzugriff.</p>
                                 <div class="external-item">
                                     <i data-lucide="arrow-right-left" class="external-item__icon" aria-hidden="true"></i>
-                                    <a href="#" class="external-item__link">
+                                    <a href="#api-docs" class="external-item__link">
                                         REST API
-                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                        <i data-lucide="chevron-right" class="external-icon" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="external-item">
