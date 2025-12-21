@@ -28,7 +28,7 @@ function renderApiDocsPage() {
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <i data-lucide="code-2" class="hero-image-placeholder icon--4xl"></i>
+                    <img src="assets/img/api/rest.jpg" alt="REST API Dokumentation">
                 </div>
             </div>
         </section>
