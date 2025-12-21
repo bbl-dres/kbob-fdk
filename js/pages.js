@@ -111,6 +111,11 @@ function renderHomePage() {
                         <p class="quick-card__desc">Umweltkennwerte für Baumaterialien und Gebäudetechnik</p>
                         <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
                     </a>
+                    <a href="#api-docs" class="quick-card" data-route="api-docs">
+                        <h3 class="quick-card__title">REST API</h3>
+                        <p class="quick-card__desc">Interaktive Dokumentation der REST-Endpunkte zum Testen und Erkunden</p>
+                        <span class="arrow-btn quick-card__arrow-btn" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+                    </a>
                 </div>
             </div>
         </section>`;
