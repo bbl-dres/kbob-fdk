@@ -8,7 +8,11 @@
  * @returns {Object} { route, id, tags, phases, searchQuery, category, view }
  */
 function parseHashWithParams() {
-    const fullHash = window.location.hash.slice(1) || 'home';
+    // Remove # and any leading slash (e.g., #/api-docs -> api-docs)
+    let fullHash = window.location.hash.slice(1) || 'home';
+    if (fullHash.startsWith('/')) {
+        fullHash = fullHash.slice(1);
+    }
     const [hashPart, queryPart] = fullHash.split('?');
 
     // Parse route and id
