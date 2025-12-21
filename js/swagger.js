@@ -57,10 +57,10 @@ function renderApiDocsPage() {
                                 </div>
                             </div>
                             <div class="api-info-card">
-                                <i data-lucide="shield-check" class="api-info-card__icon"></i>
+                                <i data-lucide="key" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
-                                    <h3>Authentifizierung</h3>
-                                    <span>Klicken Sie auf <strong>"Authorize"</strong> im API Explorer und geben Sie Ihren Supabase API-Key ein</span>
+                                    <h3>API Key</h3>
+                                    <code>sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS</code>
                                 </div>
                             </div>
                             <div class="api-info-card">
@@ -70,18 +70,6 @@ function renderApiDocsPage() {
                                     <span>JSON, CSV</span>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="api-auth-info" style="margin-top: 1.5rem; padding: 1rem; background: var(--color-surface-secondary, #f5f5f5); border-radius: 8px; border-left: 4px solid var(--color-primary, #d32f2f);">
-                            <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-                                <i data-lucide="key" style="width: 1.2rem; height: 1.2rem;"></i>
-                                API-Authentifizierung erforderlich
-                            </h4>
-                            <p style="margin: 0 0 0.5rem 0;">Um die API zu testen, benötigen Sie einen Supabase API-Key. Fügen Sie diesen in beide Felder im "Authorize"-Dialog ein:</p>
-                            <ul style="margin: 0; padding-left: 1.5rem;">
-                                <li><strong>ApiKeyAuth:</strong> Ihr API-Key</li>
-                                <li><strong>BearerAuth:</strong> Bearer [Ihr API-Key]</li>
-                            </ul>
                         </div>
                     </div>
 
@@ -210,10 +198,6 @@ function initSwaggerUI() {
         .then(spec => {
             // Enhance the spec for Supabase compatibility
             const enhancedSpec = enhanceOpenAPISpec(spec);
-
-            // Debug: log the enhanced spec
-            console.log('Enhanced OpenAPI spec:', enhancedSpec);
-            console.log('SwaggerUIStandalonePreset available:', typeof SwaggerUIStandalonePreset);
 
             // Use StandaloneLayout if preset is available, otherwise fall back to BaseLayout
             const useStandalone = typeof SwaggerUIStandalonePreset !== 'undefined';
