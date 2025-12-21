@@ -3,6 +3,9 @@
  * URL parsing and building functions
  */
 
+// Swagger UI deep link patterns (tag/operationId format)
+const SWAGGER_DEEP_LINK_PATTERN = /^(elements|documents|usecases|models|epds)\/(get|post|patch|delete)_/;
+
 /**
  * Parse the current hash and extract route, id, and parameters
  * @returns {Object} { route, id, tags, phases, searchQuery, category, view }
@@ -19,7 +22,10 @@ function parseHashWithParams() {
     let route = hashPart;
     let id = null;
 
-    if (hashPart.startsWith('element/')) {
+    // Check for Swagger UI deep links (e.g., elements/get_elements)
+    if (SWAGGER_DEEP_LINK_PATTERN.test(hashPart)) {
+        route = 'api-docs';
+    } else if (hashPart.startsWith('element/')) {
         route = 'element';
         id = hashPart.split('/')[1];
     } else if (hashPart.startsWith('document/')) {
