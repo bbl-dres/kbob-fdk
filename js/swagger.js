@@ -217,7 +217,10 @@ function initSwaggerUI() {
                 deepLinking: true,
                 presets: [
                     SwaggerUIBundle.presets.apis,
-                    SwaggerUIBundle.SwaggerUIStandalonePreset
+                    SwaggerUIStandalonePreset
+                ],
+                plugins: [
+                    SwaggerUIBundle.plugins.DownloadUrl
                 ],
                 layout: 'StandaloneLayout',
                 defaultModelsExpandDepth: 1,
