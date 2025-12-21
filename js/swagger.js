@@ -4,19 +4,6 @@
  */
 
 /**
- * Get the Supabase anon key from CONFIG or fallback
- * @returns {string} The API key
- */
-function getSupabaseAnonKey() {
-    // Try to get from CONFIG (loaded from config.js)
-    if (typeof CONFIG !== 'undefined' && CONFIG.supabase && CONFIG.supabase.anonKey && CONFIG.supabase.anonKey !== 'YOUR_SUPABASE_ANON_KEY') {
-        return CONFIG.supabase.anonKey;
-    }
-    // Return empty string if no valid key - user will need to use Authorize button
-    return '';
-}
-
-/**
  * Render the API documentation page with Swagger UI
  */
 function renderApiDocsPage() {
@@ -33,7 +20,7 @@ function renderApiDocsPage() {
                         </a>
                     </div>
                     <h1 class="hero-title">REST API Dokumentation</h1>
-                    <p class="hero-subtitle">Interaktive API-Dokumentation für den programmatischen Zugriff auf den KBOB Fachdatenkatalog. Die API basiert auf PostgREST und ermöglicht lesenden Zugriff auf alle Katalogdaten.</p>
+                    <p class="hero-subtitle">Öffentliche API für den programmatischen Zugriff auf den KBOB Fachdatenkatalog. Keine Authentifizierung erforderlich.</p>
                 </div>
                 <div class="hero-image-container">
                     <img src="assets/img/api/rest.jpg" alt="REST API Dokumentation">
@@ -44,41 +31,8 @@ function renderApiDocsPage() {
         <div class="container">
             <div class="detail-layout detail-layout--full">
                 <div class="detail-content-area">
-                    <div id="api-info" class="detail-section">
-                        <h2>Übersicht</h2>
-                        <p>Die KBOB Fachdatenkatalog API bietet programmatischen Zugriff auf alle Katalogdaten. Sie können Elemente, Dokumente, Anwendungsfälle, Fachmodelle und Ökobilanzdaten abfragen.</p>
-
-                        <div class="api-info-cards">
-                            <div class="api-info-card">
-                                <i data-lucide="server" class="api-info-card__icon"></i>
-                                <div class="api-info-card__content">
-                                    <h3>Base URL</h3>
-                                    <div class="copyable-value">
-                                        <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
-                                        <button class="copy-btn" onclick="copyToClipboard('https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1', this)" title="Kopieren">
-                                            <i data-lucide="copy"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="api-info-card">
-                                <i data-lucide="key" class="api-info-card__icon"></i>
-                                <div class="api-info-card__content">
-                                    <h3>API Key</h3>
-                                    <div class="copyable-value">
-                                        <code>sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS</code>
-                                        <button class="copy-btn" onclick="copyToClipboard('sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS', this)" title="Kopieren">
-                                            <i data-lucide="copy"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div id="swagger-container" class="detail-section">
                         <h2>API Explorer</h2>
-                        <p>Testen Sie die API-Endpunkte direkt in Ihrem Browser. Klicken Sie auf «Authorize» und geben Sie den API-Key ein.</p>
                         <div id="swagger-ui"></div>
                     </div>
                 </div>
@@ -100,44 +54,7 @@ let isOnApiDocsPage = false;
 let swaggerHashListener = null;
 
 /**
- * Enhance the OpenAPI spec at runtime for Supabase compatibility
- * This fixes issues with the auto-generated spec from Supabase:
- * - Removes :443 from host (causes CORS issues)
- * - Sets correct basePath for Supabase REST API
- * - Adds security definitions for the Authorize button
- * @param {Object} spec - The OpenAPI specification object
- * @returns {Object} The modified specification
- */
-function enhanceOpenAPISpec(spec) {
-    // Fix host - remove port 443 which causes CORS issues
-    if (spec.host && spec.host.endsWith(':443')) {
-        spec.host = spec.host.replace(':443', '');
-    }
-
-    // Fix basePath - Supabase REST API is at /rest/v1
-    spec.basePath = '/rest/v1';
-
-    // Add security definition for Supabase authentication
-    // Only apikey header is needed for read operations
-    spec.securityDefinitions = {
-        ApiKeyAuth: {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'apikey',
-            'description': 'Supabase API Key (anon key for public read access)'
-        }
-    };
-
-    // Apply security globally to all endpoints
-    spec.security = [
-        { ApiKeyAuth: [] }
-    ];
-
-    return spec;
-}
-
-/**
- * Initialize Swagger UI with the OpenAPI specification
+ * Initialize Swagger UI with the OpenAPI specification from edge function
  */
 function initSwaggerUI() {
     if (typeof SwaggerUIBundle === 'undefined') {
@@ -163,8 +80,6 @@ function initSwaggerUI() {
         if (!isOnApiDocsPage) return;
 
         const hash = window.location.hash;
-        // Swagger sets hashes like #/elements/get_elements or #/
-        // We want to prefix with api-docs: #api-docs/elements/get_elements
 
         // If hash is just #/ or empty, set it to #api-docs
         if (hash === '#/' || hash === '#') {
@@ -189,67 +104,40 @@ function initSwaggerUI() {
         history.replaceState(null, '', '#/' + swaggerPath.slice(1)); // Set to #/xxx for Swagger to pick up
     }
 
-    // Fetch the OpenAPI spec and add security definitions at runtime
-    fetch('data/openapi.json')
-        .then(response => response.json())
-        .then(spec => {
-            // Enhance the spec for Supabase compatibility
-            const enhancedSpec = enhanceOpenAPISpec(spec);
+    // Get API URL from config
+    const apiUrl = (typeof CONFIG !== 'undefined' && CONFIG.apiUrl)
+        ? CONFIG.apiUrl
+        : 'https://sdomjwahhqrlyqyfyyeo.supabase.co/functions/v1/kbob-api';
 
-            // Use StandaloneLayout if preset is available, otherwise fall back to BaseLayout
-            const useStandalone = typeof SwaggerUIStandalonePreset !== 'undefined';
+    // Use StandaloneLayout if preset is available, otherwise fall back to BaseLayout
+    const useStandalone = typeof SwaggerUIStandalonePreset !== 'undefined';
 
-            SwaggerUIBundle({
-                spec: enhancedSpec,
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                presets: useStandalone
-                    ? [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset]
-                    : [SwaggerUIBundle.presets.apis],
-                layout: useStandalone ? 'StandaloneLayout' : 'BaseLayout',
-                defaultModelsExpandDepth: 1,
-                defaultModelExpandDepth: 1,
-                docExpansion: 'list',
-                filter: true,
-                tryItOutEnabled: true,
-                // Inject the API key header into all requests (if available from CONFIG)
-                requestInterceptor: (request) => {
-                    const apiKey = getSupabaseAnonKey();
-                    if (apiKey) {
-                        // Only set headers if we have a valid API key from CONFIG
-                        // Otherwise, rely on the Authorize button for authentication
-                        if (!request.headers['apikey']) {
-                            request.headers['apikey'] = apiKey;
-                        }
-                        if (!request.headers['Authorization']) {
-                            request.headers['Authorization'] = `Bearer ${apiKey}`;
-                        }
-                    }
-                    return request;
-                },
-                // After Swagger loads, restore the api-docs prefix
-                onComplete: () => {
-                    const hash = window.location.hash;
-                    if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
-                        const swaggerPath = hash.slice(2);
-                        if (swaggerPath) {
-                            history.replaceState(null, '', '#api-docs/' + swaggerPath);
-                        } else {
-                            history.replaceState(null, '', '#api-docs');
-                        }
-                    }
+    SwaggerUIBundle({
+        url: apiUrl,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: useStandalone
+            ? [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset]
+            : [SwaggerUIBundle.presets.apis],
+        layout: useStandalone ? 'StandaloneLayout' : 'BaseLayout',
+        defaultModelsExpandDepth: 1,
+        defaultModelExpandDepth: 1,
+        docExpansion: 'list',
+        filter: true,
+        tryItOutEnabled: true,
+        // After Swagger loads, restore the api-docs prefix
+        onComplete: () => {
+            const hash = window.location.hash;
+            if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
+                const swaggerPath = hash.slice(2);
+                if (swaggerPath) {
+                    history.replaceState(null, '', '#api-docs/' + swaggerPath);
+                } else {
+                    history.replaceState(null, '', '#api-docs');
                 }
-            });
-        })
-        .catch(error => {
-            console.error('Failed to load OpenAPI spec:', error);
-            document.getElementById('swagger-ui').innerHTML = `
-                <div class="error-state">
-                    <i data-lucide="alert-triangle"></i>
-                    <p>OpenAPI-Spezifikation konnte nicht geladen werden. Bitte laden Sie die Seite neu.</p>
-                </div>
-            `;
-        });
+            }
+        }
+    });
 }
 
 /**
@@ -257,31 +145,4 @@ function initSwaggerUI() {
  */
 function cleanupSwaggerUI() {
     isOnApiDocsPage = false;
-}
-
-/**
- * Copy text to clipboard and show feedback
- * @param {string} text - The text to copy
- * @param {HTMLElement} btn - The button element for feedback
- */
-function copyToClipboard(text, btn) {
-    navigator.clipboard.writeText(text).then(() => {
-        // Show check icon and trigger CSS animation
-        const icon = btn.querySelector('i');
-        btn.classList.remove('copy-success'); // Reset if clicked again
-        void btn.offsetWidth; // Force reflow to restart animation
-        btn.classList.add('copy-success');
-        if (icon) {
-            icon.setAttribute('data-lucide', 'check');
-            lucide.createIcons();
-            // Change icon back after animation completes (1s)
-            setTimeout(() => {
-                icon.setAttribute('data-lucide', 'copy');
-                lucide.createIcons();
-                btn.classList.remove('copy-success');
-            }, 1000);
-        }
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-    });
 }

@@ -12,6 +12,9 @@ const CONFIG = {
         anonKey: 'YOUR_SUPABASE_ANON_KEY' // Replace with your actual anon key
     },
 
+    // Public API endpoint (edge function - no auth required for GET)
+    apiUrl: 'https://sdomjwahhqrlyqyfyyeo.supabase.co/functions/v1/kbob-api',
+
     // Data source: 'supabase' or 'json'
     // Set to 'json' to fall back to local JSON files
     dataSource: 'supabase',
