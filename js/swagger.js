@@ -53,7 +53,7 @@ function renderApiDocsPage() {
                                 <i data-lucide="server" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
                                     <h3>Base URL</h3>
-                                    <code>https://sdomjwahhqrlyqyfyyeo.supabase.co</code>
+                                    <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
                                 </div>
                             </div>
                             <div class="api-info-card">
@@ -109,12 +109,23 @@ let isOnApiDocsPage = false;
 let swaggerHashListener = null;
 
 /**
- * Add security definitions to the OpenAPI spec at runtime
- * This allows the openapi.json to be auto-generated from Supabase without modification
+ * Enhance the OpenAPI spec at runtime for Supabase compatibility
+ * This fixes issues with the auto-generated spec from Supabase:
+ * - Removes :443 from host (causes CORS issues)
+ * - Sets correct basePath for Supabase REST API
+ * - Adds security definitions for the Authorize button
  * @param {Object} spec - The OpenAPI specification object
- * @returns {Object} The modified specification with security definitions
+ * @returns {Object} The modified specification
  */
-function addSecurityDefinitions(spec) {
+function enhanceOpenAPISpec(spec) {
+    // Fix host - remove port 443 which causes CORS issues
+    if (spec.host && spec.host.endsWith(':443')) {
+        spec.host = spec.host.replace(':443', '');
+    }
+
+    // Fix basePath - Supabase REST API is at /rest/v1
+    spec.basePath = '/rest/v1';
+
     // Add security definitions for Supabase authentication
     spec.securityDefinitions = {
         ApiKeyAuth: {
@@ -197,8 +208,8 @@ function initSwaggerUI() {
     fetch('data/openapi.json')
         .then(response => response.json())
         .then(spec => {
-            // Add security definitions to the spec
-            const enhancedSpec = addSecurityDefinitions(spec);
+            // Enhance the spec for Supabase compatibility
+            const enhancedSpec = enhanceOpenAPISpec(spec);
 
             SwaggerUIBundle({
                 spec: enhancedSpec,
