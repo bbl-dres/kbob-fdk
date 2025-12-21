@@ -53,14 +53,24 @@ function renderApiDocsPage() {
                                 <i data-lucide="server" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
                                     <h3>Base URL</h3>
-                                    <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
+                                    <div class="copyable-value">
+                                        <code>https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1</code>
+                                        <button class="copy-btn" onclick="copyToClipboard('https://sdomjwahhqrlyqyfyyeo.supabase.co/rest/v1', this)" title="Kopieren">
+                                            <i data-lucide="copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="api-info-card">
                                 <i data-lucide="key" class="api-info-card__icon"></i>
                                 <div class="api-info-card__content">
                                     <h3>API Key</h3>
-                                    <code>sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS</code>
+                                    <div class="copyable-value">
+                                        <code>sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS</code>
+                                        <button class="copy-btn" onclick="copyToClipboard('sb_publishable_B9lL8urkU-35ncm-vHbJaA_R_fWapnS', this)" title="Kopieren">
+                                            <i data-lucide="copy"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="api-info-card">
@@ -260,4 +270,26 @@ function initSwaggerUI() {
  */
 function cleanupSwaggerUI() {
     isOnApiDocsPage = false;
+}
+
+/**
+ * Copy text to clipboard and show feedback
+ * @param {string} text - The text to copy
+ * @param {HTMLElement} btn - The button element for feedback
+ */
+function copyToClipboard(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Show check icon briefly
+        const icon = btn.querySelector('i');
+        if (icon) {
+            icon.setAttribute('data-lucide', 'check');
+            lucide.createIcons();
+            setTimeout(() => {
+                icon.setAttribute('data-lucide', 'copy');
+                lucide.createIcons();
+            }, 1500);
+        }
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+    });
 }

@@ -4384,6 +4384,44 @@ th[aria-sort='ascending'] .table__sorter span::after {
     color: var(--color-text-primary);
 }
 
+/* Copyable value with copy button */
+.copyable-value {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.copyable-value code {
+    flex: 1;
+}
+
+.copy-btn {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.copy-btn i {
+    width: 14px;
+    height: 14px;
+}
+
 /* Swagger UI Container */
 #swagger-container {
     margin-top: var(--space-xl);
@@ -4395,18 +4433,30 @@ th[aria-sort='ascending'] .table__sorter span::after {
     border-radius: var(--border-radius-lg);
 }
 
-/* Ensure topbar is visible and not clipped */
+/* Minimal Swagger UI - hide unnecessary elements */
 #swagger-ui .swagger-ui .topbar {
-    overflow: visible !important;
+    display: none;
+}
+
+#swagger-ui .swagger-ui .info {
+    display: none;
+}
+
+/* Style the scheme-container with Authorize button */
+#swagger-ui .swagger-ui .scheme-container {
+    background: var(--color-surface);
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: none;
+}
+
+#swagger-ui .swagger-ui .scheme-container .schemes-title {
+    display: none;
 }
 
 /* Swagger UI Overrides to match design system */
 #swagger-ui .swagger-ui {
     font-family: var(--font-family-primary);
-}
-
-#swagger-ui .swagger-ui .info {
-    margin: var(--space-lg);
 }
 
 #swagger-ui .swagger-ui .info .title {
