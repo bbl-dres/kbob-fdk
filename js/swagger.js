@@ -109,6 +109,38 @@ let isOnApiDocsPage = false;
 let swaggerHashListener = null;
 
 /**
+ * Add security definitions to the OpenAPI spec at runtime
+ * This allows the openapi.json to be auto-generated from Supabase without modification
+ * @param {Object} spec - The OpenAPI specification object
+ * @returns {Object} The modified specification with security definitions
+ */
+function addSecurityDefinitions(spec) {
+    // Add security definitions for Supabase authentication
+    spec.securityDefinitions = {
+        ApiKeyAuth: {
+            type: 'apiKey',
+            in: 'header',
+            name: 'apikey',
+            description: 'Supabase API Key (anon key for public read access)'
+        },
+        BearerAuth: {
+            type: 'apiKey',
+            in: 'header',
+            name: 'Authorization',
+            description: "Bearer token (use 'Bearer <your-api-key>')"
+        }
+    };
+
+    // Apply security globally to all endpoints
+    spec.security = [
+        { ApiKeyAuth: [] },
+        { BearerAuth: [] }
+    ];
+
+    return spec;
+}
+
+/**
  * Initialize Swagger UI with the OpenAPI specification
  */
 function initSwaggerUI() {
@@ -161,50 +193,67 @@ function initSwaggerUI() {
         history.replaceState(null, '', '#/' + swaggerPath.slice(1)); // Set to #/xxx for Swagger to pick up
     }
 
-    SwaggerUIBundle({
-        url: 'data/openapi.json',
-        dom_id: '#swagger-ui',
-        deepLinking: true,
-        presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIBundle.SwaggerUIStandalonePreset
-        ],
-        layout: 'BaseLayout',
-        defaultModelsExpandDepth: 1,
-        defaultModelExpandDepth: 1,
-        docExpansion: 'list',
-        filter: true,
-        showExtensions: true,
-        showCommonExtensions: true,
-        tryItOutEnabled: true,
-        // Inject the API key header into all requests (if available from CONFIG)
-        requestInterceptor: (request) => {
-            const apiKey = getSupabaseAnonKey();
-            if (apiKey) {
-                // Only set headers if we have a valid API key from CONFIG
-                // Otherwise, rely on the Authorize button for authentication
-                if (!request.headers['apikey']) {
-                    request.headers['apikey'] = apiKey;
+    // Fetch the OpenAPI spec and add security definitions at runtime
+    fetch('data/openapi.json')
+        .then(response => response.json())
+        .then(spec => {
+            // Add security definitions to the spec
+            const enhancedSpec = addSecurityDefinitions(spec);
+
+            SwaggerUIBundle({
+                spec: enhancedSpec,
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIBundle.SwaggerUIStandalonePreset
+                ],
+                layout: 'BaseLayout',
+                defaultModelsExpandDepth: 1,
+                defaultModelExpandDepth: 1,
+                docExpansion: 'list',
+                filter: true,
+                showExtensions: true,
+                showCommonExtensions: true,
+                tryItOutEnabled: true,
+                // Inject the API key header into all requests (if available from CONFIG)
+                requestInterceptor: (request) => {
+                    const apiKey = getSupabaseAnonKey();
+                    if (apiKey) {
+                        // Only set headers if we have a valid API key from CONFIG
+                        // Otherwise, rely on the Authorize button for authentication
+                        if (!request.headers['apikey']) {
+                            request.headers['apikey'] = apiKey;
+                        }
+                        if (!request.headers['Authorization']) {
+                            request.headers['Authorization'] = `Bearer ${apiKey}`;
+                        }
+                    }
+                    return request;
+                },
+                // After Swagger loads, restore the api-docs prefix
+                onComplete: () => {
+                    const hash = window.location.hash;
+                    if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
+                        const swaggerPath = hash.slice(2);
+                        if (swaggerPath) {
+                            history.replaceState(null, '', '#api-docs/' + swaggerPath);
+                        } else {
+                            history.replaceState(null, '', '#api-docs');
+                        }
+                    }
                 }
-                if (!request.headers['Authorization']) {
-                    request.headers['Authorization'] = `Bearer ${apiKey}`;
-                }
-            }
-            return request;
-        },
-        // After Swagger loads, restore the api-docs prefix
-        onComplete: () => {
-            const hash = window.location.hash;
-            if (hash.startsWith('#/') && !hash.startsWith('#/api-docs')) {
-                const swaggerPath = hash.slice(2);
-                if (swaggerPath) {
-                    history.replaceState(null, '', '#api-docs/' + swaggerPath);
-                } else {
-                    history.replaceState(null, '', '#api-docs');
-                }
-            }
-        }
-    });
+            });
+        })
+        .catch(error => {
+            console.error('Failed to load OpenAPI spec:', error);
+            document.getElementById('swagger-ui').innerHTML = `
+                <div class="error-state">
+                    <i data-lucide="alert-triangle"></i>
+                    <p>OpenAPI-Spezifikation konnte nicht geladen werden. Bitte laden Sie die Seite neu.</p>
+                </div>
+            `;
+        });
 }
 
 /**
