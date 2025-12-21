@@ -129,16 +129,16 @@ function enhanceOpenAPISpec(spec) {
     // Add security definitions for Supabase authentication
     spec.securityDefinitions = {
         ApiKeyAuth: {
-            type: 'apiKey',
-            in: 'header',
-            name: 'apikey',
-            description: 'Supabase API Key (anon key for public read access)'
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'apikey',
+            'description': 'Supabase API Key (anon key for public read access)'
         },
         BearerAuth: {
-            type: 'apiKey',
-            in: 'header',
-            name: 'Authorization',
-            description: "Bearer token (use 'Bearer <your-api-key>')"
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization',
+            'description': "Bearer token (use 'Bearer <your-api-key>')"
         }
     };
 
@@ -211,24 +211,25 @@ function initSwaggerUI() {
             // Enhance the spec for Supabase compatibility
             const enhancedSpec = enhanceOpenAPISpec(spec);
 
+            // Debug: log the enhanced spec
+            console.log('Enhanced OpenAPI spec:', enhancedSpec);
+            console.log('SwaggerUIStandalonePreset available:', typeof SwaggerUIStandalonePreset);
+
+            // Use StandaloneLayout if preset is available, otherwise fall back to BaseLayout
+            const useStandalone = typeof SwaggerUIStandalonePreset !== 'undefined';
+
             SwaggerUIBundle({
                 spec: enhancedSpec,
                 dom_id: '#swagger-ui',
                 deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis,
-                    SwaggerUIStandalonePreset
-                ],
-                plugins: [
-                    SwaggerUIBundle.plugins.DownloadUrl
-                ],
-                layout: 'StandaloneLayout',
+                presets: useStandalone
+                    ? [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset]
+                    : [SwaggerUIBundle.presets.apis],
+                layout: useStandalone ? 'StandaloneLayout' : 'BaseLayout',
                 defaultModelsExpandDepth: 1,
                 defaultModelExpandDepth: 1,
                 docExpansion: 'list',
                 filter: true,
-                showExtensions: true,
-                showCommonExtensions: true,
                 tryItOutEnabled: true,
                 // Inject the API key header into all requests (if available from CONFIG)
                 requestInterceptor: (request) => {
