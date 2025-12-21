@@ -4490,6 +4490,24 @@ th[aria-sort='ascending'] .table__sorter span::after {
     display: none;
 }
 
+/* Ensure Authorize button is visible */
+#swagger-ui .swagger-ui .auth-wrapper {
+    display: flex !important;
+}
+
+#swagger-ui .swagger-ui .auth-wrapper .authorize {
+    display: inline-flex !important;
+    background-color: #49cc90 !important;
+    color: #fff !important;
+    padding: 8px 16px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+}
+
+#swagger-ui .swagger-ui .topbar .auth-wrapper {
+    margin-right: 10px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .api-info-cards {
