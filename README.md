@@ -1,6 +1,6 @@
 # KBOB BIM Data Catalog (Fachdatenkatalog)
 
-A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications for building elements, documents, use cases, models, and environmental product data in Switzerland. Designed as the foundation for **Auftraggeber-Informationsanforderungen (AIA)** and **BIM-Abwicklungspläne (BAP)** for Swiss public agencies.
+A web-based interactive catalog for BIM (Building Information Modeling) requirements, classifications, and information specifications for building elements, documents, use cases, models, and environmental product data in Switzerland. Designed as the foundation for **EIR (Exchange Information Requirements)** and **BEP (BIM Execution Plan)** for Swiss public agencies.
 
 The platform standardizes BIM data across the building lifecycle and implements Swiss federal digitalization strategies (eCH-0279, Strategie Digitale Schweiz), eliminating data silos by providing standardized, machine-readable specifications.
 
