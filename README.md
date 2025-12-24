@@ -28,6 +28,18 @@ This catalog is published as a **demonstration and reference implementation** of
 
 ---
 
+## Principles
+
+| Principle | Description |
+|-----------|-------------|
+| **Once-only** | Data requirements are defined once and reused across organizations, phases, and systems |
+| **Interoperable by design** | Built on open standards (IFC 4.3, eBKP-H, ISO 19650) to ensure seamless data exchange |
+| **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
+| **Open by default** | Code, data, and methodology are public; no framework lock-in |
+| **Linked data** | Connected to national reference data (e.g. EPDs, classifications) enabling integration with the Swiss Data Ecosystem |
+
+---
+
 ## Features
 
 | Feature | Description |
@@ -38,18 +50,6 @@ This catalog is published as a **demonstration and reference implementation** of
 | **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
 | **Multilingual** | Full support for DE, FR, IT, EN |
 | **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
-
----
-
-## Principles
-
-| Principle | Description |
-|-----------|-------------|
-| **Once-only** | Data requirements are defined once and reused across organizations, phases, and systems |
-| **Interoperable by design** | Built on open standards (IFC 4.3, eBKP-H, ISO 19650) to ensure seamless data exchange |
-| **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
-| **Open by default** | Code, data, and methodology are public; no framework lock-in |
-| **Linked data** | Connected to national reference data (e.g. EPDs, classifications) enabling integration with the Swiss Data Ecosystem |
 
 ---
 
