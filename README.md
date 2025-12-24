@@ -96,75 +96,45 @@ Multiple systems are supported to reflect the realities of different professiona
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
 ```mermaid
-erDiagram
-    PHASES ||--o{ ELEMENTS : "defines requirements"
-    PHASES ||--o{ DOCUMENTS : "applies to"
-    PHASES ||--o{ USECASES : "applies to"
-    PHASES ||--o{ MODELS : "applies to"
-
-    MODELS ||--o{ ELEMENTS : "contains"
-    USECASES }o--o{ DOCUMENTS : "inputs/outputs"
-    USECASES ||--o{ GOALS : "defines"
-    ELEMENTS }o--o{ EPDS : "references"
-
-    PHASES {
-        int number PK "1-6"
-        string name "SIA phase name"
-    }
-
-    GOALS {
-        string description
-    }
-
-    ELEMENTS {
-        string id PK
-        string title
-        object classifications
-        array ifcMapping
-        array geometry
-        array information
-    }
-
-    DOCUMENTS {
-        string id PK
-        string title
-        array formats
-        string retention
-    }
-
-    USECASES {
-        string id PK
-        string title
-        array inputs
-        array outputs
-        array roles
-    }
-
-    MODELS {
-        string id PK
-        string title
-        string category
-        array elements
-    }
-
-    EPDS {
-        string id PK
-        string title
-        string unit
-        float gwp
-        float ubp
-    }
+---
+config:
+  layout: elk
+---
+flowchart TB
+    PROJECT["Project"] -- has --> ROLES["Roles"] & PHASES["Project Phases"] & GOALS["Goals"]
+    PHASES -- timing --> USECASES["Use Cases"] & LOIN["Information Requirements"] & DOCUMENTS["Documents"]
+    GOALS -- timing --> PHASES
+    ROLES -- execute --> USECASES
+    ROLES -- responsible for --> MODELS["Discipline Models"]
+    ROLES -- produce/consume --> DOCUMENTS
+    USECASES -- achieve --> GOALS
+    USECASES -- define --> LOIN
+    USECASES -- input/output --> DOCUMENTS
+    MODELS -- contain --> ELEMENTS["Building Elements"]
+    ELEMENTS -- have --> LOIN
+    ELEMENTS -- classified by --> CLASSIFICATIONS["Classifications"]
+    ELEMENTS -- linked to --> EPDS["EPD Data"]
+    LOIN -- specify --> ATTRIBUTES["Attributes"]
+    ATTRIBUTES -- constrained by --> ENUMERATIONS["Enumerations"]
+    ATTRIBUTES -- reference --> REFDATA["Reference Data"]
 ```
 
-| Entity | Description |
-|--------|-------------|
-| **Phases** | SIA project phases (1–6) that define when geometry, information, and documents are required |
-| **Goals** | Objectives that BIM use cases aim to achieve (e.g., clash detection, quantity verification) |
-| **Elements** | Building components with classifications (eBKP-H, DIN 276, Uniformat II), IFC mappings, and phase-specific requirements |
-| **Documents** | Deliverables such as plans, reports, and certificates with format specifications and retention periods |
-| **Use Cases** | BIM applications (e.g., coordination, quantity takeoff) with inputs/outputs, roles, and quality criteria |
-| **Models** | Discipline-specific BIM models (architecture, structure, MEP) containing element definitions |
-| **EPDs** | Environmental Product Declarations with sustainability indicators (GWP, UBP) from KBOB lifecycle data |
+| Entity | Description | Status |
+|--------|-------------|--------|
+| Project | Container for all project data | Conceptual |
+| Roles | Participants (Architect, Engineer, etc.) | Conceptual |
+| Project Phases | SIA phases 1-6 | Conceptual (embedded in other entities) |
+| Goals | Project objectives | Conceptual |
+| Use Cases | BIM use cases (Coordination, Quantities, etc.) | Implemented |
+| Discipline Models | Professional models (Architecture, MEP, Structure) | Implemented |
+| Documents | Deliverables (Plans, Reports, Specs) | Implemented |
+| Building Elements | Physical elements (Walls, Windows, Slabs) | Implemented |
+| EPD Data | Environmental Product Declarations | Implemented |
+| Information Requirements | LOI specifications per phase | Conceptual (embedded in elements) |
+| Attributes | Required data fields | Conceptual (embedded in elements) |
+| Classifications | eBKP-H, DIN 276, Uniformat II, IFC | Conceptual (embedded in elements) |
+| Enumerations | Fixed value lists | Conceptual |
+| Reference Data | External datasets | Conceptual |
 
 ---
 
