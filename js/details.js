@@ -485,8 +485,8 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const safeTitle = escapeHtml(data.title || '');
     const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
-    // Validate process_url - only allow http/https URLs
-    const safeProcessUrl = data.process_url && /^https?:\/\//i.test(data.process_url) ? escapeHtml(data.process_url) : '';
+    // Check if BPMN file exists for this usecase (will be loaded dynamically)
+    const hasBpmnFile = true; // Assume true, actual check happens during render
 
     const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -500,7 +500,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const hasPracticeExample = hasData(data.practiceExample);
     const hasQualityCriteria = hasData(data.qualityCriteria);
     const hasRoles = hasData(data.roles);
-    const hasProcess = !!safeProcessUrl;
+    const hasProcess = hasBpmnFile;
 
     // Build sidebar with group labels
     let sidebarHtml = '';
@@ -727,13 +727,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="detail-section" id="prozess">
                         <h2>Prozess</h2>
                         <p>BPMN-Prozessdiagramm für diesen Anwendungsfall.</p>
-                        <div class="bpmn-viewer-container">
-                            <iframe
-                                src="${safeProcessUrl}"
-                                title="BPMN Prozessdiagramm"
-                                sandbox="allow-scripts allow-same-origin"
-                                allowfullscreen>
-                            </iframe>
+                        <div class="bpmn-viewer-container" id="bpmn-viewer-${data.id}">
                         </div>
                     </div>` : ''}
 
@@ -761,6 +755,11 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         </div>`;
 
     setupDetailInteractions();
+
+    // Initialize BPMN viewer if process section exists
+    if (hasProcess && typeof renderBpmnDiagram === 'function') {
+        renderBpmnDiagram(`bpmn-viewer-${data.id}`, data.id);
+    }
 }
 
 function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
