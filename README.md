@@ -97,82 +97,74 @@ The catalog comprises five independent entity types, each stored as a standalone
 
 ```mermaid
 erDiagram
+    PHASES ||--o{ ELEMENTS : "defines requirements"
+    PHASES ||--o{ DOCUMENTS : "applies to"
+    PHASES ||--o{ USECASES : "applies to"
+    PHASES ||--o{ MODELS : "applies to"
+
+    MODELS ||--o{ ELEMENTS : "contains"
+    USECASES }o--o{ DOCUMENTS : "inputs/outputs"
+    USECASES ||--o{ GOALS : "defines"
+    ELEMENTS }o--o{ EPDS : "references"
+
+    PHASES {
+        int number PK "1-6"
+        string name "SIA phase name"
+    }
+
+    GOALS {
+        string description
+    }
+
     ELEMENTS {
         string id PK
         string title
-        string category
-        string description
-        array tags
         object classifications
         array ifcMapping
         array geometry
         array information
-        array documentation
     }
 
     DOCUMENTS {
         string id PK
         string title
-        string category
-        string description
-        array tags
         array formats
         string retention
-        array phases
-        object classifications
     }
 
     USECASES {
         string id PK
         string title
-        string category
-        string description
-        array tags
-        array phases
-        string process_url
-        array standards
-        array goals
         array inputs
         array outputs
         array roles
-        object prerequisites
-        array implementation
-        array qualityCriteria
     }
 
     MODELS {
         string id PK
         string title
         string category
-        string description
-        array tags
-        array phases
         array elements
     }
 
     EPDS {
         string id PK
         string title
-        string category
-        string subcategory
-        string description
-        array tags
-        string uuid
         string unit
         float gwp
         float ubp
-        float penrt
-        float pert
     }
 ```
 
 | Entity | Description |
 |--------|-------------|
-| **Elements** | Building components with classifications (eBKP-H, DIN 276, Uniformat II), IFC mappings, and phase-specific geometry/information requirements |
-| **Documents** | Deliverables such as plans, reports, and certificates with format specifications, retention periods, and applicable phases |
-| **Use Cases** | BIM applications (e.g., coordination, quantity takeoff) with goals, inputs/outputs, roles, and quality criteria |
-| **Models** | Discipline-specific BIM models (architecture, structure, MEP) with nested element definitions per phase |
-| **EPDs** | Environmental Product Declarations with sustainability indicators (GWP, UBP, PENRT, PERT) from KBOB lifecycle data |
+| **Phases** | SIA project phases (1–6) that define when geometry, information, and documents are required |
+| **Goals** | Objectives that BIM use cases aim to achieve (e.g., clash detection, quantity verification) |
+| **Elements** | Building components with classifications (eBKP-H, DIN 276, Uniformat II), IFC mappings, and phase-specific requirements |
+| **Documents** | Deliverables such as plans, reports, and certificates with format specifications and retention periods |
+| **Use Cases** | BIM applications (e.g., coordination, quantity takeoff) with inputs/outputs, roles, and quality criteria |
+| **Models** | Discipline-specific BIM models (architecture, structure, MEP) containing element definitions |
+| **EPDs** | Environmental Product Declarations with sustainability indicators (GWP, UBP) from KBOB lifecycle data |
 
 ---
 
