@@ -181,11 +181,12 @@ No build step. No framework lock-in. Designed for long-term maintainability.
 
 ## Principles
 
-- **Harmonized, not prescriptive** — consolidates common definitions without mandating use
-- **Phase-aware** — LOI requirements follow SIA project phases (1–6)
-- **Standard-aligned** — eBKP-H, IFC 4.3, Swiss federal design
-- **Zero dependencies** — no frameworks, no build step
-- **Open by default** — code, data, and methodology are public
+| Principle | Description |
+|-----------|-------------|
+| **Once-only** | Data requirements are defined once and reused across organizations, phases, and systems |
+| **Interoperable by design** | Built on open standards (IFC 4.3, eBKP-H, ISO 19650) to ensure seamless data exchange |
+| **Lifecycle-oriented** | Information requirements follow the building lifecycle from planning through operation and deconstruction |
+| **Open by default** | Code, data, and methodology are public; no framework lock-in |
 
 ---
 
