@@ -3432,12 +3432,116 @@ footer a:hover {
 }
 
 /* Reposition bpmn.io logo to bottom-left corner */
-.bpmn-viewer-container .bjs-powered-by {
+.bpmn-viewer-container .bjs-powered-by,
+.bpmn-fullscreen-canvas .bjs-powered-by {
     position: absolute;
     bottom: 16px;
     left: 16px;
     top: auto !important;
     right: auto !important;
+}
+
+/* BPMN Fullscreen Modal */
+.bpmn-fullscreen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.bpmn-fullscreen-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bpmn-fullscreen-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.bpmn-fullscreen-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 48px);
+    height: calc(100% - 48px);
+    max-width: 1600px;
+    max-height: 900px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.bpmn-fullscreen-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--color-border-light);
+    background: var(--color-gray-50);
+}
+
+.bpmn-fullscreen-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.bpmn-fullscreen-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: var(--border-radius-md);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.bpmn-fullscreen-close:hover {
+    background: var(--color-gray-100);
+}
+
+.bpmn-fullscreen-close svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-secondary);
+}
+
+.bpmn-fullscreen-body {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.bpmn-fullscreen-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.bpmn-fullscreen-controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
 }
 
 /* Tooltip Name Style for Informationen Table */

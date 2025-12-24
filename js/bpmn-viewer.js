@@ -149,12 +149,29 @@ async function renderBpmnDiagram(containerId, usecaseId) {
                 <i data-lucide="zoom-out"></i>
             </button>
             <button class="bpmn-control-btn" data-action="zoom-reset" title="Zurücksetzen">
-                <i data-lucide="maximize-2"></i>
+                <i data-lucide="scan"></i>
+            </button>
+            <button class="bpmn-control-btn" data-action="fullscreen" title="Vollbild">
+                <i data-lucide="maximize"></i>
             </button>
         `;
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
+
+        // Make bpmn.io logo open link directly (disable popup)
+        setTimeout(() => {
+            const poweredByLink = container.querySelector('.bjs-powered-by');
+            if (poweredByLink) {
+                // Remove the default click handler and make it a direct link
+                const newLink = poweredByLink.cloneNode(true);
+                newLink.setAttribute('href', 'https://bpmn.io');
+                newLink.setAttribute('target', '_blank');
+                newLink.setAttribute('rel', 'noopener noreferrer');
+                newLink.style.cursor = 'pointer';
+                poweredByLink.parentNode.replaceChild(newLink, poweredByLink);
+            }
+        }, 100);
 
         // Add control event listeners
         controls.addEventListener('click', (e) => {
@@ -174,6 +191,9 @@ async function renderBpmnDiagram(containerId, usecaseId) {
                 case 'zoom-reset':
                     canvasModule.zoom('fit-viewport');
                     break;
+                case 'fullscreen':
+                    openBpmnFullscreen(bpmnXml, usecaseId);
+                    break;
             }
         });
 
@@ -191,6 +211,142 @@ async function renderBpmnDiagram(containerId, usecaseId) {
     }
 }
 
+/**
+ * Open BPMN diagram in fullscreen modal
+ * @param {string} bpmnXml - The BPMN XML content
+ * @param {string} usecaseId - The usecase ID for the title
+ */
+async function openBpmnFullscreen(bpmnXml, usecaseId) {
+    // Remove existing modal if any
+    const existingModal = document.getElementById('bpmn-fullscreen-modal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Create modal HTML
+    const modal = document.createElement('div');
+    modal.id = 'bpmn-fullscreen-modal';
+    modal.className = 'bpmn-fullscreen-modal';
+    modal.innerHTML = `
+        <div class="bpmn-fullscreen-backdrop"></div>
+        <div class="bpmn-fullscreen-content">
+            <div class="bpmn-fullscreen-header">
+                <h2 class="bpmn-fullscreen-title">Prozessdiagramm - ${usecaseId.toUpperCase()}</h2>
+                <button class="bpmn-fullscreen-close" title="Schliessen">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="bpmn-fullscreen-body">
+                <div class="bpmn-fullscreen-canvas"></div>
+                <div class="bpmn-fullscreen-controls">
+                    <button class="bpmn-control-btn" data-action="zoom-in" title="Vergrössern">
+                        <i data-lucide="zoom-in"></i>
+                    </button>
+                    <button class="bpmn-control-btn" data-action="zoom-out" title="Verkleinern">
+                        <i data-lucide="zoom-out"></i>
+                    </button>
+                    <button class="bpmn-control-btn" data-action="zoom-reset" title="Zurücksetzen">
+                        <i data-lucide="scan"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // Initialize bpmn-js viewer in fullscreen
+    const canvas = modal.querySelector('.bpmn-fullscreen-canvas');
+    const fullscreenViewer = new BpmnJS({
+        container: canvas
+    });
+
+    try {
+        await fullscreenViewer.importXML(bpmnXml);
+        const canvasModule = fullscreenViewer.get('canvas');
+        canvasModule.zoom('fit-viewport');
+
+        // Make bpmn.io logo open link directly in fullscreen too
+        setTimeout(() => {
+            const poweredByLink = canvas.querySelector('.bjs-powered-by');
+            if (poweredByLink) {
+                const newLink = poweredByLink.cloneNode(true);
+                newLink.setAttribute('href', 'https://bpmn.io');
+                newLink.setAttribute('target', '_blank');
+                newLink.setAttribute('rel', 'noopener noreferrer');
+                newLink.style.cursor = 'pointer';
+                poweredByLink.parentNode.replaceChild(newLink, poweredByLink);
+            }
+        }, 100);
+
+        // Add control event listeners for fullscreen
+        const controls = modal.querySelector('.bpmn-fullscreen-controls');
+        controls.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-action]');
+            if (!btn) return;
+
+            const action = btn.dataset.action;
+            const currentZoom = canvasModule.zoom();
+
+            switch (action) {
+                case 'zoom-in':
+                    canvasModule.zoom(currentZoom * 1.2);
+                    break;
+                case 'zoom-out':
+                    canvasModule.zoom(currentZoom / 1.2);
+                    break;
+                case 'zoom-reset':
+                    canvasModule.zoom('fit-viewport');
+                    break;
+            }
+        });
+    } catch (error) {
+        console.error('Error rendering fullscreen BPMN diagram:', error);
+        canvas.innerHTML = `
+            <div class="bpmn-error">
+                <i data-lucide="alert-triangle"></i>
+                <span>Fehler beim Laden des Prozessdiagramms.</span>
+            </div>
+        `;
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
+
+    // Close modal handlers
+    const closeModal = () => {
+        fullscreenViewer.destroy();
+        modal.remove();
+        document.body.style.overflow = '';
+    };
+
+    modal.querySelector('.bpmn-fullscreen-close').addEventListener('click', closeModal);
+    modal.querySelector('.bpmn-fullscreen-backdrop').addEventListener('click', closeModal);
+
+    // Close on Escape key
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', handleEscape);
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
+
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+
+    // Activate modal with animation
+    requestAnimationFrame(() => {
+        modal.classList.add('active');
+    });
+}
+
 // Export for use in other modules
 window.renderBpmnDiagram = renderBpmnDiagram;
 window.findBpmnFileForUsecase = findBpmnFileForUsecase;
+window.openBpmnFullscreen = openBpmnFullscreen;
