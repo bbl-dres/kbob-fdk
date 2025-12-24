@@ -1,4 +1,4 @@
-# KBOB BIM Specialist Data Catalog
+# KBOB BIM Data Catalog
 
 **BIM data requirements defined once. Used everywhere.**
 
@@ -12,7 +12,7 @@
 
 ## Overview
 
-The **KBOB BIM Specialist Data Catalog** is a web-based reference for Building Information Modeling (BIM) data requirements used in public construction projects across Switzerland. It provides standardized building element classifications, Level of Information (LOI) requirements per project phase, and IFC mappings — all in one accessible place.
+The **KBOB BIM Data Catalog** is a web-based reference for Building Information Modeling (BIM) data requirements used in public construction projects across Switzerland. It provides standardized building element classifications, Level of Information (LOI) requirements per project phase, and IFC mappings — all in one accessible place.
 
 This catalog is published as a **demonstration and reference implementation** of how a coordinated, cross-organizational BIM data reference can support interoperability and consistent data management across federal, cantonal, and municipal builders.
 
@@ -34,7 +34,7 @@ Public organizations across Switzerland are increasingly required to use BIM for
 
 In practice, many public authorities have developed BIM data requirements independently. This has led to inconsistent definitions, duplicated effort, and friction at handovers between project phases and organizations.
 
-The KBOB BIM Specialist Data Catalog addresses these challenges by providing:
+The KBOB BIM Data Catalog addresses these challenges by providing:
 
 - **Reduced ambiguity** — one shared definition understood by all
 - **Improved interoperability** — consistent data flows across organizations and lifecycle phases
