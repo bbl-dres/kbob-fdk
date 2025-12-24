@@ -3431,6 +3431,15 @@ footer a:hover {
     opacity: 0.5;
 }
 
+/* Reposition bpmn.io logo to bottom-left corner */
+.bpmn-viewer-container .bjs-powered-by {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    top: auto !important;
+    right: auto !important;
+}
+
 /* Tooltip Name Style for Informationen Table */
 .info-name-tooltip {
     text-decoration: underline;
