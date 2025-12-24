@@ -18,91 +18,173 @@
     <bpmn:documentation>Koordination und Dokumentation der Inbetriebnahme von der Planung bis zur Übergabe an den Betrieb, inkl. Funktionsprüfungen und Einweisungen.
 
 Definition:
-Das Inbetriebnahmemanagement umfasst die Koordination und Dokumentation aller Aktivitäten von der Planung der Inbetriebnahme bis zur Übergabe an den Betrieb. Es beinhaltet die systematische Funktionsprüfung aller technischen Anlagen, die Einweisung des Betriebspersonals sowie die Zusammenstellung der betriebsrelevanten Dokumentation. Eine strukturierte Inbetriebnahme sichert einen reibungslosen Betriebsstart.
+Das Inbetriebnahmemanagement (Commissioning) umfasst die systematische Planung, Koordination und Dokumentation aller Aktivitäten zur Inbetriebnahme eines Gebäudes oder einer Anlage. Der Prozess beginnt mit der Erstellung eines Inbetriebnahmekonzepts und führt über Einzelprüfungen, Integrationstests und Optimierung bis zur formalen Übergabe an den Betrieb. Ziel ist die Sicherstellung, dass alle technischen Anlagen gemäss den Planungsvorgaben funktionieren und das Betriebspersonal für einen sicheren und effizienten Betrieb geschult ist. Die strukturierte Inbetriebnahme minimiert Betriebsstörungen und gewährleistet einen reibungslosen Übergang vom Bau zum Betrieb.
 
-Standards: SIA 118, GEFMA 190
+Standards: SIA 118, GEFMA 190, VDI 6039, ASHRAE Guideline 0
 
 Ziele:
-- Systematische Inbetriebnahme aller Anlagen
-- Dokumentierte Funktionsprüfung
-- Geordnete Übergabe an Betrieb
+- Systematische Prüfung und Inbetriebnahme aller technischen Anlagen
+- Nachweis der Funktionsfähigkeit gemäss Planungsvorgaben
+- Optimierung und Einregulierung auf Sollwerte
+- Qualifizierte Einweisung des Betriebspersonals
+- Vollständige Übergabe der Betriebsdokumentation
+- Geordnete und dokumentierte Übergabe an den Betreiber
 
 Inputs:
-- Anlagendokumentation
-- Prüfprotokolle
-- Betriebsanleitungen
+- Ausführungspläne und Anlagenschemata
+- Technische Spezifikationen und Sollwerte
+- Herstellerdokumentation und Betriebsanleitungen
+- Prüfprotokolle der Werkabnahmen
+- Mängellisten aus der Bauabnahme
+- Wartungs- und Instandhaltungsvorgaben
 
 Outputs:
-- Inbetriebnahmeprotokoll
-- Einweisungsdokumentation
-- Übergabeprotokoll
+- Inbetriebnahmekonzept und Terminplan
+- Funktionsprüfprotokolle je Anlage
+- Messberichte und Einregulierungsprotokolle
+- Einweisungsnachweise und Schulungsdokumentation
+- Betriebsdokumentation und Wartungspläne
+- Übergabeprotokoll mit Restmängelliste
 
 Qualitätskriterien:
-- Vollständige Funktionsprüfung aller Anlagen
-- Dokumentierte Einweisung des Personals
-- Komplette Betriebsdokumentation übergeben
-- Formale Übergabe protokolliert
-- Alle offenen Punkte dokumentiert</bpmn:documentation>
+- Vollständige Funktionsprüfung aller Anlagen dokumentiert
+- Alle Sollwerte nachweislich erreicht und protokolliert
+- Betriebspersonal nachweislich eingewiesen
+- Vollständige Betriebsdokumentation übergeben
+- Formale Übergabe mit allen Beteiligten protokolliert
+- Offene Punkte mit Fristen und Verantwortlichkeiten dokumentiert
+- Gewährleistungsfristen und Wartungsverträge geklärt</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_Inbetriebnahme_Manager" name="Inbetriebnahme-Manager">
+      <bpmn:lane id="Lane_Projektleiter" name="Projektleiter">
         <bpmn:flowNodeRef>StartEvent_uc180</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_13</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc180</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_Betreiber" name="Betreiber">
+      <bpmn:lane id="Lane_IBN_Manager" name="Inbetriebnahme-Manager">
         <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Einzelpruefung</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Fachplaner" name="Fachplaner / TGA">
         <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_uc180</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Sollwerte</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Betreiber" name="Betreiber / FM">
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
-    <bpmn:startEvent id="StartEvent_uc180" name="Inbetriebnahmemanagement gestartet">
+    <bpmn:startEvent id="StartEvent_uc180" name="Inbetriebnahme gestartet">
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Erstellung des Inbetriebnahmekonzepts und -terminplans">
-      <bpmn:documentation>Erstellung des Inbetriebnahmekonzepts und -terminplans</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Erstellung Inbetriebnahmekonzept und Terminplan">
+      <bpmn:documentation>Der Projektleiter erstellt in Zusammenarbeit mit dem Inbetriebnahme-Manager das Inbetriebnahmekonzept. Dieses definiert die Phasen der Inbetriebnahme, die Prüfabfolge, Verantwortlichkeiten und den Terminplan. Das Konzept berücksichtigt Abhängigkeiten zwischen Gewerken und die Verfügbarkeit von Spezialisten.</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Koordination der Inbetriebnahmeaktivitäten">
-      <bpmn:documentation>Koordination der Inbetriebnahmeaktivitäten</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Definition Prüfkriterien und Abnahmevoraussetzungen">
+      <bpmn:documentation>Der Inbetriebnahme-Manager definiert die Prüfkriterien und Abnahmevoraussetzungen für jede Anlage. Die Kriterien basieren auf den Planungsvorgaben, Herstellerangaben und normativen Anforderungen. Checklisten und Prüfprotokolle werden vorbereitet.</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Durchführung der Funktionsprüfungen je Anlage">
-      <bpmn:documentation>Durchführung der Funktionsprüfungen je Anlage</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Koordination mit Unternehmern und Lieferanten">
+      <bpmn:documentation>Der Inbetriebnahme-Manager koordiniert die Termine mit den ausführenden Unternehmern und Lieferanten. Die Anwesenheit von Spezialisten für die Inbetriebnahme komplexer Anlagen wird sichergestellt. Schnittstellen zwischen Gewerken werden abgestimmt.</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Einweisung des Betriebspersonals">
-      <bpmn:documentation>Einweisung des Betriebspersonals</bpmn:documentation>
+    <bpmn:task id="Task_04" name="Durchführung Einzelprüfungen der Anlagen">
+      <bpmn:documentation>Die Fachplaner führen gemeinsam mit den Unternehmern die Einzelprüfungen (Funktionsprüfungen) jeder technischen Anlage durch. Geprüft werden Sicherheitsfunktionen, Grundfunktionen und die Einhaltung der Spezifikationen. Die Ergebnisse werden in Prüfprotokollen dokumentiert.</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Zusammenstellung der Betriebsdokumentation">
-      <bpmn:documentation>Zusammenstellung der Betriebsdokumentation</bpmn:documentation>
+    <bpmn:exclusiveGateway id="Gateway_Einzelpruefung" name="Einzelprüfungen bestanden?">
       <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Einzelpruefung</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Einzelpruefung</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_05" name="Mängelbehebung und Nachprüfung">
+      <bpmn:documentation>Bei nicht bestandenen Prüfungen werden die Mängel dokumentiert und an die verantwortlichen Unternehmer zur Behebung übergeben. Nach erfolgter Korrektur wird eine Nachprüfung durchgeführt und dokumentiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_Nein_Einzelpruefung</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Übergabe an den Betreiber mit Protokoll">
-      <bpmn:documentation>Übergabe an den Betreiber mit Protokoll</bpmn:documentation>
-      <bpmn:incoming>Flow_05</bpmn:incoming>
+    <bpmn:task id="Task_06" name="Integrationstests und Gesamtprüfung">
+      <bpmn:documentation>Die Fachplaner führen Integrationstests durch, um das Zusammenspiel der verschiedenen Anlagen zu prüfen. Dies umfasst die Gebäudeautomation, Brandfall-Szenarien, Lastabwurf und weitere gewerkübergreifende Funktionen. Die Schnittstellen werden verifiziert.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Einzelpruefung</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_07" name="Einregulierung und Optimierung">
+      <bpmn:documentation>Die Fachplaner führen die Einregulierung der Anlagen auf die Sollwerte durch. Luftmengen, Wassermengen, Temperaturen und Drücke werden gemessen und angepasst. Die Regelparameter der Gebäudeautomation werden optimiert. Alle Einstellungen werden dokumentiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Sollwerte" name="Sollwerte erreicht?">
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Sollwerte</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Sollwerte</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_08" name="Erstellung Betriebsdokumentation">
+      <bpmn:documentation>Die Fachplaner stellen die vollständige Betriebsdokumentation zusammen. Diese umfasst Revisionsunterlagen, Anlagenschemata, Wartungspläne, Ersatzteillisten und Betriebsanleitungen. Die Dokumentation wird in digitaler Form für das CAFM-System aufbereitet.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Sollwerte</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_09" name="Schulung und Einweisung Betriebspersonal">
+      <bpmn:documentation>Das Betriebspersonal wird in die Bedienung und Wartung der Anlagen eingewiesen. Die Schulungen werden durch die Lieferanten und Fachplaner durchgeführt. Die Einweisungen umfassen Normalbetrieb, Störungsbeseitigung und Sicherheitsaspekte. Die Teilnahme wird dokumentiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_10" name="Durchführung Probebetrieb">
+      <bpmn:documentation>Der Betreiber führt einen Probebetrieb unter realen Bedingungen durch. Während dieser Phase werden Betriebsdaten erfasst und ausgewertet. Auffälligkeiten und Optimierungspotenziale werden dokumentiert. Der Probebetrieb dient der Validierung der Anlagenfunktion.</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_11" name="Abschlussmessung und Leistungsnachweis">
+      <bpmn:documentation>Der Inbetriebnahme-Manager veranlasst die Abschlussmessungen zur Dokumentation der erreichten Leistungswerte. Die Messergebnisse werden mit den Sollwerten verglichen und im Leistungsnachweis dokumentiert. Abweichungen werden bewertet und dokumentiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_12" name="Zusammenstellung Übergabedokumentation">
+      <bpmn:documentation>Der Inbetriebnahme-Manager stellt alle Unterlagen für die formale Übergabe zusammen. Dies umfasst Prüfprotokolle, Messberichte, Einweisungsnachweise, Betriebsdokumentation und die Liste der offenen Punkte mit Fristen und Verantwortlichkeiten.</bpmn:documentation>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_13" name="Formale Übergabe an Betreiber">
+      <bpmn:documentation>Der Projektleiter führt die formale Übergabe an den Betreiber durch. In einem gemeinsamen Termin werden alle Unterlagen übergeben, offene Punkte besprochen und das Übergabeprotokoll unterzeichnet. Gewährleistungsfristen und Wartungsverträge werden dokumentiert.</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:endEvent id="EndEvent_uc180" name="Inbetriebnahmemanagement abgeschlossen">
+    <bpmn:endEvent id="EndEvent_uc180" name="Inbetriebnahme abgeschlossen">
       <bpmn:documentation>Lieferobjekte:
-- Inbetriebnahmeprotokoll
-- Einweisungsdokumentation
-- Übergabeprotokoll</bpmn:documentation>
+- Inbetriebnahmekonzept und Terminplan
+- Funktionsprüfprotokolle je Anlage
+- Messberichte und Einregulierungsprotokolle
+- Einweisungsnachweise und Schulungsdokumentation
+- Vollständige Betriebsdokumentation
+- Übergabeprotokoll mit Restmängelliste
+- Dokumentation Gewährleistungsfristen</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
@@ -110,9 +192,20 @@ Qualitätskriterien:
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
     <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
     <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
-    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
-    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc180" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Gateway_Einzelpruefung" />
+    <bpmn:sequenceFlow id="Flow_Nein_Einzelpruefung" name="Nein" sourceRef="Gateway_Einzelpruefung" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_Ja_Einzelpruefung" name="Ja" sourceRef="Gateway_Einzelpruefung" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Gateway_Sollwerte" />
+    <bpmn:sequenceFlow id="Flow_Nein_Sollwerte" name="Nein" sourceRef="Gateway_Sollwerte" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_Ja_Sollwerte" name="Ja" sourceRef="Gateway_Sollwerte" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Task_10" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_10" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_11" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_12" targetRef="Task_13" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_13" targetRef="EndEvent_uc180" />
 
   </bpmn:process>
 
@@ -120,88 +213,221 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC180" bpmnElement="Collaboration_UC180">
 
       <bpmndi:BPMNShape id="Participant_UC180_di" bpmnElement="Participant_UC180" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1470" height="300" />
+        <dc:Bounds x="160" y="80" width="1900" height="600" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Lane_Inbetriebnahme_Manager_di" bpmnElement="Lane_Inbetriebnahme_Manager" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      <bpmndi:BPMNShape id="Lane_Projektleiter_di" bpmnElement="Lane_Projektleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1870" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_IBN_Manager_di" bpmnElement="Lane_IBN_Manager" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1870" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Fachplaner_di" bpmnElement="Lane_Fachplaner" isHorizontal="true">
+        <dc:Bounds x="190" y="380" width="1870" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Betreiber_di" bpmnElement="Lane_Betreiber" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1440" height="150" />
+        <dc:Bounds x="190" y="530" width="1870" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="StartEvent_uc180_di" bpmnElement="StartEvent_uc180">
         <dc:Bounds x="250" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="228" y="180" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="450" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
+        <dc:Bounds x="570" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
+        <dc:Bounds x="690" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Einzelpruefung_di" bpmnElement="Gateway_Einzelpruefung" isMarkerVisible="true">
+        <dc:Bounds x="815" y="280" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="800" y="250" width="80" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
+        <dc:Bounds x="790" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
+        <dc:Bounds x="930" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1050" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Sollwerte_di" bpmnElement="Gateway_Sollwerte" isMarkerVisible="true">
+        <dc:Bounds x="1175" y="430" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1157" y="487" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1270" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1390" y="565" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1510" y="565" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1630" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1750" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_13_di" bpmnElement="Task_13">
+        <dc:Bounds x="1870" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="EndEvent_uc180_di" bpmnElement="EndEvent_uc180">
-        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <dc:Bounds x="2002" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1220" y="332" width="56" height="27" />
+          <dc:Bounds x="1980" y="180" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
         <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="330" y="155" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="155" />
+        <di:waypoint x="440" y="155" />
+        <di:waypoint x="440" y="305" />
+        <di:waypoint x="450" y="305" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="550" y="305" />
+        <di:waypoint x="570" y="305" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="670" y="305" />
+        <di:waypoint x="680" y="305" />
+        <di:waypoint x="680" y="455" />
+        <di:waypoint x="690" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="790" y="455" />
+        <di:waypoint x="840" y="455" />
+        <di:waypoint x="840" y="330" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Einzelpruefung_di" bpmnElement="Flow_Nein_Einzelpruefung">
+        <di:waypoint x="840" y="280" />
+        <di:waypoint x="840" y="265" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="844" y="263" width="23" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="790" y="305" />
+        <di:waypoint x="740" y="305" />
+        <di:waypoint x="740" y="415" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Einzelpruefung_di" bpmnElement="Flow_Ja_Einzelpruefung">
+        <di:waypoint x="865" y="305" />
+        <di:waypoint x="898" y="305" />
+        <di:waypoint x="898" y="455" />
+        <di:waypoint x="930" y="455" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="906" y="377" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1030" y="455" />
+        <di:waypoint x="1050" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1150" y="455" />
+        <di:waypoint x="1175" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Sollwerte_di" bpmnElement="Flow_Nein_Sollwerte">
+        <di:waypoint x="1200" y="430" />
+        <di:waypoint x="1200" y="395" />
+        <di:waypoint x="1100" y="395" />
+        <di:waypoint x="1100" y="415" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1140" y="377" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Sollwerte_di" bpmnElement="Flow_Ja_Sollwerte">
+        <di:waypoint x="1225" y="455" />
+        <di:waypoint x="1270" y="455" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1242" y="437" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1370" y="455" />
+        <di:waypoint x="1380" y="455" />
+        <di:waypoint x="1380" y="605" />
+        <di:waypoint x="1390" y="605" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1490" y="605" />
+        <di:waypoint x="1510" y="605" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1610" y="605" />
+        <di:waypoint x="1620" y="605" />
+        <di:waypoint x="1620" y="305" />
+        <di:waypoint x="1630" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1730" y="305" />
+        <di:waypoint x="1750" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1850" y="305" />
+        <di:waypoint x="1860" y="305" />
+        <di:waypoint x="1860" y="155" />
+        <di:waypoint x="1870" y="155" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="305" />
+        <di:waypoint x="1970" y="155" />
+        <di:waypoint x="2002" y="155" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>
