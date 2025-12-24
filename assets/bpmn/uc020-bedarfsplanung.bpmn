@@ -18,43 +18,62 @@
     <bpmn:documentation>Systematische Ermittlung und Dokumentation der Anforderungen: Raumprogramm, Flächenbedarf, funktionale Zusammenhänge und Nutzeranforderungen.
 
 Definition:
-Die Bedarfsplanung ist der systematische Prozess zur Ermittlung und Dokumentation aller Anforderungen an ein Bauvorhaben. Sie umfasst die Analyse der Nutzeranforderungen, die Entwicklung des Raumprogramms, die Definition funktionaler Zusammenhänge sowie die Festlegung qualitativer und quantitativer Anforderungen. Die Bedarfsplanung bildet die Grundlage für alle weiteren Planungsphasen und ist entscheidend für den Projekterfolg.
+Die Bedarfsplanung ist der systematische Prozess zur Ermittlung und Dokumentation aller Anforderungen an ein Bauvorhaben. Sie umfasst die Analyse der Nutzeranforderungen, die Entwicklung des Raumprogramms, die Definition funktionaler Zusammenhänge sowie die Festlegung qualitativer und quantitativer Anforderungen. Die Bedarfsplanung bildet die Grundlage für alle weiteren Planungsphasen und ist entscheidend für den Projekterfolg. Der Prozess integriert verschiedene Perspektiven: strategische Ziele des Bauherrn, operative Anforderungen der Nutzer, betriebliche Aspekte des Facility Managements sowie fachliche Expertise des Bedarfsplaners.
 
-Standards: SIA 416, DIN 18205
+Standards: SIA 416, DIN 18205, SN 506 416
 
 Ziele:
-- Klare Definition der Nutzeranforderungen
-- Basis für Flächenplanung und Kostenrahmen
-- Vermeidung von Fehlplanungen
+- Klare Definition der Nutzeranforderungen durch strukturierte Erhebung
+- Entwicklung eines konsistenten und vollständigen Raumprogramms
+- Sicherstellung der Übereinstimmung von Bedarf und Kostenrahmen
+- Berücksichtigung betrieblicher Anforderungen von Beginn an
+- Schaffung einer belastbaren Grundlage für die Entwurfsplanung
 
 Inputs:
-- Nutzeranforderungen
-- Strategische Vorgaben
-- Bestandsdaten (bei Umbau)
+- Strategische Vorgaben und Projektziele des Bauherrn
+- Nutzeranforderungen aus Workshops und Interviews
+- Bestandsdaten und Betriebsanalysen (bei Umbau/Erweiterung)
+- Benchmarks und Kennwerte vergleichbarer Projekte
+- Kostenrahmen und Budgetvorgaben
 
 Outputs:
-- Raumprogramm
-- Funktionsdiagramm
-- Flächenbedarfsnachweis
+- Raumprogramm mit Flächenangaben nach SIA 416
+- Funktionsdiagramm mit Raumbeziehungen und Adjacenzen
+- Raumtypenbuch mit qualitativen Anforderungen je Raumtyp
+- Flächenbedarfsnachweis mit Herleitung
+- Abgestimmter Bedarfsbericht zur Freigabe
 
 Qualitätskriterien:
-- Vollständige Erfassung aller Nutzeranforderungen
-- Nachvollziehbare Herleitung des Flächenbedarfs
-- Konsistenz zwischen Raumprogramm und Budget
-- Freigabe durch alle relevanten Stakeholder
-- Dokumentation als Grundlage für die Planung</bpmn:documentation>
+- Vollständige Erfassung aller Nutzergruppen und deren Anforderungen
+- Nachvollziehbare Herleitung des Flächenbedarfs anhand Kennwerte
+- Konsistenz zwischen Raumprogramm und verfügbarem Budget
+- Berücksichtigung zukünftiger Entwicklungen und Flexibilitätsanforderungen
+- Freigabe durch alle relevanten Stakeholder dokumentiert
+- Integration betrieblicher Anforderungen für den späteren Gebäudebetrieb</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_Nutzervertreter" name="Nutzervertreter">
+      <bpmn:lane id="Lane_Bauherr" name="Bauherr">
         <bpmn:flowNodeRef>StartEvent_uc020</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_Planer" name="Planer">
-        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Budget</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_uc020</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Nutzervertreter" name="Nutzervertreter">
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Bedarfsplaner" name="Bedarfsplaner">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Vollstaendig</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_FM_Berater" name="FM-Berater">
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
@@ -62,47 +81,97 @@ Qualitätskriterien:
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Analyse der strategischen Vorgaben und Rahmenbedingungen">
-      <bpmn:documentation>Analyse der strategischen Vorgaben und Rahmenbedingungen</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Projekt-Kickoff und Definition strategischer Projektziele">
+      <bpmn:documentation>Der Bauherr definiert die übergeordneten strategischen Ziele des Bauvorhabens, den Projektumfang und die Rahmenbedingungen. Dies umfasst die Festlegung des Kostenrahmens, des Zeitplans sowie der grundlegenden Qualitätsanforderungen. Die Ergebnisse werden in einem Projektauftrag dokumentiert.</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Durchführung von Nutzerworkshops und Interviews">
-      <bpmn:documentation>Durchführung von Nutzerworkshops und Interviews</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Stakeholder-Analyse und Nutzerkategorisierung">
+      <bpmn:documentation>Der Bedarfsplaner identifiziert alle relevanten Stakeholder und kategorisiert die verschiedenen Nutzergruppen. Für jede Gruppe werden Vertreter benannt und der Erhebungsprozess geplant. Die Analyse berücksichtigt unterschiedliche Nutzungsszenarien und Anforderungsprofile.</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Ermittlung des quantitativen Flächenbedarfs">
-      <bpmn:documentation>Ermittlung des quantitativen Flächenbedarfs</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Durchführung von Nutzer-Workshops und Interviews">
+      <bpmn:documentation>Die Nutzervertreter führen strukturierte Workshops und Einzelinterviews mit den verschiedenen Nutzergruppen durch. Dabei werden funktionale Anforderungen, Arbeitsabläufe, Raumbedarfe und Qualitätserwartungen systematisch erfasst und dokumentiert.</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Definition qualitativer Anforderungen je Raumtyp">
-      <bpmn:documentation>Definition qualitativer Anforderungen je Raumtyp</bpmn:documentation>
+    <bpmn:task id="Task_04" name="Analyse bestehender Betriebsabläufe und Prozesse">
+      <bpmn:documentation>Der FM-Berater analysiert die bestehenden Betriebsabläufe, Wartungsprozesse und Bewirtschaftungsanforderungen. Bei Bestandsgebäuden werden Nutzungsdaten und Erfahrungswerte ausgewertet. Die Erkenntnisse fliessen in die betrieblichen Anforderungen ein.</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Erstellung des Raumprogramms mit Funktionsdiagramm">
-      <bpmn:documentation>Erstellung des Raumprogramms mit Funktionsdiagramm</bpmn:documentation>
+    <bpmn:task id="Task_05" name="Ermittlung des quantitativen Flächenbedarfs">
+      <bpmn:documentation>Der Bedarfsplaner ermittelt den quantitativen Flächenbedarf basierend auf Arbeitsplatzkonzepten, Nutzerzahlen und Flächenkennwerten nach SIA 416. Die Berechnung erfolgt transparent und nachvollziehbar unter Berücksichtigung von Entwicklungsszenarien und Reserven.</bpmn:documentation>
       <bpmn:incoming>Flow_04</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Abstimmung und Freigabe durch den Auftraggeber">
-      <bpmn:documentation>Abstimmung und Freigabe durch den Auftraggeber</bpmn:documentation>
+    <bpmn:task id="Task_06" name="Definition qualitativer Raumanforderungen">
+      <bpmn:documentation>Die Nutzervertreter definieren gemeinsam mit dem Bedarfsplaner die qualitativen Anforderungen für jeden Raumtyp. Dies umfasst Ausstattungsstandards, technische Anforderungen (Akustik, Belichtung, Klima), Möblierungskonzepte und spezifische Nutzeranforderungen.</bpmn:documentation>
       <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_07" name="Erstellung Funktionsdiagramm und Raumbeziehungen">
+      <bpmn:documentation>Der Bedarfsplaner erstellt das Funktionsdiagramm mit den räumlichen Beziehungen und Adjacenzanforderungen zwischen den verschiedenen Nutzungsbereichen. Die Darstellung zeigt notwendige Nähen, Trennungen und funktionale Zusammenhänge.</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_08" name="Integration betrieblicher Anforderungen">
+      <bpmn:documentation>Der FM-Berater ergänzt die Anforderungen um betriebliche Aspekte wie Zugänglichkeit für Wartung, Reinigungsfreundlichkeit, Energieeffizienz und Flexibilität für künftige Nutzungsänderungen. Die Lebenszykluskosten werden in die Bewertung einbezogen.</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Vollstaendig" name="Anforderungen vollständig?">
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Vollstaendig</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Vollstaendig</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_09" name="Konsolidierung und Erstellung Raumprogramm">
+      <bpmn:documentation>Der Bedarfsplaner konsolidiert alle erhobenen Anforderungen zu einem konsistenten Raumprogramm. Das Dokument enthält alle Räume mit Flächenangaben, Qualitätsanforderungen und Zuordnungen gemäss der definierten Struktur nach SIA 416.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Vollstaendig</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_10" name="Abgleich Raumprogramm mit Kostenrahmen">
+      <bpmn:documentation>Der Bauherr prüft das Raumprogramm auf Übereinstimmung mit dem verfügbaren Kostenrahmen. Mittels Kostenkennwerten wird eine erste Kostenschätzung erstellt und mit dem Budget verglichen. Bei Abweichungen werden Optimierungspotenziale identifiziert.</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Budget" name="Budget kompatibel?">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ja_Budget</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Nein_Budget</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_11" name="Anpassung und Priorisierung der Anforderungen">
+      <bpmn:documentation>Bei Budgetüberschreitung werden die Anforderungen gemeinsam priorisiert und angepasst. Der Bedarfsplaner erarbeitet Varianten mit unterschiedlichen Leistungsumfängen und deren Kostenauswirkungen als Entscheidungsgrundlage.</bpmn:documentation>
+      <bpmn:incoming>Flow_Nein_Budget</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_12" name="Freigabe Bedarfsplanung durch Auftraggeber">
+      <bpmn:documentation>Der Bauherr gibt das finale Raumprogramm mit allen Begleitdokumenten (Funktionsdiagramm, Raumtypenbuch, Flächenbedarfsnachweis) formal frei. Die Freigabe dokumentiert die Übereinstimmung mit den Projektzielen und dem Kostenrahmen.</bpmn:documentation>
+      <bpmn:incoming>Flow_Ja_Budget</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
     <bpmn:endEvent id="EndEvent_uc020" name="Bedarfsplanung abgeschlossen">
       <bpmn:documentation>Lieferobjekte:
-- Raumprogramm
-- Funktionsdiagramm
-- Flächenbedarfsnachweis</bpmn:documentation>
+- Raumprogramm mit Flächenangaben nach SIA 416
+- Funktionsdiagramm mit Raumbeziehungen
+- Raumtypenbuch mit qualitativen Anforderungen
+- Flächenbedarfsnachweis mit Herleitung
+- Freigabedokumentation durch Auftraggeber</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
@@ -112,7 +181,17 @@ Qualitätskriterien:
     <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
     <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
     <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc020" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Gateway_Vollstaendig" />
+    <bpmn:sequenceFlow id="Flow_Nein_Vollstaendig" name="Nein" sourceRef="Gateway_Vollstaendig" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_Ja_Vollstaendig" name="Ja" sourceRef="Gateway_Vollstaendig" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Task_10" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_10" targetRef="Gateway_Budget" />
+    <bpmn:sequenceFlow id="Flow_Ja_Budget" name="Ja" sourceRef="Gateway_Budget" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_Nein_Budget" name="Nein" sourceRef="Gateway_Budget" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_11" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_12" targetRef="EndEvent_uc020" />
 
   </bpmn:process>
 
@@ -120,88 +199,214 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC020" bpmnElement="Collaboration_UC020">
 
       <bpmndi:BPMNShape id="Participant_UC020_di" bpmnElement="Participant_UC020" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1470" height="300" />
+        <dc:Bounds x="160" y="80" width="1800" height="600" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Bauherr_di" bpmnElement="Lane_Bauherr" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1770" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Nutzervertreter_di" bpmnElement="Lane_Nutzervertreter" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1440" height="150" />
+        <dc:Bounds x="190" y="230" width="1770" height="150" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Lane_Planer_di" bpmnElement="Lane_Planer" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      <bpmndi:BPMNShape id="Lane_Bedarfsplaner_di" bpmnElement="Lane_Bedarfsplaner" isHorizontal="true">
+        <dc:Bounds x="190" y="380" width="1770" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_FM_Berater_di" bpmnElement="Lane_FM_Berater" isHorizontal="true">
+        <dc:Bounds x="190" y="530" width="1770" height="150" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="StartEvent_uc020_di" bpmnElement="StartEvent_uc020">
         <dc:Bounds x="250" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="225" y="180" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="450" y="415" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
+        <dc:Bounds x="570" y="265" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
+        <dc:Bounds x="690" y="565" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
+        <dc:Bounds x="810" y="415" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
+        <dc:Bounds x="930" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1050" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1170" y="565" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Vollstaendig_di" bpmnElement="Gateway_Vollstaendig" isMarkerVisible="true">
+        <dc:Bounds x="1295" y="430" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1280" y="487" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1390" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1510" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Budget_di" bpmnElement="Gateway_Budget" isMarkerVisible="true">
+        <dc:Bounds x="1635" y="130" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1617" y="106" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1610" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1750" y="115" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="EndEvent_uc020_di" bpmnElement="EndEvent_uc020">
-        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <dc:Bounds x="1882" y="137" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1220" y="332" width="56" height="27" />
+          <dc:Bounds x="1857" y="180" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
         <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="330" y="155" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="155" />
+        <di:waypoint x="440" y="155" />
+        <di:waypoint x="440" y="455" />
+        <di:waypoint x="450" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="550" y="455" />
+        <di:waypoint x="560" y="455" />
+        <di:waypoint x="560" y="305" />
+        <di:waypoint x="570" y="305" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="670" y="305" />
+        <di:waypoint x="680" y="305" />
+        <di:waypoint x="680" y="605" />
+        <di:waypoint x="690" y="605" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="790" y="605" />
+        <di:waypoint x="800" y="605" />
+        <di:waypoint x="800" y="455" />
+        <di:waypoint x="810" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="910" y="455" />
+        <di:waypoint x="920" y="455" />
+        <di:waypoint x="920" y="305" />
+        <di:waypoint x="930" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1030" y="305" />
+        <di:waypoint x="1040" y="305" />
+        <di:waypoint x="1040" y="455" />
+        <di:waypoint x="1050" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1150" y="455" />
+        <di:waypoint x="1160" y="455" />
+        <di:waypoint x="1160" y="605" />
+        <di:waypoint x="1170" y="605" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1270" y="605" />
+        <di:waypoint x="1320" y="605" />
+        <di:waypoint x="1320" y="480" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Vollstaendig_di" bpmnElement="Flow_Nein_Vollstaendig">
+        <di:waypoint x="1320" y="430" />
+        <di:waypoint x="1320" y="305" />
+        <di:waypoint x="670" y="305" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="393" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Vollstaendig_di" bpmnElement="Flow_Ja_Vollstaendig">
+        <di:waypoint x="1345" y="455" />
+        <di:waypoint x="1390" y="455" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1362" y="437" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1490" y="455" />
+        <di:waypoint x="1500" y="455" />
+        <di:waypoint x="1500" y="155" />
+        <di:waypoint x="1510" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1610" y="155" />
+        <di:waypoint x="1635" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Ja_Budget_di" bpmnElement="Flow_Ja_Budget">
+        <di:waypoint x="1685" y="155" />
+        <di:waypoint x="1750" y="155" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1712" y="137" width="12" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Nein_Budget_di" bpmnElement="Flow_Nein_Budget">
+        <di:waypoint x="1660" y="180" />
+        <di:waypoint x="1660" y="415" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1664" y="283" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1610" y="455" />
+        <di:waypoint x="1490" y="455" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="305" />
+        <di:waypoint x="1850" y="155" />
+        <di:waypoint x="1882" y="155" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>
