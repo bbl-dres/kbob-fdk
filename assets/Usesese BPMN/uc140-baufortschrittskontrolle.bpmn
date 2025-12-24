@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC140"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC140">
+    <bpmn:participant id="Participant_UC140" name="UC140 - Baufortschrittskontrolle" processRef="Process_UC140" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC140" name="Baufortschrittskontrolle" isExecutable="true">
+    <bpmn:documentation>Systematische Erfassung und Dokumentation des Baufortschritts als Grundlage für Soll-Ist-Vergleiche und Projekt-Kosten.
+
+Definition:
+Die Baufortschrittskontrolle umfasst die systematische Erfassung und Dokumentation des tatsächlichen Baufortschritts als Grundlage für Soll-Ist-Vergleiche und das Projekt-Kosten. Sie ermöglicht die frühzeitige Erkennung von Abweichungen und bildet die Basis für Steuerungsmassnahmen. Die modellbasierte Fortschrittserfassung erlaubt eine visuelle Darstellung des aktuellen Bauzustands.
+
+Standards: SIA 118
+
+Ziele:
+- Transparente Fortschrittsdokumentation
+- Frühzeitige Erkennung von Abweichungen
+- Basis für Steuerungsmassnahmen
+
+Inputs:
+- Bauprogramm (Soll)
+- Baustellenbegehungen
+- Rapporte
+
+Outputs:
+- Fortschrittsbericht
+- Soll-Ist-Vergleich
+- Fotodokumentation
+
+Qualitätskriterien:
+- Regelmässige und vollständige Fortschrittserfassung
+- Aktuelle Soll-Ist-Vergleiche
+- Frühzeitige Erkennung von Abweichungen
+- Nachvollziehbare Massnahmenableitung
+- Wirksame Steuerung bei Terminrisiken</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Bauleiter" name="Bauleiter">
+        <bpmn:flowNodeRef>StartEvent_uc140</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Projektleiter" name="Projektleiter">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc140</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc140" name="Baufortschrittskontrolle gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Definition der Erfassungsmethodik und -intervalle">
+      <bpmn:documentation>Definition der Erfassungsmethodik und -intervalle</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Regelmässige Baustellenbegehungen und Rapporte">
+      <bpmn:documentation>Regelmässige Baustellenbegehungen und Rapporte</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Erfassung des Fertigstellungsgrads je Vorgang">
+      <bpmn:documentation>Erfassung des Fertigstellungsgrads je Vorgang</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Aktualisierung des 4D-Modells mit Ist-Daten">
+      <bpmn:documentation>Aktualisierung des 4D-Modells mit Ist-Daten</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Erstellung der Soll-Ist-Vergleiche">
+      <bpmn:documentation>Erstellung der Soll-Ist-Vergleiche</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Ableitung und Nachverfolgung von Massnahmen">
+      <bpmn:documentation>Ableitung und Nachverfolgung von Massnahmen</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc140" name="Baufortschrittskontrolle abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Fortschrittsbericht
+- Soll-Ist-Vergleich
+- Fotodokumentation</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc140" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc140" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC140">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC140" bpmnElement="Collaboration_UC140">
+
+      <bpmndi:BPMNShape id="Participant_UC140_di" bpmnElement="Participant_UC140" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1470" height="300" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Bauleiter_di" bpmnElement="Lane_Bauleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Projektleiter_di" bpmnElement="Lane_Projektleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc140_di" bpmnElement="StartEvent_uc140">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc140_di" bpmnElement="EndEvent_uc140">
+        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="332" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="155" />
+        <di:waypoint x="810" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="305" />
+        <di:waypoint x="950" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="155" />
+        <di:waypoint x="1090" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1190" y="305" />
+        <di:waypoint x="1230" y="305" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

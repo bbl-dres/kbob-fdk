@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC270"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC270">
+    <bpmn:participant id="Participant_UC270" name="UC270 - Nachhaltigkeitsnachweise" processRef="Process_UC270" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC270" name="Nachhaltigkeitsnachweise" isExecutable="true">
+    <bpmn:documentation>Erstellung von Nachweisen für Nachhaltigkeitszertifizierungen (SNBS, Minergie, DGNB) inkl. Ökobilanz, Lebenszykluskosten und Komfortnachweise.
+
+Definition:
+Die Nachhaltigkeitsnachweise umfassen die Erstellung aller erforderlichen Dokumentationen für Nachhaltigkeitszertifizierungen wie SNBS, Minergie oder DGNB. Dies beinhaltet Ökobilanzen, Lebenszykluskosten-Berechnungen sowie Komfort- und Gesundheitsnachweise. Der modellbasierte Ansatz ermöglicht eine effiziente Datenextraktion und konsistente Berechnungsgrundlagen.
+
+Standards: SNBS, Minergie, SIA 2032, SIA 2040
+
+Ziele:
+- Erreichung Nachhaltigkeitszertifikat
+- Transparente Nachweisführung
+- Optimierung Umweltwirkung
+
+Inputs:
+- Planungsunterlagen
+- Materialdaten
+- Energiekonzept
+
+Outputs:
+- Ökobilanz
+- LCC-Berechnung
+- Zertifikat
+
+Qualitätskriterien:
+- Erfüllung aller Nachweiseskriterien
+- Nachvollziehbare Berechnungsgrundlagen
+- Vollständige Nachweisdokumentation
+- Erfolgreiche Nachweise
+- Optimierte Umweltwirkung</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Nachhaltigkeitsberater" name="Nachhaltigkeitsberater">
+        <bpmn:flowNodeRef>StartEvent_uc270</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Fachplaner" name="Fachplaner">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc270</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc270" name="Nachhaltigkeitsnachweise gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Analyse der Nachweisesanforderungen">
+      <bpmn:documentation>Analyse der Nachweisesanforderungen</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Integration der Kriterien in die Planung">
+      <bpmn:documentation>Integration der Kriterien in die Planung</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Erfassung der relevanten Daten aus dem Modell">
+      <bpmn:documentation>Erfassung der relevanten Daten aus dem Modell</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Durchführung der Berechnungen und Simulationen">
+      <bpmn:documentation>Durchführung der Berechnungen und Simulationen</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Zusammenstellung der Nachweisdokumentation">
+      <bpmn:documentation>Zusammenstellung der Nachweisdokumentation</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Begleitung des Nachweisesverfahrens">
+      <bpmn:documentation>Begleitung des Nachweisesverfahrens</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc270" name="Nachhaltigkeitsnachweise abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Ökobilanz
+- LCC-Berechnung
+- Zertifikat</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc270" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc270" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC270">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC270" bpmnElement="Collaboration_UC270">
+
+      <bpmndi:BPMNShape id="Participant_UC270_di" bpmnElement="Participant_UC270" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1470" height="300" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Nachhaltigkeitsberater_di" bpmnElement="Lane_Nachhaltigkeitsberater" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Fachplaner_di" bpmnElement="Lane_Fachplaner" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc270_di" bpmnElement="StartEvent_uc270">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc270_di" bpmnElement="EndEvent_uc270">
+        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="332" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="155" />
+        <di:waypoint x="810" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="305" />
+        <di:waypoint x="950" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="155" />
+        <di:waypoint x="1090" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1190" y="305" />
+        <di:waypoint x="1230" y="305" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

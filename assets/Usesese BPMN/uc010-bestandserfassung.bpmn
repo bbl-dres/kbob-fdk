@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC010"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC010">
+    <bpmn:participant id="Participant_UC010" name="UC010 - Bestandserfassung" processRef="Process_UC010" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC010" name="Bestandserfassung" isExecutable="true">
+    <bpmn:documentation>Erfassung des Bestandes durch geeignete Aufnahmeverfahren (z.B. Laserscan, Photogrammetrie, Handaufmass) und Dokumentation als Grundlage für die weitere Planung.
+
+Definition:
+Die Bestandserfassung umfasst die systematische Aufnahme und Dokumentation bestehender Bauwerke mittels geeigneter Verfahren wie Laserscan, Photogrammetrie oder Handaufmass. Die erfassten Daten bilden die Grundlage für Umbau-, Sanierungs- oder Erweiterungsplanungen sowie für die Überführung in digitale Bestandsmodelle. Die Wahl des Aufnahmeverfahrens richtet sich nach den Anforderungen an Genauigkeit, Detaillierungsgrad und Wirtschaftlichkeit.
+
+Standards: SIA 405, ISO 19650
+
+Ziele:
+- Vollständige Dokumentation des Ist-Zustands
+- Grundlage für Umbau- und Sanierungsplanung
+- Digitale Datenbasis für FM
+
+Inputs:
+- Bestandspläne (falls vorhanden)
+- Zugang zum Objekt
+- Anforderungen an Detaillierungsgrad
+
+Outputs:
+- Punktwolke / Bestandserfassungsdaten
+- Bestandsdokumentation
+- Bestandsmodell (optional)
+
+Qualitätskriterien:
+- Vollständige Erfassung des definierten Aufnahmebereichs
+- Einhaltung der geforderten Genauigkeit
+- Lückenlose Dokumentation des Ist-Zustands
+- Lieferung in den vereinbarten Formaten
+- Nachvollziehbare Qualitätsdokumentation</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Vermesser" name="Vermesser">
+        <bpmn:flowNodeRef>StartEvent_uc010</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_BIM_Autor" name="BIM-Autor">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc010</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc010" name="Bestandserfassung gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Analyse der vorhandenen Bestandsunterlagen">
+      <bpmn:documentation>Analyse der vorhandenen Bestandsunterlagen</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Planung der Aufnahmekampagne und Festlegung der Methodik">
+      <bpmn:documentation>Planung der Aufnahmekampagne und Festlegung der Methodik</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Durchführung der Bestandsaufnahme vor Ort">
+      <bpmn:documentation>Durchführung der Bestandsaufnahme vor Ort</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Aufbereitung und Registrierung der Rohdaten">
+      <bpmn:documentation>Aufbereitung und Registrierung der Rohdaten</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Erstellung der Bestandsdokumentation oder des Bestandsmodells">
+      <bpmn:documentation>Erstellung der Bestandsdokumentation oder des Bestandsmodells</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Qualitätsprüfung und Übergabe an den Auftraggeber">
+      <bpmn:documentation>Qualitätsprüfung und Übergabe an den Auftraggeber</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc010" name="Bestandserfassung abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Punktwolke / Bestandserfassungsdaten
+- Bestandsdokumentation
+- Bestandsmodell (optional)</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc010" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc010" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC010">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC010" bpmnElement="Collaboration_UC010">
+
+      <bpmndi:BPMNShape id="Participant_UC010_di" bpmnElement="Participant_UC010" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1470" height="300" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Vermesser_di" bpmnElement="Lane_Vermesser" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_BIM_Autor_di" bpmnElement="Lane_BIM_Autor" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc010_di" bpmnElement="StartEvent_uc010">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc010_di" bpmnElement="EndEvent_uc010">
+        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="332" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="155" />
+        <di:waypoint x="810" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="305" />
+        <di:waypoint x="950" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="155" />
+        <di:waypoint x="1090" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1190" y="305" />
+        <di:waypoint x="1230" y="305" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

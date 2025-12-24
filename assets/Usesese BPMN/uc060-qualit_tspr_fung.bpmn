@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC060"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC060">
+    <bpmn:participant id="Participant_UC060" name="UC060 - Qualitätsprüfung" processRef="Process_UC060" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC060" name="Qualitätsprüfung" isExecutable="true">
+    <bpmn:documentation>Überwachung des Planungsfortschritts, Prüfung der Planungsqualität auf Vollständigkeit und Konsistenz sowie Freigabeprozesse.
+
+Definition:
+Die Qualitätsprüfung umfasst die systematische Überwachung des Planungsfortschritts sowie die Prüfung der Planungsqualität auf Vollständigkeit, Konsistenz und Normkonformität. Sie stellt sicher, dass die Planungsergebnisse den vereinbarten Anforderungen entsprechen und bildet die Grundlage für definierte Freigabeprozesse. Regelbasierte und manuelle Prüfungen werden kombiniert, um eine umfassende Qualitätssicherung zu gewährleisten.
+
+Standards: ISO 19650, SIA 2051
+
+Ziele:
+- Sicherstellung der Planungsqualität
+- Nachvollziehbare Freigabeprozesse
+- Frühzeitige Erkennung von Abweichungen
+
+Inputs:
+- Planungsunterlagen / Modelle
+- Prüfkriterien (AIA/BAP)
+- Referenzdaten
+
+Outputs:
+- Prüfbericht
+- Freigabeprotokoll
+- Mängelliste
+
+Qualitätskriterien:
+- Vollständige Durchführung aller definierten Prüfungen
+- Nachvollziehbare Dokumentation der Prüfergebnisse
+- Zeitnahe Behebung identifizierter Mängel
+- Einhaltung der vereinbarten Freigabeprozesse
+- Kontinuierliche Verbesserung der Planungsqualität</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_BIM_Gesamtkoordinator" name="BIM-Gesamtkoordinator">
+        <bpmn:flowNodeRef>StartEvent_uc060</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Projektleiter" name="Projektleiter">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc060</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc060" name="Qualitätsprüfung gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Definition der Prüfregeln und Qualitätskriterien">
+      <bpmn:documentation>Definition der Prüfregeln und Qualitätskriterien</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Einrichtung der Prüfumgebung und Werkzeuge">
+      <bpmn:documentation>Einrichtung der Prüfumgebung und Werkzeuge</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Durchführung automatisierter regelbasierter Prüfungen">
+      <bpmn:documentation>Durchführung automatisierter regelbasierter Prüfungen</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Ergänzende manuelle Prüfung durch Fachexperten">
+      <bpmn:documentation>Ergänzende manuelle Prüfung durch Fachexperten</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Dokumentation der Prüfergebnisse und Mängel">
+      <bpmn:documentation>Dokumentation der Prüfergebnisse und Mängel</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Überwachung der Mängelbehebung und Freigabe">
+      <bpmn:documentation>Überwachung der Mängelbehebung und Freigabe</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc060" name="Qualitätsprüfung abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Prüfbericht
+- Freigabeprotokoll
+- Mängelliste</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc060" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc060" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC060">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC060" bpmnElement="Collaboration_UC060">
+
+      <bpmndi:BPMNShape id="Participant_UC060_di" bpmnElement="Participant_UC060" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1470" height="300" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_BIM_Gesamtkoordinator_di" bpmnElement="Lane_BIM_Gesamtkoordinator" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Projektleiter_di" bpmnElement="Lane_Projektleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc060_di" bpmnElement="StartEvent_uc060">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc060_di" bpmnElement="EndEvent_uc060">
+        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="332" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="155" />
+        <di:waypoint x="810" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="305" />
+        <di:waypoint x="950" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="155" />
+        <di:waypoint x="1090" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1190" y="305" />
+        <di:waypoint x="1230" y="305" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

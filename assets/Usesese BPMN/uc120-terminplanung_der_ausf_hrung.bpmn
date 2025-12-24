@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC120"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC120">
+    <bpmn:participant id="Participant_UC120" name="UC120 - Terminplanung der Ausführung" processRef="Process_UC120" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC120" name="Terminplanung der Ausführung" isExecutable="true">
+    <bpmn:documentation>Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen zur Überprüfung des geplanten Bauablaufs.
+
+Definition:
+Die Terminplanung der Ausführung umfasst die Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen. Die modellbasierte 4D-Planung ermöglicht die Simulation und Überprüfung des geplanten Bauablaufs, die frühzeitige Erkennung von Terminrisiken sowie eine anschauliche Kommunikation des Bauprogramms an alle Beteiligten.
+
+Standards: SIA 118
+
+Ziele:
+- Realistische Bauablaufplanung
+- Frühzeitige Erkennung von Terminrisiken
+- Visualisierung für Kommunikation
+
+Inputs:
+- Planungsunterlagen / 3D-Modell
+- Terminvorgaben
+- Ressourcenplanung
+
+Outputs:
+- Bauprogramm
+- 4D-Simulation (optional)
+- Meilensteinplan
+
+Qualitätskriterien:
+- Realistische Vorgangsdauern und Ressourcenansätze
+- Berücksichtigung aller Abhängigkeiten
+- Einhaltung der vorgegebenen Meilensteine
+- Nachvollziehbare 4D-Simulation
+- Akzeptanz durch alle Projektbeteiligten</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Bauleiter" name="Bauleiter">
+        <bpmn:flowNodeRef>StartEvent_uc120</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Unternehmer" name="Unternehmer">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc120</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc120" name="Terminplanung der Ausführung gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Analyse der Randbedingungen und Meilensteine">
+      <bpmn:documentation>Analyse der Randbedingungen und Meilensteine</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Gliederung des Projekts in Vorgänge und Arbeitspakete">
+      <bpmn:documentation>Gliederung des Projekts in Vorgänge und Arbeitspakete</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Definition der logischen Abhängigkeiten">
+      <bpmn:documentation>Definition der logischen Abhängigkeiten</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Verknüpfung der Vorgänge mit Modellelementen">
+      <bpmn:documentation>Verknüpfung der Vorgänge mit Modellelementen</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Simulation und Optimierung des Bauablaufs">
+      <bpmn:documentation>Simulation und Optimierung des Bauablaufs</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Abstimmung und Freigabe des Bauprogramms">
+      <bpmn:documentation>Abstimmung und Freigabe des Bauprogramms</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc120" name="Terminplanung der Ausführung abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Bauprogramm
+- 4D-Simulation (optional)
+- Meilensteinplan</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc120" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc120" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC120">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC120" bpmnElement="Collaboration_UC120">
+
+      <bpmndi:BPMNShape id="Participant_UC120_di" bpmnElement="Participant_UC120" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1470" height="300" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Bauleiter_di" bpmnElement="Lane_Bauleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Unternehmer_di" bpmnElement="Lane_Unternehmer" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1440" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc120_di" bpmnElement="StartEvent_uc120">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc120_di" bpmnElement="EndEvent_uc120">
+        <dc:Bounds x="1230" y="287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="332" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="155" />
+        <di:waypoint x="810" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="305" />
+        <di:waypoint x="950" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="155" />
+        <di:waypoint x="1090" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1190" y="305" />
+        <di:waypoint x="1230" y="305" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

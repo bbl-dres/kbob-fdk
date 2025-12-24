@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  xmlns:camunda="http://camunda.org/schema/1.0/bpmn"
+                  xmlns:modeler="http://camunda.org/schema/modeler/1.0"
+                  id="Definitions_UC100"
+                  targetNamespace="http://bpmn.io/schema/bpmn"
+                  exporter="KBOB-FDK Generator"
+                  exporterVersion="1.0">
+
+  <bpmn:collaboration id="Collaboration_UC100">
+    <bpmn:participant id="Participant_UC100" name="UC100 - Mengen- und Kostenermittlung" processRef="Process_UC100" />
+  </bpmn:collaboration>
+
+  <bpmn:process id="Process_UC100" name="Mengen- und Kostenermittlung" isExecutable="true">
+    <bpmn:documentation>Ermittlung von Mengen und Aufstellung von Kostenschätzungen nach eBKP-H für transparente Kostenplanung.
+
+Definition:
+Die Mengen- und Kostenermittlung umfasst die systematische Erfassung aller relevanten Mengen (Volumen, Flächen, Längen, Stückzahlen) aus Planungsunterlagen oder BIM-Modellen sowie deren Verknüpfung mit Kostenkennwerten zur Erstellung von Kostenschätzungen und Kostenberechnungen. Dieser Anwendungsfall bildet die Grundlage für fundierte Investitionsentscheidungen und ermöglicht eine kontinuierliche Kostenverfolgung über alle Projektphasen. Die Mengenermittlung erfolgt idealerweise modellbasiert, wobei die Qualität der Ergebnisse direkt von der Modellqualität und den definierten Modellierungsrichtlinien abhängt.
+
+Standards: eBKP-H, SIA 416, DIN 276
+
+Ziele:
+- Transparente und nachvollziehbare Kostenermittlung auf Basis einheitlicher Mengengerüste
+- Frühzeitige Kostensicherheit als Grundlage für Investitionsentscheidungen
+- Vergleichbarkeit von Planungsvarianten durch konsistente Bewertungsmethodik
+- Reduktion des manuellen Aufwands durch automatisierte Mengenauswertung aus dem Modell
+- Erhöhung der Planungsqualität durch kontinuierliche Kostenkontrolle
+
+Inputs:
+- Planungsunterlagen (2D oder 3D-Modell)
+- Raumprogramm und Flächenprogramm
+- Kostenkennwerte nach eBKP-H
+- Modellierungsrichtlinien und Auswertungsregeln
+- Referenzdaten aus vergleichbaren Projekten
+
+Outputs:
+- Mengengerüst nach Bauteilen und eBKP-H-Gliederung
+- Kostenschätzung bzw. Kostenberechnung
+- Kostenvergleich bei Planungsvarianten
+- Dokumentation der Auswertungsmethodik
+
+Qualitätskriterien:
+- Vollständigkeit der Mengenermittlung (alle relevanten Positionen erfasst)
+- Nachvollziehbarkeit der Auswertungsmethodik
+- Konsistenz zwischen Modell und Mengengerüst
+- Einhaltung der definierten Kostengenauigkeit je Phase
+- Plausibilität im Vergleich zu Referenzprojekten</bpmn:documentation>
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_BIM_Autor" name="BIM-Autor">
+        <bpmn:flowNodeRef>StartEvent_uc100</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_BIM_Gesamtkoordinator" name="BIM-Gesamtkoordinator">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Kostenplaner" name="Kostenplaner">
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc100</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+
+    <bpmn:startEvent id="StartEvent_uc100" name="Mengen- und Kostenermittlung gestartet">
+      <bpmn:outgoing>Flow_Start</bpmn:outgoing>
+    </bpmn:startEvent>
+
+    <bpmn:task id="Task_01" name="Definition der Mengenanforderungen und Auswertungsregeln im BAP">
+      <bpmn:documentation>Definition der Mengenanforderungen und Auswertungsregeln im BAP</bpmn:documentation>
+      <bpmn:incoming>Flow_Start</bpmn:incoming>
+      <bpmn:outgoing>Flow_01</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_02" name="Qualitätsprüfung des Modells auf Vollständigkeit und Klassifizierung">
+      <bpmn:documentation>Qualitätsprüfung des Modells auf Vollständigkeit und Klassifizierung</bpmn:documentation>
+      <bpmn:incoming>Flow_01</bpmn:incoming>
+      <bpmn:outgoing>Flow_02</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_03" name="Extraktion der Mengen aus dem BIM-Modell mittels Auswertungssoftware">
+      <bpmn:documentation>Extraktion der Mengen aus dem BIM-Modell mittels Auswertungssoftware</bpmn:documentation>
+      <bpmn:incoming>Flow_02</bpmn:incoming>
+      <bpmn:outgoing>Flow_03</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_04" name="Manuelle Ergänzung nicht modellierter Positionen">
+      <bpmn:documentation>Manuelle Ergänzung nicht modellierter Positionen</bpmn:documentation>
+      <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_04</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_05" name="Verknüpfung der Mengen mit Kostenkennwerten nach eBKP-H">
+      <bpmn:documentation>Verknüpfung der Mengen mit Kostenkennwerten nach eBKP-H</bpmn:documentation>
+      <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_05</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_06" name="Plausibilisierung der Ergebnisse durch Vergleich mit Referenzprojekten">
+      <bpmn:documentation>Plausibilisierung der Ergebnisse durch Vergleich mit Referenzprojekten</bpmn:documentation>
+      <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_07" name="Dokumentation und Freigabe der Kostenermittlung">
+      <bpmn:documentation>Dokumentation und Freigabe der Kostenermittlung</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_End</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:endEvent id="EndEvent_uc100" name="Mengen- und Kostenermittlung abgeschlossen">
+      <bpmn:documentation>Lieferobjekte:
+- Mengengerüst nach Bauteilen und eBKP-H-Gliederung
+- Kostenschätzung bzw. Kostenberechnung
+- Kostenvergleich bei Planungsvarianten
+- Dokumentation der Auswertungsmethodik</bpmn:documentation>
+      <bpmn:incoming>Flow_End</bpmn:incoming>
+    </bpmn:endEvent>
+
+    <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc100" targetRef="Task_01" />
+    <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
+    <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_07" targetRef="EndEvent_uc100" />
+
+  </bpmn:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_UC100">
+    <bpmndi:BPMNPlane id="BPMNPlane_UC100" bpmnElement="Collaboration_UC100">
+
+      <bpmndi:BPMNShape id="Participant_UC100_di" bpmnElement="Participant_UC100" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1610" height="450" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_BIM_Autor_di" bpmnElement="Lane_BIM_Autor" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1580" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_BIM_Gesamtkoordinator_di" bpmnElement="Lane_BIM_Gesamtkoordinator" isHorizontal="true">
+        <dc:Bounds x="190" y="230" width="1580" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Kostenplaner_di" bpmnElement="Lane_Kostenplaner" isHorizontal="true">
+        <dc:Bounds x="190" y="380" width="1580" height="150" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="StartEvent_uc100_di" bpmnElement="StartEvent_uc100">
+        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="240" y="182" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
+        <dc:Bounds x="390" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
+        <dc:Bounds x="530" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
+        <dc:Bounds x="670" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="950" y="265" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1090" y="415" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1230" y="115" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="EndEvent_uc100_di" bpmnElement="EndEvent_uc100">
+        <dc:Bounds x="1370" y="437" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1360" y="482" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
+        <di:waypoint x="286" y="155" />
+        <di:waypoint x="390" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="530" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
+        <di:waypoint x="630" y="305" />
+        <di:waypoint x="670" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
+        <di:waypoint x="770" y="455" />
+        <di:waypoint x="810" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
+        <di:waypoint x="910" y="155" />
+        <di:waypoint x="950" y="305" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
+        <di:waypoint x="1050" y="305" />
+        <di:waypoint x="1090" y="455" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1190" y="455" />
+        <di:waypoint x="1230" y="155" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
+        <di:waypoint x="1330" y="155" />
+        <di:waypoint x="1370" y="455" />
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>
