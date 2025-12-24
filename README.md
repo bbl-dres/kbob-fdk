@@ -1,24 +1,24 @@
-# KBOB BIM-Fachdatenkatalog
+# KBOB BIM Specialist Data Catalog
 
-**BIM data requirements. Defined once. Used everywhere.**
+**BIM data requirements defined once. Used everywhere.**
 
 ![KBOB BIM Data Catalog](assets/ecosystem.jpg)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue?logo=github)](https://davras5.github.io/kbob-fdk/)
-[![Swiss Federal Design](https://img.shields.io/badge/design-Swiss%20Federal-red)](https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/bundesweb/styleguide.html)
+[![Swiss Federal Design](https://img.shields.io/badge/design-Swiss%20Federal-red)](https://www.bk.admin.ch/bk/en/home/digital-transformation-ikt-lenkung/bundesweb/styleguide.html)
 
 ---
 
 ## Overview
 
-The KBOB BIM-Fachdatenkatalog is a web-based reference catalog for BIM data requirements in Swiss public construction. It provides building element classifications, LOI specifications per project phase, and IFC mappings — all in one place.
+The **KBOB BIM Specialist Data Catalog** is a web-based reference for Building Information Modeling (BIM) data requirements used in public construction projects across Switzerland. It provides standardized building element classifications, Level of Information (LOI) requirements per project phase, and IFC mappings — all in one accessible place.
 
-The catalog is developed as a **demonstration and reference implementation** to show what a unified, cross-organizational approach to BIM data requirements could look like. It supports KBOB's coordination role for public builders across Switzerland.
+This catalog is published as a **demonstration and reference implementation** of how a coordinated, cross-organizational BIM data reference can support interoperability and consistent data management across federal, cantonal, and municipal builders.
 
-> **Status:** This is currently a demonstration. For it to become an official KBOB resource, organizational commitment for content coordination and maintenance is required.
+> **Status:** This is a demonstration. Transitioning this catalog into an official KBOB resource would require formal governance, mandate, and long-term content stewardship.
 
-**Live demo:** [davras5.github.io/kbob-fdk](https://davras5.github.io/kbob-fdk/)
+**Live demo:** https://davras5.github.io/kbob-fdk/
 
 <p align="center">
   <img src="assets/readme/preview1.JPG" width="45%" />
@@ -30,49 +30,47 @@ The catalog is developed as a **demonstration and reference implementation** to 
 
 ## Why It Matters
 
-The Swiss Federal Council mandates BIM for federal buildings since 2021 and infrastructure since 2025. Public builders across Switzerland are digitizing their construction processes.
+Public organizations across Switzerland are increasingly required to use BIM for planning, construction, and asset management. Federal policy under the **Digital Switzerland Strategy** promotes improved digital processes and data interoperability across the construction lifecycle.
 
-But here's the problem: **everyone built their own catalog.**
+In practice, many public authorities have developed BIM data requirements independently. This has led to inconsistent definitions, duplicated effort, and friction at handovers between project phases and organizations.
 
-Cantons, federal offices, transport operators — each defining data requirements differently. Same building elements, different attribute names. Same project phases, different expectations. The result is confusion, rework, and friction at every handover.
+The KBOB BIM Specialist Data Catalog addresses these challenges by providing:
 
-KBOB coordinates Switzerland's public builders. A shared catalog can:
+- **Reduced ambiguity** — one shared definition understood by all
+- **Improved interoperability** — consistent data flows across organizations and lifecycle phases
+- **Lower barriers to adoption** — small municipalities benefit from the same clarity as larger agencies
 
-- **Reduce ambiguity** — One definition, understood by all
-- **Enable interoperability** — Data flows across organizations and lifecycle phases
-- **Lower barriers** — Small municipalities get the same clarity as large federal offices
-
-This is what coordination looks like in practice.
+This catalog demonstrates how coordination can be implemented in practice across public builders.
 
 ---
 
 ## Strategic Context
 
-This catalog supports key federal digitalization initiatives:
+This catalog aligns with key Swiss digital transformation and BIM-related initiatives:
 
-| Initiative | Connection |
-|------------|------------|
-| **Aktionsplan Digitale Schweiz** | BIM measure to simplify construction through better data interoperability |
-| **Strategie digitale Methoden BLO/ASTRA** | Unified approach for federal building and infrastructure organizations |
-| **eCH-0279 Architekturvision 2050** | Interoperability as architectural principle across government levels |
-| **Datenökosystem Schweiz** | Semantic harmonization, "Once Only" principle for data |
-| **KBOB Empfehlungen** | Lifecycle data management for public construction |
+| Initiative | Description | URL |
+|-----------|-------------|-----|
+| **Digital Switzerland Strategy & Action Plan** | Federal framework guiding digital transformation, including measures to improve data interoperability in construction | https://digital.swiss/ |
+| **Strategy for Digital Methods (BLO / ASTRA)** | Federal strategy for BIM and digital methods within building and infrastructure authorities of the Swiss Confederation | https://www.kbob.admin.ch/de/digitalisierung-und-bim |
+| **eCH-0279 Architecture Vision 2050** | Interoperability-focused architecture vision for digital administration across all government levels | https://www.ech.ch/en/ech/ech-0279/1.0.0 |
+| **Swiss Data Ecosystem Vision** | Federal guidance for interoperable data reuse and the "Once-Only" principle | https://www.bk.admin.ch/bk/en/home/digital-transformation-ikt-lenkung/datenoekosystem_schweiz.html |
+| **KBOB Digitalization & BIM Guidance** | KBOB recommendations for lifecycle-oriented BIM and data management | https://www.kbob.admin.ch/en/digitalisation-and-bim.html |
 
-The goal: data defined once, reused everywhere — from initial planning through decades of operation.
+The overarching objective is to define data once and reuse it consistently across planning, construction, operation, and long-term asset management.
 
 ---
 
-## Features
+## Capabilities
 
-| Feature | Description |
-|---------|-------------|
+| Capability | Description |
+|------------|-------------|
 | **Multiple Catalogs** | Building elements, document types, BIM use cases, professional models, EPD data |
 | **Grid & List Views** | Toggle between card grid and table layouts |
 | **Search & Filter** | Real-time search with tag-based filtering (discipline, classification, phase) |
 | **Detail Pages** | Classifications, IFC mappings, geometry and LOI requirements per phase (1–6) |
 | **Shareable URLs** | Filter states preserved in URL hash |
 | **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
-| **Responsive** | Desktop, tablet, and mobile |
+| **Responsive** | Optimized for desktop, tablet, and mobile |
 
 ---
 
@@ -81,18 +79,20 @@ The goal: data defined once, reused everywhere — from initial planning through
 The catalog maps building elements across multiple classification systems:
 
 | System | Origin | Purpose |
-|--------|--------|---------|
+|-------|--------|---------|
 | **eBKP-H** | Switzerland | Element-based cost planning (SN 506 511) |
-| **DIN 276** | Germany | Cost groups for German-speaking markets |
-| **Uniformat II** | North America | Functional element classification |
-| **KBOB** | Switzerland | Public builder element codes |
+| **DIN 276** | Germany | Cost grouping for German-speaking markets |
+| **Uniformat II** | North America | Functional classification of building elements |
+| **KBOB Codes** | Switzerland | Standard element codes for public builders |
 | **IFC 4.3** | buildingSMART | Open standard for BIM data exchange |
 
-Why multiple systems? Different stakeholders use different tools. Architects think in eBKP-H. Facility managers think in CAFM codes. International teams need IFC. The catalog bridges these worlds.
+Multiple systems are supported to reflect the realities of different professional disciplines, tools, and lifecycle stages. The catalog acts as a bridge between them.
 
 ---
 
 ## Data Model
+
+The data model is intentionally simple, explicit, and technology-agnostic to support reuse across organizations and software systems.
 
 ```mermaid
 erDiagram
@@ -100,7 +100,7 @@ erDiagram
     ELEMENTS ||--o{ USECASES : "support"
     ELEMENTS }o--o{ MODELS : "belong to"
     ELEMENTS ||--o{ EPDS : "reference"
-    
+
     ELEMENTS {
         string id
         string name
@@ -111,27 +111,27 @@ erDiagram
         json geometry_per_phase
         json loi_per_phase
     }
-    
+
     DOCUMENTS {
         string id
         string name
         string type
         string phase
     }
-    
+
     USECASES {
         string id
         string name
         string description
         string phase
     }
-    
+
     MODELS {
         string id
         string name
         string discipline
     }
-    
+
     EPDS {
         string id
         string name
@@ -141,34 +141,36 @@ erDiagram
 
 | Entity | Description |
 |--------|-------------|
-| **Elements** | Building components (walls, windows, HVAC systems) with classifications and LOI requirements per project phase |
-| **Documents** | Deliverables like plans, reports, certificates, and technical documentation |
-| **Use Cases** | BIM applications such as clash detection, quantity takeoff, energy simulation |
-| **Models** | Professional discipline models (architecture, structure, MEP, site) |
-| **EPDs** | Environmental Product Declarations for sustainability and LCA assessment |
+| **Elements** | Building components with classifications and LOI requirements per phase |
+| **Documents** | Required deliverables such as plans, reports, and certificates |
+| **Use Cases** | BIM applications like coordination, quantity takeoff, or simulation |
+| **Models** | Discipline-specific BIM models (architecture, structure, MEP, site) |
+| **EPDs** | Environmental Product Declarations for sustainability assessments |
 
 ---
 
 ## Quick Start
 
-**Option 1: View Online**
+### Option 1: View Online
 
-→ [davras5.github.io/kbob-fdk](https://davras5.github.io/kbob-fdk/)
+https://davras5.github.io/kbob-fdk/
 
-**Option 2: VS Code Live Server**
+### Option 2: VS Code Live Server
+
 ```bash
 git clone https://github.com/davras5/kbob-fdk.git
 cd kbob-fdk
 # Open in VS Code → Go Live
 ```
 
-**Option 3: Python Server**
+### Option 3: Python Server
+
 ```bash
 python -m http.server 8000
 # Open http://localhost:8000
 ```
 
-> **Note:** Local development requires a web server due to CORS policy on JSON files.
+> **Note:** Local development requires a web server due to browser CORS policies for JSON files.
 
 ---
 
@@ -178,10 +180,10 @@ python -m http.server 8000
 kbob-fdk/
 ├── index.html          # Single-page application
 ├── data/
-│   ├── elements.json   # Building elements with LOI specs
+│   ├── elements.json   # Building elements with LOI specifications
 │   ├── documents.json  # Document types
 │   ├── usecases.json   # BIM use cases
-│   ├── models.json     # Professional BIM models
+│   ├── models.json     # Professional discipline models
 │   └── epds.json       # Environmental product declarations
 ├── assets/
 │   └── img/            # Element images
@@ -196,42 +198,21 @@ kbob-fdk/
 |------------|---------|
 | HTML5 | Single-page application |
 | CSS3 | Swiss Federal Design, Flexbox/Grid |
-| Vanilla JavaScript | Zero dependencies (~3,000 lines) |
+| Vanilla JavaScript | No dependencies |
 | Lucide Icons | SVG icon library |
 | JSON | Static data storage |
 
-No build step. No framework lock-in. Runs anywhere.
+No build step. No framework lock-in. Designed for long-term maintainability.
 
 ---
 
 ## Principles
 
-- **Harmonized, not prescriptive** — We consolidate what's common, not dictate what's required
+- **Harmonized, not prescriptive** — consolidates common definitions without mandating use
 - **Phase-aware** — LOI requirements follow SIA project phases (1–6)
 - **Standard-aligned** — eBKP-H, IFC 4.3, Swiss federal design
-- **Zero dependencies** — Vanilla JS, no framework, no build step
-- **Open by default** — Code, data, methodology — all public
-
----
-
-## References
-
-### Federal Strategies
-- [Aktionsplan Digitale Schweiz — BIM Massnahme](https://digital.swiss/de/aktionsplan/massnahme/vereinfachung-des-bauens-durch-bessere-dateninteroperabilitat)
-- [Strategie Digitale Bundesverwaltung](https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/digitale-bundesverwaltung.html)
-- [Strategie digitale Methoden der BLO und des ASTRA](https://www.kbob.admin.ch/de/digitalisierung-und-bim)
-
-### eCH Standards
-- [eCH-0279 Architekturvision 2050](https://www.ech.ch/de/ech/ech-0279/1.0.0)
-- [eCH-0122 Architektur E-Government Schweiz](https://www.ech.ch/de/ech/ech-0122/2.0.0)
-
-### KBOB Publications
-- [KBOB Digitalisierung und BIM](https://www.kbob.admin.ch/de/digitalisierung-und-bim)
-- [KBOB Musterverträge und Publikationen](https://www.kbob.admin.ch/de/mustervertraege-und-publikationen)
-
-### Data Ecosystem
-- [I14Y Interoperabilitätsplattform](https://www.i14y.admin.ch/)
-- [Datenökosystem Schweiz](https://www.digitale-verwaltung-schweiz.ch/umsetzungsplan/agenda-dvs/foederales-datenmanagement-aufbauen)
+- **Zero dependencies** — no frameworks, no build step
+- **Open by default** — code, data, and methodology are public
 
 ---
 
@@ -243,12 +224,12 @@ No build step. No framework lock-in. Runs anywhere.
 
 ## About KBOB
 
-The **Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren** (KBOB) coordinates building and property management for Swiss public builders — federal offices, cantons, cities, and municipalities.
+The **Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren (KBOB)** coordinates building and property management for Swiss public clients, including federal agencies, cantons, cities, and municipalities.
 
-KBOB develops contract templates, procurement guidelines, and recommendations that help public organizations work efficiently with the construction industry across the entire building lifecycle.
+KBOB develops contract templates, procurement guidelines, and recommendations that support efficient and consistent public construction across the entire asset lifecycle.
 
-→ [kbob.admin.ch](https://www.kbob.admin.ch/)
+https://www.kbob.admin.ch/
 
 ---
 
-*A shared foundation for digital construction. This is what we're building toward.*
+*A shared foundation for digital construction — this is what we are building toward.*
