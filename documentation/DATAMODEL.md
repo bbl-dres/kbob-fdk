@@ -48,7 +48,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `elements` | `related_usecases` | usecases | `[{"id": "550e8400-..."}]` |
 | `documents` | `related_elements` | elements | `[{"id": "550e8400-..."}]` |
 | `documents` | `related_classifications` | classifications | `[{"id": "550e8400-..."}]` |
-| `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
+| `models` | `related_elements` | elements | `[{"id": "550e8400-...", "phases": [2,3,4]}]` |
 
 > **Note:** `attributes` and `classifications` are simplified reference tables with fewer common attributes.
 
@@ -303,7 +303,7 @@ BIM model types including discipline models, coordination models, and special-pu
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
+| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model `[{"id": "<uuid>", "phases": [2,3,4]}]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
