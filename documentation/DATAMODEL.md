@@ -21,33 +21,23 @@
 | `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
 | `epds` | `id` (text) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
 
-### Junction Tables (Foreign Keys)
-
-| Junction Table | PK | FK1 | FK2 | Description |
-|----------------|----|----|-----|-------------|
-| `usecase_elements` | `(usecase_id, element_id)` | `usecases.id` | `elements.id` | Use case → required elements |
-| `usecase_documents` | `(usecase_id, document_id)` | `usecases.id` | `documents.id` | Use case → required documents |
-| `usecase_models` | `(usecase_id, model_id)` | `usecases.id` | `models.id` | Use case → involved models |
-| `usecase_epds` | `(usecase_id, epd_id)` | `usecases.id` | `epds.id` | Use case → referenced EPDs |
-| `model_elements` | `(model_id, element_id)` | `models.id` | `elements.id` | Model → contained elements |
-| `element_epds` | `(element_id, epd_id)` | `elements.id` | `epds.id` | Element → linked EPDs |
-
 > **Note on phases:** EPD is the only entity without `phases` as environmental data is phase-neutral reference data.
+
+### Relationships (JSONB)
+
+Relationships between entities are stored as JSONB arrays on the parent entity. This keeps queries simple and avoids junction tables.
+
+| Entity | Field | References | Structure |
+|--------|-------|------------|-----------|
+| `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
+| `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
+| `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 
 ```mermaid
 erDiagram
-    usecases ||--o{ usecase_elements : "requires"
-    usecase_elements }o--|| elements : ""
-    usecases ||--o{ usecase_documents : "specifies"
-    usecase_documents }o--|| documents : ""
-    usecases ||--o{ usecase_models : "involves"
-    usecase_models }o--|| models : ""
-    usecases ||--o{ usecase_epds : "references"
-    usecase_epds }o--|| epds : ""
-    models ||--o{ model_elements : "contains"
-    model_elements }o--|| elements : ""
-    elements ||--o{ element_epds : "linked to"
-    element_epds }o--|| epds : ""
+    usecases ||--o{ elements : "related_elements"
+    usecases ||--o{ documents : "related_documents"
+    elements ||--o{ epds : "related_epds"
 
     elements {
         text id PK
@@ -60,6 +50,7 @@ erDiagram
         jsonb geometry
         jsonb information
         jsonb documentation
+        jsonb related_epds
     }
 
     documents {
@@ -84,6 +75,8 @@ erDiagram
         text[] goals
         text[] inputs
         text[] outputs
+        jsonb related_elements
+        jsonb related_documents
     }
 
     models {
@@ -106,133 +99,7 @@ erDiagram
         numeric penrt
         numeric pert
     }
-
-    usecase_elements {
-        text usecase_id FK
-        text element_id FK
-        integer[] phases
-    }
-
-    usecase_documents {
-        text usecase_id FK
-        text document_id FK
-    }
-
-    usecase_models {
-        text usecase_id FK
-        text model_id FK
-    }
-
-    usecase_epds {
-        text usecase_id FK
-        text epd_id FK
-    }
-
-    model_elements {
-        text model_id FK
-        text element_id FK
-        integer[] phases
-    }
-
-    element_epds {
-        text element_id FK
-        text epd_id FK
-    }
 ```
-
----
-
-## Junction Tables (M:N Relationships)
-
-Junction tables implement the many-to-many relationships defined in the conceptual model per ISO 19650.
-
-| Junction Table | Relationship | Description |
-|----------------|--------------|-------------|
-| `usecase_elements` | UseCase ↔ Element | Use case defines which elements are required with specific LOG/LOI |
-| `usecase_documents` | UseCase ↔ Document | Use case specifies required deliverables |
-| `usecase_models` | UseCase ↔ Model | Use case involves contributions from discipline models |
-| `usecase_epds` | UseCase ↔ EPD | Sustainability use cases reference environmental data |
-| `model_elements` | Model ↔ Element | Models contain/reference element types |
-| `element_epds` | Element ↔ EPD | Elements linked to environmental product declarations |
-
-### usecase_elements
-
-Links use cases to required elements with phase-specific requirements.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
-| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
-| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Phase-specific applicability (overrides element phases) |
-| `log_level` | `text` | | Required LOG level for this use case |
-| `loi_level` | `text` | | Required LOI level for this use case |
-| `notes` | `text` | | Additional requirements or notes |
-
-**Primary Key:** `(usecase_id, element_id)`
-
-### usecase_documents
-
-Links use cases to required document deliverables.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
-| `document_id` | `text` | `NOT NULL, REFERENCES documents(id) ON DELETE CASCADE` | Reference to document |
-| `required` | `boolean` | `NOT NULL DEFAULT true` | Whether document is mandatory |
-| `notes` | `text` | | Additional requirements or notes |
-
-**Primary Key:** `(usecase_id, document_id)`
-
-### usecase_models
-
-Links use cases to involved BIM models.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
-| `model_id` | `text` | `NOT NULL, REFERENCES models(id) ON DELETE CASCADE` | Reference to model |
-| `role` | `text` | | Model's role in the use case (input, output, reference) |
-| `notes` | `text` | | Additional requirements or notes |
-
-**Primary Key:** `(usecase_id, model_id)`
-
-### usecase_epds
-
-Links sustainability use cases to environmental product data.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
-| `epd_id` | `text` | `NOT NULL, REFERENCES epds(id) ON DELETE CASCADE` | Reference to EPD |
-| `notes` | `text` | | Additional context or notes |
-
-**Primary Key:** `(usecase_id, epd_id)`
-
-### model_elements
-
-Links models to contained element types with phase-specific inclusion.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `model_id` | `text` | `NOT NULL, REFERENCES models(id) ON DELETE CASCADE` | Reference to model |
-| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
-| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Phases where element appears in model |
-| `notes` | `text` | | Additional context |
-
-**Primary Key:** `(model_id, element_id)`
-
-### element_epds
-
-Links elements to environmental product declarations for LCA.
-
-| Column | Type | Constraints | Description |
-|--------|------|-------------|-------------|
-| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
-| `epd_id` | `text` | `NOT NULL, REFERENCES epds(id) ON DELETE CASCADE` | Reference to EPD |
-| `quantity_formula` | `text` | | Formula for calculating quantity from element |
-| `notes` | `text` | | Additional context |
-
-**Primary Key:** `(element_id, epd_id)`
 
 ---
 
@@ -290,6 +157,7 @@ Physical building components with geometry (LOG), information (LOI), and documen
 | `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
 | `classifications` | `jsonb` | `DEFAULT '{}'` | Multi-system codes (eBKP-H, DIN 276, Uniformat II) |
 | `ifc_mapping` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools |
+| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs for LCA `[{"id": "kbob-01-042"}]` |
 
 **Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -327,6 +195,8 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `examples` | `jsonb` | `DEFAULT '[]'` | Example implementations |
 | `practice_example` | `jsonb` | | Real-world practice example |
+| `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
+| `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
 
 **Category values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Enumerations)
 
@@ -772,6 +642,7 @@ CREATE TABLE public.elements (
     documentation jsonb DEFAULT '[]',
     classifications jsonb DEFAULT '{}',
     ifc_mapping jsonb DEFAULT '[]',
+    related_epds jsonb DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -845,6 +716,8 @@ CREATE TABLE public.usecases (
     process_url text,
     examples jsonb DEFAULT '[]',
     practice_example jsonb,
+    related_elements jsonb DEFAULT '[]',
+    related_documents jsonb DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -928,79 +801,6 @@ CREATE TABLE public.epds (
 );
 
 -- =============================================================================
--- JUNCTION TABLES (M:N Relationships)
--- =============================================================================
-
--- UseCase ↔ Element: Use case defines which elements are required
-CREATE TABLE public.usecase_elements (
-    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
-    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
-    phases integer[],
-    log_level text,
-    loi_level text,
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (usecase_id, element_id),
-    CONSTRAINT usecase_elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
-);
-
--- UseCase ↔ Document: Use case specifies required deliverables
-CREATE TABLE public.usecase_documents (
-    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
-    document_id text NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
-    required boolean NOT NULL DEFAULT true,
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (usecase_id, document_id)
-);
-
--- UseCase ↔ Model: Use case involves contributions from discipline models
-CREATE TABLE public.usecase_models (
-    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
-    model_id text NOT NULL REFERENCES models(id) ON DELETE CASCADE,
-    role text,
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (usecase_id, model_id)
-);
-
--- UseCase ↔ EPD: Sustainability use cases reference environmental data
-CREATE TABLE public.usecase_epds (
-    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
-    epd_id text NOT NULL REFERENCES epds(id) ON DELETE CASCADE,
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (usecase_id, epd_id)
-);
-
--- Model ↔ Element: Models contain/reference element types
-CREATE TABLE public.model_elements (
-    model_id text NOT NULL REFERENCES models(id) ON DELETE CASCADE,
-    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
-    phases integer[],
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (model_id, element_id),
-    CONSTRAINT model_elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
-);
-
--- Element ↔ EPD: Elements linked to environmental product declarations
-CREATE TABLE public.element_epds (
-    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
-    epd_id text NOT NULL REFERENCES epds(id) ON DELETE CASCADE,
-    quantity_formula text,
-    notes text,
-    created_at timestamptz NOT NULL DEFAULT now(),
-    
-    PRIMARY KEY (element_id, epd_id)
-);
-
--- =============================================================================
 -- INDEXES
 -- =============================================================================
 
@@ -1030,14 +830,6 @@ CREATE INDEX elements_phases_idx ON elements USING gin(phases);
 CREATE INDEX documents_phases_idx ON documents USING gin(phases);
 CREATE INDEX usecases_phases_idx ON usecases USING gin(phases);
 CREATE INDEX models_phases_idx ON models USING gin(phases);
-
--- Junction table indexes (for reverse lookups)
-CREATE INDEX usecase_elements_element_idx ON usecase_elements(element_id);
-CREATE INDEX usecase_documents_document_idx ON usecase_documents(document_id);
-CREATE INDEX usecase_models_model_idx ON usecase_models(model_id);
-CREATE INDEX usecase_epds_epd_idx ON usecase_epds(epd_id);
-CREATE INDEX model_elements_element_idx ON model_elements(element_id);
-CREATE INDEX element_epds_epd_idx ON element_epds(epd_id);
 
 -- =============================================================================
 -- TRIGGERS - Auto-update updated_at
@@ -1076,28 +868,12 @@ ALTER TABLE usecases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE models ENABLE ROW LEVEL SECURITY;
 ALTER TABLE epds ENABLE ROW LEVEL SECURITY;
 
--- Junction tables
-ALTER TABLE usecase_elements ENABLE ROW LEVEL SECURITY;
-ALTER TABLE usecase_documents ENABLE ROW LEVEL SECURITY;
-ALTER TABLE usecase_models ENABLE ROW LEVEL SECURITY;
-ALTER TABLE usecase_epds ENABLE ROW LEVEL SECURITY;
-ALTER TABLE model_elements ENABLE ROW LEVEL SECURITY;
-ALTER TABLE element_epds ENABLE ROW LEVEL SECURITY;
-
--- Public read access for all tables
+-- Public read access
 CREATE POLICY "Public read access" ON elements FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON documents FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON usecases FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON models FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
-
--- Public read access for junction tables
-CREATE POLICY "Public read access" ON usecase_elements FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON usecase_documents FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON usecase_models FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON usecase_epds FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON model_elements FOR SELECT USING (true);
-CREATE POLICY "Public read access" ON element_epds FOR SELECT USING (true);
 ```
 
 ---
