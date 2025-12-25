@@ -7,6 +7,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue?logo=github)](https://davras5.github.io/kbob-fdk/)
 [![Swiss Federal Design](https://img.shields.io/badge/design-Swiss%20Federal-red)](https://www.bk.admin.ch/bk/en/home/digital-transformation-ikt-lenkung/bundesweb/styleguide.html)
+[![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com/)
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?logo=openapi-initiative&logoColor=white)](https://swagger.io/)
+[![bpmn.io](https://img.shields.io/badge/bpmn.io-FF6600?logo=bpmn&logoColor=white)](https://bpmn.io/)
+[![IFC 4.3](https://img.shields.io/badge/IFC-4.3-00A99D)](https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/)
 
 ---
 
@@ -222,13 +226,15 @@ kbob-fdk/
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| HTML5 | Single-page application |
-| CSS3 | Swiss Federal Design, Flexbox/Grid |
-| Vanilla JavaScript | No dependencies |
-| Lucide Icons | SVG icon library |
-| JSON | Static data storage |
+| Technology | Purpose | License |
+|------------|---------|---------|
+| HTML5 / CSS3 / JS | Single-page application, no framework | – |
+| [Supabase](https://supabase.com/) | Backend API and database | MIT |
+| [Swagger UI](https://swagger.io/tools/swagger-ui/) | REST API documentation | Apache 2.0 |
+| [bpmn-js](https://bpmn.io/) | Interactive BPMN process diagrams | MIT |
+| [Lucide Icons](https://lucide.dev/) | SVG icon library | ISC |
+| [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) | Typography (Google Fonts) | OFL |
+| JSON | Static data storage | – |
 
 No build step. No framework lock-in. Designed for long-term maintainability.
 
