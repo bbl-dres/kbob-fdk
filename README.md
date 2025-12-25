@@ -96,6 +96,8 @@ The overarching objective is to define data once and reuse it consistently acros
 ## Data Model
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
+Additional details: documentation/DATAMODEL.md
+
 ### Implemented Entities
 
 ```mermaid
