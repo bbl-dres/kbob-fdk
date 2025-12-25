@@ -15,104 +15,357 @@
   </bpmn:collaboration>
 
   <bpmn:process id="Process_UC090" name="Genehmigungsprozess" isExecutable="true">
-    <bpmn:documentation>Zusammenstellung und Einreichung der erforderlichen Unterlagen für das Baubewilligungsverfahren und Begleitung der behördlichen Prüfung.
+    <bpmn:documentation>Systematische Zusammenstellung und digitale Einreichung der Baugesuchsunterlagen sowie Begleitung des behördlichen Bewilligungsverfahrens.
 
 Definition:
-Der Genehmigungsprozess umfasst die Zusammenstellung und Einreichung aller erforderlichen Unterlagen für das Baubewilligungsverfahren sowie die Begleitung der behördlichen Prüfung. Er stellt sicher, dass alle formalen und inhaltlichen Anforderungen erfüllt werden, um eine zeitgerechte Baubewilligung zu erlangen. Die digitale Projektabwicklung ermöglicht eine effiziente Zusammenstellung der Gesuchsunterlagen.
+Der Genehmigungsprozess umfasst die vollständige Zusammenstellung aller erforderlichen Unterlagen für das Baubewilligungsverfahren, die digitale Einreichung via eBaugesuch-Plattform sowie die aktive Begleitung des behördlichen Prüfverfahrens. Der Prozess beginnt mit der Vorabklärung der Bewilligungsanforderungen und endet mit der rechtskräftigen Baubewilligung. BIM-basierte Planunterlagen ermöglichen eine effiziente Erstellung normkonformer Gesuchspläne.
 
-Standards: RPG, BauG
+Standards: RPG (Raumplanungsgesetz), kantonales PBG/BauG, SIA 400, VKF Brandschutzvorschriften, MuKEn (Energievorschriften)
 
 Ziele:
-- Vollständige Gesuchsunterlagen
-- Effiziente Bewilligungsverfahren
-- Rechtssicherheit
+- Vollständige und formgerechte Gesuchsunterlagen beim ersten Einreichen
+- Minimierung von Nachforderungen und Verzögerungen
+- Effiziente digitale Einreichung via eBaugesuch
+- Transparente Kommunikation mit der Baubehörde
+- Fristgerechte Erteilung der Baubewilligung
+- Dokumentation aller Auflagen für die Ausführung
 
 Inputs:
-- Planunterlagen
-- Nachweise und Berechnungen
-- Formulare und Anträge
+- Vorprojekt mit Nutzungskonzept
+- Grundstücksdaten und Zonenplan
+- BIM-Modell für Planableitung
+- Fachplanerberichte (Statik, Brandschutz, Energie)
+- Nachbarunterschriften falls erforderlich
+- Formulare der zuständigen Gemeinde/Kanton
 
 Outputs:
-- Baugesuch
-- Baubewilligung
-- Auflagen
+- Vollständiges Baugesuch (digital und/oder physisch)
+- Rechtskräftige Baubewilligung
+- Auflagenliste mit Bedingungen
+- Genehmigungspläne (gestempelt)
+- Dokumentation für Bauausführung
 
 Qualitätskriterien:
-- Vollständigkeit aller Gesuchsunterlagen
-- Einhaltung der formalen Anforderungen
-- Zeitgerechte Einreichung gemäss Terminplan
-- Erfolgreiche Erteilung der Baubewilligung
-- Dokumentation aller Auflagen und Bedingungen</bpmn:documentation>
+- Vollständigkeit aller Planunterlagen gemäss Checkliste
+- Einhaltung der formalen Anforderungen (Massstäbe, Formate, Signaturen)
+- Konformität mit Zonenvorschriften und Bauordnung
+- Positive Vorprüfung ohne wesentliche Beanstandungen
+- Bewilligung ohne Einsprachen oder erfolgreiche Einspracheerledigung
+- Einhaltung des geplanten Bewilligungstermins</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_Architekt" name="Architekt">
+      <bpmn:lane id="Lane_Bauherr" name="Bauherr/Bauherrenvertreter">
         <bpmn:flowNodeRef>StartEvent_uc090</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_14</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_uc090</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Architekt" name="Architekt/Gesamtleiter">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_Bauherr" name="Bauherr">
-        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_uc090</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Vollstaendig</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Fachplaner" name="Fachplaner (Statik/Brand/Energie)">
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Behoerde" name="Baubehörde (Gemeinde/Kanton)">
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Bewilligung</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_13</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
-    <bpmn:startEvent id="StartEvent_uc090" name="Genehmigungsprozess gestartet">
+    <bpmn:startEvent id="StartEvent_uc090" name="Bewilligungsverfahren initiiert">
+      <bpmn:documentation>Auslöser: Das Vorprojekt ist abgeschlossen und der Bauherr hat die Freigabe für die Einreichung des Baugesuchs erteilt. Die Planungstiefe entspricht den Anforderungen für das Baubewilligungsverfahren.</bpmn:documentation>
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Analyse der Bewilligungsanforderungen und Auflagen">
-      <bpmn:documentation>Analyse der Bewilligungsanforderungen und Auflagen</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Vorabklärung mit Baubehörde durchführen">
+      <bpmn:documentation>Optionale Vorabklärung mit der zuständigen Baubehörde zu kritischen Fragen: Zonenkonformität, Ausnahmebewilligungen, Gestaltungsanforderungen, erforderliche Nachweise.
+
+Inputs:
+- Vorprojekt mit Situationsplan
+- Zonenplan und Bauordnung
+- Frageliste kritischer Punkte
+
+Outputs:
+- Protokoll Vorabklärung
+- Klarheit über Anforderungen
+- Identifizierte Risiken</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Zusammenstellung aller erforderlichen Planunterlagen">
-      <bpmn:documentation>Zusammenstellung aller erforderlichen Planunterlagen</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Bewilligungsanforderungen analysieren">
+      <bpmn:documentation>Systematische Analyse aller Bewilligungsanforderungen: Kantonales und kommunales Baurecht, Zonenvorschriften, Gestaltungsplan, Brandschutz, Energie, Umwelt, Denkmalpflege etc.
+
+Inputs:
+- Kantonales PBG/BauG
+- Kommunale Bauordnung
+- Zonenplan und Zonenvorschriften
+- Gestaltungsplan falls vorhanden
+
+Outputs:
+- Anforderungsliste
+- Checkliste erforderliche Unterlagen
+- Identifizierte Spezialbewilligungen</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Erstellung der Nachweise und Berechnungen">
-      <bpmn:documentation>Erstellung der Nachweise und Berechnungen</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Gesuchspläne aus BIM-Modell ableiten">
+      <bpmn:documentation>Erstellung der normkonformen Gesuchspläne aus dem BIM-Modell: Situation, Grundrisse, Schnitte, Fassaden in den vorgeschriebenen Massstäben und Formaten.
+
+Inputs:
+- BIM-Modell (LOD 300)
+- Planungsrichtlinien der Behörde
+- Vorgeschriebene Massstäbe (1:100, 1:200, 1:500)
+
+Outputs:
+- Situationsplan mit Umgebung
+- Grundrisse aller Geschosse
+- Schnitte und Ansichten
+- Schattenwurf/Höhenprofil</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Ausfüllen der Gesuchsformulare">
-      <bpmn:documentation>Ausfüllen der Gesuchsformulare</bpmn:documentation>
+    <bpmn:task id="Task_04" name="Fachplanernachweise erstellen (Statik, Brand, Energie)">
+      <bpmn:documentation>Die Fachplaner erstellen die erforderlichen Nachweise: Tragwerkskonzept, Brandschutzkonzept, Energienachweis (GEAK/Minergie), Entwässerungsgesuch, Lärmschutznachweis etc.
+
+Inputs:
+- Projektunterlagen vom Architekten
+- Normvorgaben (SIA, VKF, MuKEn)
+- Behördliche Anforderungen
+
+Outputs:
+- Tragwerkskonzept/-nachweis
+- Brandschutzkonzept mit Fluchtwegeplan
+- Energienachweis (GEAK Plus/Minergie)
+- Weitere Fachberichte</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Einreichung bei der zuständigen Behörde">
-      <bpmn:documentation>Einreichung bei der zuständigen Behörde</bpmn:documentation>
+    <bpmn:task id="Task_05" name="Gesuchsformulare ausfüllen und Beilagen zusammenstellen">
+      <bpmn:documentation>Ausfüllen der offiziellen Gesuchsformulare (Baugesuch, Kanalisationsgesuch, etc.) und Zusammenstellung aller erforderlichen Beilagen gemäss Checkliste.
+
+Inputs:
+- Gesuchspläne
+- Fachplanernachweise
+- Formulare der Gemeinde/Kanton
+- Grundbuchauszug, Katasterplan
+
+Outputs:
+- Ausgefüllte Gesuchsformulare
+- Vollständiges Beilagenverzeichnis
+- Gebührenberechnung</bpmn:documentation>
       <bpmn:incoming>Flow_04</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Begleitung des Bewilligungsverfahrens">
-      <bpmn:documentation>Begleitung des Bewilligungsverfahrens</bpmn:documentation>
+    <bpmn:task id="Task_06" name="Qualitätsprüfung der Gesuchsunterlagen">
+      <bpmn:documentation>Interne Qualitätsprüfung aller Unterlagen auf Vollständigkeit, Konsistenz und Formkonformität vor der Einreichung.
+
+Inputs:
+- Alle Gesuchsunterlagen
+- Checkliste der Behörde
+- Interne QS-Checkliste
+
+Outputs:
+- QS-Bericht
+- Korrekturliste
+- Freigabe zur Einreichung</bpmn:documentation>
       <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Vollstaendig" name="Unterlagen vollständig?">
+      <bpmn:documentation>Entscheidung ob alle erforderlichen Unterlagen vollständig und qualitätsgeprüft vorliegen.</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway1_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway1_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_07" name="Baugesuch digital einreichen (eBaugesuch)">
+      <bpmn:documentation>Digitale Einreichung des Baugesuchs über die kantonale eBaugesuch-Plattform mit allen Unterlagen in den vorgeschriebenen Formaten.
+
+Inputs:
+- Vollständige Gesuchsunterlagen (PDF/A)
+- Zugangsdaten eBaugesuch
+- Vollmacht des Bauherrn
+
+Outputs:
+- Einreichungsbestätigung
+- Geschäftsnummer
+- Zahlungsaufforderung Gebühren</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway1_Ja</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_08" name="Formelle und materielle Vorprüfung durch Behörde">
+      <bpmn:documentation>Die Baubehörde prüft das Gesuch auf formelle Vollständigkeit und materielle Konformität mit den rechtlichen Vorgaben.
+
+Inputs:
+- Eingereichte Gesuchsunterlagen
+- Gesetzliche Grundlagen
+- Fachstellenberichte
+
+Outputs:
+- Vorprüfungsbericht
+- Liste Nachforderungen falls nötig
+- Bestätigung Auflage oder Rückweisung</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_09" name="Öffentliche Auflage und Einspracheverfahren">
+      <bpmn:documentation>Das Baugesuch wird öffentlich aufgelegt. Während der Auflagefrist können Einsprachen eingereicht werden, die behandelt werden müssen.
+
+Inputs:
+- Geprüftes Baugesuch
+- Publikation im Amtsblatt
+- Profilierung auf dem Grundstück
+
+Outputs:
+- Auflagebericht
+- Einsprachen (falls vorhanden)
+- Stellungnahmen zu Einsprachen</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Bewilligung" name="Bewilligung erteilt?">
+      <bpmn:documentation>Entscheidung der Baubehörde über die Erteilung der Baubewilligung, allenfalls mit Auflagen.</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway2_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway2_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_10" name="Nachforderungen bearbeiten und Unterlagen ergänzen">
+      <bpmn:documentation>Bei Nachforderungen der Behörde werden die fehlenden oder zu überarbeitenden Unterlagen erstellt und nachgereicht.
+
+Inputs:
+- Liste der Nachforderungen
+- Ursprüngliche Unterlagen
+- Behördliche Hinweise
+
+Outputs:
+- Ergänzte/korrigierte Unterlagen
+- Stellungnahme zu Beanstandungen
+- Nachreichung via eBaugesuch</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway2_Nein</bpmn:incoming>
+      <bpmn:outgoing>Flow_Loop</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_11" name="Fachplaner-Unterlagen bei Bedarf anpassen">
+      <bpmn:documentation>Falls behördliche Nachforderungen Fachplanerbereiche betreffen, werden die entsprechenden Nachweise überarbeitet.
+
+Inputs:
+- Nachforderungen zu Fachbereichen
+- Originale Fachberichte
+- Behördliche Anforderungen
+
+Outputs:
+- Überarbeitete Fachberichte
+- Zusätzliche Nachweise
+- Aktualisierte Berechnungen</bpmn:documentation>
+      <bpmn:incoming>Flow_Loop</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_12" name="Baubewilligung und Auflagen entgegennehmen">
+      <bpmn:documentation>Der Bauherr nimmt die Baubewilligung mit allen Auflagen und Bedingungen entgegen und prüft diese auf Akzeptanz.
+
+Inputs:
+- Baubewilligungsverfügung
+- Auflagen und Bedingungen
+- Genehmigte Pläne (gestempelt)
+
+Outputs:
+- Geprüfte Bewilligung
+- Akzeptierte Auflagen
+- Rechtsmittelverzicht oder -erhebung</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway2_Ja</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_13" name="Baubewilligung rechtskräftig erklären">
+      <bpmn:documentation>Nach Ablauf der Rechtsmittelfrist ohne Einsprache wird die Baubewilligung rechtskräftig. Die Behörde bestätigt die Rechtskraft.
+
+Inputs:
+- Baubewilligungsverfügung
+- Ablauf Rechtsmittelfrist
+- Keine Einsprachen/Beschwerden
+
+Outputs:
+- Rechtskraftbescheinigung
+- Bewilligungsstempel auf Plänen
+- Freigabe zum Baubeginn</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_14" name="Bewilligungsunterlagen für Bauausführung dokumentieren">
+      <bpmn:documentation>Alle Bewilligungsunterlagen werden für die Bauausführung aufbereitet: Auflagen werden in die Planung integriert, Nachweise werden archiviert.
+
+Inputs:
+- Rechtskräftige Baubewilligung
+- Genehmigte Pläne
+- Auflagenliste
+
+Outputs:
+- Auflagen-Checkliste für Ausführung
+- Archivierte Bewilligungsunterlagen
+- Aktualisierte Projektdokumentation</bpmn:documentation>
+      <bpmn:incoming>Flow_13</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:endEvent id="EndEvent_uc090" name="Genehmigungsprozess abgeschlossen">
-      <bpmn:documentation>Lieferobjekte:
-- Baugesuch
-- Baubewilligung
-- Auflagen</bpmn:documentation>
+    <bpmn:endEvent id="EndEvent_uc090" name="Baubewilligung rechtskräftig">
+      <bpmn:documentation>Das Baubewilligungsverfahren ist erfolgreich abgeschlossen. Die rechtskräftige Bewilligung liegt vor, der Baubeginn ist freigegeben.
+
+Lieferobjekte:
+- Rechtskräftige Baubewilligung
+- Genehmigte Pläne (gestempelt)
+- Auflagenliste mit Bedingungen
+- Rechtskraftbescheinigung
+- Dokumentation für Bauausführung</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
+    <!-- Sequence Flows -->
     <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc090" targetRef="Task_01" />
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
     <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
     <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
     <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
     <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc090" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Gateway_Vollstaendig" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Ja" name="Ja - Vollständig und geprüft" sourceRef="Gateway_Vollstaendig" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Nein" name="Nein - Unterlagen fehlen" sourceRef="Gateway_Vollstaendig" targetRef="Task_04">
+      <bpmn:documentation>Bei fehlenden Unterlagen erfolgt Rückkopplung zu den Fachplanern für Nacharbeiten.</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Gateway_Bewilligung" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Ja" name="Ja - Bewilligung erteilt" sourceRef="Gateway_Bewilligung" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Nein" name="Nein - Nachforderungen/Ablehnung" sourceRef="Gateway_Bewilligung" targetRef="Task_10">
+      <bpmn:documentation>Bei Nachforderungen oder Ablehnung werden die Unterlagen überarbeitet und ergänzt.</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_Loop" sourceRef="Task_10" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_11" targetRef="Task_07">
+      <bpmn:documentation>Nach Überarbeitung der Fachplaner-Unterlagen erfolgt die erneute Einreichung.</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_12" targetRef="Task_13" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="Task_13" targetRef="Task_14" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_14" targetRef="EndEvent_uc090" />
 
   </bpmn:process>
 
@@ -120,88 +373,237 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC090" bpmnElement="Collaboration_UC090">
 
       <bpmndi:BPMNShape id="Participant_UC090_di" bpmnElement="Participant_UC090" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1470" height="300" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Lane_Architekt_di" bpmnElement="Lane_Architekt" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1440" height="150" />
+        <dc:Bounds x="160" y="80" width="1900" height="520" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Bauherr_di" bpmnElement="Lane_Bauherr" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1440" height="150" />
+        <dc:Bounds x="190" y="80" width="1870" height="120" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Lane_Architekt_di" bpmnElement="Lane_Architekt" isHorizontal="true">
+        <dc:Bounds x="190" y="200" width="1870" height="140" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Fachplaner_di" bpmnElement="Lane_Fachplaner" isHorizontal="true">
+        <dc:Bounds x="190" y="340" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Behoerde_di" bpmnElement="Lane_Behoerde" isHorizontal="true">
+        <dc:Bounds x="190" y="460" width="1870" height="140" />
+      </bpmndi:BPMNShape>
+
+      <!-- Start Event -->
       <bpmndi:BPMNShape id="StartEvent_uc090_di" bpmnElement="StartEvent_uc090">
-        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <dc:Bounds x="250" y="122" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="225" y="165" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <!-- Tasks Row 1: Bauherr -->
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="100" width="100" height="80" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1580" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_14_di" bpmnElement="Task_14">
+        <dc:Bounds x="1810" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 2: Architekt -->
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="460" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
+        <dc:Bounds x="590" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
+        <dc:Bounds x="850" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
+        <dc:Bounds x="980" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="EndEvent_uc090_di" bpmnElement="EndEvent_uc090">
-        <dc:Bounds x="1230" y="287" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_Vollstaendig_di" bpmnElement="Gateway_Vollstaendig" isMarkerVisible="true">
+        <dc:Bounds x="1115" y="245" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1220" y="332" width="56" height="27" />
+          <dc:Bounds x="1100" y="215" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1200" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1450" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 3: Fachplaner -->
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="720" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1320" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 4: Behörde -->
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1250" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1380" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Bewilligung_di" bpmnElement="Gateway_Bewilligung" isMarkerVisible="true">
+        <dc:Bounds x="1515" y="505" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1500" y="562" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_13_di" bpmnElement="Task_13">
+        <dc:Bounds x="1700" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- End Event -->
+      <bpmndi:BPMNShape id="EndEvent_uc090_di" bpmnElement="EndEvent_uc090">
+        <dc:Bounds x="1962" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1935" y="165" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Sequence Flow Edges -->
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
-        <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="286" y="140" />
+        <di:waypoint x="330" y="140" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="140" />
+        <di:waypoint x="445" y="140" />
+        <di:waypoint x="445" y="270" />
+        <di:waypoint x="460" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="560" y="270" />
+        <di:waypoint x="590" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="690" y="270" />
+        <di:waypoint x="705" y="270" />
+        <di:waypoint x="705" y="400" />
+        <di:waypoint x="720" y="400" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="820" y="400" />
+        <di:waypoint x="835" y="400" />
+        <di:waypoint x="835" y="270" />
+        <di:waypoint x="850" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="950" y="270" />
+        <di:waypoint x="980" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1080" y="270" />
+        <di:waypoint x="1115" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Ja_di" bpmnElement="Flow_Gateway1_Ja">
+        <di:waypoint x="1165" y="270" />
+        <di:waypoint x="1200" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1143" y="236" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Nein_di" bpmnElement="Flow_Gateway1_Nein">
+        <di:waypoint x="1140" y="295" />
+        <di:waypoint x="1140" y="400" />
+        <di:waypoint x="820" y="400" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="940" y="382" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1250" y="310" />
+        <di:waypoint x="1250" y="400" />
+        <di:waypoint x="1300" y="400" />
+        <di:waypoint x="1300" y="490" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1350" y="530" />
+        <di:waypoint x="1380" y="530" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1480" y="530" />
+        <di:waypoint x="1515" y="530" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Ja_di" bpmnElement="Flow_Gateway2_Ja">
+        <di:waypoint x="1565" y="530" />
+        <di:waypoint x="1630" y="530" />
+        <di:waypoint x="1630" y="180" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1567" y="496" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Nein_di" bpmnElement="Flow_Gateway2_Nein">
+        <di:waypoint x="1540" y="505" />
+        <di:waypoint x="1540" y="270" />
+        <di:waypoint x="1550" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1545" y="376" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Loop_di" bpmnElement="Flow_Loop">
+        <di:waypoint x="1500" y="310" />
+        <di:waypoint x="1500" y="400" />
+        <di:waypoint x="1420" y="400" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1320" y="400" />
+        <di:waypoint x="1250" y="400" />
+        <di:waypoint x="1250" y="310" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1680" y="140" />
+        <di:waypoint x="1690" y="140" />
+        <di:waypoint x="1690" y="530" />
+        <di:waypoint x="1700" y="530" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1800" y="530" />
+        <di:waypoint x="1860" y="530" />
+        <di:waypoint x="1860" y="180" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="305" />
+        <di:waypoint x="1910" y="140" />
+        <di:waypoint x="1962" y="140" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>
