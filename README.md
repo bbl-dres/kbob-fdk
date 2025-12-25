@@ -226,7 +226,7 @@ kbob-fdk/
 
 ---
 
-## Tech Stack
+## Used Technology and Content
 
 | Technology | Purpose | License |
 |------------|---------|---------|
