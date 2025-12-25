@@ -56,8 +56,8 @@ erDiagram
     elements {
         text id PK
         jsonb name "de_fr_it_en"
-        text category
-        text[] tags
+        jsonb category "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb tool_elements
         jsonb geometry "de_fr_it_en"
@@ -87,8 +87,8 @@ erDiagram
     documents {
         text id PK
         jsonb name "de_fr_it_en"
-        text category
-        text[] tags
+        jsonb category "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
         integer[] phases
         text[] formats
         text retention
@@ -99,8 +99,8 @@ erDiagram
     usecases {
         text id PK
         jsonb name "de_fr_it_en"
-        text category
-        text[] tags
+        jsonb category "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb roles
         jsonb prerequisites
@@ -114,8 +114,8 @@ erDiagram
     models {
         text id PK
         jsonb name "de_fr_it_en"
-        text category
-        text[] tags
+        jsonb category "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb related_elements FK
     }
@@ -123,9 +123,9 @@ erDiagram
     epds {
         text id PK
         jsonb name "de_fr_it_en"
-        text category
+        jsonb category "de_fr_it_en"
         text subcategory
-        text[] tags
+        jsonb tags "de_fr_it_en"
     }
 ```
 
@@ -144,9 +144,9 @@ All five core entities share a common set of attributes for identification, vers
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
-| `category` | `text` | `NOT NULL` | Primary grouping (entity-specific vocabulary) |
+| `category` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
 | `description` | `text` | | Detailed explanation of purpose and scope |
-| `tags` | `text[]` | `NOT NULL, min. 1` | Anwendungsfeld keywords per VDI 2552 Blatt 12.2 |
+| `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
 | `updated_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
 
@@ -392,145 +392,93 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 
 ---
 
-## Enumerations
+## Reference Values
+
+> **Note:** Categories and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
 
 ### element_category — Discipline Grouping
 
-| Value (EN) | Value (DE) | Description |
-|------------|------------|-------------|
-| `architecture` | Architektur | Architectural elements (windows, doors, walls, roofs) |
-| `structure` | Tragwerk | Structural elements (columns, beams, slabs, foundations) |
-| `mep_hvac` | Gebäudetechnik HLKS | HVAC and plumbing elements |
-| `mep_electrical` | Gebäudetechnik Elektro | Electrical elements (power, lighting, automation) |
-| `interior_finishes` | Ausbau | Interior finishing (floors, ceilings, partitions) |
-| `site` | Umgebung | Site elements (landscaping, paving) |
-| `fire_protection` | Brandschutz | Fire protection elements |
-| `vertical_transport` | Transportanlagen | Elevators, escalators, lifts |
-
-```sql
-CREATE TYPE element_category AS ENUM (
-    'Architektur',
-    'Tragwerk',
-    'Gebäudetechnik HLKS',
-    'Gebäudetechnik Elektro',
-    'Ausbau',
-    'Umgebung',
-    'Brandschutz',
-    'Transportanlagen'
-);
+```json
+{ "de": "Architektur", "fr": "Architecture", "it": "Architettura", "en": "Architecture" }
 ```
+
+| Value (DE) | Value (EN) | Description |
+|------------|------------|-------------|
+| Architektur | Architecture | Architectural elements (windows, doors, walls, roofs) |
+| Tragwerk | Structure | Structural elements (columns, beams, slabs, foundations) |
+| Gebäudetechnik HLKS | MEP HVAC | HVAC and plumbing elements |
+| Gebäudetechnik Elektro | MEP Electrical | Electrical elements (power, lighting, automation) |
+| Ausbau | Interior Finishes | Interior finishing (floors, ceilings, partitions) |
+| Umgebung | Site | Site elements (landscaping, paving) |
+| Brandschutz | Fire Protection | Fire protection elements |
+| Transportanlagen | Vertical Transport | Elevators, escalators, lifts |
 
 ### document_category — KBOB/IPB Dokumenttypenkatalog
 
-| Code | Value (EN) | Value (DE) | Description |
+| Code | Value (DE) | Value (EN) | Description |
 |------|------------|------------|-------------|
 | O | Organisation | Organisation | Project and operations organization documents |
-| K | Contracts and Costs | Verträge und Kosten | Commercial and contractual documents |
-| B | Concepts and Descriptions | Konzepte und Beschriebe | Planning concepts and technical descriptions |
-| V | Visualizations | Visualisierungen | Plans, drawings, and visual representations |
-
-```sql
-CREATE TYPE document_category AS ENUM (
-    'Organisation',
-    'Verträge und Kosten',
-    'Konzepte und Beschriebe',
-    'Visualisierungen'
-);
-```
+| K | Verträge und Kosten | Contracts and Costs | Commercial and contractual documents |
+| B | Konzepte und Beschriebe | Concepts and Descriptions | Planning concepts and technical descriptions |
+| V | Visualisierungen | Visualizations | Plans, drawings, and visual representations |
 
 ### usecase_category — VDI 2552 Blatt 12.2 Anwendungsfeld
 
-| Value (EN) | Value (DE) |
+| Value (DE) | Value (EN) |
 |------------|------------|
-| Acceptance | Abnahme |
-| Change Management | Änderungsmanagement |
-| Tendering and Procurement | Ausschreibung und Vergabe |
-| Requirements Planning | Bedarfsplanung |
-| Asset Capture | Bestandserfassung |
-| Operations | Betrieb |
-| Documentation | Dokumentation |
-| Approval | Genehmigung |
-| Commissioning | Inbetriebnahme |
-| Coordination | Koordination |
-| Costs | Kosten |
-| Logistics | Logistik |
-| Feasibility | Machbarkeit |
-| Sustainability | Nachhaltigkeit |
-| Verification | Nachweise |
-| Quality Assurance | Qualitätssicherung |
-| Risk Management | Risikomanagement |
-| Scheduling | Termine |
-| Variant Comparison | Variantenvergleich |
-| Insurance | Versicherung |
-| Visualization | Visualisierung |
-| Other | Sonstiges |
-
-```sql
-CREATE TYPE usecase_category AS ENUM (
-    'Abnahme',
-    'Änderungsmanagement',
-    'Ausschreibung und Vergabe',
-    'Bedarfsplanung',
-    'Bestandserfassung',
-    'Betrieb',
-    'Dokumentation',
-    'Genehmigung',
-    'Inbetriebnahme',
-    'Koordination',
-    'Kosten',
-    'Logistik',
-    'Machbarkeit',
-    'Nachhaltigkeit',
-    'Nachweise',
-    'Qualitätssicherung',
-    'Risikomanagement',
-    'Termine',
-    'Variantenvergleich',
-    'Versicherung',
-    'Visualisierung',
-    'Sonstiges'
-);
-```
+| Abnahme | Acceptance |
+| Änderungsmanagement | Change Management |
+| Ausschreibung und Vergabe | Tendering and Procurement |
+| Bedarfsplanung | Requirements Planning |
+| Bestandserfassung | Asset Capture |
+| Betrieb | Operations |
+| Dokumentation | Documentation |
+| Genehmigung | Approval |
+| Inbetriebnahme | Commissioning |
+| Koordination | Coordination |
+| Kosten | Costs |
+| Logistik | Logistics |
+| Machbarkeit | Feasibility |
+| Nachhaltigkeit | Sustainability |
+| Nachweise | Verification |
+| Qualitätssicherung | Quality Assurance |
+| Risikomanagement | Risk Management |
+| Termine | Scheduling |
+| Variantenvergleich | Variant Comparison |
+| Versicherung | Insurance |
+| Visualisierung | Visualization |
+| Sonstiges | Other |
 
 ### model_category — BIM Model Types
 
-| Value (EN) | Value (DE) | Description |
+| Value (DE) | Value (EN) | Description |
 |------------|------------|-------------|
-| Discipline Models | Fachmodelle | Single-discipline BIM models |
-| Coordination | Koordination | Merged coordination models |
-| Special Models | Spezialmodelle | Purpose-specific models |
-| As-Built | Bestand | Digital twin for operations |
-
-```sql
-CREATE TYPE model_category AS ENUM (
-    'Fachmodelle',
-    'Koordination',
-    'Spezialmodelle',
-    'Bestand'
-);
-```
+| Fachmodelle | Discipline Models | Single-discipline BIM models |
+| Koordination | Coordination | Merged coordination models |
+| Spezialmodelle | Special Models | Purpose-specific models |
+| Bestand | As-Built | Digital twin for operations |
 
 ### epd_category — KBOB Material Categories
 
-| Value (EN) | Value (DE) | Typical Subcategories |
+| Value (DE) | Value (EN) | Typical Subcategories |
 |------------|------------|----------------------|
-| Building Materials | Baumaterialien | Beton, Mauerwerk, Holz, Metall, Dämmstoffe |
-| Energy | Energie | Strom, Wärme, Kälte, Brennstoffe |
-| Building Services | Gebäudetechnik | Heizung, Lüftung, Sanitär, Elektro |
-| Transport | Transporte | LKW, Bahn, Schiff |
-
-```sql
-CREATE TYPE epd_category AS ENUM (
-    'Baumaterialien',
-    'Energie',
-    'Gebäudetechnik',
-    'Transporte'
-);
-```
+| Baumaterialien | Building Materials | Beton, Mauerwerk, Holz, Metall, Dämmstoffe |
+| Energie | Energy | Strom, Wärme, Kälte, Brennstoffe |
+| Gebäudetechnik | Building Services | Heizung, Lüftung, Sanitär, Elektro |
+| Transporte | Transport | LKW, Bahn, Schiff |
 
 ### Tag Values (Anwendungsfeld) — VDI 2552 Blatt 12.2
 
-The tagging system uses a controlled vocabulary derived from VDI 2552 Blatt 12.2 Anhang B1. Tags are stored as `text[]` and validated against this list:
+The tagging system uses a controlled vocabulary derived from VDI 2552 Blatt 12.2 Anhang B1. Tags are stored as JSONB arrays with i18n support:
+
+```json
+[
+  { "de": "Koordination", "fr": "Coordination", "it": "Coordinamento", "en": "Coordination" },
+  { "de": "Dokumentation", "fr": "Documentation", "it": "Documentazione", "en": "Documentation" }
+]
+```
+
+Standard tag values:
 
 | Value (DE) | Value (EN) | Description |
 |------------|------------|-------------|
@@ -577,69 +525,11 @@ The tagging system uses a controlled vocabulary derived from VDI 2552 Blatt 12.2
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.0.0
+-- Version: 2.1.0
 -- =============================================================================
 
--- =============================================================================
--- ENUMERATIONS
--- =============================================================================
-
-CREATE TYPE element_category AS ENUM (
-    'Architektur',
-    'Tragwerk',
-    'Gebäudetechnik HLKS',
-    'Gebäudetechnik Elektro',
-    'Ausbau',
-    'Umgebung',
-    'Brandschutz',
-    'Transportanlagen'
-);
-
-CREATE TYPE document_category AS ENUM (
-    'Organisation',
-    'Verträge und Kosten',
-    'Konzepte und Beschriebe',
-    'Visualisierungen'
-);
-
-CREATE TYPE usecase_category AS ENUM (
-    'Abnahme',
-    'Änderungsmanagement',
-    'Ausschreibung und Vergabe',
-    'Bedarfsplanung',
-    'Bestandserfassung',
-    'Betrieb',
-    'Dokumentation',
-    'Genehmigung',
-    'Inbetriebnahme',
-    'Koordination',
-    'Kosten',
-    'Logistik',
-    'Machbarkeit',
-    'Nachhaltigkeit',
-    'Nachweise',
-    'Qualitätssicherung',
-    'Risikomanagement',
-    'Termine',
-    'Variantenvergleich',
-    'Versicherung',
-    'Visualisierung',
-    'Sonstiges'
-);
-
-CREATE TYPE model_category AS ENUM (
-    'Fachmodelle',
-    'Koordination',
-    'Spezialmodelle',
-    'Bestand'
-);
-
-CREATE TYPE epd_category AS ENUM (
-    'Baumaterialien',
-    'Energie',
-    'Gebäudetechnik',
-    'Transporte'
-);
+-- Note: Categories and tags are stored as JSONB with i18n support.
+-- No SQL ENUM types are used - see "Reference Values" section for vocabulary.
 
 -- =============================================================================
 -- ELEMENTS
@@ -653,9 +543,9 @@ CREATE TABLE public.elements (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category text NOT NULL,
+    category jsonb NOT NULL,
     description text,
-    tags text[] NOT NULL,
+    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
@@ -672,7 +562,6 @@ CREATE TABLE public.elements (
 
     -- Constraints
     CONSTRAINT elements_id_format CHECK (id ~ '^e[0-9]+$'),
-    CONSTRAINT elements_tags_not_empty CHECK (array_length(tags, 1) >= 1),
     CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -688,9 +577,9 @@ CREATE TABLE public.documents (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category text NOT NULL,
+    category jsonb NOT NULL,
     description text,
-    tags text[] NOT NULL,
+    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
@@ -705,7 +594,6 @@ CREATE TABLE public.documents (
 
     -- Constraints
     CONSTRAINT documents_id_format CHECK (id ~ '^[OKBV][0-9]{5}$'),
-    CONSTRAINT documents_tags_not_empty CHECK (array_length(tags, 1) >= 1),
     CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -721,9 +609,9 @@ CREATE TABLE public.usecases (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category text NOT NULL,
+    category jsonb NOT NULL,
     description text,
-    tags text[] NOT NULL,
+    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
@@ -748,7 +636,6 @@ CREATE TABLE public.usecases (
 
     -- Constraints
     CONSTRAINT usecases_id_format CHECK (id ~ '^uc[0-9]{3}$'),
-    CONSTRAINT usecases_tags_not_empty CHECK (array_length(tags, 1) >= 1),
     CONSTRAINT usecases_goals_not_empty CHECK (array_length(goals, 1) >= 1),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
@@ -765,9 +652,9 @@ CREATE TABLE public.models (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category text NOT NULL,
+    category jsonb NOT NULL,
     description text,
-    tags text[] NOT NULL,
+    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
@@ -779,7 +666,6 @@ CREATE TABLE public.models (
 
     -- Constraints
     CONSTRAINT models_id_format CHECK (id ~ '^m[0-9]+$'),
-    CONSTRAINT models_tags_not_empty CHECK (array_length(tags, 1) >= 1),
     CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -796,9 +682,9 @@ CREATE TABLE public.epds (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category text NOT NULL,
+    category jsonb NOT NULL,
     description text,
-    tags text[] NOT NULL,
+    tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
     subcategory text NOT NULL,
@@ -816,7 +702,6 @@ CREATE TABLE public.epds (
 
     -- Constraints
     CONSTRAINT epds_id_format CHECK (id ~ '^kbob-[0-9]{2}-[0-9]{3}$'),
-    CONSTRAINT epds_tags_not_empty CHECK (array_length(tags, 1) >= 1),
     CONSTRAINT epds_gwp_positive CHECK (gwp >= 0),
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
     CONSTRAINT epds_penrt_positive CHECK (penrt >= 0),
@@ -877,17 +762,17 @@ CREATE INDEX epds_name_idx ON epds USING gin(to_tsvector('german', name->>'de'))
 CREATE INDEX attributes_name_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
 CREATE INDEX classifications_name_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
 
--- Category filters
-CREATE INDEX elements_category_idx ON elements(category);
-CREATE INDEX documents_category_idx ON documents(category);
-CREATE INDEX usecases_category_idx ON usecases(category);
-CREATE INDEX models_category_idx ON models(category);
-CREATE INDEX epds_category_idx ON epds(category);
+-- Category filters (using German text for filtering)
+CREATE INDEX elements_category_idx ON elements((category->>'de'));
+CREATE INDEX documents_category_idx ON documents((category->>'de'));
+CREATE INDEX usecases_category_idx ON usecases((category->>'de'));
+CREATE INDEX models_category_idx ON models((category->>'de'));
+CREATE INDEX epds_category_idx ON epds((category->>'de'));
 
 -- Classification system filter
 CREATE INDEX classifications_system_idx ON classifications(system);
 
--- Tag filters (GIN for array containment)
+-- Tag filters (GIN for JSONB containment)
 CREATE INDEX elements_tags_idx ON elements USING gin(tags);
 CREATE INDEX documents_tags_idx ON documents USING gin(tags);
 CREATE INDEX usecases_tags_idx ON usecases USING gin(tags);
@@ -968,9 +853,9 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 | `lastChange` | `last_change` | camelCase → snake_case |
 | `title` | `name` | String → JSONB i18n object |
 | `image` | `image` | Direct |
-| `category` | `category` | Direct |
+| `category` | `category` | String → JSONB i18n object |
 | `description` | `description` | Direct |
-| `tags` | `tags` | Array → PostgreSQL array |
+| `tags` | `tags` | Array → JSONB i18n array |
 | `phases` | `phases` | Array → PostgreSQL array |
 | `classifications` | `classifications` | Object → JSONB |
 | `ifcMapping` | `tool_elements` | camelCase → snake_case, Array → JSONB |
@@ -997,9 +882,9 @@ async function migrateElements() {
     last_change: el.lastChange,
     name: { de: el.title, fr: null, it: null, en: null }, // i18n: translate later
     image: el.image || null,
-    category: el.category,
+    category: { de: el.category, fr: null, it: null, en: null }, // i18n: translate later
     description: el.description || null,
-    tags: el.tags,
+    tags: (el.tags || []).map(t => ({ de: t, fr: null, it: null, en: null })), // i18n array
     phases: el.phases || null,
     geometry: (el.geometry || []).map(g => ({
       name: { de: g.name, fr: null, it: null, en: null },
