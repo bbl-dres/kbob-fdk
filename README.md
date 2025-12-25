@@ -96,7 +96,8 @@ The catalog comprises five independent entity types, each stored as a standalone
 
 ```mermaid
 flowchart TB
-    USECASES["Use Cases"] -- define --> LOIN["Information Requirements"]
+    USECASES["Use Cases"] -- implement --> PROCESSES["Processes (BPMN)"]
+    USECASES -- define --> LOIN["Information Requirements"]
     USECASES -- require --> DOCUMENTS["Documents"]
     MODELS["Discipline Models"] -- contain --> ELEMENTS["Building Elements"]
     LOIN -- constrain --> ELEMENTS
@@ -118,13 +119,11 @@ flowchart TB
         PROJECT["Asset / Project"] -- has --> STAKEHOLDER
         PROJECT -- passes through --> PHASES["Asset Phases"]
         GOALS -- realized by --> CAPABILITIES["Capabilities"]
-        CAPABILITIES -- implemented by --> PROCESSES["Processes"]
-        PHASES -- govern --> PROCESSES
-        ROLES -- execute --> PROCESSES
         REFDATA["Reference Data"]
     end
     subgraph Implemented
         USECASES["Use Cases"]
+        PROCESSES["Processes (BPMN)"]
         MODELS["Discipline Models"]
         DOCUMENTS["Documents"]
         ELEMENTS["Building Elements"]
@@ -134,6 +133,9 @@ flowchart TB
         EPDS["EPD Data"]
         ENUMERATIONS["Enumerations"]
     end
+    CAPABILITIES -- implemented by --> PROCESSES
+    PHASES -- govern --> PROCESSES
+    ROLES -- execute --> PROCESSES
     USECASES -- implement --> PROCESSES
     PHASES -- structure --> USECASES
     ROLES -- responsible for --> MODELS
@@ -161,7 +163,7 @@ flowchart TB
 | **Roles** | Functions assigned to stakeholders – architect, engineer, contractor, BIM coordinator. | Conceptual | TOGAF/ArchiMate, ISO 19650, SIA 2051 |
 | **Asset Phases** | Temporal stages of project delivery that govern applicable processes – SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. | Conceptual | TOGAF (Plateau), SIA 112, ISO 19650 |
 | **Capabilities** | Organizational abilities required to achieve goals – design, coordination, quality assurance. | Conceptual | TOGAF/ArchiMate, eCH-0122 |
-| **Processes** | Defined workflows implementing capabilities, governed by asset phases – information delivery, model coordination, quality assurance, change management. | Conceptual | TOGAF/ArchiMate, eCH-0073/0074 |
+| **Processes** | Defined workflows implementing capabilities, governed by asset phases – information delivery, model coordination, quality assurance, change management. Implemented as BPMN diagrams. | Implemented | TOGAF/ArchiMate, eCH-0073/0074, BPMN 2.0 |
 | **Use Cases** | Specific BIM applications – e.g. As-Built Survey, Requirements Planning, Discipline Coordination, Quantity & Cost Estimation, Quality Assurance, Sustainability Certification, Defect Management. | Implemented | ISO 19650, buildingSMART IDM |
 | **Information Requirements** | LOIN specifications defining what information is needed, when, and at what detail level. | Implemented | ISO 19650-1, EN 17412 |
 | **Attributes** | Properties attached to building elements – material, dimensions, fire rating, U-value. | Implemented | IFC, bSDD |
