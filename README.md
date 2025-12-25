@@ -92,47 +92,51 @@ The overarching objective is to define data once and reuse it consistently acros
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
 ```mermaid
----
-config:
-  layout: elk
----
 flowchart TB
-    PROJECT["Project"] -- has --> ROLES["Roles"] & PHASES["Project Phases"] & GOALS["Goals"]
-    PHASES -- timing --> USECASES["Use Cases"] & LOIN["Information Requirements"] & DOCUMENTS["Documents"]
-    GOALS -- timing --> PHASES
-    ROLES -- execute --> USECASES
+    STAKEHOLDER["Stakeholder"] -- have --> GOALS["Goals"]
+    STAKEHOLDER -- assume --> ROLES["Roles"]
+    PROJECT["Project"] -- has --> STAKEHOLDER
+    PROJECT -- passes through --> PHASES["Project Phases"]
+    GOALS -- realized by --> CAPABILITIES["Capabilities"]
+    CAPABILITIES -- implemented by --> PROCESSES["Processes"]
+    PROCESSES -- applied in --> USECASES["Use Cases"]
+    PHASES -- structure --> USECASES
+    ROLES -- execute --> PROCESSES
     ROLES -- responsible for --> MODELS["Discipline Models"]
-    ROLES -- produce/consume --> DOCUMENTS
-    USECASES -- achieve --> GOALS
-    USECASES -- define --> LOIN
-    USECASES -- input/output --> DOCUMENTS
+    ROLES -- produce --> DOCUMENTS["Documents"]
+    USECASES -- define --> LOIN["Information Requirements"]
+    USECASES -- require --> DOCUMENTS
     MODELS -- contain --> ELEMENTS["Building Elements"]
-    ELEMENTS -- have --> LOIN
-    ELEMENTS -- classified by --> CLASSIFICATIONS["Classifications"]
-    ELEMENTS -- linked to --> EPDS["EPD Data"]
+    LOIN -- apply to --> ELEMENTS
     LOIN -- specify --> ATTRIBUTES["Attributes"]
+    ELEMENTS -- classified by --> CLASSIFICATIONS["Classifications"]
+    ELEMENTS -- reference --> EPDS["EPD Data"]
     ATTRIBUTES -- constrained by --> ENUMERATIONS["Enumerations"]
     ATTRIBUTES -- reference --> REFDATA["Reference Data"]
+    DOCUMENTS -- describe --> ELEMENTS
 ```
 
 **Entities**
 
-| Entity | Description | Status |
-|--------|-------------|--------|
-| Project | Container for all project data | Conceptual |
-| Roles | Participants (Architect, Engineer, etc.) | Conceptual |
-| Project Phases | Lifecycle phases (planning, construction, operation, deconstruction) | Conceptual (embedded in other entities) |
-| Goals | Project objectives | Conceptual |
-| Use Cases | BIM use cases (Coordination, Quantities, etc.) | Implemented |
-| Discipline Models | Professional models (Architecture, MEP, Structure) | Implemented |
-| Documents | Deliverables (Plans, Reports, Specs) | Implemented |
-| Building Elements | Physical elements (Walls, Windows, Slabs) | Implemented |
-| EPD Data | Environmental Product Declarations | Implemented |
-| Information Requirements | LOI specifications per phase | Conceptual (embedded in elements) |
-| Attributes | Required data fields | Conceptual (embedded in elements) |
-| Classifications | eBKP-H, DIN 276, Uniformat II, IFC | Conceptual (embedded in elements) |
-| Enumerations | Fixed value lists | Conceptual |
-| Reference Data | External datasets | Conceptual |
+| Entity | Description |
+|--------|-------------|
+| **Project (Projekt)** | Root entity representing a construction or renovation project with defined scope, timeline, and deliverables. |
+| **Stakeholder (Stakeholder)** | Individuals or organizations with interests in the project outcome – owners, operators, authorities, users. |
+| **Goals (Ziele)** | Strategic objectives the project aims to achieve – quality, cost, sustainability, compliance targets. |
+| **Roles (Rollen)** | Functions assigned to stakeholders – architect, engineer, contractor, BIM coordinator. |
+| **Project Phases (Projektphasen)** | Temporal stages of project delivery – SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. |
+| **Capabilities (Geschäftsfähigkeiten)** | Organizational abilities required to achieve goals – design, coordination, quality assurance. |
+| **Processes (Prozesse)** | Defined workflows implementing capabilities – information delivery, model coordination, quality assurance, change management. |
+| **Use Cases (Anwendungsfälle)** | Specific BIM applications – clash detection, quantity takeoff, 4D simulation, facility handover. |
+| **Information Requirements (Informationsanforderungen)** | LOIN specifications defining what information is needed, when, and at what detail level. |
+| **Attributes (Attribute)** | Properties attached to building elements – material, dimensions, fire rating, U-value. |
+| **Enumerations (Wertelisten)** | Controlled vocabularies constraining attribute values – material types, status codes, classifications. |
+| **Reference Data (Referenzdaten)** | External data sources linked to attributes – standards, regulations, product databases. |
+| **Discipline Models (Fachmodelle)** | Domain-specific BIM models – architectural, structural, MEP, landscape. |
+| **Building Elements (Bauelemente)** | Physical components within models – walls, slabs, doors, HVAC equipment. |
+| **Classifications (Klassifikationen)** | Coding systems for elements – eBKP-H, DIN 276, Uniformat II, IFC entity types. |
+| **EPD Data (EPD-Daten)** | Environmental Product Declarations – embodied carbon, lifecycle impact data per KBOB/Ecobau. |
+| **Documents (Dokumente)** | Non-geometric deliverables – reports, specifications, certificates, operation manuals. |
 
 ---
 
