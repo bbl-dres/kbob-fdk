@@ -69,45 +69,25 @@ function renderHandbookPage() {
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="#" class="download-item__link">EIR-Excel</a>
-                                            <div class="download-item__meta">
-                                                <span>XLSX</span>
-                                                <span>245 kB</span>
-                                                <span>15. Oktober 2024</span>
-                                            </div>
+                                            <span class="download-item__text">EIR Excel (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="#" class="download-item__link">IDS-Prüfregeln</a>
-                                            <div class="download-item__meta">
-                                                <span>ZIP</span>
-                                                <span>128 kB</span>
-                                                <span>15. Oktober 2024</span>
-                                            </div>
+                                            <span class="download-item__text">IDS-Prüfregeln (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="#" class="download-item__link">Revit Vorlagen</a>
-                                            <div class="download-item__meta">
-                                                <span>ZIP</span>
-                                                <span>3.8 MB</span>
-                                                <span>12. November 2024</span>
-                                            </div>
+                                            <span class="download-item__text">Revit Vorlagen (in Entwicklung)</span>
                                         </div>
                                     </li>
                                     <li class="download-item">
                                         <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="#" class="download-item__link">ArchiCAD Vorlagen</a>
-                                            <div class="download-item__meta">
-                                                <span>ZIP</span>
-                                                <span>4.2 MB</span>
-                                                <span>12. November 2024</span>
-                                            </div>
+                                            <span class="download-item__text">ArchiCAD Vorlagen (in Entwicklung)</span>
                                         </div>
                                     </li>
                                 </ul>
@@ -135,14 +115,9 @@ function renderHandbookPage() {
                                         </div>
                                     </li>
                                     <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
+                                        <i data-lucide="external-link" class="download-item__icon" aria-hidden="true"></i>
                                         <div class="download-item__content">
-                                            <a href="#" class="download-item__link">API-Dokumentation</a>
-                                            <div class="download-item__meta">
-                                                <span>PDF</span>
-                                                <span>890 kB</span>
-                                                <span>23. September 2024</span>
-                                            </div>
+                                            <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="download-item__link">API-Dokumentation</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -205,10 +180,7 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="git-branch" class="external-item__icon" aria-hidden="true"></i>
-                                    <a href="#" class="external-item__link">
-                                        GraphQL API
-                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
-                                    </a>
+                                    <span class="external-item__text">GraphQL API (in Entwicklung)</span>
                                 </div>
                             </div>
                         </div>
