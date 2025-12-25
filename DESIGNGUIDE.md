@@ -7,6 +7,22 @@ This document serves as the authoritative design guide for the KBOB Fachdatenkat
 
 ---
 
+> ⚠️ **IMPORTANT: Modern Design System Reference**
+>
+> This guide aligns with the **modern** Swiss Federal Design System ([swiss/designsystem](https://github.com/swiss/designsystem)), NOT the legacy Confederation Web Guidelines ([swiss/styleguide](https://github.com/swiss/styleguide)) which was **archived on March 20, 2024**.
+>
+> | Aspect | Legacy (Archived) | Modern (Current) |
+> |--------|-------------------|------------------|
+> | Repository | swiss/styleguide | swiss/designsystem |
+> | Font | Frutiger (licensed) | System fonts / Noto Sans |
+> | Grid | Bootstrap 3.x | CSS Grid / Flexbox |
+> | CSS | Traditional | PostCSS / Tailwind-based |
+> | Status | ❌ Archived | ✅ Active development |
+>
+> **Do not reference** the legacy styleguide for new development.
+
+---
+
 ## Table of Contents
 
 1. [Design Philosophy](#1-design-philosophy)
@@ -1052,10 +1068,21 @@ var(--z-tooltip)        /* 500 */
 
 ## References
 
-- [Swiss Federal Design System](https://github.com/swiss/designsystem)
-- [Swiss Government Web Guidelines](https://www.bk.admin.ch/bk/de/home/dokumentation/cd-bund.html)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
-- [Lucide Icons](https://lucide.dev/)
+### Primary Sources (Modern Design System)
+
+- [Swiss Federal Design System](https://github.com/swiss/designsystem) — **Primary reference** (active development)
+- [Design System Storybook](https://swiss.github.io/designsystem/) — Live component documentation
+- [Swiss Government CD Guidelines](https://www.bk.admin.ch/bk/de/home/dokumentation/cd-bund.html) — Official corporate design documentation
+
+### Standards & Tools
+
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) — Accessibility requirements
+- [Lucide Icons](https://lucide.dev/) — Icon library
+
+### Legacy Resources (DO NOT USE for new development)
+
+- ~~[swiss/styleguide](https://github.com/swiss/styleguide)~~ — **ARCHIVED March 2024**, replaced by swiss/designsystem
+- ~~[Confederation Web Guidelines](https://swiss.github.io/styleguide/)~~ — Legacy documentation, do not reference
 
 ---
 
