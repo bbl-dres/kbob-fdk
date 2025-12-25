@@ -6,7 +6,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-blue?logo=github)](https://davras5.github.io/kbob-fdk/)
-[![Swiss Federal Design](https://img.shields.io/badge/design-Swiss%20Federal-red)](https://github.com/swiss/designsystem/))
+[![Swiss Federal Design](https://img.shields.io/badge/design-Swiss%20Federal-red)](https://github.com/swiss/designsystem/)
 [![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?logo=supabase&logoColor=white)](https://supabase.com/)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?logo=openapi-initiative&logoColor=white)](https://swagger.io/)
 [![bpmn.io](https://img.shields.io/badge/bpmn.io-FF6600?logo=bpmn&logoColor=white)](https://bpmn.io/)
