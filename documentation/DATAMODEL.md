@@ -198,7 +198,7 @@ All core entities share a common set of attributes for identification, versionin
 
 > **Note:** `attributes` and `classifications` are simplified reference tables with a subset of common attributes (id, name, description, created_at, updated_at).
 
-### Common Attributes (All Entities)
+### Common Attributes (Core Entities)
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
