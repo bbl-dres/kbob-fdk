@@ -11,24 +11,43 @@
 
 ## Entity Relationship Overview
 
-| Entity | Primary Key | Unique Constraint | Has Phases | Description |
-|--------|-------------|-------------------|------------|-------------|
-| `elements` | `id` | `id` (text) | ✓ | Physical building components with LOG/LOI requirements |
-| `documents` | `id` | `id` (text) | ✓ | Project documentation types per KBOB/IPB standard |
-| `usecases` | `id` | `id` (text) | ✓ | Standardized BIM processes per VDI 2552 |
-| `models` | `id` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
-| `epds` | `id` | `uuid` (UUID v4) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
+### Core Tables
+
+| Entity | Primary Key | Has Phases | Description |
+|--------|-------------|------------|-------------|
+| `elements` | `id` (text) | ✓ | Physical building components with LOG/LOI requirements |
+| `documents` | `id` (text) | ✓ | Project documentation types per KBOB/IPB standard |
+| `usecases` | `id` (text) | ✓ | Standardized BIM processes per VDI 2552 |
+| `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
+| `epds` | `id` (text) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
+
+### Junction Tables (Foreign Keys)
+
+| Junction Table | PK | FK1 | FK2 | Description |
+|----------------|----|----|-----|-------------|
+| `usecase_elements` | `(usecase_id, element_id)` | `usecases.id` | `elements.id` | Use case → required elements |
+| `usecase_documents` | `(usecase_id, document_id)` | `usecases.id` | `documents.id` | Use case → required documents |
+| `usecase_models` | `(usecase_id, model_id)` | `usecases.id` | `models.id` | Use case → involved models |
+| `usecase_epds` | `(usecase_id, epd_id)` | `usecases.id` | `epds.id` | Use case → referenced EPDs |
+| `model_elements` | `(model_id, element_id)` | `models.id` | `elements.id` | Model → contained elements |
+| `element_epds` | `(element_id, epd_id)` | `elements.id` | `epds.id` | Element → linked EPDs |
 
 > **Note on phases:** EPD is the only entity without `phases` as environmental data is phase-neutral reference data.
 
 ```mermaid
 erDiagram
-    usecases ||--o{ elements : "requires"
-    usecases ||--o{ documents : "specifies"
-    usecases ||--o{ models : "involves"
-    usecases ||--o{ epds : "references"
-    models ||--o{ elements : "contains"
-    elements ||--o{ epds : "linked to"
+    usecases ||--o{ usecase_elements : "requires"
+    usecase_elements }o--|| elements : ""
+    usecases ||--o{ usecase_documents : "specifies"
+    usecase_documents }o--|| documents : ""
+    usecases ||--o{ usecase_models : "involves"
+    usecase_models }o--|| models : ""
+    usecases ||--o{ usecase_epds : "references"
+    usecase_epds }o--|| epds : ""
+    models ||--o{ model_elements : "contains"
+    model_elements }o--|| elements : ""
+    elements ||--o{ element_epds : "linked to"
+    element_epds }o--|| epds : ""
 
     elements {
         text id PK
@@ -73,12 +92,11 @@ erDiagram
         text category
         text[] tags
         integer[] phases
-        jsonb elements
+        jsonb model_elements
     }
 
     epds {
         text id PK
-        uuid uuid UK
         text title
         text category
         text subcategory
@@ -88,223 +106,262 @@ erDiagram
         numeric penrt
         numeric pert
     }
+
+    usecase_elements {
+        text usecase_id FK
+        text element_id FK
+        integer[] phases
+    }
+
+    usecase_documents {
+        text usecase_id FK
+        text document_id FK
+    }
+
+    usecase_models {
+        text usecase_id FK
+        text model_id FK
+    }
+
+    usecase_epds {
+        text usecase_id FK
+        text epd_id FK
+    }
+
+    model_elements {
+        text model_id FK
+        text element_id FK
+        integer[] phases
+    }
+
+    element_epds {
+        text element_id FK
+        text epd_id FK
+    }
 ```
 
 ---
 
-## Column Category Concept
+## Junction Tables (M:N Relationships)
 
-Following the pattern established for Swiss geodata platforms, columns are organized into semantic groups:
+Junction tables implement the many-to-many relationships defined in the conceptual model per ISO 19650.
 
-| Icon | Group Name (EN) | Group Name (DE) | Content Strategy |
-|:-----|:----------------|:----------------|:-----------------|
-| ℹ️ | 1. General | Allgemein | Identity, version, status. The "What" and "When". |
-| 📋 | 2. Content | Inhalt | Core domain content: requirements, specifications, descriptions. |
-| 🔗 | 3. Classification | Klassifikation | Multi-system codes: eBKP-H, DIN 276, Uniformat II, IFC. |
-| ⚙️ | 4. System | System | Metadata, timestamps, and internal references. |
+| Junction Table | Relationship | Description |
+|----------------|--------------|-------------|
+| `usecase_elements` | UseCase ↔ Element | Use case defines which elements are required with specific LOG/LOI |
+| `usecase_documents` | UseCase ↔ Document | Use case specifies required deliverables |
+| `usecase_models` | UseCase ↔ Model | Use case involves contributions from discipline models |
+| `usecase_epds` | UseCase ↔ EPD | Sustainability use cases reference environmental data |
+| `model_elements` | Model ↔ Element | Models contain/reference element types |
+| `element_epds` | Element ↔ EPD | Elements linked to environmental product declarations |
+
+### usecase_elements
+
+Links use cases to required elements with phase-specific requirements.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
+| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
+| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Phase-specific applicability (overrides element phases) |
+| `log_level` | `text` | | Required LOG level for this use case |
+| `loi_level` | `text` | | Required LOI level for this use case |
+| `notes` | `text` | | Additional requirements or notes |
+
+**Primary Key:** `(usecase_id, element_id)`
+
+### usecase_documents
+
+Links use cases to required document deliverables.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
+| `document_id` | `text` | `NOT NULL, REFERENCES documents(id) ON DELETE CASCADE` | Reference to document |
+| `required` | `boolean` | `NOT NULL DEFAULT true` | Whether document is mandatory |
+| `notes` | `text` | | Additional requirements or notes |
+
+**Primary Key:** `(usecase_id, document_id)`
+
+### usecase_models
+
+Links use cases to involved BIM models.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
+| `model_id` | `text` | `NOT NULL, REFERENCES models(id) ON DELETE CASCADE` | Reference to model |
+| `role` | `text` | | Model's role in the use case (input, output, reference) |
+| `notes` | `text` | | Additional requirements or notes |
+
+**Primary Key:** `(usecase_id, model_id)`
+
+### usecase_epds
+
+Links sustainability use cases to environmental product data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `usecase_id` | `text` | `NOT NULL, REFERENCES usecases(id) ON DELETE CASCADE` | Reference to use case |
+| `epd_id` | `text` | `NOT NULL, REFERENCES epds(id) ON DELETE CASCADE` | Reference to EPD |
+| `notes` | `text` | | Additional context or notes |
+
+**Primary Key:** `(usecase_id, epd_id)`
+
+### model_elements
+
+Links models to contained element types with phase-specific inclusion.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `model_id` | `text` | `NOT NULL, REFERENCES models(id) ON DELETE CASCADE` | Reference to model |
+| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
+| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Phases where element appears in model |
+| `notes` | `text` | | Additional context |
+
+**Primary Key:** `(model_id, element_id)`
+
+### element_epds
+
+Links elements to environmental product declarations for LCA.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `element_id` | `text` | `NOT NULL, REFERENCES elements(id) ON DELETE CASCADE` | Reference to element |
+| `epd_id` | `text` | `NOT NULL, REFERENCES epds(id) ON DELETE CASCADE` | Reference to EPD |
+| `quantity_formula` | `text` | | Formula for calculating quantity from element |
+| `notes` | `text` | | Additional context |
+
+**Primary Key:** `(element_id, epd_id)`
 
 ---
 
-## Core Tables
+## Shared Attributes
 
-### 1. elements
+All five core entities share a common set of attributes for identification, versioning, and discoverability.
+
+### Common Attributes (All Entities)
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | `text` | `PRIMARY KEY` | Unique identifier (entity-specific pattern) |
+| `version` | `text` | `NOT NULL` | Version indicator for change tracking |
+| `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
+| `title` | `text` | `NOT NULL` | Human-readable display name |
+| `image` | `text` | | Visual representation reference (URL or path) |
+| `category` | `text` | `NOT NULL` | Primary grouping (entity-specific vocabulary) |
+| `description` | `text` | | Detailed explanation of purpose and scope |
+| `tags` | `text[]` | `NOT NULL, min. 1` | Anwendungsfeld keywords per VDI 2552 Blatt 12.2 |
+| `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
+| `updated_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
+
+### Phase-Dependent Entities
+
+All entities **except EPD** include lifecycle phases:
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
+
+> **Note:** EPD contains phase-neutral reference data (environmental indicators don't vary by project phase).
+
+### ID Patterns
+
+| Entity | Pattern | Example | Regex |
+|--------|---------|---------|-------|
+| elements | `e{n}` | e1, e81 | `^e[0-9]+$` |
+| documents | `{O\|K\|B\|V}{nnnnn}` | O01001, K02003 | `^[OKBV][0-9]{5}$` |
+| usecases | `uc{nnn}` | uc000, uc280 | `^uc[0-9]{3}$` |
+| models | `m{n}` | m1, m10 | `^m[0-9]+$` |
+| epds | `kbob-{nn}-{nnn}` | kbob-01-042 | `^kbob-[0-9]{2}-[0-9]{3}$` |
+
+---
+
+## Entity-Specific Attributes
+
+### elements
 
 Physical building components with geometry (LOG), information (LOI), and documentation requirements.
 
-#### 1. General / Allgemein
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase |
+| `information` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOI specifications per phase |
+| `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
+| `classifications` | `jsonb` | `DEFAULT '{}'` | Multi-system codes (eBKP-H, DIN 276, Uniformat II) |
+| `ifc_mapping` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools |
 
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `id` | Element ID | Element-ID | `text` | `PRIMARY KEY, CHECK (id ~ '^e[0-9]+$')` | System | Unique identifier (e.g., e1, e15) |
-| `version` | Version | Version | `text` | `NOT NULL` | Content | Version indicator for change tracking |
-| `last_change` | Last Change | Letzte Änderung | `date` | `NOT NULL` | Content | Date of last modification (ISO 8601) |
-| `title` | Title | Titel | `text` | `NOT NULL` | Content | Human-readable display name |
-| `image` | Image | Bild | `text` | | Content | Visual representation reference (URL or path) |
-| `category` | Category | Kategorie | `element_category` | `NOT NULL` | Content | Discipline grouping |
-| `description` | Description | Beschreibung | `text` | | Content | Detailed explanation of purpose and scope |
-| `tags` | Tags | Tags | `text[]` | `NOT NULL, CHECK (array_length(tags, 1) >= 1)` | VDI 2552 | Anwendungsfeld keywords (min. 1 required) |
-| `phases` | Phases | Phasen | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | VDI 2552 | Applicable lifecycle phases |
-
-#### 2. Content / Inhalt
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `geometry` | Geometry (LOG) | Geometrie (LOG) | `jsonb` | `NOT NULL DEFAULT '[]'` | Content | LOG specifications per phase |
-| `information` | Information (LOI) | Information (LOI) | `jsonb` | `NOT NULL DEFAULT '[]'` | Content | LOI specifications per phase |
-| `documentation` | Documentation | Dokumentation | `jsonb` | `DEFAULT '[]'` | Content | Required documents per phase |
-
-#### 3. Classification / Klassifikation
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `classifications` | Classifications | Klassifikationen | `jsonb` | `DEFAULT '{}'` | Various | Codes from multiple classification systems |
-| `ifc_mapping` | IFC Mapping | IFC-Zuordnung | `jsonb` | `DEFAULT '[]'` | IFC 4.3 | Mappings to IFC classes and authoring tools |
-
-#### 4. System
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `created_at` | Created | Erstellt | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record creation timestamp |
-| `updated_at` | Updated | Aktualisiert | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record last update timestamp |
+**Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
 ---
 
-### 2. documents
+### documents
 
 Project documentation types with format requirements and retention policies per KBOB/IPB Bauwerksdokumentation.
 
-#### 1. General / Allgemein
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
+| `retention` | `text` | | Retention policy (5 Jahre, 12 Jahre, bis Ersatz, etc.) |
+| `classifications` | `jsonb` | `DEFAULT '{}'` | Optional classification codes (GEFMA, SIA, etc.) |
 
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `id` | Document ID | Dokument-ID | `text` | `PRIMARY KEY, CHECK (id ~ '^[OKBV][0-9]{5}$')` | KBOB/IPB | Unique identifier (e.g., O01001, K02003) |
-| `version` | Version | Version | `text` | `NOT NULL` | Content | Version indicator for change tracking |
-| `last_change` | Last Change | Letzte Änderung | `date` | `NOT NULL` | Content | Date of last modification |
-| `title` | Title | Titel | `text` | `NOT NULL` | Content | Human-readable display name |
-| `image` | Image | Bild | `text` | | Content | Visual representation reference |
-| `category` | Category | Kategorie | `document_category` | `NOT NULL` | KBOB/IPB | Document category (O, K, B, V) |
-| `description` | Description | Beschreibung | `text` | | Content | Detailed explanation of purpose and scope |
-| `tags` | Tags | Tags | `text[]` | `NOT NULL, CHECK (array_length(tags, 1) >= 1)` | VDI 2552 | Anwendungsfeld keywords |
-| `phases` | Phases | Phasen | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | VDI 2552 | Applicable lifecycle phases |
-
-#### 2. Content / Inhalt
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `formats` | Formats | Formate | `text[]` | `NOT NULL` | KBOB/IPB | Acceptable file formats |
-| `retention` | Retention | Aufbewahrung | `text` | | KBOB/IPB | Retention policy |
-
-#### 3. Classification / Klassifikation
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `classifications` | Classifications | Klassifikationen | `jsonb` | `DEFAULT '{}'` | Various | Optional classification codes (GEFMA, SIA, etc.) |
-
-#### 4. System
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `created_at` | Created | Erstellt | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record creation timestamp |
-| `updated_at` | Updated | Aktualisiert | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record last update timestamp |
+**Category values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
 ---
 
-### 3. usecases
+### usecases
 
 Standardized BIM processes with roles, responsibilities, and quality criteria per VDI 2552 Blatt 12.1/12.2.
 
-#### 1. General / Allgemein
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `definition` | `text` | `NOT NULL` | Formal definition of the use case |
+| `goals` | `text[]` | `NOT NULL, min. 1` | Objectives |
+| `inputs` | `text[]` | `NOT NULL DEFAULT '{}'` | Required inputs and preconditions |
+| `outputs` | `text[]` | `NOT NULL DEFAULT '{}'` | Deliverables and results |
+| `roles` | `jsonb` | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix |
+| `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor |
+| `implementation` | `text[]` | `NOT NULL DEFAULT '{}'` | Implementation steps |
+| `quality_criteria` | `text[]` | `NOT NULL DEFAULT '{}'` | Acceptance and quality criteria |
+| `standards` | `text[]` | `DEFAULT '{}'` | Referenced standards (SIA, ISO, VDI) |
+| `process_url` | `text` | | Link to BPMN process diagram |
+| `examples` | `jsonb` | `DEFAULT '[]'` | Example implementations |
+| `practice_example` | `jsonb` | | Real-world practice example |
 
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `id` | UseCase ID | Anwendungsfall-ID | `text` | `PRIMARY KEY, CHECK (id ~ '^uc[0-9]{3}$')` | System | Unique identifier (e.g., uc001, uc030) |
-| `version` | Version | Version | `text` | `NOT NULL` | Content | Version indicator for change tracking |
-| `last_change` | Last Change | Letzte Änderung | `date` | `NOT NULL` | Content | Date of last modification |
-| `title` | Title | Titel | `text` | `NOT NULL` | Content | Human-readable display name |
-| `image` | Image | Bild | `text` | | Content | Visual representation reference |
-| `category` | Category | Kategorie | `usecase_category` | `NOT NULL` | VDI 2552 | Use case category per Anwendungsfeld |
-| `description` | Description | Beschreibung | `text` | | Content | Detailed explanation of purpose and scope |
-| `tags` | Tags | Tags | `text[]` | `NOT NULL, CHECK (array_length(tags, 1) >= 1)` | VDI 2552 | Anwendungsfeld keywords |
-| `phases` | Phases | Phasen | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | VDI 2552 | Applicable lifecycle phases |
-
-#### 2. Content / Inhalt
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `definition` | Definition | Definition | `text` | `NOT NULL` | Content | Formal definition of the use case |
-| `goals` | Goals | Ziele | `text[]` | `NOT NULL, CHECK (array_length(goals, 1) >= 1)` | Content | Objectives (min. 1 required) |
-| `inputs` | Inputs | Eingaben | `text[]` | `NOT NULL DEFAULT '{}'` | Content | Required inputs and preconditions |
-| `outputs` | Outputs | Ausgaben | `text[]` | `NOT NULL DEFAULT '{}'` | Content | Deliverables and results |
-| `roles` | Roles | Rollen | `jsonb` | `NOT NULL DEFAULT '[]'` | Content | RACI responsibility matrix |
-| `prerequisites` | Prerequisites | Voraussetzungen | `jsonb` | `NOT NULL DEFAULT '{}'` | Content | Requirements for client and contractor |
-| `implementation` | Implementation | Umsetzung | `text[]` | `NOT NULL DEFAULT '{}'` | Content | Implementation steps |
-| `quality_criteria` | Quality Criteria | Qualitätskriterien | `text[]` | `NOT NULL DEFAULT '{}'` | Content | Acceptance and quality criteria |
-| `standards` | Standards | Normen | `text[]` | `DEFAULT '{}'` | Content | Referenced standards (SIA, ISO, VDI) |
-| `process_url` | Process URL | Prozess-URL | `text` | | Content | Link to BPMN process diagram |
-| `examples` | Examples | Beispiele | `jsonb` | `DEFAULT '[]'` | Content | Example implementations |
-| `practice_example` | Practice Example | Praxisbeispiel | `jsonb` | | Content | Real-world practice example |
-
-#### 4. System
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `created_at` | Created | Erstellt | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record creation timestamp |
-| `updated_at` | Updated | Aktualisiert | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record last update timestamp |
+**Category values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Enumerations)
 
 ---
 
-### 4. models
+### models
 
 BIM model types including discipline models, coordination models, and special-purpose models.
 
-#### 1. General / Allgemein
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
 
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `id` | Model ID | Modell-ID | `text` | `PRIMARY KEY, CHECK (id ~ '^m[0-9]+$')` | System | Unique identifier (e.g., m1, m10) |
-| `version` | Version | Version | `text` | `NOT NULL` | Content | Version indicator for change tracking |
-| `last_change` | Last Change | Letzte Änderung | `date` | `NOT NULL` | Content | Date of last modification |
-| `title` | Title | Titel | `text` | `NOT NULL` | Content | Human-readable display name |
-| `image` | Image | Bild | `text` | | Content | Visual representation reference |
-| `category` | Category | Kategorie | `model_category` | `NOT NULL` | Content | Model category |
-| `description` | Description | Beschreibung | `text` | | Content | Detailed explanation of purpose and scope |
-| `tags` | Tags | Tags | `text[]` | `NOT NULL, CHECK (array_length(tags, 1) >= 1)` | VDI 2552 | Anwendungsfeld keywords |
-| `phases` | Phases | Phasen | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | VDI 2552 | Applicable lifecycle phases |
-
-#### 2. Content / Inhalt
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `elements` | Elements | Elemente | `jsonb` | `NOT NULL DEFAULT '[]'` | Content | Element types contained in model |
-
-#### 4. System
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `created_at` | Created | Erstellt | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record creation timestamp |
-| `updated_at` | Updated | Aktualisiert | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record last update timestamp |
+**Category values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
 ---
 
-### 5. epds
+### epds
 
 Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
-> **Note:** EPD is the only entity without `phases` as environmental data is phase-neutral reference data.
+> **Note:** No `phases` column – EPD data is phase-neutral reference data.
 
-#### 1. General / Allgemein
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `subcategory` | `text` | `NOT NULL` | Specific material group |
+| `unit` | `text` | `NOT NULL` | Functional/reference unit (kg, m², m³, kWh, etc.) |
+| `gwp` | `numeric` | `NOT NULL, >= 0` | Global Warming Potential (kg CO₂-eq) |
+| `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
+| `penrt` | `numeric` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
+| `pert` | `numeric` | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
+| `density` | `text` | | Material density |
+| `biogenic_carbon` | `numeric` | | Biogenic carbon content |
 
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `id` | EPD ID | EPD-ID | `text` | `PRIMARY KEY, CHECK (id ~ '^kbob-[0-9]{2}-[0-9]{3}$')` | KBOB | Unique identifier (e.g., kbob-01-042) |
-| `uuid` | UUID | UUID | `uuid` | `UNIQUE NOT NULL` | KBOB | Universal unique identifier for external reference |
-| `version` | Version | Version | `text` | `NOT NULL` | Content | Version indicator for change tracking |
-| `last_change` | Last Change | Letzte Änderung | `date` | `NOT NULL` | Content | Date of last modification |
-| `title` | Title | Titel | `text` | `NOT NULL` | Content | Human-readable display name |
-| `image` | Image | Bild | `text` | | Content | Visual representation reference |
-| `category` | Category | Kategorie | `epd_category` | `NOT NULL` | KBOB | Material category |
-| `subcategory` | Subcategory | Unterkategorie | `text` | `NOT NULL` | KBOB | Specific material group |
-| `description` | Description | Beschreibung | `text` | | Content | Detailed explanation |
-| `tags` | Tags | Tags | `text[]` | `NOT NULL, CHECK (array_length(tags, 1) >= 1)` | VDI 2552 | Anwendungsfeld keywords |
-
-#### 2. Content / Inhalt – Environmental Indicators
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `unit` | Unit | Einheit | `text` | `NOT NULL` | KBOB | Functional/reference unit (kg, m², m³, kWh) |
-| `gwp` | GWP | Treibhauspotenzial | `numeric` | `NOT NULL, CHECK (gwp >= 0)` | KBOB | Global Warming Potential (kg CO₂-eq) |
-| `ubp` | UBP | Umweltbelastungspunkte | `numeric` | `NOT NULL, CHECK (ubp >= 0)` | KBOB | Swiss ecological scarcity (Points) |
-| `penrt` | PENRT | Primärenergie nicht erneuerbar | `numeric` | `NOT NULL, CHECK (penrt >= 0)` | KBOB | Primary Energy Non-Renewable Total (MJ) |
-| `pert` | PERT | Primärenergie erneuerbar | `numeric` | `NOT NULL, CHECK (pert >= 0)` | KBOB | Primary Energy Renewable Total (MJ) |
-| `density` | Density | Dichte | `text` | | KBOB | Material density |
-| `biogenic_carbon` | Biogenic Carbon | Biogener Kohlenstoff | `numeric` | | KBOB | Biogenic carbon content |
-
-#### 4. System
-
-| Column | Alias (EN) | Alias (DE) | Type | Constraints | Source | Description |
-|--------|------------|------------|------|-------------|--------|-------------|
-| `created_at` | Created | Erstellt | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record creation timestamp |
-| `updated_at` | Updated | Aktualisiert | `timestamptz` | `NOT NULL DEFAULT now()` | System | Record last update timestamp |
+**Category values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
 
 ---
 
@@ -698,7 +755,7 @@ CREATE TYPE epd_category AS ENUM (
 -- =============================================================================
 
 CREATE TABLE public.elements (
-    -- 1. General / Allgemein
+    -- Common attributes
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
@@ -709,16 +766,14 @@ CREATE TABLE public.elements (
     tags text[] NOT NULL,
     phases integer[],
 
-    -- 2. Content / Inhalt
+    -- Entity-specific attributes
     geometry jsonb NOT NULL DEFAULT '[]',
     information jsonb NOT NULL DEFAULT '[]',
     documentation jsonb DEFAULT '[]',
-
-    -- 3. Classification / Klassifikation
     classifications jsonb DEFAULT '{}',
     ifc_mapping jsonb DEFAULT '[]',
 
-    -- 4. System
+    -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
@@ -734,7 +789,7 @@ CREATE TABLE public.elements (
 -- =============================================================================
 
 CREATE TABLE public.documents (
-    -- 1. General / Allgemein
+    -- Common attributes
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
@@ -745,14 +800,12 @@ CREATE TABLE public.documents (
     tags text[] NOT NULL,
     phases integer[],
 
-    -- 2. Content / Inhalt
+    -- Entity-specific attributes
     formats text[] NOT NULL,
     retention text,
-
-    -- 3. Classification / Klassifikation
     classifications jsonb DEFAULT '{}',
 
-    -- 4. System
+    -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
@@ -768,7 +821,7 @@ CREATE TABLE public.documents (
 -- =============================================================================
 
 CREATE TABLE public.usecases (
-    -- 1. General / Allgemein
+    -- Common attributes
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
@@ -779,7 +832,7 @@ CREATE TABLE public.usecases (
     tags text[] NOT NULL,
     phases integer[],
 
-    -- 2. Content / Inhalt
+    -- Entity-specific attributes
     definition text NOT NULL,
     goals text[] NOT NULL,
     inputs text[] NOT NULL DEFAULT '{}',
@@ -793,7 +846,7 @@ CREATE TABLE public.usecases (
     examples jsonb DEFAULT '[]',
     practice_example jsonb,
 
-    -- 4. System
+    -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
@@ -810,7 +863,7 @@ CREATE TABLE public.usecases (
 -- =============================================================================
 
 CREATE TABLE public.models (
-    -- 1. General / Allgemein
+    -- Common attributes
     id text PRIMARY KEY,
     version text NOT NULL,
     last_change date NOT NULL,
@@ -821,10 +874,10 @@ CREATE TABLE public.models (
     tags text[] NOT NULL,
     phases integer[],
 
-    -- 2. Content / Inhalt
+    -- Entity-specific attributes
     elements jsonb NOT NULL DEFAULT '[]',
 
-    -- 4. System
+    -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
@@ -841,19 +894,18 @@ CREATE TABLE public.models (
 -- =============================================================================
 
 CREATE TABLE public.epds (
-    -- 1. General / Allgemein
+    -- Common attributes
     id text PRIMARY KEY,
-    uuid uuid UNIQUE NOT NULL,
     version text NOT NULL,
     last_change date NOT NULL,
     title text NOT NULL,
     image text,
     category text NOT NULL,
-    subcategory text NOT NULL,
     description text,
     tags text[] NOT NULL,
 
-    -- 2. Content / Inhalt - Environmental Indicators
+    -- Entity-specific attributes
+    subcategory text NOT NULL,
     unit text NOT NULL,
     gwp numeric NOT NULL,
     ubp numeric NOT NULL,
@@ -862,7 +914,7 @@ CREATE TABLE public.epds (
     density text,
     biogenic_carbon numeric,
 
-    -- 4. System
+    -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
@@ -873,6 +925,79 @@ CREATE TABLE public.epds (
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
     CONSTRAINT epds_penrt_positive CHECK (penrt >= 0),
     CONSTRAINT epds_pert_positive CHECK (pert >= 0)
+);
+
+-- =============================================================================
+-- JUNCTION TABLES (M:N Relationships)
+-- =============================================================================
+
+-- UseCase ↔ Element: Use case defines which elements are required
+CREATE TABLE public.usecase_elements (
+    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
+    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
+    phases integer[],
+    log_level text,
+    loi_level text,
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (usecase_id, element_id),
+    CONSTRAINT usecase_elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+);
+
+-- UseCase ↔ Document: Use case specifies required deliverables
+CREATE TABLE public.usecase_documents (
+    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
+    document_id text NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
+    required boolean NOT NULL DEFAULT true,
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (usecase_id, document_id)
+);
+
+-- UseCase ↔ Model: Use case involves contributions from discipline models
+CREATE TABLE public.usecase_models (
+    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
+    model_id text NOT NULL REFERENCES models(id) ON DELETE CASCADE,
+    role text,
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (usecase_id, model_id)
+);
+
+-- UseCase ↔ EPD: Sustainability use cases reference environmental data
+CREATE TABLE public.usecase_epds (
+    usecase_id text NOT NULL REFERENCES usecases(id) ON DELETE CASCADE,
+    epd_id text NOT NULL REFERENCES epds(id) ON DELETE CASCADE,
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (usecase_id, epd_id)
+);
+
+-- Model ↔ Element: Models contain/reference element types
+CREATE TABLE public.model_elements (
+    model_id text NOT NULL REFERENCES models(id) ON DELETE CASCADE,
+    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
+    phases integer[],
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (model_id, element_id),
+    CONSTRAINT model_elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+);
+
+-- Element ↔ EPD: Elements linked to environmental product declarations
+CREATE TABLE public.element_epds (
+    element_id text NOT NULL REFERENCES elements(id) ON DELETE CASCADE,
+    epd_id text NOT NULL REFERENCES epds(id) ON DELETE CASCADE,
+    quantity_formula text,
+    notes text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    
+    PRIMARY KEY (element_id, epd_id)
 );
 
 -- =============================================================================
@@ -905,6 +1030,14 @@ CREATE INDEX elements_phases_idx ON elements USING gin(phases);
 CREATE INDEX documents_phases_idx ON documents USING gin(phases);
 CREATE INDEX usecases_phases_idx ON usecases USING gin(phases);
 CREATE INDEX models_phases_idx ON models USING gin(phases);
+
+-- Junction table indexes (for reverse lookups)
+CREATE INDEX usecase_elements_element_idx ON usecase_elements(element_id);
+CREATE INDEX usecase_documents_document_idx ON usecase_documents(document_id);
+CREATE INDEX usecase_models_model_idx ON usecase_models(model_id);
+CREATE INDEX usecase_epds_epd_idx ON usecase_epds(epd_id);
+CREATE INDEX model_elements_element_idx ON model_elements(element_id);
+CREATE INDEX element_epds_epd_idx ON element_epds(epd_id);
 
 -- =============================================================================
 -- TRIGGERS - Auto-update updated_at
@@ -943,12 +1076,28 @@ ALTER TABLE usecases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE models ENABLE ROW LEVEL SECURITY;
 ALTER TABLE epds ENABLE ROW LEVEL SECURITY;
 
+-- Junction tables
+ALTER TABLE usecase_elements ENABLE ROW LEVEL SECURITY;
+ALTER TABLE usecase_documents ENABLE ROW LEVEL SECURITY;
+ALTER TABLE usecase_models ENABLE ROW LEVEL SECURITY;
+ALTER TABLE usecase_epds ENABLE ROW LEVEL SECURITY;
+ALTER TABLE model_elements ENABLE ROW LEVEL SECURITY;
+ALTER TABLE element_epds ENABLE ROW LEVEL SECURITY;
+
 -- Public read access for all tables
 CREATE POLICY "Public read access" ON elements FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON documents FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON usecases FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON models FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
+
+-- Public read access for junction tables
+CREATE POLICY "Public read access" ON usecase_elements FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON usecase_documents FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON usecase_models FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON usecase_epds FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON model_elements FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON element_epds FOR SELECT USING (true);
 ```
 
 ---
