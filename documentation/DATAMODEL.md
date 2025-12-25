@@ -53,7 +53,7 @@ erDiagram
         text[] tags
         integer[] phases
         jsonb classifications
-        jsonb author_mapping
+        jsonb tool_elements
         jsonb geometry
         jsonb information
         jsonb documentation
@@ -175,7 +175,7 @@ Physical building components with geometry (LOG), information (LOI), and documen
 | `information` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOI specifications per phase |
 | `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
 | `classifications` | `jsonb` | `DEFAULT '{}'` | Multi-system codes (eBKP-H, DIN 276, Uniformat II) |
-| `author_mapping` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
+| `tool_elements` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
 | `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs for LCA `[{"id": "kbob-01-042"}]` |
 
 **Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
@@ -303,7 +303,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `phases` | integer[] | ✓ | Phases where this information is required |
 | `ifc` | string | | IFC PropertySet and property reference |
 
-### Element: author_mapping
+### Element: tool_elements
 
 Mappings to authoring tools and exchange formats. Extensible for additional tools.
 
@@ -663,7 +663,7 @@ CREATE TABLE public.elements (
     information jsonb NOT NULL DEFAULT '[]',
     documentation jsonb DEFAULT '[]',
     classifications jsonb DEFAULT '{}',
-    author_mapping jsonb DEFAULT '[]',
+    tool_elements jsonb DEFAULT '[]',
     related_epds jsonb DEFAULT '[]',
 
     -- System
@@ -916,7 +916,7 @@ CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
 | `tags` | `tags` | Array → PostgreSQL array |
 | `phases` | `phases` | Array → PostgreSQL array |
 | `classifications` | `classifications` | Object → JSONB |
-| `ifcMapping` | `author_mapping` | camelCase → snake_case, Array → JSONB |
+| `ifcMapping` | `tool_elements` | camelCase → snake_case, Array → JSONB |
 | `geometry` | `geometry` | Array → JSONB |
 | `information` | `information` | Array → JSONB |
 | `documentation` | `documentation` | Array → JSONB |
@@ -949,7 +949,7 @@ async function migrateElements() {
     information: el.information || [],
     documentation: el.documentation || [],
     classifications: el.classifications || {},
-    author_mapping: el.ifcMapping || []
+    tool_elements: el.ifcMapping || []
   }));
 
   const { error } = await supabase
@@ -971,7 +971,7 @@ async function migrateElements() {
 | VDI 2552 Blatt 12.1 | VDI | Use case structure (usecases) |
 | VDI 2552 Blatt 12.2 | VDI | Anwendungsfeld metadata, lifecycle phases (all entities) |
 | ISO 19650-1:2018 | ISO | Information management concepts |
-| IFC 4.3 | buildingSMART | IFC mapping (elements.author_mapping) |
+| IFC 4.3 | buildingSMART | IFC mapping (elements.tool_elements) |
 | KBOB/IPB Bauwerksdokumentation | KBOB | Document categories (documents) |
 | KBOB Ökobilanzdaten | KBOB | Environmental indicators (epds) |
 | SN 506 511:2020 (eBKP-H) | CRB | Swiss cost classification |
