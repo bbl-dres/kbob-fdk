@@ -43,7 +43,7 @@ erDiagram
 
     elements {
         text id PK
-        text title
+        jsonb title "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -57,7 +57,7 @@ erDiagram
 
     documents {
         text id PK
-        text title
+        jsonb title "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -68,7 +68,7 @@ erDiagram
 
     usecases {
         text id PK
-        text title
+        jsonb title "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -83,7 +83,7 @@ erDiagram
 
     models {
         text id PK
-        text title
+        jsonb title "de_fr_it_en"
         text category
         text[] tags
         integer[] phases
@@ -92,7 +92,7 @@ erDiagram
 
     epds {
         text id PK
-        text title
+        jsonb title "de_fr_it_en"
         text category
         text subcategory
         text[] tags
