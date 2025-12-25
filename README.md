@@ -248,7 +248,7 @@ No build step. No framework lock-in. Designed for long-term maintainability.
 
 ## About KBOB
 
-The **Koordinationskonferenz der Bau- und Liegenschaftsorgane der öffentlichen Bauherren (KBOB)** coordinates building and property management for Swiss public clients, including federal agencies, cantons, cities, and municipalities.
+The **Coordination Conference of the Construction and Real Estate Organs of Public Building Owners (KBOB)** coordinates building and property management for Swiss public clients, including federal agencies, cantons, cities, and municipalities.
 
 KBOB develops contract templates, procurement guidelines, and recommendations that support efficient and consistent public construction across the entire asset lifecycle.
 
