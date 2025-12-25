@@ -35,7 +35,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
-| `models` | `elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
+| `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 ```mermaid
 erDiagram
@@ -44,7 +44,7 @@ erDiagram
     elements ||--o{ epds : "related_epds"
     elements ||--o{ attributes : "related_attributes"
     documents ||--o{ elements : "related_elements"
-    models ||--o{ elements : "elements"
+    models ||--o{ elements : "related_elements"
 
     elements {
         text id PK
@@ -104,7 +104,7 @@ erDiagram
         text category
         text[] tags
         integer[] phases
-        jsonb elements FK
+        jsonb related_elements FK
     }
 
     epds {
