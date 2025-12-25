@@ -45,6 +45,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `elements` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
+| `elements` | `related_usecases` | usecases | `[{"id": "uc001"}]` |
 | `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
 | `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
@@ -60,6 +61,7 @@ erDiagram
     documents ||--o{ elements : "related_elements"
     documents ||--o{ classifications : "related_classifications"
     models ||--o{ elements : "related_elements"
+    elements ||--o{ usecases : "related_usecases"
 
     elements {
         text id PK
@@ -73,6 +75,7 @@ erDiagram
         jsonb related_epds FK
         jsonb related_attributes FK
         jsonb related_classifications FK
+        jsonb related_usecases FK
     }
 
     attributes {
@@ -116,6 +119,8 @@ erDiagram
         jsonb goals "de_fr_it_en"
         jsonb inputs "de_fr_it_en"
         jsonb outputs "de_fr_it_en"
+        jsonb implementation "de_fr_it_en"
+        jsonb quality_criteria "de_fr_it_en"
         jsonb related_elements FK
         jsonb related_documents FK
     }
@@ -196,6 +201,7 @@ Physical building components with geometry (LOG) requirements.
 | `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "kbob-01-042"}]` |
 | `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
+| `related_usecases` | `jsonb` | `DEFAULT '[]'` | Links to usecases `[{"id": "uc001"}]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -232,12 +238,10 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
 | `roles` | `jsonb` | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix (i18n) |
 | `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor (i18n) |
-| `implementation` | `text[]` | `NOT NULL DEFAULT '{}'` | Implementation steps |
-| `quality_criteria` | `text[]` | `NOT NULL DEFAULT '{}'` | Acceptance and quality criteria |
+| `implementation` | `jsonb` | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
+| `quality_criteria` | `jsonb` | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
 | `standards` | `text[]` | `DEFAULT '{}'` | Referenced standards (SIA, ISO, VDI) |
 | `process_url` | `text` | | Link to BPMN process diagram |
-| `examples` | `jsonb` | `DEFAULT '[]'` | Example implementations |
-| `practice_example` | `jsonb` | | Real-world practice example |
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
 
@@ -560,7 +564,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.1
+-- Version: 2.1.2
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -590,6 +594,7 @@ CREATE TABLE public.elements (
     related_epds jsonb DEFAULT '[]',
     related_attributes jsonb DEFAULT '[]',
     related_classifications jsonb DEFAULT '[]',
+    related_usecases jsonb DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -667,12 +672,10 @@ CREATE TABLE public.usecases (
     outputs jsonb NOT NULL DEFAULT '[]',
     roles jsonb NOT NULL DEFAULT '[]',
     prerequisites jsonb NOT NULL DEFAULT '{}',
-    implementation text[] NOT NULL DEFAULT '{}',
-    quality_criteria text[] NOT NULL DEFAULT '{}',
+    implementation jsonb NOT NULL DEFAULT '[]',
+    quality_criteria jsonb NOT NULL DEFAULT '[]',
     standards text[] DEFAULT '{}',
     process_url text,
-    examples jsonb DEFAULT '[]',
-    practice_example jsonb,
     related_elements jsonb DEFAULT '[]',
     related_documents jsonb DEFAULT '[]',
 
@@ -876,6 +879,7 @@ CREATE INDEX elements_related_documents_idx ON elements USING gin(related_docume
 CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
 CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
+CREATE INDEX elements_related_usecases_idx ON elements USING gin(related_usecases);
 CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
 CREATE INDEX documents_related_classifications_idx ON documents USING gin(related_classifications);
 CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
@@ -1018,6 +1022,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.2 | 2025-12 | Added `related_usecases` to elements; changed usecases `implementation` and `quality_criteria` from text[] to JSONB with i18n; removed `examples` and `practice_example` from usecases |
 | 2.1.1 | 2025-12 | Schema review fixes: added ID format constraint to `classifications`; removed GWP >= 0 constraint (allows negative for carbon-sequestering materials per EN 15804); added multi-language full-text indexes (de/fr/it/en); added GIN indexes on `related_*` fields; added phases uniqueness constraint; added `epds.unit` CHECK constraint; added table/column comments; documented RLS write policy and JSONB referential integrity |
 | 2.1.0 | 2025-12 | Added i18n support (JSONB `name` field with de/fr/it/en); added `attributes` table for reusable property definitions; added `classifications` table for multi-system classification codes; renamed `title` → `name`, `ifc_mapping` → `tool_elements`; added `related_*` prefix to all relationship fields for consistency |
 | 2.0.0 | 2025-01 | Complete restructure for SQL/Supabase migration; added column category concept; comprehensive SQL DDL with constraints, indexes, RLS, and triggers; JSONB structure documentation; data migration guide |
