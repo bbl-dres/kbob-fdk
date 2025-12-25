@@ -121,7 +121,6 @@ erDiagram
         jsonb prerequisites "de_fr_it_en"
         jsonb implementation "de_fr_it_en"
         jsonb quality_criteria "de_fr_it_en"
-        text[] standards
         text process_url
         jsonb related_elements FK
         jsonb related_documents FK
@@ -192,7 +191,7 @@ erDiagram
 
 ## Shared Attributes
 
-All seven entities share a common set of attributes for identification, versioning, and discoverability.
+All core entities share a common set of attributes for identification, versioning, and discoverability.
 
 > **Note:** `attributes` and `classifications` are simplified reference tables with a subset of common attributes (id, name, description, created_at, updated_at).
 
@@ -283,7 +282,6 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor (i18n) |
 | `implementation` | `jsonb` | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
 | `quality_criteria` | `jsonb` | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
-| `standards` | `text[]` | `DEFAULT '{}'` | Referenced standards (SIA, ISO, VDI) |
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
@@ -634,7 +632,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.7
+-- Version: 2.1.8
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -733,7 +731,6 @@ CREATE TABLE public.usecases (
     prerequisites jsonb NOT NULL DEFAULT '{}',
     implementation jsonb NOT NULL DEFAULT '[]',
     quality_criteria jsonb NOT NULL DEFAULT '[]',
-    standards text[] DEFAULT '{}',
     process_url text,
     related_elements jsonb DEFAULT '[]',
     related_documents jsonb DEFAULT '[]',
@@ -1078,6 +1075,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.8 | 2025-12 | Removed `standards` from usecases; changed "All seven entities" to "All core entities" |
 | 2.1.7 | 2025-12 | Reverted `attributes` and `classifications` to simplified reference tables (id, name, description only); expanded mermaid chart with all entity attributes for verification |
 | 2.1.6 | 2025-12 | Consistency QS: fixed entity count ("All seven entities"); added attributes/classifications to Phase-Dependent section |
 | 2.1.5 | 2025-12 | Added `attributes` and `classifications` to Entity-Specific Attributes section; added note to mermaid diagram about simplified view |
