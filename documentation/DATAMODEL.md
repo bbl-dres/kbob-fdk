@@ -29,6 +29,14 @@
 
 Relationships between entities are stored as JSONB arrays on the parent entity. This keeps queries simple and avoids junction tables.
 
+> **Referential Integrity Note:** JSONB relationships do not enforce foreign key constraints. Orphaned references may occur when a referenced entity is deleted. This is intentional—the application layer handles validation, and a scheduled cleanup function can detect orphaned references:
+> ```sql
+> -- Example: Find orphaned document references in elements
+> SELECT e.id, ref->>'id' AS orphaned_doc_id
+> FROM elements e, jsonb_array_elements(e.related_documents) AS ref
+> WHERE NOT EXISTS (SELECT 1 FROM documents d WHERE d.id = ref->>'id');
+> ```
+
 | Entity | Field | References | Structure |
 |--------|-------|------------|-----------|
 | `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
@@ -156,7 +164,7 @@ All entities **except EPD** include lifecycle phases:
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
+| `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])`, unique sorted | Applicable lifecycle phases (1-5); stored as sorted unique values |
 
 > **Note:** EPD contains phase-neutral reference data (environmental indicators don't vary by project phase).
 
@@ -170,7 +178,7 @@ All entities **except EPD** include lifecycle phases:
 | models | `m{n}` | m1, m10 | `^m[0-9]+$` |
 | epds | `kbob-{nn}-{nnn}` | kbob-01-042 | `^kbob-[0-9]{2}-[0-9]{3}$` |
 | attributes | `attr-{name}` | attr-fire-rating | `^attr-[a-z0-9-]+$` |
-| classifications | `{system}-{code}` | ebkp-c02, din276-kg466 | varies by system |
+| classifications | `{system}-{code}` | ebkp-c02, din276-kg466 | `^(ebkp\|din276\|uniformat\|kbob)-[a-z0-9-]+$` |
 
 ---
 
@@ -212,9 +220,13 @@ Project documentation types with format requirements and retention policies per 
 
 Standardized BIM processes with roles, responsibilities, and quality criteria per VDI 2552 Blatt 12.1/12.2.
 
+> **Note:** Usecases have both `description` (common attribute) and `definition` (entity-specific):
+> - `description`: Optional free-text summary for display and search
+> - `definition`: Required formal statement per VDI 2552 defining the use case scope
+
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `definition` | `text` | `NOT NULL` | Formal definition of the use case |
+| `definition` | `text` | `NOT NULL` | Formal definition of the use case per VDI 2552 (distinct from `description`) |
 | `goals` | `jsonb` | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
 | `inputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
 | `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
@@ -253,8 +265,8 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `unit` | `text` | `NOT NULL` | Functional/reference unit (kg, m², m³, kWh, etc.) |
-| `gwp` | `numeric` | `NOT NULL, >= 0` | Global Warming Potential (kg CO₂-eq) |
+| `unit` | `text` | `NOT NULL`, constrained | Functional/reference unit: `kg`, `m²`, `m³`, `kWh`, `MJ`, `Stk`, `km`, `m`, `tkm` |
+| `gwp` | `numeric` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
 | `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
 | `penrt` | `numeric` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
 | `pert` | `numeric` | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
@@ -548,7 +560,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.0
+-- Version: 2.1.1
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -585,7 +597,12 @@ CREATE TABLE public.elements (
 
     -- Constraints
     CONSTRAINT elements_id_format CHECK (id ~ '^e[0-9]+$'),
-    CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+    CONSTRAINT elements_phases_valid CHECK (
+        phases IS NULL OR (
+            phases <@ ARRAY[1,2,3,4,5] AND
+            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
+        )
+    )
 );
 
 -- =============================================================================
@@ -617,7 +634,12 @@ CREATE TABLE public.documents (
 
     -- Constraints
     CONSTRAINT documents_id_format CHECK (id ~ '^[OKBV][0-9]{5}$'),
-    CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
+    CONSTRAINT documents_phases_valid CHECK (
+        phases IS NULL OR (
+            phases <@ ARRAY[1,2,3,4,5] AND
+            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
+        )
+    ),
     CONSTRAINT documents_retention_valid CHECK (retention IS NULL OR retention >= 0)
 );
 
@@ -660,7 +682,12 @@ CREATE TABLE public.usecases (
 
     -- Constraints
     CONSTRAINT usecases_id_format CHECK (id ~ '^uc[0-9]{3}$'),
-    CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+    CONSTRAINT usecases_phases_valid CHECK (
+        phases IS NULL OR (
+            phases <@ ARRAY[1,2,3,4,5] AND
+            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
+        )
+    )
 );
 
 -- =============================================================================
@@ -689,7 +716,12 @@ CREATE TABLE public.models (
 
     -- Constraints
     CONSTRAINT models_id_format CHECK (id ~ '^m[0-9]+$'),
-    CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+    CONSTRAINT models_phases_valid CHECK (
+        phases IS NULL OR (
+            phases <@ ARRAY[1,2,3,4,5] AND
+            phases = ARRAY(SELECT DISTINCT unnest(phases) ORDER BY 1)
+        )
+    )
 );
 
 -- =============================================================================
@@ -724,7 +756,8 @@ CREATE TABLE public.epds (
 
     -- Constraints
     CONSTRAINT epds_id_format CHECK (id ~ '^kbob-[0-9]{2}-[0-9]{3}$'),
-    CONSTRAINT epds_gwp_positive CHECK (gwp >= 0),
+    CONSTRAINT epds_unit_valid CHECK (unit IN ('kg', 'm²', 'm³', 'kWh', 'MJ', 'Stk', 'km', 'm', 'tkm')),
+    -- Note: GWP can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
     CONSTRAINT epds_penrt_positive CHECK (penrt >= 0),
     CONSTRAINT epds_pert_positive CHECK (pert >= 0)
@@ -769,21 +802,50 @@ CREATE TABLE public.classifications (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB'))
+    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
+    CONSTRAINT classifications_id_format CHECK (id ~ '^(ebkp|din276|uniformat|kbob)-[a-z0-9-]+$')
 );
 
 -- =============================================================================
 -- INDEXES
 -- =============================================================================
 
--- Full-text search indexes (using German name from JSONB)
-CREATE INDEX elements_name_idx ON elements USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX documents_name_idx ON documents USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX usecases_name_idx ON usecases USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX models_name_idx ON models USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX epds_name_idx ON epds USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX attributes_name_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
-CREATE INDEX classifications_name_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
+-- Full-text search indexes (multi-language support for Swiss official languages)
+-- German
+CREATE INDEX elements_name_de_idx ON elements USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX documents_name_de_idx ON documents USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX usecases_name_de_idx ON usecases USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX models_name_de_idx ON models USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX epds_name_de_idx ON epds USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX attributes_name_de_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX classifications_name_de_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
+
+-- French
+CREATE INDEX elements_name_fr_idx ON elements USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX documents_name_fr_idx ON documents USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX usecases_name_fr_idx ON usecases USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX models_name_fr_idx ON models USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX epds_name_fr_idx ON epds USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX attributes_name_fr_idx ON attributes USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX classifications_name_fr_idx ON classifications USING gin(to_tsvector('french', name->>'fr'));
+
+-- Italian
+CREATE INDEX elements_name_it_idx ON elements USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX documents_name_it_idx ON documents USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX usecases_name_it_idx ON usecases USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX models_name_it_idx ON models USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX epds_name_it_idx ON epds USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX attributes_name_it_idx ON attributes USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX classifications_name_it_idx ON classifications USING gin(to_tsvector('italian', name->>'it'));
+
+-- English (using simple config for international users)
+CREATE INDEX elements_name_en_idx ON elements USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX documents_name_en_idx ON documents USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX usecases_name_en_idx ON usecases USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX models_name_en_idx ON models USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX epds_name_en_idx ON epds USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX attributes_name_en_idx ON attributes USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX classifications_name_en_idx ON classifications USING gin(to_tsvector('english', name->>'en'));
 
 -- Domain filters (using German text for filtering)
 CREATE INDEX elements_domain_idx ON elements((domain->>'de'));
@@ -807,6 +869,18 @@ CREATE INDEX elements_phases_idx ON elements USING gin(phases);
 CREATE INDEX documents_phases_idx ON documents USING gin(phases);
 CREATE INDEX usecases_phases_idx ON usecases USING gin(phases);
 CREATE INDEX models_phases_idx ON models USING gin(phases);
+
+-- Relationship filters (GIN for JSONB containment queries)
+-- Enables queries like: "find all elements related to document O01001"
+CREATE INDEX elements_related_documents_idx ON elements USING gin(related_documents);
+CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
+CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
+CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
+CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
+CREATE INDEX documents_related_classifications_idx ON documents USING gin(related_classifications);
+CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
+CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_documents);
+CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
 
 -- =============================================================================
 -- TRIGGERS - Auto-update updated_at
@@ -844,6 +918,14 @@ CREATE TRIGGER classifications_updated_at BEFORE UPDATE ON classifications
 -- =============================================================================
 -- ROW LEVEL SECURITY
 -- =============================================================================
+-- Access model:
+--   - SELECT: Public (anonymous) read access for all tables
+--   - INSERT/UPDATE/DELETE: Service role only (bypasses RLS)
+--
+-- Write operations are performed via Supabase service_role key in admin
+-- interfaces. No INSERT/UPDATE/DELETE policies are defined; RLS blocks
+-- these operations for anon/authenticated roles by default.
+-- =============================================================================
 
 ALTER TABLE elements ENABLE ROW LEVEL SECURITY;
 ALTER TABLE documents ENABLE ROW LEVEL SECURITY;
@@ -853,7 +935,7 @@ ALTER TABLE epds ENABLE ROW LEVEL SECURITY;
 ALTER TABLE attributes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE classifications ENABLE ROW LEVEL SECURITY;
 
--- Public read access
+-- Public read access (anon and authenticated users)
 CREATE POLICY "Public read access" ON elements FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON documents FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON usecases FOR SELECT USING (true);
@@ -861,6 +943,27 @@ CREATE POLICY "Public read access" ON models FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON attributes FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
+
+-- Note: No INSERT/UPDATE/DELETE policies - writes require service_role
+
+-- =============================================================================
+-- TABLE AND COLUMN COMMENTS
+-- =============================================================================
+
+COMMENT ON TABLE elements IS 'Physical building components with LOG (Level of Geometry) requirements';
+COMMENT ON TABLE documents IS 'Project documentation types per KBOB/IPB Bauwerksdokumentation standard';
+COMMENT ON TABLE usecases IS 'Standardized BIM processes per VDI 2552 Blatt 12.1/12.2';
+COMMENT ON TABLE models IS 'BIM discipline, coordination, and special-purpose model definitions';
+COMMENT ON TABLE epds IS 'Environmental Product Declarations - KBOB Ökobilanzdaten';
+COMMENT ON TABLE attributes IS 'Reusable property definitions (LOI attributes)';
+COMMENT ON TABLE classifications IS 'Classification codes from eBKP-H, DIN 276, Uniformat II, KBOB';
+
+COMMENT ON COLUMN elements.geometry IS 'LOG specifications per lifecycle phase (JSONB array with i18n)';
+COMMENT ON COLUMN elements.tool_elements IS 'Mappings to IFC classes and authoring tools (Revit, ArchiCAD)';
+COMMENT ON COLUMN epds.gwp IS 'Global Warming Potential in kg CO₂-eq; can be negative for bio-based materials';
+COMMENT ON COLUMN epds.ubp IS 'Umweltbelastungspunkte - Swiss ecological scarcity method';
+COMMENT ON COLUMN usecases.definition IS 'Formal VDI 2552 definition (distinct from description)';
+COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n support';
 ```
 
 ---
@@ -915,6 +1018,7 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.1 | 2025-12 | Schema review fixes: added ID format constraint to `classifications`; removed GWP >= 0 constraint (allows negative for carbon-sequestering materials per EN 15804); added multi-language full-text indexes (de/fr/it/en); added GIN indexes on `related_*` fields; added phases uniqueness constraint; added `epds.unit` CHECK constraint; added table/column comments; documented RLS write policy and JSONB referential integrity |
 | 2.1.0 | 2025-12 | Added i18n support (JSONB `name` field with de/fr/it/en); added `attributes` table for reusable property definitions; added `classifications` table for multi-system classification codes; renamed `title` → `name`, `ifc_mapping` → `tool_elements`; added `related_*` prefix to all relationship fields for consistency |
 | 2.0.0 | 2025-01 | Complete restructure for SQL/Supabase migration; added column category concept; comprehensive SQL DDL with constraints, indexes, RLS, and triggers; JSONB structure documentation; data migration guide |
 | 1.x | 2024 | JSON file-based data model documentation |
