@@ -15,117 +15,315 @@
   </bpmn:collaboration>
 
   <bpmn:process id="Process_UC050" name="Koordination der Fachgewerke" isExecutable="true">
-    <bpmn:documentation>Systematische Koordination der Koordinationen zur frühzeitigen Erkennung und Behebung von Konflikten.
+    <bpmn:documentation>Systematische Koordination der Fachmodelle zur frühzeitigen Erkennung und Behebung von Planungskonflikten mittels BIM-basierter Kollisionsprüfung.
 
 Definition:
-Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Koordinationen (Architektur, Tragwerk, Haustechnik, Elektro etc.) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und logische Konflikte zwischen den Gewerken frühzeitig erkannt und in einem strukturierten Prozess behoben. Dieser Anwendungsfall ist zentral für die Qualitätssicherung in der Planungsphase und reduziert kostenintensive Änderungen während der Koordination erheblich.
+Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Fachmodelle (Architektur, Tragwerk, HLKSE, Elektro, Sanitär) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und fachliche Konflikte zwischen den Gewerken frühzeitig erkannt. Der BCF-Standard (BIM Collaboration Format) ermöglicht eine strukturierte Kommunikation und Nachverfolgung aller Issues. Regelmässige Koordinationssitzungen (ICE-Sessions) stellen die fristgerechte Konfliktlösung sicher.
 
-Standards: ISO 19650, SIA 2051
+Standards: ISO 19650-1/2, SIA 2051, buildingSMART BCF 3.0, IFC 4.3
 
 Ziele:
 - Frühzeitige Erkennung von Planungskonflikten vor Baubeginn
-- Reduzierung von Kollisionen und Nacharbeiten auf der Baustelle
-- Verbesserte Abstimmung und Kommunikation zwischen den Fachplanern
-- Sicherstellung der Ausführbarkeit der Planung
+- Reduzierung von Kollisionen und Nacharbeiten auf der Baustelle um mind. 80%
+- Transparente Kommunikation zwischen allen Fachplanern via BCF
+- Sicherstellung der geometrischen Ausführbarkeit der Planung
 - Nachvollziehbare Dokumentation aller Koordinationsentscheidungen
+- Einhaltung der Planungsfreigabe-Meilensteine
 
 Inputs:
-- Fachmodelle (Architektur, Tragwerk, HLKS, Elektro, Sanitär)
-- Koordinationsregeln und Toleranzvorgaben
-- Prüfkriterien und Kollisionsmatrix
+- Fachmodelle aller Gewerke (IFC-Format, LOD 300-400)
 - BIM-Abwicklungsplan (BAP) mit Koordinationsvorgaben
+- Kollisionsmatrix mit Prüfregeln und Toleranzen
+- Modellierungsrichtlinien und Namenskonventionen
+- Terminplan mit Koordinationsmeilensteinen
 
 Outputs:
-- Koordinationsmodell (zusammengeführte Fachmodelle)
-- Kollisionsbericht mit klassifizierten Konflikten
-- Protokoll der Koordinationsbesprechungen
-- Dokumentation der Konfliktlösungen
+- Koordinationsmodell (föderiertes Gesamtmodell)
+- BCF-Issues mit Statusverfolgung (offen, in Bearbeitung, gelöst)
+- Kollisionsberichte mit Klassifizierung (kritisch, mittel, gering)
+- Protokolle der ICE-Sessions
+- Koordinationsfreigabe für Ausführungsplanung
 
 Qualitätskriterien:
-- Alle kritischen Kollisionen sind vor Planungsfreigabe behoben
-- Nachvollziehbare Dokumentation aller Koordinationsentscheidungen
-- Einhaltung der vereinbarten Prüfintervalle
-- Vollständigkeit der geprüften Gewerkkombinationen
-- Termingerechte Konfliktbehebung durch die Fachplaner</bpmn:documentation>
+- Null kritische Kollisionen bei Planungsfreigabe
+- Alle BCF-Issues innerhalb definierter Fristen bearbeitet
+- Vollständige Prüfung aller Gewerkkombinationen gemäss Matrix
+- Dokumentierte Freigabe durch alle Fachplaner
+- Modellqualität gemäss LOD-Anforderungen verifiziert</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_BIM_Gesamtkoordinator" name="BIM-Gesamtkoordinator">
+      <bpmn:lane id="Lane_Projektleiter" name="Projektleiter">
         <bpmn:flowNodeRef>StartEvent_uc050</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_Fachplaner" name="Fachplaner">
-        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_13</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_uc050</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_BIM_Koordinator" name="BIM-Gesamtkoordinator">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Modellqualitaet</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Kollisionen</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Fachplaner_Architektur" name="Fachplaner Architektur">
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Fachplaner_TGA" name="Fachplaner TGA (HLKSE)">
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
-    <bpmn:startEvent id="StartEvent_uc050" name="Koordination der Fachgewerke gestartet">
+    <bpmn:startEvent id="StartEvent_uc050" name="Koordinationszyklus gestartet">
+      <bpmn:documentation>Auslöser: Neue Fachmodelle wurden auf der CDE bereitgestellt oder der nächste Koordinationsmeilenstein steht an. Der Projektleiter initiiert den Koordinationsprozess gemäss Terminplan.</bpmn:documentation>
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Zusammenführung der Fachmodelle im Koordinationsmodell">
-      <bpmn:documentation>Zusammenführung der Fachmodelle im Koordinationsmodell</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Koordinationsbedarf prüfen und ICE-Session einberufen">
+      <bpmn:documentation>Der Projektleiter prüft den aktuellen Planungsstand und beruft bei Bedarf eine ICE-Session (Integrated Concurrent Engineering) ein. Alle relevanten Fachplaner werden mit Agenda und Modellstand informiert.
+
+Inputs:
+- Terminplan mit Koordinationsmeilensteinen
+- CDE-Statusmeldungen über Modellupdates
+- Offene BCF-Issues aus vorherigen Zyklen
+
+Outputs:
+- Einladung zur ICE-Session mit Agenda
+- Liste der zu prüfenden Modellstände</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Durchführung regelbasierter Kollisionsprüfungen">
-      <bpmn:documentation>Durchführung regelbasierter Kollisionsprüfungen</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Fachmodelle von CDE importieren und föderieren">
+      <bpmn:documentation>Der BIM-Koordinator importiert alle aktuellen Fachmodelle von der Common Data Environment (CDE) und erstellt das föderierte Koordinationsmodell. Die Modelle werden entsprechend der Projektkoordinaten positioniert.
+
+Inputs:
+- IFC-Fachmodelle (Architektur, Tragwerk, HLKS, Elektro, Sanitär)
+- Koordinationsursprung und Projektkoordinaten
+- Modellierungsrichtlinien
+
+Outputs:
+- Föderiertes Koordinationsmodell
+- Import-Protokoll mit Versionsnummern</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Klassifizierung und Priorisierung der erkannten Konflikte">
-      <bpmn:documentation>Klassifizierung und Priorisierung der erkannten Konflikte</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Modellqualität und Vollständigkeit prüfen">
+      <bpmn:documentation>Vor der Kollisionsprüfung wird die Qualität der importierten Modelle geprüft: LOD-Einhaltung, Namenskonventionen, Vollständigkeit der Attribute, korrekte Klassifizierung der Bauteile.
+
+Inputs:
+- Föderiertes Koordinationsmodell
+- Modellierungsrichtlinien mit Qualitätskriterien
+- LOD-Anforderungen je Planungsphase
+
+Outputs:
+- Modellqualitätsbericht
+- Liste fehlender oder fehlerhafter Elemente</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Zuweisung der Konflikte an verantwortliche Fachplaner">
-      <bpmn:documentation>Zuweisung der Konflikte an verantwortliche Fachplaner</bpmn:documentation>
+    <bpmn:exclusiveGateway id="Gateway_Modellqualitaet" name="Modellqualität ausreichend?">
+      <bpmn:documentation>Entscheidung ob die Modellqualität für die Kollisionsprüfung ausreicht. Bei schwerwiegenden Mängeln müssen die Fachplaner zuerst nachbessern.</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway1_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway1_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_04" name="Kollisionsregeln konfigurieren und Prüflauf starten">
+      <bpmn:documentation>Der BIM-Koordinator konfiguriert die Kollisionsprüfung gemäss Kollisionsmatrix: Welche Gewerke werden gegeneinander geprüft, welche Toleranzen gelten, welche Ausnahmen sind definiert.
+
+Inputs:
+- Kollisionsmatrix mit Prüfregeln
+- Toleranzvorgaben (z.B. 50mm für Rohre vs. Wände)
+- Ausnahmeliste (erlaubte Durchdringungen)
+
+Outputs:
+- Konfigurierte Prüfregeln im Clash-Detection-Tool
+- Gestarteter Prüflauf</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway1_Ja</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Koordinationsbesprechung zur Konfliktlösung">
-      <bpmn:documentation>Koordinationsbesprechung zur Konfliktlösung</bpmn:documentation>
+    <bpmn:task id="Task_05" name="Kollisionen klassifizieren und BCF-Issues erstellen">
+      <bpmn:documentation>Die erkannten Kollisionen werden analysiert, nach Kritikalität klassifiziert (kritisch/mittel/gering) und als BCF-Issues dokumentiert. Jedes Issue erhält Verantwortlichen, Frist und Priorität.
+
+Inputs:
+- Rohe Kollisionsliste aus Clash-Detection
+- Klassifizierungsregeln (kritisch bei Tragwerk, etc.)
+
+Outputs:
+- BCF-Datei mit klassifizierten Issues
+- Kollisionsbericht mit Statistik
+- Zugewiesene Verantwortlichkeiten</bpmn:documentation>
       <bpmn:incoming>Flow_04</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Überprüfung der umgesetzten Lösungen im aktualisierten Modell">
-      <bpmn:documentation>Überprüfung der umgesetzten Lösungen im aktualisierten Modell</bpmn:documentation>
+    <bpmn:task id="Task_06" name="BCF-Issues für Architektur bearbeiten">
+      <bpmn:documentation>Der Fachplaner Architektur bearbeitet die ihm zugewiesenen BCF-Issues, passt sein Modell entsprechend an und dokumentiert die Lösung im BCF-Kommentar.
+
+Inputs:
+- Zugewiesene BCF-Issues
+- Koordinationsmodell zur Analyse
+
+Outputs:
+- Aktualisiertes Architekturmodell
+- BCF-Issues mit Lösungsdokumentation</bpmn:documentation>
       <bpmn:incoming>Flow_05</bpmn:incoming>
       <bpmn:outgoing>Flow_06</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_07" name="Dokumentation und Archivierung der Koordinationsergebnisse">
-      <bpmn:documentation>Dokumentation und Archivierung der Koordinationsergebnisse</bpmn:documentation>
+    <bpmn:task id="Task_07" name="BCF-Issues für TGA bearbeiten">
+      <bpmn:documentation>Die Fachplaner für Heizung, Lüftung, Klima, Sanitär und Elektro bearbeiten parallel ihre zugewiesenen BCF-Issues und passen die TGA-Modelle an.
+
+Inputs:
+- Zugewiesene BCF-Issues je Gewerk
+- Trassenplanung und Platzverhältnisse
+
+Outputs:
+- Aktualisierte TGA-Fachmodelle
+- BCF-Issues mit Lösungsdokumentation</bpmn:documentation>
       <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_08" name="Koordinationsbesprechung (ICE-Session) durchführen">
+      <bpmn:documentation>In der ICE-Session werden komplexe Konflikte gemeinsam besprochen, bei denen mehrere Gewerke betroffen sind. Lösungen werden direkt am Modell erarbeitet und dokumentiert.
+
+Inputs:
+- Offene BCF-Issues mit Abstimmungsbedarf
+- Koordinationsmodell zur Visualisierung
+- Agenda mit priorisierten Themen
+
+Outputs:
+- Protokoll mit Entscheidungen
+- Aktualisierte BCF-Issues mit vereinbarten Lösungen
+- Aufgabenliste mit Verantwortlichen</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_09" name="Modelle gemäss ICE-Beschlüssen anpassen">
+      <bpmn:documentation>Nach der ICE-Session setzen alle betroffenen Fachplaner die vereinbarten Änderungen in ihren Modellen um und laden die aktualisierten Versionen auf die CDE.
+
+Inputs:
+- ICE-Protokoll mit Beschlüssen
+- Aufgabenliste mit Fristen
+
+Outputs:
+- Aktualisierte Fachmodelle auf CDE
+- Statusmeldung über Änderungen</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_10" name="Nachprüfung der behobenen Kollisionen">
+      <bpmn:documentation>Der BIM-Koordinator führt eine erneute Kollisionsprüfung mit den aktualisierten Modellen durch und verifiziert, dass die gemeldeten Issues tatsächlich behoben wurden.
+
+Inputs:
+- Aktualisierte Fachmodelle von CDE
+- Liste der zu prüfenden BCF-Issues
+
+Outputs:
+- Verifizierungsbericht
+- Aktualisierte Issue-Status (behoben/offen)</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Kollisionen" name="Alle kritischen Kollisionen gelöst?">
+      <bpmn:documentation>Prüfung ob alle kritischen Kollisionen behoben wurden. Erst bei Null kritischen Kollisionen kann die Koordinationsfreigabe erfolgen.</bpmn:documentation>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway2_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway2_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_11" name="Verbleibende Konflikte eskalieren und nacharbeiten">
+      <bpmn:documentation>Bei nicht gelösten kritischen Kollisionen werden diese eskaliert, zusätzliche Ressourcen eingeplant oder alternative Lösungsansätze gesucht.
+
+Inputs:
+- Liste offener kritischer Issues
+- Analyse der Blockaden
+
+Outputs:
+- Eskalationsmeldung an Projektleiter
+- Angepasster Zeitplan für Nacharbeit
+- Alternative Lösungsvorschläge</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway2_Nein</bpmn:incoming>
+      <bpmn:outgoing>Flow_Loop</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_12" name="Koordinationsfreigabe dokumentieren">
+      <bpmn:documentation>Der BIM-Koordinator dokumentiert den erfolgreichen Abschluss des Koordinationszyklus mit Null kritischen Kollisionen und erstellt den Freigabebericht.
+
+Inputs:
+- Verifizierungsbericht ohne kritische Issues
+- Finales Koordinationsmodell
+
+Outputs:
+- Koordinationsfreigabebericht
+- Archiviertes Koordinationsmodell
+- BCF-Abschlussdokumentation</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway2_Ja</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_13" name="Freigabe für nächste Planungsphase erteilen">
+      <bpmn:documentation>Der Projektleiter erteilt auf Basis des Koordinationsfreigabeberichts die Freigabe für die nächste Planungsphase oder die Ausführungsplanung.
+
+Inputs:
+- Koordinationsfreigabebericht
+- Bestätigung aller Fachplaner
+
+Outputs:
+- Planungsfreigabe
+- Dokumentierte Meilenstein-Erreichung</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:endEvent id="EndEvent_uc050" name="Koordination der Fachgewerke abgeschlossen">
-      <bpmn:documentation>Lieferobjekte:
-- Koordinationsmodell (zusammengeführte Fachmodelle)
-- Kollisionsbericht mit klassifizierten Konflikten
-- Protokoll der Koordinationsbesprechungen
-- Dokumentation der Konfliktlösungen</bpmn:documentation>
+    <bpmn:endEvent id="EndEvent_uc050" name="Koordinationszyklus abgeschlossen">
+      <bpmn:documentation>Der Koordinationszyklus ist erfolgreich abgeschlossen. Alle kritischen Kollisionen wurden behoben und die Planungsfreigabe wurde erteilt.
+
+Lieferobjekte:
+- Koordinationsmodell (föderiertes Gesamtmodell, archiviert)
+- BCF-Dokumentation aller Issues und Lösungen
+- Kollisionsbericht mit Statistik
+- ICE-Protokolle
+- Koordinationsfreigabebericht
+- Planungsfreigabe für nächste Phase</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
+    <!-- Sequence Flows -->
     <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc050" targetRef="Task_01" />
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
     <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
-    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Gateway_Modellqualitaet" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Ja" name="Ja" sourceRef="Gateway_Modellqualitaet" targetRef="Task_04" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Nein" name="Nein - Nachbesserung nötig" sourceRef="Gateway_Modellqualitaet" targetRef="Task_07">
+      <bpmn:documentation>Bei unzureichender Modellqualität werden die Fachplaner aufgefordert, ihre Modelle nachzubessern.</bpmn:documentation>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
     <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
     <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_07" targetRef="EndEvent_uc050" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Task_10" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_10" targetRef="Gateway_Kollisionen" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Ja" name="Ja - Keine kritischen Kollisionen" sourceRef="Gateway_Kollisionen" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Nein" name="Nein - Kritische Konflikte offen" sourceRef="Gateway_Kollisionen" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_Loop" sourceRef="Task_11" targetRef="Task_08">
+      <bpmn:documentation>Rückkopplung zur ICE-Session für weitere Abstimmung der offenen Konflikte.</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_12" targetRef="Task_13" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_13" targetRef="EndEvent_uc050" />
 
   </bpmn:process>
 
@@ -133,97 +331,225 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC050" bpmnElement="Collaboration_UC050">
 
       <bpmndi:BPMNShape id="Participant_UC050_di" bpmnElement="Participant_UC050" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1610" height="300" />
+        <dc:Bounds x="160" y="80" width="1800" height="520" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Lane_BIM_Gesamtkoordinator_di" bpmnElement="Lane_BIM_Gesamtkoordinator" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1580" height="150" />
+      <bpmndi:BPMNShape id="Lane_Projektleiter_di" bpmnElement="Lane_Projektleiter" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1770" height="120" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Lane_Fachplaner_di" bpmnElement="Lane_Fachplaner" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1580" height="150" />
+      <bpmndi:BPMNShape id="Lane_BIM_Koordinator_di" bpmnElement="Lane_BIM_Koordinator" isHorizontal="true">
+        <dc:Bounds x="190" y="200" width="1770" height="140" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Lane_Fachplaner_Architektur_di" bpmnElement="Lane_Fachplaner_Architektur" isHorizontal="true">
+        <dc:Bounds x="190" y="340" width="1770" height="120" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Fachplaner_TGA_di" bpmnElement="Lane_Fachplaner_TGA" isHorizontal="true">
+        <dc:Bounds x="190" y="460" width="1770" height="140" />
+      </bpmndi:BPMNShape>
+
+      <!-- Start Event -->
       <bpmndi:BPMNShape id="StartEvent_uc050_di" bpmnElement="StartEvent_uc050">
-        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <dc:Bounds x="250" y="122" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="225" y="165" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <!-- Tasks Row 1: Projektleiter -->
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="100" width="100" height="80" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_13_di" bpmnElement="Task_13">
+        <dc:Bounds x="1710" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 2: BIM-Koordinator -->
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="460" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
+        <dc:Bounds x="590" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
-        <dc:Bounds x="1230" y="115" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="EndEvent_uc050_di" bpmnElement="EndEvent_uc050">
-        <dc:Bounds x="1370" y="287" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_Modellqualitaet_di" bpmnElement="Gateway_Modellqualitaet" isMarkerVisible="true">
+        <dc:Bounds x="725" y="245" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1360" y="332" width="56" height="27" />
+          <dc:Bounds x="707" y="215" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
+        <dc:Bounds x="810" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="940" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1320" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Kollisionen_di" bpmnElement="Gateway_Kollisionen" isMarkerVisible="true">
+        <dc:Bounds x="1455" y="245" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1435" y="208" width="90" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1570" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 3: Fachplaner Architektur -->
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="1010" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1140" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 4: Fachplaner TGA -->
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1010" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1200" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1430" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- End Event -->
+      <bpmndi:BPMNShape id="EndEvent_uc050_di" bpmnElement="EndEvent_uc050">
+        <dc:Bounds x="1862" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1835" y="165" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Sequence Flow Edges -->
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
-        <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="286" y="140" />
+        <di:waypoint x="330" y="140" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="140" />
+        <di:waypoint x="445" y="140" />
+        <di:waypoint x="445" y="270" />
+        <di:waypoint x="460" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="560" y="270" />
+        <di:waypoint x="590" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="690" y="270" />
+        <di:waypoint x="725" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Ja_di" bpmnElement="Flow_Gateway1_Ja">
+        <di:waypoint x="775" y="270" />
+        <di:waypoint x="810" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="786" y="252" width="13" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Nein_di" bpmnElement="Flow_Gateway1_Nein">
+        <di:waypoint x="750" y="295" />
+        <di:waypoint x="750" y="530" />
+        <di:waypoint x="1010" y="530" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="760" y="410" width="80" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="910" y="270" />
+        <di:waypoint x="940" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="1040" y="270" />
+        <di:waypoint x="1060" y="270" />
+        <di:waypoint x="1060" y="360" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="155" />
+        <di:waypoint x="1060" y="440" />
+        <di:waypoint x="1060" y="490" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1110" y="530" />
+        <di:waypoint x="1125" y="530" />
+        <di:waypoint x="1125" y="400" />
+        <di:waypoint x="1140" y="400" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1190" y="440" />
+        <di:waypoint x="1190" y="465" />
+        <di:waypoint x="1250" y="465" />
+        <di:waypoint x="1250" y="490" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1300" y="530" />
+        <di:waypoint x="1310" y="530" />
+        <di:waypoint x="1310" y="270" />
+        <di:waypoint x="1320" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1420" y="270" />
+        <di:waypoint x="1455" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Ja_di" bpmnElement="Flow_Gateway2_Ja">
+        <di:waypoint x="1505" y="270" />
+        <di:waypoint x="1570" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1508" y="236" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Nein_di" bpmnElement="Flow_Gateway2_Nein">
+        <di:waypoint x="1480" y="295" />
+        <di:waypoint x="1480" y="490" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1490" y="370" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Loop_di" bpmnElement="Flow_Loop">
+        <di:waypoint x="1430" y="530" />
+        <di:waypoint x="1190" y="530" />
+        <di:waypoint x="1190" y="440" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1670" y="270" />
+        <di:waypoint x="1690" y="270" />
+        <di:waypoint x="1690" y="140" />
+        <di:waypoint x="1710" y="140" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1330" y="155" />
-        <di:waypoint x="1370" y="305" />
+        <di:waypoint x="1810" y="140" />
+        <di:waypoint x="1862" y="140" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>

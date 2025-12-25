@@ -15,104 +15,334 @@
   </bpmn:collaboration>
 
   <bpmn:process id="Process_UC170" name="Abnahme- und Mängelmanagement" isExecutable="true">
-    <bpmn:documentation>Systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie Dokumentation der Behebung.
+    <bpmn:documentation>Systematische Erfassung, modellbasierte Verortung und Nachverfolgung von Ausführungsmängeln sowie rechtskonforme Dokumentation der Abnahme.
 
 Definition:
-Das Abnahme- und Mängelmanagement umfasst die systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie die Dokumentation ihrer Behebung. Es stellt eine vollständige Abnahme der Bauleistungen sicher und bildet die Grundlage für den Beginn der Gewährleistungsfrist. Die modellbasierte Verortung ermöglicht eine präzise Lokalisierung und effiziente Bearbeitung der Mängel.
+Das Abnahme- und Mängelmanagement umfasst die systematische Durchführung von Abnahmebegehungen, die digitale Erfassung und BIM-basierte Verortung von Ausführungsmängeln sowie deren vollständige Nachverfolgung bis zur Behebung. Der Prozess stellt eine rechtskonforme Abnahme der Bauleistungen gemäss SIA 118 sicher und bildet die Grundlage für den Beginn der Gewährleistungsfrist. Mobile Erfassungstools mit direkter Modellverknüpfung ermöglichen eine präzise Lokalisierung und effiziente Bearbeitung der Mängel.
 
-Standards: SIA 118, OR
+Standards: SIA 118 (Art. 157-168), OR Art. 363ff, SIA 2051 (BIM-Integration)
 
 Ziele:
-- Vollständige Mängelerfassung
-- Nachvollziehbare Mängelverfolgung
-- Dokumentierte Abnahme
+- Vollständige und nachvollziehbare Mängelerfassung mit Fotodokumentation
+- Präzise BIM-basierte Verortung im As-Built-Modell
+- Transparentes Mängeltracking mit Statusverfolgung
+- Rechtskonforme Abnahmedokumentation
+- Fristgerechte Mängelbehebung durch verantwortliche Unternehmer
+- Lückenlose Dokumentation für Gewährleistungsmanagement
 
 Inputs:
-- Abnahmeprotokolle
-- Qualitätsanforderungen
-- Planungsunterlagen
+- Ausführungspläne und As-Built-Modell
+- Leistungsverzeichnis mit Qualitätsanforderungen
+- Normen und Richtlinien (SIA, DIN, etc.)
+- Abnahmeplanung mit Terminen je Gewerk
+- Teilnehmerliste für Abnahmebegehung
 
 Outputs:
-- Mängelliste
-- Abnahmeprotokoll
-- Nachweis Mängelbehebung
+- Digitale Mängelliste mit BIM-Verortung
+- Abnahmeprotokolle (mit/ohne Vorbehalt)
+- Fotodokumentation aller Mängel
+- Nachweisdokumentation der Mängelbehebung
+- Gewährleistungsliste mit Fristen
+- Schlussabnahmeprotokoll
 
 Qualitätskriterien:
-- Vollständige Erfassung aller Mängel
-- Präzise Verortung und Dokumentation
-- Fristgerechte Mängelbehebung
-- Formgerechte Abnahmeprotokolle
-- Lückenlose Dokumentation für Gewährleistung</bpmn:documentation>
+- Vollständige Erfassung aller erkennbaren Mängel
+- Eindeutige Klassifizierung (kritisch, wesentlich, unwesentlich)
+- Präzise Verortung mit Modellreferenz und Foto
+- Klare Verantwortlichkeitszuweisung mit Fristen
+- Fristgerechte Behebung aller wesentlichen Mängel
+- Formgerechte Abnahmeprotokolle nach SIA 118
+- Nachvollziehbare Dokumentation für Gewährleistungsfall</bpmn:documentation>
     <bpmn:laneSet id="LaneSet_1">
-      <bpmn:lane id="Lane_Bauleiter" name="Bauleiter">
+      <bpmn:lane id="Lane_Bauherr" name="Bauherr/Bauherrenvertreter">
         <bpmn:flowNodeRef>StartEvent_uc170</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Task_01</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
-      </bpmn:lane>
-      <bpmn:lane id="Lane_Unternehmer" name="Unternehmer">
-        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_12</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_uc170</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Bauleiter" name="Bauleiter/Oberbauleitung">
+        <bpmn:flowNodeRef>Task_02</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_03</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_04</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Maengel</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_05</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_09</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Behoben</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_11</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Unternehmer" name="Unternehmer/Nachunternehmer">
+        <bpmn:flowNodeRef>Task_06</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_07</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_08</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Qualitaetspruefer" name="Qualitätsprüfer/Sachverständiger">
+        <bpmn:flowNodeRef>Task_10</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_13</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
 
-    <bpmn:startEvent id="StartEvent_uc170" name="Abnahme- und Mängelmanagement gestartet">
+    <bpmn:startEvent id="StartEvent_uc170" name="Abnahmephase eingeleitet">
+      <bpmn:documentation>Auslöser: Die Bauleistungen eines Gewerks sind gemäss Unternehmer fertiggestellt und zur Abnahme bereit. Der Unternehmer hat die Fertigstellungsanzeige eingereicht.</bpmn:documentation>
       <bpmn:outgoing>Flow_Start</bpmn:outgoing>
     </bpmn:startEvent>
 
-    <bpmn:task id="Task_01" name="Durchführung der Abnahmebegehungen je Gewerk">
-      <bpmn:documentation>Durchführung der Abnahmebegehungen je Gewerk</bpmn:documentation>
+    <bpmn:task id="Task_01" name="Abnahmetermin festlegen und Beteiligte einladen">
+      <bpmn:documentation>Der Bauherr legt in Abstimmung mit der Bauleitung den Abnahmetermin fest und lädt alle Beteiligten (Unternehmer, Fachplaner, ggf. Sachverständige) zur Abnahmebegehung ein.
+
+Inputs:
+- Fertigstellungsanzeige des Unternehmers
+- Terminplan der Abnahmen
+- Teilnehmerliste
+
+Outputs:
+- Terminbestätigung für Abnahmebegehung
+- Einladung an alle Beteiligten
+- Vorbereitete Checkliste</bpmn:documentation>
       <bpmn:incoming>Flow_Start</bpmn:incoming>
       <bpmn:outgoing>Flow_01</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_02" name="Systematische Erfassung aller Mängel mit Verortung">
-      <bpmn:documentation>Systematische Erfassung aller Mängel mit Verortung</bpmn:documentation>
+    <bpmn:task id="Task_02" name="Abnahmeunterlagen und Checklisten vorbereiten">
+      <bpmn:documentation>Der Bauleiter bereitet alle erforderlichen Unterlagen für die Abnahme vor: Leistungsverzeichnis, Ausführungspläne, offene Punkte aus Baubegehungen, Prüflisten.
+
+Inputs:
+- Leistungsverzeichnis mit Mengen und Qualitäten
+- Ausführungspläne und As-Built-Modell
+- Offene Punkte aus Baubegehungen
+- Normvorgaben (SIA, DIN)
+
+Outputs:
+- Abnahme-Checkliste je Gewerk
+- Referenzunterlagen für Vor-Ort-Prüfung
+- Mobile Erfassungsapp konfiguriert</bpmn:documentation>
       <bpmn:incoming>Flow_01</bpmn:incoming>
       <bpmn:outgoing>Flow_02</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_03" name="Zuweisung der Mängel an verantwortliche Unternehmer">
-      <bpmn:documentation>Zuweisung der Mängel an verantwortliche Unternehmer</bpmn:documentation>
+    <bpmn:task id="Task_03" name="Abnahmebegehung vor Ort durchführen">
+      <bpmn:documentation>Die Abnahmebegehung wird gemeinsam mit dem Unternehmer durchgeführt. Alle Leistungen werden systematisch anhand der Checkliste geprüft und der Ist-Zustand dokumentiert.
+
+Inputs:
+- Abnahme-Checkliste
+- Mobiles Erfassungsgerät
+- Messgeräte für Qualitätsprüfungen
+
+Outputs:
+- Dokumentierter Ist-Zustand
+- Foto-/Videodokumentation
+- Erste Mängelnotizen</bpmn:documentation>
       <bpmn:incoming>Flow_02</bpmn:incoming>
       <bpmn:outgoing>Flow_03</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_04" name="Festlegung von Fristen für die Mängelbehebung">
-      <bpmn:documentation>Festlegung von Fristen für die Mängelbehebung</bpmn:documentation>
+    <bpmn:task id="Task_04" name="Mängel digital erfassen und im BIM-Modell verorten">
+      <bpmn:documentation>Alle festgestellten Mängel werden digital erfasst mit: Beschreibung, Klassifizierung (kritisch/wesentlich/unwesentlich), Fotodokumentation und präziser Verortung im BIM-Modell.
+
+Inputs:
+- Mängelnotizen aus Begehung
+- As-Built-Modell für Verortung
+- Fotodokumentation
+
+Outputs:
+- Digitale Mängelliste mit BIM-Referenz
+- Klassifizierte Mängel mit Priorität
+- Verortung im 3D-Modell</bpmn:documentation>
       <bpmn:incoming>Flow_03</bpmn:incoming>
       <bpmn:outgoing>Flow_04</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_05" name="Nachkontrolle der behobenen Mängel">
-      <bpmn:documentation>Nachkontrolle der behobenen Mängel</bpmn:documentation>
+    <bpmn:exclusiveGateway id="Gateway_Maengel" name="Mängel vorhanden?">
+      <bpmn:documentation>Entscheidung basierend auf dem Ergebnis der Abnahmebegehung. Bei mängelfreier Ausführung erfolgt direkte Abnahme, sonst Mängelrüge.</bpmn:documentation>
       <bpmn:incoming>Flow_04</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway1_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway1_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_05" name="Mängelrüge erstellen und an Unternehmer übermitteln">
+      <bpmn:documentation>Formelle Mängelrüge gemäss SIA 118 Art. 172 mit Auflistung aller Mängel, Behebungsfristen und rechtlichen Konsequenzen bei Nichtbehebung.
+
+Inputs:
+- Digitale Mängelliste mit Klassifizierung
+- Vertragliche Fristen aus SIA 118
+- Kontaktdaten des Unternehmers
+
+Outputs:
+- Formelle Mängelrüge (schriftlich)
+- Fristansetzung für Mängelbehebung
+- Zustellnachweis</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway1_Ja</bpmn:incoming>
       <bpmn:outgoing>Flow_05</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:task id="Task_06" name="Erstellung der Abnahmeprotokolle">
-      <bpmn:documentation>Erstellung der Abnahmeprotokolle</bpmn:documentation>
+    <bpmn:task id="Task_06" name="Mängelbehebung planen und Ressourcen einplanen">
+      <bpmn:documentation>Der Unternehmer plant die Mängelbehebung, koordiniert Ressourcen und Nachunternehmer, und bestätigt die Behebungstermine.
+
+Inputs:
+- Mängelrüge mit Details
+- Verfügbare Ressourcen
+- Terminvorgaben
+
+Outputs:
+- Terminplan Mängelbehebung
+- Ressourcenplanung
+- Bestätigung an Bauleitung</bpmn:documentation>
       <bpmn:incoming>Flow_05</bpmn:incoming>
+      <bpmn:outgoing>Flow_06</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_07" name="Mängel fachgerecht beheben">
+      <bpmn:documentation>Der Unternehmer führt die Mängelbehebung fachgerecht gemäss den vertraglichen Anforderungen und anerkannten Regeln der Technik durch.
+
+Inputs:
+- Mängelliste mit Beschreibung
+- Technische Unterlagen
+- Material und Werkzeug
+
+Outputs:
+- Behobene Mängel
+- Dokumentation der Behebung
+- Fertigmeldung an Bauleitung</bpmn:documentation>
+      <bpmn:incoming>Flow_06</bpmn:incoming>
+      <bpmn:outgoing>Flow_07</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_08" name="Mängelbehebung dokumentieren und melden">
+      <bpmn:documentation>Der Unternehmer dokumentiert die durchgeführte Mängelbehebung mit Fotos und meldet die Fertigstellung an die Bauleitung.
+
+Inputs:
+- Durchgeführte Behebungsmassnahmen
+- Vorher-/Nachher-Fotos
+
+Outputs:
+- Behebungsdokumentation
+- Fertigmeldung
+- Aktualisierte Mängelliste</bpmn:documentation>
+      <bpmn:incoming>Flow_07</bpmn:incoming>
+      <bpmn:outgoing>Flow_08</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_09" name="Nachkontrolle der Mängelbehebung durchführen">
+      <bpmn:documentation>Der Bauleiter führt eine Nachkontrolle durch und prüft, ob alle gerügten Mängel ordnungsgemäss behoben wurden.
+
+Inputs:
+- Fertigmeldung des Unternehmers
+- Ursprüngliche Mängelliste
+- Behebungsdokumentation
+
+Outputs:
+- Nachkontrollprotokoll
+- Aktualisierter Mängelstatus
+- Bewertung der Behebung</bpmn:documentation>
+      <bpmn:incoming>Flow_08</bpmn:incoming>
+      <bpmn:outgoing>Flow_09</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:exclusiveGateway id="Gateway_Behoben" name="Alle Mängel behoben?">
+      <bpmn:documentation>Prüfung ob alle wesentlichen und kritischen Mängel ordnungsgemäss behoben wurden. Bei offenen Mängeln erfolgt erneute Mängelrüge.</bpmn:documentation>
+      <bpmn:incoming>Flow_09</bpmn:incoming>
+      <bpmn:outgoing>Flow_Gateway2_Ja</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Gateway2_Nein</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+
+    <bpmn:task id="Task_10" name="Qualitätsprüfung und Funktionskontrolle">
+      <bpmn:documentation>Bei komplexen oder kritischen Mängeln wird ein Sachverständiger hinzugezogen für die abschliessende Qualitätsprüfung und Funktionskontrolle.
+
+Inputs:
+- Behebungsdokumentation
+- Technische Anforderungen
+- Prüfprotokolle
+
+Outputs:
+- Sachverständigengutachten
+- Funktionsprüfungsprotokoll
+- Freigabeempfehlung</bpmn:documentation>
+      <bpmn:incoming>Flow_Gateway2_Ja</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_11" name="Abnahmeprotokoll erstellen">
+      <bpmn:documentation>Erstellung des formellen Abnahmeprotokolls gemäss SIA 118 mit allen relevanten Angaben: Datum, Teilnehmer, festgestellte Mängel, Vorbehalte, Fristen.
+
+Inputs:
+- Mängelliste (behoben/offen)
+- Qualitätsprüfungsergebnisse
+- Vorbehalte und Einwände
+
+Outputs:
+- Abnahmeprotokoll (mit/ohne Vorbehalt)
+- Liste offener Vorbehalte
+- Unterschriften aller Beteiligten</bpmn:documentation>
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:incoming>Flow_Gateway1_Nein</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_12" name="Abnahme erklären und Gewährleistung starten">
+      <bpmn:documentation>Der Bauherr erklärt die förmliche Abnahme. Damit beginnt die Gewährleistungsfrist gemäss SIA 118 (üblicherweise 2 Jahre, bei verdeckten Mängeln 5 Jahre).
+
+Inputs:
+- Unterzeichnetes Abnahmeprotokoll
+- Gewährleistungsregelungen aus Vertrag
+
+Outputs:
+- Abnahmeerklärung
+- Start Gewährleistungsfrist
+- Gewährleistungsliste</bpmn:documentation>
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+
+    <bpmn:task id="Task_13" name="Dokumentation für Gewährleistungsmanagement archivieren">
+      <bpmn:documentation>Alle Abnahmedokumente werden für das Gewährleistungsmanagement archiviert: Mängellisten, Protokolle, Behebungsnachweise, Fristen.
+
+Inputs:
+- Abnahmeprotokoll
+- Mängeldokumentation
+- Behebungsnachweise
+
+Outputs:
+- Archivierte Abnahmedokumentation
+- Gewährleistungsdatenbank aktualisiert
+- Erinnerungsfristen gesetzt</bpmn:documentation>
+      <bpmn:incoming>Flow_12</bpmn:incoming>
       <bpmn:outgoing>Flow_End</bpmn:outgoing>
     </bpmn:task>
 
-    <bpmn:endEvent id="EndEvent_uc170" name="Abnahme- und Mängelmanagement abgeschlossen">
-      <bpmn:documentation>Lieferobjekte:
-- Mängelliste
-- Abnahmeprotokoll
-- Nachweis Mängelbehebung</bpmn:documentation>
+    <bpmn:endEvent id="EndEvent_uc170" name="Abnahme abgeschlossen, Gewährleistung aktiv">
+      <bpmn:documentation>Die Abnahme ist rechtswirksam abgeschlossen. Die Gewährleistungsfrist läuft, alle Dokumente sind archiviert.
+
+Lieferobjekte:
+- Unterzeichnetes Abnahmeprotokoll
+- Mängelliste mit Behebungsstatus
+- Fotodokumentation
+- Gewährleistungsliste mit Fristen
+- Archivierte Abnahmedokumentation</bpmn:documentation>
       <bpmn:incoming>Flow_End</bpmn:incoming>
     </bpmn:endEvent>
 
+    <!-- Sequence Flows -->
     <bpmn:sequenceFlow id="Flow_Start" sourceRef="StartEvent_uc170" targetRef="Task_01" />
     <bpmn:sequenceFlow id="Flow_01" sourceRef="Task_01" targetRef="Task_02" />
     <bpmn:sequenceFlow id="Flow_02" sourceRef="Task_02" targetRef="Task_03" />
     <bpmn:sequenceFlow id="Flow_03" sourceRef="Task_03" targetRef="Task_04" />
-    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_04" sourceRef="Task_04" targetRef="Gateway_Maengel" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Ja" name="Ja - Mängel festgestellt" sourceRef="Gateway_Maengel" targetRef="Task_05" />
+    <bpmn:sequenceFlow id="Flow_Gateway1_Nein" name="Nein - Mängelfrei" sourceRef="Gateway_Maengel" targetRef="Task_11">
+      <bpmn:documentation>Bei mängelfreier Ausführung wird direkt das Abnahmeprotokoll ohne Vorbehalte erstellt.</bpmn:documentation>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_05" sourceRef="Task_05" targetRef="Task_06" />
-    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_06" targetRef="EndEvent_uc170" />
+    <bpmn:sequenceFlow id="Flow_06" sourceRef="Task_06" targetRef="Task_07" />
+    <bpmn:sequenceFlow id="Flow_07" sourceRef="Task_07" targetRef="Task_08" />
+    <bpmn:sequenceFlow id="Flow_08" sourceRef="Task_08" targetRef="Task_09" />
+    <bpmn:sequenceFlow id="Flow_09" sourceRef="Task_09" targetRef="Gateway_Behoben" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Ja" name="Ja - Ordnungsgemäss behoben" sourceRef="Gateway_Behoben" targetRef="Task_10" />
+    <bpmn:sequenceFlow id="Flow_Gateway2_Nein" name="Nein - Nachbesserung nötig" sourceRef="Gateway_Behoben" targetRef="Task_05">
+      <bpmn:documentation>Bei nicht behobenen oder neu aufgetretenen Mängeln erfolgt eine erneute Mängelrüge.</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Task_10" targetRef="Task_11" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_11" targetRef="Task_12" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="Task_12" targetRef="Task_13" />
+    <bpmn:sequenceFlow id="Flow_End" sourceRef="Task_13" targetRef="EndEvent_uc170" />
 
   </bpmn:process>
 
@@ -120,88 +350,230 @@ Qualitätskriterien:
     <bpmndi:BPMNPlane id="BPMNPlane_UC170" bpmnElement="Collaboration_UC170">
 
       <bpmndi:BPMNShape id="Participant_UC170_di" bpmnElement="Participant_UC170" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1470" height="300" />
+        <dc:Bounds x="160" y="80" width="1800" height="520" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Lane_Bauherr_di" bpmnElement="Lane_Bauherr" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1770" height="120" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Bauleiter_di" bpmnElement="Lane_Bauleiter" isHorizontal="true">
-        <dc:Bounds x="190" y="80" width="1440" height="150" />
+        <dc:Bounds x="190" y="200" width="1770" height="140" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Lane_Unternehmer_di" bpmnElement="Lane_Unternehmer" isHorizontal="true">
-        <dc:Bounds x="190" y="230" width="1440" height="150" />
+        <dc:Bounds x="190" y="340" width="1770" height="120" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Lane_Qualitaetspruefer_di" bpmnElement="Lane_Qualitaetspruefer" isHorizontal="true">
+        <dc:Bounds x="190" y="460" width="1770" height="140" />
+      </bpmndi:BPMNShape>
+
+      <!-- Start Event -->
       <bpmndi:BPMNShape id="StartEvent_uc170_di" bpmnElement="StartEvent_uc170">
-        <dc:Bounds x="250" y="137" width="36" height="36" />
+        <dc:Bounds x="250" y="122" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="240" y="182" width="56" height="27" />
+          <dc:Bounds x="225" y="165" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <!-- Tasks Row 1: Bauherr -->
       <bpmndi:BPMNShape id="Task_01_di" bpmnElement="Task_01">
-        <dc:Bounds x="390" y="115" width="100" height="80" />
+        <dc:Bounds x="330" y="100" width="100" height="80" />
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_12_di" bpmnElement="Task_12">
+        <dc:Bounds x="1580" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 2: Bauleiter -->
       <bpmndi:BPMNShape id="Task_02_di" bpmnElement="Task_02">
-        <dc:Bounds x="530" y="265" width="100" height="80" />
+        <dc:Bounds x="460" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_03_di" bpmnElement="Task_03">
-        <dc:Bounds x="670" y="115" width="100" height="80" />
+        <dc:Bounds x="590" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
       <bpmndi:BPMNShape id="Task_04_di" bpmnElement="Task_04">
-        <dc:Bounds x="810" y="265" width="100" height="80" />
+        <dc:Bounds x="720" y="230" width="100" height="80" />
       </bpmndi:BPMNShape>
 
-      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
-        <dc:Bounds x="950" y="115" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
-        <dc:Bounds x="1090" y="265" width="100" height="80" />
-      </bpmndi:BPMNShape>
-
-      <bpmndi:BPMNShape id="EndEvent_uc170_di" bpmnElement="EndEvent_uc170">
-        <dc:Bounds x="1230" y="287" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_Maengel_di" bpmnElement="Gateway_Maengel" isMarkerVisible="true">
+        <dc:Bounds x="855" y="245" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1220" y="332" width="56" height="27" />
+          <dc:Bounds x="840" y="215" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
 
+      <bpmndi:BPMNShape id="Task_05_di" bpmnElement="Task_05">
+        <dc:Bounds x="940" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_09_di" bpmnElement="Task_09">
+        <dc:Bounds x="1200" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Gateway_Behoben_di" bpmnElement="Gateway_Behoben" isMarkerVisible="true">
+        <dc:Bounds x="1335" y="245" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1320" y="215" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_11_di" bpmnElement="Task_11">
+        <dc:Bounds x="1450" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 3: Unternehmer -->
+      <bpmndi:BPMNShape id="Task_06_di" bpmnElement="Task_06">
+        <dc:Bounds x="990" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_07_di" bpmnElement="Task_07">
+        <dc:Bounds x="1070" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_08_di" bpmnElement="Task_08">
+        <dc:Bounds x="1150" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- Tasks Row 4: Qualitätsprüfer -->
+      <bpmndi:BPMNShape id="Task_10_di" bpmnElement="Task_10">
+        <dc:Bounds x="1390" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_13_di" bpmnElement="Task_13">
+        <dc:Bounds x="1710" y="490" width="100" height="80" />
+      </bpmndi:BPMNShape>
+
+      <!-- End Event -->
+      <bpmndi:BPMNShape id="EndEvent_uc170_di" bpmnElement="EndEvent_uc170">
+        <dc:Bounds x="1862" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1835" y="165" width="90" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+
+      <!-- Sequence Flow Edges -->
       <bpmndi:BPMNEdge id="Flow_Start_di" bpmnElement="Flow_Start">
-        <di:waypoint x="286" y="155" />
-        <di:waypoint x="390" y="155" />
+        <di:waypoint x="286" y="140" />
+        <di:waypoint x="330" y="140" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_01_di" bpmnElement="Flow_01">
-        <di:waypoint x="490" y="155" />
-        <di:waypoint x="530" y="305" />
+        <di:waypoint x="430" y="140" />
+        <di:waypoint x="445" y="140" />
+        <di:waypoint x="445" y="270" />
+        <di:waypoint x="460" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_02_di" bpmnElement="Flow_02">
-        <di:waypoint x="630" y="305" />
-        <di:waypoint x="670" y="155" />
+        <di:waypoint x="560" y="270" />
+        <di:waypoint x="590" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_03_di" bpmnElement="Flow_03">
-        <di:waypoint x="770" y="155" />
-        <di:waypoint x="810" y="305" />
+        <di:waypoint x="690" y="270" />
+        <di:waypoint x="720" y="270" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_04_di" bpmnElement="Flow_04">
-        <di:waypoint x="910" y="305" />
-        <di:waypoint x="950" y="155" />
+        <di:waypoint x="820" y="270" />
+        <di:waypoint x="855" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Ja_di" bpmnElement="Flow_Gateway1_Ja">
+        <di:waypoint x="905" y="270" />
+        <di:waypoint x="940" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="893" y="236" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway1_Nein_di" bpmnElement="Flow_Gateway1_Nein">
+        <di:waypoint x="880" y="245" />
+        <di:waypoint x="880" y="200" />
+        <di:waypoint x="1500" y="200" />
+        <di:waypoint x="1500" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1150" y="182" width="80" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_05_di" bpmnElement="Flow_05">
-        <di:waypoint x="1050" y="155" />
-        <di:waypoint x="1090" y="305" />
+        <di:waypoint x="990" y="310" />
+        <di:waypoint x="990" y="335" />
+        <di:waypoint x="1040" y="335" />
+        <di:waypoint x="1040" y="360" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_06_di" bpmnElement="Flow_06">
+        <di:waypoint x="1090" y="400" />
+        <di:waypoint x="1120" y="400" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_07_di" bpmnElement="Flow_07">
+        <di:waypoint x="1170" y="400" />
+        <di:waypoint x="1200" y="400" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_08_di" bpmnElement="Flow_08">
+        <di:waypoint x="1200" y="360" />
+        <di:waypoint x="1200" y="335" />
+        <di:waypoint x="1250" y="335" />
+        <di:waypoint x="1250" y="310" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_09_di" bpmnElement="Flow_09">
+        <di:waypoint x="1300" y="270" />
+        <di:waypoint x="1335" y="270" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Ja_di" bpmnElement="Flow_Gateway2_Ja">
+        <di:waypoint x="1360" y="295" />
+        <di:waypoint x="1360" y="530" />
+        <di:waypoint x="1390" y="530" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1270" y="400" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_Gateway2_Nein_di" bpmnElement="Flow_Gateway2_Nein">
+        <di:waypoint x="1360" y="245" />
+        <di:waypoint x="1360" y="200" />
+        <di:waypoint x="990" y="200" />
+        <di:waypoint x="990" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1135" y="166" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1490" y="530" />
+        <di:waypoint x="1500" y="530" />
+        <di:waypoint x="1500" y="310" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1550" y="270" />
+        <di:waypoint x="1565" y="270" />
+        <di:waypoint x="1565" y="140" />
+        <di:waypoint x="1580" y="140" />
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1680" y="140" />
+        <di:waypoint x="1695" y="140" />
+        <di:waypoint x="1695" y="530" />
+        <di:waypoint x="1710" y="530" />
       </bpmndi:BPMNEdge>
 
       <bpmndi:BPMNEdge id="Flow_End_di" bpmnElement="Flow_End">
-        <di:waypoint x="1190" y="305" />
-        <di:waypoint x="1230" y="305" />
+        <di:waypoint x="1810" y="530" />
+        <di:waypoint x="1836" y="530" />
+        <di:waypoint x="1836" y="140" />
+        <di:waypoint x="1862" y="140" />
       </bpmndi:BPMNEdge>
 
     </bpmndi:BPMNPlane>
