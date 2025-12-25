@@ -65,32 +65,22 @@ function renderHandbookPage() {
                             </button>
                             <div class="accordion-content">
                                 <p class="accordion-description">Vorlagen und Prüfdateien für die digitale Bauwerksdokumentation.</p>
-                                <ul class="download-list">
-                                    <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">EIR Excel (in Entwicklung)</span>
-                                        </div>
-                                    </li>
-                                    <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">IDS-Prüfregeln (in Entwicklung)</span>
-                                        </div>
-                                    </li>
-                                    <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">Revit Vorlagen (in Entwicklung)</span>
-                                        </div>
-                                    </li>
-                                    <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <span class="download-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">ArchiCAD Vorlagen (in Entwicklung)</span>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <div class="external-item">
+                                    <i data-lucide="file-spreadsheet" class="external-item__icon" aria-hidden="true"></i>
+                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">EIR Excel (in Entwicklung)</span>
+                                </div>
+                                <div class="external-item">
+                                    <i data-lucide="file-check" class="external-item__icon" aria-hidden="true"></i>
+                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">IDS-Prüfregeln (in Entwicklung)</span>
+                                </div>
+                                <div class="external-item">
+                                    <i data-lucide="box" class="external-item__icon" aria-hidden="true"></i>
+                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">Revit Vorlagen (in Entwicklung)</span>
+                                </div>
+                                <div class="external-item">
+                                    <i data-lucide="box" class="external-item__icon" aria-hidden="true"></i>
+                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">ArchiCAD Vorlagen (in Entwicklung)</span>
+                                </div>
                             </div>
                         </div>
 
@@ -102,25 +92,20 @@ function renderHandbookPage() {
                             </button>
                             <div class="accordion-content">
                                 <p class="accordion-description">Anleitungen und Referenzmaterial für die Anwendung des Fachdatenkatalogs.</p>
-                                <ul class="download-list">
-                                    <li class="download-item">
-                                        <i data-lucide="download" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <a href="#" class="download-item__link">Anwendungshandbuch</a>
-                                            <div class="download-item__meta">
-                                                <span>PDF</span>
-                                                <span>2.4 MB</span>
-                                                <span>23. September 2024</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="download-item">
-                                        <i data-lucide="external-link" class="download-item__icon" aria-hidden="true"></i>
-                                        <div class="download-item__content">
-                                            <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="download-item__link">Quellcode</a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <div class="external-item">
+                                    <i data-lucide="book-open" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="#" class="external-item__link">
+                                        Anwendungshandbuch
+                                        <i data-lucide="chevron-right" class="external-icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="external-item">
+                                    <i data-lucide="github" class="external-item__icon" aria-hidden="true"></i>
+                                    <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="external-item__link">
+                                        Quellcode
+                                        <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
 
@@ -180,7 +165,7 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="git-branch" class="external-item__icon" aria-hidden="true"></i>
-                                    <span class="external-item__text" style="color: var(--color-error, #dc2626); text-decoration: underline;">GraphQL API (in Entwicklung)</span>
+                                    <span class="external-item__link" style="color: var(--color-error, #dc2626); text-decoration: underline;">GraphQL API (in Entwicklung)</span>
                                 </div>
                             </div>
                         </div>
