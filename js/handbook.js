@@ -114,10 +114,12 @@ function renderHandbookPage() {
                                 <p class="accordion-description">Anleitungen und Referenzmaterial für die Anwendung des Fachdatenkatalogs.</p>
                                 <div class="external-item">
                                     <i data-lucide="book-open" class="external-item__icon" aria-hidden="true"></i>
-                                    <a href="#" class="external-item__link">
-                                        Anwendungshandbuch
-                                        <i data-lucide="chevron-right" class="external-icon" aria-hidden="true"></i>
-                                    </a>
+                                    <div class="external-item__content">
+                                        <span class="external-item__link">Anwendungshandbuch (in Entwicklung)</span>
+                                        <div class="external-item__meta">
+                                            <span>PDF</span><span>2.4 MB</span><span>23. September 2024</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="github" class="external-item__icon" aria-hidden="true"></i>
