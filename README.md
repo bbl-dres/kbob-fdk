@@ -88,19 +88,19 @@ The overarching objective is to define data once and reuse it consistently acros
 ---
 
 ## Data Model
-
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
 ```mermaid
 flowchart TB
     STAKEHOLDER["Stakeholder"] -- have --> GOALS["Goals"]
     STAKEHOLDER -- assume --> ROLES["Roles"]
-    PROJECT["Project"] -- has --> STAKEHOLDER
-    PROJECT -- passes through --> PHASES["Project Phases"]
+    PROJECT["Asset / Project"] -- has --> STAKEHOLDER
+    PROJECT -- passes through --> PHASES["Asset Phases"]
     GOALS -- realized by --> CAPABILITIES["Capabilities"]
     CAPABILITIES -- implemented by --> PROCESSES["Processes"]
     PROCESSES -- applied in --> USECASES["Use Cases"]
     PHASES -- structure --> USECASES
+    PHASES -- govern --> PROCESSES
     ROLES -- execute --> PROCESSES
     ROLES -- responsible for --> MODELS["Discipline Models"]
     ROLES -- produce --> DOCUMENTS["Documents"]
@@ -120,24 +120,23 @@ flowchart TB
 
 | Entity | Description |
 |--------|-------------|
-| **Project (Projekt)** | Root entity representing a construction or renovation project with defined scope, timeline, and deliverables. |
-| **Stakeholder (Stakeholder)** | Individuals or organizations with interests in the project outcome – owners, operators, authorities, users. |
-| **Goals (Ziele)** | Strategic objectives the project aims to achieve – quality, cost, sustainability, compliance targets. |
-| **Roles (Rollen)** | Functions assigned to stakeholders – architect, engineer, contractor, BIM coordinator. |
-| **Project Phases (Projektphasen)** | Temporal stages of project delivery – SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. |
-| **Capabilities (Geschäftsfähigkeiten)** | Organizational abilities required to achieve goals – design, coordination, quality assurance. |
-| **Processes (Prozesse)** | Defined workflows implementing capabilities – information delivery, model coordination, quality assurance, change management. |
-| **Use Cases (Anwendungsfälle)** | Specific BIM applications – clash detection, quantity takeoff, 4D simulation, facility handover. |
-| **Information Requirements (Informationsanforderungen)** | LOIN specifications defining what information is needed, when, and at what detail level. |
-| **Attributes (Attribute)** | Properties attached to building elements – material, dimensions, fire rating, U-value. |
-| **Enumerations (Wertelisten)** | Controlled vocabularies constraining attribute values – material types, status codes, classifications. |
-| **Reference Data (Referenzdaten)** | External data sources linked to attributes – standards, regulations, product databases. |
-| **Discipline Models (Fachmodelle)** | Domain-specific BIM models – architectural, structural, MEP, landscape. |
-| **Building Elements (Bauelemente)** | Physical components within models – walls, slabs, doors, HVAC equipment. |
-| **Classifications (Klassifikationen)** | Coding systems for elements – eBKP-H, DIN 276, Uniformat II, IFC entity types. |
-| **EPD Data (EPD-Daten)** | Environmental Product Declarations – embodied carbon, lifecycle impact data per KBOB/Ecobau. |
-| **Documents (Dokumente)** | Non-geometric deliverables – reports, specifications, certificates, operation manuals. |
-
+| **Asset / Project** | Root entity representing a construction or renovation project with defined scope, timeline, and deliverables. |
+| **Stakeholder** | Individuals or organizations with interests in the project outcome – owners, operators, authorities, users. |
+| **Goals** | Strategic objectives the project aims to achieve – quality, cost, sustainability, compliance targets. |
+| **Roles** | Functions assigned to stakeholders – architect, engineer, contractor, BIM coordinator. |
+| **Asset Phases** | Temporal stages of project delivery that govern applicable processes – SIA phases 1–6, HOAI Leistungsphasen, RIBA stages. |
+| **Capabilities** | Organizational abilities required to achieve goals – design, coordination, quality assurance. |
+| **Processes** | Defined workflows implementing capabilities, governed by asset phases – information delivery, model coordination, quality assurance, change management. |
+| **Use Cases** | Specific BIM applications – clash detection, quantity takeoff, 4D simulation, facility handover. |
+| **Information Requirements** | LOIN specifications defining what information is needed, when, and at what detail level. |
+| **Attributes** | Properties attached to building elements – material, dimensions, fire rating, U-value. |
+| **Enumerations** | Controlled vocabularies constraining attribute values – material types, status codes, classifications. |
+| **Reference Data** | External data sources linked to attributes – standards, regulations, product databases. |
+| **Discipline Models** | Domain-specific BIM models – architectural, structural, MEP, landscape. |
+| **Building Elements** | Physical components within models – walls, slabs, doors, HVAC equipment. |
+| **Classifications** | Coding systems for elements – eBKP-H, DIN 276, Uniformat II, IFC entity types. |
+| **EPD Data** | Environmental Product Declarations – embodied carbon, lifecycle impact data per KBOB/Ecobau. |
+| **Documents** | Non-geometric deliverables – reports, specifications, certificates, operation manuals. |
 ---
 
 ## Quick Start
