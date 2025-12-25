@@ -148,7 +148,9 @@ erDiagram
 
 ## Shared Attributes
 
-All five core entities share a common set of attributes for identification, versioning, and discoverability.
+All seven entities share a common set of attributes for identification, versioning, and discoverability.
+
+> **Note:** `attributes` and `classifications` are simplified reference tables with a subset of common attributes (id, name, description, created_at, updated_at).
 
 ### Common Attributes (All Entities)
 
@@ -167,13 +169,13 @@ All five core entities share a common set of attributes for identification, vers
 
 ### Phase-Dependent Entities
 
-All entities **except EPD** include lifecycle phases:
+All entities **except EPD, attributes, and classifications** include lifecycle phases:
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `phases` | `integer[]` | `CHECK (phases <@ ARRAY[1,2,3,4,5])` | Applicable lifecycle phases (1-5) |
 
-> **Note:** EPD contains phase-neutral reference data (environmental indicators don't vary by project phase).
+> **Note:** EPD, attributes, and classifications contain phase-neutral reference data. Phase applicability is defined in the relationship (e.g., `related_attributes` includes phases).
 
 ### ID Patterns
 
@@ -588,7 +590,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.5
+-- Version: 2.1.6
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -775,9 +777,17 @@ CREATE TABLE public.epds (
 -- =============================================================================
 
 CREATE TABLE public.attributes (
+    -- Common attributes
     id text PRIMARY KEY,
+    version text NOT NULL,
+    last_change date NOT NULL,
     name jsonb NOT NULL,
+    image text,
+    domain jsonb NOT NULL,
     description jsonb,
+    tags jsonb NOT NULL DEFAULT '[]',
+
+    -- Entity-specific attributes
     data_type text NOT NULL,
     unit text,
     ifc_pset text,
@@ -798,8 +808,17 @@ CREATE TABLE public.attributes (
 -- =============================================================================
 
 CREATE TABLE public.classifications (
+    -- Common attributes
     id text PRIMARY KEY,
+    version text NOT NULL,
+    last_change date NOT NULL,
     name jsonb NOT NULL,
+    image text,
+    domain jsonb NOT NULL,
+    description jsonb,
+    tags jsonb NOT NULL DEFAULT '[]',
+
+    -- Entity-specific attributes
     system text NOT NULL,
     code text NOT NULL,
 
@@ -1025,6 +1044,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.6 | 2025-12 | Consistency QS: added full common attributes to `attributes` and `classifications` SQL tables; fixed entity count ("All seven entities"); added attributes/classifications to Phase-Dependent section |
 | 2.1.5 | 2025-12 | Added `attributes` and `classifications` to Entity-Specific Attributes section; added note to mermaid diagram about simplified view |
 | 2.1.4 | 2025-12 | Removed `definition` from usecases (use `description` instead) |
 | 2.1.3 | 2025-12 | Changed `description` from text to JSONB with i18n on all tables; removed phases sorting/uniqueness constraint (containment only); added index on `classifications.code` |
