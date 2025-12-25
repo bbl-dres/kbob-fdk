@@ -11,17 +11,15 @@
 
 ## Entity Relationship Overview
 
-### Core Tables
-
-| Entity | Primary Key | Has Phases | Has Code | Description |
-|--------|-------------|------------|----------|-------------|
-| `elements` | `id` (uuid) | ✓ | ✗ | Physical building components with LOG requirements |
-| `documents` | `id` (uuid) | ✓ | ✓ | Project documentation types per KBOB/IPB standard |
-| `usecases` | `id` (uuid) | ✓ | ✓ | Standardized BIM processes per VDI 2552 |
-| `models` | `id` (uuid) | ✓ | ✗ | BIM discipline and coordination model definitions |
-| `epds` | `id` (uuid) | ✗ | ✓ | Environmental impact data (KBOB Ökobilanzdaten) |
-| `attributes` | `id` (uuid) | ✗ | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
-| `classifications` | `id` (uuid) | ✗ | ✓ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
+| Entity | Type | Primary Key | Has Phases | Has Code | Description |
+|--------|------|-------------|------------|----------|-------------|
+| `elements` | Core | `id` (uuid) | ✓ | ✗ | Physical building components with LOG requirements |
+| `documents` | Core | `id` (uuid) | ✓ | ✓ | Project documentation types per KBOB/IPB standard |
+| `usecases` | Core | `id` (uuid) | ✓ | ✓ | Standardized BIM processes per VDI 2552 |
+| `models` | Core | `id` (uuid) | ✓ | ✗ | BIM discipline and coordination model definitions |
+| `epds` | Reference | `id` (uuid) | ✗ | ✓ | Environmental impact data (KBOB Ökobilanzdaten) |
+| `attributes` | Reference | `id` (uuid) | ✗ | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
+| `classifications` | Reference | `id` (uuid) | ✗ | ✓ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
 
 > **Note on phases:** EPD, attributes, and classifications are phase-neutral reference data. Phase applicability is defined in the relationship.
 
