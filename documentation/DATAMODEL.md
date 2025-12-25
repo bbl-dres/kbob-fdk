@@ -32,12 +32,14 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `usecases` | `related_elements` | elements | `[{"id": "e1", "phases": [2,3]}]` |
 | `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
+| `models` | `elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 ```mermaid
 erDiagram
     usecases ||--o{ elements : "related_elements"
     usecases ||--o{ documents : "related_documents"
     elements ||--o{ epds : "related_epds"
+    models ||--o{ elements : "elements"
 
     elements {
         text id PK
@@ -85,7 +87,7 @@ erDiagram
         text category
         text[] tags
         integer[] phases
-        jsonb model_elements
+        jsonb elements
     }
 
     epds {
