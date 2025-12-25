@@ -21,8 +21,9 @@
 | `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
 | `epds` | `id` (text) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
 | `attributes` | `id` (text) | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
+| `classifications` | `id` (text) | ✗ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
 
-> **Note on phases:** EPD and attributes are phase-neutral reference data. Phase applicability is defined in the relationship (e.g., `elements.related_attributes`).
+> **Note on phases:** EPD, attributes, and classifications are phase-neutral reference data. Phase applicability is defined in the relationship.
 
 ### Relationships (JSONB)
 
@@ -34,7 +35,9 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `usecases` | `related_documents` | documents | `[{"id": "O01001", "required": true}]` |
 | `elements` | `related_epds` | epds | `[{"id": "kbob-01-042"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
+| `elements` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `documents` | `related_elements` | elements | `[{"id": "e1"}]` |
+| `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
 ```mermaid
@@ -43,7 +46,9 @@ erDiagram
     usecases ||--o{ documents : "related_documents"
     elements ||--o{ epds : "related_epds"
     elements ||--o{ attributes : "related_attributes"
+    elements ||--o{ classifications : "related_classifications"
     documents ||--o{ elements : "related_elements"
+    documents ||--o{ classifications : "related_classifications"
     models ||--o{ elements : "related_elements"
 
     elements {
@@ -52,13 +57,13 @@ erDiagram
         text category
         text[] tags
         integer[] phases
-        jsonb classifications
         jsonb tool_elements
         jsonb geometry
         jsonb information
         jsonb documentation
         jsonb related_epds FK
         jsonb related_attributes FK
+        jsonb related_classifications FK
     }
 
     attributes {
@@ -71,6 +76,13 @@ erDiagram
         jsonb enumeration_values
     }
 
+    classifications {
+        text id PK
+        jsonb name "de_fr_it_en"
+        text system
+        text code
+    }
+
     documents {
         text id PK
         jsonb name "de_fr_it_en"
@@ -79,8 +91,8 @@ erDiagram
         integer[] phases
         text[] formats
         text retention
-        jsonb classifications
         jsonb related_elements FK
+        jsonb related_classifications FK
     }
 
     usecases {
@@ -160,6 +172,8 @@ All entities **except EPD** include lifecycle phases:
 | usecases | `uc{nnn}` | uc000, uc280 | `^uc[0-9]{3}$` |
 | models | `m{n}` | m1, m10 | `^m[0-9]+$` |
 | epds | `kbob-{nn}-{nnn}` | kbob-01-042 | `^kbob-[0-9]{2}-[0-9]{3}$` |
+| attributes | `attr-{name}` | attr-fire-rating | `^attr-[a-z0-9-]+$` |
+| classifications | `{system}-{code}` | ebkp-c02, din276-kg466 | varies by system |
 
 ---
 
@@ -174,9 +188,10 @@ Physical building components with geometry (LOG), information (LOI), and documen
 | `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase |
 | `information` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOI specifications per phase |
 | `documentation` | `jsonb` | `DEFAULT '[]'` | Required documents per phase |
-| `classifications` | `jsonb` | `DEFAULT '{}'` | Multi-system codes (eBKP-H, DIN 276, Uniformat II) |
 | `tool_elements` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
-| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs for LCA `[{"id": "kbob-01-042"}]` |
+| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "kbob-01-042"}]` |
+| `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
+| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
 **Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -190,7 +205,8 @@ Project documentation types with format requirements and retention policies per 
 |--------|------|-------------|-------------|
 | `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
 | `retention` | `text` | | Retention policy (5 Jahre, 12 Jahre, bis Ersatz, etc.) |
-| `classifications` | `jsonb` | `DEFAULT '{}'` | Optional classification codes (GEFMA, SIA, etc.) |
+| `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "e1"}]` |
+| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
 **Category values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
@@ -227,7 +243,7 @@ BIM model types including discipline models, coordination models, and special-pu
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
+| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
 
 **Category values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -326,22 +342,34 @@ Mappings to authoring tools and exchange formats. Extensible for additional tool
 | `archicad` | string | | ArchiCAD object mapping |
 | `...` | string | | Additional authoring tools as needed |
 
-### Element/Document: classifications
+### Classifications Table
+
+Classification codes from multiple systems, with i18n support. Referenced by elements and documents via `related_classifications`.
 
 ```json
 {
-  "eBKP-H": ["C02 – Wandkonstruktion", "D02 – Gebäudeautomation"],
-  "DIN276": ["KG 466 – Hydraulikanlagen"],
-  "Uniformat II 2010": ["D8010.10 – Integrated Automation Control"]
+  "id": "ebkp-c02",
+  "name": { "de": "Wandkonstruktion", "fr": "Construction de mur", "it": "Costruzione del muro", "en": "Wall construction" },
+  "system": "eBKP-H",
+  "code": "C02"
 }
 ```
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `eBKP-H` | string[] | Swiss cost planning codes (SN 506 511:2020) |
-| `DIN276` | string[] | German cost classification (DIN 276:2018) |
-| `Uniformat II 2010` | string[] | International elemental cost classification |
-| `KBOB` | string[] | Swiss federal building classification |
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | string | ✓ | Unique identifier (e.g., "ebkp-c02", "din276-kg466") |
+| `name` | jsonb | ✓ | Classification name (i18n: de, fr, it, en) |
+| `system` | string | ✓ | Classification system (eBKP-H, DIN276, Uniformat II, KBOB) |
+| `code` | string | ✓ | Classification code within the system |
+
+**Supported systems:**
+
+| System | Description |
+|--------|-------------|
+| `eBKP-H` | Swiss cost planning codes (SN 506 511:2020) |
+| `DIN276` | German cost classification (DIN 276:2018) |
+| `Uniformat II` | International elemental cost classification |
+| `KBOB` | Swiss federal building classification |
 
 ### UseCase: roles (RACI)
 
@@ -662,9 +690,10 @@ CREATE TABLE public.elements (
     geometry jsonb NOT NULL DEFAULT '[]',
     information jsonb NOT NULL DEFAULT '[]',
     documentation jsonb DEFAULT '[]',
-    classifications jsonb DEFAULT '{}',
     tool_elements jsonb DEFAULT '[]',
     related_epds jsonb DEFAULT '[]',
+    related_attributes jsonb DEFAULT '[]',
+    related_classifications jsonb DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -696,7 +725,8 @@ CREATE TABLE public.documents (
     -- Entity-specific attributes
     formats text[] NOT NULL,
     retention text,
-    classifications jsonb DEFAULT '{}',
+    related_elements jsonb DEFAULT '[]',
+    related_classifications jsonb DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -770,7 +800,7 @@ CREATE TABLE public.models (
     phases integer[],
 
     -- Entity-specific attributes
-    elements jsonb NOT NULL DEFAULT '[]',
+    related_elements jsonb NOT NULL DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -823,15 +853,58 @@ CREATE TABLE public.epds (
 );
 
 -- =============================================================================
+-- ATTRIBUTES
+-- Reusable property definitions (phase-neutral reference data)
+-- =============================================================================
+
+CREATE TABLE public.attributes (
+    id text PRIMARY KEY,
+    name jsonb NOT NULL,
+    description jsonb,
+    data_type text NOT NULL,
+    unit text,
+    ifc_reference text,
+    enumeration_values jsonb DEFAULT '[]',
+
+    -- System
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now(),
+
+    -- Constraints
+    CONSTRAINT attributes_id_format CHECK (id ~ '^attr-[a-z0-9-]+$')
+);
+
+-- =============================================================================
+-- CLASSIFICATIONS
+-- Classification codes from multiple systems (phase-neutral reference data)
+-- =============================================================================
+
+CREATE TABLE public.classifications (
+    id text PRIMARY KEY,
+    name jsonb NOT NULL,
+    system text NOT NULL,
+    code text NOT NULL,
+
+    -- System
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now(),
+
+    -- Constraints
+    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB'))
+);
+
+-- =============================================================================
 -- INDEXES
 -- =============================================================================
 
--- Full-text search indexes
-CREATE INDEX elements_title_idx ON elements USING gin(to_tsvector('german', title));
-CREATE INDEX documents_title_idx ON documents USING gin(to_tsvector('german', title));
-CREATE INDEX usecases_title_idx ON usecases USING gin(to_tsvector('german', title));
-CREATE INDEX models_title_idx ON models USING gin(to_tsvector('german', title));
-CREATE INDEX epds_title_idx ON epds USING gin(to_tsvector('german', title));
+-- Full-text search indexes (using German name from JSONB)
+CREATE INDEX elements_name_idx ON elements USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX documents_name_idx ON documents USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX usecases_name_idx ON usecases USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX models_name_idx ON models USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX epds_name_idx ON epds USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX attributes_name_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX classifications_name_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
 
 -- Category filters
 CREATE INDEX elements_category_idx ON elements(category);
@@ -839,6 +912,9 @@ CREATE INDEX documents_category_idx ON documents(category);
 CREATE INDEX usecases_category_idx ON usecases(category);
 CREATE INDEX models_category_idx ON models(category);
 CREATE INDEX epds_category_idx ON epds(category);
+
+-- Classification system filter
+CREATE INDEX classifications_system_idx ON classifications(system);
 
 -- Tag filters (GIN for array containment)
 CREATE INDEX elements_tags_idx ON elements USING gin(tags);
@@ -880,6 +956,12 @@ CREATE TRIGGER models_updated_at BEFORE UPDATE ON models
 CREATE TRIGGER epds_updated_at BEFORE UPDATE ON epds
     FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 
+CREATE TRIGGER attributes_updated_at BEFORE UPDATE ON attributes
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+CREATE TRIGGER classifications_updated_at BEFORE UPDATE ON classifications
+    FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
 -- =============================================================================
 -- ROW LEVEL SECURITY
 -- =============================================================================
@@ -889,6 +971,8 @@ ALTER TABLE documents ENABLE ROW LEVEL SECURITY;
 ALTER TABLE usecases ENABLE ROW LEVEL SECURITY;
 ALTER TABLE models ENABLE ROW LEVEL SECURITY;
 ALTER TABLE epds ENABLE ROW LEVEL SECURITY;
+ALTER TABLE attributes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE classifications ENABLE ROW LEVEL SECURITY;
 
 -- Public read access
 CREATE POLICY "Public read access" ON elements FOR SELECT USING (true);
@@ -896,6 +980,8 @@ CREATE POLICY "Public read access" ON documents FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON usecases FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON models FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON attributes FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 ```
 
 ---
@@ -986,6 +1072,8 @@ async function migrateElements() {
 | `/rest/v1/usecases` | BIM use cases per VDI 2552 |
 | `/rest/v1/models` | BIM model definitions |
 | `/rest/v1/epds` | Environmental product data |
+| `/rest/v1/attributes` | Reusable property definitions |
+| `/rest/v1/classifications` | Classification codes (eBKP-H, DIN 276, etc.) |
 
 ---
 
@@ -1010,5 +1098,6 @@ async function migrateElements() {
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.0 | 2025-12 | Added i18n support (JSONB `name` field with de/fr/it/en); added `attributes` table for reusable property definitions; added `classifications` table for multi-system classification codes; renamed `title` → `name`, `ifc_mapping` → `tool_elements`; added `related_*` prefix to all relationship fields for consistency |
 | 2.0.0 | 2025-01 | Complete restructure for SQL/Supabase migration; added column category concept; comprehensive SQL DDL with constraints, indexes, RLS, and triggers; JSONB structure documentation; data migration guide |
 | 1.x | 2024 | JSON file-based data model documentation |
