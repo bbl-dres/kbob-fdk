@@ -50,7 +50,7 @@ Relationships between entities are stored as JSONB arrays on the parent entity. 
 | `documents` | `related_classifications` | classifications | `[{"id": "ebkp-c02"}]` |
 | `models` | `related_elements` | (embedded) | `[{"name": "Wand", "phases": [2,3,4]}]` |
 
-> **Note:** This diagram shows a simplified view of the schema. See SQL Schema section for complete field definitions including common attributes (version, last_change, image, created_at, updated_at).
+> **Note:** `attributes` and `classifications` are simplified reference tables with fewer common attributes.
 
 ```mermaid
 erDiagram
@@ -67,17 +67,101 @@ erDiagram
 
     elements {
         text id PK
+        text version
+        date last_change
         jsonb name "de_fr_it_en"
+        text image
         jsonb domain "de_fr_it_en"
+        jsonb description "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
-        jsonb tool_elements "de_fr_it_en"
         jsonb geometry "de_fr_it_en"
+        jsonb tool_elements "de_fr_it_en"
         jsonb related_documents FK
         jsonb related_epds FK
         jsonb related_attributes FK
         jsonb related_classifications FK
         jsonb related_usecases FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    documents {
+        text id PK
+        text version
+        date last_change
+        jsonb name "de_fr_it_en"
+        text image
+        jsonb domain "de_fr_it_en"
+        jsonb description "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
+        integer[] phases
+        text[] formats
+        integer retention
+        jsonb related_elements FK
+        jsonb related_classifications FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    usecases {
+        text id PK
+        text version
+        date last_change
+        jsonb name "de_fr_it_en"
+        text image
+        jsonb domain "de_fr_it_en"
+        jsonb description "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
+        integer[] phases
+        jsonb goals "de_fr_it_en"
+        jsonb inputs "de_fr_it_en"
+        jsonb outputs "de_fr_it_en"
+        jsonb roles "de_fr_it_en"
+        jsonb prerequisites "de_fr_it_en"
+        jsonb implementation "de_fr_it_en"
+        jsonb quality_criteria "de_fr_it_en"
+        text[] standards
+        text process_url
+        jsonb related_elements FK
+        jsonb related_documents FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    models {
+        text id PK
+        text version
+        date last_change
+        jsonb name "de_fr_it_en"
+        text image
+        jsonb domain "de_fr_it_en"
+        jsonb description "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
+        integer[] phases
+        jsonb related_elements FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+
+    epds {
+        text id PK
+        text version
+        date last_change
+        jsonb name "de_fr_it_en"
+        text image
+        jsonb domain "de_fr_it_en"
+        jsonb description "de_fr_it_en"
+        jsonb tags "de_fr_it_en"
+        text unit
+        numeric gwp
+        numeric ubp
+        numeric penrt
+        numeric pert
+        text density
+        numeric biogenic_carbon
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     attributes {
@@ -89,58 +173,18 @@ erDiagram
         text ifc_pset
         text ifc_property
         jsonb enumeration_values "de_fr_it_en"
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     classifications {
         text id PK
         jsonb name "de_fr_it_en"
+        jsonb description "de_fr_it_en"
         text system
         text code
-    }
-
-    documents {
-        text id PK
-        jsonb name "de_fr_it_en"
-        jsonb domain "de_fr_it_en"
-        jsonb tags "de_fr_it_en"
-        integer[] phases
-        text[] formats
-        integer retention
-        jsonb related_elements FK
-        jsonb related_classifications FK
-    }
-
-    usecases {
-        text id PK
-        jsonb name "de_fr_it_en"
-        jsonb domain "de_fr_it_en"
-        jsonb tags "de_fr_it_en"
-        integer[] phases
-        jsonb roles "de_fr_it_en"
-        jsonb prerequisites "de_fr_it_en"
-        jsonb goals "de_fr_it_en"
-        jsonb inputs "de_fr_it_en"
-        jsonb outputs "de_fr_it_en"
-        jsonb implementation "de_fr_it_en"
-        jsonb quality_criteria "de_fr_it_en"
-        jsonb related_elements FK
-        jsonb related_documents FK
-    }
-
-    models {
-        text id PK
-        jsonb name "de_fr_it_en"
-        jsonb domain "de_fr_it_en"
-        jsonb tags "de_fr_it_en"
-        integer[] phases
-        jsonb related_elements FK
-    }
-
-    epds {
-        text id PK
-        jsonb name "de_fr_it_en"
-        jsonb domain "de_fr_it_en"
-        jsonb tags "de_fr_it_en"
+        timestamptz created_at
+        timestamptz updated_at
     }
 ```
 
@@ -590,7 +634,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.6
+-- Version: 2.1.7
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -777,15 +821,10 @@ CREATE TABLE public.epds (
 -- =============================================================================
 
 CREATE TABLE public.attributes (
-    -- Common attributes
+    -- Simplified common attributes
     id text PRIMARY KEY,
-    version text NOT NULL,
-    last_change date NOT NULL,
     name jsonb NOT NULL,
-    image text,
-    domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
     data_type text NOT NULL,
@@ -808,15 +847,10 @@ CREATE TABLE public.attributes (
 -- =============================================================================
 
 CREATE TABLE public.classifications (
-    -- Common attributes
+    -- Simplified common attributes
     id text PRIMARY KEY,
-    version text NOT NULL,
-    last_change date NOT NULL,
     name jsonb NOT NULL,
-    image text,
-    domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
     system text NOT NULL,
@@ -1044,7 +1078,8 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 2.1.6 | 2025-12 | Consistency QS: added full common attributes to `attributes` and `classifications` SQL tables; fixed entity count ("All seven entities"); added attributes/classifications to Phase-Dependent section |
+| 2.1.7 | 2025-12 | Reverted `attributes` and `classifications` to simplified reference tables (id, name, description only); expanded mermaid chart with all entity attributes for verification |
+| 2.1.6 | 2025-12 | Consistency QS: fixed entity count ("All seven entities"); added attributes/classifications to Phase-Dependent section |
 | 2.1.5 | 2025-12 | Added `attributes` and `classifications` to Entity-Specific Attributes section; added note to mermaid diagram about simplified view |
 | 2.1.4 | 2025-12 | Removed `definition` from usecases (use `description` instead) |
 | 2.1.3 | 2025-12 | Changed `description` from text to JSONB with i18n on all tables; removed phases sorting/uniqueness constraint (containment only); added index on `classifications.code` |
