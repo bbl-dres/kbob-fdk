@@ -56,7 +56,7 @@ erDiagram
     elements {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb tool_elements "de_fr_it_en"
@@ -73,7 +73,8 @@ erDiagram
         jsonb description "de_fr_it_en"
         text data_type
         text unit
-        text ifc_reference
+        text ifc_pset
+        text ifc_property
         jsonb enumeration_values "de_fr_it_en"
     }
 
@@ -87,7 +88,7 @@ erDiagram
     documents {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         text[] formats
@@ -99,7 +100,7 @@ erDiagram
     usecases {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb roles "de_fr_it_en"
@@ -114,7 +115,7 @@ erDiagram
     models {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb related_elements FK
@@ -123,7 +124,7 @@ erDiagram
     epds {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
     }
 ```
@@ -143,7 +144,7 @@ All five core entities share a common set of attributes for identification, vers
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
-| `category` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
+| `domain` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
 | `description` | `text` | | Detailed explanation of purpose and scope |
 | `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
@@ -188,7 +189,7 @@ Physical building components with geometry (LOG) requirements.
 | `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
-**Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
+**Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
 ---
 
@@ -203,7 +204,7 @@ Project documentation types with format requirements and retention policies per 
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "e1"}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
-**Category values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
+**Domain values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
 ---
 
@@ -228,7 +229,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
 
-**Category values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
+**Domain values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
 
 ---
 
@@ -240,7 +241,7 @@ BIM model types including discipline models, coordination models, and special-pu
 |--------|------|-------------|-------------|
 | `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
 
-**Category values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
+**Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
 ---
 
@@ -260,7 +261,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `density` | `text` | | Material density |
 | `biogenic_carbon` | `numeric` | | Biogenic carbon content |
 
-**Category values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
+**Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
 
 ---
 
@@ -416,9 +417,9 @@ These are stored as JSONB arrays with i18n support:
 
 ## Reference Values
 
-> **Note:** Categories and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
+> **Note:** Domains and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
 
-### element_category — Discipline Grouping
+### element_domain — Discipline Grouping
 
 ```json
 { "de": "Architektur", "fr": "Architecture", "it": "Architettura", "en": "Architecture" }
@@ -435,7 +436,7 @@ These are stored as JSONB arrays with i18n support:
 | Brandschutz | Fire Protection | Fire protection elements |
 | Transportanlagen | Vertical Transport | Elevators, escalators, lifts |
 
-### document_category — KBOB/IPB Dokumenttypenkatalog
+### document_domain — KBOB/IPB Dokumenttypenkatalog
 
 | Code | Value (DE) | Value (EN) | Description |
 |------|------------|------------|-------------|
@@ -444,7 +445,7 @@ These are stored as JSONB arrays with i18n support:
 | B | Konzepte und Beschriebe | Concepts and Descriptions | Planning concepts and technical descriptions |
 | V | Visualisierungen | Visualizations | Plans, drawings, and visual representations |
 
-### usecase_category — VDI 2552 Blatt 12.2 Anwendungsfeld
+### usecase_domain — VDI 2552 Blatt 12.2 Anwendungsfeld
 
 | Value (DE) | Value (EN) |
 |------------|------------|
@@ -471,7 +472,7 @@ These are stored as JSONB arrays with i18n support:
 | Visualisierung | Visualization |
 | Sonstiges | Other |
 
-### model_category — BIM Model Types
+### model_domain — BIM Model Types
 
 | Value (DE) | Value (EN) | Description |
 |------------|------------|-------------|
@@ -480,7 +481,7 @@ These are stored as JSONB arrays with i18n support:
 | Spezialmodelle | Special Models | Purpose-specific models |
 | Bestand | As-Built | Digital twin for operations |
 
-### epd_category — KBOB Material Categories
+### epd_domain — KBOB Material Categories
 
 | Value (DE) | Value (EN) | Typical Subcategories |
 |------------|------------|----------------------|
@@ -550,7 +551,7 @@ Standard tag values:
 -- Version: 2.1.0
 -- =============================================================================
 
--- Note: Categories and tags are stored as JSONB with i18n support.
+-- Note: Domains and tags are stored as JSONB with i18n support.
 -- No SQL ENUM types are used - see "Reference Values" section for vocabulary.
 
 -- =============================================================================
@@ -565,7 +566,7 @@ CREATE TABLE public.elements (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -599,7 +600,7 @@ CREATE TABLE public.documents (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -632,7 +633,7 @@ CREATE TABLE public.usecases (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -674,7 +675,7 @@ CREATE TABLE public.models (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -704,7 +705,7 @@ CREATE TABLE public.epds (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
 
@@ -740,7 +741,8 @@ CREATE TABLE public.attributes (
     description jsonb,
     data_type text NOT NULL,
     unit text,
-    ifc_reference text,
+    ifc_pset text,
+    ifc_property text,
     enumeration_values jsonb DEFAULT '[]',
 
     -- System
@@ -783,12 +785,12 @@ CREATE INDEX epds_name_idx ON epds USING gin(to_tsvector('german', name->>'de'))
 CREATE INDEX attributes_name_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
 CREATE INDEX classifications_name_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
 
--- Category filters (using German text for filtering)
-CREATE INDEX elements_category_idx ON elements((category->>'de'));
-CREATE INDEX documents_category_idx ON documents((category->>'de'));
-CREATE INDEX usecases_category_idx ON usecases((category->>'de'));
-CREATE INDEX models_category_idx ON models((category->>'de'));
-CREATE INDEX epds_category_idx ON epds((category->>'de'));
+-- Domain filters (using German text for filtering)
+CREATE INDEX elements_domain_idx ON elements((domain->>'de'));
+CREATE INDEX documents_domain_idx ON documents((domain->>'de'));
+CREATE INDEX usecases_domain_idx ON usecases((domain->>'de'));
+CREATE INDEX models_domain_idx ON models((domain->>'de'));
+CREATE INDEX epds_domain_idx ON epds((domain->>'de'));
 
 -- Classification system filter
 CREATE INDEX classifications_system_idx ON classifications(system);
@@ -874,7 +876,7 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 | `lastChange` | `last_change` | camelCase → snake_case |
 | `title` | `name` | String → JSONB i18n object |
 | `image` | `image` | Direct |
-| `category` | `category` | String → JSONB i18n object |
+| `category` | `domain` | String → JSONB i18n object |
 | `description` | `description` | Direct |
 | `tags` | `tags` | Array → JSONB i18n array |
 | `phases` | `phases` | Array → PostgreSQL array |
@@ -903,7 +905,7 @@ async function migrateElements() {
     last_change: el.lastChange,
     name: { de: el.title, fr: null, it: null, en: null }, // i18n: translate later
     image: el.image || null,
-    category: { de: el.category, fr: null, it: null, en: null }, // i18n: translate later
+    domain: { de: el.category, fr: null, it: null, en: null }, // i18n: translate later
     description: el.description || null,
     tags: (el.tags || []).map(t => ({ de: t, fr: null, it: null, en: null })), // i18n array
     phases: el.phases || null,
