@@ -68,7 +68,6 @@ This catalog demonstrates how coordination can be implemented in practice across
 
 ---
 
-
 ## Strategic Context
 
 This catalog aligns with key Swiss digital transformation and BIM-related initiatives:
@@ -76,6 +75,7 @@ This catalog aligns with key Swiss digital transformation and BIM-related initia
 | Initiative | Description | URL |
 |-----------|-------------|-----|
 | **Digital Federal Administration Strategy** | Federal Council's strategy defining objectives for digital transformation in the Federal Administration | https://www.bk.admin.ch/bk/en/home/digitale-transformation-ikt-lenkung/digitale-bundesverwaltung.html |
+| **Federal ICT Standards (Vorgaben)** | Binding standards and guidelines for ICT in the Federal Administration, including TOGAF (P030) | https://www.bk.admin.ch/bk/de/home/digitale-transformation-ikt-lenkung/vorgaben.html |
 | **BIM – Simplifying Construction through Better Data Interoperability** | Digital Switzerland action plan measure to improve data interoperability in construction | https://digital.swiss/en/action-plan/measures/simplifying-construction-through-better-data-interoperability--bim- |
 | **Strategy for Digital Methods (BLO / ASTRA)** | Federal strategy for BIM and digital methods within building and infrastructure authorities of the Swiss Confederation | https://www.kbob.admin.ch/de/digitalisierung-und-bim |
 | **eCH-0279 Architecture Vision 2050** | Interoperability-focused architecture vision for digital administration across all government levels | https://www.ech.ch/de/ech/ech-0279/1.0.0 |
