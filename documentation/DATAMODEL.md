@@ -56,10 +56,10 @@ erDiagram
     elements {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
-        jsonb tool_elements
+        jsonb tool_elements "de_fr_it_en"
         jsonb geometry "de_fr_it_en"
         jsonb related_documents FK
         jsonb related_epds FK
@@ -73,8 +73,9 @@ erDiagram
         jsonb description "de_fr_it_en"
         text data_type
         text unit
-        text ifc_reference
-        jsonb enumeration_values
+        text ifc_pset
+        text ifc_property
+        jsonb enumeration_values "de_fr_it_en"
     }
 
     classifications {
@@ -87,11 +88,11 @@ erDiagram
     documents {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         text[] formats
-        text retention
+        integer retention
         jsonb related_elements FK
         jsonb related_classifications FK
     }
@@ -99,14 +100,14 @@ erDiagram
     usecases {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
-        jsonb roles
-        jsonb prerequisites
-        text[] goals
-        text[] inputs
-        text[] outputs
+        jsonb roles "de_fr_it_en"
+        jsonb prerequisites "de_fr_it_en"
+        jsonb goals "de_fr_it_en"
+        jsonb inputs "de_fr_it_en"
+        jsonb outputs "de_fr_it_en"
         jsonb related_elements FK
         jsonb related_documents FK
     }
@@ -114,7 +115,7 @@ erDiagram
     models {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
         integer[] phases
         jsonb related_elements FK
@@ -123,8 +124,7 @@ erDiagram
     epds {
         text id PK
         jsonb name "de_fr_it_en"
-        jsonb category "de_fr_it_en"
-        text subcategory
+        jsonb domain "de_fr_it_en"
         jsonb tags "de_fr_it_en"
     }
 ```
@@ -144,7 +144,7 @@ All five core entities share a common set of attributes for identification, vers
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
-| `category` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
+| `domain` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
 | `description` | `text` | | Detailed explanation of purpose and scope |
 | `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
@@ -189,7 +189,7 @@ Physical building components with geometry (LOG) requirements.
 | `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "attr-fire-rating", "phases": [3,4,5]}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
-**Category values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
+**Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
 ---
 
@@ -200,11 +200,11 @@ Project documentation types with format requirements and retention policies per 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
-| `retention` | `text` | | Retention policy (5 Jahre, 12 Jahre, bis Ersatz, etc.) |
+| `retention` | `integer` | | Retention period in years (0 = indefinitely) |
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "e1"}]` |
 | `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "ebkp-c02"}]` |
 
-**Category values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
+**Domain values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
 ---
 
@@ -215,11 +215,11 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `definition` | `text` | `NOT NULL` | Formal definition of the use case |
-| `goals` | `text[]` | `NOT NULL, min. 1` | Objectives |
-| `inputs` | `text[]` | `NOT NULL DEFAULT '{}'` | Required inputs and preconditions |
-| `outputs` | `text[]` | `NOT NULL DEFAULT '{}'` | Deliverables and results |
-| `roles` | `jsonb` | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix |
-| `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor |
+| `goals` | `jsonb` | `NOT NULL DEFAULT '[]'` | Objectives (i18n array: de, fr, it, en) |
+| `inputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required inputs and preconditions (i18n array) |
+| `outputs` | `jsonb` | `NOT NULL DEFAULT '[]'` | Deliverables and results (i18n array) |
+| `roles` | `jsonb` | `NOT NULL DEFAULT '[]'` | RACI responsibility matrix (i18n) |
+| `prerequisites` | `jsonb` | `NOT NULL DEFAULT '{}'` | Requirements for client and contractor (i18n) |
 | `implementation` | `text[]` | `NOT NULL DEFAULT '{}'` | Implementation steps |
 | `quality_criteria` | `text[]` | `NOT NULL DEFAULT '{}'` | Acceptance and quality criteria |
 | `standards` | `text[]` | `DEFAULT '{}'` | Referenced standards (SIA, ISO, VDI) |
@@ -229,7 +229,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "e1", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "O01001", "required": true}]` |
 
-**Category values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Enumerations)
+**Domain values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
 
 ---
 
@@ -241,7 +241,7 @@ BIM model types including discipline models, coordination models, and special-pu
 |--------|------|-------------|-------------|
 | `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Element types contained in model |
 
-**Category values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
+**Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
 ---
 
@@ -253,7 +253,6 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
-| `subcategory` | `text` | `NOT NULL` | Specific material group |
 | `unit` | `text` | `NOT NULL` | Functional/reference unit (kg, m², m³, kWh, etc.) |
 | `gwp` | `numeric` | `NOT NULL, >= 0` | Global Warming Potential (kg CO₂-eq) |
 | `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
@@ -262,7 +261,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `density` | `text` | | Material density |
 | `biogenic_carbon` | `numeric` | | Biogenic carbon content |
 
-**Category values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
+**Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
 
 ---
 
@@ -293,12 +292,12 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 ### Element: tool_elements
 
-Mappings to authoring tools and exchange formats. Extensible for additional tools.
+Mappings to authoring tools and exchange formats. Extensible for additional tools. Element names support i18n.
 
 ```json
 [
   {
-    "element": "Rollladenmotor",
+    "element": { "de": "Rollladenmotor", "fr": "Moteur de volet roulant", "it": "Motore per tapparella", "en": "Roller shutter motor" },
     "ifc": "IfcActuator.ELECTRICACTUATOR",
     "revit": "Revit: Spezialisierte Ausrüstung",
     "archicad": null
@@ -308,7 +307,7 @@ Mappings to authoring tools and exchange formats. Extensible for additional tool
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `element` | string | ✓ | Element variant description |
+| `element` | jsonb | ✓ | Element variant description (i18n: de, fr, it, en) |
 | `ifc` | string | ✓ | IFC class and predefined type (IFC 4.3 schema) |
 | `revit` | string | | Revit family/category mapping |
 | `archicad` | string | | ArchiCAD object mapping |
@@ -348,32 +347,56 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 ```json
 [
   {
-    "actor": "BIM-Manager",
-    "responsible": ["Erstellung AIA und BAP"],
-    "contributing": ["Abstimmung mit Stakeholdern"],
-    "informed": ["Projektänderungen"]
+    "actor": { "de": "BIM-Manager", "fr": "Gestionnaire BIM", "it": "Responsabile BIM", "en": "BIM Manager" },
+    "responsible": [
+      { "de": "Erstellung AIA und BAP", "fr": "Création AIA et PAB", "it": "Creazione AIA e PAB", "en": "Creation of EIR and BEP" }
+    ],
+    "contributing": [
+      { "de": "Abstimmung mit Stakeholdern", "fr": "Coordination avec les parties prenantes", "it": "Coordinamento con gli stakeholder", "en": "Coordination with stakeholders" }
+    ],
+    "informed": [
+      { "de": "Projektänderungen", "fr": "Modifications du projet", "it": "Modifiche al progetto", "en": "Project changes" }
+    ]
   }
 ]
 ```
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `actor` | string | ✓ | Role name (e.g., BIM-Manager, Projektleiter) |
-| `responsible` | string[] | | Tasks this role performs (R) |
-| `contributing` | string[] | | Tasks this role contributes to (A/C) |
-| `informed` | string[] | | Information this role receives (I) |
+| `actor` | jsonb | ✓ | Role name (i18n: de, fr, it, en) |
+| `responsible` | jsonb[] | | Tasks this role performs (R) - i18n array |
+| `contributing` | jsonb[] | | Tasks this role contributes to (A/C) - i18n array |
+| `informed` | jsonb[] | | Information this role receives (I) - i18n array |
 
 ### UseCase: prerequisites
 
 ```json
 {
   "client": [
-    "Grundsatzentscheid zur digitalen Projektabwicklung",
-    "Bereitstellung von Ressourcen für die BIM-Koordination"
+    { "de": "Grundsatzentscheid zur digitalen Projektabwicklung", "fr": "Décision de principe pour l'exécution numérique du projet", "it": "Decisione di principio per l'esecuzione digitale del progetto", "en": "Decision for digital project execution" },
+    { "de": "Bereitstellung von Ressourcen für die BIM-Koordination", "fr": "Mise à disposition de ressources pour la coordination BIM", "it": "Fornitura di risorse per il coordinamento BIM", "en": "Provision of resources for BIM coordination" }
   ],
   "contractor": [
-    "Grundkenntnisse in digitaler Zusammenarbeit",
-    "Bereitschaft zur strukturierten Informationslieferung"
+    { "de": "Grundkenntnisse in digitaler Zusammenarbeit", "fr": "Connaissances de base en collaboration numérique", "it": "Conoscenze di base nella collaborazione digitale", "en": "Basic knowledge in digital collaboration" },
+    { "de": "Bereitschaft zur strukturierten Informationslieferung", "fr": "Volonté de livrer des informations structurées", "it": "Disponibilità a fornire informazioni strutturate", "en": "Willingness to deliver structured information" }
+  ]
+}
+```
+
+### UseCase: goals, inputs, outputs
+
+These are stored as JSONB arrays with i18n support:
+
+```json
+{
+  "goals": [
+    { "de": "Digitale Koordination", "fr": "Coordination numérique", "it": "Coordinamento digitale", "en": "Digital coordination" }
+  ],
+  "inputs": [
+    { "de": "Fachmodelle", "fr": "Modèles de discipline", "it": "Modelli disciplinari", "en": "Discipline models" }
+  ],
+  "outputs": [
+    { "de": "Koordinationsmodell", "fr": "Modèle de coordination", "it": "Modello di coordinamento", "en": "Coordination model" }
   ]
 }
 ```
@@ -394,9 +417,9 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 
 ## Reference Values
 
-> **Note:** Categories and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
+> **Note:** Domains and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
 
-### element_category — Discipline Grouping
+### element_domain — Discipline Grouping
 
 ```json
 { "de": "Architektur", "fr": "Architecture", "it": "Architettura", "en": "Architecture" }
@@ -413,7 +436,7 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 | Brandschutz | Fire Protection | Fire protection elements |
 | Transportanlagen | Vertical Transport | Elevators, escalators, lifts |
 
-### document_category — KBOB/IPB Dokumenttypenkatalog
+### document_domain — KBOB/IPB Dokumenttypenkatalog
 
 | Code | Value (DE) | Value (EN) | Description |
 |------|------------|------------|-------------|
@@ -422,7 +445,7 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 | B | Konzepte und Beschriebe | Concepts and Descriptions | Planning concepts and technical descriptions |
 | V | Visualisierungen | Visualizations | Plans, drawings, and visual representations |
 
-### usecase_category — VDI 2552 Blatt 12.2 Anwendungsfeld
+### usecase_domain — VDI 2552 Blatt 12.2 Anwendungsfeld
 
 | Value (DE) | Value (EN) |
 |------------|------------|
@@ -449,7 +472,7 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 | Visualisierung | Visualization |
 | Sonstiges | Other |
 
-### model_category — BIM Model Types
+### model_domain — BIM Model Types
 
 | Value (DE) | Value (EN) | Description |
 |------------|------------|-------------|
@@ -458,7 +481,7 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 | Spezialmodelle | Special Models | Purpose-specific models |
 | Bestand | As-Built | Digital twin for operations |
 
-### epd_category — KBOB Material Categories
+### epd_domain — KBOB Material Categories
 
 | Value (DE) | Value (EN) | Typical Subcategories |
 |------------|------------|----------------------|
@@ -528,7 +551,7 @@ Standard tag values:
 -- Version: 2.1.0
 -- =============================================================================
 
--- Note: Categories and tags are stored as JSONB with i18n support.
+-- Note: Domains and tags are stored as JSONB with i18n support.
 -- No SQL ENUM types are used - see "Reference Values" section for vocabulary.
 
 -- =============================================================================
@@ -543,7 +566,7 @@ CREATE TABLE public.elements (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -577,14 +600,14 @@ CREATE TABLE public.documents (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
     formats text[] NOT NULL,
-    retention text,
+    retention integer,
     related_elements jsonb DEFAULT '[]',
     related_classifications jsonb DEFAULT '[]',
 
@@ -594,7 +617,8 @@ CREATE TABLE public.documents (
 
     -- Constraints
     CONSTRAINT documents_id_format CHECK (id ~ '^[OKBV][0-9]{5}$'),
-    CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
+    CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
+    CONSTRAINT documents_retention_valid CHECK (retention IS NULL OR retention >= 0)
 );
 
 -- =============================================================================
@@ -609,16 +633,16 @@ CREATE TABLE public.usecases (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
 
     -- Entity-specific attributes
     definition text NOT NULL,
-    goals text[] NOT NULL,
-    inputs text[] NOT NULL DEFAULT '{}',
-    outputs text[] NOT NULL DEFAULT '{}',
+    goals jsonb NOT NULL DEFAULT '[]',
+    inputs jsonb NOT NULL DEFAULT '[]',
+    outputs jsonb NOT NULL DEFAULT '[]',
     roles jsonb NOT NULL DEFAULT '[]',
     prerequisites jsonb NOT NULL DEFAULT '{}',
     implementation text[] NOT NULL DEFAULT '{}',
@@ -636,7 +660,6 @@ CREATE TABLE public.usecases (
 
     -- Constraints
     CONSTRAINT usecases_id_format CHECK (id ~ '^uc[0-9]{3}$'),
-    CONSTRAINT usecases_goals_not_empty CHECK (array_length(goals, 1) >= 1),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
 );
 
@@ -652,7 +675,7 @@ CREATE TABLE public.models (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
@@ -682,12 +705,11 @@ CREATE TABLE public.epds (
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
-    category jsonb NOT NULL,
+    domain jsonb NOT NULL,
     description text,
     tags jsonb NOT NULL DEFAULT '[]',
 
     -- Entity-specific attributes
-    subcategory text NOT NULL,
     unit text NOT NULL,
     gwp numeric NOT NULL,
     ubp numeric NOT NULL,
@@ -719,7 +741,8 @@ CREATE TABLE public.attributes (
     description jsonb,
     data_type text NOT NULL,
     unit text,
-    ifc_reference text,
+    ifc_pset text,
+    ifc_property text,
     enumeration_values jsonb DEFAULT '[]',
 
     -- System
@@ -762,12 +785,12 @@ CREATE INDEX epds_name_idx ON epds USING gin(to_tsvector('german', name->>'de'))
 CREATE INDEX attributes_name_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
 CREATE INDEX classifications_name_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
 
--- Category filters (using German text for filtering)
-CREATE INDEX elements_category_idx ON elements((category->>'de'));
-CREATE INDEX documents_category_idx ON documents((category->>'de'));
-CREATE INDEX usecases_category_idx ON usecases((category->>'de'));
-CREATE INDEX models_category_idx ON models((category->>'de'));
-CREATE INDEX epds_category_idx ON epds((category->>'de'));
+-- Domain filters (using German text for filtering)
+CREATE INDEX elements_domain_idx ON elements((domain->>'de'));
+CREATE INDEX documents_domain_idx ON documents((domain->>'de'));
+CREATE INDEX usecases_domain_idx ON usecases((domain->>'de'));
+CREATE INDEX models_domain_idx ON models((domain->>'de'));
+CREATE INDEX epds_domain_idx ON epds((domain->>'de'));
 
 -- Classification system filter
 CREATE INDEX classifications_system_idx ON classifications(system);
@@ -853,7 +876,7 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 | `lastChange` | `last_change` | camelCase → snake_case |
 | `title` | `name` | String → JSONB i18n object |
 | `image` | `image` | Direct |
-| `category` | `category` | String → JSONB i18n object |
+| `category` | `domain` | String → JSONB i18n object |
 | `description` | `description` | Direct |
 | `tags` | `tags` | Array → JSONB i18n array |
 | `phases` | `phases` | Array → PostgreSQL array |
@@ -882,7 +905,7 @@ async function migrateElements() {
     last_change: el.lastChange,
     name: { de: el.title, fr: null, it: null, en: null }, // i18n: translate later
     image: el.image || null,
-    category: { de: el.category, fr: null, it: null, en: null }, // i18n: translate later
+    domain: { de: el.category, fr: null, it: null, en: null }, // i18n: translate later
     description: el.description || null,
     tags: (el.tags || []).map(t => ({ de: t, fr: null, it: null, en: null })), // i18n array
     phases: el.phases || null,
