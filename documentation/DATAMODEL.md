@@ -27,6 +27,8 @@
 
 Relationships between entities are stored as JSONB arrays on the parent entity. This keeps queries simple and avoids junction tables.
 
+> **Performance Trade-off:** GIN indexes support efficient containment queries (e.g., `related_documents @> '[{"id": "..."}]'`). However, queries that filter on relationship metadata (e.g., "find elements linked to document X in phase 3") require `jsonb_array_elements()` and won't use the index efficiently. For this read-heavy catalog with primarily browse-oriented access, JSONB relationships are pragmatic. Junction tables would be warranted if relationship metadata queries become a performance bottleneck.
+
 > **Referential Integrity Note:** JSONB relationships do not enforce foreign key constraints. Orphaned references may occur when a referenced entity is deleted. This is intentional—the application layer handles validation, and a scheduled cleanup function can detect orphaned references:
 > ```sql
 > -- Example: Find orphaned document references in elements
@@ -182,7 +184,7 @@ erDiagram
         jsonb name "de_fr_it_en"
         jsonb description "de_fr_it_en"
         text system
-        text code UK
+        text code "UK(system,code)"
         timestamptz created_at
         timestamptz updated_at
     }
@@ -201,15 +203,17 @@ All core entities share a common set of attributes for identification, versionin
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `id` | `uuid` | `PRIMARY KEY DEFAULT gen_random_uuid()` | Unique identifier (UUID v4) |
-| `version` | `text` | `NOT NULL` | Version indicator for change tracking |
+| `version` | `text` | `NOT NULL` | Version indicator (format: `MAJOR.MINOR`, e.g., "2.1") |
 | `last_change` | `date` | `NOT NULL` | Date of last modification (ISO 8601) |
 | `name` | `jsonb` | `NOT NULL` | Human-readable display name (i18n: de, fr, it, en) |
 | `image` | `text` | | Visual representation reference (URL or path) |
 | `domain` | `jsonb` | `NOT NULL` | Primary grouping (i18n: de, fr, it, en) |
 | `description` | `jsonb` | | Detailed explanation of purpose and scope (i18n: de, fr, it, en) |
-| `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) |
+| `tags` | `jsonb` | `NOT NULL DEFAULT '[]'` | Anwendungsfeld keywords (i18n array: de, fr, it, en) — see note below |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record creation timestamp |
 | `updated_at` | `timestamptz` | `NOT NULL DEFAULT now()` | Record last update timestamp (auto-updated) |
+
+> **Tags Structure Design:** Tags are stored as an array of i18n objects (`[{"de": "...", "fr": "...", ...}]`) rather than a language-keyed structure (`{"de": [...], "fr": [...]}`). This ensures explicit 1:1 correspondence between translations of the same tag concept. The trade-off is that filtering requires `EXISTS` subqueries (`WHERE EXISTS (SELECT 1 FROM jsonb_array_elements(tags) t WHERE t->>'de' = 'Koordination')`), which is acceptable for this catalog's access patterns. A flattened structure would enable more efficient GIN queries (`WHERE tags->'de' ? 'Koordination'`) if filtering performance becomes critical.
 
 ### Phase-Dependent Entities
 
@@ -246,12 +250,12 @@ Physical building components with geometry (LOG) requirements.
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `geometry` | `jsonb` | `NOT NULL DEFAULT '[]'` | LOG specifications per phase (i18n: de, fr, it, en) |
-| `tool_elements` | `jsonb` | `DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
-| `related_documents` | `jsonb` | `DEFAULT '[]'` | Links to documents `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_epds` | `jsonb` | `DEFAULT '[]'` | Links to EPDs `[{"id": "<uuid>"}]` |
-| `related_attributes` | `jsonb` | `DEFAULT '[]'` | Links to attributes `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
-| `related_usecases` | `jsonb` | `DEFAULT '[]'` | Links to usecases `[{"id": "<uuid>"}]` |
+| `tool_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Mappings to IFC classes and authoring tools (Revit, ArchiCAD, etc.) |
+| `related_documents` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to documents `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_epds` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to EPDs `[{"id": "<uuid>"}]` |
+| `related_attributes` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to attributes `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_classifications` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
+| `related_usecases` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to usecases `[{"id": "<uuid>"}]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -266,8 +270,8 @@ Project documentation types with format requirements and retention policies per 
 | `code` | `text` | `NOT NULL, UNIQUE` | Human-readable code (e.g., O01001, K02003) |
 | `formats` | `text[]` | `NOT NULL` | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
 | `retention` | `integer` | | Retention period in years (0 = indefinitely) |
-| `related_elements` | `jsonb` | `DEFAULT '[]'` | Links to elements `[{"id": "<uuid>"}]` |
-| `related_classifications` | `jsonb` | `DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
+| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to elements `[{"id": "<uuid>"}]` |
+| `related_classifications` | `jsonb` | `NOT NULL DEFAULT '[]'` | Links to classifications `[{"id": "<uuid>"}]` |
 
 **Domain values:** Organisation, Verträge und Kosten, Konzepte und Beschriebe, Visualisierungen
 
@@ -288,8 +292,8 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `implementation` | `jsonb` | `NOT NULL DEFAULT '[]'` | Implementation steps (i18n array: de, fr, it, en) |
 | `quality_criteria` | `jsonb` | `NOT NULL DEFAULT '[]'` | Acceptance and quality criteria (i18n array: de, fr, it, en) |
 | `process_url` | `text` | | Link to BPMN process diagram |
-| `related_elements` | `jsonb` | `DEFAULT '[]'` | Required elements `[{"id": "<uuid>", "phases": [2,3]}]` |
-| `related_documents` | `jsonb` | `DEFAULT '[]'` | Required documents `[{"id": "<uuid>", "required": true}]` |
+| `related_elements` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required elements `[{"id": "<uuid>", "phases": [2,3]}]` |
+| `related_documents` | `jsonb` | `NOT NULL DEFAULT '[]'` | Required documents `[{"id": "<uuid>", "required": true}]` |
 
 **Domain values:** Per VDI 2552 Blatt 12.2 Anwendungsfeld (22 values – see Reference Values)
 
@@ -317,12 +321,12 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 |--------|------|-------------|-------------|
 | `code` | `text` | `NOT NULL, UNIQUE` | Human-readable KBOB code (e.g., kbob-01-042) |
 | `unit` | `text` | `NOT NULL` | Functional/reference unit (e.g., `kg`, `m²`, `m³`) |
-| `gwp` | `numeric` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
-| `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
-| `penrt` | `numeric` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
-| `pert` | `numeric` | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
+| `gwp` | `numeric(12,4)` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
+| `ubp` | `numeric(12,2)` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
+| `penrt` | `numeric(12,4)` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
+| `pert` | `numeric(12,4)` | `NOT NULL, >= 0` | Primary Energy Renewable Total (MJ) |
 | `density` | `text` | | Material density |
-| `biogenic_carbon` | `numeric` | | Biogenic carbon content |
+| `biogenic_carbon` | `numeric(12,6)` | | Biogenic carbon content (kg C) |
 
 **Domain values:** Baumaterialien, Energie, Gebäudetechnik, Transporte
 
@@ -349,7 +353,9 @@ Classification codes from multiple systems. Phase-neutral reference data.
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `system` | `text` | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
-| `code` | `text` | `NOT NULL, UNIQUE` | Classification code within the system |
+| `code` | `text` | `NOT NULL`, `UNIQUE(system, code)` | Classification code within the system |
+
+> **Note:** The `code` uniqueness is scoped to `system` because different classification systems may use the same code values (e.g., eBKP-H "C02" is distinct from a potential DIN276 "C02").
 
 **Supported systems:** eBKP-H (SN 506 511:2020), DIN 276:2018, Uniformat II, KBOB
 
@@ -398,10 +404,12 @@ Mappings to authoring tools and exchange formats. Extensible for additional tool
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `element` | jsonb | ✓ | Element variant description (i18n: de, fr, it, en) |
-| `ifc` | string | ✓ | IFC class and predefined type (IFC 4.3 schema) |
+| `ifc` | string | ✓ | IFC class and predefined type (IFC 4.3 schema), e.g., "IfcActuator.ELECTRICACTUATOR" |
 | `revit` | string | | Revit family/category mapping |
 | `archicad` | string | | ArchiCAD object mapping |
 | `...` | string | | Additional authoring tools as needed |
+
+> **IFC Field Design:** The `ifc` field stores the combined class and predefined type (e.g., "IfcWall.PARTITIONING") rather than separate `ifc_class` and `ifc_predefined_type` fields. This matches the IFC schema's entity-type notation and simplifies data entry. If queries like "find all elements mapping to IfcWall.*" become common, splitting into separate fields would improve queryability.
 
 ### Classifications Table
 
@@ -660,7 +668,7 @@ Standard tag values:
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.11
+-- Version: 2.1.12
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -674,7 +682,7 @@ Standard tag values:
 CREATE TABLE public.elements (
     -- Common attributes
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
+    version text NOT NULL,  -- Format: MAJOR.MINOR (e.g., "2.1")
     last_change date NOT NULL,
     name jsonb NOT NULL,
     image text,
@@ -685,12 +693,12 @@ CREATE TABLE public.elements (
 
     -- Entity-specific attributes
     geometry jsonb NOT NULL DEFAULT '[]',
-    tool_elements jsonb DEFAULT '[]',
-    related_documents jsonb DEFAULT '[]',
-    related_epds jsonb DEFAULT '[]',
-    related_attributes jsonb DEFAULT '[]',
-    related_classifications jsonb DEFAULT '[]',
-    related_usecases jsonb DEFAULT '[]',
+    tool_elements jsonb NOT NULL DEFAULT '[]',
+    related_documents jsonb NOT NULL DEFAULT '[]',
+    related_epds jsonb NOT NULL DEFAULT '[]',
+    related_attributes jsonb NOT NULL DEFAULT '[]',
+    related_classifications jsonb NOT NULL DEFAULT '[]',
+    related_usecases jsonb NOT NULL DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -721,8 +729,8 @@ CREATE TABLE public.documents (
     code text NOT NULL UNIQUE,
     formats text[] NOT NULL,
     retention integer,
-    related_elements jsonb DEFAULT '[]',
-    related_classifications jsonb DEFAULT '[]',
+    related_elements jsonb NOT NULL DEFAULT '[]',
+    related_classifications jsonb NOT NULL DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -760,8 +768,8 @@ CREATE TABLE public.usecases (
     implementation jsonb NOT NULL DEFAULT '[]',
     quality_criteria jsonb NOT NULL DEFAULT '[]',
     process_url text,
-    related_elements jsonb DEFAULT '[]',
-    related_documents jsonb DEFAULT '[]',
+    related_elements jsonb NOT NULL DEFAULT '[]',
+    related_documents jsonb NOT NULL DEFAULT '[]',
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -819,12 +827,12 @@ CREATE TABLE public.epds (
     -- Entity-specific attributes
     code text NOT NULL UNIQUE,
     unit text NOT NULL,
-    gwp numeric NOT NULL,
-    ubp numeric NOT NULL,
-    penrt numeric NOT NULL,
-    pert numeric NOT NULL,
+    gwp numeric(12,4) NOT NULL,        -- 4 decimal places for CO₂-eq precision
+    ubp numeric(12,2) NOT NULL,        -- 2 decimal places (typically integer-ish)
+    penrt numeric(12,4) NOT NULL,      -- 4 decimal places for energy values
+    pert numeric(12,4) NOT NULL,       -- 4 decimal places for energy values
     density text,
-    biogenic_carbon numeric,
+    biogenic_carbon numeric(12,6),     -- 6 decimal places for carbon content
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
@@ -873,14 +881,15 @@ CREATE TABLE public.classifications (
 
     -- Entity-specific attributes
     system text NOT NULL,
-    code text NOT NULL UNIQUE,
+    code text NOT NULL,
 
     -- System
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB'))
+    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
+    CONSTRAINT classifications_system_code_unique UNIQUE (system, code)
 );
 
 -- =============================================================================
@@ -931,9 +940,9 @@ CREATE INDEX usecases_domain_idx ON usecases((domain->>'de'));
 CREATE INDEX models_domain_idx ON models((domain->>'de'));
 CREATE INDEX epds_domain_idx ON epds((domain->>'de'));
 
--- Classification system filter
+-- Classification lookup (composite for system+code queries)
+CREATE UNIQUE INDEX classifications_system_code_idx ON classifications(system, code);
 CREATE INDEX classifications_system_idx ON classifications(system);
-CREATE INDEX classifications_code_idx ON classifications(code);
 
 -- Code lookup indexes (human-readable identifiers)
 CREATE INDEX documents_code_idx ON documents(code);
@@ -952,6 +961,10 @@ CREATE INDEX elements_phases_idx ON elements USING gin(phases);
 CREATE INDEX documents_phases_idx ON documents USING gin(phases);
 CREATE INDEX usecases_phases_idx ON usecases USING gin(phases);
 CREATE INDEX models_phases_idx ON models USING gin(phases);
+
+-- Note: Composite indexes (e.g., domain + phases) can be added if combined
+-- filter queries become a performance bottleneck. Currently individual indexes
+-- suffice for the catalog's browse-oriented access patterns.
 
 -- Relationship filters (GIN for JSONB containment queries)
 -- Enables queries like: "find all elements related to document O01001"
@@ -1030,6 +1043,11 @@ CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
 
 -- Note: No INSERT/UPDATE/DELETE policies - writes require service_role
 
+-- Design Note: Soft delete (deleted_at timestamptz) is not currently implemented.
+-- For this reference catalog, hard deletes are acceptable with orphaned reference
+-- cleanup. If audit history becomes a requirement, add deleted_at to all tables
+-- and update RLS policies: FOR SELECT USING (deleted_at IS NULL)
+
 -- =============================================================================
 -- TABLE AND COLUMN COMMENTS
 -- =============================================================================
@@ -1101,6 +1119,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.12 | 2025-12 | Schema review fixes: changed `classifications.code` to composite unique constraint (system, code); added numeric precision to EPD values; documented version format (MAJOR.MINOR); standardized all `related_*` fields to NOT NULL DEFAULT '[]'; added design notes for JSONB performance trade-offs, tags structure, IFC field normalization, composite indexes, and soft delete considerations |
 | 2.1.11 | 2025-12 | Restructured Reference Values: moved Lifecycle Phases as first subsection; added `epd_unit` and `classification_system` reference tables |
 | 2.1.10 | 2025-12 | Added `Has Code` column to Core Tables; fixed `classifications.code` UK marker in mermaid and UNIQUE constraint in docs; updated Classifications Table JSON example to UUID |
 | 2.1.9 | 2025-12 | Changed all IDs to UUID v4; added `code` field to documents, usecases, and epds for human-readable identifiers; added code indexes |
