@@ -62,6 +62,8 @@ This catalog demonstrates how coordination can be implemented in practice across
 | **Five Integrated Catalogs** | Elements, documents, BIM use cases, discipline models, and EPD sustainability data |
 | **Phase-Based Requirements** | Geometry and information requirements mapped to project phases across the building lifecycle |
 | **IFC Mappings** | Direct mapping of elements to IFC 4.3 classes and predefined types |
+| **Authoring Software Templates** | Element mappings for BIM authoring tools (Revit, ArchiCAD) alongside exchange format mappings |
+| **REST API** | Public API with Swagger UI documentation for programmatic access to all catalog data |
 | **BPMN Process Diagrams** | Interactive workflow diagrams for each BIM use case |
 | **Multilingual** | Full support for DE, FR, IT, EN |
 | **Swiss Federal Design** | Compliant with Swiss Confederation design guidelines |
