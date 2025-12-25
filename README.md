@@ -92,30 +92,62 @@ The overarching objective is to define data once and reuse it consistently acros
 ## Data Model
 The catalog comprises five independent entity types, each stored as a standalone JSON file. The model is explicit and technology-agnostic to support reuse across organizations and software systems.
 
+### Implemented Entities
+
 ```mermaid
 flowchart TB
-    STAKEHOLDER["Stakeholder"] -- have --> GOALS["Goals"]
-    STAKEHOLDER -- assume --> ROLES["Roles"]
-    PROJECT["Asset / Project"] -- has --> STAKEHOLDER
-    PROJECT -- passes through --> PHASES["Asset Phases"]
-    GOALS -- realized by --> CAPABILITIES["Capabilities"]
-    CAPABILITIES -- implemented by --> PROCESSES["Processes"]
-    USECASES["Use Cases"] -- implement --> PROCESSES
-    PHASES -- structure --> USECASES
-    PHASES -- govern --> PROCESSES
-    ROLES -- execute --> PROCESSES
-    ROLES -- responsible for --> MODELS["Discipline Models"]
-    ROLES -- produce --> DOCUMENTS["Documents"]
-    USECASES -- define --> LOIN["Information Requirements"]
-    USECASES -- require --> DOCUMENTS
-    MODELS -- contain --> ELEMENTS["Building Elements"]
+    USECASES["Use Cases"] -- define --> LOIN["Information Requirements"]
+    USECASES -- require --> DOCUMENTS["Documents"]
+    MODELS["Discipline Models"] -- contain --> ELEMENTS["Building Elements"]
     LOIN -- constrain --> ELEMENTS
     ELEMENTS -- have --> ATTRIBUTES["Attributes"]
     LOIN -- specify --> ATTRIBUTES
     ELEMENTS -- classified by --> CLASSIFICATIONS["Classifications"]
     ELEMENTS -- reference --> EPDS["EPD Data"]
     ATTRIBUTES -- constrained by --> ENUMERATIONS["Enumerations"]
-    ATTRIBUTES -- reference --> REFDATA["Reference Data"]
+    ELEMENTS -- require --> DOCUMENTS
+```
+
+### Full Conceptual Model
+
+```mermaid
+flowchart TB
+    subgraph Conceptual
+        STAKEHOLDER["Stakeholder"] -- have --> GOALS["Goals"]
+        STAKEHOLDER -- assume --> ROLES["Roles"]
+        PROJECT["Asset / Project"] -- has --> STAKEHOLDER
+        PROJECT -- passes through --> PHASES["Asset Phases"]
+        GOALS -- realized by --> CAPABILITIES["Capabilities"]
+        CAPABILITIES -- implemented by --> PROCESSES["Processes"]
+        PHASES -- govern --> PROCESSES
+        ROLES -- execute --> PROCESSES
+        REFDATA["Reference Data"]
+    end
+    subgraph Implemented
+        USECASES["Use Cases"]
+        MODELS["Discipline Models"]
+        DOCUMENTS["Documents"]
+        ELEMENTS["Building Elements"]
+        LOIN["Information Requirements"]
+        ATTRIBUTES["Attributes"]
+        CLASSIFICATIONS["Classifications"]
+        EPDS["EPD Data"]
+        ENUMERATIONS["Enumerations"]
+    end
+    USECASES -- implement --> PROCESSES
+    PHASES -- structure --> USECASES
+    ROLES -- responsible for --> MODELS
+    ROLES -- produce --> DOCUMENTS
+    USECASES -- define --> LOIN
+    USECASES -- require --> DOCUMENTS
+    MODELS -- contain --> ELEMENTS
+    LOIN -- constrain --> ELEMENTS
+    ELEMENTS -- have --> ATTRIBUTES
+    LOIN -- specify --> ATTRIBUTES
+    ELEMENTS -- classified by --> CLASSIFICATIONS
+    ELEMENTS -- reference --> EPDS
+    ATTRIBUTES -- constrained by --> ENUMERATIONS
+    ATTRIBUTES -- reference --> REFDATA
     ELEMENTS -- require --> DOCUMENTS
 ```
 
