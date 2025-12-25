@@ -13,15 +13,15 @@
 
 ### Core Tables
 
-| Entity | Primary Key | Has Phases | Description |
-|--------|-------------|------------|-------------|
-| `elements` | `id` (text) | ✓ | Physical building components with LOG requirements |
-| `documents` | `id` (text) | ✓ | Project documentation types per KBOB/IPB standard |
-| `usecases` | `id` (text) | ✓ | Standardized BIM processes per VDI 2552 |
-| `models` | `id` (text) | ✓ | BIM discipline and coordination model definitions |
-| `epds` | `id` (text) | ✗ | Environmental impact data (KBOB Ökobilanzdaten) |
-| `attributes` | `id` (text) | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
-| `classifications` | `id` (text) | ✗ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
+| Entity | Primary Key | Has Phases | Has Code | Description |
+|--------|-------------|------------|----------|-------------|
+| `elements` | `id` (uuid) | ✓ | ✗ | Physical building components with LOG requirements |
+| `documents` | `id` (uuid) | ✓ | ✓ | Project documentation types per KBOB/IPB standard |
+| `usecases` | `id` (uuid) | ✓ | ✓ | Standardized BIM processes per VDI 2552 |
+| `models` | `id` (uuid) | ✓ | ✗ | BIM discipline and coordination model definitions |
+| `epds` | `id` (uuid) | ✗ | ✓ | Environmental impact data (KBOB Ökobilanzdaten) |
+| `attributes` | `id` (uuid) | ✗ | ✗ | Reusable property definitions (length, fire rating, material, etc.) |
+| `classifications` | `id` (uuid) | ✗ | ✓ | Classification codes (eBKP-H, DIN 276, Uniformat II, etc.) |
 
 > **Note on phases:** EPD, attributes, and classifications are phase-neutral reference data. Phase applicability is defined in the relationship.
 
@@ -184,7 +184,7 @@ erDiagram
         jsonb name "de_fr_it_en"
         jsonb description "de_fr_it_en"
         text system
-        text code
+        text code UK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -318,7 +318,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `code` | `text` | `NOT NULL, UNIQUE` | Human-readable KBOB code (e.g., kbob-01-042) |
-| `unit` | `text` | `NOT NULL`, constrained | Functional/reference unit: `kg`, `m²`, `m³`, `kWh`, `MJ`, `Stk`, `km`, `m`, `tkm` |
+| `unit` | `text` | `NOT NULL` | Functional/reference unit (e.g., `kg`, `m²`, `m³`) |
 | `gwp` | `numeric` | `NOT NULL` | Global Warming Potential (kg CO₂-eq); can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804 |
 | `ubp` | `numeric` | `NOT NULL, >= 0` | Umweltbelastungspunkte / Swiss ecological scarcity (Points) |
 | `penrt` | `numeric` | `NOT NULL, >= 0` | Primary Energy Non-Renewable Total (MJ) |
@@ -351,7 +351,7 @@ Classification codes from multiple systems. Phase-neutral reference data.
 | Column | Type | Constraints | Description |
 |--------|------|-------------|-------------|
 | `system` | `text` | `NOT NULL`, constrained | Classification system: `eBKP-H`, `DIN276`, `Uniformat II`, `KBOB` |
-| `code` | `text` | `NOT NULL` | Classification code within the system |
+| `code` | `text` | `NOT NULL, UNIQUE` | Classification code within the system |
 
 **Supported systems:** eBKP-H (SN 506 511:2020), DIN 276:2018, Uniformat II, KBOB
 
@@ -411,7 +411,7 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 
 ```json
 {
-  "id": "ebkp-c02",
+  "id": "550e8400-e29b-41d4-a716-446655440000",
   "name": { "de": "Wandkonstruktion", "fr": "Construction de mur", "it": "Costruzione del muro", "en": "Wall construction" },
   "system": "eBKP-H",
   "code": "C02"
@@ -420,10 +420,10 @@ Classification codes from multiple systems, with i18n support. Referenced by ele
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `id` | string | ✓ | Unique identifier (e.g., "ebkp-c02", "din276-kg466") |
+| `id` | uuid | ✓ | Unique identifier (UUID v4) |
 | `name` | jsonb | ✓ | Classification name (i18n: de, fr, it, en) |
 | `system` | string | ✓ | Classification system (eBKP-H, DIN276, Uniformat II, KBOB) |
-| `code` | string | ✓ | Classification code within the system |
+| `code` | string | ✓ | Classification code within the system (unique) |
 
 **Supported systems:**
 
@@ -509,7 +509,17 @@ These are stored as JSONB arrays with i18n support:
 
 ## Reference Values
 
-> **Note:** Domains and tags are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
+> **Note:** Domains, tags, and other controlled vocabularies are stored as JSONB with i18n support. The values below are the standard vocabulary managed by administrators.
+
+### Lifecycle Phases — VDI 2552 Blatt 12.2
+
+| Phase | English | German | French | Italian | Description |
+|-------|---------|--------|--------|---------|-------------|
+| 1 | Development | Entwicklung | Développement | Sviluppo | Project development and feasibility |
+| 2 | Planning | Planung | Planification | Progettazione | Basic evaluation through execution planning |
+| 3 | Construction | Realisierung | Réalisation | Realizzazione | Tendering, construction, acceptance |
+| 4 | Operations | Betrieb | Exploitation | Gestione | Operations and maintenance |
+| 5 | Demolition | Abbruch | Déconstruction | Decostruzione | Demolition and deconstruction |
 
 ### element_domain — Discipline Grouping
 
@@ -582,6 +592,30 @@ These are stored as JSONB arrays with i18n support:
 | Gebäudetechnik | Building Services | Heizung, Lüftung, Sanitär, Elektro |
 | Transporte | Transport | LKW, Bahn, Schiff |
 
+### epd_unit — Functional Units (Examples)
+
+Common functional/reference units for EPD data. Not constrained in database.
+
+| Value | Description |
+|-------|-------------|
+| `kg` | Mass (kilogram) |
+| `m²` | Area (square meter) |
+| `m³` | Volume (cubic meter) |
+| `m` | Length (meter) |
+| `kWh` | Energy (kilowatt-hour) |
+| `MJ` | Energy (megajoule) |
+| `Stk` | Piece (Stück) |
+| `tkm` | Transport (tonne-kilometer) |
+
+### classification_system — Classification Standards
+
+| Value | Standard | Description |
+|-------|----------|-------------|
+| `eBKP-H` | SN 506 511:2020 | Swiss cost planning codes (Elementarten-Gliederung) |
+| `DIN276` | DIN 276:2018 | German cost classification (Kostengruppen) |
+| `Uniformat II` | ASTM E1557 | International elemental cost classification |
+| `KBOB` | KBOB | Swiss federal building classification |
+
 ### Tag Values (Anwendungsfeld) — VDI 2552 Blatt 12.2
 
 The tagging system uses a controlled vocabulary derived from VDI 2552 Blatt 12.2 Anhang B1. Tags are stored as JSONB arrays with i18n support:
@@ -622,25 +656,13 @@ Standard tag values:
 
 ---
 
-## Lifecycle Phases — VDI 2552 Blatt 12.2
-
-| Phase | English | German | French | Italian | Description |
-|-------|---------|--------|--------|---------|-------------|
-| 1 | Development | Entwicklung | Développement | Sviluppo | Project development and feasibility |
-| 2 | Planning | Planung | Planification | Progettazione | Basic evaluation through execution planning |
-| 3 | Construction | Realisierung | Réalisation | Realizzazione | Tendering, construction, acceptance |
-| 4 | Operations | Betrieb | Exploitation | Gestione | Operations and maintenance |
-| 5 | Demolition | Abbruch | Déconstruction | Decostruzione | Demolition and deconstruction |
-
----
-
 ## SQL Schema
 
 ```sql
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.1.9
+-- Version: 2.1.11
 -- =============================================================================
 
 -- Note: Domains and tags are stored as JSONB with i18n support.
@@ -811,7 +833,6 @@ CREATE TABLE public.epds (
     updated_at timestamptz NOT NULL DEFAULT now(),
 
     -- Constraints
-    CONSTRAINT epds_unit_valid CHECK (unit IN ('kg', 'm²', 'm³', 'kWh', 'MJ', 'Stk', 'km', 'm', 'tkm')),
     -- Note: GWP can be negative for carbon-sequestering materials (timber, bio-based) per EN 15804
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
     CONSTRAINT epds_penrt_positive CHECK (penrt >= 0),
@@ -1082,6 +1103,8 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.1.11 | 2025-12 | Restructured Reference Values: moved Lifecycle Phases as first subsection; added `epd_unit` and `classification_system` reference tables |
+| 2.1.10 | 2025-12 | Added `Has Code` column to Core Tables; fixed `classifications.code` UK marker in mermaid and UNIQUE constraint in docs; updated Classifications Table JSON example to UUID |
 | 2.1.9 | 2025-12 | Changed all IDs to UUID v4; added `code` field to documents, usecases, and epds for human-readable identifiers; added code indexes |
 | 2.1.8 | 2025-12 | Removed `standards` from usecases; changed "All seven entities" to "All core entities" |
 | 2.1.7 | 2025-12 | Reverted `attributes` and `classifications` to simplified reference tables (id, name, description only); expanded mermaid chart with all entity attributes for verification |
