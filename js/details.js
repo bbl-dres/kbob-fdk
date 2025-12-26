@@ -1072,15 +1072,17 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
 // DETAIL PAGE INTERACTIONS
 // ============================================
 
+// Store reference to sidebar observer for cleanup (prevents memory leaks)
+let sidebarObserver = null;
+
 function setupDetailInteractions() {
-    document.querySelectorAll('.sidebar-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('data-target');
-            const element = document.getElementById(targetId);
-            if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
+    // Sidebar link click handlers are now managed via event delegation in app.js
+
+    // Cleanup previous observer if it exists (prevents memory leaks)
+    if (sidebarObserver) {
+        sidebarObserver.disconnect();
+        sidebarObserver = null;
+    }
 
     setTimeout(() => {
         const sectionHash = window.location.hash.split('#')[2];
@@ -1089,7 +1091,8 @@ function setupDetailInteractions() {
         const sections = document.querySelectorAll('.detail-section');
         const navLinks = document.querySelectorAll('.sticky-nav a');
 
-        const observer = new IntersectionObserver((entries) => {
+        // Create new observer and store reference for cleanup
+        sidebarObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
@@ -1100,6 +1103,6 @@ function setupDetailInteractions() {
             });
         }, { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" });
 
-        sections.forEach(section => observer.observe(section));
+        sections.forEach(section => sidebarObserver.observe(section));
     }, 100);
 }

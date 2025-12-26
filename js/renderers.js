@@ -269,11 +269,18 @@ function renderPhaseBadges(phases) {
 }
 
 /**
- * Refresh Lucide icons (utility to avoid repetition)
+ * Refresh Lucide icons with optional scoping for performance
+ * Skips the call entirely if no unprocessed icons exist in the scope
+ * @param {HTMLElement} container - Optional container to scope icon check (defaults to document)
  */
-function refreshIcons() {
+function refreshIcons(container = null) {
     if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+        const scope = container instanceof HTMLElement ? container : document;
+        // Only call createIcons if there are unprocessed icons (data-lucide still present)
+        const unprocessedIcons = scope.querySelectorAll('[data-lucide]');
+        if (unprocessedIcons.length > 0) {
+            lucide.createIcons();
+        }
     }
 }
 

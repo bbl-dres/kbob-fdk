@@ -122,16 +122,7 @@ function renderHomePage() {
 
     setupGlobalSearch();
     refreshIcons();
-
-    document.querySelectorAll('.quick-card[data-route]').forEach(card => {
-        card.addEventListener('click', (e) => {
-            e.preventDefault();
-            const route = card.dataset.route;
-            if (route) {
-                window.location.hash = route;
-            }
-        });
-    });
+    // Quick-card click handlers are managed via event delegation in app.js
 }
 
 // ============================================
@@ -281,14 +272,12 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
     // Get active phases for usecases
     const activePhases = typeConfig.hasPhases ? getActivePhasesFromURL() : [];
 
-    // Apply filters
+    // Apply filters (data is pre-sorted at load time for performance)
     let filteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
     filteredData = filterDataByTags(filteredData, activeTags);
     if (typeConfig.hasPhases) {
         filteredData = filterDataByPhases(filteredData, activePhases);
     }
-    // Sort by title (A-Z)
-    filteredData = sortDataByTitle(filteredData);
 
     const filterPanelClass = typeConfig.getFilterVisible() ? '' : 'closed';
     const currentView = getActiveViewFromURL();
@@ -341,38 +330,46 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
             </div>
         </div>`;
 
-    // Setup search input handler
+    // Setup search input handler with debouncing for performance
     const searchInput = document.getElementById(pageConfig.searchInputId);
     if (searchInput) {
+        let searchDebounceTimer = null;
+
         searchInput.addEventListener('input', (e) => {
-            document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
-            const searchTerm = e.target.value.toLowerCase();
+            // Clear previous debounce timer
+            clearTimeout(searchDebounceTimer);
 
-            // Apply all filters plus search term
-            let searchFilteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
-            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-            if (typeConfig.hasPhases) {
-                searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
-            }
+            // Debounce search for 200ms to avoid excessive re-renders
+            searchDebounceTimer = setTimeout(() => {
+                document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+                const searchTerm = e.target.value.toLowerCase();
 
-            // Filter by search term using configured search fields
-            searchFilteredData = searchFilteredData.filter(item =>
-                typeConfig.searchFields.some(field =>
-                    item[field] && item[field].toLowerCase().includes(searchTerm)
-                )
-            );
-            // Sort by title (A-Z)
-            searchFilteredData = sortDataByTitle(searchFilteredData);
+                // Apply all filters plus search term
+                let searchFilteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
+                searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
+                if (typeConfig.hasPhases) {
+                    searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
+                }
 
-            const container = document.getElementById(pageConfig.contentId);
-            const isGridView = getActiveViewFromURL() === 'grid';
-            container.innerHTML = isGridView
-                ? `<div class="element-grid">${renderGenericGridItems(type, searchFilteredData, activeTags, activeCategory)}</div>`
-                : renderGenericListItems(type, searchFilteredData, activeTags, activeCategory);
-            refreshIcons();
-            if (isGridView && typeof fitAllCardTagsToSingleRow === 'function') {
-                fitAllCardTagsToSingleRow();
-            }
+                // Filter by search term using configured search fields
+                if (searchTerm) {
+                    searchFilteredData = searchFilteredData.filter(item =>
+                        typeConfig.searchFields.some(field =>
+                            item[field] && item[field].toLowerCase().includes(searchTerm)
+                        )
+                    );
+                }
+
+                const container = document.getElementById(pageConfig.contentId);
+                const isGridView = getActiveViewFromURL() === 'grid';
+                container.innerHTML = isGridView
+                    ? `<div class="element-grid">${renderGenericGridItems(type, searchFilteredData, activeTags, activeCategory)}</div>`
+                    : renderGenericListItems(type, searchFilteredData, activeTags, activeCategory);
+                refreshIcons(container);
+                if (isGridView && typeof fitAllCardTagsToSingleRow === 'function') {
+                    fitAllCardTagsToSingleRow();
+                }
+            }, 200);
         });
     }
 

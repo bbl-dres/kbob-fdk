@@ -33,6 +33,43 @@ let globalModelsData = [];
 let globalEpdsData = [];
 let isDataLoaded = false;
 
+// --- DATA INDEX MAPS (for O(1) lookups) ---
+const dataIndexMaps = {
+    elements: new Map(),
+    documents: new Map(),
+    usecases: new Map(),
+    models: new Map(),
+    epds: new Map()
+};
+
+/**
+ * Build index maps for fast O(1) lookups by ID
+ * Called after data is loaded
+ */
+function buildDataIndexMaps() {
+    dataIndexMaps.elements.clear();
+    dataIndexMaps.documents.clear();
+    dataIndexMaps.usecases.clear();
+    dataIndexMaps.models.clear();
+    dataIndexMaps.epds.clear();
+
+    globalElementsData.forEach(item => dataIndexMaps.elements.set(item.id, item));
+    globalDocumentsData.forEach(item => dataIndexMaps.documents.set(item.id, item));
+    globalUsecasesData.forEach(item => dataIndexMaps.usecases.set(item.id, item));
+    globalModelsData.forEach(item => dataIndexMaps.models.set(item.id, item));
+    globalEpdsData.forEach(item => dataIndexMaps.epds.set(item.id, item));
+}
+
+/**
+ * Get item by ID using O(1) Map lookup
+ * @param {string} type - Data type (elements, documents, usecases, models, epds)
+ * @param {string} id - Item ID
+ * @returns {Object|undefined} The item or undefined if not found
+ */
+function getItemById(type, id) {
+    return dataIndexMaps[type]?.get(id);
+}
+
 // --- FILTER VISIBILITY STATES ---
 let elementsFilterVisible = false;
 let documentsFilterVisible = false;

@@ -3,13 +3,37 @@
  * URL parsing and building functions
  */
 
+// --- URL PARSING CACHE ---
+// Cache parsed URL params to avoid redundant parsing
+let cachedHashParams = null;
+let cachedHash = null;
+
+/**
+ * Clear the URL parsing cache (called on hash change)
+ */
+function clearUrlCache() {
+    cachedHash = null;
+    cachedHashParams = null;
+}
+
+// Clear cache when hash changes
+window.addEventListener('hashchange', clearUrlCache);
+
 /**
  * Parse the current hash and extract route, id, and parameters
+ * Results are cached until the hash changes
  * @returns {Object} { route, id, tags, phases, searchQuery, category, view }
  */
 function parseHashWithParams() {
+    const currentHash = window.location.hash;
+
+    // Return cached result if hash hasn't changed
+    if (cachedHash === currentHash && cachedHashParams) {
+        return cachedHashParams;
+    }
+
     // Remove # and any leading slash (e.g., #/api-docs -> api-docs)
-    let fullHash = window.location.hash.slice(1) || 'home';
+    let fullHash = currentHash.slice(1) || 'home';
     if (fullHash.startsWith('/')) {
         fullHash = fullHash.slice(1);
     }
@@ -72,7 +96,10 @@ function parseHashWithParams() {
         }
     }
 
-    return { route, id, tags, phases, searchQuery, category, view };
+    // Cache and return the result
+    cachedHashParams = { route, id, tags, phases, searchQuery, category, view };
+    cachedHash = currentHash;
+    return cachedHashParams;
 }
 
 /**

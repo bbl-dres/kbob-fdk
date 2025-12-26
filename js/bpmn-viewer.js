@@ -3,68 +3,47 @@
  * Handles loading and rendering BPMN diagrams from local files
  */
 
-// Cache for BPMN file list (to avoid multiple fetches)
-let bpmnFileListCache = null;
+// Map for O(1) BPMN file lookups by usecase ID
+const bpmnFileMap = new Map([
+    ['uc000', 'assets/bpmn/uc000-minimalstandard.bpmn'],
+    ['uc010', 'assets/bpmn/uc010-bestandserfassung.bpmn'],
+    ['uc020', 'assets/bpmn/uc020-bedarfsplanung.bpmn'],
+    ['uc030', 'assets/bpmn/uc030-planungsvarianten.bpmn'],
+    ['uc040', 'assets/bpmn/uc040-visualisierung.bpmn'],
+    ['uc050', 'assets/bpmn/uc050-koordination_der_fachgewerke.bpmn'],
+    ['uc060', 'assets/bpmn/uc060-qualit_tspr_fung.bpmn'],
+    ['uc070', 'assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn'],
+    ['uc080', 'assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn'],
+    ['uc090', 'assets/bpmn/uc090-genehmigungsprozess.bpmn'],
+    ['uc100', 'assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn'],
+    ['uc110', 'assets/bpmn/uc110-leistungsverzeichnis_und_ausschreibung.bpmn'],
+    ['uc120', 'assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn'],
+    ['uc130', 'assets/bpmn/uc130-logistikplanung.bpmn'],
+    ['uc140', 'assets/bpmn/uc140-baufortschrittskontrolle.bpmn'],
+    ['uc150', 'assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn'],
+    ['uc160', 'assets/bpmn/uc160-abrechnung_von_bauleistungen.bpmn'],
+    ['uc170', 'assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn'],
+    ['uc180', 'assets/bpmn/uc180-inbetriebnahmemanagement.bpmn'],
+    ['uc190', 'assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn'],
+    ['uc200', 'assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn'],
+    ['uc210', 'assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn'],
+    ['uc220', 'assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn'],
+    ['uc230', 'assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn'],
+    ['uc240', 'assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn'],
+    ['uc250', 'assets/bpmn/uc250-energiemanagement.bpmn'],
+    ['uc260', 'assets/bpmn/uc260-betreiberverantwortung.bpmn'],
+    ['uc270', 'assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn'],
+    ['uc280', 'assets/bpmn/uc280-r_ckbauplanung.bpmn'],
+    ['uc290', 'assets/bpmn/uc290-bauteilb_rse_und_wiederverwendung.bpmn']
+]);
 
 /**
- * Get list of available BPMN files
- * @returns {Promise<string[]>} Array of BPMN filenames
- */
-async function getBpmnFileList() {
-    if (bpmnFileListCache) {
-        return bpmnFileListCache;
-    }
-
-    // Hardcoded list of BPMN files (since we can't list directory contents from browser)
-    bpmnFileListCache = [
-        'uc000-minimalstandard.bpmn',
-        'uc010-bestandserfassung.bpmn',
-        'uc020-bedarfsplanung.bpmn',
-        'uc030-planungsvarianten.bpmn',
-        'uc040-visualisierung.bpmn',
-        'uc050-koordination_der_fachgewerke.bpmn',
-        'uc060-qualit_tspr_fung.bpmn',
-        'uc070-bemessung_und_nachweisf_hrung.bpmn',
-        'uc080-ableitung_von_planunterlagen.bpmn',
-        'uc090-genehmigungsprozess.bpmn',
-        'uc100-mengen__und_kostenermittlung.bpmn',
-        'uc110-leistungsverzeichnis_und_ausschreibung.bpmn',
-        'uc120-terminplanung_der_ausf_hrung.bpmn',
-        'uc130-logistikplanung.bpmn',
-        'uc140-baufortschrittskontrolle.bpmn',
-        'uc150-_nderungs__und_nachtragsmanagement.bpmn',
-        'uc160-abrechnung_von_bauleistungen.bpmn',
-        'uc170-abnahme__und_m_ngelmanagement.bpmn',
-        'uc180-inbetriebnahmemanagement.bpmn',
-        'uc190-projekt__und_bauwerksdokumentation.bpmn',
-        'uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn',
-        'uc210-gew_hrleistungsmanagement.bpmn',
-        'uc220-wartungs__und_inspektionsmanagement.bpmn',
-        'uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn',
-        'uc240-fl_chen__und_raumbelegungsmanagement.bpmn',
-        'uc250-energiemanagement.bpmn',
-        'uc260-betreiberverantwortung.bpmn',
-        'uc270-nachhaltigkeitsnachweise.bpmn',
-        'uc280-r_ckbauplanung.bpmn',
-        'uc290-bauteilb_rse_und_wiederverwendung.bpmn'
-    ];
-
-    return bpmnFileListCache;
-}
-
-/**
- * Find BPMN file path for a given usecase ID
+ * Find BPMN file path for a given usecase ID using O(1) Map lookup
  * @param {string} usecaseId - The usecase ID (e.g., 'uc000')
- * @returns {Promise<string|null>} The file path or null if not found
+ * @returns {string|null} The file path or null if not found
  */
-async function findBpmnFileForUsecase(usecaseId) {
-    const files = await getBpmnFileList();
-    const matchingFile = files.find(file => file.startsWith(usecaseId + '-'));
-
-    if (matchingFile) {
-        return `assets/bpmn/${matchingFile}`;
-    }
-    return null;
+function findBpmnFileForUsecase(usecaseId) {
+    return bpmnFileMap.get(usecaseId) || null;
 }
 
 /**
@@ -105,8 +84,8 @@ async function renderBpmnDiagram(containerId, usecaseId) {
     }
 
     try {
-        // Find the BPMN file for this usecase
-        const filePath = await findBpmnFileForUsecase(usecaseId);
+        // Find the BPMN file for this usecase (O(1) Map lookup)
+        const filePath = findBpmnFileForUsecase(usecaseId);
         if (!filePath) {
             container.innerHTML = `
                 <div class="bpmn-error">

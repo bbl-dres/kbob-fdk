@@ -34,23 +34,20 @@ function router() {
         link.classList.toggle('active', isActive);
     });
 
-    // Update breadcrumbs
+    // Update breadcrumbs - use O(1) Map lookup instead of .find()
     let itemTitle = null;
     if (id) {
-        if (route === 'element') {
-            const item = globalElementsData.find(e => e.id === id);
-            itemTitle = item ? item.title : null;
-        } else if (route === 'document') {
-            const item = globalDocumentsData.find(d => d.id === id);
-            itemTitle = item ? item.title : null;
-        } else if (route === 'usecase') {
-            const item = globalUsecasesData.find(u => u.id === id);
-            itemTitle = item ? item.title : null;
-        } else if (route === 'model') {
-            const item = globalModelsData.find(m => m.id === id);
-            itemTitle = item ? item.title : null;
-        } else if (route === 'epd') {
-            const item = globalEpdsData.find(e => e.id === id);
+        // Map route names to data index types
+        const routeToType = {
+            'element': 'elements',
+            'document': 'documents',
+            'usecase': 'usecases',
+            'model': 'models',
+            'epd': 'epds'
+        };
+        const dataType = routeToType[route];
+        if (dataType) {
+            const item = getItemById(dataType, id);
             itemTitle = item ? item.title : null;
         }
     }

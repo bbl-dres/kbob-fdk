@@ -56,12 +56,15 @@ async function initApp() {
             console.log('Data loaded from JSON files successfully');
         }
 
-        // Assign to global variables
-        globalElementsData = data.elements;
-        globalDocumentsData = data.documents;
-        globalUsecasesData = data.usecases;
-        globalModelsData = data.models;
-        globalEpdsData = data.epds;
+        // Assign to global variables and sort once at load time (performance optimization)
+        globalElementsData = sortDataByTitle(data.elements);
+        globalDocumentsData = sortDataByTitle(data.documents);
+        globalUsecasesData = sortDataByTitle(data.usecases);
+        globalModelsData = sortDataByTitle(data.models);
+        globalEpdsData = sortDataByTitle(data.epds);
+
+        // Build index maps for O(1) lookups (performance optimization)
+        buildDataIndexMaps();
 
         isDataLoaded = true;
 
@@ -87,18 +90,51 @@ async function initApp() {
 }
 
 /**
- * Setup nav links to preserve tags when switching tabs
+ * Setup global event delegation for navigation and interactive elements
+ * Uses event delegation to avoid attaching listeners to each element (performance + memory)
  */
-function setupNavLinks() {
-    document.querySelectorAll('.main-nav .nav-link:not(.disabled)').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const route = link.getAttribute('data-route');
+function setupEventDelegation() {
+    document.addEventListener('click', (e) => {
+        // Handle nav links with data-route attribute
+        const navLink = e.target.closest('.main-nav .nav-link:not(.disabled)');
+        if (navLink) {
+            const route = navLink.getAttribute('data-route');
             if (route) {
                 e.preventDefault();
                 navigateWithTags(route);
             }
-        });
+            return;
+        }
+
+        // Handle quick cards on home page
+        const quickCard = e.target.closest('.quick-card[data-route]');
+        if (quickCard) {
+            e.preventDefault();
+            window.location.hash = quickCard.dataset.route;
+            return;
+        }
+
+        // Handle sidebar links on detail pages
+        const sidebarLink = e.target.closest('.sidebar-link[data-target]');
+        if (sidebarLink) {
+            e.preventDefault();
+            const targetId = sidebarLink.getAttribute('data-target');
+            const element = document.getElementById(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            return;
+        }
     });
+}
+
+/**
+ * Setup nav links to preserve tags when switching tabs
+ * @deprecated Use setupEventDelegation instead - kept for backwards compatibility
+ */
+function setupNavLinks() {
+    // Now handled by event delegation in setupEventDelegation()
+    // This function is kept empty for backwards compatibility
 }
 
 /**
@@ -109,6 +145,10 @@ window.addEventListener('DOMContentLoaded', () => {
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    // Setup global event delegation (once, at startup)
+    setupEventDelegation();
+
     initLanguageDropdown();
     initApp();
 });

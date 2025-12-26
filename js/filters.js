@@ -61,6 +61,40 @@ function renderFilterBarHeader(activeTags, activeCategory = '') {
 }
 
 /**
+ * Calculate category and tag counts in a single pass (O(n) instead of O(n*m))
+ * @param {Array} data - Array of data items
+ * @returns {Object} { categories, tags, categoryCounts, tagCounts }
+ */
+function calculateFilterCounts(data) {
+    const categoryCounts = {};
+    const tagCounts = {};
+    const categoriesSet = new Set();
+    const tagsSet = new Set();
+
+    data.forEach(item => {
+        // Count and collect categories
+        if (item.category) {
+            categoriesSet.add(item.category);
+            categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
+        }
+        // Count and collect tags
+        if (item.tags && Array.isArray(item.tags)) {
+            item.tags.forEach(tag => {
+                tagsSet.add(tag);
+                tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+            });
+        }
+    });
+
+    return {
+        categories: Array.from(categoriesSet).sort(),
+        tags: Array.from(tagsSet).sort(),
+        categoryCounts,
+        tagCounts
+    };
+}
+
+/**
  * Render complete filter bar with category and tags dropdowns
  * @param {Object} options - Configuration options
  * @returns {string} HTML string for the filter bar
@@ -75,20 +109,8 @@ function renderFilterBar(options) {
         filterPanelClass = ''
     } = options;
 
-    const categories = getUniqueCategories(data);
-    const tags = getUniqueTags(data);
-
-    // Count items per category
-    const categoryCounts = {};
-    categories.forEach(cat => {
-        categoryCounts[cat] = data.filter(item => item.category === cat).length;
-    });
-
-    // Count items per tag
-    const tagCounts = {};
-    tags.forEach(tag => {
-        tagCounts[tag] = data.filter(item => item.tags && item.tags.includes(tag)).length;
-    });
+    // Calculate all counts in a single pass (O(n) instead of O(n*m))
+    const { categories, tags, categoryCounts, tagCounts } = calculateFilterCounts(data);
 
     // Render category dropdown items
     const categoryItemsHtml = categories.map(cat => {
