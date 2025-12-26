@@ -16,7 +16,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc000-minimalstandard.bpmn",
     "examples": [],
     "standards": [
       "SIA 2051",
@@ -109,7 +109,7 @@
       2,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/35189a2c-3f54-4c91-b6e3-42e534efdead",
+    "process_url": "assets/bpmn/uc010-bestandserfassung.bpmn",
     "examples": [],
     "standards": [
       "SIA 405",
@@ -200,7 +200,7 @@
     "phases": [
       1
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc020-bedarfsplanung.bpmn",
     "examples": [],
     "standards": [
       "SIA 416",
@@ -293,7 +293,7 @@
       1,
       2
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc030-planungsvarianten.bpmn",
     "examples": [],
     "standards": [
       "SIA 112",
@@ -387,7 +387,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc040-visualisierung.bpmn",
     "examples": [],
     "standards": [],
     "goals": [
@@ -551,7 +551,7 @@
         ]
       }
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc050-koordination_der_fachgewerke.bpmn",
     "examples": [],
     "standards": [
       "ISO 19650",
@@ -575,7 +575,7 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc060-qualit_tspr_fung.bpmn",
     "examples": [],
     "standards": [
       "ISO 19650",
@@ -667,7 +667,7 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn",
     "examples": [],
     "standards": [
       "SIA 380/1",
@@ -761,7 +761,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn",
     "examples": [],
     "standards": [
       "SIA 400",
@@ -850,7 +850,7 @@
     "phases": [
       2
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc090-genehmigungsprozess.bpmn",
     "examples": [],
     "standards": [
       "RPG",
@@ -1031,7 +1031,7 @@
         "informed": []
       }
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn",
     "examples": [],
     "standards": [
       "eBKP-H",
@@ -1055,7 +1055,7 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc110-leistungsverzeichnis_und_ausschreibung.bpmn",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1147,7 +1147,7 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1238,7 +1238,7 @@
       2,
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc130-logistikplanung.bpmn",
     "examples": [],
     "standards": [
       "SUVA",
@@ -1330,7 +1330,7 @@
     "phases": [
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc140-baufortschrittskontrolle.bpmn",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1420,7 +1420,7 @@
     "phases": [
       3
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1510,7 +1510,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc160-abrechnung_von_bauleistungen.bpmn",
     "examples": [],
     "standards": [
       "SIA 118"
@@ -1600,7 +1600,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1691,7 +1691,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc180-inbetriebnahmemanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -1861,7 +1861,7 @@
         ]
       }
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn",
     "examples": [],
     "standards": [
       "KBOB BWD-Richtlinie",
@@ -1883,7 +1883,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn",
     "examples": [],
     "standards": [
       "GEFMA 922",
@@ -1972,7 +1972,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 118",
@@ -2060,7 +2060,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 469",
@@ -2149,7 +2149,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 469",
@@ -2238,7 +2238,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn",
     "examples": [],
     "standards": [
       "SIA 416",
@@ -2327,7 +2327,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc250-energiemanagement.bpmn",
     "examples": [],
     "standards": [
       "ISO 50001",
@@ -2418,7 +2418,7 @@
     "phases": [
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc260-betreiberverantwortung.bpmn",
     "examples": [],
     "standards": [
       "GEFMA 190",
@@ -2509,7 +2509,7 @@
       3,
       4
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn",
     "examples": [],
     "standards": [
       "SNBS",
@@ -2601,7 +2601,7 @@
     "phases": [
       5
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc280-r_ckbauplanung.bpmn",
     "examples": [],
     "standards": [
       "VVEA",
@@ -2689,7 +2689,7 @@
     "phases": [
       5
     ],
-    "process_url": "https://modeler.camunda.io/embed/08a56470-9848-4980-b498-7280c02a4d52",
+    "process_url": "assets/bpmn/uc290-bauteilb_rse_und_wiederverwendung.bpmn",
     "examples": [],
     "standards": [
       "VVEA",

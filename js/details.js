@@ -485,8 +485,10 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const safeTitle = escapeHtml(data.title || '');
     const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
-    // Check if BPMN file exists for this usecase (will be loaded dynamically)
-    const hasBpmnFile = true; // Assume true, actual check happens during render
+
+    // Check if process_url exists in the data (data-driven BPMN path)
+    const processUrl = data.process_url || '';
+    const hasProcess = !!processUrl;
 
     const backLink = buildHashWithTags('usecases', activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -500,7 +502,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     const hasPracticeExample = hasData(data.practiceExample);
     const hasQualityCriteria = hasData(data.qualityCriteria);
     const hasRoles = hasData(data.roles);
-    const hasProcess = hasBpmnFile;
 
     // Build sidebar with group labels
     let sidebarHtml = '';
@@ -756,9 +757,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     setupDetailInteractions();
 
-    // Initialize BPMN viewer if process section exists
+    // Initialize BPMN viewer if process section exists (using data-driven process_url)
     if (hasProcess && typeof renderBpmnDiagram === 'function') {
-        renderBpmnDiagram(`bpmn-viewer-${data.id}`, data.id);
+        renderBpmnDiagram(`bpmn-viewer-${data.id}`, processUrl, data.id);
     }
 }
 
