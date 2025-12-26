@@ -1,8 +1,8 @@
 # KBOB Fachdatenkatalog – Database Schema
 
-> **Repository:** [kbob-fdk](https://github.com/davras5/kbob-fdk)  
-> **Database:** PostgreSQL on Supabase  
-> **Schema Version:** 2.2.0  
+> **Repository:** [kbob-fdk](https://github.com/davras5/kbob-fdk)
+> **Database:** PostgreSQL on Supabase
+> **Schema Version:** 2.3.0  
 
 ---
 
@@ -42,6 +42,7 @@ Interactive catalog for BIM requirements, classifications, and information speci
 | `/rest/v1/epds` | Environmental product data |
 | `/rest/v1/attributes` | Reusable property definitions |
 | `/rest/v1/classifications` | Classification codes |
+| `/rest/v1/tags` | Anwendungsfeld keywords |
 
 ---
 
@@ -58,6 +59,7 @@ Interactive catalog for BIM requirements, classifications, and information speci
 | `epds` | Reference | Environmental impact data (KBOB Ökobilanzdaten) | – | ✓ |
 | `attributes` | Reference | Reusable property definitions (LOI) | – | – |
 | `classifications` | Reference | Classification codes (eBKP-H, DIN 276, etc.) | – | ✓ |
+| `tags` | Reference | Anwendungsfeld keywords per VDI 2552 Blatt 12.2 | – | ✓ |
 
 > **Core vs Reference:** Core entities represent project deliverables with lifecycle phases. Reference entities are phase-neutral lookup data; phase applicability is defined in the relationship.
 
@@ -70,14 +72,20 @@ erDiagram
     elements ||--o{ attributes : "related_attributes"
     elements ||--o{ classifications : "related_classifications"
     elements ||--o{ usecases : "related_usecases"
-    
+    elements ||--o{ tags : "related_tags"
+
     documents ||--o{ elements : "related_elements"
     documents ||--o{ classifications : "related_classifications"
-    
+    documents ||--o{ tags : "related_tags"
+
     usecases ||--o{ elements : "related_elements"
     usecases ||--o{ documents : "related_documents"
-    
+    usecases ||--o{ tags : "related_tags"
+
     models ||--o{ elements : "related_elements"
+    models ||--o{ tags : "related_tags"
+
+    epds ||--o{ tags : "related_tags"
 
     elements {
         uuid id PK
@@ -139,6 +147,12 @@ erDiagram
         text code
         jsonb name
     }
+
+    tags {
+        uuid id PK
+        text code UK
+        jsonb name
+    }
 ```
 
 ---
@@ -156,12 +170,12 @@ All core entities share these attributes for identification, versioning, and dis
 | `image` | `text` | | URL or path to visual representation |
 | `domain` | `jsonb` | ✓ | Primary grouping with i18n |
 | `description` | `jsonb` | | Detailed explanation with i18n |
-| `tags` | `jsonb` | ✓ | Anwendungsfeld keywords as i18n array (default: `[]`) |
+| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` (default: `[]`) |
 | `phases` | `integer[]` | | Applicable lifecycle phases: 1–5 (core entities only) |
 | `created_at` | `timestamptz` | ✓ | Record creation timestamp (auto-set) |
 | `updated_at` | `timestamptz` | ✓ | Record modification timestamp (auto-updated) |
 
-> **Reference entities** (`attributes`, `classifications`) use a simplified subset: `id`, `name`, `description`, `created_at`, `updated_at`.
+> **Reference entities** (`attributes`, `classifications`, `tags`) use a simplified subset: `id`, `name`, `description`, `created_at`, `updated_at`.
 
 ### Internationalization (i18n)
 
@@ -170,24 +184,11 @@ All user-facing text fields use JSONB with language keys:
 ```json
 {
   "de": "Aussenwand",
-  "fr": "Mur extérieur", 
+  "fr": "Mur extérieur",
   "it": "Parete esterna",
   "en": "External wall"
 }
 ```
-
-### Tags Structure
-
-Tags are stored as an array of i18n objects to maintain 1:1 correspondence between translations:
-
-```json
-[
-  {"de": "Koordination", "fr": "Coordination", "it": "Coordinamento", "en": "Coordination"},
-  {"de": "Dokumentation", "fr": "Documentation", "it": "Documentazione", "en": "Documentation"}
-]
-```
-
-> **Trade-off:** This structure requires `EXISTS` subqueries for filtering but ensures translation consistency. A flattened structure (`{"de": [...], "fr": [...]}`) would enable faster GIN queries if filtering performance becomes critical.
 
 ---
 
@@ -206,6 +207,7 @@ Physical building components with geometry (LOG) requirements.
 | `related_attributes` | `jsonb` | ✓ | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `related_classifications` | `jsonb` | ✓ | Links to classifications: `[{"id": "<uuid>"}]` |
 | `related_usecases` | `jsonb` | ✓ | Links to usecases: `[{"id": "<uuid>"}]` |
+| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -222,6 +224,7 @@ Project documentation types with format requirements and retention policies per 
 | `retention` | `integer` | | Retention period in years (see note below) |
 | `related_elements` | `jsonb` | ✓ | Links to elements: `[{"id": "<uuid>"}]` |
 | `related_classifications` | `jsonb` | ✓ | Links to classifications: `[{"id": "<uuid>"}]` |
+| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
 
 **Retention semantics:**
 - `0` = retain indefinitely
@@ -249,6 +252,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `related_elements` | `jsonb` | ✓ | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | ✓ | Required documents: `[{"id": "<uuid>", "required": true}]` |
+| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
 
 **Domain values:** See §7.5 (22 Anwendungsfeld values per VDI 2552 Blatt 12.2)
 
@@ -262,6 +266,7 @@ BIM model types including discipline models, coordination models, and special-pu
 |--------|------|:--------:|-------------|
 | `code` | `text` | ✓ | Unique human-readable code (e.g., arch-01, coord-01) |
 | `related_elements` | `jsonb` | ✓ | Element types in model: `[{"id": "<uuid>", "phases": [2,3,4]}]` |
+| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -283,6 +288,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `pert` | `numeric(12,4)` | ✓ | `>= 0` | Primary Energy Renewable Total (MJ) |
 | `density` | `text` | | | Material density (display only) |
 | `biogenic_carbon` | `numeric(12,6)` | | | Biogenic carbon content (kg C) |
+| `related_tags` | `jsonb` | ✓ | `[]` | Links to tags: `[{"id": "<uuid>"}]` |
 
 > **GWP can be negative** for carbon-sequestering materials (timber, bio-based) per EN 15804.
 
@@ -326,6 +332,20 @@ Classification codes from multiple systems.
 
 ---
 
+### 4.8 tags
+
+Anwendungsfeld keywords per VDI 2552 Blatt 12.2. Used for filtering and categorizing entities across the catalog.
+
+| Column | Type | Required | Constraints | Description |
+|--------|------|:--------:|-------------|-------------|
+| `code` | `text` | ✓ | `UNIQUE` | Machine-readable code (e.g., `koordination`, `dokumentation`) |
+
+**Supported codes:** See §7.5 for the complete list of 22 Anwendungsfeld values.
+
+> **Design rationale:** By normalizing tags into a reference table, translations are managed centrally. Adding or correcting a translation only requires updating one record instead of every entity that uses the tag.
+
+---
+
 ## 5. Relationships
 
 ### Overview
@@ -339,11 +359,16 @@ Relationships between entities are stored as JSONB arrays on the parent entity, 
 | `elements` | `related_attributes` | attributes | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `elements` | `related_classifications` | classifications | `[{"id": "<uuid>"}]` |
 | `elements` | `related_usecases` | usecases | `[{"id": "<uuid>"}]` |
+| `elements` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
 | `documents` | `related_elements` | elements | `[{"id": "<uuid>"}]` |
 | `documents` | `related_classifications` | classifications | `[{"id": "<uuid>"}]` |
+| `documents` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
 | `usecases` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3]}]` |
 | `usecases` | `related_documents` | documents | `[{"id": "<uuid>", "required": true}]` |
+| `usecases` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
 | `models` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3,4]}]` |
+| `models` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
+| `epds` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
 
 ### Bidirectional Relationships
 
@@ -564,34 +589,36 @@ Per KBOB/IPB Dokumenttypenkatalog:
 
 ---
 
-### 7.5 Use Case Domains / Tags (Anwendungsfeld)
+### 7.5 Tags Reference Table Values (Anwendungsfeld)
 
-Per VDI 2552 Blatt 12.2 Anhang B1 — used for both `usecases.domain` and `tags` across all entities:
+Per VDI 2552 Blatt 12.2 Anhang B1 — stored in the `tags` reference table, referenced via `related_tags` by all core entities:
 
-| DE | EN |
-|----|----|
-| Abnahme | Acceptance |
-| Änderungsmanagement | Change Management |
-| Ausschreibung und Vergabe | Tendering and Procurement |
-| Bedarfsplanung | Requirements Planning |
-| Bestandserfassung | Asset Capture |
-| Betrieb | Operations |
-| Dokumentation | Documentation |
-| Genehmigung | Approval |
-| Inbetriebnahme | Commissioning |
-| Koordination | Coordination |
-| Kosten | Costs |
-| Logistik | Logistics |
-| Machbarkeit | Feasibility |
-| Nachhaltigkeit | Sustainability |
-| Nachweise | Verification |
-| Qualitätssicherung | Quality Assurance |
-| Risikomanagement | Risk Management |
-| Termine | Scheduling |
-| Variantenvergleich | Variant Comparison |
-| Versicherung | Insurance |
-| Visualisierung | Visualization |
-| Sonstiges | Other |
+| Code | DE | EN |
+|------|----|----|
+| `abnahme` | Abnahme | Acceptance |
+| `aenderungsmanagement` | Änderungsmanagement | Change Management |
+| `ausschreibung` | Ausschreibung und Vergabe | Tendering and Procurement |
+| `bedarfsplanung` | Bedarfsplanung | Requirements Planning |
+| `bestandserfassung` | Bestandserfassung | Asset Capture |
+| `betrieb` | Betrieb | Operations |
+| `dokumentation` | Dokumentation | Documentation |
+| `genehmigung` | Genehmigung | Approval |
+| `inbetriebnahme` | Inbetriebnahme | Commissioning |
+| `koordination` | Koordination | Coordination |
+| `kosten` | Kosten | Costs |
+| `logistik` | Logistik | Logistics |
+| `machbarkeit` | Machbarkeit | Feasibility |
+| `nachhaltigkeit` | Nachhaltigkeit | Sustainability |
+| `nachweise` | Nachweise | Verification |
+| `qualitaetssicherung` | Qualitätssicherung | Quality Assurance |
+| `risikomanagement` | Risikomanagement | Risk Management |
+| `termine` | Termine | Scheduling |
+| `variantenvergleich` | Variantenvergleich | Variant Comparison |
+| `versicherung` | Versicherung | Insurance |
+| `visualisierung` | Visualisierung | Visualization |
+| `sonstiges` | Sonstiges | Other |
+
+> **Note:** The `usecases.domain` field also uses these values (as i18n objects), providing the primary Anwendungsfeld for a use case.
 
 ---
 
@@ -666,17 +693,29 @@ WHERE related_documents @> '[{"id": "document-uuid-here"}]';
 ### Tag Filtering
 
 ```sql
--- Find elements with tag "Koordination" (German)
+-- Find elements with a specific tag by UUID (uses GIN index)
 SELECT * FROM elements
-WHERE EXISTS (
-  SELECT 1 FROM jsonb_array_elements(tags) t 
-  WHERE t->>'de' = 'Koordination'
+WHERE related_tags @> '[{"id": "tag-uuid-here"}]';
+
+-- Find elements with tag "koordination" by code (join approach)
+SELECT e.* FROM elements e
+WHERE related_tags @> (
+  SELECT jsonb_build_array(jsonb_build_object('id', id::text))
+  FROM tags WHERE code = 'koordination'
 );
 
--- Find elements with multiple tags
-SELECT * FROM elements
-WHERE EXISTS (SELECT 1 FROM jsonb_array_elements(tags) t WHERE t->>'de' = 'Koordination')
-  AND EXISTS (SELECT 1 FROM jsonb_array_elements(tags) t WHERE t->>'de' = 'Dokumentation');
+-- Find elements with multiple tags (both must be present)
+SELECT e.* FROM elements e
+WHERE related_tags @> '[{"id": "tag-uuid-1"}]'
+  AND related_tags @> '[{"id": "tag-uuid-2"}]';
+
+-- List all tags for an element with their translations
+SELECT t.code, t.name->>'de' AS name_de, t.name->>'en' AS name_en
+FROM tags t
+WHERE t.id::text IN (
+  SELECT ref->>'id' FROM elements e, jsonb_array_elements(e.related_tags) ref
+  WHERE e.id = '550e8400-e29b-41d4-a716-446655440000'
+);
 ```
 
 ### Cross-Entity Queries
@@ -705,7 +744,7 @@ WHERE u.phases @> ARRAY[2];
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.2.0
+-- Version: 2.3.0
 -- =============================================================================
 
 -- -----------------------------------------------------------------------------
@@ -721,7 +760,6 @@ CREATE TABLE public.elements (
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
     geometry jsonb NOT NULL DEFAULT '[]',
     tool_elements jsonb NOT NULL DEFAULT '[]',
@@ -730,6 +768,7 @@ CREATE TABLE public.elements (
     related_attributes jsonb NOT NULL DEFAULT '[]',
     related_classifications jsonb NOT NULL DEFAULT '[]',
     related_usecases jsonb NOT NULL DEFAULT '[]',
+    related_tags jsonb NOT NULL DEFAULT '[]',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -744,13 +783,13 @@ CREATE TABLE public.documents (
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
     code text NOT NULL UNIQUE,
     formats text[] NOT NULL,
     retention integer,
     related_elements jsonb NOT NULL DEFAULT '[]',
     related_classifications jsonb NOT NULL DEFAULT '[]',
+    related_tags jsonb NOT NULL DEFAULT '[]',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
@@ -766,7 +805,6 @@ CREATE TABLE public.usecases (
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
     code text NOT NULL UNIQUE,
     goals jsonb NOT NULL DEFAULT '[]',
@@ -779,6 +817,7 @@ CREATE TABLE public.usecases (
     process_url text,
     related_elements jsonb NOT NULL DEFAULT '[]',
     related_documents jsonb NOT NULL DEFAULT '[]',
+    related_tags jsonb NOT NULL DEFAULT '[]',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -793,10 +832,10 @@ CREATE TABLE public.models (
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
     phases integer[],
     code text NOT NULL UNIQUE,
     related_elements jsonb NOT NULL DEFAULT '[]',
+    related_tags jsonb NOT NULL DEFAULT '[]',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -815,7 +854,6 @@ CREATE TABLE public.epds (
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    tags jsonb NOT NULL DEFAULT '[]',
     code text NOT NULL UNIQUE,
     unit text NOT NULL,
     gwp numeric(12,4) NOT NULL,
@@ -824,6 +862,7 @@ CREATE TABLE public.epds (
     pert numeric(12,4) NOT NULL,
     density text,
     biogenic_carbon numeric(12,6),
+    related_tags jsonb NOT NULL DEFAULT '[]',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
@@ -857,6 +896,16 @@ CREATE TABLE public.classifications (
     CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
     CONSTRAINT classifications_system_code_unique UNIQUE (system, code)
 );
+
+-- TAGS: Anwendungsfeld keywords per VDI 2552 Blatt 12.2
+CREATE TABLE public.tags (
+    id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    name jsonb NOT NULL,
+    description jsonb,
+    code text NOT NULL UNIQUE,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now()
+);
 ```
 
 ### Indexes
@@ -874,6 +923,7 @@ CREATE INDEX models_name_de_idx ON models USING gin(to_tsvector('german', name->
 CREATE INDEX epds_name_de_idx ON epds USING gin(to_tsvector('german', name->>'de'));
 CREATE INDEX attributes_name_de_idx ON attributes USING gin(to_tsvector('german', name->>'de'));
 CREATE INDEX classifications_name_de_idx ON classifications USING gin(to_tsvector('german', name->>'de'));
+CREATE INDEX tags_name_de_idx ON tags USING gin(to_tsvector('german', name->>'de'));
 
 -- French
 CREATE INDEX elements_name_fr_idx ON elements USING gin(to_tsvector('french', name->>'fr'));
@@ -883,6 +933,7 @@ CREATE INDEX models_name_fr_idx ON models USING gin(to_tsvector('french', name->
 CREATE INDEX epds_name_fr_idx ON epds USING gin(to_tsvector('french', name->>'fr'));
 CREATE INDEX attributes_name_fr_idx ON attributes USING gin(to_tsvector('french', name->>'fr'));
 CREATE INDEX classifications_name_fr_idx ON classifications USING gin(to_tsvector('french', name->>'fr'));
+CREATE INDEX tags_name_fr_idx ON tags USING gin(to_tsvector('french', name->>'fr'));
 
 -- Italian
 CREATE INDEX elements_name_it_idx ON elements USING gin(to_tsvector('italian', name->>'it'));
@@ -892,6 +943,7 @@ CREATE INDEX models_name_it_idx ON models USING gin(to_tsvector('italian', name-
 CREATE INDEX epds_name_it_idx ON epds USING gin(to_tsvector('italian', name->>'it'));
 CREATE INDEX attributes_name_it_idx ON attributes USING gin(to_tsvector('italian', name->>'it'));
 CREATE INDEX classifications_name_it_idx ON classifications USING gin(to_tsvector('italian', name->>'it'));
+CREATE INDEX tags_name_it_idx ON tags USING gin(to_tsvector('italian', name->>'it'));
 
 -- English
 CREATE INDEX elements_name_en_idx ON elements USING gin(to_tsvector('english', name->>'en'));
@@ -901,6 +953,7 @@ CREATE INDEX models_name_en_idx ON models USING gin(to_tsvector('english', name-
 CREATE INDEX epds_name_en_idx ON epds USING gin(to_tsvector('english', name->>'en'));
 CREATE INDEX attributes_name_en_idx ON attributes USING gin(to_tsvector('english', name->>'en'));
 CREATE INDEX classifications_name_en_idx ON classifications USING gin(to_tsvector('english', name->>'en'));
+CREATE INDEX tags_name_en_idx ON tags USING gin(to_tsvector('english', name->>'en'));
 
 -- -----------------------------------------------------------------------------
 -- FILTER INDEXES
@@ -922,13 +975,7 @@ CREATE INDEX documents_code_idx ON documents(code);
 CREATE INDEX usecases_code_idx ON usecases(code);
 CREATE INDEX models_code_idx ON models(code);
 CREATE INDEX epds_code_idx ON epds(code);
-
--- Tag filters (GIN for JSONB containment)
-CREATE INDEX elements_tags_idx ON elements USING gin(tags);
-CREATE INDEX documents_tags_idx ON documents USING gin(tags);
-CREATE INDEX usecases_tags_idx ON usecases USING gin(tags);
-CREATE INDEX models_tags_idx ON models USING gin(tags);
-CREATE INDEX epds_tags_idx ON epds USING gin(tags);
+CREATE UNIQUE INDEX tags_code_idx ON tags(code);
 
 -- Phase filters (GIN for array containment)
 CREATE INDEX elements_phases_idx ON elements USING gin(phases);
@@ -945,11 +992,16 @@ CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
 CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
 CREATE INDEX elements_related_usecases_idx ON elements USING gin(related_usecases);
+CREATE INDEX elements_related_tags_idx ON elements USING gin(related_tags);
 CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
 CREATE INDEX documents_related_classifications_idx ON documents USING gin(related_classifications);
+CREATE INDEX documents_related_tags_idx ON documents USING gin(related_tags);
 CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
 CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_documents);
+CREATE INDEX usecases_related_tags_idx ON usecases USING gin(related_tags);
 CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
+CREATE INDEX models_related_tags_idx ON models USING gin(related_tags);
+CREATE INDEX epds_related_tags_idx ON epds USING gin(related_tags);
 ```
 
 ### Triggers
@@ -974,6 +1026,7 @@ CREATE TRIGGER models_updated_at BEFORE UPDATE ON models FOR EACH ROW EXECUTE FU
 CREATE TRIGGER epds_updated_at BEFORE UPDATE ON epds FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 CREATE TRIGGER attributes_updated_at BEFORE UPDATE ON attributes FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 CREATE TRIGGER classifications_updated_at BEFORE UPDATE ON classifications FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+CREATE TRIGGER tags_updated_at BEFORE UPDATE ON tags FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 ```
 
 ### Row Level Security
@@ -994,6 +1047,7 @@ ALTER TABLE models ENABLE ROW LEVEL SECURITY;
 ALTER TABLE epds ENABLE ROW LEVEL SECURITY;
 ALTER TABLE attributes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE classifications ENABLE ROW LEVEL SECURITY;
+ALTER TABLE tags ENABLE ROW LEVEL SECURITY;
 
 -- Public read access
 CREATE POLICY "Public read access" ON elements FOR SELECT USING (true);
@@ -1003,6 +1057,7 @@ CREATE POLICY "Public read access" ON models FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON epds FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON attributes FOR SELECT USING (true);
 CREATE POLICY "Public read access" ON classifications FOR SELECT USING (true);
+CREATE POLICY "Public read access" ON tags FOR SELECT USING (true);
 
 -- Note: No INSERT/UPDATE/DELETE policies - writes require service_role
 ```
@@ -1021,6 +1076,7 @@ COMMENT ON TABLE models IS 'BIM discipline, coordination, and special-purpose mo
 COMMENT ON TABLE epds IS 'Environmental Product Declarations - KBOB Ökobilanzdaten';
 COMMENT ON TABLE attributes IS 'Reusable property definitions (LOI attributes)';
 COMMENT ON TABLE classifications IS 'Classification codes from eBKP-H, DIN 276, Uniformat II, KBOB';
+COMMENT ON TABLE tags IS 'Anwendungsfeld keywords per VDI 2552 Blatt 12.2 - used for filtering across entities';
 
 COMMENT ON COLUMN elements.geometry IS 'LOG specifications per lifecycle phase (JSONB array with i18n)';
 COMMENT ON COLUMN elements.tool_elements IS 'Mappings to IFC classes and authoring tools (Revit, ArchiCAD)';
@@ -1052,6 +1108,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.3.0 | 2025-12 | **Tags normalization:** Added `tags` reference table for Anwendungsfeld keywords; replaced embedded `tags` JSONB arrays with `related_tags` relationship on all core entities; centralized i18n for tags enabling single-point translation management |
 | 2.2.0 | 2025-12 | Major restructure: reordered sections for conceptual→implementation flow; added Example Queries section (§8); clarified bidirectional relationship source of truth; documented retention semantics; consolidated reference values; split SQL into logical subsections |
 | 2.1.13 | 2025-12 | Added `code` to models; added Required column to attribute tables |
 | 2.1.12 | 2025-12 | Changed `classifications.code` to composite unique; added numeric precision to EPD values; standardized `related_*` to NOT NULL DEFAULT '[]' |
