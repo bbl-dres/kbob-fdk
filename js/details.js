@@ -20,17 +20,18 @@ function renderElementDetailPage(id, activeTags = []) {
     const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Standard-Element des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
-    // Derive phases from geometry, information, and documentation arrays
+    // Use explicit phases from element data, plus phases from geometry and related_attributes
     // Use optional chaining for defensive access
     const derivedPhases = new Set();
+    // Add explicit phases from element
+    (data.phases || []).forEach(p => derivedPhases.add(p));
+    // Add phases from geometry
     (data.geometry || []).forEach(item => {
         item?.phases?.forEach(p => derivedPhases.add(p));
     });
-    (data.information || []).forEach(item => {
-        item?.phases?.forEach(p => derivedPhases.add(p));
-    });
-    (data.documentation || []).forEach(item => {
-        item?.phases?.forEach(p => derivedPhases.add(p));
+    // Add phases from related_attributes
+    (data.related_attributes || []).forEach(ref => {
+        ref?.phases?.forEach(p => derivedPhases.add(p));
     });
     const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
     const hasPhases = elementPhases.length > 0;
@@ -51,7 +52,6 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'informationen', text: 'Informationen' },
-        { id: 'dokumentation', text: 'Dokumente' },
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
@@ -117,10 +117,9 @@ function renderElementDetailPage(id, activeTags = []) {
         }).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
 
-    // Support both legacy 'information' array and new 'related_attributes' array
+    // Build attribute rows from related_attributes
     let infoRowsHtml = '';
     if (data.related_attributes && Array.isArray(data.related_attributes) && data.related_attributes.length > 0) {
-        // New schema: look up attributes by ID
         infoRowsHtml = data.related_attributes.map(ref => {
             const attr = getItemById('attributes', ref.id);
             if (attr) {
@@ -140,37 +139,10 @@ function renderElementDetailPage(id, activeTags = []) {
             }
             return '';
         }).filter(Boolean).join('');
-        if (!infoRowsHtml) {
-            infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
-        }
-    } else if (data.information && Array.isArray(data.information) && data.information.length > 0) {
-        // Legacy schema: direct information array
-        infoRowsHtml = data.information.map(row => `
-            <tr>
-                <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(row.desc || '')}">${escapeHtml(row.name || '')}</span></td>
-                <td class="col-val">${escapeHtml(row.format || '-')}</td>
-                <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
-                <td class="col-val">${escapeHtml(row.ifc || '-')}</td>
-                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('');
-    } else {
+    }
+    if (!infoRowsHtml) {
         infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
     }
-
-    // Support both legacy string and new i18n object for documentation name/desc
-    const docRows = data.documentation && Array.isArray(data.documentation) ? data.documentation : [];
-    const docRowsHtml = docRows.length > 0
-        ? docRows.map(row => {
-            const rowName = row.name ? (typeof row.name === 'object' ? t(row.name) : row.name) : '-';
-            const rowDesc = row.desc ? (typeof row.desc === 'object' ? t(row.desc) : row.desc) : '-';
-            return `
-            <tr>
-                <td class="col-val">${escapeHtml(rowName)}</td>
-                <td class="col-val">${escapeHtml(rowDesc)}</td>
-                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`;
-        }).join('')
-        : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
 
     // Build phases HTML (similar to usecase detail)
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
@@ -244,14 +216,6 @@ function renderElementDetailPage(id, activeTags = []) {
                                 <th class="th-w-phases">Phasen (1-5)</th>
                             </tr></thead>
                             <tbody>${infoRowsHtml}</tbody>
-                        </table>
-                    </div>
-
-                    <div id="dokumentation" class="detail-section">
-                        <h2>Dokumente</h2>
-                        <table class="data-table">
-                            <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
-                            <tbody>${docRowsHtml}</tbody>
                         </table>
                     </div>
 
@@ -1072,7 +1036,6 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                         <h2>Allgemein</h2>
                         <table class="data-table">
                             <tbody>
-                                <tr><td class="col-val metadata-label">UUID</td><td class="col-val"><code>${escapeHtml(data.uuid || '—')}</code></td></tr>
                                 <tr><td class="col-val metadata-label">Bezugsgrösse</td><td class="col-val">${escapeHtml(data.unit || '—')}</td></tr>
                             </tbody>
                         </table>
