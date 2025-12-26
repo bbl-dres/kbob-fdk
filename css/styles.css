@@ -1335,8 +1335,6 @@ footer a:hover {
     margin-bottom: var(--space-lg);
     padding-bottom: var(--space-md);
     border-bottom: 1px solid var(--color-border);
-    position: relative;
-    z-index: 10;
 }
 
 .search-results__count {
@@ -1375,7 +1373,6 @@ footer a:hover {
 
 .sort-dropdown-container {
     position: relative;
-    z-index: 100;
 }
 
 .sort-dropdown-container.open .search-results__sort svg {
@@ -1392,7 +1389,7 @@ footer a:hover {
     border: 1px solid var(--color-border-light);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-lg);
-    z-index: 1000;
+    z-index: var(--z-dropdown);
     margin-top: var(--space-xs);
 }
 
