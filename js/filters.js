@@ -73,8 +73,8 @@ function calculateFilterCounts(data) {
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
         }
         // Count and collect tags
-        if (item.tags && Array.isArray(item.tags)) {
-            tTags(item.tags).forEach(tag => {
+        if (item.related_tags && Array.isArray(item.related_tags)) {
+            resolveTagsToStrings(item.related_tags).forEach(tag => {
                 tagsSet.add(tag);
                 tagCounts[tag] = (tagCounts[tag] || 0) + 1;
             });

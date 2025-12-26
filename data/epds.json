@@ -23,27 +23,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 0.177,
     "ubp": 282,
     "penrt": 0.432,
     "pert": 0.0948,
     "density": "2500",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "c62f5b16-8400-4b1c-a03f-8e289cd5bad2",
@@ -69,27 +63,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m2",
     "gwp": 18.2,
     "ubp": 86800,
     "penrt": 83.1,
     "pert": 4.49,
     "density": "18",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "758b65a1-a429-4b2d-a858-86e5c3a9d052",
@@ -115,27 +103,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 48.7,
     "ubp": 73600,
     "penrt": 230,
     "pert": 12.6,
     "density": "150",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "4e195f9b-9385-4a3b-93fa-d553b22bea41",
@@ -161,27 +143,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m2",
     "gwp": 69.7,
     "ubp": 99700,
     "penrt": 306,
     "pert": 42,
     "density": "15",
-    "biogenic_carbon": 0.778
+    "biogenic_carbon": 0.778,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "bdcd38c3-01f0-4868-96ee-d6d14c1b0494",
@@ -207,27 +183,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 0.335,
     "ubp": 769,
     "penrt": 1.53,
     "pert": 8.14,
     "density": "439",
-    "biogenic_carbon": 0.446
+    "biogenic_carbon": 0.446,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "7e494b11-b973-43b3-9a8d-f94505a8792e",
@@ -253,27 +223,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 0.288,
     "ubp": 689,
     "penrt": 1.24,
     "pert": 8.28,
     "density": "436",
-    "biogenic_carbon": 0.45
+    "biogenic_carbon": 0.45,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "7eeff732-cec5-49a8-b79b-33679d6fc457",
@@ -299,27 +263,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 4.12,
     "ubp": 9710,
     "penrt": 14.6,
     "pert": 2.41,
     "density": "7900",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "33c6d405-a6fc-4d96-b435-3b827a9db3c0",
@@ -345,27 +303,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 0.737,
     "ubp": 1290,
     "penrt": 3.38,
     "pert": 0.255,
     "density": "7850",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "0ef92e72-3476-4272-a4f5-19c2d6415096",
@@ -391,27 +343,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m",
     "gwp": 379,
     "ubp": 579000,
     "penrt": 751,
     "pert": 70.8,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "7d79b20c-5ee8-427d-aabe-c4add3e9ac32",
@@ -437,27 +383,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kg",
     "gwp": 0.0406,
     "ubp": 112,
     "penrt": 0.275,
     "pert": 0.046,
     "density": "2500",
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "6f0c7025-7c73-431c-bcac-9662ea119c3d",
@@ -483,27 +423,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kWh",
     "gwp": 0.124,
     "ubp": 155,
     "penrt": 0.293,
     "pert": 0.0289,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "e7d9edd0-8286-4920-99e5-2254a0b25ef7",
@@ -529,27 +463,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kWh",
     "gwp": 0.301,
     "ubp": 365,
     "penrt": 1.4,
     "pert": 0.0147,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "70a019e0-2449-4052-8bc0-88aedbc4d0ef",
@@ -575,27 +503,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kWh",
     "gwp": 0.0658,
     "ubp": 123,
     "penrt": 0.335,
     "pert": 0.439,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "ea76be28-75cd-4e58-92f3-0b576a5d6157",
@@ -621,27 +543,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kWh",
     "gwp": 0.0175,
     "ubp": 87.4,
     "penrt": 0.041,
     "pert": 1.16,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "f0e6d0ea-b97e-4998-8c3b-fa49009b55fc",
@@ -667,27 +583,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m2",
     "gwp": 5.05,
     "ubp": 7380,
     "penrt": 21.8,
     "pert": 1.45,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "1a090651-0539-43ce-a7a7-9d6b7e3a0d83",
@@ -713,27 +623,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m2",
     "gwp": 8.25,
     "ubp": 21300,
     "penrt": 30.7,
     "pert": 2.52,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "40a62347-434c-4435-b965-e24674dab8e9",
@@ -759,27 +663,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "m2",
     "gwp": 30.6,
     "ubp": 69900,
     "penrt": 104,
     "pert": 9.19,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "c524e449-bd9b-4d81-b082-106ca98eb826",
@@ -805,27 +703,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Logistik",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "pkm",
     "gwp": 0.0069,
     "ubp": 29.1,
     "penrt": 0.0431,
     "pert": 0.0723,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-logistik"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "2cc09035-cddb-4238-8cca-01f50e843467",
@@ -851,27 +743,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Logistik",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "tkm",
     "gwp": 0.142,
     "ubp": 263,
     "penrt": 0.601,
     "pert": 0.0285,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-logistik"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "b9995dff-fbb1-4c69-979a-1258f609c41c",
@@ -897,26 +783,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Logistik",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "unit": "kWh",
     "gwp": 0.0481,
     "ubp": 197,
     "penrt": 0.033,
     "pert": 1.16,
     "density": null,
-    "biogenic_carbon": null
+    "biogenic_carbon": null,
+    "related_tags": [
+      {
+        "id": "tag-logistik"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   }
 ]

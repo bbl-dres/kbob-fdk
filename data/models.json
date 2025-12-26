@@ -23,27 +23,21 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "27a4e4b8-e6a1-4174-926e-1e1f1694157c",
@@ -69,26 +63,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "90bcef90-f9d8-4dcd-86a0-96e8b56e9cd4",
@@ -114,26 +102,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "ecb40a42-e156-490e-b25b-3205c9398047",
@@ -159,26 +141,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "8504c1be-7c76-4291-88c7-60cf82660e20",
@@ -204,26 +180,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "fae0b270-b9a7-4d18-a12b-1f32efd55c3c",
@@ -249,26 +219,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "41be7f39-a759-4c46-8479-9679bc9a5de0",
@@ -294,26 +258,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "a7a6034a-8ff6-496a-9f1c-3616d0e3da65",
@@ -339,26 +297,20 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "b1e1bc16-dd4c-4b70-a72f-8e84e776332b",
@@ -384,25 +336,19 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Bestandserfassung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-bestandserfassung"
+      }
+    ]
   },
   {
     "id": "1945244d-6b10-4699-9c34-35e4313ef408",
@@ -428,25 +374,19 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
       4
     ],
-    "related_elements": []
+    "related_elements": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   }
 ]

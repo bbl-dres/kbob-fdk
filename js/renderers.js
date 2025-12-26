@@ -66,10 +66,13 @@ const catalogTypeConfig = {
 
 /**
  * Render tags HTML for full view
+ * @param {Array} relatedTags - Array of {id: "tag-id"} objects (related_tags format)
+ * @param {string[]} activeTags - Array of active tag strings
+ * @returns {string} HTML string
  */
-function renderTagsHtml(tagsData, activeTags = []) {
-    if (!tagsData || !Array.isArray(tagsData)) return '';
-    const localizedTags = tTags(tagsData);
+function renderTagsHtml(relatedTags, activeTags = []) {
+    if (!relatedTags || !Array.isArray(relatedTags)) return '';
+    const localizedTags = resolveTagsToStrings(relatedTags);
     return localizedTags.map(tag => {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
@@ -105,12 +108,16 @@ window.toggleCardTags = function(event, cardId) {
 /**
  * Render tags for card with +N / - toggle
  * In collapsed mode, renders all tags initially for measurement, then fitCardTagsToSingleRow hides overflow
+ * @param {string} cardId - Card identifier
+ * @param {Array} relatedTags - Array of {id: "tag-id"} objects (related_tags format)
+ * @param {string[]} activeTags - Array of active tag strings
+ * @returns {string} HTML string
  */
-function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
-    if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
+function renderCardTagsHtml(cardId, relatedTags, activeTags = []) {
+    if (!relatedTags || !Array.isArray(relatedTags) || relatedTags.length === 0) return '';
 
     const isExpanded = expandedCardTags.has(cardId);
-    const localizedTags = tTags(tagsData);
+    const localizedTags = resolveTagsToStrings(relatedTags);
 
     const renderTag = (tag, index) => {
         const safeTag = escapeHtml(tag);
@@ -301,7 +308,7 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
     if (!config) return renderNoResults(false);
 
     return items.map(item => {
-        const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
+        const hasTags = item.related_tags && Array.isArray(item.related_tags) && item.related_tags.length > 0;
         const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
         const itemCategory = t(item.domain);
         const isCategoryActive = activeCategory === itemCategory;
@@ -309,8 +316,8 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
         const safeCategory = escapeHtml(itemCategory || '');
         const safeSubtitle = escapeHtml(t(item.description) || '');
         const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
-        // Prepare tags data for JSON (use localized strings for display consistency)
-        const tagsForJson = hasTags ? JSON.stringify(tTags(item.tags)) : '[]';
+        // Store related_tags as JSON for re-rendering (contains {id: "..."} objects)
+        const tagsForJson = hasTags ? escapeHtml(JSON.stringify(item.related_tags)) : '[]';
 
         return `
         <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
@@ -321,7 +328,7 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
             <div class="card__body">
                 <h3 class="card__title">${safeTitle}</h3>
                 <p class="card__subtitle">${safeSubtitle}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${tagsForJson}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
+                ${hasTags ? `<div class="card__tags" data-tags='${tagsForJson}'>${renderCardTagsHtml(cardId, item.related_tags, activeTags)}</div>` : ''}
             </div>
             <footer class="card__footer card__footer--end">
                 <span class="arrow-btn card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -364,7 +371,7 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
         <div class="element-list-item" data-href="${itemHref}">
             <div class="list-col-name">${safeTitle}</div>
             <div class="list-col-desc">${safeSubtitle}</div>
-            <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>
+            <div class="list-col-tags">${renderTagsHtml(item.related_tags, activeTags)}</div>
         </div>
     `}).join('');
 

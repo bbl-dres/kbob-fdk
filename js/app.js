@@ -75,7 +75,8 @@ async function loadDataFromJson() {
         modelsResponse,
         epdsResponse,
         classificationsResponse,
-        attributesResponse
+        attributesResponse,
+        tagsResponse
     ] = await Promise.all([
         fetchWithRetry('data/elements.json', fetchOptions),
         fetchWithRetry('data/documents.json', fetchOptions),
@@ -83,7 +84,8 @@ async function loadDataFromJson() {
         fetchWithRetry('data/models.json', fetchOptions),
         fetchWithRetry('data/epds.json', fetchOptions),
         fetchWithRetry('data/classifications.json', fetchOptions),
-        fetchWithRetry('data/attributes.json', fetchOptions)
+        fetchWithRetry('data/attributes.json', fetchOptions),
+        fetchWithRetry('data/tags.json', fetchOptions)
     ]);
 
     if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
@@ -93,6 +95,7 @@ async function loadDataFromJson() {
     if (!epdsResponse.ok) throw new Error(`EPDs: HTTP error! status: ${epdsResponse.status}`);
     if (!classificationsResponse.ok) throw new Error(`Classifications: HTTP error! status: ${classificationsResponse.status}`);
     if (!attributesResponse.ok) throw new Error(`Attributes: HTTP error! status: ${attributesResponse.status}`);
+    if (!tagsResponse.ok) throw new Error(`Tags: HTTP error! status: ${tagsResponse.status}`);
 
     return {
         elements: await elementsResponse.json(),
@@ -101,7 +104,8 @@ async function loadDataFromJson() {
         models: await modelsResponse.json(),
         epds: await epdsResponse.json(),
         classifications: await classificationsResponse.json(),
-        attributes: await attributesResponse.json()
+        attributes: await attributesResponse.json(),
+        tags: await tagsResponse.json()
     };
 }
 
@@ -139,9 +143,13 @@ async function initApp() {
         globalEpdsData = sortDataByTitle(data.epds);
         globalClassificationsData = data.classifications || [];
         globalAttributesData = data.attributes || [];
+        globalTagsData = data.tags || [];
 
         // Build index maps for O(1) lookups (performance optimization)
         buildDataIndexMaps();
+
+        // Build tags lookup map for resolving tag IDs to i18n objects
+        buildTagsLookupMap();
 
         isDataLoaded = true;
 

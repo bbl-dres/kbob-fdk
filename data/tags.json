@@ -1,0 +1,354 @@
+[
+  {
+    "id": "tag-abnahme",
+    "code": "abnahme",
+    "name": {
+      "de": "Abnahme",
+      "fr": "Réception",
+      "it": "Accettazione",
+      "en": "Acceptance"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-aenderungsmanagement",
+    "code": "aenderungsmanagement",
+    "name": {
+      "de": "Änderungsmanagement",
+      "fr": "Gestion des modifications",
+      "it": "Gestione delle modifiche",
+      "en": "Change Management"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-ausschreibung",
+    "code": "ausschreibung",
+    "name": {
+      "de": "Ausschreibung und Vergabe",
+      "fr": "Appel d'offres et adjudication",
+      "it": "Bando di gara e aggiudicazione",
+      "en": "Tendering and Procurement"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-bedarfsplanung",
+    "code": "bedarfsplanung",
+    "name": {
+      "de": "Bedarfsplanung",
+      "fr": "Planification des besoins",
+      "it": "Pianificazione dei fabbisogni",
+      "en": "Requirements Planning"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-bestandserfassung",
+    "code": "bestandserfassung",
+    "name": {
+      "de": "Bestandserfassung",
+      "fr": "Relevé de l'existant",
+      "it": "Rilevamento dello stato esistente",
+      "en": "Asset Capture"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-betrieb",
+    "code": "betrieb",
+    "name": {
+      "de": "Betrieb",
+      "fr": "Exploitation",
+      "it": "Gestione",
+      "en": "Operations"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-dokumentation",
+    "code": "dokumentation",
+    "name": {
+      "de": "Dokumentation",
+      "fr": "Documentation",
+      "it": "Documentazione",
+      "en": "Documentation"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-genehmigung",
+    "code": "genehmigung",
+    "name": {
+      "de": "Genehmigung",
+      "fr": "Autorisation",
+      "it": "Autorizzazione",
+      "en": "Approval"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-inbetriebnahme",
+    "code": "inbetriebnahme",
+    "name": {
+      "de": "Inbetriebnahme",
+      "fr": "Mise en service",
+      "it": "Messa in servizio",
+      "en": "Commissioning"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-koordination",
+    "code": "koordination",
+    "name": {
+      "de": "Koordination",
+      "fr": "Coordination",
+      "it": "Coordinamento",
+      "en": "Coordination"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-kosten",
+    "code": "kosten",
+    "name": {
+      "de": "Kosten",
+      "fr": "Coûts",
+      "it": "Costi",
+      "en": "Costs"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-logistik",
+    "code": "logistik",
+    "name": {
+      "de": "Logistik",
+      "fr": "Logistique",
+      "it": "Logistica",
+      "en": "Logistics"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-machbarkeit",
+    "code": "machbarkeit",
+    "name": {
+      "de": "Machbarkeit",
+      "fr": "Faisabilité",
+      "it": "Fattibilità",
+      "en": "Feasibility"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-nachhaltigkeit",
+    "code": "nachhaltigkeit",
+    "name": {
+      "de": "Nachhaltigkeit",
+      "fr": "Durabilité",
+      "it": "Sostenibilità",
+      "en": "Sustainability"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-nachweise",
+    "code": "nachweise",
+    "name": {
+      "de": "Nachweise",
+      "fr": "Justificatifs",
+      "it": "Verifiche",
+      "en": "Verification"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-qualitaetssicherung",
+    "code": "qualitaetssicherung",
+    "name": {
+      "de": "Qualitätssicherung",
+      "fr": "Assurance qualité",
+      "it": "Garanzia della qualità",
+      "en": "Quality Assurance"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-risikomanagement",
+    "code": "risikomanagement",
+    "name": {
+      "de": "Risikomanagement",
+      "fr": "Gestion des risques",
+      "it": "Gestione dei rischi",
+      "en": "Risk Management"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-termine",
+    "code": "termine",
+    "name": {
+      "de": "Termine",
+      "fr": "Délais",
+      "it": "Scadenze",
+      "en": "Scheduling"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-variantenvergleich",
+    "code": "variantenvergleich",
+    "name": {
+      "de": "Variantenvergleich",
+      "fr": "Comparaison des variantes",
+      "it": "Confronto delle varianti",
+      "en": "Variant Comparison"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-versicherung",
+    "code": "versicherung",
+    "name": {
+      "de": "Versicherung",
+      "fr": "Assurance",
+      "it": "Assicurazione",
+      "en": "Insurance"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-visualisierung",
+    "code": "visualisierung",
+    "name": {
+      "de": "Visualisierung",
+      "fr": "Visualisation",
+      "it": "Visualizzazione",
+      "en": "Visualization"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "tag-sonstiges",
+    "code": "sonstiges",
+    "name": {
+      "de": "Sonstiges",
+      "fr": "Autres",
+      "it": "Altro",
+      "en": "Other"
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  }
+]

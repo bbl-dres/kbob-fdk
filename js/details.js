@@ -145,7 +145,7 @@ function renderElementDetailPage(id, activeTags = []) {
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
@@ -293,7 +293,7 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
@@ -394,7 +394,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
@@ -681,7 +681,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
@@ -836,7 +836,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
@@ -963,7 +963,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="breadcrumb"><a href="#${backLink}"><i data-lucide="arrow-left" style="vertical-align: text-bottom; margin-right:5px; width: 1.1rem; height: 1.1rem;"></i> Zurück zur Liste</a></div>
                     <h1 class="hero-title">${safeTitle}</h1>
                     <p class="hero-subtitle">${safeDesc}</p>
-                    <div class="hero-tags">${renderTagsHtml(data.tags, activeTags)}</div>
+                    <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
                     ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}

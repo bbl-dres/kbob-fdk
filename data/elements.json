@@ -22,26 +22,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -339,7 +319,18 @@
         "id": "clf-0019"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "71a94359-fa87-421e-a7e8-dc0bb0f8a44c",
@@ -364,26 +355,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -778,7 +749,18 @@
         "id": "clf-0029"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "3a0bcc72-54d8-4de3-8004-8fa7ddf9d738",
@@ -803,26 +785,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -1147,7 +1109,18 @@
         "id": "clf-0040"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "d76be817-9021-4c79-96af-1f6b524b4990",
@@ -1172,26 +1145,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -1640,7 +1593,18 @@
         "id": "clf-0062"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "11311774-f09f-4df6-ac12-a10b3a7f686a",
@@ -1665,20 +1629,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -2064,7 +2014,15 @@
         "id": "clf-0084"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "754a6320-7474-4742-802e-b1497e839346",
@@ -2089,26 +2047,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Ausschreibung und Vergabe",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -2682,7 +2620,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-ausschreibung"
+      },
+      {
+        "id": "tag-kosten"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "ae2a2b1c-14da-40fa-be11-c7106d07e0da",
@@ -2707,26 +2656,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -3008,7 +2937,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "1dd0036e-aa7d-4301-93d4-a884829356ef",
@@ -3033,26 +2973,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -3254,7 +3174,18 @@
         "id": "clf-0106"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "9df8dce0-aa86-4991-976d-30c390c7576f",
@@ -3279,26 +3210,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -3670,7 +3581,18 @@
         "id": "clf-0119"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "b8d68104-9703-40fd-a6a3-5fab013fd034",
@@ -3695,26 +3617,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Ausschreibung und Vergabe",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -4153,7 +4055,18 @@
         "id": "clf-0093"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-ausschreibung"
+      },
+      {
+        "id": "tag-kosten"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "4d48ad22-0c19-4822-8d83-3b530fddd5c5",
@@ -4178,26 +4091,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -4521,7 +4414,18 @@
         "id": "clf-0029"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "c0f925b9-dccf-484c-8c01-acc4280457d4",
@@ -4546,26 +4450,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -4967,7 +4851,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "f73d044d-c18f-4708-aec8-f12337fa504a",
@@ -4992,26 +4887,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Ausschreibung und Vergabe",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -5381,7 +5256,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-ausschreibung"
+      },
+      {
+        "id": "tag-kosten"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "17b220da-4546-4b29-bfec-1ee0389d85e1",
@@ -5406,26 +5292,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -5626,7 +5492,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "8caf1a86-ecb4-4c99-9da4-714fdc508bc6",
@@ -5651,26 +5528,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -5952,7 +5809,18 @@
         "id": "clf-0140"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "c7e4f63e-e9af-4c88-9e95-c32a5c42bb7e",
@@ -5977,20 +5845,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -6339,7 +6193,15 @@
         "id": "clf-0144"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "e8569677-1f9c-43d0-afaf-27e2dfe9a7a0",
@@ -6364,32 +6226,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -6597,7 +6433,21 @@
         "id": "clf-0062"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "60e848ec-edc1-4fae-b56e-91784ada4194",
@@ -6622,26 +6472,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -6870,7 +6700,18 @@
         "id": "clf-0154"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "fe9122fa-d48d-4adf-a724-677e21f3317a",
@@ -6895,32 +6736,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -7100,7 +6915,21 @@
         "id": "clf-0105"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "2b718f27-54a9-45df-a38a-75101b358f2e",
@@ -7125,26 +6954,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -7320,7 +7129,18 @@
         "id": "clf-0105"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "cf32faa3-a257-497f-be30-a460371fba06",
@@ -7345,20 +7165,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -7604,7 +7410,15 @@
         "id": "clf-0084"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "6eb9809b-c60a-4d5c-8d4e-54098c9e2ff6",
@@ -7629,26 +7443,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -7915,7 +7709,18 @@
         "id": "clf-0169"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "533eeef7-7f5d-4b06-a121-bd247c5af2f0",
@@ -7940,20 +7745,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -8153,7 +7944,15 @@
         "id": "clf-0040"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "b462c234-3391-464a-93e2-6496839973fa",
@@ -8178,26 +7977,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -8300,7 +8079,18 @@
         "id": "clf-0116"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "6da21a90-f629-4fbc-a7d0-1d5568f062a1",
@@ -8325,26 +8115,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bestandserfassung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -8466,7 +8236,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bestandserfassung"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "02068076-169a-4637-aae9-7ac7bb5388bb",
@@ -8491,26 +8272,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -8718,7 +8479,18 @@
         "id": "clf-0184"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "63179f40-7f64-4632-a34e-8fd5d7e44ee7",
@@ -8743,26 +8515,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bestandserfassung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2
@@ -8842,7 +8594,18 @@
         "id": "clf-0186"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bestandserfassung"
+      },
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-bedarfsplanung"
+      }
+    ]
   },
   {
     "id": "67830174-2237-4ce3-b236-b52be2d879dd",
@@ -8867,26 +8630,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -9060,7 +8803,18 @@
         "id": "clf-0106"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "2662e289-3f3e-4c3d-96b9-8114c399f7af",
@@ -9085,26 +8839,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -9428,7 +9162,18 @@
         "id": "clf-0186"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "6779cc62-b398-4549-8935-3b9e57346343",
@@ -9453,20 +9198,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -9729,7 +9460,15 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "a35edf4f-5b69-4f12-b8db-ead0a7b29270",
@@ -9754,20 +9493,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -9979,7 +9704,15 @@
         "id": "clf-0027"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "85175226-3ed8-4cbb-b20d-cc2138a46392",
@@ -10004,26 +9737,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -10223,7 +9936,18 @@
         "id": "clf-0016"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "7fd3e1e0-6f6b-40e1-8152-2da9df0090d2",
@@ -10248,26 +9972,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -10464,7 +10168,18 @@
         "id": "clf-0211"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "11a9365c-cf55-4b13-9713-c304095ba236",
@@ -10489,26 +10204,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -10723,7 +10418,18 @@
         "id": "clf-0016"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "d1b2ae08-2fb8-40ad-8d90-9053de4e326c",
@@ -10748,26 +10454,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -10987,7 +10673,18 @@
         "id": "clf-0164"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "61f7fd54-3598-43d6-976a-973092428833",
@@ -11012,20 +10709,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -11252,7 +10935,15 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "565ffb5e-e960-4cbd-a206-e04cbf4eb5be",
@@ -11277,20 +10968,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -11519,7 +11196,15 @@
         "id": "clf-0221"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "154ff527-e4bf-48f9-a2da-1d2488514b0f",
@@ -11544,20 +11229,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -11816,7 +11487,15 @@
         "id": "clf-0221"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "23372c85-9f5e-4493-9949-8b534a99c886",
@@ -11841,20 +11520,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -12044,7 +11709,15 @@
         "id": "clf-0016"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "08c136b5-d075-4848-8b38-282a505c73b5",
@@ -12069,20 +11742,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -12260,7 +11919,15 @@
         "id": "clf-0173"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "e98be27a-84c0-4b21-a0f9-48be5d81e101",
@@ -12285,26 +11952,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -12377,7 +12024,18 @@
         "id": "clf-0116"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e3586d46-42bf-4405-bffc-8c3f6a70a90e",
@@ -12402,26 +12060,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -12707,7 +12345,18 @@
         "id": "clf-0243"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "812e527c-2b18-4eb1-834f-47a9add4e292",
@@ -12732,26 +12381,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -13059,7 +12688,18 @@
         "id": "clf-0186"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "4fe0a174-baf2-4dd2-b6f1-9727fb5aeadc",
@@ -13084,26 +12724,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -13322,7 +12942,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "973b2333-964f-4221-af8f-21d2c15b16f9",
@@ -13347,20 +12978,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -13650,7 +13267,15 @@
         "id": "clf-0018"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "1bf6f812-9eef-4230-a673-0855b69d4dc7",
@@ -13675,20 +13300,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -14156,7 +13767,15 @@
         "id": "clf-0084"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "3950ed86-be6d-4702-a454-fcb8d51266f3",
@@ -14181,20 +13800,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -14587,7 +14192,15 @@
         "id": "clf-0243"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "fe62bc9f-2c13-4abe-9021-146bbbbe5789",
@@ -14612,26 +14225,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -14960,7 +14553,18 @@
         "id": "clf-0277"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "166aeb72-9918-4bfe-a020-9b23ebc3b459",
@@ -14985,20 +14589,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -15304,7 +14894,15 @@
         "id": "clf-0279"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "b6aa7cda-0bdf-4f51-b8be-5219ef9e5470",
@@ -15329,26 +14927,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -15575,7 +15153,18 @@
         "id": "clf-0106"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "2d30c8c0-1d19-4282-9522-8a4403be2d03",
@@ -15600,26 +15189,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -15811,7 +15380,18 @@
         "id": "clf-0084"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "65d6cfe2-8b1f-4958-afcd-f19fea4f8656",
@@ -15836,26 +15416,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -16046,7 +15606,18 @@
         "id": "clf-0284"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "de634a06-6d82-46ef-a954-031eb8499611",
@@ -16071,26 +15642,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -16310,7 +15861,18 @@
         "id": "clf-0140"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "62dd9d35-99cd-413c-b19f-a7e350cd7147",
@@ -16335,26 +15897,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -16624,7 +16166,18 @@
         "id": "clf-0019"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "4fb6f690-c435-426e-9cbf-ceb3e6065f22",
@@ -16649,32 +16202,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -16847,7 +16374,21 @@
         "id": "clf-0106"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "53fbe693-3891-4bb2-9453-80e8d63dfbb7",
@@ -16872,26 +16413,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -17359,7 +16880,18 @@
         "id": "clf-0116"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "6862686b-e732-49e8-bd74-5cef483dbe74",
@@ -17384,20 +16916,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -17607,7 +17125,15 @@
         "id": "clf-0204"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "3e184cb3-0618-4a4c-ad30-189a4b29526a",
@@ -17632,26 +17158,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -17845,7 +17351,18 @@
         "id": "clf-0116"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "9a39bc96-93f9-438d-bbd1-aa52a83817c5",
@@ -17870,26 +17387,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -18142,7 +17639,18 @@
         "id": "clf-0019"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "17dcbb8c-b402-4ebf-b730-baf6ab7dc35b",
@@ -18167,26 +17675,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -18409,7 +17897,18 @@
         "id": "clf-0140"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "3429be1b-2f3e-46c8-8165-845464ea7928",
@@ -18434,26 +17933,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -18724,7 +18203,18 @@
         "id": "clf-0168"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "b213d722-b960-4553-bbef-5f2f9eabfba7",
@@ -18749,26 +18239,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -19134,7 +18604,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "46b9e4bb-2c26-42b9-b091-efffd824fe76",
@@ -19159,26 +18640,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -19372,7 +18833,18 @@
         "id": "clf-0094"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "0e7186d1-a1dc-4cf3-9cef-30a13d9a4b13",
@@ -19397,26 +18869,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -19665,7 +19117,18 @@
         "id": "clf-0018"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "2ba16eb5-30bd-4ac8-a800-3828b0f577d8",
@@ -19690,26 +19153,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -19870,7 +19313,18 @@
         "id": "clf-0061"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-nachweise"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "dde4ce0f-7643-4e16-8a72-d2460dba9267",
@@ -19895,26 +19349,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -20027,7 +19461,18 @@
         "id": "clf-0061"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "fa45f72e-5a33-476c-a543-f4feeacd3c46",
@@ -20052,26 +19497,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -20363,7 +19788,18 @@
         "id": "clf-0173"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-abnahme"
+      }
+    ]
   },
   {
     "id": "f303d882-332f-4468-8389-35f793c80a53",
@@ -20388,26 +19824,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -20587,7 +20003,18 @@
         "id": "clf-0018"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "2ce10089-bcaf-4081-8881-7e14bcf7f450",
@@ -20612,26 +20039,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -20862,7 +20269,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "f570632c-5199-41af-905b-99c029b0ecf1",
@@ -20887,26 +20305,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -21563,7 +20961,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "3a922ea7-c481-4be3-91a4-6449c81b1121",
@@ -21588,26 +20997,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Ausschreibung und Vergabe",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -22116,7 +21505,18 @@
         "id": "clf-0019"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-ausschreibung"
+      },
+      {
+        "id": "tag-kosten"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "20bc2e49-17aa-4727-86ca-c6dc6f3f5e9a",
@@ -22141,26 +21541,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -22428,7 +21808,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "bdb90b0b-718b-4d11-8bfe-aa5e1718ae43",
@@ -22453,26 +21844,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -22668,7 +22039,18 @@
         "id": "clf-0018"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "0379a0e0-0666-4783-a762-77d8b9588559",
@@ -22693,26 +22075,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -22903,7 +22265,18 @@
         "id": "clf-0143"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "5d31920c-d200-441a-a267-aaad3fe910e5",
@@ -22928,26 +22301,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -23212,7 +22565,18 @@
         "id": "clf-0106"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "583fb594-cc81-4d3f-b652-ca1cfcb232f4",
@@ -23237,26 +22601,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -23462,7 +22806,18 @@
         "id": "clf-0329"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "8f5586ac-cc29-498f-956d-c9f100e7106f",
@@ -23487,20 +22842,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -23716,7 +23057,15 @@
         "id": "clf-0119"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "efa36799-762c-4284-b5e1-42eab298bccd",
@@ -23741,26 +23090,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -23921,7 +23250,18 @@
         "id": "clf-0332"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   },
   {
     "id": "1efc68ab-1d5d-49d6-b7b8-732005904f90",
@@ -23946,26 +23286,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3,
@@ -24195,7 +23515,18 @@
         "id": "clf-0129"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-kosten"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "ceb30a80-b9cc-4086-a204-50a84256be13",
@@ -24220,26 +23551,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Bedarfsplanung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Visualisierung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -24493,6 +23804,17 @@
         "id": "clf-0040"
       }
     ],
-    "related_usecases": []
+    "related_usecases": [],
+    "related_tags": [
+      {
+        "id": "tag-bedarfsplanung"
+      },
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-visualisierung"
+      }
+    ]
   }
 ]

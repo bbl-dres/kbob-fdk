@@ -15,8 +15,8 @@ function filterDataByTags(data, activeTags) {
     }
 
     return data.filter(item => {
-        if (!item.tags || !Array.isArray(item.tags)) return false;
-        const itemTags = tTags(item.tags);
+        if (!item.related_tags || !Array.isArray(item.related_tags)) return false;
+        const itemTags = resolveTagsToStrings(item.related_tags);
         return activeTags.every(tag => itemTags.includes(tag));
     });
 }
@@ -88,8 +88,8 @@ function getUniqueTags(data) {
     if (!data || !Array.isArray(data)) return [];
     const tags = new Set();
     data.forEach(item => {
-        if (item.tags && Array.isArray(item.tags)) {
-            tTags(item.tags).forEach(tag => tags.add(tag));
+        if (item.related_tags && Array.isArray(item.related_tags)) {
+            resolveTagsToStrings(item.related_tags).forEach(tag => tags.add(tag));
         }
     });
     return Array.from(tags).sort();

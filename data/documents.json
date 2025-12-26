@@ -23,20 +23,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -52,6 +38,14 @@
       },
       {
         "id": "clf-0341"
+      }
+    ],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
       }
     ]
   },
@@ -79,20 +73,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -102,7 +82,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "0073da2f-94fa-4d87-a6ee-9bff8d32cc01",
@@ -128,20 +116,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -151,7 +125,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
@@ -177,20 +159,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -211,6 +179,14 @@
       },
       {
         "id": "clf-0344"
+      }
+    ],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
       }
     ]
   },
@@ -238,20 +214,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -269,6 +231,14 @@
       },
       {
         "id": "clf-0341"
+      }
+    ],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
       }
     ]
   },
@@ -296,20 +266,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -321,7 +277,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "bb7f756e-8511-499e-983e-f0e87c8f751d",
@@ -347,20 +311,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -373,7 +323,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "790600c4-01ee-4853-9a80-f69b069e7f5d",
@@ -399,20 +357,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -424,7 +368,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e78a10de-102e-435c-9a4a-085ee117dcbe",
@@ -450,20 +402,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -475,7 +413,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
@@ -501,20 +447,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -526,7 +458,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "963fced9-8798-4729-b2d7-fd97e2060291",
@@ -552,20 +492,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -577,7 +503,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "1aa23eab-d117-4324-9e74-d9c930a38588",
@@ -603,20 +537,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -628,7 +548,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "e971a9e1-0a5a-4e41-bf55-e5d88d1d0a05",
@@ -654,20 +582,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Änderungsmanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -679,7 +593,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-aenderungsmanagement"
+      },
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
@@ -705,20 +627,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -729,7 +637,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "88583bf0-043a-4a62-890f-2b925c6e3da7",
@@ -755,20 +671,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -778,7 +680,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e23915f3-7ef5-4c50-81a4-fd5a88c01add",
@@ -804,20 +714,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -827,7 +723,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "f1e02f3d-b336-43dc-9e26-2ce088feada2",
@@ -853,20 +757,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Risikomanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -878,7 +768,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-risikomanagement"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "861de13e-0055-4293-a0ca-35ed1346f1a3",
@@ -904,20 +802,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -929,7 +813,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "70164862-fd12-476d-86b3-27bb9c920477",
@@ -955,20 +847,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -979,7 +857,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "175dfc9c-97cf-4984-8396-76ea2b353c65",
@@ -1005,20 +891,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Risikomanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -1029,7 +901,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      },
+      {
+        "id": "tag-risikomanagement"
+      }
+    ]
   },
   {
     "id": "525e3aa3-9f5b-46f5-a43c-90f03bb39be3",
@@ -1055,20 +935,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -1078,7 +944,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "3a6f60ef-d362-4615-ab39-03b80123aef7",
@@ -1104,14 +978,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -1122,7 +988,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "b2b16291-86c3-4b5a-9f89-2a4a71739ba1",
@@ -1148,14 +1019,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -1165,7 +1028,12 @@
     ],
     "retention": null,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "97543f01-f765-4c2a-8266-fb9ad51a3cd9",
@@ -1191,20 +1059,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -1215,7 +1069,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "ff0858f5-e14a-4c64-92e2-ed44368a837e",
@@ -1241,20 +1103,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -1264,7 +1112,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "d08c9e7e-0aa0-41fc-a4fe-1beadf30592d",
@@ -1290,20 +1146,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2
@@ -1314,7 +1156,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "e0cf7087-8662-470f-bf7a-fabf41727a26",
@@ -1340,20 +1190,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2
@@ -1364,7 +1200,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "789e87f7-4476-4cc9-a920-0c67ae688ef6",
@@ -1390,20 +1234,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1415,7 +1245,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
@@ -1441,14 +1279,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -1459,7 +1289,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "7ca7912c-1e19-4592-9b66-d18fa2c4e94f",
@@ -1485,14 +1320,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1505,7 +1332,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "0895b192-126d-4866-b351-2b3074c3bc54",
@@ -1531,20 +1363,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1557,7 +1375,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
@@ -1583,14 +1409,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Termine",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1602,7 +1420,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-termine"
+      }
+    ]
   },
   {
     "id": "47626726-0504-465a-99f0-1f8649a9f936",
@@ -1628,20 +1451,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Termine",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -1652,7 +1461,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-termine"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "f85d0de5-b9ca-401f-a213-4b7077f892aa",
@@ -1678,20 +1495,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Termine",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -1701,7 +1504,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-termine"
+      }
+    ]
   },
   {
     "id": "a52c6f57-6f42-411b-81c5-60136e838fe3",
@@ -1727,20 +1538,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Termine",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -1750,7 +1547,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-termine"
+      }
+    ]
   },
   {
     "id": "38532497-513b-484e-ac65-c184e5695eb0",
@@ -1776,20 +1581,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Termine",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -1800,7 +1591,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-termine"
+      }
+    ]
   },
   {
     "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
@@ -1826,14 +1625,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1846,7 +1637,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
@@ -1872,14 +1668,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -1892,7 +1680,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "5b51fdba-c884-4432-97a8-d2f2ff558bdd",
@@ -1918,20 +1711,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -1941,7 +1720,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e7a6996d-0f6e-42d0-a3cc-320ffc04e7da",
@@ -1967,20 +1754,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -1990,7 +1763,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e2665347-baf8-41a1-adb6-470f3c9d506a",
@@ -2016,20 +1797,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2041,7 +1808,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "ab3afd6a-e7b8-47cb-b4a6-fdc3c4cb27fd",
@@ -2067,20 +1842,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -2091,7 +1852,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "8ddd108a-62f9-4f59-80a4-2291ce2d873f",
@@ -2117,20 +1886,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2140,7 +1895,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "52b16fed-1fe2-49fb-8685-9adad8460f98",
@@ -2166,14 +1929,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2185,7 +1940,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "7a2cd07d-85d1-4434-8536-fca36a471460",
@@ -2211,14 +1971,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2230,7 +1982,12 @@
     ],
     "retention": null,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "5b4d2052-2730-4109-8b19-eb5001d3772b",
@@ -2256,20 +2013,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Änderungsmanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -2280,7 +2023,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-aenderungsmanagement"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "69ec1e3f-1895-45a9-87cd-708be147a5e8",
@@ -2306,20 +2057,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2331,7 +2068,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "2dcda57c-bf36-48ec-879e-2559ac87aa1e",
@@ -2357,14 +2102,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2376,7 +2113,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "0f3c6ff5-fc3f-428d-96e6-77583d42e2e0",
@@ -2402,20 +2144,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2427,7 +2155,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "3486c235-3985-4d1e-8f89-90f4f9c2b47b",
@@ -2453,20 +2189,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2476,7 +2198,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "f36f2b7b-4235-4b24-a665-807e5cbd1b99",
@@ -2502,14 +2232,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2521,7 +2243,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "e01d496e-5b0b-45a7-b74c-ca16a73e6d00",
@@ -2547,20 +2274,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -2571,7 +2284,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "ec15c58b-fd2d-4090-ae58-e0c507a50db8",
@@ -2597,20 +2318,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2620,7 +2327,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "1946315f-da07-415a-aebe-d6914df05a14",
@@ -2646,20 +2361,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2671,7 +2372,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-koordination"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "217d4036-e56e-47b6-8f7b-5f401cdce284",
@@ -2697,20 +2406,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Risikomanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2720,7 +2415,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-risikomanagement"
+      }
+    ]
   },
   {
     "id": "e70ef001-cf68-49a1-a979-ca5d4e268b2c",
@@ -2746,14 +2449,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2763,7 +2458,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "81c400ea-a88d-491d-a5bd-f34ebbe7ba4f",
@@ -2789,14 +2489,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -2806,7 +2498,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "fd367a65-9f73-4390-90f6-5e97d00caa8e",
@@ -2832,20 +2529,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2857,7 +2540,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "a3f4713a-5683-4ab6-803b-0164166a7417",
@@ -2883,20 +2574,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Risikomanagement",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2908,7 +2585,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-risikomanagement"
+      }
+    ]
   },
   {
     "id": "99d37cd2-53f3-4d5a-ad1d-a27ed4cc5f48",
@@ -2934,14 +2619,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -2953,7 +2630,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "fb540f44-c29d-4427-acda-4392e42b857c",
@@ -2979,20 +2661,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -3002,7 +2670,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "1f42c4f0-60ba-4e4f-977c-ba682a51c96b",
@@ -3028,14 +2704,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -3047,7 +2715,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "a0ac9dad-9479-46ec-935e-5b055bbb2f2b",
@@ -3073,14 +2746,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       1,
       2,
@@ -3092,7 +2757,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "b4d739e3-aab3-4474-804a-c115acd1cb48",
@@ -3118,14 +2788,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3135,7 +2797,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "df920f44-1d1a-4f58-9ea8-f5133d5f7556",
@@ -3161,14 +2828,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3178,7 +2837,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "73d96823-4506-45b1-a181-f74f77673f3f",
@@ -3204,14 +2868,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3221,7 +2877,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "b93e3261-731c-474d-b788-6e64eacea61d",
@@ -3247,14 +2908,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3264,7 +2917,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "b314e005-4d8d-43e4-91b0-81a70bba3570",
@@ -3290,14 +2948,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3307,7 +2957,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "19c1cdda-e4ad-4879-bbe5-7e041ea14621",
@@ -3333,14 +2988,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3350,7 +2997,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "20b01f42-8cfd-4ea5-8c6f-eaa9f26e1de5",
@@ -3376,14 +3028,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3393,7 +3037,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "9ca2eb48-6669-4494-ae97-5cd3aa991ecd",
@@ -3419,20 +3068,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3442,7 +3077,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "75ef130a-d44e-4d15-8b9a-f79fcd43977c",
@@ -3468,20 +3111,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3491,7 +3120,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "8976b3ea-4e07-48b3-9beb-f7b8f9ccc569",
@@ -3517,20 +3154,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3540,7 +3163,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "4355dff9-90f4-4d44-b6fa-b3b1c3a4c4e3",
@@ -3566,20 +3197,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3589,7 +3206,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "2ae56730-026c-4a34-8a31-9607ff894f7d",
@@ -3615,14 +3240,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3632,7 +3249,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "243a9af9-1be2-4ebd-a161-cfaed8afd7d3",
@@ -3658,14 +3280,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3675,7 +3289,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "c4cd8b46-1bf8-4cab-a99a-af1dcacfaed0",
@@ -3701,14 +3320,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3718,7 +3329,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "001a7013-f227-476f-931b-dc3a70d50d4f",
@@ -3744,14 +3360,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3761,7 +3369,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "7eb9a752-b195-410f-acff-468657e1cea6",
@@ -3787,14 +3400,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3804,7 +3409,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "5289d32e-dc3a-4c81-bf1f-03f408a50190",
@@ -3830,20 +3440,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3853,7 +3449,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "077f7c03-6193-48de-b598-e6964a287734",
@@ -3879,14 +3483,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3896,7 +3492,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "0ba390a1-f21a-428b-b80c-765bf5cf93ce",
@@ -3922,14 +3523,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3939,7 +3532,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "7d34560a-5002-4bfd-b038-748248aa742a",
@@ -3965,14 +3563,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -3982,7 +3572,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "5e9bdeac-db8a-4599-91ef-0734e564f12e",
@@ -4008,14 +3603,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -4025,7 +3612,12 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "16273fa1-eeb0-4272-baaf-d70902630c20",
@@ -4051,14 +3643,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4068,7 +3652,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "c1ba478b-a5a8-4fa4-b118-00de1008db85",
@@ -4094,14 +3683,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4111,7 +3692,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "ece3065c-fe1d-4e0f-bba5-81c8255b911e",
@@ -4137,14 +3723,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4154,7 +3732,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "0ac4a84a-6e85-4988-bab8-16a86b915ed9",
@@ -4180,14 +3763,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4197,7 +3772,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "a027f8b9-7ed9-412f-8168-d540a0c08c94",
@@ -4223,14 +3803,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4240,7 +3812,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "86a50ee7-7e65-4e51-9bb6-fe173302c3d0",
@@ -4266,14 +3843,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4283,7 +3852,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "1f3ca544-f12e-47f6-9a26-25a71176f9ce",
@@ -4309,14 +3883,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4326,7 +3892,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "bbef5965-2301-4802-9178-6f643f03dcdb",
@@ -4352,20 +3923,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4375,7 +3932,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "52de5e38-cc7d-4916-90d9-5aba3dca1528",
@@ -4401,20 +3966,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4424,7 +3975,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "1e5e7e7c-8ce0-4464-8b4b-e3950121241a",
@@ -4450,20 +4009,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4473,7 +4018,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "009802e8-1b02-4d06-aaa8-04b9c53dc561",
@@ -4499,20 +4052,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4522,7 +4061,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "4b8d9598-3056-44c3-9675-a963e3771049",
@@ -4548,14 +4095,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4565,7 +4104,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "55c500b1-2d30-48d4-92aa-3551a746e1a3",
@@ -4591,14 +4135,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4608,7 +4144,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "f1bdee81-d27c-471a-b00e-3c73c38cde6f",
@@ -4634,14 +4175,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -4652,7 +4185,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "22257a5a-96a4-4f14-a501-d99b8dce7706",
@@ -4678,14 +4216,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4695,7 +4225,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "ae986570-1537-4abb-a6c2-6078dd1d6d98",
@@ -4721,14 +4256,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4738,7 +4265,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "261230ae-5ed4-440c-8da1-e2e1b2731d04",
@@ -4764,20 +4296,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachhaltigkeit",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4787,7 +4305,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-nachhaltigkeit"
+      }
+    ]
   },
   {
     "id": "c0795a1c-0c67-4b0d-8c72-7debbdca3305",
@@ -4813,14 +4339,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4830,7 +4348,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "3165af87-5951-4cfd-a522-ceff7104f17e",
@@ -4856,20 +4379,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -4879,7 +4388,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      }
+    ]
   },
   {
     "id": "4f204d36-1306-42dd-9ea8-b1e8129ca3f7",
@@ -4905,14 +4422,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4922,7 +4431,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "59f172d7-f368-44a5-babf-beb48a6fc56e",
@@ -4948,20 +4462,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Kosten",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -4971,7 +4471,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-kosten"
+      }
+    ]
   },
   {
     "id": "89861c02-e004-4fb5-a370-bdbd6dfdd5e3",
@@ -4997,14 +4505,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -5014,7 +4514,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "c7fe3e51-8403-4fb8-9839-f8d65c64c0bf",
@@ -5040,14 +4545,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -5057,7 +4554,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "a764426e-b557-4cab-9761-baa58ae3d8b4",
@@ -5083,14 +4585,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2
     ],
@@ -5100,7 +4594,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "2036cf75-62cb-401c-82ec-1ee8f62a8d6b",
@@ -5126,14 +4625,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       2,
       3
@@ -5144,7 +4635,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      }
+    ]
   },
   {
     "id": "16f3b836-3434-4b79-9617-4219e6b00246",
@@ -5170,20 +4666,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Genehmigung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5194,7 +4676,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-genehmigung"
+      },
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "add1aa10-0cdf-4a2d-97c4-989f7325ca3b",
@@ -5220,14 +4710,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5237,7 +4719,12 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      }
+    ]
   },
   {
     "id": "4229dbee-f2ad-44ab-be7d-3a5a90b77ce1",
@@ -5263,20 +4750,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -5286,7 +4759,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "5ae3dc48-e3e1-427e-b596-f60921328063",
@@ -5312,20 +4793,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5336,7 +4803,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "2aad684c-1004-43d2-b32c-02541cfe8ee1",
@@ -5362,26 +4837,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5392,7 +4847,18 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "d9827be9-3a16-4cf5-b092-dfff0fd6bfa9",
@@ -5418,20 +4884,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Inbetriebnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5442,7 +4894,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-inbetriebnahme"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
@@ -5468,20 +4928,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5492,7 +4938,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "977bc117-b84b-4494-9473-82d785d9ce26",
@@ -5518,20 +4972,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5541,7 +4981,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "1e339704-5544-4923-b6e0-29f7426a65e0",
@@ -5567,20 +5015,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5590,7 +5024,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "4e9e0afa-9cf9-4c2d-b077-08d0894fe01e",
@@ -5616,20 +5058,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Bestandserfassung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -5639,7 +5067,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-qualitaetssicherung"
+      },
+      {
+        "id": "tag-bestandserfassung"
+      }
+    ]
   },
   {
     "id": "5c49a24a-4bf3-42f7-9e2d-9fc20784e9cc",
@@ -5665,20 +5101,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Qualitätssicherung",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5688,7 +5110,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-qualitaetssicherung"
+      }
+    ]
   },
   {
     "id": "26c7d722-5cab-449a-a2c3-5d7cebfa5d6f",
@@ -5714,20 +5144,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5737,7 +5153,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "5c56cefe-0501-43d0-8324-e13c01462a04",
@@ -5763,20 +5187,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5786,7 +5196,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "fa6d15a1-1bba-4a4b-b23a-37396501a6aa",
@@ -5812,20 +5230,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Abnahme",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Nachweise",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -5836,7 +5240,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-abnahme"
+      },
+      {
+        "id": "tag-nachweise"
+      }
+    ]
   },
   {
     "id": "0224ee41-c616-44d0-bf94-bb5f70859108",
@@ -5862,20 +5274,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Koordination",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3
     ],
@@ -5885,7 +5283,15 @@
     ],
     "retention": 12,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-dokumentation"
+      },
+      {
+        "id": "tag-koordination"
+      }
+    ]
   },
   {
     "id": "471dc368-d0e4-40bf-991d-6de407026ba7",
@@ -5911,20 +5317,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5934,7 +5326,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "1625015c-ed9d-4fed-bfba-a6dcc18a8e34",
@@ -5960,20 +5360,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -5983,7 +5369,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "b0acb851-e370-4115-a0f2-8af94ae09354",
@@ -6009,20 +5403,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -6032,7 +5412,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "9d9d9a2a-1e32-43c4-bfad-b06dd034ba47",
@@ -6058,20 +5446,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -6081,7 +5455,15 @@
     ],
     "retention": 5,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "6f4feb6d-b869-429f-9325-e9ce7df779ce",
@@ -6107,20 +5489,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       4
     ],
@@ -6130,7 +5498,15 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   },
   {
     "id": "184147f3-7b25-45f0-ada9-66362cb87bca",
@@ -6156,20 +5532,6 @@
       "it": "",
       "en": ""
     },
-    "tags": [
-      {
-        "de": "Betrieb",
-        "fr": "",
-        "it": "",
-        "en": ""
-      },
-      {
-        "de": "Dokumentation",
-        "fr": "",
-        "it": "",
-        "en": ""
-      }
-    ],
     "phases": [
       3,
       4
@@ -6180,6 +5542,14 @@
     ],
     "retention": 0,
     "related_elements": [],
-    "related_classifications": []
+    "related_classifications": [],
+    "related_tags": [
+      {
+        "id": "tag-betrieb"
+      },
+      {
+        "id": "tag-dokumentation"
+      }
+    ]
   }
 ]

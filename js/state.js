@@ -33,7 +33,11 @@ let globalModelsData = [];
 let globalEpdsData = [];
 let globalClassificationsData = [];
 let globalAttributesData = [];
+let globalTagsData = [];
 let isDataLoaded = false;
+
+// --- TAGS LOOKUP MAP (for resolving tag IDs to i18n objects) ---
+const tagsLookupMap = new Map();
 
 // --- DATA INDEX MAPS (for O(1) lookups) ---
 const dataIndexMaps = {
@@ -43,7 +47,8 @@ const dataIndexMaps = {
     models: new Map(),
     epds: new Map(),
     classifications: new Map(),
-    attributes: new Map()
+    attributes: new Map(),
+    tags: new Map()
 };
 
 /**
@@ -58,6 +63,7 @@ function buildDataIndexMaps() {
     dataIndexMaps.epds.clear();
     dataIndexMaps.classifications.clear();
     dataIndexMaps.attributes.clear();
+    dataIndexMaps.tags.clear();
 
     globalElementsData.forEach(item => dataIndexMaps.elements.set(item.id, item));
     globalDocumentsData.forEach(item => dataIndexMaps.documents.set(item.id, item));
@@ -66,6 +72,58 @@ function buildDataIndexMaps() {
     globalEpdsData.forEach(item => dataIndexMaps.epds.set(item.id, item));
     globalClassificationsData.forEach(item => dataIndexMaps.classifications.set(item.id, item));
     globalAttributesData.forEach(item => dataIndexMaps.attributes.set(item.id, item));
+    globalTagsData.forEach(item => dataIndexMaps.tags.set(item.id, item));
+}
+
+/**
+ * Build tags lookup map for resolving tag IDs to i18n name objects
+ * Called after data is loaded
+ */
+function buildTagsLookupMap() {
+    tagsLookupMap.clear();
+    globalTagsData.forEach(tag => {
+        tagsLookupMap.set(tag.id, tag.name);
+    });
+}
+
+/**
+ * Resolve a tag ID to its i18n name object
+ * @param {string} tagId - Tag ID (e.g., "tag-koordination")
+ * @returns {Object|null} The i18n name object or null if not found
+ */
+function getTagById(tagId) {
+    return tagsLookupMap.get(tagId) || null;
+}
+
+/**
+ * Resolve an array of related_tags to localized tag strings
+ * @param {Array} relatedTags - Array of {id: "tag-id"} objects
+ * @returns {string[]} Array of localized tag strings
+ */
+function resolveTagsToStrings(relatedTags) {
+    if (!relatedTags || !Array.isArray(relatedTags)) {
+        return [];
+    }
+    return relatedTags
+        .map(ref => {
+            const tagName = getTagById(ref.id);
+            return tagName ? t(tagName) : null;
+        })
+        .filter(Boolean);
+}
+
+/**
+ * Resolve an array of related_tags to i18n objects (for tTags compatibility)
+ * @param {Array} relatedTags - Array of {id: "tag-id"} objects
+ * @returns {Object[]} Array of i18n name objects
+ */
+function resolveTagsToI18n(relatedTags) {
+    if (!relatedTags || !Array.isArray(relatedTags)) {
+        return [];
+    }
+    return relatedTags
+        .map(ref => getTagById(ref.id))
+        .filter(Boolean);
 }
 
 /**
