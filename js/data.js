@@ -5,7 +5,6 @@
 
 /**
  * Filter data by active tags (AND logic - must match all tags)
- * Supports both legacy string arrays and i18n object arrays
  * @param {Array} data - Array of data items
  * @param {string[]} activeTags - Array of tag strings
  * @returns {Array} Filtered data
@@ -24,7 +23,6 @@ function filterDataByTags(data, activeTags) {
 
 /**
  * Filter data by active category/domain
- * Supports both legacy 'category' field and new 'domain' i18n field
  * @param {Array} data - Array of data items
  * @param {string} activeCategory - Category string
  * @returns {Array} Filtered data
@@ -34,9 +32,7 @@ function filterDataByCategory(data, activeCategory) {
         return data;
     }
     return data.filter(item => {
-        // Support both legacy 'category' and new 'domain' field
-        const itemCategory = item.domain ? t(item.domain) : item.category;
-        return itemCategory === activeCategory;
+        return t(item.domain) === activeCategory;
     });
 }
 
@@ -68,7 +64,6 @@ function isTagActive(tag) {
 
 /**
  * Extract unique categories/domains from data array
- * Supports both legacy 'category' field and new 'domain' i18n field
  * @param {Array} data - Array of data items
  * @returns {string[]} Sorted array of unique categories
  */
@@ -76,8 +71,7 @@ function getUniqueCategories(data) {
     if (!data || !Array.isArray(data)) return [];
     const categories = new Set();
     data.forEach(item => {
-        // Support both legacy 'category' and new 'domain' field
-        const category = item.domain ? t(item.domain) : item.category;
+        const category = t(item.domain);
         if (category) {
             categories.add(category);
         }
@@ -87,7 +81,6 @@ function getUniqueCategories(data) {
 
 /**
  * Extract unique tags from data array
- * Supports both legacy string arrays and i18n object arrays
  * @param {Array} data - Array of data items
  * @returns {string[]} Sorted array of unique tags
  */
@@ -103,17 +96,15 @@ function getUniqueTags(data) {
 }
 
 /**
- * Sort data by title/name alphabetically (A-Z)
- * Supports both legacy 'title' field and new 'name' i18n field
+ * Sort data by name alphabetically (A-Z)
  * @param {Array} data - Array of data items
  * @returns {Array} Sorted array
  */
 function sortDataByTitle(data) {
     if (!data || !Array.isArray(data)) return [];
     return [...data].sort((a, b) => {
-        // Support both legacy 'title' and new 'name' field
-        const titleA = (a.name ? t(a.name) : a.title || '').toLowerCase();
-        const titleB = (b.name ? t(b.name) : b.title || '').toLowerCase();
+        const titleA = t(a.name).toLowerCase();
+        const titleB = t(b.name).toLowerCase();
         return titleA.localeCompare(titleB, 'de');
     });
 }

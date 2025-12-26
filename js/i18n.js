@@ -37,20 +37,13 @@ function getLanguage() {
 
 /**
  * Get localized string from an i18n object
- * Handles both legacy string format and new i18n object format for backward compatibility
  *
- * @param {string|Object} i18nObj - Either a plain string or i18n object like {"de": "...", "fr": "..."}
+ * @param {Object} i18nObj - i18n object like {"de": "...", "fr": "..."}
  * @param {string} [fallbackLang='de'] - Fallback language if current language has no value
  * @returns {string} The localized string, or empty string if not found
  *
  * @example
- * // New i18n format
  * t({"de": "Wand", "fr": "Mur", "it": "Parete", "en": "Wall"}) // Returns "Wand" (if currentLang is 'de')
- *
- * // Legacy string format (backward compatible)
- * t("Wand") // Returns "Wand"
- *
- * // Null/undefined handling
  * t(null) // Returns ""
  */
 function t(i18nObj, fallbackLang = 'de') {
@@ -58,7 +51,7 @@ function t(i18nObj, fallbackLang = 'de') {
         return '';
     }
 
-    // Backward compatibility: if it's already a string, return as-is
+    // Handle plain string (defensive)
     if (typeof i18nObj === 'string') {
         return i18nObj;
     }
@@ -86,30 +79,20 @@ function t(i18nObj, fallbackLang = 'de') {
 
 /**
  * Get localized strings from an array of i18n objects (tags)
- * Handles both legacy string array and new i18n object array format
  *
- * @param {Array<string|Object>} tagsArray - Array of strings or i18n objects
+ * @param {Array<Object>} tagsArray - Array of i18n objects
  * @returns {string[]} Array of localized strings
  *
  * @example
- * // New i18n format
  * tTags([{"de": "Betrieb", "fr": "Exploitation"}, {"de": "Koordination", "fr": "Coordination"}])
  * // Returns ["Betrieb", "Koordination"] (if currentLang is 'de')
- *
- * // Legacy string array (backward compatible)
- * tTags(["Betrieb", "Koordination"]) // Returns ["Betrieb", "Koordination"]
  */
 function tTags(tagsArray) {
     if (!tagsArray || !Array.isArray(tagsArray)) {
         return [];
     }
 
-    return tagsArray.map(tag => {
-        if (typeof tag === 'string') {
-            return tag; // Backward compatibility
-        }
-        return t(tag);
-    });
+    return tagsArray.map(tag => t(tag));
 }
 
 /**
@@ -127,7 +110,6 @@ function isI18nObject(value) {
 
 /**
  * Create an i18n object with German value and empty placeholders for other languages
- * Useful for data migration
  *
  * @param {string} germanValue - The German text value
  * @returns {Object} i18n object with German value and empty placeholders
@@ -146,7 +128,6 @@ function createI18n(germanValue) {
 
 /**
  * Create an array of i18n objects from an array of German strings
- * Useful for migrating tags arrays
  *
  * @param {string[]} germanArray - Array of German strings
  * @returns {Object[]} Array of i18n objects

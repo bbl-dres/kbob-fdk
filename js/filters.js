@@ -56,7 +56,6 @@ function renderFilterBarHeader(activeTags, activeCategory = '') {
 
 /**
  * Calculate category and tag counts in a single pass (O(n) instead of O(n*m))
- * Supports both legacy fields and new i18n fields
  * @param {Array} data - Array of data items
  * @returns {Object} { categories, tags, categoryCounts, tagCounts }
  */
@@ -67,13 +66,13 @@ function calculateFilterCounts(data) {
     const tagsSet = new Set();
 
     data.forEach(item => {
-        // Count and collect categories (support both legacy 'category' and new 'domain')
-        const category = item.domain ? t(item.domain) : item.category;
+        // Count and collect categories
+        const category = t(item.domain);
         if (category) {
             categoriesSet.add(category);
             categoryCounts[category] = (categoryCounts[category] || 0) + 1;
         }
-        // Count and collect tags (support both legacy string arrays and i18n)
+        // Count and collect tags
         if (item.tags && Array.isArray(item.tags)) {
             tTags(item.tags).forEach(tag => {
                 tagsSet.add(tag);

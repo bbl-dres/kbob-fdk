@@ -16,8 +16,6 @@ const catalogTypeConfig = {
         routePrefix: 'element',
         cardIdPrefix: 'element',
         icon: 'image',
-        subtitleField: 'classification', // fallback field for subtitle
-        searchFields: ['title', 'classification'],
         getData: () => globalElementsData,
         getFilterVisible: () => elementsFilterVisible,
         setFilterVisible: (val) => { elementsFilterVisible = val; }
@@ -26,8 +24,6 @@ const catalogTypeConfig = {
         routePrefix: 'document',
         cardIdPrefix: 'document',
         icon: 'file-text',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalDocumentsData,
         getFilterVisible: () => documentsFilterVisible,
         setFilterVisible: (val) => { documentsFilterVisible = val; }
@@ -36,8 +32,6 @@ const catalogTypeConfig = {
         routePrefix: 'usecase',
         cardIdPrefix: 'usecase',
         icon: 'workflow',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalUsecasesData,
         getFilterVisible: () => usecasesFilterVisible,
         setFilterVisible: (val) => { usecasesFilterVisible = val; },
@@ -47,8 +41,6 @@ const catalogTypeConfig = {
         routePrefix: 'model',
         cardIdPrefix: 'model',
         icon: 'boxes',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalModelsData,
         getFilterVisible: () => modelsFilterVisible,
         setFilterVisible: (val) => { modelsFilterVisible = val; }
@@ -57,8 +49,6 @@ const catalogTypeConfig = {
         routePrefix: 'epd',
         cardIdPrefix: 'epd',
         icon: 'leaf',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalEpdsData,
         getFilterVisible: () => epdsFilterVisible,
         setFilterVisible: (val) => { epdsFilterVisible = val; }
@@ -71,7 +61,6 @@ const catalogTypeConfig = {
 
 /**
  * Render tags HTML for full view
- * Supports both legacy string arrays and i18n object arrays
  */
 function renderTagsHtml(tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData)) return '';
@@ -111,7 +100,6 @@ window.toggleCardTags = function(event, cardId) {
 /**
  * Render tags for card with +N / - toggle
  * In collapsed mode, renders all tags initially for measurement, then fitCardTagsToSingleRow hides overflow
- * Supports both legacy string arrays and i18n object arrays
  */
 function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
@@ -295,7 +283,6 @@ function refreshIcons(container = null) {
 
 /**
  * Generic grid renderer for all catalog types
- * Supports both legacy fields (title, category) and new i18n fields (name, domain)
  * @param {string} type - Catalog type key (elements, documents, usecases, models, epds)
  * @param {Array} items - Array of data items
  * @param {string[]} activeTags - Currently active tags
@@ -311,15 +298,11 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
     return items.map(item => {
         const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
         const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
-        // Support both legacy 'category' and new 'domain' field
-        const itemCategory = item.domain ? t(item.domain) : item.category;
+        const itemCategory = t(item.domain);
         const isCategoryActive = activeCategory === itemCategory;
-        // Support both legacy 'title' and new 'name' field
-        const safeTitle = escapeHtml(item.name ? t(item.name) : item.title || '');
+        const safeTitle = escapeHtml(t(item.name));
         const safeCategory = escapeHtml(itemCategory || '');
-        // Support both legacy 'description' and new i18n 'description' field
-        const descriptionText = item.description ? t(item.description) : '';
-        const safeSubtitle = escapeHtml(descriptionText || item[config.subtitleField] || '');
+        const safeSubtitle = escapeHtml(t(item.description) || '');
         const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
         // Prepare tags data for JSON (use localized strings for display consistency)
         const tagsForJson = hasTags ? JSON.stringify(tTags(item.tags)) : '[]';
@@ -348,7 +331,6 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
 
 /**
  * Generic list renderer for all catalog types
- * Supports both legacy fields (title, category) and new i18n fields (name, domain)
  * @param {string} type - Catalog type key
  * @param {Array} items - Array of data items
  * @param {string[]} activeTags - Currently active tags
@@ -370,11 +352,8 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
     `;
 
     const itemsHtml = items.map(item => {
-        // Support both legacy 'title' and new 'name' field
-        const safeTitle = escapeHtml(item.name ? t(item.name) : item.title || '');
-        // Support both legacy 'description' and new i18n 'description' field
-        const descriptionText = item.description ? t(item.description) : '';
-        const safeSubtitle = escapeHtml(descriptionText || item[config.subtitleField] || '');
+        const safeTitle = escapeHtml(t(item.name));
+        const safeSubtitle = escapeHtml(t(item.description) || '');
         const itemHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
         return `
         <div class="element-list-item" data-href="${itemHref}">
@@ -388,8 +367,7 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
 }
 
 // ============================================
-// BACKWARD COMPATIBLE WRAPPERS
-// These maintain the original function names for compatibility
+// TYPE-SPECIFIC RENDER WRAPPERS
 // ============================================
 
 function renderGridItemsHTML(items, activeTags = [], activeCategory = '') {
