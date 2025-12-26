@@ -212,15 +212,15 @@ function renderSearchResultsPage(query) {
                 <div class="search-results__header">
                     <span class="search-results__count">${resultCount} Suchergebnisse</span>
                     <div class="search-results__controls">
-                        <button class="search-results__sort" onclick="toggleSearchSort()">
+                        <button class="search-results__sort" data-action="toggle-search-sort">
                             <span>${currentSearchSort === 'date-desc' ? 'Nach Datum sortieren (Absteigend)' : 'Nach Datum sortieren (Aufsteigend)'}</span>
                             <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="view-switcher toolbar-control">
-                            <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" onclick="switchSearchView('list')" title="Listenansicht" aria-label="Listenansicht">
+                            <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" data-action="switch-search-view" data-view="list" title="Listenansicht" aria-label="Listenansicht">
                                 <i data-lucide="list" aria-hidden="true"></i>
                             </button>
-                            <button class="view-btn ${getActiveViewFromURL() === 'grid' ? 'active' : ''}" onclick="switchSearchView('grid')" title="Rasteransicht" aria-label="Rasteransicht">
+                            <button class="view-btn ${getActiveViewFromURL() === 'grid' ? 'active' : ''}" data-action="switch-search-view" data-view="grid" title="Rasteransicht" aria-label="Rasteransicht">
                                 <i data-lucide="layout-grid" aria-hidden="true"></i>
                             </button>
                         </div>
@@ -307,8 +307,8 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </button>
                     <div class="view-switcher toolbar-control">
-                        <button class="view-btn ${listActive}" onclick="switchView('list')" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
-                        <button class="view-btn ${gridActive}" onclick="switchView('grid')" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
+                        <button class="view-btn ${listActive}" data-action="switch-view" data-view="list" aria-label="Listenansicht"><i data-lucide="list" aria-hidden="true"></i></button>
+                        <button class="view-btn ${gridActive}" data-action="switch-view" data-view="grid" aria-label="Rasteransicht"><i data-lucide="layout-grid" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>

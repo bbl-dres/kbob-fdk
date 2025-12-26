@@ -8,7 +8,8 @@
 // ============================================
 
 function renderElementDetailPage(id, activeTags = []) {
-    const data = globalElementsData.find(element => element.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById('elements', id);
     if (!data) {
         contentArea.innerHTML = '<div class="container error-state">Element nicht gefunden.</div>';
         return;
@@ -20,28 +21,17 @@ function renderElementDetailPage(id, activeTags = []) {
     const safeImage = escapeHtml(data.image || '');
 
     // Derive phases from geometry, information, and documentation arrays
+    // Use optional chaining for defensive access
     const derivedPhases = new Set();
-    if (data.geometry && Array.isArray(data.geometry)) {
-        data.geometry.forEach(item => {
-            if (item.phases && Array.isArray(item.phases)) {
-                item.phases.forEach(p => derivedPhases.add(p));
-            }
-        });
-    }
-    if (data.information && Array.isArray(data.information)) {
-        data.information.forEach(item => {
-            if (item.phases && Array.isArray(item.phases)) {
-                item.phases.forEach(p => derivedPhases.add(p));
-            }
-        });
-    }
-    if (data.documentation && Array.isArray(data.documentation)) {
-        data.documentation.forEach(item => {
-            if (item.phases && Array.isArray(item.phases)) {
-                item.phases.forEach(p => derivedPhases.add(p));
-            }
-        });
-    }
+    (data.geometry || []).forEach(item => {
+        item?.phases?.forEach(p => derivedPhases.add(p));
+    });
+    (data.information || []).forEach(item => {
+        item?.phases?.forEach(p => derivedPhases.add(p));
+    });
+    (data.documentation || []).forEach(item => {
+        item?.phases?.forEach(p => derivedPhases.add(p));
+    });
     const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
     const hasPhases = elementPhases.length > 0;
 
@@ -261,7 +251,8 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
         return;
     }
 
-    const data = config.getData().find(item => item.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById(type, id);
     if (!data) {
         contentArea.innerHTML = `<div class="container error-state">${escapeHtml(config.notFoundText)}</div>`;
         return;
@@ -302,7 +293,8 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
 // ============================================
 
 function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalDocumentsData.find(doc => doc.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById('documents', id);
     if (!data) {
         contentArea.innerHTML = '<div class="container error-state">Dokument nicht gefunden.</div>';
         return;
@@ -475,7 +467,8 @@ function renderMetadataTable(data, entityType, title) {
 }
 
 function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalUsecasesData.find(item => item.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById('usecases', id);
     if (!data) {
         contentArea.innerHTML = '<div class="container error-state">Anwendungsfall nicht gefunden.</div>';
         return;
@@ -764,7 +757,8 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 }
 
 function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalModelsData.find(item => item.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById('models', id);
     if (!data) {
         contentArea.innerHTML = '<div class="container error-state">Fachmodell nicht gefunden.</div>';
         return;
@@ -874,7 +868,8 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 }
 
 function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
-    const data = globalEpdsData.find(item => item.id === id);
+    // Use O(1) lookup instead of O(n) .find()
+    const data = getItemById('epds', id);
     if (!data) {
         contentArea.innerHTML = '<div class="container error-state">Ökobilanzdaten nicht gefunden.</div>';
         return;

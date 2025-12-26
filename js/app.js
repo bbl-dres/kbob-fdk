@@ -3,16 +3,77 @@
  * Initialization and data loading
  */
 
+// ============================================
+// FETCH UTILITIES
+// ============================================
+
 /**
- * Load data from JSON files (fallback method)
+ * Fetch with timeout support
+ * @param {string} url - URL to fetch
+ * @param {number} timeout - Timeout in milliseconds (default: 10000)
+ * @returns {Promise<Response>}
+ */
+async function fetchWithTimeout(url, timeout = 10000) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        return response;
+    } catch (error) {
+        clearTimeout(timeoutId);
+        if (error.name === 'AbortError') {
+            throw new Error(`Request timeout: ${url}`);
+        }
+        throw error;
+    }
+}
+
+/**
+ * Fetch with retry and exponential backoff
+ * @param {string} url - URL to fetch
+ * @param {Object} options - Options
+ * @param {number} options.retries - Number of retries (default: 3)
+ * @param {number} options.timeout - Timeout per request in ms (default: 10000)
+ * @param {number} options.backoffMs - Initial backoff in ms (default: 1000)
+ * @returns {Promise<Response>}
+ */
+async function fetchWithRetry(url, options = {}) {
+    const { retries = 3, timeout = 10000, backoffMs = 1000 } = options;
+
+    let lastError;
+    for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+            return await fetchWithTimeout(url, timeout);
+        } catch (error) {
+            lastError = error;
+            if (attempt < retries) {
+                // Exponential backoff: 1s, 2s, 4s
+                const delay = backoffMs * Math.pow(2, attempt);
+                await new Promise(resolve => setTimeout(resolve, delay));
+            }
+        }
+    }
+    throw lastError;
+}
+
+// ============================================
+// DATA LOADING
+// ============================================
+
+/**
+ * Load data from JSON files with retry support
  */
 async function loadDataFromJson() {
+    const fetchOptions = { retries: 3, timeout: 15000, backoffMs: 1000 };
+
     const [elementsResponse, documentsResponse, usecasesResponse, modelsResponse, epdsResponse] = await Promise.all([
-        fetch('data/elements.json'),
-        fetch('data/documents.json'),
-        fetch('data/usecases.json'),
-        fetch('data/models.json'),
-        fetch('data/epds.json')
+        fetchWithRetry('data/elements.json', fetchOptions),
+        fetchWithRetry('data/documents.json', fetchOptions),
+        fetchWithRetry('data/usecases.json', fetchOptions),
+        fetchWithRetry('data/models.json', fetchOptions),
+        fetchWithRetry('data/epds.json', fetchOptions)
     ]);
 
     if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
@@ -92,6 +153,7 @@ async function initApp() {
 /**
  * Setup global event delegation for navigation and interactive elements
  * Uses event delegation to avoid attaching listeners to each element (performance + memory)
+ * This centralizes all click handlers for better security (no inline onclick) and maintainability
  */
 function setupEventDelegation() {
     document.addEventListener('click', (e) => {
@@ -124,6 +186,83 @@ function setupEventDelegation() {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             return;
+        }
+
+        // Handle catalog cards with data-href (navigate to detail page)
+        const card = e.target.closest('.card[data-href]');
+        if (card && !e.target.closest('[data-action]')) {
+            window.location.hash = card.dataset.href;
+            return;
+        }
+
+        // Handle list items with data-href
+        const listItem = e.target.closest('.element-list-item[data-href]');
+        if (listItem && !e.target.closest('[data-action]')) {
+            window.location.hash = listItem.dataset.href;
+            return;
+        }
+
+        // Handle data-action elements (centralized action handlers)
+        const actionElement = e.target.closest('[data-action]');
+        if (actionElement) {
+            const action = actionElement.dataset.action;
+
+            switch (action) {
+                case 'toggle-tag':
+                    e.stopPropagation();
+                    toggleTagInURL(actionElement.dataset.tag);
+                    break;
+                case 'toggle-category':
+                    e.stopPropagation();
+                    toggleCategoryInURL(actionElement.dataset.category);
+                    break;
+                case 'toggle-phase':
+                    e.stopPropagation();
+                    togglePhaseInURL(parseInt(actionElement.dataset.phase, 10));
+                    break;
+                case 'toggle-filter-dropdown':
+                    e.stopPropagation();
+                    handleFilterDropdownToggle(actionElement.dataset.filterId);
+                    break;
+                case 'toggle-card-tags':
+                    e.stopPropagation();
+                    toggleCardTags(e, actionElement.dataset.cardId);
+                    break;
+                case 'clear-all-filters':
+                    clearAllFilters(actionElement.dataset.type);
+                    break;
+                case 'clear-tags':
+                    clearAllTagsFromURL();
+                    break;
+                case 'toggle-filter':
+                    toggleFilter(actionElement.dataset.type);
+                    break;
+                case 'switch-view':
+                    switchView(actionElement.dataset.view);
+                    break;
+                case 'switch-search-view':
+                    switchSearchView(actionElement.dataset.view);
+                    break;
+                case 'toggle-search-sort':
+                    toggleSearchSort();
+                    break;
+            }
+            return;
+        }
+    });
+}
+
+/**
+ * Handle filter dropdown toggle (extracted for event delegation)
+ * @param {string} groupId - The filter group identifier
+ */
+function handleFilterDropdownToggle(groupId) {
+    const allGroups = document.querySelectorAll('.filter-group');
+    allGroups.forEach(group => {
+        if (group.dataset.filterId === groupId) {
+            group.classList.toggle('open');
+        } else {
+            group.classList.remove('open');
         }
     });
 }

@@ -96,11 +96,44 @@ function copyToClipboard(text) {
 }
 
 /**
- * Show toast notification (placeholder - needs implementation)
+ * Show toast notification
  * @param {string} message - Toast message
- * @param {string} type - Toast type ('success' or 'error')
+ * @param {string} type - Toast type ('success', 'error', or 'info')
  */
-function showToast(message, type) {
-    // TODO: Implement toast notification UI
-    console.log(`Toast [${type}]: ${message}`);
+function showToast(message, type = 'info') {
+    // Remove any existing toast
+    const existingToast = document.querySelector('.toast-notification');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast-notification toast-notification--${type}`;
+
+    // Choose icon based on type
+    const iconName = type === 'success' ? 'check-circle' : type === 'error' ? 'alert-circle' : 'info';
+
+    toast.innerHTML = `
+        <i data-lucide="${iconName}" class="toast-notification__icon"></i>
+        <span class="toast-notification__message">${escapeHtml(message)}</span>
+    `;
+
+    document.body.appendChild(toast);
+
+    // Initialize Lucide icon
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+        toast.classList.add('toast-notification--visible');
+    });
+
+    // Auto-remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('toast-notification--visible');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }

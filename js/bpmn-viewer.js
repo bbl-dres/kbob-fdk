@@ -256,8 +256,16 @@ async function openBpmnFullscreen(bpmnXml, usecaseId) {
         }
     }
 
-    // Close modal handlers
+    // Close on Escape key - define before closeModal so it can be referenced
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    };
+
+    // Close modal handlers - always clean up event listener to prevent memory leak
     const closeModal = () => {
+        document.removeEventListener('keydown', handleEscape);
         fullscreenViewer.destroy();
         modal.remove();
         document.body.style.overflow = '';
@@ -265,14 +273,6 @@ async function openBpmnFullscreen(bpmnXml, usecaseId) {
 
     modal.querySelector('.bpmn-fullscreen-close').addEventListener('click', closeModal);
     modal.querySelector('.bpmn-fullscreen-backdrop').addEventListener('click', closeModal);
-
-    // Close on Escape key
-    const handleEscape = (e) => {
-        if (e.key === 'Escape') {
-            closeModal();
-            document.removeEventListener('keydown', handleEscape);
-        }
-    };
     document.addEventListener('keydown', handleEscape);
 
     // Prevent body scroll when modal is open

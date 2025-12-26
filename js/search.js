@@ -207,6 +207,49 @@ function formatSearchDate(dateStr) {
 // ============================================
 
 /**
+ * Create escape key and outside click handlers for closing UI elements
+ * Returns cleanup function to remove listeners
+ * @param {Object} options - Configuration options
+ * @param {Function} options.onEscape - Callback when Escape is pressed
+ * @param {Function} options.onOutsideClick - Callback when clicking outside
+ * @param {string} options.containerSelector - Selector for the container element (for outside click detection)
+ * @param {Function} options.isActiveCheck - Optional function to check if handlers should respond
+ * @returns {Function} Cleanup function to remove event listeners
+ */
+function createDismissHandlers(options) {
+    const { onEscape, onOutsideClick, containerSelector, isActiveCheck } = options;
+
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            if (!isActiveCheck || isActiveCheck()) {
+                onEscape?.();
+            }
+        }
+    };
+
+    const handleOutsideClick = (e) => {
+        if (!isActiveCheck || isActiveCheck()) {
+            if (containerSelector && !e.target.closest(containerSelector)) {
+                onOutsideClick?.();
+            }
+        }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    if (onOutsideClick && containerSelector) {
+        document.addEventListener('click', handleOutsideClick);
+    }
+
+    // Return cleanup function
+    return () => {
+        document.removeEventListener('keydown', handleEscape);
+        if (onOutsideClick && containerSelector) {
+            document.removeEventListener('click', handleOutsideClick);
+        }
+    };
+}
+
+/**
  * Setup search clear button functionality
  */
 function setupSearchClearButton(inputId, clearBtnId, onClear) {
@@ -234,6 +277,19 @@ function setupSearchClearButton(inputId, clearBtnId, onClear) {
     updateClearVisibility();
 }
 
+// Store debounce timer reference for cleanup
+let globalSearchDebounceTimer = null;
+
+/**
+ * Cleanup global search resources (call before navigating away)
+ */
+function cleanupGlobalSearch() {
+    if (globalSearchDebounceTimer) {
+        clearTimeout(globalSearchDebounceTimer);
+        globalSearchDebounceTimer = null;
+    }
+}
+
 /**
  * Setup global search on homepage
  */
@@ -243,10 +299,16 @@ function setupGlobalSearch() {
 
     if (!searchInput || !searchDropdown) return;
 
-    let debounceTimer;
+    // Clear any existing timer from previous page
+    cleanupGlobalSearch();
+
+    const closeDropdown = () => {
+        searchDropdown.classList.remove('open');
+        searchInput.blur();
+    };
 
     searchInput.addEventListener('input', (e) => {
-        clearTimeout(debounceTimer);
+        clearTimeout(globalSearchDebounceTimer);
         const query = e.target.value;
 
         if (query.length < 2) {
@@ -254,24 +316,19 @@ function setupGlobalSearch() {
             return;
         }
 
-        debounceTimer = setTimeout(() => {
+        globalSearchDebounceTimer = setTimeout(() => {
             const results = performGlobalSearch(query);
             searchDropdown.innerHTML = renderSearchDropdown(results, query);
             searchDropdown.classList.add('open');
         }, 150);
     });
 
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.gallery-filter-container') && !e.target.closest('.home-search-container')) {
-            searchDropdown.classList.remove('open');
-        }
-    });
-
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            searchDropdown.classList.remove('open');
-            searchInput.blur();
-        }
+    // Use shared dismiss handlers for escape and outside click
+    createDismissHandlers({
+        onEscape: closeDropdown,
+        onOutsideClick: () => searchDropdown.classList.remove('open'),
+        containerSelector: '.gallery-filter-container, .home-search-container',
+        isActiveCheck: () => searchDropdown.classList.contains('open')
     });
 
     searchDropdown.addEventListener('click', (e) => {
@@ -331,17 +388,15 @@ function setupHeaderSearch() {
         }
     });
 
-    document.addEventListener('click', (e) => {
-        if (isExpanded && !e.target.closest('.header__search')) {
-            collapseSearch();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && isExpanded) {
+    // Use shared dismiss handlers for escape and outside click
+    createDismissHandlers({
+        onEscape: () => {
             collapseSearch();
             toggle.focus();
-        }
+        },
+        onOutsideClick: collapseSearch,
+        containerSelector: '.header__search',
+        isActiveCheck: () => isExpanded
     });
 
     setupSearchClearButton('headerSearchInput', 'headerSearchClear');

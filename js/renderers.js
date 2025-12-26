@@ -78,7 +78,7 @@ function renderTagsHtml(tagsData, activeTags = []) {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
+        return `<span class="tag-badge ${activeClass}" data-action="toggle-tag" data-tag="${safeTag}" title="Filter: ${safeTag}">${safeTag}</span>`;
     }).join('');
 }
 
@@ -119,18 +119,19 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
-        return `<span class="tag-badge ${activeClass}" data-tag-index="${index}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')" title="Filter: ${safeTag}">${safeTag}</span>`;
+        return `<span class="tag-badge ${activeClass}" data-tag-index="${index}" data-action="toggle-tag" data-tag="${safeTag}" title="Filter: ${safeTag}">${safeTag}</span>`;
     };
 
     const tagsHtml = tagsData.map((tag, index) => renderTag(tag, index)).join('');
+    const safeCardId = escapeHtml(cardId);
 
     if (isExpanded) {
         // Expanded: show all tags + collapse button
-        return tagsHtml + `<span class="tag-badge tag-badge--count" onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Weniger anzeigen">−</span>`;
+        return tagsHtml + `<span class="tag-badge tag-badge--count" data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Weniger anzeigen">−</span>`;
     }
 
     // Collapsed: render all tags + count badge placeholder (will be adjusted by fitCardTagsToSingleRow)
-    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge onclick="toggleCardTags(event, '${escapeHtml(cardId)}')" title="Mehr anzeigen">+${tagsData.length}</span>`;
+    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Mehr anzeigen">+${tagsData.length}</span>`;
 }
 
 /**
@@ -246,7 +247,7 @@ function renderNoResults(hasActiveTags) {
             <div class="no-results">
                 <h3>Keine Ergebnisse gefunden</h3>
                 <p>Die aktiven Filter ergeben keine Treffer.</p>
-                <p><span class="clear-filter-link" onclick="clearAllTagsFromURL()">Filter zurücksetzen</span></p>
+                <p><span class="clear-filter-link" data-action="clear-tags">Filter zurücksetzen</span></p>
             </div>
         `;
     }
@@ -309,11 +310,12 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
         const safeTitle = escapeHtml(item.title || '');
         const safeCategory = escapeHtml(item.category || '');
         const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
 
         return `
-        <article class="card" data-card-id="${cardId}" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
+        <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
             <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${safeCategory}')">${safeCategory}</span>` : ''}
+                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
                 ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
@@ -357,8 +359,9 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
     const itemsHtml = items.map(item => {
         const safeTitle = escapeHtml(item.title || '');
         const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        const itemHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
         return `
-        <div class="element-list-item" onclick="window.location.hash='${buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory)}'">
+        <div class="element-list-item" data-href="${itemHref}">
             <div class="list-col-name">${safeTitle}</div>
             <div class="list-col-desc">${safeSubtitle}</div>
             <div class="list-col-tags">${renderTagsHtml(item.tags, activeTags)}</div>

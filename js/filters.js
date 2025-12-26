@@ -7,17 +7,11 @@
  * Toggle filter dropdown open/closed
  * @param {Event} event - Click event
  * @param {string} groupId - The filter group identifier
+ * @deprecated Use data-action="toggle-filter-dropdown" with event delegation instead
  */
 window.toggleFilterDropdown = function(event, groupId) {
     event.stopPropagation();
-    const allGroups = document.querySelectorAll('.filter-group');
-    allGroups.forEach(group => {
-        if (group.dataset.filterId === groupId) {
-            group.classList.toggle('open');
-        } else {
-            group.classList.remove('open');
-        }
-    });
+    handleFilterDropdownToggle(groupId);
 }
 
 /**
@@ -40,7 +34,7 @@ document.addEventListener('click', function(e) {
 function renderFilterBarHeader(activeTags, activeCategory = '') {
     const hasFilters = activeTags.length > 0 || activeCategory;
     const resetBtn = hasFilters
-        ? `<button class="filter-bar__reset" onclick="clearAllFilters()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
         : '';
 
     let activeFiltersHtml = '';
@@ -48,11 +42,11 @@ function renderFilterBarHeader(activeTags, activeCategory = '') {
         const filterBadges = [];
         if (activeCategory) {
             const safeCat = escapeHtml(activeCategory);
-            filterBadges.push(`<span class="tag-badge active" onclick="toggleCategoryInURL('${safeCat}')">${safeCat} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-category" data-category="${safeCat}">${safeCat} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         }
         activeTags.forEach(tag => {
             const safeTag = escapeHtml(tag);
-            filterBadges.push(`<span class="tag-badge active" onclick="toggleTagInURL('${safeTag}')">${safeTag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-tag" data-tag="${safeTag}">${safeTag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         });
         activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;margin-top:var(--space-sm);">${filterBadges.join('')}</div>`;
     }
@@ -117,7 +111,7 @@ function renderFilterBar(options) {
         const safeCat = escapeHtml(cat);
         const isActive = activeCategory === cat;
         const count = categoryCounts[cat];
-        return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleCategoryInURL('${safeCat}')">${safeCat} <span class="filter-dropdown__count">${count}</span></span>`;
+        return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCat}">${safeCat} <span class="filter-dropdown__count">${count}</span></span>`;
     }).join('');
 
     // Render tag dropdown items
@@ -125,7 +119,7 @@ function renderFilterBar(options) {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const count = tagCounts[tag];
-        return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); toggleTagInURL('${safeTag}')">${safeTag} <span class="filter-dropdown__count">${count}</span></span>`;
+        return `<span class="filter-dropdown__item ${isActive ? 'active' : ''}" data-action="toggle-tag" data-tag="${safeTag}">${safeTag} <span class="filter-dropdown__count">${count}</span></span>`;
     }).join('');
 
     // Render phases dropdown if needed
@@ -136,7 +130,7 @@ function renderFilterBar(options) {
             const isActive = activePhases.includes(phase);
             const label = phaseLabels[phase];
             return `
-                <div class="filter-dropdown__phase-item ${isActive ? 'active' : ''}" onclick="event.stopPropagation(); togglePhaseInURL(${phase})">
+                <div class="filter-dropdown__phase-item ${isActive ? 'active' : ''}" data-action="toggle-phase" data-phase="${phase}">
                     <span class="filter-dropdown__phase-number">${phase}</span>
                     <span class="filter-dropdown__phase-label">${label}</span>
                 </div>
@@ -146,7 +140,7 @@ function renderFilterBar(options) {
         const activePhasesCount = activePhases.length;
         phasesGroupHtml = `
             <div class="filter-group" data-filter-id="phases">
-                <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'phases')">
+                <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="phases">
                     Phase ${activePhasesCount > 0 ? `<span class="filter-count-badge">${activePhasesCount}</span>` : ''}
                     <i data-lucide="chevron-down" aria-hidden="true"></i>
                 </div>
@@ -162,7 +156,7 @@ function renderFilterBar(options) {
 
     const hasFilters = activeTags.length > 0 || activeCategory || activePhases.length > 0;
     const resetBtn = hasFilters
-        ? `<button class="filter-bar__reset" onclick="clearAllFilters()" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
+        ? `<button class="filter-bar__reset" data-action="clear-all-filters" title="Filter zurücksetzen" aria-label="Filter zurücksetzen"><i data-lucide="x" aria-hidden="true"></i></button>`
         : '';
 
     // Build active filters display
@@ -171,14 +165,14 @@ function renderFilterBar(options) {
         const filterBadges = [];
         if (activeCategory) {
             const safeCat = escapeHtml(activeCategory);
-            filterBadges.push(`<span class="tag-badge active" onclick="toggleCategoryInURL('${safeCat}')">${safeCat} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-category" data-category="${safeCat}">${safeCat} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         }
         activeTags.forEach(tag => {
             const safeTag = escapeHtml(tag);
-            filterBadges.push(`<span class="tag-badge active" onclick="toggleTagInURL('${safeTag}')">${safeTag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-tag" data-tag="${safeTag}">${safeTag} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         });
         activePhases.forEach(phase => {
-            filterBadges.push(`<span class="tag-badge active" onclick="togglePhaseInURL(${phase})">Phase ${phase} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
+            filterBadges.push(`<span class="tag-badge active" data-action="toggle-phase" data-phase="${phase}">Phase ${phase} <i data-lucide="x" style="width:12px;height:12px;vertical-align:middle;margin-left:4px;"></i></span>`);
         });
         activeFiltersHtml = `<div class="filter-bar__active-filters" style="display:flex;gap:var(--space-sm);flex-wrap:wrap;padding:var(--space-sm) var(--space-lg);border-top:1px solid var(--color-border-light);">${filterBadges.join('')}</div>`;
     }
@@ -191,7 +185,7 @@ function renderFilterBar(options) {
             <div class="filter-bar__header"><span>Filter</span>${resetBtn}</div>
             <div class="filter-bar__groups">
                 <div class="filter-group" data-filter-id="category">
-                    <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'category')">
+                    <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="category">
                         Kategorie ${activeCategoryCount > 0 ? `<span class="filter-count-badge">${activeCategoryCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
@@ -203,7 +197,7 @@ function renderFilterBar(options) {
                     </div>
                 </div>
                 <div class="filter-group" data-filter-id="tags">
-                    <div class="filter-toggle" onclick="toggleFilterDropdown(event, 'tags')">
+                    <div class="filter-toggle" data-action="toggle-filter-dropdown" data-filter-id="tags">
                         Tags ${activeTagsCount > 0 ? `<span class="filter-count-badge">${activeTagsCount}</span>` : ''}
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
                     </div>
@@ -230,13 +224,14 @@ function renderFilterBar(options) {
  */
 function renderFilterButton(type, isVisible, activeTagCount) {
     const activeClass = isVisible ? 'active' : '';
+    const safeType = escapeHtml(type);
 
     const resetBtn = activeTagCount > 0
-        ? `<button class="filter-btn reset-filter-btn" onclick="clearAllFilters('${type}')" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
+        ? `<button class="filter-btn reset-filter-btn" data-action="clear-all-filters" data-type="${safeType}" title="Filter zurücksetzen"><i data-lucide="refresh-cw" aria-hidden="true"></i> Zurücksetzen</button>`
         : '';
 
     return `
-        <button class="filter-btn ${activeClass}" onclick="toggleFilter('${type}')">
+        <button class="filter-btn ${activeClass}" data-action="toggle-filter" data-type="${safeType}">
             <i data-lucide="filter" aria-hidden="true"></i>
             Filter${activeTagCount > 0 ? `<span class="filter-count-badge">${activeTagCount}</span>` : ''}
         </button>
