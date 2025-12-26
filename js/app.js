@@ -259,8 +259,11 @@ function setupEventDelegation() {
                 case 'switch-search-view':
                     switchSearchView(actionElement.dataset.view);
                     break;
-                case 'toggle-search-sort':
-                    toggleSearchSort();
+                case 'toggle-sort-dropdown':
+                    toggleSortDropdown();
+                    break;
+                case 'set-search-sort':
+                    setSearchSort(actionElement.dataset.sort);
                     break;
             }
             return;

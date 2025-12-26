@@ -212,10 +212,17 @@ function renderSearchResultsPage(query) {
                 <div class="search-results__header">
                     <span class="search-results__count">${resultCount} Suchergebnisse</span>
                     <div class="search-results__controls">
-                        <button class="search-results__sort" data-action="toggle-search-sort">
-                            <span>${currentSearchSort === 'relevance' ? 'Nach Relevanz sortieren' : currentSearchSort === 'date-desc' ? 'Nach Datum (Neueste zuerst)' : 'Nach Datum (Älteste zuerst)'}</span>
-                            <i data-lucide="chevron-down" aria-hidden="true"></i>
-                        </button>
+                        <div class="sort-dropdown-container">
+                            <button class="search-results__sort" data-action="toggle-sort-dropdown">
+                                <span>${currentSearchSort === 'relevance' ? 'Nach Relevanz sortieren' : currentSearchSort === 'date-desc' ? 'Nach Datum (Neueste zuerst)' : 'Nach Datum (Älteste zuerst)'}</span>
+                                <i data-lucide="chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="sort-dropdown">
+                                <button class="sort-dropdown__item ${currentSearchSort === 'relevance' ? 'active' : ''}" data-action="set-search-sort" data-sort="relevance">Nach Relevanz sortieren</button>
+                                <button class="sort-dropdown__item ${currentSearchSort === 'date-desc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-desc">Nach Datum (Neueste zuerst)</button>
+                                <button class="sort-dropdown__item ${currentSearchSort === 'date-asc' ? 'active' : ''}" data-action="set-search-sort" data-sort="date-asc">Nach Datum (Älteste zuerst)</button>
+                            </div>
+                        </div>
                         <div class="view-switcher toolbar-control">
                             <button class="view-btn ${getActiveViewFromURL() === 'list' ? 'active' : ''}" data-action="switch-search-view" data-view="list" title="Listenansicht" aria-label="Listenansicht">
                                 <i data-lucide="list" aria-hidden="true"></i>

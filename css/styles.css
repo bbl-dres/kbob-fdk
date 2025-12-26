@@ -1368,6 +1368,56 @@ footer a:hover {
 .search-results__sort svg {
     width: 16px;
     height: 16px;
+    transition: transform var(--transition-fast);
+}
+
+.sort-dropdown-container {
+    position: relative;
+}
+
+.sort-dropdown-container.open .search-results__sort svg {
+    transform: rotate(180deg);
+}
+
+.sort-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    margin-top: var(--space-xs);
+}
+
+.sort-dropdown-container.open .sort-dropdown {
+    display: block;
+}
+
+.sort-dropdown__item {
+    display: block;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-body-sm);
+    color: var(--color-text-primary);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color var(--transition-fast);
+}
+
+.sort-dropdown__item:hover {
+    background-color: var(--color-surface);
+}
+
+.sort-dropdown__item.active {
+    color: var(--color-primary);
+    font-weight: 500;
 }
 
 /* Search Results List View */

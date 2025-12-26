@@ -480,15 +480,35 @@ window.switchSearchView = function(view) {
 };
 
 /**
- * Toggle search sort order (cycles: relevance → date-desc → date-asc)
+ * Toggle sort dropdown visibility
  */
-window.toggleSearchSort = function() {
-    if (currentSearchSort === 'relevance') {
-        currentSearchSort = 'date-desc';
-    } else if (currentSearchSort === 'date-desc') {
-        currentSearchSort = 'date-asc';
-    } else {
-        currentSearchSort = 'relevance';
+window.toggleSortDropdown = function() {
+    const container = document.querySelector('.sort-dropdown-container');
+    if (container) {
+        container.classList.toggle('open');
+
+        // Close dropdown when clicking outside
+        if (container.classList.contains('open')) {
+            const closeDropdown = (e) => {
+                if (!container.contains(e.target)) {
+                    container.classList.remove('open');
+                    document.removeEventListener('click', closeDropdown);
+                }
+            };
+            // Delay to avoid immediate close from the toggle click
+            setTimeout(() => document.addEventListener('click', closeDropdown), 0);
+        }
+    }
+};
+
+/**
+ * Set search sort order
+ */
+window.setSearchSort = function(sortValue) {
+    currentSearchSort = sortValue;
+    const container = document.querySelector('.sort-dropdown-container');
+    if (container) {
+        container.classList.remove('open');
     }
     renderSearchResultsPage(currentSearchQuery);
 };
