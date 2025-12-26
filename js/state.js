@@ -31,6 +31,8 @@ let globalDocumentsData = [];
 let globalUsecasesData = [];
 let globalModelsData = [];
 let globalEpdsData = [];
+let globalClassificationsData = [];
+let globalAttributesData = [];
 let isDataLoaded = false;
 
 // --- DATA INDEX MAPS (for O(1) lookups) ---
@@ -39,7 +41,9 @@ const dataIndexMaps = {
     documents: new Map(),
     usecases: new Map(),
     models: new Map(),
-    epds: new Map()
+    epds: new Map(),
+    classifications: new Map(),
+    attributes: new Map()
 };
 
 /**
@@ -52,12 +56,16 @@ function buildDataIndexMaps() {
     dataIndexMaps.usecases.clear();
     dataIndexMaps.models.clear();
     dataIndexMaps.epds.clear();
+    dataIndexMaps.classifications.clear();
+    dataIndexMaps.attributes.clear();
 
     globalElementsData.forEach(item => dataIndexMaps.elements.set(item.id, item));
     globalDocumentsData.forEach(item => dataIndexMaps.documents.set(item.id, item));
     globalUsecasesData.forEach(item => dataIndexMaps.usecases.set(item.id, item));
     globalModelsData.forEach(item => dataIndexMaps.models.set(item.id, item));
     globalEpdsData.forEach(item => dataIndexMaps.epds.set(item.id, item));
+    globalClassificationsData.forEach(item => dataIndexMaps.classifications.set(item.id, item));
+    globalAttributesData.forEach(item => dataIndexMaps.attributes.set(item.id, item));
 }
 
 /**

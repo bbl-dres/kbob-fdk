@@ -1,15 +1,41 @@
 [
   {
-    "id": "m1",
+    "id": "caa6cbad-aac2-4998-ac1d-20daf3985856",
+    "code": "m1",
     "version": "1.0",
-    "lastChange": "2024-06-15",
-    "title": "Architekturmodell",
+    "last_change": "2024-06-15",
+    "name": {
+      "de": "Architekturmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Digitales 3D-Modell der architektonischen Planung mit Räumen, Wänden, Decken und Öffnungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Visualisierung"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Visualisierung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       1,
@@ -17,368 +43,410 @@
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Wand",
-        "description": "Tragende und nichttragende Wände inkl. Innenwände",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Decke",
-        "description": "Geschossdecken und Flachdächer",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Fenster",
-        "description": "Fensterelemente mit Rahmen und Verglasung",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Tür",
-        "description": "Innen- und Aussentüren",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m2",
+    "id": "27a4e4b8-e6a1-4174-926e-1e1f1694157c",
+    "code": "m2",
     "version": "1.1",
-    "lastChange": "2024-07-22",
-    "title": "Tragwerksmodell",
+    "last_change": "2024-07-22",
+    "name": {
+      "de": "Tragwerksmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "BIM-Modell der tragenden Struktur mit statischen Bauteilen und Bewehrung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Nachweise",
-      "Koordination"
+      {
+        "de": "Nachweise",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Fundament",
-        "description": "Einzel- und Streifenfundamente",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Stütze",
-        "description": "Tragende Stützen aus Beton oder Stahl",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Träger",
-        "description": "Decken- und Dachträger",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m3",
+    "id": "90bcef90-f9d8-4dcd-86a0-96e8b56e9cd4",
+    "code": "m3",
     "version": "1.2",
-    "lastChange": "2024-08-10",
-    "title": "HLKS-Modell",
+    "last_change": "2024-08-10",
+    "name": {
+      "de": "HLKS-Modell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Integriertes Modell für Heizung, Lüftung, Klima und Sanitär",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Betrieb"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Betrieb",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Lüftungskanal",
-        "description": "Rechteck- und Rundkanäle für Lüftungsanlagen",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Heizungsrohr",
-        "description": "Rohrleitungen für Heizungsverteilung",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Sanitärleitung",
-        "description": "Trink- und Abwasserleitungen",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m4",
+    "id": "ecb40a42-e156-490e-b25b-3205c9398047",
+    "code": "m4",
     "version": "2.0",
-    "lastChange": "2024-09-05",
-    "title": "Elektromodell",
+    "last_change": "2024-09-05",
+    "name": {
+      "de": "Elektromodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "BIM-Modell der Elektroinstallationen, Verkabelung und elektrischen Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Betrieb"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Betrieb",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Kabeltrasse",
-        "description": "Kabelrinnen und Kabelkanäle",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Schalter",
-        "description": "Lichtschalter und Taster",
-        "phases": [
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Steckdose",
-        "description": "Steckdosen und Anschlussdosen",
-        "phases": [
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m5",
+    "id": "8504c1be-7c76-4291-88c7-60cf82660e20",
+    "code": "m5",
     "version": "1.0",
-    "lastChange": "2024-10-18",
-    "title": "Koordinationsmodell",
+    "last_change": "2024-10-18",
+    "name": {
+      "de": "Koordinationsmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
-    "category": "Koordination",
-    "description": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
+    "domain": {
+      "de": "Koordination",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Zusammengeführtes Gesamtmodell aller Fachmodelle für Koordination und Kollisionsprüfung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Qualitätssicherung"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Qualitätssicherung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": []
+    "related_elements": []
   },
   {
-    "id": "m6",
+    "id": "fae0b270-b9a7-4d18-a12b-1f32efd55c3c",
+    "code": "m6",
     "version": "1.1",
-    "lastChange": "2024-11-12",
-    "title": "Aussenraummodell",
+    "last_change": "2024-11-12",
+    "name": {
+      "de": "Aussenraummodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Modell der Aussenanlagen, Bepflanzung und Geländegestaltung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Visualisierung"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Visualisierung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Gelände",
-        "description": "Geländemodellierung und Topografie",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Bepflanzung",
-        "description": "Bäume, Sträucher und Grünflächen",
-        "phases": [
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m7",
+    "id": "41be7f39-a759-4c46-8479-9679bc9a5de0",
+    "code": "m7",
     "version": "1.2",
-    "lastChange": "2024-12-01",
-    "title": "Brandschutzmodell",
+    "last_change": "2024-12-01",
+    "name": {
+      "de": "Brandschutzmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?w=400&h=200&fit=crop",
-    "category": "Spezialmodelle",
-    "description": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
+    "domain": {
+      "de": "Spezialmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Fachmodell mit Brandschutzabschnitten, Fluchtwegen und Brandschutzeinrichtungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Nachweise",
-      "Genehmigung"
+      {
+        "de": "Nachweise",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Genehmigung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Brandwand",
-        "description": "Brandabschnittstrennende Wände",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Fluchtweg",
-        "description": "Fluchtwege und Notausgänge",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m8",
+    "id": "a7a6034a-8ff6-496a-9f1c-3616d0e3da65",
+    "code": "m8",
     "version": "2.0",
-    "lastChange": "2025-01-08",
-    "title": "Baugrubenmodell",
+    "last_change": "2025-01-08",
+    "name": {
+      "de": "Baugrubenmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
-    "category": "Spezialmodelle",
-    "description": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
+    "domain": {
+      "de": "Spezialmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Temporäres Modell für Baugrubensicherung und Aushubarbeiten",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Nachweise",
-      "Koordination"
+      {
+        "de": "Nachweise",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Spundwand",
-        "description": "Stahlspundwände zur Baugrubensicherung",
-        "phases": [
-          2,
-          3
-        ]
-      },
-      {
-        "name": "Anker",
-        "description": "Verpressanker und Rückverankerung",
-        "phases": [
-          2,
-          3
-        ]
-      }
-    ]
+    "related_elements": []
   },
   {
-    "id": "m9",
+    "id": "b1e1bc16-dd4c-4b70-a72f-8e84e776332b",
+    "code": "m9",
     "version": "1.0",
-    "lastChange": "2024-06-15",
-    "title": "Bestandsmodell",
+    "last_change": "2024-06-15",
+    "name": {
+      "de": "Bestandsmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop",
-    "category": "Bestand",
-    "description": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
+    "domain": {
+      "de": "Bestand",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Digitales Abbild des fertiggestellten Gebäudes für Betrieb und Unterhalt",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Betrieb",
-      "Bestandserfassung"
+      {
+        "de": "Betrieb",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Bestandserfassung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       3,
       4
     ],
-    "elements": []
+    "related_elements": []
   },
   {
-    "id": "m10",
+    "id": "1945244d-6b10-4699-9c34-35e4313ef408",
+    "code": "m10",
     "version": "1.1",
-    "lastChange": "2024-07-22",
-    "title": "Fassadenmodell",
+    "last_change": "2024-07-22",
+    "name": {
+      "de": "Fassadenmodell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
-    "category": "Fachmodelle",
-    "description": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
+    "domain": {
+      "de": "Fachmodelle",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Detailliertes Modell der Gebäudehülle mit Fassadenelementen und Anschlüssen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
     "tags": [
-      "Koordination",
-      "Visualisierung"
+      {
+        "de": "Koordination",
+        "fr": "",
+        "it": "",
+        "en": ""
+      },
+      {
+        "de": "Visualisierung",
+        "fr": "",
+        "it": "",
+        "en": ""
+      }
     ],
     "phases": [
       2,
       3,
       4
     ],
-    "elements": [
-      {
-        "name": "Fassadenpaneel",
-        "description": "Fassadenverkleidung und Paneele",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "Fensterrahmen",
-        "description": "Fensterrahmen und Fassadenanschlüsse",
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ]
+    "related_elements": []
   }
 ]

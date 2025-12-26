@@ -16,21 +16,22 @@ function renderElementDetailPage(id, activeTags = []) {
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Standard-Element des KBOB Datenkatalogs.');
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || 'Ein Standard-Element des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
-    // Derive phases from geometry, information, and documentation arrays
+    // Use explicit phases from element data, plus phases from geometry and related_attributes
     // Use optional chaining for defensive access
     const derivedPhases = new Set();
+    // Add explicit phases from element
+    (data.phases || []).forEach(p => derivedPhases.add(p));
+    // Add phases from geometry
     (data.geometry || []).forEach(item => {
         item?.phases?.forEach(p => derivedPhases.add(p));
     });
-    (data.information || []).forEach(item => {
-        item?.phases?.forEach(p => derivedPhases.add(p));
-    });
-    (data.documentation || []).forEach(item => {
-        item?.phases?.forEach(p => derivedPhases.add(p));
+    // Add phases from related_attributes
+    (data.related_attributes || []).forEach(ref => {
+        ref?.phases?.forEach(p => derivedPhases.add(p));
     });
     const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
     const hasPhases = elementPhases.length > 0;
@@ -51,54 +52,82 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'informationen', text: 'Informationen' },
-        { id: 'dokumentation', text: 'Dokumente' },
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
-        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
-        : '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+    // Build classification rows from related_classifications
+    let classRows = '';
+    if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
+        const classificationsBySystem = new Map();
+        data.related_classifications.forEach(ref => {
+            const clf = getItemById('classifications', ref.id);
+            if (clf) {
+                const system = clf.system;
+                if (!classificationsBySystem.has(system)) {
+                    classificationsBySystem.set(system, []);
+                }
+                classificationsBySystem.get(system).push(`${clf.code} – ${t(clf.name)}`);
+            }
+        });
+        if (classificationsBySystem.size > 0) {
+            classRows = Array.from(classificationsBySystem.entries())
+                .map(([system, codes]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${codes.map(c => escapeHtml(c)).join('<br>')}</td></tr>`)
+                .join('');
+        } else {
+            classRows = '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+        }
+    } else {
+        classRows = '<tr><td colspan="2">Keine Klassifizierung verfügbar</td></tr>';
+    }
 
-    const ifcRows = data.ifcMapping && Array.isArray(data.ifcMapping)
-        ? data.ifcMapping.map(m => `
+    // Build IFC mapping rows from tool_elements
+    const toolElements = data.tool_elements || [];
+    const ifcRows = toolElements.length > 0
+        ? toolElements.map(m => `
             <tr>
-                <td class="col-val">${escapeHtml(m.element || '-')}</td>
+                <td class="col-val">${escapeHtml(t(m.element) || '-')}</td>
                 <td class="col-val">${escapeHtml(m.ifc || '-')}</td>
                 <td class="col-val">${escapeHtml(m.revit || '-')}</td>
             </tr>`).join('')
         : '<tr><td colspan="3">-</td></tr>';
 
-    const geomRows = data.geometry && Array.isArray(data.geometry) ? data.geometry : [];
+    // Build geometry rows
+    const geomRows = data.geometry || [];
     const geomRowsHtml = geomRows.length > 0
         ? geomRows.map(row => `
             <tr>
-                <td class="col-val">${escapeHtml(row.name || '-')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
+                <td class="col-val">${escapeHtml(t(row.name) || '-')}</td>
+                <td class="col-val">${escapeHtml(t(row.desc) || '-')}</td>
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
 
-    const infoRows = data.information && Array.isArray(data.information) ? data.information : [];
-    const infoRowsHtml = infoRows.length > 0
-        ? infoRows.map(row => `
-            <tr>
-                <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(row.desc || '')}">${escapeHtml(row.name || '')}</span></td>
-                <td class="col-val">${escapeHtml(row.format || '-')}</td>
-                <td class="col-center">${row.list ? '<i data-lucide="circle-check" class="list-icon-active"></i>' : '-'}</td>
-                <td class="col-val">${escapeHtml(row.ifc || '-')}</td>
-                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('')
-        : '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
-
-    const docRows = data.documentation && Array.isArray(data.documentation) ? data.documentation : [];
-    const docRowsHtml = docRows.length > 0
-        ? docRows.map(row => `
-            <tr>
-                <td class="col-val">${escapeHtml(row.name || '-')}</td>
-                <td class="col-val">${escapeHtml(row.desc || '-')}</td>
-                <td class="col-val">${renderPhaseBadges(row.phases)}</td>
-            </tr>`).join('')
-        : '<tr><td colspan="3" class="col-val empty-text">Keine Dokumente.</td></tr>';
+    // Build attribute rows from related_attributes
+    let infoRowsHtml = '';
+    if (data.related_attributes && Array.isArray(data.related_attributes) && data.related_attributes.length > 0) {
+        infoRowsHtml = data.related_attributes.map(ref => {
+            const attr = getItemById('attributes', ref.id);
+            if (attr) {
+                const attrName = t(attr.name);
+                const attrDesc = t(attr.description);
+                const ifcMapping = attr.ifc_pset && attr.ifc_property
+                    ? `${attr.ifc_pset}.${attr.ifc_property}`
+                    : (attr.ifc_pset || '-');
+                return `
+                <tr>
+                    <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(attrDesc)}">${escapeHtml(attrName)}</span></td>
+                    <td class="col-val">${escapeHtml(attr.data_type || '-')}</td>
+                    <td class="col-center">-</td>
+                    <td class="col-val">${escapeHtml(ifcMapping)}</td>
+                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
+                </tr>`;
+            }
+            return '';
+        }).filter(Boolean).join('');
+    }
+    if (!infoRowsHtml) {
+        infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
+    }
 
     // Build phases HTML (similar to usecase detail)
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
@@ -128,7 +157,7 @@ function renderElementDetailPage(id, activeTags = []) {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Element', data.title)}
+                    ${renderMetadataTable(data, 'Element', t(data.name))}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
@@ -172,14 +201,6 @@ function renderElementDetailPage(id, activeTags = []) {
                                 <th class="th-w-phases">Phasen (1-5)</th>
                             </tr></thead>
                             <tbody>${infoRowsHtml}</tbody>
-                        </table>
-                    </div>
-
-                    <div id="dokumentation" class="detail-section">
-                        <h2>Dokumente</h2>
-                        <table class="data-table">
-                            <thead><tr><th class="th-w-20">Dokumententyp</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
-                            <tbody>${docRowsHtml}</tbody>
                         </table>
                     </div>
 
@@ -259,8 +280,8 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || config.defaultDescription);
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || config.defaultDescription);
     const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags(config.backRoute, activeTags, activeCategory, [], getActiveViewFromURL());
@@ -301,8 +322,8 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Dokument des KBOB Datenkatalogs.');
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || 'Ein Dokument des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     // Check for phases
@@ -326,14 +347,43 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    // Build classifications table rows
-    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
-        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
-        : '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+    // Build classifications table rows from related_classifications
+    let classRows = '';
+    if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
+        const classificationsBySystem = new Map();
+        data.related_classifications.forEach(ref => {
+            const clf = getItemById('classifications', ref.id);
+            if (clf) {
+                const system = clf.system;
+                if (!classificationsBySystem.has(system)) {
+                    classificationsBySystem.set(system, []);
+                }
+                classificationsBySystem.get(system).push(`${clf.code} – ${t(clf.name)}`);
+            }
+        });
+        if (classificationsBySystem.size > 0) {
+            classRows = Array.from(classificationsBySystem.entries())
+                .map(([system, codes]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${codes.map(c => escapeHtml(c)).join('<br>')}</td></tr>`)
+                .join('');
+        } else {
+            classRows = '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+        }
+    } else {
+        classRows = '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+    }
 
     // Build details table rows
     const formatsText = data.formats && Array.isArray(data.formats) ? data.formats.join(', ') : '-';
-    const retentionText = data.retention || '-';
+
+    // Retention: 0=indefinitely, null=not specified, >0=years
+    let retentionText = '-';
+    if (data.retention !== undefined && data.retention !== null) {
+        if (data.retention === 0) {
+            retentionText = 'unbefristet';
+        } else {
+            retentionText = `${data.retention} Jahre`;
+        }
+    }
 
     const backLink = buildHashWithTags('documents', activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -356,7 +406,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Dokument', data.title)}
+                    ${renderMetadataTable(data, 'Dokument', t(data.name))}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
@@ -437,18 +487,18 @@ function formatDateToGerman(isoDate) {
 
 /**
  * Render metadata table section
- * @param {Object} data - Item data with id, version, lastChange, category
+ * @param {Object} data - Item data with id, version, last_change, domain
  * @param {string} entityType - Type of entity (e.g., 'Anwendungsfall', 'Element', etc.)
- * @param {string} title - Name/title of the entity
+ * @param {string} title - Name of the entity (already localized)
  * @returns {string} HTML for metadata table
  */
 function renderMetadataTable(data, entityType, title) {
     const safeEntityType = escapeHtml(entityType || '—');
     const safeTitle = escapeHtml(title || '—');
-    const safeCategory = escapeHtml(data.category || '—');
+    const safeCategory = escapeHtml(t(data.domain) || '—');
     const safeId = escapeHtml(data.id || '—');
     const safeVersion = escapeHtml(data.version || '—');
-    const formattedDate = formatDateToGerman(data.lastChange);
+    const formattedDate = formatDateToGerman(data.last_change);
 
     return `
         <div id="metadaten" class="detail-section">
@@ -475,9 +525,15 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || 'Ein Anwendungsfall des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
+
+    // Helper to get text from i18n array item
+    const getArrayItemText = (arr, index) => {
+        if (!arr || !arr[index]) return '';
+        return t(arr[index]);
+    };
 
     // Check if process_url exists in the data (data-driven BPMN path)
     const processUrl = data.process_url || '';
@@ -487,13 +543,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Determine which sections have data (for conditional rendering)
     const hasPhases = hasData(data.phases);
-    const hasDefinition = hasData(data.definition);
+    // definition field removed from schema - content now in description
     const hasGoals = hasData(data.goals);
     const hasPrerequisites = hasData(data.prerequisites) && (hasData(data.prerequisites.client) || hasData(data.prerequisites.contractor));
     const hasImplementation = hasData(data.implementation);
     const hasInputsOutputs = hasData(data.inputs) || hasData(data.outputs);
-    const hasPracticeExample = hasData(data.practiceExample);
-    const hasQualityCriteria = hasData(data.qualityCriteria);
+    // practiceExample field removed from schema
+    const hasQualityCriteria = hasData(data.quality_criteria);
     const hasRoles = hasData(data.roles);
 
     // Build sidebar with group labels
@@ -505,12 +561,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     // ALLGEMEINER TEIL
     const generalLinks = [];
     if (hasPhases) generalLinks.push({ id: 'phasen', text: 'Phasen' });
-    if (hasDefinition) generalLinks.push({ id: 'definition', text: 'Definition' });
+    // definition section removed from schema
     if (hasGoals) generalLinks.push({ id: 'nutzen', text: 'Nutzen' });
     if (hasPrerequisites) generalLinks.push({ id: 'voraussetzungen', text: 'Voraussetzungen' });
     if (hasImplementation) generalLinks.push({ id: 'umsetzung', text: 'Umsetzung' });
     if (hasInputsOutputs) generalLinks.push({ id: 'input-output', text: 'Input / Output' });
-    if (hasPracticeExample) generalLinks.push({ id: 'praxisbeispiel', text: 'Praxisbeispiel' });
+    // practiceExample section removed from schema
 
     if (generalLinks.length > 0) {
         sidebarHtml += generalLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
@@ -537,14 +593,14 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build goals table HTML
+    // Build goals table HTML - support both legacy strings and i18n objects
     const goalsHtml = hasGoals
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.goals.map((goal, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(goal)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.goals.map((goal, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(t(goal))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build prerequisites table HTML
+    // Build prerequisites table HTML - support both legacy strings and i18n objects
     let prerequisitesHtml = '';
     if (hasPrerequisites) {
         const clientItems = data.prerequisites.client || [];
@@ -553,9 +609,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
         let tableRows = '';
         for (let i = 0; i < maxRows; i++) {
-            const clientItem = clientItems[i] ? escapeHtml(clientItems[i]) : '';
-            const contractorItem = contractorItems[i] ? escapeHtml(contractorItems[i]) : '';
-            tableRows += `<tr><td class="col-val">${clientItem}</td><td class="col-val">${contractorItem}</td></tr>`;
+            const clientItem = getArrayItemText(clientItems, i);
+            const contractorItem = getArrayItemText(contractorItems, i);
+            tableRows += `<tr><td class="col-val">${escapeHtml(clientItem)}</td><td class="col-val">${escapeHtml(contractorItem)}</td></tr>`;
         }
 
         prerequisitesHtml = `
@@ -565,14 +621,14 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build implementation table HTML
+    // Build implementation table HTML - support both legacy strings and i18n objects
     const implementationHtml = hasImplementation
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.implementation.map((step, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(step)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.implementation.map((step, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(t(step))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build input/output table HTML
+    // Build input/output table HTML - support both legacy strings and i18n objects
     let ioHtml = '';
     if (hasInputsOutputs) {
         const inputs = data.inputs || [];
@@ -581,9 +637,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
         let tableRows = '';
         for (let i = 0; i < maxRows; i++) {
-            const inputItem = inputs[i] ? escapeHtml(inputs[i]) : '';
-            const outputItem = outputs[i] ? escapeHtml(outputs[i]) : '';
-            tableRows += `<tr><td class="col-val">${inputItem}</td><td class="col-val">${outputItem}</td></tr>`;
+            const inputItem = getArrayItemText(inputs, i);
+            const outputItem = getArrayItemText(outputs, i);
+            tableRows += `<tr><td class="col-val">${escapeHtml(inputItem)}</td><td class="col-val">${escapeHtml(outputItem)}</td></tr>`;
         }
 
         ioHtml = `
@@ -593,40 +649,28 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build practice example HTML
-    let practiceExampleHtml = '';
-    if (hasPracticeExample) {
-        const example = data.practiceExample;
-        const exampleImage = example.image ? escapeHtml(example.image) : '';
-        const exampleTitle = escapeHtml(example.title || '');
-        const exampleDesc = escapeHtml(example.description || '');
-
-        practiceExampleHtml = `
-            <div class="practice-example-card">
-                ${exampleImage ? `<div class="practice-example-card__image"><img src="${exampleImage}" alt="${exampleTitle}"></div>` : ''}
-                <div class="practice-example-card__content">
-                    <h3 class="practice-example-card__title">${exampleTitle}</h3>
-                    <p class="practice-example-card__description">${exampleDesc}</p>
-                </div>
-            </div>`;
-    }
+    // practiceExample removed from schema
 
 
-    // Build quality criteria table HTML
+    // Build quality criteria table HTML - uses snake_case per schema
     const qualityCriteriaHtml = hasQualityCriteria
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.qualityCriteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(criterion)}</td></tr>`).join('')}</tbody>
+            <tbody>${data.quality_criteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(t(criterion))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
-    // Build roles table HTML
+    // Build roles table HTML - support both legacy strings and i18n objects
+    const formatRoleItems = (items) => {
+        if (!items || !Array.isArray(items) || items.length === 0) return '-';
+        return escapeHtml(items.map(item => t(item)).join(', '));
+    };
     const rolesRowsHtml = hasRoles
         ? data.roles.map(role => `
             <tr>
-                <td class="col-val col-actor">${escapeHtml(role.actor || '')}</td>
-                <td class="col-val">${role.responsible && Array.isArray(role.responsible) && role.responsible.length > 0 ? escapeHtml(role.responsible.join(', ')) : '-'}</td>
-                <td class="col-val">${role.contributing && Array.isArray(role.contributing) && role.contributing.length > 0 ? escapeHtml(role.contributing.join(', ')) : '-'}</td>
-                <td class="col-val">${role.informed && Array.isArray(role.informed) && role.informed.length > 0 ? escapeHtml(role.informed.join(', ')) : '-'}</td>
+                <td class="col-val col-actor">${escapeHtml(t(role.actor) || '')}</td>
+                <td class="col-val">${formatRoleItems(role.responsible)}</td>
+                <td class="col-val">${formatRoleItems(role.contributing)}</td>
+                <td class="col-val">${formatRoleItems(role.informed)}</td>
             </tr>`).join('')
         : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
 
@@ -649,19 +693,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Anwendungsfall', data.title)}
+                    ${renderMetadataTable(data, 'Anwendungsfall', t(data.name))}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
                         <h2>Projekt-/Lebenszyklusphasen</h2>
                         <p>Relevante Projektphasen für diesen Anwendungsfall.</p>
                         <div class="phases-container phases-container--large">${phasesHtml}</div>
-                    </div>` : ''}
-
-                    ${hasDefinition ? `
-                    <div class="detail-section" id="definition">
-                        <h2>Definition</h2>
-                        <p class="definition-text">${escapeHtml(data.definition)}</p>
                     </div>` : ''}
 
                     ${hasGoals ? `
@@ -688,11 +726,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         ${ioHtml}
                     </div>` : ''}
 
-                    ${hasPracticeExample ? `
-                    <div class="detail-section" id="praxisbeispiel">
-                        <h2>Praxisbeispiel</h2>
-                        ${practiceExampleHtml}
-                    </div>` : ''}
 
 
                     ${hasQualityCriteria ? `
@@ -765,15 +798,16 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Fachmodell des KBOB Datenkatalogs.');
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || 'Ein Fachmodell des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags('models', activeTags, activeCategory, [], getActiveViewFromURL());
 
     // Determine which sections have data
     const hasPhases = hasData(data.phases);
-    const hasElements = hasData(data.elements);
+    // Inline elements removed from schema - now uses related_elements for linking
+    const hasRelatedElements = hasData(data.related_elements);
 
     // Build sidebar links
     const sidebarLinks = [];
@@ -793,15 +827,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build elements table HTML
-    const elementsRowsHtml = hasElements
-        ? data.elements.map(el => `
-            <tr>
-                <td class="col-val">${escapeHtml(el.name || '')}</td>
-                <td class="col-val">${escapeHtml(el.description || '')}</td>
-                <td class="col-val">${renderPhaseBadges(el.phases)}</td>
-            </tr>`).join('')
-        : '';
+    // Inline elements removed from schema - related_elements links to elements.json
 
     contentArea.innerHTML = `
         <section class="detail-hero">
@@ -822,7 +848,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Fachmodell', data.title)}
+                    ${renderMetadataTable(data, 'Fachmodell', t(data.name))}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
@@ -832,23 +858,12 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 
                     <div class="detail-section" id="elemente">
                         <h2>Elemente</h2>
-                        ${hasElements ? `
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th class="th-w-20">Name</th>
-                                    <th>Beschreibung</th>
-                                    <th class="th-w-phases">Phasen (1-5)</th>
-                                </tr>
-                            </thead>
-                            <tbody>${elementsRowsHtml}</tbody>
-                        </table>` : `
                         <div class="info-box info-box--inline">
-                            <i data-lucide="info" class="info-box__icon"></i>
+                            <i data-lucide="construction" class="info-box__icon"></i>
                             <div>
-                                <p class="info-box__text">Für dieses Fachmodell sind noch keine Elemente definiert.</p>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
                             </div>
-                        </div>`}
+                        </div>
                     </div>
 
                     <div class="detail-section" id="anwendungsfaelle">
@@ -876,14 +891,14 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
     }
 
     // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.');
+    const safeTitle = escapeHtml(t(data.name));
+    const safeDesc = escapeHtml(t(data.description) || 'Ein Ökobilanzdatensatz des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags('epds', activeTags, activeCategory, [], getActiveViewFromURL());
 
     // Determine which sections have data
-    const hasMaterialProperties = hasData(data.density) || hasData(data.biogenicCarbon);
+    const hasMaterialProperties = hasData(data.density) || hasData(data.biogenic_carbon);
 
     // Build sidebar links
     const sidebarLinks = [];
@@ -901,10 +916,8 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
         `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
     ).join('');
 
-    // Format category with subcategory
-    const categoryDisplay = data.subcategory
-        ? `${escapeHtml(data.category)} › ${escapeHtml(data.subcategory)}`
-        : escapeHtml(data.category || '—');
+    // Format category
+    const categoryDisplay = escapeHtml(t(data.domain) || '—');
 
     // Format numbers for display
     const formatNumber = (num) => {
@@ -933,9 +946,9 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                             <td class="col-val col-right">${formatNumber(data.density)}</td>
                             <td class="col-val">${densityUnit}</td>
                         </tr>` : ''}
-                        ${hasData(data.biogenicCarbon) ? `<tr>
+                        ${hasData(data.biogenic_carbon) ? `<tr>
                             <td class="col-val">Biogener Kohlenstoff</td>
-                            <td class="col-val col-right">${formatNumber(data.biogenicCarbon)}</td>
+                            <td class="col-val col-right">${formatNumber(data.biogenic_carbon)}</td>
                             <td class="col-val">kg C</td>
                         </tr>` : ''}
                     </tbody>
@@ -967,11 +980,11 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                         <table class="data-table">
                             <tbody>
                                 <tr><td class="col-val metadata-label">Entität</td><td class="col-val">Ökobilanzdaten</td></tr>
-                                <tr><td class="col-val metadata-label">Name</td><td class="col-val">${escapeHtml(data.title || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">Name</td><td class="col-val">${safeTitle || '—'}</td></tr>
                                 <tr><td class="col-val metadata-label">Kategorie</td><td class="col-val">${categoryDisplay}</td></tr>
-                                <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.id || '—')}</td></tr>
+                                <tr><td class="col-val metadata-label">ID</td><td class="col-val">${escapeHtml(data.code || data.id || '—')}</td></tr>
                                 <tr><td class="col-val metadata-label">Version</td><td class="col-val">${escapeHtml(data.version || '—')}</td></tr>
-                                <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.lastChange)}</td></tr>
+                                <tr><td class="col-val metadata-label">Letzte Änderung</td><td class="col-val">${formatDateToGerman(data.last_change)}</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -980,7 +993,6 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                         <h2>Allgemein</h2>
                         <table class="data-table">
                             <tbody>
-                                <tr><td class="col-val metadata-label">UUID</td><td class="col-val"><code>${escapeHtml(data.uuid || '—')}</code></td></tr>
                                 <tr><td class="col-val metadata-label">Bezugsgrösse</td><td class="col-val">${escapeHtml(data.unit || '—')}</td></tr>
                             </tbody>
                         </table>

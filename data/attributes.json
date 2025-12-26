@@ -1,0 +1,1282 @@
+[
+  {
+    "id": "attr-0052",
+    "name": {
+      "de": "Abrollvorrichtungstyp (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Befestigungsart der Schlauchhaspel",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_FireSuppressionTerminalTypeHoseReel",
+    "ifc_property": "MountingType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0015",
+    "name": {
+      "de": "Außenbauteil (Archicad) (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gebäudehülle-Zuordnung in Archicad",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "IsExternal",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0012",
+    "name": {
+      "de": "Außenbauteil (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob das Element zur Gebäudehülle gehört",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "IsExternal",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0050",
+    "name": {
+      "de": "Automatikspülung (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob automatische Spülung vorhanden",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SanitaryTerminalTypeToiletPan",
+    "ifc_property": "AutomaticFlush",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0041",
+    "name": {
+      "de": "beabsichtigte Belegung (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Geplante Anzahl Personen im Raum",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "OccupancyType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0031",
+    "name": {
+      "de": "befestigt (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob Möbel fest montiert ist",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_FurnitureCommon",
+    "ifc_property": "IsFixed",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0004",
+    "name": {
+      "de": "benutzerdefinierter IFC-Typ (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Benutzerdefinierter Objekttyp für spezifische Klassifikation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcObject",
+    "ifc_property": "ObjectType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0030",
+    "name": {
+      "de": "Beschreibung (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Freitext-Beschreibung des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcRoot",
+    "ifc_property": "Description",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0046",
+    "name": {
+      "de": "Bodenbelag (p)3",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material des Bodenbelags im Raum",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "FloorCovering",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0045",
+    "name": {
+      "de": "Deckenbekleidung (p)3",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der Deckenbekleidung im Raum",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "CeilingCovering",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0058",
+    "name": {
+      "de": "Fensterbank aussen - Tür (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der äusseren Schwelle bei Türen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_DoorCommon",
+    "ifc_property": "ExternalSill",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0018",
+    "name": {
+      "de": "Fensterbank aussen (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der äusseren Fensterbank",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_WindowCommon",
+    "ifc_property": "ExternalSill",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0059",
+    "name": {
+      "de": "Fensterbank innen - Tür (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der inneren Schwelle bei Türen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_DoorCommon",
+    "ifc_property": "InternalSill",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0019",
+    "name": {
+      "de": "Fensterbank innen (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der inneren Fensterbank",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_WindowCommon",
+    "ifc_property": "InternalSill",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0063",
+    "name": {
+      "de": "Geschossbezeichnung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Bezeichnung des Geschosses (z.B. EG, OG1, UG1)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcBuildingStorey",
+    "ifc_property": "Name",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0062",
+    "name": {
+      "de": "Geschossnummer",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Nummerierung des Geschosses (z.B. 0 für EG, -1 für UG1)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "number",
+    "unit": null,
+    "ifc_pset": "Pset_BuildingStoreyCommon",
+    "ifc_property": "EntranceLevel",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0002",
+    "name": {
+      "de": "IFC-Klasse (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "IFC-Entitätsklasse des Elements (z.B. IfcWall, IfcDoor)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcRoot",
+    "ifc_property": "is_a()",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0003",
+    "name": {
+      "de": "IFC-Typ (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Vordefinierter IFC-Typ des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcObject",
+    "ifc_property": "PredefinedType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0029",
+    "name": {
+      "de": "ist Außenmöbel (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob Möbel für Außenbereich geeignet",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_FurnitureCommon",
+    "ifc_property": "IsOutdoor",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0026",
+    "name": {
+      "de": "Ist klassifiziert (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob Element klassifiziert wurde",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcClassificationReference",
+    "ifc_property": null,
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0064",
+    "name": {
+      "de": "Ist Oberirdisch",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Kennzeichnung ob das Geschoss oberirdisch liegt",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "boolean",
+    "unit": null,
+    "ifc_pset": "Pset_BuildingStoreyCommon",
+    "ifc_property": "AboveGround",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0027",
+    "name": {
+      "de": "Katasterreferenz (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Parzellennummer im Grundbuch",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcSite",
+    "ifc_property": "LandTitleNumber",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0035",
+    "name": {
+      "de": "Kundenname (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Name des Bauherrn oder Auftraggebers",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_BuildingCommon",
+    "ifc_property": "OwnerName",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0037",
+    "name": {
+      "de": "Kundenprojektname (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Projektbezeichnung beim Kunden",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_ProjectCommon",
+    "ifc_property": "ProjectName",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0036",
+    "name": {
+      "de": "Kundenprojektnummer (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Projektnummer beim Kunden",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_ProjectCommon",
+    "ifc_property": "ProjectNumber",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0022",
+    "name": {
+      "de": "Land (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Land des Projektstandorts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcPostalAddress",
+    "ifc_property": "Country",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0054",
+    "name": {
+      "de": "Länge (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Länge des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Qto_*BaseQuantities",
+    "ifc_property": "Length",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0047",
+    "name": {
+      "de": "Lichte Höhe (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Nutzbare Raumhöhe vom Boden bis zur Decke",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Qto_SpaceBaseQuantities",
+    "ifc_property": "Height",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0051",
+    "name": {
+      "de": "Löschhaspeltyp (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Typ der Löschschlauchhaspel",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_FireSuppressionTerminalTypeHoseReel",
+    "ifc_property": "HoseReelType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0009",
+    "name": {
+      "de": "Material (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Hauptmaterial des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcMaterialDefinition",
+    "ifc_property": null,
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0008",
+    "name": {
+      "de": "Materialebene",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Schicht im Materialaufbau des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcMaterialLayer",
+    "ifc_property": null,
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0055",
+    "name": {
+      "de": "Montageort (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Einbauort des technischen Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "Reference",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0017",
+    "name": {
+      "de": "motorisierter Antrieb (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob elektrischer Antrieb vorhanden",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_ShadingDeviceCommon",
+    "ifc_property": "IsMotorized",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0011",
+    "name": {
+      "de": "Nennlvolumen (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Nenninhalt des Behälters in Litern",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_TankTypeCommon",
+    "ifc_property": "NominalCapacity",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0042",
+    "name": {
+      "de": "Nettofläche nach Raumprogramm NetPlannedArea (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Geplante Nettofläche gemäss Raumprogramm",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "NetPlannedArea",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0060",
+    "name": {
+      "de": "numerischer Identifikator (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Eindeutige numerische ID des Elements",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcRoot",
+    "ifc_property": "GlobalId",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0021",
+    "name": {
+      "de": "Nutzungsart (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art der Nutzung des Raumes oder Bereichs",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "Category",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0001",
+    "name": {
+      "de": "Objektebene",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Zuordnung des Elements zu einem Geschoss oder Referenzebene",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcObjectPlacement",
+    "ifc_property": "PlacementRelTo",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0005",
+    "name": {
+      "de": "Objektname (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Eindeutiger Name des Elements im Modell",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcRoot",
+    "ifc_property": "Name",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0056",
+    "name": {
+      "de": "Öffnungsart (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art der Türöffnung (einflügelig, zweiflügelig)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_DoorCommon",
+    "ifc_property": "OperationType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0016",
+    "name": {
+      "de": "Öffnungsart (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art der Türöffnung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_DoorCommon",
+    "ifc_property": "OperationType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0032",
+    "name": {
+      "de": "Öffnungsmethode (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art der Fensteröffnung (Dreh, Kipp, Dreh-Kipp)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_WindowCommon",
+    "ifc_property": "OperationType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0061",
+    "name": {
+      "de": "Phaseneinteilung (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Projektphase gemäss SIA oder HOAI",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcProject",
+    "ifc_property": "Phase",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0024",
+    "name": {
+      "de": "Postleitzahl (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Postleitzahl des Projektstandorts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcPostalAddress",
+    "ifc_property": "PostalCode",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0040",
+    "name": {
+      "de": "Programmieren",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Referenz für parametrische Programmierung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "Reference",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0034",
+    "name": {
+      "de": "Projektname (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Name des Bauprojekts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcProject",
+    "ifc_property": "Name",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0033",
+    "name": {
+      "de": "Projektnummer (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Eindeutige Projektnummer",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcProject",
+    "ifc_property": "LongName",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0039",
+    "name": {
+      "de": "Raumname (a)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Bezeichnung des Raumes",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcSpace",
+    "ifc_property": "Name",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0053",
+    "name": {
+      "de": "Schlauchquerschnitt (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Durchmesser des Löschschlauchs",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_FireSuppressionTerminalTypeHoseReel",
+    "ifc_property": "HoseDiameter",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0043",
+    "name": {
+      "de": "Sockelleistenabschluss (p)3",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der Sockelleiste im Raum",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "SkirtingBoard",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0010",
+    "name": {
+      "de": "Speicherart (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art des Speichers (Warmwasser, Puffer)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_TankTypeCommon",
+    "ifc_property": "StorageType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0048",
+    "name": {
+      "de": "Spüllkastenkapazität (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Volumen des Spülkastens in Litern",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SanitaryTerminalTypeToiletPan",
+    "ifc_property": "CisternCapacity",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0049",
+    "name": {
+      "de": "Spülungstyp (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Typ der WC-Spülung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SanitaryTerminalTypeToiletPan",
+    "ifc_property": "FlushType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0023",
+    "name": {
+      "de": "Stadt (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Stadt oder Gemeinde des Projektstandorts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcPostalAddress",
+    "ifc_property": "Town",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0007",
+    "name": {
+      "de": "Status (Archicad) (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Bauzustand des Elements in Archicad",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "Status",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0006",
+    "name": {
+      "de": "Status (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Bauzustand des Elements (Neu, Bestand, Abbruch, Temporär)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "Status",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0025",
+    "name": {
+      "de": "Straße und Nummer (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Strassenadresse des Projektstandorts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "IfcPostalAddress",
+    "ifc_property": "AddressLines",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0038",
+    "name": {
+      "de": "tragendes Bauteil (Archicad) (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Tragende Funktion in Archicad",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "LoadBearing",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0013",
+    "name": {
+      "de": "tragendes Bauteil (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Gibt an, ob das Element tragende Funktion hat",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "LoadBearing",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0014",
+    "name": {
+      "de": "tragendes Bauteil (Revit) (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Tragende Funktion in Revit",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_*Common",
+    "ifc_property": "LoadBearing",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0020",
+    "name": {
+      "de": "Verdunkelungsvorrichtungstyp (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Typ der Sonnenschutzvorrichtung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_ShadingDeviceCommon",
+    "ifc_property": "ShadingDeviceType",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0044",
+    "name": {
+      "de": "Wandbekleidung (p)3",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Material der Wandbekleidung im Raum",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SpaceCommon",
+    "ifc_property": "WallCovering",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0057",
+    "name": {
+      "de": "Zugangskontrolle (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Art der Zugangskontrolle (Schlüssel, Karte, Code)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_DoorCommon",
+    "ifc_property": "SecurityRating",
+    "enumeration_values": []
+  },
+  {
+    "id": "attr-0028",
+    "name": {
+      "de": "Zuteilung des Grundstücks (p)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "Nutzungszone gemäss Zonenplan",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "data_type": "string",
+    "unit": null,
+    "ifc_pset": "Pset_SiteCommon",
+    "ifc_property": "LandUse",
+    "enumeration_values": []
+  }
+]

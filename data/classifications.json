@@ -1,0 +1,5850 @@
+[
+  {
+    "id": "clf-0318",
+    "system": "DIN276",
+    "code": "312",
+    "name": {
+      "de": "Umschließung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0098",
+    "system": "DIN276",
+    "code": "322",
+    "name": {
+      "de": "Flachgründungen und Bodenplatten",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0171",
+    "system": "DIN276",
+    "code": "323",
+    "name": {
+      "de": "Tiefgründungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0087",
+    "system": "DIN276",
+    "code": "324",
+    "name": {
+      "de": "gründungsbeläge",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0099",
+    "system": "DIN276",
+    "code": "325",
+    "name": {
+      "de": "Abdichtungen und Bekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0036",
+    "system": "DIN276",
+    "code": "331",
+    "name": {
+      "de": "Tragende Außenwände",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0321",
+    "system": "DIN276",
+    "code": "332",
+    "name": {
+      "de": "Nichttragende Außenwände",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0294",
+    "system": "DIN276",
+    "code": "333",
+    "name": {
+      "de": "Aussenstützen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0150",
+    "system": "DIN276",
+    "code": "334",
+    "name": {
+      "de": "Außenwandöffnungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0319",
+    "system": "DIN276",
+    "code": "335",
+    "name": {
+      "de": "Außenwändbekleidungen, Außen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0320",
+    "system": "DIN276",
+    "code": "336",
+    "name": {
+      "de": "Außenwändbekleidungen, Innen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0311",
+    "system": "DIN276",
+    "code": "337",
+    "name": {
+      "de": "Elementierte Außenwandkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0180",
+    "system": "DIN276",
+    "code": "339",
+    "name": {
+      "de": "Sonstiges zur KG330 (Aussenwande/Vertikale Baukonstruktionen, aussen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0322",
+    "system": "DIN276",
+    "code": "341",
+    "name": {
+      "de": "Tragende Innenwände",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0323",
+    "system": "DIN276",
+    "code": "342",
+    "name": {
+      "de": "Nichttragende Innenwände",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0295",
+    "system": "DIN276",
+    "code": "343",
+    "name": {
+      "de": "Innenstützen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0151",
+    "system": "DIN276",
+    "code": "344",
+    "name": {
+      "de": "Innenwandöffnungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0324",
+    "system": "DIN276",
+    "code": "345",
+    "name": {
+      "de": "Innenwändbekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0325",
+    "system": "DIN276",
+    "code": "346",
+    "name": {
+      "de": "Elementierte Innenwandkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0181",
+    "system": "DIN276",
+    "code": "349",
+    "name": {
+      "de": "Sonstiges zur KG340 (Innenwande/Vertikale Baukonstruktionen, innen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0037",
+    "system": "DIN276",
+    "code": "351",
+    "name": {
+      "de": "Deckenkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0152",
+    "system": "DIN276",
+    "code": "352",
+    "name": {
+      "de": "Deckenöffnungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0088",
+    "system": "DIN276",
+    "code": "353",
+    "name": {
+      "de": "Deckenbeläge",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0127",
+    "system": "DIN276",
+    "code": "354",
+    "name": {
+      "de": "Deckenbekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0038",
+    "system": "DIN276",
+    "code": "355",
+    "name": {
+      "de": "Elementierte Deckenkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0182",
+    "system": "DIN276",
+    "code": "359",
+    "name": {
+      "de": "Sonstiges zur KG350 (Decken/horizontale Baukonstruktionen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0039",
+    "system": "DIN276",
+    "code": "361",
+    "name": {
+      "de": "Dachkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0153",
+    "system": "DIN276",
+    "code": "362",
+    "name": {
+      "de": "Dachöffnungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0113",
+    "system": "DIN276",
+    "code": "363",
+    "name": {
+      "de": "Dachbeläge",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0114",
+    "system": "DIN276",
+    "code": "364",
+    "name": {
+      "de": "Dachbekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0115",
+    "system": "DIN276",
+    "code": "365",
+    "name": {
+      "de": "Elementierte Dachkonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0183",
+    "system": "DIN276",
+    "code": "369",
+    "name": {
+      "de": "Sonstiges zur KG360 (Dächer)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0189",
+    "system": "DIN276",
+    "code": "381",
+    "name": {
+      "de": "Allgemeinen Einbauten",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0190",
+    "system": "DIN276",
+    "code": "473",
+    "name": {
+      "de": "Medienversorgungsanlagen, Medizin- und labortechnische Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0191",
+    "system": "DIN276",
+    "code": "610",
+    "name": {
+      "de": "Allgemeine Ausstattung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0338",
+    "system": "DIN276",
+    "code": "KG 300",
+    "name": {
+      "de": "Bauwerk – Baukonstruktionen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0131",
+    "system": "DIN276",
+    "code": "KG 324",
+    "name": {
+      "de": "Gründungsbeläge",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0273",
+    "system": "DIN276",
+    "code": "KG 326",
+    "name": {
+      "de": "Dränagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0339",
+    "system": "DIN276",
+    "code": "KG 350",
+    "name": {
+      "de": "Decken",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0132",
+    "system": "DIN276",
+    "code": "KG 353",
+    "name": {
+      "de": "Deckenbeläge",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0334",
+    "system": "DIN276",
+    "code": "KG 354",
+    "name": {
+      "de": "Deckenbekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0335",
+    "system": "DIN276",
+    "code": "KG 364",
+    "name": {
+      "de": "Dachbekleidungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0282",
+    "system": "DIN276",
+    "code": "KG 399",
+    "name": {
+      "de": "Sonstiges zur KG390 (Sonstige Maßnahmen für Baukonstruktionen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0274",
+    "system": "DIN276",
+    "code": "KG 411",
+    "name": {
+      "de": "Abwasseranlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0079",
+    "system": "DIN276",
+    "code": "KG 412",
+    "name": {
+      "de": "Wasseranlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0080",
+    "system": "DIN276",
+    "code": "KG 413",
+    "name": {
+      "de": "Gasanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0081",
+    "system": "DIN276",
+    "code": "KG 421",
+    "name": {
+      "de": "Wärmeerzeugunganlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0240",
+    "system": "DIN276",
+    "code": "KG 422",
+    "name": {
+      "de": "Wärmeverteilnetze",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0328",
+    "system": "DIN276",
+    "code": "KG 423",
+    "name": {
+      "de": "RaumHeizflächen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0283",
+    "system": "DIN276",
+    "code": "KG 429",
+    "name": {
+      "de": "Sonstiges zur KG420 (Wärmeversorgungsalagen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0275",
+    "system": "DIN276",
+    "code": "KG 431",
+    "name": {
+      "de": "Lüftunganlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0208",
+    "system": "DIN276",
+    "code": "KG 434",
+    "name": {
+      "de": "Kälteanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0135",
+    "system": "DIN276",
+    "code": "KG 441",
+    "name": {
+      "de": "Hoch- und Mittelspannungsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0288",
+    "system": "DIN276",
+    "code": "KG 442",
+    "name": {
+      "de": "Eigenstromversorgunganlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0136",
+    "system": "DIN276",
+    "code": "KG 444",
+    "name": {
+      "de": "Niederspannungsinstallationsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0199",
+    "system": "DIN276",
+    "code": "KG 445",
+    "name": {
+      "de": "Beleuchtungsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0137",
+    "system": "DIN276",
+    "code": "KG 451",
+    "name": {
+      "de": "Telekommunikationsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0200",
+    "system": "DIN276",
+    "code": "KG 454",
+    "name": {
+      "de": "Elektroakustische Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0201",
+    "system": "DIN276",
+    "code": "KG 455",
+    "name": {
+      "de": "Audiovisuelle Medien- und Antennenanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0202",
+    "system": "DIN276",
+    "code": "KG 457",
+    "name": {
+      "de": "Datenübertragungsnetze",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0055",
+    "system": "DIN276",
+    "code": "KG 462",
+    "name": {
+      "de": "Fahrtreppen, Fahrsteige",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0056",
+    "system": "DIN276",
+    "code": "KG 463",
+    "name": {
+      "de": "Befahranlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0057",
+    "system": "DIN276",
+    "code": "KG 464",
+    "name": {
+      "de": "Transportanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0058",
+    "system": "DIN276",
+    "code": "KG 465",
+    "name": {
+      "de": "Krananlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0010",
+    "system": "DIN276",
+    "code": "KG 466",
+    "name": {
+      "de": "hydraulikanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0082",
+    "system": "DIN276",
+    "code": "KG 473",
+    "name": {
+      "de": "Medienversorgsunganlagen, Medizin- und labortechnische Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0083",
+    "system": "DIN276",
+    "code": "KG 474",
+    "name": {
+      "de": "Feuerlöschanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0138",
+    "system": "DIN276",
+    "code": "KG 475",
+    "name": {
+      "de": "Datenübertragungsnetze",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0011",
+    "system": "DIN276",
+    "code": "KG 481",
+    "name": {
+      "de": "Automationseinrichtungen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0139",
+    "system": "DIN276",
+    "code": "KG 482",
+    "name": {
+      "de": "Schaltschranke, automationsschwerpunkte",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0203",
+    "system": "DIN276",
+    "code": "KG 484",
+    "name": {
+      "de": "Kabel, Leitungen und Verlegesysteme",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0158",
+    "system": "DIN276",
+    "code": "KG421",
+    "name": {
+      "de": "Wärmeerzeugungsalangen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0220",
+    "system": "DIN276",
+    "code": "KG429",
+    "name": {
+      "de": "Sonstiges zur KG420 (Wärmeversorgungsanlagen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0159",
+    "system": "DIN276",
+    "code": "KG431",
+    "name": {
+      "de": "Lüftungsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0160",
+    "system": "DIN276",
+    "code": "KG432",
+    "name": {
+      "de": "Teilklimaanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0161",
+    "system": "DIN276",
+    "code": "KG433",
+    "name": {
+      "de": "Klimaanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0162",
+    "system": "DIN276",
+    "code": "KG434",
+    "name": {
+      "de": "Kälteanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0210",
+    "system": "DIN276",
+    "code": "KG445",
+    "name": {
+      "de": "Beleuchtungsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0142",
+    "system": "DIN276",
+    "code": "KG449",
+    "name": {
+      "de": "Sonstige zur Elektrische Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0022",
+    "system": "DIN276",
+    "code": "KG451",
+    "name": {
+      "de": "Telekommunikationsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0023",
+    "system": "DIN276",
+    "code": "KG452",
+    "name": {
+      "de": "Such- und Signalanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0024",
+    "system": "DIN276",
+    "code": "KG454",
+    "name": {
+      "de": "Elektroackustische Anlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0025",
+    "system": "DIN276",
+    "code": "KG455",
+    "name": {
+      "de": "Audiovisuelle Medien- und Antennenanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0122",
+    "system": "DIN276",
+    "code": "KG457",
+    "name": {
+      "de": "Datenüberstragungsnetze (Kommunikations-, sicherheits- und informationstechnische Anlagen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0146",
+    "system": "DIN276",
+    "code": "KG461",
+    "name": {
+      "de": "Aufzugsanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0059",
+    "system": "DIN276",
+    "code": "KG469",
+    "name": {
+      "de": "Sonstiges zur KG 460 (Förderanlagen)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0102",
+    "system": "DIN276",
+    "code": "KG474",
+    "name": {
+      "de": "Feuerlöschanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0163",
+    "system": "DIN276",
+    "code": "KG475",
+    "name": {
+      "de": "Prozesswärme-, kälte- und -luftanlagen",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0026",
+    "system": "DIN276",
+    "code": "KG483",
+    "name": {
+      "de": "Automationsmanagement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0123",
+    "system": "DIN276",
+    "code": "KG485",
+    "name": {
+      "de": "Datenübertragungsnetze (Gebäude- und Anlagenautomation)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0246",
+    "system": "DIN276",
+    "code": "Néant",
+    "name": {
+      "de": "Néant",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0116",
+    "system": "eBKP-H",
+    "code": "C",
+    "name": {
+      "de": "Konstruktion Gebäude",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0167",
+    "system": "eBKP-H",
+    "code": "C01",
+    "name": {
+      "de": "Fundament, Bodenplatte",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0100",
+    "system": "eBKP-H",
+    "code": "C01.02",
+    "name": {
+      "de": "Fundament",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0089",
+    "system": "eBKP-H",
+    "code": "C01.03",
+    "name": {
+      "de": "Bodenplatte",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0012",
+    "system": "eBKP-H",
+    "code": "C02",
+    "name": {
+      "de": "Wandkonstruktion",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0168",
+    "system": "eBKP-H",
+    "code": "C03",
+    "name": {
+      "de": "Stützenkonstruktion",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0169",
+    "system": "eBKP-H",
+    "code": "C04",
+    "name": {
+      "de": "Deckenkonstruktion, Dachkonstruktion",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0040",
+    "system": "eBKP-H",
+    "code": "C04.01",
+    "name": {
+      "de": "Geschossdecke",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0060",
+    "system": "eBKP-H",
+    "code": "C04.02",
+    "name": {
+      "de": "Innen liegende Treppe, Rampe",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0117",
+    "system": "eBKP-H",
+    "code": "C04.04",
+    "name": {
+      "de": "Konstruktion Flachdach",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0118",
+    "system": "eBKP-H",
+    "code": "C04.05",
+    "name": {
+      "de": "Konstruktion geneigtes Dach",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0061",
+    "system": "eBKP-H",
+    "code": "C04.06",
+    "name": {
+      "de": "Aussen liegende Treppe, Rampe",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0140",
+    "system": "eBKP-H",
+    "code": "D01",
+    "name": {
+      "de": "Elektroanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0289",
+    "system": "eBKP-H",
+    "code": "D01.01",
+    "name": {
+      "de": "Anlage Erzeugung Starkstrom",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0302",
+    "system": "eBKP-H",
+    "code": "D01.02",
+    "name": {
+      "de": "Transformierung Starkstrom",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0204",
+    "system": "eBKP-H",
+    "code": "D01.04",
+    "name": {
+      "de": "Installation Starkstrom",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0211",
+    "system": "eBKP-H",
+    "code": "D01.05",
+    "name": {
+      "de": "Verbraucher Starkstrom: Leuchten",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0027",
+    "system": "eBKP-H",
+    "code": "D01.10",
+    "name": {
+      "de": "Installation Schwachstrom",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0028",
+    "system": "eBKP-H",
+    "code": "D01.11",
+    "name": {
+      "de": "Verbraucher Schwachstrom",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0013",
+    "system": "eBKP-H",
+    "code": "D02",
+    "name": {
+      "de": "Gebäudeautomation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0014",
+    "system": "eBKP-H",
+    "code": "D02.02",
+    "name": {
+      "de": "Automationsebene",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0015",
+    "system": "eBKP-H",
+    "code": "D02.03",
+    "name": {
+      "de": "Feldebene",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0332",
+    "system": "eBKP-H",
+    "code": "D02.04",
+    "name": {
+      "de": "Raumautomation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0279",
+    "system": "eBKP-H",
+    "code": "D02.06",
+    "name": {
+      "de": "Schaltgerätekombination",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0284",
+    "system": "eBKP-H",
+    "code": "D03",
+    "name": {
+      "de": "Sicherheitsanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0029",
+    "system": "eBKP-H",
+    "code": "D03.03",
+    "name": {
+      "de": "Videoüberwachungsanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0103",
+    "system": "eBKP-H",
+    "code": "D04",
+    "name": {
+      "de": "Technische Brandschutzanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0104",
+    "system": "eBKP-H",
+    "code": "D04.03",
+    "name": {
+      "de": "Nasslöschanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0105",
+    "system": "eBKP-H",
+    "code": "D04.04",
+    "name": {
+      "de": "Trockenlöschanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0143",
+    "system": "eBKP-H",
+    "code": "D05",
+    "name": {
+      "de": "Wärmetechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0241",
+    "system": "eBKP-H",
+    "code": "D05.04",
+    "name": {
+      "de": "Wärmeverteilung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0329",
+    "system": "eBKP-H",
+    "code": "D05.05",
+    "name": {
+      "de": "Wärmeabgabe",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0144",
+    "system": "eBKP-H",
+    "code": "D06",
+    "name": {
+      "de": "Kältetechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0242",
+    "system": "eBKP-H",
+    "code": "D06.04",
+    "name": {
+      "de": "Kälteverteilung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0016",
+    "system": "eBKP-H",
+    "code": "D07",
+    "name": {
+      "de": "Lufttechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0164",
+    "system": "eBKP-H",
+    "code": "D07.02",
+    "name": {
+      "de": "Luftaufbereitung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0221",
+    "system": "eBKP-H",
+    "code": "D07.04",
+    "name": {
+      "de": "Luftverteilung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0106",
+    "system": "eBKP-H",
+    "code": "D08",
+    "name": {
+      "de": "Wassertechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0243",
+    "system": "eBKP-H",
+    "code": "D08.04",
+    "name": {
+      "de": "Wasserverteilung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0309",
+    "system": "eBKP-H",
+    "code": "D08.05",
+    "name": {
+      "de": "Wasser: Armatur, Apparat",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0277",
+    "system": "eBKP-H",
+    "code": "D09",
+    "name": {
+      "de": "Abwassertechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0084",
+    "system": "eBKP-H",
+    "code": "D10",
+    "name": {
+      "de": "Gastechnische Anlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0062",
+    "system": "eBKP-H",
+    "code": "D12",
+    "name": {
+      "de": "Beförderungsanlage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0185",
+    "system": "eBKP-H",
+    "code": "E",
+    "name": {
+      "de": "Äussere Wandbekleidung Gebäude",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0090",
+    "system": "eBKP-H",
+    "code": "E01.01",
+    "name": {
+      "de": "Wandabdichtung unter Terrain",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0091",
+    "system": "eBKP-H",
+    "code": "E01.02",
+    "name": {
+      "de": "Aussenwärmedämmung unter Terrain",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0312",
+    "system": "eBKP-H",
+    "code": "E02",
+    "name": {
+      "de": "Äussere Wandbekleidung über Terrain",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0092",
+    "system": "eBKP-H",
+    "code": "E02.02",
+    "name": {
+      "de": "Aussenwärmedämmsystem",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0154",
+    "system": "eBKP-H",
+    "code": "E03.01",
+    "name": {
+      "de": "Fenster",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0172",
+    "system": "eBKP-H",
+    "code": "E03.02",
+    "name": {
+      "de": "Aussentür",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0017",
+    "system": "eBKP-H",
+    "code": "E03.03",
+    "name": {
+      "de": "Aussentor",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0119",
+    "system": "eBKP-H",
+    "code": "F01",
+    "name": {
+      "de": "Dachhaut",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0093",
+    "system": "eBKP-H",
+    "code": "F01.01",
+    "name": {
+      "de": "Dachabdichtung unter Terrain",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0186",
+    "system": "eBKP-H",
+    "code": "G",
+    "name": {
+      "de": "Ausbau Gebäude",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0128",
+    "system": "eBKP-H",
+    "code": "G01",
+    "name": {
+      "de": "Trennwand, Innentür, Innentor",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0173",
+    "system": "eBKP-H",
+    "code": "G01.05",
+    "name": {
+      "de": "Innentür",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0018",
+    "system": "eBKP-H",
+    "code": "G01.06",
+    "name": {
+      "de": "Innentor",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0094",
+    "system": "eBKP-H",
+    "code": "G02",
+    "name": {
+      "de": "Bodenbelag",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0019",
+    "system": "eBKP-H",
+    "code": "G03",
+    "name": {
+      "de": "Wandbekleidung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0129",
+    "system": "eBKP-H",
+    "code": "G04",
+    "name": {
+      "de": "Deckenbekleidung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0184",
+    "system": "eBKP-H",
+    "code": "G05.05",
+    "name": {
+      "de": "Absturz-, Anprallschutzeinrichtung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0340",
+    "system": "GEFMA",
+    "code": "100",
+    "name": {
+      "de": "Immobilienmanagement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0342",
+    "system": "GEFMA",
+    "code": "200",
+    "name": {
+      "de": "Projektmanagement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0343",
+    "system": "GIF",
+    "code": "PM",
+    "name": {
+      "de": "01 – Projektauftrag",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0344",
+    "system": "RCIS",
+    "code": "A.1.1",
+    "name": {
+      "de": "Projektinitiierung",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0341",
+    "system": "SIA",
+    "code": "D 0165",
+    "name": {
+      "de": "Dokumentation Hochbau",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0336",
+    "system": "Uniformat II",
+    "code": "A1010",
+    "name": {
+      "de": "Standard Foundations",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0165",
+    "system": "Uniformat II",
+    "code": "A1010.10",
+    "name": {
+      "de": "Wall Foundation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0296",
+    "system": "Uniformat II",
+    "code": "A1020.10",
+    "name": {
+      "de": "Driven Piles",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0297",
+    "system": "Uniformat II",
+    "code": "A1020.15",
+    "name": {
+      "de": "Bored Piles",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0298",
+    "system": "Uniformat II",
+    "code": "A1020.20",
+    "name": {
+      "de": "Caissons",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0313",
+    "system": "Uniformat II",
+    "code": "A1020.30 Special Foundation Walls",
+    "name": {
+      "de": "A1020.30 Special Foundation Walls",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0170",
+    "system": "Uniformat II",
+    "code": "A1020.80",
+    "name": {
+      "de": "Grade Beams",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0314",
+    "system": "Uniformat II",
+    "code": "A2010 Walls for Subgrade EnclosuresA4030",
+    "name": {
+      "de": "Slab Trenches",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0095",
+    "system": "Uniformat II",
+    "code": "A4010",
+    "name": {
+      "de": "Standard Slabs-on-Grade",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0096",
+    "system": "Uniformat II",
+    "code": "A4020",
+    "name": {
+      "de": "Structural Slabs-on-Grade",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0166",
+    "system": "Uniformat II",
+    "code": "A4040",
+    "name": {
+      "de": "Pits and Bases",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0337",
+    "system": "Uniformat II",
+    "code": "B1010",
+    "name": {
+      "de": "Floor Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0030",
+    "system": "Uniformat II",
+    "code": "B1010.10",
+    "name": {
+      "de": "Floor Structural Frame",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0124",
+    "system": "Uniformat II",
+    "code": "B1010.20",
+    "name": {
+      "de": "Floor Decks, Slabs, and Toppings",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0125",
+    "system": "Uniformat II",
+    "code": "B1010.30",
+    "name": {
+      "de": "Balcony Floor Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0126",
+    "system": "Uniformat II",
+    "code": "B1010.40",
+    "name": {
+      "de": "Mezzanine Floor Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0244",
+    "system": "Uniformat II",
+    "code": "B1010.50",
+    "name": {
+      "de": "Ramps",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0107",
+    "system": "Uniformat II",
+    "code": "B1020",
+    "name": {
+      "de": "Roof Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0031",
+    "system": "Uniformat II",
+    "code": "B1020.10",
+    "name": {
+      "de": "Roof Structural Frame",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0120",
+    "system": "Uniformat II",
+    "code": "B1020.20",
+    "name": {
+      "de": "Roof deck, slab and sheathing",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0303",
+    "system": "Uniformat II",
+    "code": "B1080.10",
+    "name": {
+      "de": "Stair Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0174",
+    "system": "Uniformat II",
+    "code": "B1080.50 Stair railings",
+    "name": {
+      "de": "B1080.50 Stair railings",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0315",
+    "system": "Uniformat II",
+    "code": "B2010 Exterior WallsB2080.50",
+    "name": {
+      "de": "Exterior Balcony Walls and Railings",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0326",
+    "system": "Uniformat II",
+    "code": "B2010.10 Exterior Wall Veneer",
+    "name": {
+      "de": "B2010.10 Exterior Wall Veneer",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0032",
+    "system": "Uniformat II",
+    "code": "B2010.20",
+    "name": {
+      "de": "Exterior Wall Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0310",
+    "system": "Uniformat II",
+    "code": "B2010.40",
+    "name": {
+      "de": "Fabricated Exterior Walls Assemblies",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0147",
+    "system": "Uniformat II",
+    "code": "B2020",
+    "name": {
+      "de": "Exterior Windows",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0305",
+    "system": "Uniformat II",
+    "code": "B2050",
+    "name": {
+      "de": "Exterior Doors and Grilles",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0215",
+    "system": "Uniformat II",
+    "code": "B2070",
+    "name": {
+      "de": "Exterior Louvers and Vents",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0175",
+    "system": "Uniformat II",
+    "code": "B2080.50 Railings, exterior balcony",
+    "name": {
+      "de": "B2080.50 Railings, exterior balcony",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0316",
+    "system": "Uniformat II",
+    "code": "B2090",
+    "name": {
+      "de": "Exterior Wall Specialties",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0108",
+    "system": "Uniformat II",
+    "code": "B3010",
+    "name": {
+      "de": "Roofing",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0280",
+    "system": "Uniformat II",
+    "code": "B3020.10",
+    "name": {
+      "de": "Roof Accessories",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0331",
+    "system": "Uniformat II",
+    "code": "B3020.70",
+    "name": {
+      "de": "Rainwater Management",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0249",
+    "system": "Uniformat II",
+    "code": "B3020.70 Rainwater Management",
+    "name": {
+      "de": "B3020.70 Rainwater Management",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0109",
+    "system": "Uniformat II",
+    "code": "B3040",
+    "name": {
+      "de": "Traffic Bearing Horizontal Enclosures",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0148",
+    "system": "Uniformat II",
+    "code": "B3060.10",
+    "name": {
+      "de": "Roof Windows and Skylights",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0281",
+    "system": "Uniformat II",
+    "code": "B3060.50",
+    "name": {
+      "de": "Vents and Hatches",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0110",
+    "system": "Uniformat II",
+    "code": "B3080",
+    "name": {
+      "de": "Overhead Exterior Enclosures",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0033",
+    "system": "Uniformat II",
+    "code": "B3080.10",
+    "name": {
+      "de": "Exterior Ceiling",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0034",
+    "system": "Uniformat II",
+    "code": "C1010",
+    "name": {
+      "de": "Interior Partition",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0149",
+    "system": "Uniformat II",
+    "code": "C1020",
+    "name": {
+      "de": "Interior Windows",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0306",
+    "system": "Uniformat II",
+    "code": "C1030",
+    "name": {
+      "de": "Interior DoorsC1040 - Interior Grilles and Gates",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0130",
+    "system": "Uniformat II",
+    "code": "C1060.10",
+    "name": {
+      "de": "Access Flooring",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0333",
+    "system": "Uniformat II",
+    "code": "C1070",
+    "name": {
+      "de": "Suspended Ceiling Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0176",
+    "system": "Uniformat II",
+    "code": "C1090.10 Interior railings and handrails",
+    "name": {
+      "de": "C1090.10 Interior railings and handrails",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0307",
+    "system": "Uniformat II",
+    "code": "C1090.35",
+    "name": {
+      "de": "Wall and Door Protection",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0248",
+    "system": "Uniformat II",
+    "code": "C1090.50",
+    "name": {
+      "de": "Fireplace and Stoves",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0317",
+    "system": "Uniformat II",
+    "code": "C2010",
+    "name": {
+      "de": "Wall Finishes",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0085",
+    "system": "Uniformat II",
+    "code": "C2030",
+    "name": {
+      "de": "Flooring",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0097",
+    "system": "Uniformat II",
+    "code": "C2030 Flooring",
+    "name": {
+      "de": "C2030 Flooring",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0086",
+    "system": "Uniformat II",
+    "code": "C2040",
+    "name": {
+      "de": "Stair finishing",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0111",
+    "system": "Uniformat II",
+    "code": "C2050",
+    "name": {
+      "de": "Ceiling Finishes",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0145",
+    "system": "Uniformat II",
+    "code": "D1010.10",
+    "name": {
+      "de": "Elevators",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0041",
+    "system": "Uniformat II",
+    "code": "D1010.20",
+    "name": {
+      "de": "Lifts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0042",
+    "system": "Uniformat II",
+    "code": "D1010.30",
+    "name": {
+      "de": "Escalators",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0043",
+    "system": "Uniformat II",
+    "code": "D1010.50",
+    "name": {
+      "de": "Dumbwaiters",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0044",
+    "system": "Uniformat II",
+    "code": "D1030.10",
+    "name": {
+      "de": "Movingwalkway",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0045",
+    "system": "Uniformat II",
+    "code": "D1030.30",
+    "name": {
+      "de": "Turntables",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0046",
+    "system": "Uniformat II",
+    "code": "D1030.50",
+    "name": {
+      "de": "Passenger Loading Bridges",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0047",
+    "system": "Uniformat II",
+    "code": "D1030.70",
+    "name": {
+      "de": "People Movers (monorail-funicular-cable transportation)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0048",
+    "system": "Uniformat II",
+    "code": "D1050.10",
+    "name": {
+      "de": "Cranes",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0049",
+    "system": "Uniformat II",
+    "code": "D1050.20",
+    "name": {
+      "de": "Hoists",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0050",
+    "system": "Uniformat II",
+    "code": "D1050.30",
+    "name": {
+      "de": "Derricks",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0051",
+    "system": "Uniformat II",
+    "code": "D1050.40",
+    "name": {
+      "de": "Conveyors",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0052",
+    "system": "Uniformat II",
+    "code": "D1050.50",
+    "name": {
+      "de": "Baggage Handling Equipement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0053",
+    "system": "Uniformat II",
+    "code": "D1050.60",
+    "name": {
+      "de": "Chutes (coal chutes, escape chutes, laundry an linen chutes)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0054",
+    "system": "Uniformat II",
+    "code": "D1050.70",
+    "name": {
+      "de": "Pneumatic Tube Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0063",
+    "system": "Uniformat II",
+    "code": "D2010.10",
+    "name": {
+      "de": "Facility Potable-Water Storage Tanks",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0330",
+    "system": "Uniformat II",
+    "code": "D2010.20",
+    "name": {
+      "de": "Domestic Water Heaters",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0223",
+    "system": "Uniformat II",
+    "code": "D2010.20 Domestic Water Equipement",
+    "name": {
+      "de": "D2010.20 Domestic Water Equipement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0224",
+    "system": "Uniformat II",
+    "code": "D2010.40",
+    "name": {
+      "de": "Domestic Water Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0276",
+    "system": "Uniformat II",
+    "code": "D2010.60",
+    "name": {
+      "de": "Plumbing Fixtures",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0064",
+    "system": "Uniformat II",
+    "code": "D2020.10",
+    "name": {
+      "de": "Sanitary Sewerage Equipement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0250",
+    "system": "Uniformat II",
+    "code": "D2020.30",
+    "name": {
+      "de": "Sanitary Sewerage Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0065",
+    "system": "Uniformat II",
+    "code": "D2030.10",
+    "name": {
+      "de": "Stormwater Drainage Equipement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0251",
+    "system": "Uniformat II",
+    "code": "D2030.20",
+    "name": {
+      "de": "Stormwater Drainage Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0066",
+    "system": "Uniformat II",
+    "code": "D2030.60",
+    "name": {
+      "de": "Grey Water Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0252",
+    "system": "Uniformat II",
+    "code": "D2050",
+    "name": {
+      "de": "General service Compressed-Air",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0253",
+    "system": "Uniformat II",
+    "code": "D2060.20",
+    "name": {
+      "de": "Vacuum Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0067",
+    "system": "Uniformat II",
+    "code": "D2060.30",
+    "name": {
+      "de": "Gas Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0068",
+    "system": "Uniformat II",
+    "code": "D2060.40",
+    "name": {
+      "de": "Chemical-Waste Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0254",
+    "system": "Uniformat II",
+    "code": "D2060.40 Chemical",
+    "name": {
+      "de": "Waste Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0255",
+    "system": "Uniformat II",
+    "code": "D2060.50 Processed Water System",
+    "name": {
+      "de": "D2060.50 Processed Water System",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0256",
+    "system": "Uniformat II",
+    "code": "D3010.10 Fuel Piping",
+    "name": {
+      "de": "D3010.10 Fuel Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0225",
+    "system": "Uniformat II",
+    "code": "D3010.30",
+    "name": {
+      "de": "Fuel Pump",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0069",
+    "system": "Uniformat II",
+    "code": "D3010.50",
+    "name": {
+      "de": "Fuel Storage Tanks",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0213",
+    "system": "Uniformat II",
+    "code": "D3020",
+    "name": {
+      "de": "Heating System",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0226",
+    "system": "Uniformat II",
+    "code": "D3020.10",
+    "name": {
+      "de": "Heat Generation (Boiler feedwater Pumps)",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0257",
+    "system": "Uniformat II",
+    "code": "D3020.70",
+    "name": {
+      "de": "Decentralized Heating Equipement",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0214",
+    "system": "Uniformat II",
+    "code": "D3030",
+    "name": {
+      "de": "Cooling System",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0205",
+    "system": "Uniformat II",
+    "code": "D3030.10",
+    "name": {
+      "de": "Central Cooling",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0206",
+    "system": "Uniformat II",
+    "code": "D3030.30",
+    "name": {
+      "de": "Evaporative Air-Cooling",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0207",
+    "system": "Uniformat II",
+    "code": "D3030.70",
+    "name": {
+      "de": "Decentralized Cooling",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0327",
+    "system": "Uniformat II",
+    "code": "D3030.70 Decentralized Cooling",
+    "name": {
+      "de": "D3030.70 Decentralized Cooling",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0070",
+    "system": "Uniformat II",
+    "code": "D3050.10",
+    "name": {
+      "de": "Facility Hydronic Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0227",
+    "system": "Uniformat II",
+    "code": "D3050.10 Facility Hydronic Distribution",
+    "name": {
+      "de": "D3050.10 Facility Hydronic Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0071",
+    "system": "Uniformat II",
+    "code": "D3050.30",
+    "name": {
+      "de": "Facility Steam Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0228",
+    "system": "Uniformat II",
+    "code": "D3050.30 Facility Steam Distribution",
+    "name": {
+      "de": "D3050.30 Facility Steam Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0218",
+    "system": "Uniformat II",
+    "code": "D3050.50",
+    "name": {
+      "de": "HVAC Air Distribution Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0219",
+    "system": "Uniformat II",
+    "code": "D3060",
+    "name": {
+      "de": "Ventilation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0216",
+    "system": "Uniformat II",
+    "code": "D3060.10",
+    "name": {
+      "de": "Supply Air",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0217",
+    "system": "Uniformat II",
+    "code": "D3060.20",
+    "name": {
+      "de": "Return Air",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0212",
+    "system": "Uniformat II",
+    "code": "D3060.60",
+    "name": {
+      "de": "Air-to-Air Energy Recovery",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0157",
+    "system": "Uniformat II",
+    "code": "D3060.70",
+    "name": {
+      "de": "HVAC Air Cleaning",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0222",
+    "system": "Uniformat II",
+    "code": "D3060.90",
+    "name": {
+      "de": "Ventilation Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0258",
+    "system": "Uniformat II",
+    "code": "D3070.10",
+    "name": {
+      "de": "Snow Melting",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0101",
+    "system": "Uniformat II",
+    "code": "D4010",
+    "name": {
+      "de": "Fire Suppression",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0259",
+    "system": "Uniformat II",
+    "code": "D4010.10",
+    "name": {
+      "de": "Water-Based Fire-Suppression",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0229",
+    "system": "Uniformat II",
+    "code": "D4010.10 Fire Suppression",
+    "name": {
+      "de": "D4010.10 Fire Suppression",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0260",
+    "system": "Uniformat II",
+    "code": "D4010.50",
+    "name": {
+      "de": "Fire-Extinguishing",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0155",
+    "system": "Uniformat II",
+    "code": "D4030.10",
+    "name": {
+      "de": "Fire Protection Cabinets",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0156",
+    "system": "Uniformat II",
+    "code": "D4030.30",
+    "name": {
+      "de": "Fire Extinguishers",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0247",
+    "system": "Uniformat II",
+    "code": "D4030.50",
+    "name": {
+      "de": "Breathing air Replenishment Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0293",
+    "system": "Uniformat II",
+    "code": "D5010.20",
+    "name": {
+      "de": "Battery Equipment",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0287",
+    "system": "Uniformat II",
+    "code": "D5010.30",
+    "name": {
+      "de": "Photovoltaic Collectors",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0292",
+    "system": "Uniformat II",
+    "code": "D5010.90",
+    "name": {
+      "de": "Facility Power Generation Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0133",
+    "system": "Uniformat II",
+    "code": "D5020.10",
+    "name": {
+      "de": "Electrical Service",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0134",
+    "system": "Uniformat II",
+    "code": "D5020.30",
+    "name": {
+      "de": "Power Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0192",
+    "system": "Uniformat II",
+    "code": "D5020.90",
+    "name": {
+      "de": "Electrical Service and Distribution Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0193",
+    "system": "Uniformat II",
+    "code": "D5030.10",
+    "name": {
+      "de": "Branch Wiring System",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0141",
+    "system": "Uniformat II",
+    "code": "D5030.50",
+    "name": {
+      "de": "Wiring Devices",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0194",
+    "system": "Uniformat II",
+    "code": "D5030.90",
+    "name": {
+      "de": "General Purpose Electrical Power Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0278",
+    "system": "Uniformat II",
+    "code": "D5040.10 Lighting control",
+    "name": {
+      "de": "D5040.10 Lighting control",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0195",
+    "system": "Uniformat II",
+    "code": "D5040.20",
+    "name": {
+      "de": "Branch Wiring for Lighting",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0209",
+    "system": "Uniformat II",
+    "code": "D5040.50",
+    "name": {
+      "de": "Lighting Fixtures",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0196",
+    "system": "Uniformat II",
+    "code": "D5040.90",
+    "name": {
+      "de": "Lighting Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0285",
+    "system": "Uniformat II",
+    "code": "D5080.10",
+    "name": {
+      "de": "Lightning Protection",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0072",
+    "system": "Uniformat II",
+    "code": "D5080.40",
+    "name": {
+      "de": "Cathodic Protection",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0261",
+    "system": "Uniformat II",
+    "code": "D5080.40 Cathodic Protection",
+    "name": {
+      "de": "D5080.40 Cathodic Protection",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0197",
+    "system": "Uniformat II",
+    "code": "D5080.90",
+    "name": {
+      "de": "Miscellaneous Electrical Systems Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0121",
+    "system": "Uniformat II",
+    "code": "D6010",
+    "name": {
+      "de": "Data Communications",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0290",
+    "system": "Uniformat II",
+    "code": "D6010.10",
+    "name": {
+      "de": "Data Communications Network Equipment",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0020",
+    "system": "Uniformat II",
+    "code": "D6020",
+    "name": {
+      "de": "Voice Communications",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0021",
+    "system": "Uniformat II",
+    "code": "D6030",
+    "name": {
+      "de": "Audio-Video Communication",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0291",
+    "system": "Uniformat II",
+    "code": "D6030.10",
+    "name": {
+      "de": "Audio-Video Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0198",
+    "system": "Uniformat II",
+    "code": "D6090.10",
+    "name": {
+      "de": "Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0001",
+    "system": "Uniformat II",
+    "code": "D8010.10",
+    "name": {
+      "de": "Integrated Automation Control of Equipment",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0002",
+    "system": "Uniformat II",
+    "code": "D8010.20",
+    "name": {
+      "de": "Integrated Automation Control of Conveying Equipment",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0003",
+    "system": "Uniformat II",
+    "code": "D8010.30",
+    "name": {
+      "de": "Integrated Automation Control of Fire-Suppression Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0004",
+    "system": "Uniformat II",
+    "code": "D8010.40",
+    "name": {
+      "de": "Integrated Automation Control of Plumbing Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0005",
+    "system": "Uniformat II",
+    "code": "D8010.50",
+    "name": {
+      "de": "Integrated Automation Control of HVAC Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0006",
+    "system": "Uniformat II",
+    "code": "D8010.60",
+    "name": {
+      "de": "Integrated Automation Control of Electrical Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0007",
+    "system": "Uniformat II",
+    "code": "D8010.70",
+    "name": {
+      "de": "Integrated Automation Control of Communication Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0008",
+    "system": "Uniformat II",
+    "code": "D8010.80",
+    "name": {
+      "de": "Integrated Automation Control of Electronic Safety and Security Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0009",
+    "system": "Uniformat II",
+    "code": "D8010.90",
+    "name": {
+      "de": "Integrated Automation Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0304",
+    "system": "Uniformat II",
+    "code": "E1060.50",
+    "name": {
+      "de": "Residential Stairs",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0308",
+    "system": "Uniformat II",
+    "code": "E1060.70",
+    "name": {
+      "de": "Residential Ceiling Fans",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0187",
+    "system": "Uniformat II",
+    "code": "E2010",
+    "name": {
+      "de": "Fixed Furnishings",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0188",
+    "system": "Uniformat II",
+    "code": "E2050",
+    "name": {
+      "de": "Movable Furnishings",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0179",
+    "system": "Uniformat II",
+    "code": "F1010.70 Modular mezzanines",
+    "name": {
+      "de": "F1010.70 Modular mezzanines",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0112",
+    "system": "Uniformat II",
+    "code": "F1020",
+    "name": {
+      "de": "Special Construction",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0035",
+    "system": "Uniformat II",
+    "code": "F1020.40",
+    "name": {
+      "de": "Metal Building Systems",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0230",
+    "system": "Uniformat II",
+    "code": "F1050.10",
+    "name": {
+      "de": "Pools",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0262",
+    "system": "Uniformat II",
+    "code": "F1050.10 Pools",
+    "name": {
+      "de": "F1050.10 Pools",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0231",
+    "system": "Uniformat II",
+    "code": "F1050.20",
+    "name": {
+      "de": "Interior Fountains",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0263",
+    "system": "Uniformat II",
+    "code": "F1050.20 Interior Fountains",
+    "name": {
+      "de": "F1050.20 Interior Fountains",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0264",
+    "system": "Uniformat II",
+    "code": "F1050.60 Ice Rinks",
+    "name": {
+      "de": "F1050.60 Ice Rinks",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0073",
+    "system": "Uniformat II",
+    "code": "G1050.60",
+    "name": {
+      "de": "Contaminated Site Material Removal",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0177",
+    "system": "Uniformat II",
+    "code": "G2030.30 Exterior steps and ramps",
+    "name": {
+      "de": "G2030.30 Exterior steps and ramps",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0232",
+    "system": "Uniformat II",
+    "code": "G2060.10",
+    "name": {
+      "de": "Exterior Foutains",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0265",
+    "system": "Uniformat II",
+    "code": "G2060.10 Exterior Fountains",
+    "name": {
+      "de": "G2060.10 Exterior Fountains",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0178",
+    "system": "Uniformat II",
+    "code": "G2060.20 Fences and gates",
+    "name": {
+      "de": "G2060.20 Fences and gates",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0233",
+    "system": "Uniformat II",
+    "code": "G2080.10",
+    "name": {
+      "de": "Planting Irrigation",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0074",
+    "system": "Uniformat II",
+    "code": "G3010.10",
+    "name": {
+      "de": "Site Domestic Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0234",
+    "system": "Uniformat II",
+    "code": "G3010.10 Site Domestic Water Distribution",
+    "name": {
+      "de": "G3010.10 Site Domestic Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0075",
+    "system": "Uniformat II",
+    "code": "G3010.30",
+    "name": {
+      "de": "Site Fire Protection Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0235",
+    "system": "Uniformat II",
+    "code": "G3010.30 Site Fire Protection Water Distribution",
+    "name": {
+      "de": "G3010.30 Site Fire Protection Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0076",
+    "system": "Uniformat II",
+    "code": "G3010.50",
+    "name": {
+      "de": "SIte Irrigation Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0266",
+    "system": "Uniformat II",
+    "code": "G3010.50 Site Irrigation Water Distribution",
+    "name": {
+      "de": "G3010.50 Site Irrigation Water Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0267",
+    "system": "Uniformat II",
+    "code": "G3020.20 Sanitary Sewerage Piping",
+    "name": {
+      "de": "G3020.20 Sanitary Sewerage Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0077",
+    "system": "Uniformat II",
+    "code": "G3020.40",
+    "name": {
+      "de": "Utiilty Septic Tanks",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0236",
+    "system": "Uniformat II",
+    "code": "G3020.40 Utility Septic Tank",
+    "name": {
+      "de": "G3020.40 Utility Septic Tank",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0268",
+    "system": "Uniformat II",
+    "code": "G3030.20",
+    "name": {
+      "de": "Storm Drainage Piping",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0269",
+    "system": "Uniformat II",
+    "code": "G3030.30",
+    "name": {
+      "de": "Culverts",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0237",
+    "system": "Uniformat II",
+    "code": "G3030.50",
+    "name": {
+      "de": "Storm Drainage Pumps",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0270",
+    "system": "Uniformat II",
+    "code": "G3030.60",
+    "name": {
+      "de": "Site Subdrainage",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0271",
+    "system": "Uniformat II",
+    "code": "G3050",
+    "name": {
+      "de": "SIte Energy Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0238",
+    "system": "Uniformat II",
+    "code": "G3050.10",
+    "name": {
+      "de": "Site Hydronic Heating Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0239",
+    "system": "Uniformat II",
+    "code": "G3050.40",
+    "name": {
+      "de": "Site Hydronic Cooling Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0078",
+    "system": "Uniformat II",
+    "code": "G3060",
+    "name": {
+      "de": "Site Fuel Distribution",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0272",
+    "system": "Uniformat II",
+    "code": "G3090",
+    "name": {
+      "de": "Liquid and Gas Site Utilities Supplementary Components",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0299",
+    "system": "Uniformat II",
+    "code": "G4010.30",
+    "name": {
+      "de": "Electrical Substations",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0300",
+    "system": "Uniformat II",
+    "code": "G4010.40",
+    "name": {
+      "de": "Electrical Transformers",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0286",
+    "system": "Uniformat II",
+    "code": "G4010.50",
+    "name": {
+      "de": "Electrical Switchgear and Protection Devices",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0301",
+    "system": "Uniformat II",
+    "code": "G4050.10",
+    "name": {
+      "de": "Area Lighting",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "clf-0245",
+    "system": "Uniformat II",
+    "code": "Néant",
+    "name": {
+      "de": "Néant",
+      "fr": "",
+      "it": "",
+      "en": ""
+    },
+    "description": {
+      "de": "",
+      "fr": "",
+      "it": "",
+      "en": ""
+    }
+  }
+]

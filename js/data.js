@@ -16,12 +16,13 @@ function filterDataByTags(data, activeTags) {
 
     return data.filter(item => {
         if (!item.tags || !Array.isArray(item.tags)) return false;
-        return activeTags.every(tag => item.tags.includes(tag));
+        const itemTags = tTags(item.tags);
+        return activeTags.every(tag => itemTags.includes(tag));
     });
 }
 
 /**
- * Filter data by active category
+ * Filter data by active category/domain
  * @param {Array} data - Array of data items
  * @param {string} activeCategory - Category string
  * @returns {Array} Filtered data
@@ -30,7 +31,9 @@ function filterDataByCategory(data, activeCategory) {
     if (!activeCategory) {
         return data;
     }
-    return data.filter(item => item.category === activeCategory);
+    return data.filter(item => {
+        return t(item.domain) === activeCategory;
+    });
 }
 
 /**
@@ -60,7 +63,7 @@ function isTagActive(tag) {
 }
 
 /**
- * Extract unique categories from data array
+ * Extract unique categories/domains from data array
  * @param {Array} data - Array of data items
  * @returns {string[]} Sorted array of unique categories
  */
@@ -68,8 +71,9 @@ function getUniqueCategories(data) {
     if (!data || !Array.isArray(data)) return [];
     const categories = new Set();
     data.forEach(item => {
-        if (item.category) {
-            categories.add(item.category);
+        const category = t(item.domain);
+        if (category) {
+            categories.add(category);
         }
     });
     return Array.from(categories).sort();
@@ -85,22 +89,22 @@ function getUniqueTags(data) {
     const tags = new Set();
     data.forEach(item => {
         if (item.tags && Array.isArray(item.tags)) {
-            item.tags.forEach(tag => tags.add(tag));
+            tTags(item.tags).forEach(tag => tags.add(tag));
         }
     });
     return Array.from(tags).sort();
 }
 
 /**
- * Sort data by title alphabetically (A-Z)
+ * Sort data by name alphabetically (A-Z)
  * @param {Array} data - Array of data items
  * @returns {Array} Sorted array
  */
 function sortDataByTitle(data) {
     if (!data || !Array.isArray(data)) return [];
     return [...data].sort((a, b) => {
-        const titleA = (a.title || '').toLowerCase();
-        const titleB = (b.title || '').toLowerCase();
+        const titleA = t(a.name).toLowerCase();
+        const titleB = t(b.name).toLowerCase();
         return titleA.localeCompare(titleB, 'de');
     });
 }

@@ -67,13 +67,14 @@ function calculateFilterCounts(data) {
 
     data.forEach(item => {
         // Count and collect categories
-        if (item.category) {
-            categoriesSet.add(item.category);
-            categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
+        const category = t(item.domain);
+        if (category) {
+            categoriesSet.add(category);
+            categoryCounts[category] = (categoryCounts[category] || 0) + 1;
         }
         // Count and collect tags
         if (item.tags && Array.isArray(item.tags)) {
-            item.tags.forEach(tag => {
+            tTags(item.tags).forEach(tag => {
                 tagsSet.add(tag);
                 tagCounts[tag] = (tagCounts[tag] || 0) + 1;
             });

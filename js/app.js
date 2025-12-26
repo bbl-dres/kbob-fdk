@@ -68,12 +68,22 @@ async function fetchWithRetry(url, options = {}) {
 async function loadDataFromJson() {
     const fetchOptions = { retries: 3, timeout: 15000, backoffMs: 1000 };
 
-    const [elementsResponse, documentsResponse, usecasesResponse, modelsResponse, epdsResponse] = await Promise.all([
+    const [
+        elementsResponse,
+        documentsResponse,
+        usecasesResponse,
+        modelsResponse,
+        epdsResponse,
+        classificationsResponse,
+        attributesResponse
+    ] = await Promise.all([
         fetchWithRetry('data/elements.json', fetchOptions),
         fetchWithRetry('data/documents.json', fetchOptions),
         fetchWithRetry('data/usecases.json', fetchOptions),
         fetchWithRetry('data/models.json', fetchOptions),
-        fetchWithRetry('data/epds.json', fetchOptions)
+        fetchWithRetry('data/epds.json', fetchOptions),
+        fetchWithRetry('data/classifications.json', fetchOptions),
+        fetchWithRetry('data/attributes.json', fetchOptions)
     ]);
 
     if (!elementsResponse.ok) throw new Error(`Elements: HTTP error! status: ${elementsResponse.status}`);
@@ -81,13 +91,17 @@ async function loadDataFromJson() {
     if (!usecasesResponse.ok) throw new Error(`Usecases: HTTP error! status: ${usecasesResponse.status}`);
     if (!modelsResponse.ok) throw new Error(`Models: HTTP error! status: ${modelsResponse.status}`);
     if (!epdsResponse.ok) throw new Error(`EPDs: HTTP error! status: ${epdsResponse.status}`);
+    if (!classificationsResponse.ok) throw new Error(`Classifications: HTTP error! status: ${classificationsResponse.status}`);
+    if (!attributesResponse.ok) throw new Error(`Attributes: HTTP error! status: ${attributesResponse.status}`);
 
     return {
         elements: await elementsResponse.json(),
         documents: await documentsResponse.json(),
         usecases: await usecasesResponse.json(),
         models: await modelsResponse.json(),
-        epds: await epdsResponse.json()
+        epds: await epdsResponse.json(),
+        classifications: await classificationsResponse.json(),
+        attributes: await attributesResponse.json()
     };
 }
 
@@ -123,6 +137,8 @@ async function initApp() {
         globalUsecasesData = sortDataByTitle(data.usecases);
         globalModelsData = sortDataByTitle(data.models);
         globalEpdsData = sortDataByTitle(data.epds);
+        globalClassificationsData = data.classifications || [];
+        globalAttributesData = data.attributes || [];
 
         // Build index maps for O(1) lookups (performance optimization)
         buildDataIndexMaps();

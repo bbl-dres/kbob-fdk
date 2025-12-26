@@ -16,8 +16,6 @@ const catalogTypeConfig = {
         routePrefix: 'element',
         cardIdPrefix: 'element',
         icon: 'image',
-        subtitleField: 'classification', // fallback field for subtitle
-        searchFields: ['title', 'classification'],
         getData: () => globalElementsData,
         getFilterVisible: () => elementsFilterVisible,
         setFilterVisible: (val) => { elementsFilterVisible = val; }
@@ -26,8 +24,6 @@ const catalogTypeConfig = {
         routePrefix: 'document',
         cardIdPrefix: 'document',
         icon: 'file-text',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalDocumentsData,
         getFilterVisible: () => documentsFilterVisible,
         setFilterVisible: (val) => { documentsFilterVisible = val; }
@@ -36,8 +32,6 @@ const catalogTypeConfig = {
         routePrefix: 'usecase',
         cardIdPrefix: 'usecase',
         icon: 'workflow',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalUsecasesData,
         getFilterVisible: () => usecasesFilterVisible,
         setFilterVisible: (val) => { usecasesFilterVisible = val; },
@@ -47,8 +41,6 @@ const catalogTypeConfig = {
         routePrefix: 'model',
         cardIdPrefix: 'model',
         icon: 'boxes',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalModelsData,
         getFilterVisible: () => modelsFilterVisible,
         setFilterVisible: (val) => { modelsFilterVisible = val; }
@@ -57,8 +49,6 @@ const catalogTypeConfig = {
         routePrefix: 'epd',
         cardIdPrefix: 'epd',
         icon: 'leaf',
-        subtitleField: 'category',
-        searchFields: ['title', 'category', 'description'],
         getData: () => globalEpdsData,
         getFilterVisible: () => epdsFilterVisible,
         setFilterVisible: (val) => { epdsFilterVisible = val; }
@@ -74,7 +64,8 @@ const catalogTypeConfig = {
  */
 function renderTagsHtml(tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData)) return '';
-    return tagsData.map(tag => {
+    const localizedTags = tTags(tagsData);
+    return localizedTags.map(tag => {
         const safeTag = escapeHtml(tag);
         const isActive = activeTags.includes(tag);
         const activeClass = isActive ? 'active' : '';
@@ -114,6 +105,7 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     if (!tagsData || !Array.isArray(tagsData) || tagsData.length === 0) return '';
 
     const isExpanded = expandedCardTags.has(cardId);
+    const localizedTags = tTags(tagsData);
 
     const renderTag = (tag, index) => {
         const safeTag = escapeHtml(tag);
@@ -122,7 +114,7 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
         return `<span class="tag-badge ${activeClass}" data-tag-index="${index}" data-action="toggle-tag" data-tag="${safeTag}" title="Filter: ${safeTag}">${safeTag}</span>`;
     };
 
-    const tagsHtml = tagsData.map((tag, index) => renderTag(tag, index)).join('');
+    const tagsHtml = localizedTags.map((tag, index) => renderTag(tag, index)).join('');
     const safeCardId = escapeHtml(cardId);
 
     if (isExpanded) {
@@ -131,7 +123,7 @@ function renderCardTagsHtml(cardId, tagsData, activeTags = []) {
     }
 
     // Collapsed: render all tags + count badge placeholder (will be adjusted by fitCardTagsToSingleRow)
-    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Mehr anzeigen">+${tagsData.length}</span>`;
+    return tagsHtml + `<span class="tag-badge tag-badge--count" data-count-badge data-action="toggle-card-tags" data-card-id="${safeCardId}" title="Mehr anzeigen">+${localizedTags.length}</span>`;
 }
 
 /**
@@ -306,22 +298,25 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
     return items.map(item => {
         const hasTags = item.tags && Array.isArray(item.tags) && item.tags.length > 0;
         const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
-        const isCategoryActive = activeCategory === item.category;
-        const safeTitle = escapeHtml(item.title || '');
-        const safeCategory = escapeHtml(item.category || '');
-        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        const itemCategory = t(item.domain);
+        const isCategoryActive = activeCategory === itemCategory;
+        const safeTitle = escapeHtml(t(item.name));
+        const safeCategory = escapeHtml(itemCategory || '');
+        const safeSubtitle = escapeHtml(t(item.description) || '');
         const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
+        // Prepare tags data for JSON (use localized strings for display consistency)
+        const tagsForJson = hasTags ? JSON.stringify(tTags(item.tags)) : '[]';
 
         return `
         <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
             <div class="card__image">
-                ${item.category ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
+                ${itemCategory ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
                 ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
                 <h3 class="card__title">${safeTitle}</h3>
                 <p class="card__subtitle">${safeSubtitle}</p>
-                ${hasTags ? `<div class="card__tags" data-tags='${JSON.stringify(item.tags)}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
+                ${hasTags ? `<div class="card__tags" data-tags='${tagsForJson}'>${renderCardTagsHtml(cardId, item.tags, activeTags)}</div>` : ''}
             </div>
             <footer class="card__footer card__footer--end">
                 <span class="arrow-btn card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
@@ -357,8 +352,8 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
     `;
 
     const itemsHtml = items.map(item => {
-        const safeTitle = escapeHtml(item.title || '');
-        const safeSubtitle = escapeHtml(item.description || item[config.subtitleField] || '');
+        const safeTitle = escapeHtml(t(item.name));
+        const safeSubtitle = escapeHtml(t(item.description) || '');
         const itemHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
         return `
         <div class="element-list-item" data-href="${itemHref}">
@@ -372,8 +367,7 @@ function renderGenericListItems(type, items, activeTags = [], activeCategory = '
 }
 
 // ============================================
-// BACKWARD COMPATIBLE WRAPPERS
-// These maintain the original function names for compatibility
+// TYPE-SPECIFIC RENDER WRAPPERS
 // ============================================
 
 function renderGridItemsHTML(items, activeTags = [], activeCategory = '') {

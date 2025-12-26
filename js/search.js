@@ -68,13 +68,38 @@ const searchDataTypes = [
 // ============================================
 
 /**
+ * Get searchable text value from an item field
+ * Supports both legacy string fields and new i18n object fields
+ * Also handles field name mapping (title→name, category→domain)
+ */
+function getSearchableValue(item, field) {
+    // Handle field name mapping for new schema
+    if (field === 'title') {
+        // Try new 'name' field first, fall back to 'title'
+        return item.name ? t(item.name) : (item.title || '');
+    }
+    if (field === 'category') {
+        // Try new 'domain' field first, fall back to 'category'
+        return item.domain ? t(item.domain) : (item.category || '');
+    }
+    // Handle description and other potentially i18n fields
+    const value = item[field];
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+        return t(value);
+    }
+    return value || '';
+}
+
+/**
  * Search items by term across specified fields
+ * Supports both legacy string fields and new i18n object fields
  */
 function searchItems(data, searchFields, searchTerm) {
     return data.filter(item =>
-        searchFields.some(field =>
-            item[field] && item[field].toLowerCase().includes(searchTerm)
-        )
+        searchFields.some(field => {
+            const value = getSearchableValue(item, field);
+            return value && value.toLowerCase().includes(searchTerm);
+        })
     );
 }
 
@@ -107,6 +132,7 @@ function performGlobalSearch(query) {
 
 /**
  * Render search dropdown HTML
+ * Supports both legacy and i18n fields
  */
 function renderSearchDropdown(results, query) {
     let hasAnyResults = false;
@@ -120,7 +146,9 @@ function renderSearchDropdown(results, query) {
             html += `<div class="search-dropdown-group">`;
             html += `<div class="search-dropdown-header">${escapeHtml(dataType.label)}</div>`;
             items.forEach(item => {
-                const safeTitle = escapeHtml(item.title || '');
+                // Support both legacy 'title' and new 'name' field
+                const title = item.name ? t(item.name) : item.title || '';
+                const safeTitle = escapeHtml(title);
                 const safeId = escapeHtml(item.id || '');
                 html += `<a class="search-dropdown-item" href="#${dataType.routePrefix}/${safeId}">${safeTitle}</a>`;
             });
@@ -147,6 +175,7 @@ function renderSearchDropdown(results, query) {
 
 /**
  * Perform full search across all categories (for search results page)
+ * Supports both legacy and i18n fields
  */
 function performFullSearch(query) {
     const results = [];
@@ -161,13 +190,19 @@ function performFullSearch(query) {
         );
 
         matchingItems.forEach(item => {
+            // Support both legacy 'title' and new 'name' field
+            const title = item.name ? t(item.name) : item.title || '';
+            // Support both legacy 'description' and new i18n 'description' field
+            const desc = item.description ? t(item.description) : '';
+            const fallbackDesc = item[dataType.descriptionField] ? t(item[dataType.descriptionField]) : '';
+
             results.push({
                 type: dataType.type,
                 category: dataType.routePrefix,
                 id: item.id,
-                title: item.title,
-                description: item.description || item[dataType.descriptionField] || '',
-                date: item.date || null
+                title: title,
+                description: desc || fallbackDesc || '',
+                date: item.date || item.last_change || item.lastChange || null
             });
         });
     });
