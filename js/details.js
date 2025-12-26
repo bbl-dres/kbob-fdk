@@ -372,9 +372,9 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         return;
     }
 
-    // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Dokument des KBOB Datenkatalogs.');
+    // Escape main content - support both legacy and new i18n fields
+    const safeTitle = escapeHtml(data.name ? t(data.name) : data.title || '');
+    const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Dokument des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     // Check for phases
@@ -398,14 +398,57 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
-    // Build classifications table rows
-    const classRows = data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)
-        ? Object.entries(data.classifications).map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`).join('')
-        : '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+    // Build classifications table rows - support both legacy 'classifications' object and new 'related_classifications' array
+    let classRows = '';
+    if (data.related_classifications && Array.isArray(data.related_classifications) && data.related_classifications.length > 0) {
+        // New schema: look up classifications by ID
+        const classificationsBySystem = new Map();
+        data.related_classifications.forEach(ref => {
+            const clf = getItemById('classifications', ref.id);
+            if (clf) {
+                const system = clf.system;
+                if (!classificationsBySystem.has(system)) {
+                    classificationsBySystem.set(system, []);
+                }
+                const clfName = clf.name ? t(clf.name) : '';
+                classificationsBySystem.get(system).push(`${clf.code} – ${clfName}`);
+            }
+        });
+        if (classificationsBySystem.size > 0) {
+            classRows = Array.from(classificationsBySystem.entries())
+                .map(([system, codes]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${codes.map(c => escapeHtml(c)).join('<br>')}</td></tr>`)
+                .join('');
+        } else {
+            classRows = '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+        }
+    } else if (data.classifications && typeof data.classifications === 'object' && !Array.isArray(data.classifications)) {
+        // Legacy schema: direct object with system keys
+        classRows = Object.entries(data.classifications)
+            .map(([system, values]) => `<tr><td class="col-val">${escapeHtml(system)}</td><td class="col-val">${Array.isArray(values) ? values.map(v => escapeHtml(v)).join('<br>') : escapeHtml(values)}</td></tr>`)
+            .join('');
+    } else {
+        classRows = '<tr><td colspan="2" class="col-val empty-text">Keine Klassifizierung verfügbar</td></tr>';
+    }
 
     // Build details table rows
     const formatsText = data.formats && Array.isArray(data.formats) ? data.formats.join(', ') : '-';
-    const retentionText = data.retention || '-';
+
+    // Support both legacy string retention and new integer format
+    // New schema: 0=indefinitely, null=not specified, >0=years
+    let retentionText = '-';
+    if (data.retention !== undefined && data.retention !== null) {
+        if (typeof data.retention === 'number') {
+            // New schema: integer
+            if (data.retention === 0) {
+                retentionText = 'unbefristet';
+            } else {
+                retentionText = `${data.retention} Jahre`;
+            }
+        } else {
+            // Legacy schema: string value
+            retentionText = data.retention;
+        }
+    }
 
     const backLink = buildHashWithTags('documents', activeTags, activeCategory, [], getActiveViewFromURL());
 
@@ -428,7 +471,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Dokument', data.title)}
+                    ${renderMetadataTable(data, 'Dokument', data.name ? t(data.name) : data.title)}
 
                     ${hasPhases ? `
                     <div id="phasen" class="detail-section">
