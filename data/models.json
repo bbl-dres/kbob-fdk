@@ -43,84 +43,6 @@
       3,
       4
     ],
-    "elements": [
-      {
-        "name": {
-          "de": "Wand",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Tragende und nichttragende Wände inkl. Innenwände",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Decke",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Geschossdecken und Flachdächer",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Fenster",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Fensterelemente mit Rahmen und Verglasung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Tür",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Innen- und Aussentüren",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ],
     "related_elements": []
   },
   {
@@ -165,65 +87,6 @@
       2,
       3,
       4
-    ],
-    "elements": [
-      {
-        "name": {
-          "de": "Fundament",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Einzel- und Streifenfundamente",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Stütze",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Tragende Stützen aus Beton oder Stahl",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Träger",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Decken- und Dachträger",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
     ],
     "related_elements": []
   },
@@ -270,65 +133,6 @@
       3,
       4
     ],
-    "elements": [
-      {
-        "name": {
-          "de": "Lüftungskanal",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Rechteck- und Rundkanäle für Lüftungsanlagen",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Heizungsrohr",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Rohrleitungen für Heizungsverteilung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Sanitärleitung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Trink- und Abwasserleitungen",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ],
     "related_elements": []
   },
   {
@@ -373,63 +177,6 @@
       2,
       3,
       4
-    ],
-    "elements": [
-      {
-        "name": {
-          "de": "Kabeltrasse",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Kabelrinnen und Kabelkanäle",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Schalter",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Lichtschalter und Taster",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Steckdose",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Steckdosen und Anschlussdosen",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          3,
-          4
-        ]
-      }
     ],
     "related_elements": []
   },
@@ -476,7 +223,6 @@
       3,
       4
     ],
-    "elements": [],
     "related_elements": []
   },
   {
@@ -521,45 +267,6 @@
       2,
       3,
       4
-    ],
-    "elements": [
-      {
-        "name": {
-          "de": "Gelände",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Geländemodellierung und Topografie",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Bepflanzung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Bäume, Sträucher und Grünflächen",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          3,
-          4
-        ]
-      }
     ],
     "related_elements": []
   },
@@ -606,46 +313,6 @@
       3,
       4
     ],
-    "elements": [
-      {
-        "name": {
-          "de": "Brandwand",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Brandabschnittstrennende Wände",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Fluchtweg",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Fluchtwege und Notausgänge",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
-    ],
     "related_elements": []
   },
   {
@@ -691,44 +358,6 @@
       3,
       4
     ],
-    "elements": [
-      {
-        "name": {
-          "de": "Spundwand",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Stahlspundwände zur Baugrubensicherung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3
-        ]
-      },
-      {
-        "name": {
-          "de": "Anker",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Verpressanker und Rückverankerung",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3
-        ]
-      }
-    ],
     "related_elements": []
   },
   {
@@ -773,7 +402,6 @@
       3,
       4
     ],
-    "elements": [],
     "related_elements": []
   },
   {
@@ -818,46 +446,6 @@
       2,
       3,
       4
-    ],
-    "elements": [
-      {
-        "name": {
-          "de": "Fassadenpaneel",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Fassadenverkleidung und Paneele",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": {
-          "de": "Fensterrahmen",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "description": {
-          "de": "Fensterrahmen und Fassadenanschlüsse",
-          "fr": "",
-          "it": "",
-          "en": ""
-        },
-        "phases": [
-          2,
-          3,
-          4
-        ]
-      }
     ],
     "related_elements": []
   }

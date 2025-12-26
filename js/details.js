@@ -620,13 +620,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Determine which sections have data (for conditional rendering)
     const hasPhases = hasData(data.phases);
-    const hasDefinition = hasData(data.definition);
+    // definition field removed from schema - content now in description
     const hasGoals = hasData(data.goals);
     const hasPrerequisites = hasData(data.prerequisites) && (hasData(data.prerequisites.client) || hasData(data.prerequisites.contractor));
     const hasImplementation = hasData(data.implementation);
     const hasInputsOutputs = hasData(data.inputs) || hasData(data.outputs);
-    const hasPracticeExample = hasData(data.practiceExample);
-    const hasQualityCriteria = hasData(data.qualityCriteria);
+    // practiceExample field removed from schema
+    const hasQualityCriteria = hasData(data.quality_criteria);
     const hasRoles = hasData(data.roles);
 
     // Build sidebar with group labels
@@ -638,12 +638,12 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     // ALLGEMEINER TEIL
     const generalLinks = [];
     if (hasPhases) generalLinks.push({ id: 'phasen', text: 'Phasen' });
-    if (hasDefinition) generalLinks.push({ id: 'definition', text: 'Definition' });
+    // definition section removed from schema
     if (hasGoals) generalLinks.push({ id: 'nutzen', text: 'Nutzen' });
     if (hasPrerequisites) generalLinks.push({ id: 'voraussetzungen', text: 'Voraussetzungen' });
     if (hasImplementation) generalLinks.push({ id: 'umsetzung', text: 'Umsetzung' });
     if (hasInputsOutputs) generalLinks.push({ id: 'input-output', text: 'Input / Output' });
-    if (hasPracticeExample) generalLinks.push({ id: 'praxisbeispiel', text: 'Praxisbeispiel' });
+    // practiceExample section removed from schema
 
     if (generalLinks.length > 0) {
         sidebarHtml += generalLinks.map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
@@ -726,29 +726,13 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </table>`;
     }
 
-    // Build practice example HTML - support both legacy strings and i18n objects
-    let practiceExampleHtml = '';
-    if (hasPracticeExample) {
-        const example = data.practiceExample;
-        const exampleImage = example.image ? escapeHtml(example.image) : '';
-        const exampleTitle = escapeHtml(getText(example.title) || getText(example.name) || '');
-        const exampleDesc = escapeHtml(getText(example.description) || '');
-
-        practiceExampleHtml = `
-            <div class="practice-example-card">
-                ${exampleImage ? `<div class="practice-example-card__image"><img src="${exampleImage}" alt="${exampleTitle}"></div>` : ''}
-                <div class="practice-example-card__content">
-                    <h3 class="practice-example-card__title">${exampleTitle}</h3>
-                    <p class="practice-example-card__description">${exampleDesc}</p>
-                </div>
-            </div>`;
-    }
+    // practiceExample removed from schema
 
 
-    // Build quality criteria table HTML - support both legacy strings and i18n objects
+    // Build quality criteria table HTML - uses snake_case per schema
     const qualityCriteriaHtml = hasQualityCriteria
         ? `<table class="data-table simple-numbered-table">
-            <tbody>${data.qualityCriteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(getText(criterion))}</td></tr>`).join('')}</tbody>
+            <tbody>${data.quality_criteria.map((criterion, index) => `<tr><td class="col-val">${index + 1}. ${escapeHtml(getText(criterion))}</td></tr>`).join('')}</tbody>
         </table>`
         : '';
 
@@ -795,12 +779,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         <div class="phases-container phases-container--large">${phasesHtml}</div>
                     </div>` : ''}
 
-                    ${hasDefinition ? `
-                    <div class="detail-section" id="definition">
-                        <h2>Definition</h2>
-                        <p class="definition-text">${escapeHtml(getText(data.definition))}</p>
-                    </div>` : ''}
-
                     ${hasGoals ? `
                     <div class="detail-section" id="nutzen">
                         <h2>Nutzen</h2>
@@ -825,11 +803,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         ${ioHtml}
                     </div>` : ''}
 
-                    ${hasPracticeExample ? `
-                    <div class="detail-section" id="praxisbeispiel">
-                        <h2>Praxisbeispiel</h2>
-                        ${practiceExampleHtml}
-                    </div>` : ''}
 
 
                     ${hasQualityCriteria ? `
@@ -910,7 +883,8 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 
     // Determine which sections have data
     const hasPhases = hasData(data.phases);
-    const hasElements = hasData(data.elements);
+    // Inline elements removed from schema - now uses related_elements for linking
+    const hasRelatedElements = hasData(data.related_elements);
 
     // Build sidebar links
     const sidebarLinks = [];
@@ -930,19 +904,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build elements table HTML - support both legacy strings and i18n objects
-    const elementsRowsHtml = hasElements
-        ? data.elements.map(el => {
-            const elName = el.name ? (typeof el.name === 'object' ? t(el.name) : el.name) : '';
-            const elDesc = el.description ? (typeof el.description === 'object' ? t(el.description) : el.description) : '';
-            return `
-            <tr>
-                <td class="col-val">${escapeHtml(elName)}</td>
-                <td class="col-val">${escapeHtml(elDesc)}</td>
-                <td class="col-val">${renderPhaseBadges(el.phases)}</td>
-            </tr>`;
-        }).join('')
-        : '';
+    // Inline elements removed from schema - related_elements links to elements.json
 
     contentArea.innerHTML = `
         <section class="detail-hero">
@@ -973,23 +935,12 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
 
                     <div class="detail-section" id="elemente">
                         <h2>Elemente</h2>
-                        ${hasElements ? `
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th class="th-w-20">Name</th>
-                                    <th>Beschreibung</th>
-                                    <th class="th-w-phases">Phasen (1-5)</th>
-                                </tr>
-                            </thead>
-                            <tbody>${elementsRowsHtml}</tbody>
-                        </table>` : `
                         <div class="info-box info-box--inline">
-                            <i data-lucide="info" class="info-box__icon"></i>
+                            <i data-lucide="construction" class="info-box__icon"></i>
                             <div>
-                                <p class="info-box__text">Für dieses Fachmodell sind noch keine Elemente definiert.</p>
+                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Elemente angezeigt.</p>
                             </div>
-                        </div>`}
+                        </div>
                     </div>
 
                     <div class="detail-section" id="anwendungsfaelle">
@@ -1043,12 +994,9 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
         `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`
     ).join('');
 
-    // Format category with subcategory - support both legacy 'category' and new 'domain'
+    // Format category - subcategory removed from schema
     const category = data.domain ? t(data.domain) : data.category;
-    const subcategory = data.subcategory ? (typeof data.subcategory === 'object' ? t(data.subcategory) : data.subcategory) : '';
-    const categoryDisplay = subcategory
-        ? `${escapeHtml(category)} › ${escapeHtml(subcategory)}`
-        : escapeHtml(category || '—');
+    const categoryDisplay = escapeHtml(category || '—');
 
     // Format numbers for display
     const formatNumber = (num) => {

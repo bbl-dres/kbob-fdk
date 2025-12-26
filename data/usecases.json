@@ -37,12 +37,6 @@
       3,
       4
     ],
-    "process_url": "assets/bpmn/uc000-minimalstandard.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 2051",
-      "ISO 19650"
-    ],
     "goals": [
       {
         "de": "Einheitliche Projektgrundlagen schaffen",
@@ -167,12 +161,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Der Minimalstandard definiert die verbindlichen Basisanforderungen für jedes Bauprojekt unabhängig von dessen Grösse oder gewählter Methodik. Er umfasst die grundlegenden Informationsanforderungen, die projektspezifische Abwicklungsplanung sowie die Koordination aller Projektbeteiligten. Diese Grundlagen schaffen die Voraussetzungen für eine strukturierte Projektabwicklung und bilden das Fundament für weiterführende BIM-Anwendungsfälle.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -265,8 +253,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige und freigegebene AIA vorhanden",
         "fr": "",
@@ -298,6 +285,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc000-minimalstandard.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -337,12 +325,6 @@
       1,
       2,
       4
-    ],
-    "process_url": "assets/bpmn/uc010-bestandserfassung.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 405",
-      "ISO 19650"
     ],
     "goals": [
       {
@@ -462,12 +444,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Bestandserfassung umfasst die systematische Aufnahme und Dokumentation bestehender Bauwerke mittels geeigneter Verfahren wie Laserscan, Photogrammetrie oder Handaufmass. Die erfassten Daten bilden die Grundlage für Umbau-, Sanierungs- oder Erweiterungsplanungen sowie für die Überführung in digitale Bestandsmodelle. Die Wahl des Aufnahmeverfahrens richtet sich nach den Anforderungen an Genauigkeit, Detaillierungsgrad und Wirtschaftlichkeit.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -560,8 +536,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung des definierten Aufnahmebereichs",
         "fr": "",
@@ -593,6 +568,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc010-bestandserfassung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -636,12 +612,6 @@
     ],
     "phases": [
       1
-    ],
-    "process_url": "assets/bpmn/uc020-bedarfsplanung.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 416",
-      "DIN 18205"
     ],
     "goals": [
       {
@@ -761,12 +731,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Bedarfsplanung ist der systematische Prozess zur Ermittlung und Dokumentation aller Anforderungen an ein Bauvorhaben. Sie umfasst die Analyse der Nutzeranforderungen, die Entwicklung des Raumprogramms, die Definition funktionaler Zusammenhänge sowie die Festlegung qualitativer und quantitativer Anforderungen. Die Bedarfsplanung bildet die Grundlage für alle weiteren Planungsphasen und ist entscheidend für den Projekterfolg.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -859,8 +823,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Nutzeranforderungen",
         "fr": "",
@@ -892,6 +855,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc020-bedarfsplanung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -942,12 +906,6 @@
     "phases": [
       1,
       2
-    ],
-    "process_url": "assets/bpmn/uc030-planungsvarianten.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 112",
-      "SNBS"
     ],
     "goals": [
       {
@@ -1067,12 +1025,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Erstellung und Bewertung von Planungsvarianten ermöglicht fundierte Entscheidungen durch systematischen Vergleich alternativer Lösungsansätze. Basierend auf projektspezifischen Kriterien aus den Bereichen Ökologie, Ökonomie und Gesellschaft werden verschiedene Varianten entwickelt, analysiert und bewertet. Der Prozess schafft Transparenz und Nachvollziehbarkeit bei der Auswahl der Vorzugsvariante.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -1165,8 +1117,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Mindestens zwei vergleichbare Varianten entwickelt",
         "fr": "",
@@ -1198,6 +1149,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc030-planungsvarianten.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -1245,9 +1197,6 @@
       3,
       4
     ],
-    "process_url": "assets/bpmn/uc040-visualisierung.bpmn",
-    "examples": [],
-    "standards": [],
     "goals": [
       {
         "de": "Verständliche Darstellung für Entscheidungsträger",
@@ -1360,12 +1309,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Visualisierung dient der bedarfsgerechten Darstellung des Bauvorhabens für unterschiedliche Zielgruppen und Zwecke. Sie umfasst statische Darstellungen (Renderings, Perspektiven), dynamische Medien (Animationen, Filme) sowie interaktive Formate (virtuelle Rundgänge, VR/AR-Anwendungen). Die Visualisierung unterstützt die Kommunikation, Entscheidungsfindung und Öffentlichkeitsarbeit während des gesamten Projektverlaufs.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -1458,8 +1401,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Zielgruppengerechte Darstellungsqualität",
         "fr": "",
@@ -1491,6 +1433,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc040-visualisierung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -1535,12 +1478,6 @@
     "phases": [
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc050-koordination_der_fachgewerke.bpmn",
-    "examples": [],
-    "standards": [
-      "ISO 19650",
-      "SIA 2051"
     ],
     "goals": [
       {
@@ -1696,12 +1633,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Koordination der Fachgewerke umfasst die systematische Zusammenführung und Abstimmung aller Koordinationen (Architektur, Tragwerk, Haustechnik, Elektro etc.) in einem gemeinsamen Koordinationsmodell. Durch regelbasierte Kollisionsprüfungen werden geometrische und logische Konflikte zwischen den Gewerken frühzeitig erkannt und in einem strukturierten Prozess behoben. Dieser Anwendungsfall ist zentral für die Qualitätssicherung in der Planungsphase und reduziert kostenintensive Änderungen während der Koordination erheblich.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -1800,8 +1731,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Alle kritischen Kollisionen sind vor Planungsfreigabe behoben",
         "fr": "",
@@ -1833,6 +1763,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc050-koordination_der_fachgewerke.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -1878,12 +1809,6 @@
       1,
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc060-qualit_tspr_fung.bpmn",
-    "examples": [],
-    "standards": [
-      "ISO 19650",
-      "SIA 2051"
     ],
     "goals": [
       {
@@ -2003,12 +1928,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Qualitätsprüfung umfasst die systematische Überwachung des Planungsfortschritts sowie die Prüfung der Planungsqualität auf Vollständigkeit, Konsistenz und Normkonformität. Sie stellt sicher, dass die Planungsergebnisse den vereinbarten Anforderungen entsprechen und bildet die Grundlage für definierte Freigabeprozesse. Regelbasierte und manuelle Prüfungen werden kombiniert, um eine umfassende Qualitätssicherung zu gewährleisten.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -2101,8 +2020,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Durchführung aller definierten Prüfungen",
         "fr": "",
@@ -2134,6 +2052,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc060-qualit_tspr_fung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -2178,13 +2097,6 @@
     "phases": [
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 380/1",
-      "SIA 261",
-      "SIA 181"
     ],
     "goals": [
       {
@@ -2304,12 +2216,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Bemessung und Nachweisführung umfasst alle Berechnungen und Simulationen zur Dimensionierung von Bauteilen und Anlagen sowie zur Erbringung behördlicher und normativer Nachweise. Dies schliesst statische Berechnungen, energetische Nachweise, Tageslicht- und Akustiksimulationen sowie Brandschutznachweise ein. Die modellbasierte Arbeitsweise ermöglicht eine effiziente Datenübernahme und konsistente Ergebnisse.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -2402,8 +2308,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständigkeit aller erforderlichen Nachweise",
         "fr": "",
@@ -2435,6 +2340,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -2480,12 +2386,6 @@
       2,
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 400",
-      "SIA 2014"
     ],
     "goals": [
       {
@@ -2598,12 +2498,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Ableitung von Planunterlagen umfasst die Erstellung aller erforderlichen 2D-Dokumente (Grundrisse, Schnitte, Ansichten, Details) aus dem 3D-Modell gemäss den geltenden Darstellungsstandards. Der modellbasierte Ansatz gewährleistet Konsistenz zwischen allen Planunterlagen und reduziert den manuellen Nachbearbeitungsaufwand. Die automatisierte Ableitung ermöglicht zudem eine effiziente Aktualisierung bei Planungsänderungen.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -2696,8 +2590,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständigkeit aller geforderten Plantypen",
         "fr": "",
@@ -2729,6 +2622,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -2772,12 +2666,6 @@
     ],
     "phases": [
       2
-    ],
-    "process_url": "assets/bpmn/uc090-genehmigungsprozess.bpmn",
-    "examples": [],
-    "standards": [
-      "RPG",
-      "BauG"
     ],
     "goals": [
       {
@@ -2897,12 +2785,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Der Genehmigungsprozess umfasst die Zusammenstellung und Einreichung aller erforderlichen Unterlagen für das Baubewilligungsverfahren sowie die Begleitung der behördlichen Prüfung. Er stellt sicher, dass alle formalen und inhaltlichen Anforderungen erfüllt werden, um eine zeitgerechte Baubewilligung zu erlangen. Die digitale Projektabwicklung ermöglicht eine effiziente Zusammenstellung der Gesuchsunterlagen.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -2995,8 +2877,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständigkeit aller Gesuchsunterlagen",
         "fr": "",
@@ -3028,6 +2909,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc090-genehmigungsprozess.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -3067,13 +2949,6 @@
       1,
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn",
-    "examples": [],
-    "standards": [
-      "eBKP-H",
-      "SIA 416",
-      "DIN 276"
     ],
     "goals": [
       {
@@ -3267,12 +3142,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Mengen- und Kostenermittlung umfasst die systematische Erfassung aller relevanten Mengen (Volumen, Flächen, Längen, Stückzahlen) aus Planungsunterlagen oder BIM-Modellen sowie deren Verknüpfung mit Kostenkennwerten zur Erstellung von Kostenschätzungen und Kostenberechnungen. Dieser Anwendungsfall bildet die Grundlage für fundierte Investitionsentscheidungen und ermöglicht eine kontinuierliche Kostenverfolgung über alle Projektphasen. Die Mengenermittlung erfolgt idealerweise modellbasiert, wobei die Qualität der Ergebnisse direkt von der Modellqualität und den definierten Modellierungsrichtlinien abhängt.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -3371,8 +3240,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständigkeit der Mengenermittlung (alle relevanten Positionen erfasst)",
         "fr": "",
@@ -3404,6 +3272,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -3448,13 +3317,6 @@
     "phases": [
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc110-leistungsverzeichnis_und_ausschreibung.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118",
-      "NPK",
-      "BöB"
     ],
     "goals": [
       {
@@ -3568,12 +3430,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Erstellung von Leistungsverzeichnissen und die Durchführung der Ausschreibung umfassen die detaillierte Beschreibung aller Bauleistungen, die Ermittlung der Mengen sowie die Vergabe an geeignete Unternehmer. Der modellbasierte Ansatz ermöglicht eine effiziente Mengenermittlung und gewährleistet Konsistenz zwischen Planung und Ausschreibung. Die strukturierte Vorgehensweise sichert vergleichbare Angebote und eine rechtskonforme Vergabe.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -3666,8 +3522,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige und eindeutige Leistungsbeschreibung",
         "fr": "",
@@ -3699,6 +3554,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc110-leistungsverzeichnis_und_ausschreibung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -3743,11 +3599,6 @@
     "phases": [
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118"
     ],
     "goals": [
       {
@@ -3867,12 +3718,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Terminplanung der Ausführung umfasst die Erstellung und Visualisierung des Bauprogramms mit Verknüpfung von Terminen und Bauelementen. Die modellbasierte 4D-Planung ermöglicht die Simulation und Überprüfung des geplanten Bauablaufs, die frühzeitige Erkennung von Terminrisiken sowie eine anschauliche Kommunikation des Bauprogramms an alle Beteiligten.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -3965,8 +3810,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Realistische Vorgangsdauern und Ressourcenansätze",
         "fr": "",
@@ -3998,6 +3842,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -4042,12 +3887,6 @@
     "phases": [
       2,
       3
-    ],
-    "process_url": "assets/bpmn/uc130-logistikplanung.bpmn",
-    "examples": [],
-    "standards": [
-      "SUVA",
-      "BauAV"
     ],
     "goals": [
       {
@@ -4167,12 +4006,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Logistikplanung umfasst die systematische Planung und Dokumentation der Baustelleneinrichtung, der Baustelleninfrastruktur, der Materialflüsse sowie der erforderlichen Verkehrsphasen. Sie stellt einen sicheren und effizienten Baustellenbetrieb sicher und minimiert Störungen für die Umgebung. Die modellbasierte Planung ermöglicht eine räumliche Visualisierung und Optimierung der Logistikkonzepte.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -4265,8 +4098,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Einhaltung aller Sicherheitsvorschriften",
         "fr": "",
@@ -4298,6 +4130,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc130-logistikplanung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -4347,11 +4180,6 @@
     ],
     "phases": [
       3
-    ],
-    "process_url": "assets/bpmn/uc140-baufortschrittskontrolle.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118"
     ],
     "goals": [
       {
@@ -4470,12 +4298,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Baufortschrittskontrolle umfasst die systematische Erfassung und Dokumentation des tatsächlichen Baufortschritts als Grundlage für Soll-Ist-Vergleiche und das Projekt-Kosten. Sie ermöglicht die frühzeitige Erkennung von Abweichungen und bildet die Basis für Steuerungsmassnahmen. Die modellbasierte Fortschrittserfassung erlaubt eine visuelle Darstellung des aktuellen Bauzustands.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -4568,8 +4390,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Regelmässige und vollständige Fortschrittserfassung",
         "fr": "",
@@ -4601,6 +4422,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc140-baufortschrittskontrolle.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -4650,11 +4472,6 @@
     ],
     "phases": [
       3
-    ],
-    "process_url": "assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118"
     ],
     "goals": [
       {
@@ -4773,12 +4590,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Das Änderungs- und Nachtragsmanagement umfasst die systematische Dokumentation, Nachverfolgung und Freigabe von Planungsänderungen während der Koordination sowie die Erfassung und Bewertung von Nachträgen. Es stellt sicher, dass alle Änderungen nachvollziehbar dokumentiert werden und deren Auswirkungen auf Kosten und Termine transparent bewertet werden.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -4871,8 +4682,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Änderungen",
         "fr": "",
@@ -4904,6 +4714,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -4948,11 +4759,6 @@
     "phases": [
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc160-abrechnung_von_bauleistungen.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118"
     ],
     "goals": [
       {
@@ -5065,12 +4871,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Abrechnung von Bauleistungen umfasst die Dokumentation der ausgeführten Leistungen sowie die Prüfung und Plausibilisierung von Abschlags- und Schlussrechnungen. Der modellbasierte Ansatz ermöglicht eine effiziente Mengenermittlung und einen transparenten Abgleich zwischen beauftragten und ausgeführten Leistungen. Die systematische Abrechnung sichert eine korrekte Kostenkontrolle.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -5163,8 +4963,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Korrekte Erfassung der ausgeführten Leistungen",
         "fr": "",
@@ -5196,6 +4995,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc160-abrechnung_von_bauleistungen.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -5246,12 +5046,6 @@
     "phases": [
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118",
-      "OR"
     ],
     "goals": [
       {
@@ -5364,12 +5158,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Abnahme- und Mängelmanagement umfasst die systematische Erfassung, Verortung und Nachverfolgung von Ausführungsmängeln sowie die Dokumentation ihrer Behebung. Es stellt eine vollständige Abnahme der Bauleistungen sicher und bildet die Grundlage für den Beginn der Gewährleistungsfrist. Die modellbasierte Verortung ermöglicht eine präzise Lokalisierung und effiziente Bearbeitung der Mängel.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -5462,8 +5250,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Mängel",
         "fr": "",
@@ -5495,6 +5282,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -5545,12 +5333,6 @@
     "phases": [
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc180-inbetriebnahmemanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118",
-      "GEFMA 190"
     ],
     "goals": [
       {
@@ -5670,12 +5452,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Inbetriebnahmemanagement umfasst die Koordination und Dokumentation aller Aktivitäten von der Planung der Inbetriebnahme bis zur Übergabe an den Betrieb. Es beinhaltet die systematische Funktionsprüfung aller technischen Anlagen, die Einweisung des Betriebspersonals sowie die Zusammenstellung der betriebsrelevanten Dokumentation. Eine strukturierte Inbetriebnahme sichert einen reibungslosen Betriebsstart.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -5768,8 +5544,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Funktionsprüfung aller Anlagen",
         "fr": "",
@@ -5801,6 +5576,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc180-inbetriebnahmemanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -5847,12 +5623,6 @@
       2,
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn",
-    "examples": [],
-    "standards": [
-      "KBOB BWD-Richtlinie",
-      "SIA 112"
     ],
     "goals": [
       {
@@ -6002,12 +5772,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Projekt- und Bauwerksdokumentation umfasst die systematische Erfassung, Strukturierung und Übergabe aller projektrelevanten Dokumente über den gesamten Lebenszyklus eines Bauwerks. Sie gliedert sich in drei Bereiche: Die Projektdokumentation (PD) enthält alle während Planung und Bau erstellten Unterlagen. Die Objektdokumentation (OD) wird für den Gebäudebetrieb übergeben und enthält alle für Betrieb und Instandhaltung relevanten Informationen. Die Archivdokumentation (AD) umfasst rechtlich und historisch aufbewahrungspflichtige Unterlagen. Dieser Anwendungsfall stellt sicher, dass alle Informationen strukturiert, vollständig und in den richtigen Formaten an die jeweiligen Empfänger übergeben werden.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -6112,8 +5876,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständigkeit der Dokumentation gemäss AIA-Anforderungen",
         "fr": "",
@@ -6145,6 +5908,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -6188,12 +5952,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn",
-    "examples": [],
-    "standards": [
-      "GEFMA 922",
-      "SIA 469"
     ],
     "goals": [
       {
@@ -6306,12 +6064,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Nutzung für Betrieb und Erhaltung umfasst die Übergabe und fortlaufende Nutzung der Bauwerksdokumentation für den Gebäudebetrieb, die Instandhaltung und spätere Erneuerungen. Der Anwendungsfall stellt sicher, dass alle relevanten Informationen strukturiert verfügbar sind und effizient in CAFM-Systeme integriert werden können. Die Aktualität der Dokumentation über den Lebenszyklus ist dabei entscheidend.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -6404,8 +6156,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständiger Import aller relevanten Daten",
         "fr": "",
@@ -6437,6 +6188,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -6480,12 +6232,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 118",
-      "OR"
     ],
     "goals": [
       {
@@ -6598,12 +6344,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Gewährleistungsmanagement umfasst die systematische Verfolgung und Dokumentation von Gewährleistungsansprüchen, die Überwachung von Fristen sowie die Abwicklung von Mängelrügen während der Garantiezeit. Es stellt sicher, dass alle berechtigten Ansprüche fristgerecht geltend gemacht werden und die Dokumentation eine rechtssichere Nachverfolgung ermöglicht.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -6696,8 +6436,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Fristen",
         "fr": "",
@@ -6729,6 +6468,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -6766,12 +6506,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 469",
-      "GEFMA 124"
     ],
     "goals": [
       {
@@ -6890,12 +6624,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Das Wartungs- und Inspektionsmanagement umfasst die Planung, Durchführung und Dokumentation regelmässiger Wartungs- und Inspektionsarbeiten an technischen Anlagen und Bauteilen. Es stellt die Werterhaltung sicher, vermeidet Ausfälle durch präventive Massnahmen und gewährleistet die Erfüllung der Betreiberverantwortung. Die systematische Dokumentation unterstützt die langfristige Instandhaltungsplanung.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -6988,8 +6716,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Anlagen",
         "fr": "",
@@ -7021,6 +6748,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -7058,12 +6786,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 469",
-      "DIN 31051"
     ],
     "goals": [
       {
@@ -7176,12 +6898,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Instandhaltungs- und Instandsetzungsmanagement umfasst die Erfassung, Priorisierung und Durchführung von Massnahmen zur Werterhaltung des Gebäudes. Es unterscheidet zwischen präventiven Instandhaltungsmassnahmen und reaktiven Instandsetzungen nach Schadenseintritt. Die systematische Planung und Dokumentation ermöglicht eine kostenoptimierte Bewirtschaftung und langfristige Budgetplanung.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -7274,8 +6990,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Aktuelle Zustandsdokumentation",
         "fr": "",
@@ -7307,6 +7022,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -7350,12 +7066,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "SIA 416",
-      "DIN 277"
     ],
     "goals": [
       {
@@ -7468,12 +7178,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Flächen- und Raumbelegungsmanagement umfasst die Verwaltung und Optimierung der Flächennutzung, die Steuerung der Raumbelegung sowie die bedarfsgerechte Arbeitsplatzvergabe. Es unterstützt eine effiziente Nutzung der verfügbaren Flächen und ermöglicht datenbasierte Entscheidungen bei Flächenanpassungen. Die Integration mit dem BIM-Modell erlaubt eine visuelle Darstellung der Belegungssituation.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -7566,8 +7270,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Aktuelle Flächendaten im System",
         "fr": "",
@@ -7599,6 +7302,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -7642,12 +7346,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc250-energiemanagement.bpmn",
-    "examples": [],
-    "standards": [
-      "ISO 50001",
-      "SIA 380/1"
     ],
     "goals": [
       {
@@ -7766,12 +7464,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Das Energiemanagement umfasst das Monitoring und die Steuerung der Gebäudeperformance, die Erfassung von Verbräuchen sowie die Optimierung der Energieeffizienz. Es unterstützt das Erreichen von Klimazielen durch systematische Verbrauchsanalysen und die Ableitung von Optimierungsmassnahmen. Die Integration mit Gebäudedaten ermöglicht detaillierte Auswertungen und Benchmarkings.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -7864,8 +7556,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Verbrauchserfassung",
         "fr": "",
@@ -7897,6 +7588,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc250-energiemanagement.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -7946,13 +7638,6 @@
     ],
     "phases": [
       4
-    ],
-    "process_url": "assets/bpmn/uc260-betreiberverantwortung.bpmn",
-    "examples": [],
-    "standards": [
-      "GEFMA 190",
-      "VKF",
-      "SUVA"
     ],
     "goals": [
       {
@@ -8058,12 +7743,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Betreiberverantwortung umfasst die Erfüllung und Dokumentation aller gesetzlichen Pflichten des Gebäudebetreibers, einschliesslich Sicherheitsprüfungen, behördlicher Nachweise und Unterhaltsarbeiten. Sie stellt die Rechtssicherheit des Betriebs sicher und schützt Eigentümer und Nutzer. Die systematische Dokumentation ermöglicht den jederzeitigen Nachweis der Pflichterfüllung.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -8156,8 +7835,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Erfassung aller Prüfpflichten",
         "fr": "",
@@ -8189,6 +7867,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc260-betreiberverantwortung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -8235,14 +7914,6 @@
       2,
       3,
       4
-    ],
-    "process_url": "assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn",
-    "examples": [],
-    "standards": [
-      "SNBS",
-      "Minergie",
-      "SIA 2032",
-      "SIA 2040"
     ],
     "goals": [
       {
@@ -8362,12 +8033,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Nachhaltigkeitsnachweise umfassen die Erstellung aller erforderlichen Dokumentationen für Nachhaltigkeitszertifizierungen wie SNBS, Minergie oder DGNB. Dies beinhaltet Ökobilanzen, Lebenszykluskosten-Berechnungen sowie Komfort- und Gesundheitsnachweise. Der modellbasierte Ansatz ermöglicht eine effiziente Datenextraktion und konsistente Berechnungsgrundlagen.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -8460,8 +8125,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Erfüllung aller Nachweiseskriterien",
         "fr": "",
@@ -8493,6 +8157,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -8530,12 +8195,6 @@
     ],
     "phases": [
       5
-    ],
-    "process_url": "assets/bpmn/uc280-r_ckbauplanung.bpmn",
-    "examples": [],
-    "standards": [
-      "VVEA",
-      "SIA 430"
     ],
     "goals": [
       {
@@ -8648,12 +8307,6 @@
         "informed": []
       }
     ],
-    "definition": {
-      "de": "Die Rückbauplanung umfasst die systematische Vorbereitung des Gebäuderückbaus unter Berücksichtigung von Schadstoffsanierung, Materialrückgewinnung und umweltgerechter Entsorgung. Sie stellt einen sicheren Rückbau sicher und maximiert das Potenzial für Materialrecycling und -wiederverwendung. Die modellbasierte Planung ermöglicht eine präzise Mengenermittlung und effiziente Prozessgestaltung.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -8746,8 +8399,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Vollständige Schadstofferfassung",
         "fr": "",
@@ -8779,6 +8431,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc280-r_ckbauplanung.bpmn",
     "related_elements": [],
     "related_documents": []
   },
@@ -8816,12 +8469,6 @@
     ],
     "phases": [
       5
-    ],
-    "process_url": "assets/bpmn/uc290-bauteilb_rse_und_wiederverwendung.bpmn",
-    "examples": [],
-    "standards": [
-      "VVEA",
-      "SIA 430"
     ],
     "goals": [
       {
@@ -8934,12 +8581,6 @@
         ]
       }
     ],
-    "definition": {
-      "de": "Die Bauteilbörse und Wiederverwendung umfasst die Identifikation, Bewertung und Vermittlung von wiederverwendbaren Bauteilen und Materialien aus Rückbauprojekten. Sie fördert die Kreislaufwirtschaft im Bauwesen und trägt zur Ressourcenschonung bei. Die systematische Erfassung und Dokumentation ermöglicht eine effiziente Vermittlung zwischen Angebot und Nachfrage.",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "prerequisites": {
       "client": [
         {
@@ -9032,8 +8673,7 @@
         "en": ""
       }
     ],
-    "practiceExample": null,
-    "qualityCriteria": [
+    "quality_criteria": [
       {
         "de": "Systematische Erfassung aller Potenziale",
         "fr": "",
@@ -9065,6 +8705,7 @@
         "en": ""
       }
     ],
+    "process_url": "assets/bpmn/uc290-bauteilb_rse_und_wiederverwendung.bpmn",
     "related_elements": [],
     "related_documents": []
   }

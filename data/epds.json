@@ -17,12 +17,6 @@
       "it": "",
       "en": ""
     },
-    "subcategory": {
-      "de": "Beton",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
     "description": {
       "de": "KBOB Ökobilanzdaten für Betonfertigteil, Normalbeton, ab Werk",
       "fr": "",
@@ -43,15 +37,13 @@
         "en": ""
       }
     ],
-    "uuid": "F6DCDEFA-AFE6-44CB-8B68-3527ABFDC011",
     "unit": "kg",
     "gwp": 0.177,
     "ubp": 282,
     "penrt": 0.432,
     "pert": 0.0948,
     "density": "2500",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "c62f5b16-8400-4b1c-a03f-8e289cd5bad2",
@@ -67,12 +59,6 @@
     "image": "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Bodenbeläge",
       "fr": "",
       "it": "",
       "en": ""
@@ -97,15 +83,13 @@
         "en": ""
       }
     ],
-    "uuid": "414EEBBE-85C4-4869-A411-29C0097ADA38",
     "unit": "m2",
     "gwp": 18.2,
     "ubp": 86800,
     "penrt": 83.1,
     "pert": 4.49,
     "density": "18",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "758b65a1-a429-4b2d-a858-86e5c3a9d052",
@@ -121,12 +105,6 @@
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Dämmstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -151,15 +129,13 @@
         "en": ""
       }
     ],
-    "uuid": "9EC4E12B-5E75-4A0B-84DA-A1A5F152A4BC",
     "unit": "kg",
     "gwp": 48.7,
     "ubp": 73600,
     "penrt": 230,
     "pert": 12.6,
     "density": "150",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "4e195f9b-9385-4a3b-93fa-d553b22bea41",
@@ -175,12 +151,6 @@
     "image": "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Fassaden & Fenster",
       "fr": "",
       "it": "",
       "en": ""
@@ -205,15 +175,13 @@
         "en": ""
       }
     ],
-    "uuid": "bbb96c85-8f12-4104-b774-2203f3d542e6",
     "unit": "m2",
     "gwp": 69.7,
     "ubp": 99700,
     "penrt": 306,
     "pert": 42,
     "density": "15",
-    "biogenic_carbon": 0.778,
-    "related_elements": []
+    "biogenic_carbon": 0.778
   },
   {
     "id": "bdcd38c3-01f0-4868-96ee-d6d14c1b0494",
@@ -229,12 +197,6 @@
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Holzwerkstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -259,15 +221,13 @@
         "en": ""
       }
     ],
-    "uuid": "1095B95F-6036-45CA-B450-7A3A8E1897BB",
     "unit": "kg",
     "gwp": 0.335,
     "ubp": 769,
     "penrt": 1.53,
     "pert": 8.14,
     "density": "439",
-    "biogenic_carbon": 0.446,
-    "related_elements": []
+    "biogenic_carbon": 0.446
   },
   {
     "id": "7e494b11-b973-43b3-9a8d-f94505a8792e",
@@ -283,12 +243,6 @@
     "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Holzwerkstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -313,15 +267,13 @@
         "en": ""
       }
     ],
-    "uuid": "dff243df-ce92-429c-b6f4-a1e3ca114b16",
     "unit": "kg",
     "gwp": 0.288,
     "ubp": 689,
     "penrt": 1.24,
     "pert": 8.28,
     "density": "436",
-    "biogenic_carbon": 0.45,
-    "related_elements": []
+    "biogenic_carbon": 0.45
   },
   {
     "id": "7eeff732-cec5-49a8-b79b-33679d6fc457",
@@ -337,12 +289,6 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Metalle",
       "fr": "",
       "it": "",
       "en": ""
@@ -367,15 +313,13 @@
         "en": ""
       }
     ],
-    "uuid": "0FE00428-0CF6-4CC1-A4B1-BA186F56D57E",
     "unit": "kg",
     "gwp": 4.12,
     "ubp": 9710,
     "penrt": 14.6,
     "pert": 2.41,
     "density": "7900",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "33c6d405-a6fc-4d96-b435-3b827a9db3c0",
@@ -391,12 +335,6 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Metalle",
       "fr": "",
       "it": "",
       "en": ""
@@ -421,15 +359,13 @@
         "en": ""
       }
     ],
-    "uuid": "4DC70979-B6CA-4DA5-A291-6F1A082EE475",
     "unit": "kg",
     "gwp": 0.737,
     "ubp": 1290,
     "penrt": 3.38,
     "pert": 0.255,
     "density": "7850",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "0ef92e72-3476-4272-a4f5-19c2d6415096",
@@ -445,12 +381,6 @@
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Vorbereitungsarbeiten",
       "fr": "",
       "it": "",
       "en": ""
@@ -475,15 +405,13 @@
         "en": ""
       }
     ],
-    "uuid": "DEED59B5-BB81-4104-9BAE-D78266DC439E",
     "unit": "m",
     "gwp": 379,
     "ubp": 579000,
     "penrt": 751,
     "pert": 70.8,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "7d79b20c-5ee8-427d-aabe-c4add3e9ac32",
@@ -499,12 +427,6 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop",
     "domain": {
       "de": "Baumaterialien",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Zuschlagstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -529,15 +451,13 @@
         "en": ""
       }
     ],
-    "uuid": "B787C33A-9D88-414E-84DE-3E087E3639ED",
     "unit": "kg",
     "gwp": 0.0406,
     "ubp": 112,
     "penrt": 0.275,
     "pert": 0.046,
     "density": "2500",
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "6f0c7025-7c73-431c-bcac-9662ea119c3d",
@@ -553,12 +473,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Brennstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -583,15 +497,13 @@
         "en": ""
       }
     ],
-    "uuid": "273feaeb-5b51-4f6b-b42a-f27eb5e1973f",
     "unit": "kWh",
     "gwp": 0.124,
     "ubp": 155,
     "penrt": 0.293,
     "pert": 0.0289,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "e7d9edd0-8286-4920-99e5-2254a0b25ef7",
@@ -607,12 +519,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Fernwärme",
       "fr": "",
       "it": "",
       "en": ""
@@ -637,15 +543,13 @@
         "en": ""
       }
     ],
-    "uuid": "4c27aa48-dc77-421c-b747-3cd7bde6ee17",
     "unit": "kWh",
     "gwp": 0.301,
     "ubp": 365,
     "penrt": 1.4,
     "pert": 0.0147,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "70a019e0-2449-4052-8bc0-88aedbc4d0ef",
@@ -661,12 +565,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Fernwärme",
       "fr": "",
       "it": "",
       "en": ""
@@ -691,15 +589,13 @@
         "en": ""
       }
     ],
-    "uuid": "a8516884-b484-4e68-8e30-608d276fa1c0",
     "unit": "kWh",
     "gwp": 0.0658,
     "ubp": 123,
     "penrt": 0.335,
     "pert": 0.439,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "ea76be28-75cd-4e58-92f3-0b576a5d6157",
@@ -715,12 +611,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Energie",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Strom",
       "fr": "",
       "it": "",
       "en": ""
@@ -745,15 +635,13 @@
         "en": ""
       }
     ],
-    "uuid": "65f87076-fa16-4403-8fae-232d7c9c2f36",
     "unit": "kWh",
     "gwp": 0.0175,
     "ubp": 87.4,
     "penrt": 0.041,
     "pert": 1.16,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "f0e6d0ea-b97e-4998-8c3b-fa49009b55fc",
@@ -769,12 +657,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Heizung",
       "fr": "",
       "it": "",
       "en": ""
@@ -799,15 +681,13 @@
         "en": ""
       }
     ],
-    "uuid": "a9814d97-ccf9-4349-934d-b70b67622da2",
     "unit": "m2",
     "gwp": 5.05,
     "ubp": 7380,
     "penrt": 21.8,
     "pert": 1.45,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "1a090651-0539-43ce-a7a7-9d6b7e3a0d83",
@@ -823,12 +703,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Lüftung",
       "fr": "",
       "it": "",
       "en": ""
@@ -853,15 +727,13 @@
         "en": ""
       }
     ],
-    "uuid": "7a17dc11-ba34-4e71-9b81-43b85add04f2",
     "unit": "m2",
     "gwp": 8.25,
     "ubp": 21300,
     "penrt": 30.7,
     "pert": 2.52,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "40a62347-434c-4435-b965-e24674dab8e9",
@@ -877,12 +749,6 @@
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=200&fit=crop",
     "domain": {
       "de": "Gebäudetechnik",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Lüftung",
       "fr": "",
       "it": "",
       "en": ""
@@ -907,15 +773,13 @@
         "en": ""
       }
     ],
-    "uuid": "5ecd5719-455c-4f94-a425-6d53871c374e",
     "unit": "m2",
     "gwp": 30.6,
     "ubp": 69900,
     "penrt": 104,
     "pert": 9.19,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "c524e449-bd9b-4d81-b082-106ca98eb826",
@@ -931,12 +795,6 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Gütertransport",
       "fr": "",
       "it": "",
       "en": ""
@@ -961,15 +819,13 @@
         "en": ""
       }
     ],
-    "uuid": "936c7fc5-c2f5-47e7-98e0-d63c9dfdad2c",
     "unit": "pkm",
     "gwp": 0.0069,
     "ubp": 29.1,
     "penrt": 0.0431,
     "pert": 0.0723,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "2cc09035-cddb-4238-8cca-01f50e843467",
@@ -985,12 +841,6 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Personentransport",
       "fr": "",
       "it": "",
       "en": ""
@@ -1015,15 +865,13 @@
         "en": ""
       }
     ],
-    "uuid": "5fa8d2dc-1163-4b0d-914a-9c5964a00a41",
     "unit": "tkm",
     "gwp": 0.142,
     "ubp": 263,
     "penrt": 0.601,
     "pert": 0.0285,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   },
   {
     "id": "b9995dff-fbb1-4c69-979a-1258f609c41c",
@@ -1039,12 +887,6 @@
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=200&fit=crop",
     "domain": {
       "de": "Transporte",
-      "fr": "",
-      "it": "",
-      "en": ""
-    },
-    "subcategory": {
-      "de": "Treibstoffe",
       "fr": "",
       "it": "",
       "en": ""
@@ -1069,14 +911,12 @@
         "en": ""
       }
     ],
-    "uuid": "0648099d-a023-44a0-bf23-9a7c41cb7493",
     "unit": "kWh",
     "gwp": 0.0481,
     "ubp": 197,
     "penrt": 0.033,
     "pert": 1.16,
     "density": null,
-    "biogenic_carbon": null,
-    "related_elements": []
+    "biogenic_carbon": null
   }
 ]
