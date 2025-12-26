@@ -96,6 +96,7 @@ function searchItems(data, searchFields, searchTerm) {
 
 /**
  * Perform global search across all data types (for homepage dropdown)
+ * Returns top 3 results per category, sorted by relevance
  */
 function performGlobalSearch(query) {
     const results = {};
@@ -107,11 +108,33 @@ function performGlobalSearch(query) {
     if (searchTerm.length < 2) return results;
 
     searchDataTypes.forEach(dataType => {
-        results[dataType.resultKey] = searchItems(
+        const matchingItems = searchItems(
             dataType.getData(),
             dataType.searchFields,
             searchTerm
-        ).slice(0, 3);
+        );
+
+        // Sort by relevance before taking top 3
+        matchingItems.sort((a, b) => {
+            const titleA = t(a.name).toLowerCase();
+            const titleB = t(b.name).toLowerCase();
+
+            // Calculate relevance (lower = better)
+            const getRelevance = (title) => {
+                if (title === searchTerm) return 0;      // Exact match
+                if (title.startsWith(searchTerm)) return 1; // Starts with
+                if (title.includes(searchTerm)) return 2;   // Contains
+                return 3;                                   // Other field match
+            };
+
+            const relA = getRelevance(titleA);
+            const relB = getRelevance(titleB);
+
+            if (relA !== relB) return relA - relB;
+            return titleA.localeCompare(titleB, 'de');
+        });
+
+        results[dataType.resultKey] = matchingItems.slice(0, 3);
     });
 
     return results;
