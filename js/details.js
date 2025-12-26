@@ -884,9 +884,9 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
         return;
     }
 
-    // Escape main content
-    const safeTitle = escapeHtml(data.title || '');
-    const safeDesc = escapeHtml(data.description || 'Ein Fachmodell des KBOB Datenkatalogs.');
+    // Escape main content - support both legacy and new i18n fields
+    const safeTitle = escapeHtml(data.name ? t(data.name) : data.title || '');
+    const safeDesc = escapeHtml(data.description ? t(data.description) : 'Ein Fachmodell des KBOB Datenkatalogs.');
     const safeImage = escapeHtml(data.image || '');
 
     const backLink = buildHashWithTags('models', activeTags, activeCategory, [], getActiveViewFromURL());
@@ -913,14 +913,18 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
         return `<span class="phase-badge ${isActive ? 'active' : 'inactive'}" title="Phase ${p}">${phaseLabels[p]}</span>`;
     }).join('');
 
-    // Build elements table HTML
+    // Build elements table HTML - support both legacy strings and i18n objects
     const elementsRowsHtml = hasElements
-        ? data.elements.map(el => `
+        ? data.elements.map(el => {
+            const elName = el.name ? (typeof el.name === 'object' ? t(el.name) : el.name) : '';
+            const elDesc = el.description ? (typeof el.description === 'object' ? t(el.description) : el.description) : '';
+            return `
             <tr>
-                <td class="col-val">${escapeHtml(el.name || '')}</td>
-                <td class="col-val">${escapeHtml(el.description || '')}</td>
+                <td class="col-val">${escapeHtml(elName)}</td>
+                <td class="col-val">${escapeHtml(elDesc)}</td>
                 <td class="col-val">${renderPhaseBadges(el.phases)}</td>
-            </tr>`).join('')
+            </tr>`;
+        }).join('')
         : '';
 
     contentArea.innerHTML = `
@@ -942,7 +946,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
-                    ${renderMetadataTable(data, 'Fachmodell', data.title)}
+                    ${renderMetadataTable(data, 'Fachmodell', data.name ? t(data.name) : data.title)}
 
                     ${hasPhases ? `
                     <div class="detail-section" id="phasen">
