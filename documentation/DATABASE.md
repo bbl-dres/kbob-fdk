@@ -261,7 +261,6 @@ Physical building components with geometry (LOG) requirements.
 | `related_attributes` | `jsonb` | | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `related_classifications` | `text[]` | | Classification UUIDs: `["<uuid>", ...]` |
 | `related_usecases` | `text[]` | | Use case UUIDs: `["<uuid>", ...]` |
-| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -278,7 +277,6 @@ Project documentation types with format requirements and retention policies per 
 | `retention` | `integer` | | Retention period in years (see note below) |
 | `related_elements` | `jsonb` | | Links to elements: `[{"id": "<uuid>"}]` |
 | `related_classifications` | `text[]` | | Classification UUIDs: `["<uuid>", ...]` |
-| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Retention semantics:**
 - `0` = retain indefinitely
@@ -306,7 +304,6 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `related_elements` | `jsonb` | | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | | Required documents: `[{"id": "<uuid>", "required": true}]` |
-| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** See §7.5 (22 Anwendungsfeld values per VDI 2552 Blatt 12.2)
 
@@ -320,7 +317,6 @@ BIM model types including discipline models, coordination models, and special-pu
 |--------|------|:--------:|-------------|
 | `code` | `text` | | Unique human-readable code (e.g., arch-01, coord-01) |
 | `related_elements` | `jsonb` | | Element types in model: `[{"id": "<uuid>", "phases": [2,3,4]}]` |
-| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -342,7 +338,6 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `pert` | `numeric(12,4)` | | `>= 0` | Primary Energy Renewable Total (MJ) |
 | `density` | `text` | | | Material density (display only) |
 | `biogenic_carbon` | `numeric(12,6)` | | | Biogenic carbon content (kg C) |
-| `related_tags` | `text[]` | | `{}` | Tag UUIDs: `["<uuid>", ...]` |
 
 > **GWP can be negative** for carbon-sequestering materials (timber, bio-based) per EN 15804.
 
@@ -762,9 +757,9 @@ WHERE t.id::text = ANY(
 
 ```sql
 -- Find EPDs linked to elements in Tragwerk domain
-SELECT DISTINCT ep.* 
+SELECT DISTINCT ep.*
 FROM epds ep
-JOIN elements e ON e.related_epds @> jsonb_build_array(jsonb_build_object('id', ep.id::text))
+JOIN elements e ON ep.id::text = ANY(e.related_epds)
 WHERE e.domain->>'de' = 'Tragwerk';
 
 -- Find documents required by use cases in phase 2
@@ -794,21 +789,21 @@ WHERE u.phases @> ARRAY[2];
 -- ELEMENTS: Physical building components with LOG requirements
 CREATE TABLE public.elements (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
-    last_change date NOT NULL,
+    version text,
+    last_change date,
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
     description jsonb,
     phases integer[],
-    geometry jsonb NOT NULL DEFAULT '[]',
-    tool_elements jsonb NOT NULL DEFAULT '[]',
-    related_documents jsonb NOT NULL DEFAULT '[]',
-    related_epds text[] NOT NULL DEFAULT '{}',
-    related_attributes jsonb NOT NULL DEFAULT '[]',
-    related_classifications text[] NOT NULL DEFAULT '{}',
-    related_usecases text[] NOT NULL DEFAULT '{}',
-    related_tags text[] NOT NULL DEFAULT '{}',
+    geometry jsonb DEFAULT '[]',
+    tool_elements jsonb DEFAULT '[]',
+    related_documents jsonb DEFAULT '[]',
+    related_epds text[] DEFAULT '{}',
+    related_attributes jsonb DEFAULT '[]',
+    related_classifications text[] DEFAULT '{}',
+    related_usecases text[] DEFAULT '{}',
+    related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -817,19 +812,19 @@ CREATE TABLE public.elements (
 -- DOCUMENTS: Project documentation types per KBOB/IPB
 CREATE TABLE public.documents (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
-    last_change date NOT NULL,
+    version text,
+    last_change date,
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
     description jsonb,
     phases integer[],
-    code text NOT NULL UNIQUE,
-    formats text[] NOT NULL,
+    code text UNIQUE,
+    formats text[],
     retention integer,
-    related_elements jsonb NOT NULL DEFAULT '[]',
-    related_classifications text[] NOT NULL DEFAULT '{}',
-    related_tags text[] NOT NULL DEFAULT '{}',
+    related_elements jsonb DEFAULT '[]',
+    related_classifications text[] DEFAULT '{}',
+    related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
@@ -839,25 +834,25 @@ CREATE TABLE public.documents (
 -- USECASES: Standardized BIM processes per VDI 2552
 CREATE TABLE public.usecases (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
-    last_change date NOT NULL,
+    version text,
+    last_change date,
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
     description jsonb,
     phases integer[],
-    code text NOT NULL UNIQUE,
-    goals jsonb NOT NULL DEFAULT '[]',
-    inputs jsonb NOT NULL DEFAULT '[]',
-    outputs jsonb NOT NULL DEFAULT '[]',
-    roles jsonb NOT NULL DEFAULT '[]',
-    prerequisites jsonb NOT NULL DEFAULT '{}',
-    implementation jsonb NOT NULL DEFAULT '[]',
-    quality_criteria jsonb NOT NULL DEFAULT '[]',
+    code text UNIQUE,
+    goals jsonb DEFAULT '[]',
+    inputs jsonb DEFAULT '[]',
+    outputs jsonb DEFAULT '[]',
+    roles jsonb DEFAULT '[]',
+    prerequisites jsonb DEFAULT '{}',
+    implementation jsonb DEFAULT '[]',
+    quality_criteria jsonb DEFAULT '[]',
     process_url text,
-    related_elements jsonb NOT NULL DEFAULT '[]',
-    related_documents jsonb NOT NULL DEFAULT '[]',
-    related_tags text[] NOT NULL DEFAULT '{}',
+    related_elements jsonb DEFAULT '[]',
+    related_documents jsonb DEFAULT '[]',
+    related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -866,16 +861,16 @@ CREATE TABLE public.usecases (
 -- MODELS: BIM discipline and coordination model definitions
 CREATE TABLE public.models (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
-    last_change date NOT NULL,
+    version text,
+    last_change date,
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
     description jsonb,
     phases integer[],
-    code text NOT NULL UNIQUE,
-    related_elements jsonb NOT NULL DEFAULT '[]',
-    related_tags text[] NOT NULL DEFAULT '{}',
+    code text UNIQUE,
+    related_elements jsonb DEFAULT '[]',
+    related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -888,26 +883,26 @@ CREATE TABLE public.models (
 -- EPDS: Environmental impact data (KBOB Ökobilanzdaten)
 CREATE TABLE public.epds (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    version text NOT NULL,
-    last_change date NOT NULL,
+    version text,
+    last_change date,
     name jsonb NOT NULL,
     image text,
     domain jsonb NOT NULL,
     description jsonb,
-    code text NOT NULL UNIQUE,
-    unit text NOT NULL,
-    gwp numeric(12,4) NOT NULL,
-    ubp numeric(12,2) NOT NULL,
-    penrt numeric(12,4) NOT NULL,
-    pert numeric(12,4) NOT NULL,
+    code text UNIQUE,
+    unit text,
+    gwp numeric(12,4),
+    ubp numeric(12,2),
+    penrt numeric(12,4),
+    pert numeric(12,4),
     density text,
     biogenic_carbon numeric(12,6),
-    related_tags text[] NOT NULL DEFAULT '{}',
+    related_tags text[] DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
-    CONSTRAINT epds_penrt_positive CHECK (penrt >= 0),
-    CONSTRAINT epds_pert_positive CHECK (pert >= 0)
+    CONSTRAINT epds_ubp_positive CHECK (ubp IS NULL OR ubp >= 0),
+    CONSTRAINT epds_penrt_positive CHECK (penrt IS NULL OR penrt >= 0),
+    CONSTRAINT epds_pert_positive CHECK (pert IS NULL OR pert >= 0)
 );
 
 -- ATTRIBUTES: Reusable property definitions (LOI)
@@ -915,7 +910,7 @@ CREATE TABLE public.attributes (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name jsonb NOT NULL,
     description jsonb,
-    data_type text NOT NULL,
+    data_type text,
     unit text,
     ifc_pset text,
     ifc_property text,
@@ -929,11 +924,11 @@ CREATE TABLE public.classifications (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name jsonb NOT NULL,
     description jsonb,
-    system text NOT NULL,
-    code text NOT NULL,
+    system text,
+    code text,
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
-    CONSTRAINT classifications_system_valid CHECK (system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
+    CONSTRAINT classifications_system_valid CHECK (system IS NULL OR system IN ('eBKP-H', 'DIN276', 'Uniformat II', 'KBOB')),
     CONSTRAINT classifications_system_code_unique UNIQUE (system, code)
 );
 
