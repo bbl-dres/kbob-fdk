@@ -421,3 +421,282 @@ function renderEpdsGridItemsHTML(items, activeTags = [], activeCategory = '') {
 function renderEpdsListItemsHTML(items, activeTags = [], activeCategory = '') {
     return renderGenericListItems('epds', items, activeTags, activeCategory);
 }
+
+// ============================================
+// LAZY LOADING COMPONENTS
+// ============================================
+
+/**
+ * Render loading sentinel element for infinite scroll
+ * This invisible element triggers loading when it comes into view
+ * @param {string} type - Catalog type key
+ * @returns {string} HTML string
+ */
+function renderLoadingSentinel(type) {
+    const safeType = escapeHtml(type);
+    return `
+        <div class="lazy-load-sentinel" data-type="${safeType}">
+            <div class="lazy-load-indicator">
+                <i data-lucide="loader" class="loading-spinner" aria-hidden="true"></i>
+                <span>Weitere Einträge werden geladen...</span>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Render "end of results" indicator
+ * Shown when all items have been loaded
+ * @param {number} loadedCount - Number of items loaded
+ * @param {number} totalCount - Total number of items
+ * @returns {string} HTML string
+ */
+function renderEndOfResults(loadedCount, totalCount) {
+    return `
+        <div class="lazy-load-end">
+            <span>${loadedCount} von ${totalCount} Einträgen</span>
+        </div>
+    `;
+}
+
+/**
+ * Render a single grid card (extracted for reuse in lazy loading)
+ * @param {string} type - Catalog type key
+ * @param {Object} item - Data item
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @returns {string} HTML string
+ */
+function renderSingleGridItem(type, item, activeTags = [], activeCategory = '') {
+    const config = catalogTypeConfig[type];
+    if (!config) return '';
+
+    const hasTags = item.related_tags && Array.isArray(item.related_tags) && item.related_tags.length > 0;
+    const cardId = `${config.cardIdPrefix}-${escapeHtml(item.id || '')}`;
+    const itemCategory = t(item.domain);
+    const isCategoryActive = activeCategory === itemCategory;
+    const safeTitle = escapeHtml(t(item.name));
+    const safeCategory = escapeHtml(itemCategory || '');
+    const safeSubtitle = escapeHtml(t(item.description) || '');
+    const cardHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
+    const tagsForJson = hasTags ? escapeHtml(JSON.stringify(item.related_tags)) : '[]';
+
+    return `
+        <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
+            <div class="card__image">
+                ${itemCategory ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
+                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
+            </div>
+            <div class="card__body">
+                <h3 class="card__title">${safeTitle}</h3>
+                <p class="card__subtitle">${safeSubtitle}</p>
+                ${hasTags ? `<div class="card__tags" data-tags='${tagsForJson}'>${renderCardTagsHtml(cardId, item.related_tags, activeTags)}</div>` : ''}
+            </div>
+            <footer class="card__footer card__footer--end">
+                <span class="arrow-btn card__arrow-btn" aria-label="Details anzeigen">${arrowSvg}</span>
+            </footer>
+        </article>
+    `;
+}
+
+/**
+ * Render a single list row (extracted for reuse in lazy loading)
+ * @param {string} type - Catalog type key
+ * @param {Object} item - Data item
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @returns {string} HTML string
+ */
+function renderSingleListItem(type, item, activeTags = [], activeCategory = '') {
+    const config = catalogTypeConfig[type];
+    if (!config) return '';
+
+    const safeTitle = escapeHtml(t(item.name));
+    const safeSubtitle = escapeHtml(t(item.description) || '');
+    const itemHref = buildHashWithTags(config.routePrefix + '/' + item.id, activeTags, activeCategory);
+
+    return `
+        <div class="element-list-item" data-href="${itemHref}">
+            <div class="list-col-name">${safeTitle}</div>
+            <div class="list-col-desc">${safeSubtitle}</div>
+            <div class="list-col-tags">${renderTagsHtml(item.related_tags, activeTags)}</div>
+        </div>
+    `;
+}
+
+/**
+ * Append grid items to existing container (for lazy loading)
+ * Uses DocumentFragment for better performance
+ * @param {string} type - Catalog type key
+ * @param {HTMLElement} container - Container element (#catalogContent etc.)
+ * @param {Array} items - Array of items to append
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ */
+function appendGridItems(type, container, items, activeTags, activeCategory) {
+    const config = catalogTypeConfig[type];
+    if (!config || !items.length) return;
+
+    // Find the grid element within the container
+    const grid = container.querySelector('.element-grid');
+    if (!grid) return;
+
+    // Remove existing sentinel
+    const existingSentinel = grid.querySelector('.lazy-load-sentinel');
+    if (existingSentinel) {
+        existingSentinel.remove();
+    }
+
+    // Remove existing end message
+    const existingEnd = grid.querySelector('.lazy-load-end');
+    if (existingEnd) {
+        existingEnd.remove();
+    }
+
+    // Create fragment for better performance
+    const fragment = document.createDocumentFragment();
+    const tempDiv = document.createElement('div');
+
+    items.forEach(item => {
+        const cardHtml = renderSingleGridItem(type, item, activeTags, activeCategory);
+        tempDiv.innerHTML = cardHtml;
+        while (tempDiv.firstChild) {
+            fragment.appendChild(tempDiv.firstChild);
+        }
+    });
+
+    grid.appendChild(fragment);
+
+    // Refresh icons for new items
+    refreshIcons(grid);
+
+    // Fit card tags for new items
+    if (typeof fitAllCardTagsToSingleRow === 'function') {
+        fitAllCardTagsToSingleRow();
+    }
+}
+
+/**
+ * Append list items to existing container (for lazy loading)
+ * Uses DocumentFragment for better performance
+ * @param {string} type - Catalog type key
+ * @param {HTMLElement} container - Container element (#catalogContent etc.)
+ * @param {Array} items - Array of items to append
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ */
+function appendListItems(type, container, items, activeTags, activeCategory) {
+    const config = catalogTypeConfig[type];
+    if (!config || !items.length) return;
+
+    const listContainer = container.querySelector('.element-list-container');
+    if (!listContainer) return;
+
+    // Remove existing sentinel
+    const existingSentinel = listContainer.querySelector('.lazy-load-sentinel');
+    if (existingSentinel) {
+        existingSentinel.remove();
+    }
+
+    // Remove existing end message
+    const existingEnd = listContainer.querySelector('.lazy-load-end');
+    if (existingEnd) {
+        existingEnd.remove();
+    }
+
+    // Create fragment for better performance
+    const fragment = document.createDocumentFragment();
+    const tempDiv = document.createElement('div');
+
+    items.forEach(item => {
+        const itemHtml = renderSingleListItem(type, item, activeTags, activeCategory);
+        tempDiv.innerHTML = itemHtml;
+        while (tempDiv.firstChild) {
+            fragment.appendChild(tempDiv.firstChild);
+        }
+    });
+
+    listContainer.appendChild(fragment);
+
+    // Refresh icons for new items
+    refreshIcons(listContainer);
+}
+
+/**
+ * Add sentinel or end message to grid container
+ * @param {HTMLElement} grid - The .element-grid element
+ * @param {string} type - Catalog type key
+ * @param {boolean} hasMore - Whether more items are available
+ * @param {number} loadedCount - Number of items loaded
+ * @param {number} totalCount - Total number of items
+ */
+function updateGridSentinel(grid, type, hasMore, loadedCount, totalCount) {
+    if (!grid) return;
+
+    // Remove existing sentinel/end
+    const existing = grid.querySelector('.lazy-load-sentinel, .lazy-load-end');
+    if (existing) existing.remove();
+
+    // Add appropriate element
+    if (hasMore) {
+        grid.insertAdjacentHTML('beforeend', renderLoadingSentinel(type));
+    } else if (totalCount > 0) {
+        grid.insertAdjacentHTML('beforeend', renderEndOfResults(loadedCount, totalCount));
+    }
+
+    refreshIcons(grid);
+}
+
+/**
+ * Add sentinel or end message to list container
+ * @param {HTMLElement} listContainer - The .element-list-container element
+ * @param {string} type - Catalog type key
+ * @param {boolean} hasMore - Whether more items are available
+ * @param {number} loadedCount - Number of items loaded
+ * @param {number} totalCount - Total number of items
+ */
+function updateListSentinel(listContainer, type, hasMore, loadedCount, totalCount) {
+    if (!listContainer) return;
+
+    // Remove existing sentinel/end
+    const existing = listContainer.querySelector('.lazy-load-sentinel, .lazy-load-end');
+    if (existing) existing.remove();
+
+    // Add appropriate element
+    if (hasMore) {
+        listContainer.insertAdjacentHTML('beforeend', renderLoadingSentinel(type));
+    } else if (totalCount > 0) {
+        listContainer.insertAdjacentHTML('beforeend', renderEndOfResults(loadedCount, totalCount));
+    }
+
+    refreshIcons(listContainer);
+}
+
+/**
+ * Render list content with sentinel inside the container
+ * Used for initial page render to ensure sentinel is inside .element-list-container
+ * @param {string} type - Catalog type key
+ * @param {Array} items - Array of data items
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @param {string} sentinelHtml - Sentinel or end HTML to include
+ * @returns {string} HTML string
+ */
+function renderListContentWithSentinel(type, items, activeTags = [], activeCategory = '', sentinelHtml = '') {
+    if (!items || items.length === 0) return renderNoResults(activeTags.length > 0 || activeCategory);
+
+    const config = catalogTypeConfig[type];
+    if (!config) return renderNoResults(false);
+
+    const headerHtml = `
+        <div class="list-header-row">
+            <div class="list-col-name">Name</div>
+            <div class="list-col-desc">Beschreibung</div>
+            <div class="list-col-tags">Tags</div>
+        </div>
+    `;
+
+    const itemsHtml = items.map(item => renderSingleListItem(type, item, activeTags, activeCategory)).join('');
+
+    return `<div class="element-list-container">${headerHtml}${itemsHtml}${sentinelHtml}</div>`;
+}

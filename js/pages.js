@@ -262,7 +262,7 @@ function renderSearchResultsPage(query) {
 // ============================================
 
 /**
- * Generic catalog page renderer
+ * Generic catalog page renderer with lazy loading support
  * @param {string} type - Catalog type key (elements, documents, usecases, models, epds)
  * @param {string[]} activeTags - Active tag filters
  * @param {string} activeCategory - Active category filter
@@ -286,11 +286,24 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
         filteredData = filterDataByPhases(filteredData, activePhases);
     }
 
+    // Initialize pagination with filtered data
+    const initialBatch = initPagination(type, filteredData);
+
     const filterPanelClass = typeConfig.getFilterVisible() ? '' : 'closed';
     const currentView = getActiveViewFromURL();
     const gridActive = currentView === 'grid' ? 'active' : '';
     const listActive = currentView === 'list' ? 'active' : '';
     const activeFiltersCount = activeTags.length + (activeCategory ? 1 : 0) + activePhases.length;
+
+    // Render initial items
+    const initialItemsHtml = currentView === 'grid'
+        ? renderGenericGridItems(type, initialBatch.items, activeTags, activeCategory)
+        : renderGenericListItems(type, initialBatch.items, activeTags, activeCategory);
+
+    // Add sentinel if there are more items
+    const sentinelHtml = initialBatch.hasMore
+        ? renderLoadingSentinel(type)
+        : (initialBatch.totalCount > 0 ? renderEndOfResults(initialBatch.loadedCount, initialBatch.totalCount) : '');
 
     // Render page
     contentArea.innerHTML = `
@@ -309,6 +322,7 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
                     ${renderFilterButton(pageConfig.filterType, typeConfig.getFilterVisible(), activeFiltersCount)}
                 </div>
                 <div class="search-results__controls">
+                    <span class="results-count" id="${type}ResultsCount">${initialBatch.loadedCount} von ${initialBatch.totalCount}</span>
                     <button class="search-results__sort">
                         <span>Sortiert nach Titel (A-Z)</span>
                         <i data-lucide="chevron-down" aria-hidden="true"></i>
@@ -331,55 +345,19 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
 
             <div id="${pageConfig.contentId}" class="catalog-content">
                 ${currentView === 'grid'
-                    ? `<div class="element-grid">${renderGenericGridItems(type, filteredData, activeTags, activeCategory)}</div>`
-                    : renderGenericListItems(type, filteredData, activeTags, activeCategory)
+                    ? `<div class="element-grid">${initialItemsHtml}${sentinelHtml}</div>`
+                    : renderListContentWithSentinel(type, initialBatch.items, activeTags, activeCategory, sentinelHtml)
                 }
             </div>
         </div>`;
 
-    // Setup search input handler with debouncing for performance
-    const searchInput = document.getElementById(pageConfig.searchInputId);
-    if (searchInput) {
-        let searchDebounceTimer = null;
-
-        searchInput.addEventListener('input', (e) => {
-            // Clear previous debounce timer
-            clearTimeout(searchDebounceTimer);
-
-            // Debounce search for 200ms to avoid excessive re-renders
-            searchDebounceTimer = setTimeout(() => {
-                document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
-                const searchTerm = e.target.value.toLowerCase();
-
-                // Apply all filters plus search term
-                let searchFilteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
-                searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
-                if (typeConfig.hasPhases) {
-                    searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
-                }
-
-                // Filter by search term using configured search fields (i18n-aware)
-                if (searchTerm) {
-                    searchFilteredData = searchFilteredData.filter(item =>
-                        typeConfig.searchFields.some(field => {
-                            const value = getSearchableValue(item, field);
-                            return value && value.toLowerCase().includes(searchTerm);
-                        })
-                    );
-                }
-
-                const container = document.getElementById(pageConfig.contentId);
-                const isGridView = getActiveViewFromURL() === 'grid';
-                container.innerHTML = isGridView
-                    ? `<div class="element-grid">${renderGenericGridItems(type, searchFilteredData, activeTags, activeCategory)}</div>`
-                    : renderGenericListItems(type, searchFilteredData, activeTags, activeCategory);
-                refreshIcons(container);
-                if (isGridView && typeof fitAllCardTagsToSingleRow === 'function') {
-                    fitAllCardTagsToSingleRow();
-                }
-            }, 200);
-        });
+    // Setup lazy loading if more items available
+    if (initialBatch.hasMore) {
+        setupCatalogLazyLoading(type, pageConfig.contentId, activeTags, activeCategory, currentView);
     }
+
+    // Setup search input handler with debouncing for performance
+    setupCatalogSearch(type, pageConfig, typeConfig, activeTags, activeCategory, activePhases);
 
     refreshIcons();
     setupSearchClearButton(pageConfig.searchInputId, pageConfig.searchClearId);
@@ -388,6 +366,128 @@ function renderGenericCatalogPage(type, activeTags = [], activeCategory = '') {
     if (getActiveViewFromURL() === 'grid' && typeof fitAllCardTagsToSingleRow === 'function') {
         fitAllCardTagsToSingleRow();
     }
+}
+
+/**
+ * Setup lazy loading observer for catalog page
+ * @param {string} type - Catalog type key
+ * @param {string} contentId - Content container ID
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @param {string} viewMode - Current view mode ('grid' or 'list')
+ */
+function setupCatalogLazyLoading(type, contentId, activeTags, activeCategory, viewMode) {
+    const container = document.getElementById(contentId);
+    if (!container) return;
+
+    const sentinel = container.querySelector('.lazy-load-sentinel');
+    if (!sentinel) return;
+
+    setupLazyLoadObserver(type, sentinel, (batch) => {
+        // Append new items based on view mode
+        if (viewMode === 'grid') {
+            appendGridItems(type, container, batch.items, activeTags, activeCategory);
+            const grid = container.querySelector('.element-grid');
+            updateGridSentinel(grid, type, batch.hasMore, batch.loadedCount, batch.totalCount);
+        } else {
+            appendListItems(type, container, batch.items, activeTags, activeCategory);
+            const listContainer = container.querySelector('.element-list-container');
+            updateListSentinel(listContainer, type, batch.hasMore, batch.loadedCount, batch.totalCount);
+        }
+
+        // Update results count
+        const resultsCount = document.getElementById(`${type}ResultsCount`);
+        if (resultsCount) {
+            resultsCount.textContent = `${batch.loadedCount} von ${batch.totalCount}`;
+        }
+
+        // Setup observer for new sentinel if more items available
+        if (batch.hasMore) {
+            const newSentinel = container.querySelector('.lazy-load-sentinel');
+            if (newSentinel) {
+                setupLazyLoadObserver(type, newSentinel, arguments.callee);
+            }
+        }
+    });
+}
+
+/**
+ * Setup search input with lazy loading reset
+ * @param {string} type - Catalog type key
+ * @param {Object} pageConfig - Page configuration
+ * @param {Object} typeConfig - Type configuration
+ * @param {string[]} activeTags - Currently active tags
+ * @param {string} activeCategory - Currently active category
+ * @param {number[]} activePhases - Currently active phases
+ */
+function setupCatalogSearch(type, pageConfig, typeConfig, activeTags, activeCategory, activePhases) {
+    const searchInput = document.getElementById(pageConfig.searchInputId);
+    if (!searchInput) return;
+
+    let searchDebounceTimer = null;
+
+    searchInput.addEventListener('input', (e) => {
+        // Clear previous debounce timer
+        clearTimeout(searchDebounceTimer);
+
+        // Debounce search for 200ms to avoid excessive re-renders
+        searchDebounceTimer = setTimeout(() => {
+            document.querySelectorAll('.az-btn').forEach(b => b.classList.remove('active'));
+            const searchTerm = e.target.value.toLowerCase();
+
+            // Apply all filters plus search term
+            let searchFilteredData = filterDataByCategory(typeConfig.getData(), activeCategory);
+            searchFilteredData = filterDataByTags(searchFilteredData, activeTags);
+            if (typeConfig.hasPhases) {
+                searchFilteredData = filterDataByPhases(searchFilteredData, activePhases);
+            }
+
+            // Filter by search term using configured search fields (i18n-aware)
+            if (searchTerm) {
+                searchFilteredData = searchFilteredData.filter(item =>
+                    typeConfig.searchFields.some(field => {
+                        const value = getSearchableValue(item, field);
+                        return value && value.toLowerCase().includes(searchTerm);
+                    })
+                );
+            }
+
+            // Re-initialize pagination with new filtered data
+            const batch = initPagination(type, searchFilteredData);
+
+            const container = document.getElementById(pageConfig.contentId);
+            const isGridView = getActiveViewFromURL() === 'grid';
+
+            const itemsHtml = isGridView
+                ? renderGenericGridItems(type, batch.items, activeTags, activeCategory)
+                : renderGenericListItems(type, batch.items, activeTags, activeCategory);
+
+            const sentinelHtml = batch.hasMore
+                ? renderLoadingSentinel(type)
+                : (batch.totalCount > 0 ? renderEndOfResults(batch.loadedCount, batch.totalCount) : '');
+
+            container.innerHTML = isGridView
+                ? `<div class="element-grid">${itemsHtml}${sentinelHtml}</div>`
+                : renderListContentWithSentinel(type, batch.items, activeTags, activeCategory, sentinelHtml);
+
+            // Update count
+            const resultsCount = document.getElementById(`${type}ResultsCount`);
+            if (resultsCount) {
+                resultsCount.textContent = `${batch.loadedCount} von ${batch.totalCount}`;
+            }
+
+            refreshIcons(container);
+
+            if (isGridView && typeof fitAllCardTagsToSingleRow === 'function') {
+                fitAllCardTagsToSingleRow();
+            }
+
+            // Setup lazy loading for filtered results
+            if (batch.hasMore) {
+                setupCatalogLazyLoading(type, pageConfig.contentId, activeTags, activeCategory, isGridView ? 'grid' : 'list');
+            }
+        }, 200);
+    });
 }
 
 // ============================================

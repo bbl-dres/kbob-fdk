@@ -9,6 +9,11 @@
 function router() {
     if (!isDataLoaded) return;
 
+    // Cleanup pagination observers before rendering new page
+    if (typeof cleanupPagination === 'function') {
+        cleanupPagination();
+    }
+
     // Scroll to top when navigating to a new page
     window.scrollTo(0, 0);
 

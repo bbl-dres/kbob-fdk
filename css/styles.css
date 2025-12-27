@@ -4842,3 +4842,73 @@ th[aria-sort='ascending'] .table__sorter span::after {
         transform: translateX(0) translateY(0);
     }
 }
+
+
+/* ============================================
+   LAZY LOADING COMPONENTS
+   ============================================ */
+
+/* Sentinel element - spans full width in grid */
+.lazy-load-sentinel {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    min-height: 80px;
+}
+
+/* Loading indicator inside sentinel */
+.lazy-load-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-secondary);
+    font-size: var(--text-body-sm);
+}
+
+.lazy-load-indicator .loading-spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+/* End of results indicator */
+.lazy-load-end {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--space-lg) 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-body-sm);
+    border-top: 1px solid var(--color-border-light);
+    margin-top: var(--space-md);
+}
+
+/* Results count in toolbar */
+.results-count {
+    color: var(--color-text-secondary);
+    font-size: var(--text-body-sm);
+    white-space: nowrap;
+}
+
+/* For list view - sentinel styling */
+.element-list-container .lazy-load-sentinel,
+.element-list-container .lazy-load-end {
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.element-list-container .lazy-load-sentinel {
+    padding: var(--space-lg) 0;
+}
+
+.element-list-container .lazy-load-end {
+    border-top: none;
+    padding: var(--space-md) 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .results-count {
+        display: none;
+    }
+}
