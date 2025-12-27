@@ -89,69 +89,136 @@ erDiagram
 
     elements {
         uuid id PK
+        text version
+        date last_change
         jsonb name
+        text image
         jsonb domain
+        jsonb description
         integer[] phases
         jsonb geometry
         jsonb tool_elements
+        jsonb related_documents
+        jsonb related_epds
+        jsonb related_attributes
+        text[] related_classifications
+        text[] related_usecases
+        text[] related_tags
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     documents {
         uuid id PK
-        text code UK
+        text version
+        date last_change
         jsonb name
+        text image
         jsonb domain
+        jsonb description
         integer[] phases
+        text code UK
         text[] formats
         integer retention
+        jsonb related_elements
+        text[] related_classifications
+        text[] related_tags
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     usecases {
         uuid id PK
-        text code UK
+        text version
+        date last_change
         jsonb name
+        text image
         jsonb domain
+        jsonb description
         integer[] phases
+        text code UK
+        jsonb goals
+        jsonb inputs
+        jsonb outputs
         jsonb roles
         jsonb prerequisites
+        jsonb implementation
+        jsonb quality_criteria
+        text process_url
+        jsonb related_elements
+        jsonb related_documents
+        text[] related_tags
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     models {
         uuid id PK
-        text code UK
+        text version
+        date last_change
         jsonb name
+        text image
         jsonb domain
+        jsonb description
         integer[] phases
+        text code UK
+        jsonb related_elements
+        text[] related_tags
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     epds {
         uuid id PK
-        text code UK
+        text version
+        date last_change
         jsonb name
+        text image
         jsonb domain
+        jsonb description
+        text code UK
+        text unit
         numeric gwp
         numeric ubp
+        numeric penrt
+        numeric pert
+        text density
+        numeric biogenic_carbon
+        text[] related_tags
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     attributes {
         uuid id PK
         jsonb name
+        jsonb description
         text data_type
+        text unit
         text ifc_pset
         text ifc_property
+        jsonb enumeration_values
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     classifications {
         uuid id PK
+        jsonb name
+        jsonb description
         text system
         text code
-        jsonb name
+        timestamptz created_at
+        timestamptz updated_at
     }
 
     tags {
         uuid id PK
-        text code UK
         jsonb name
+        jsonb description
+        text code UK
+        timestamptz created_at
+        timestamptz updated_at
     }
 ```
 
@@ -170,7 +237,7 @@ All core entities share these attributes for identification, versioning, and dis
 | `image` | `text` | | URL or path to visual representation |
 | `domain` | `jsonb` | ✓ | Primary grouping with i18n |
 | `description` | `jsonb` | | Detailed explanation with i18n |
-| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` (default: `[]`) |
+| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` (default: `{}`) |
 | `phases` | `integer[]` | | Applicable lifecycle phases: 1–5 (core entities only) |
 | `created_at` | `timestamptz` | ✓ | Record creation timestamp (auto-set) |
 | `updated_at` | `timestamptz` | ✓ | Record modification timestamp (auto-updated) |
@@ -205,9 +272,9 @@ Physical building components with geometry (LOG) requirements.
 | `related_documents` | `jsonb` | ✓ | Links to documents: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `related_epds` | `jsonb` | ✓ | Links to EPDs: `[{"id": "<uuid>"}]` |
 | `related_attributes` | `jsonb` | ✓ | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_classifications` | `jsonb` | ✓ | Links to classifications: `[{"id": "<uuid>"}]` |
-| `related_usecases` | `jsonb` | ✓ | Links to usecases: `[{"id": "<uuid>"}]` |
-| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
+| `related_classifications` | `text[]` | ✓ | Classification UUIDs: `["<uuid>", ...]` |
+| `related_usecases` | `text[]` | ✓ | Use case UUIDs: `["<uuid>", ...]` |
+| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -223,8 +290,8 @@ Project documentation types with format requirements and retention policies per 
 | `formats` | `text[]` | ✓ | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
 | `retention` | `integer` | | Retention period in years (see note below) |
 | `related_elements` | `jsonb` | ✓ | Links to elements: `[{"id": "<uuid>"}]` |
-| `related_classifications` | `jsonb` | ✓ | Links to classifications: `[{"id": "<uuid>"}]` |
-| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
+| `related_classifications` | `text[]` | ✓ | Classification UUIDs: `["<uuid>", ...]` |
+| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
 
 **Retention semantics:**
 - `0` = retain indefinitely
@@ -252,7 +319,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `related_elements` | `jsonb` | ✓ | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
 | `related_documents` | `jsonb` | ✓ | Required documents: `[{"id": "<uuid>", "required": true}]` |
-| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
+| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** See §7.5 (22 Anwendungsfeld values per VDI 2552 Blatt 12.2)
 
@@ -266,7 +333,7 @@ BIM model types including discipline models, coordination models, and special-pu
 |--------|------|:--------:|-------------|
 | `code` | `text` | ✓ | Unique human-readable code (e.g., arch-01, coord-01) |
 | `related_elements` | `jsonb` | ✓ | Element types in model: `[{"id": "<uuid>", "phases": [2,3,4]}]` |
-| `related_tags` | `jsonb` | ✓ | Links to tags: `[{"id": "<uuid>"}]` |
+| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -288,7 +355,7 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 | `pert` | `numeric(12,4)` | ✓ | `>= 0` | Primary Energy Renewable Total (MJ) |
 | `density` | `text` | | | Material density (display only) |
 | `biogenic_carbon` | `numeric(12,6)` | | | Biogenic carbon content (kg C) |
-| `related_tags` | `jsonb` | ✓ | `[]` | Links to tags: `[{"id": "<uuid>"}]` |
+| `related_tags` | `text[]` | ✓ | `{}` | Tag UUIDs: `["<uuid>", ...]` |
 
 > **GWP can be negative** for carbon-sequestering materials (timber, bio-based) per EN 15804.
 
@@ -350,25 +417,25 @@ Anwendungsfeld keywords per VDI 2552 Blatt 12.2. Used for filtering and categori
 
 ### Overview
 
-Relationships between entities are stored as JSONB arrays on the parent entity, avoiding junction tables for this read-heavy catalog.
+Relationships between entities are stored on the parent entity, avoiding junction tables for this read-heavy catalog. Complex relationships with metadata use JSONB arrays; simple references use `text[]` arrays of UUIDs.
 
 | Source | Field | Target | Structure |
 |--------|-------|--------|-----------|
 | `elements` | `related_documents` | documents | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `elements` | `related_epds` | epds | `[{"id": "<uuid>"}]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `elements` | `related_classifications` | classifications | `[{"id": "<uuid>"}]` |
-| `elements` | `related_usecases` | usecases | `[{"id": "<uuid>"}]` |
-| `elements` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
+| `elements` | `related_classifications` | classifications | `["<uuid>", ...]` |
+| `elements` | `related_usecases` | usecases | `["<uuid>", ...]` |
+| `elements` | `related_tags` | tags | `["<uuid>", ...]` |
 | `documents` | `related_elements` | elements | `[{"id": "<uuid>"}]` |
-| `documents` | `related_classifications` | classifications | `[{"id": "<uuid>"}]` |
-| `documents` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
+| `documents` | `related_classifications` | classifications | `["<uuid>", ...]` |
+| `documents` | `related_tags` | tags | `["<uuid>", ...]` |
 | `usecases` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3]}]` |
 | `usecases` | `related_documents` | documents | `[{"id": "<uuid>", "required": true}]` |
-| `usecases` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
+| `usecases` | `related_tags` | tags | `["<uuid>", ...]` |
 | `models` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3,4]}]` |
-| `models` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
-| `epds` | `related_tags` | tags | `[{"id": "<uuid>"}]` |
+| `models` | `related_tags` | tags | `["<uuid>", ...]` |
+| `epds` | `related_tags` | tags | `["<uuid>", ...]` |
 
 ### Bidirectional Relationships
 
@@ -682,7 +749,7 @@ WHERE related_elements @> '[{"id": "550e8400-e29b-41d4-a716-446655440000"}]';
 
 -- Find elements with a specific classification
 SELECT e.* FROM elements e
-WHERE related_classifications @> '[{"id": "classification-uuid-here"}]';
+WHERE related_classifications @> ARRAY['classification-uuid-here'];
 
 -- Find use cases requiring a specific document
 SELECT u.code, u.name->>'de' AS name
@@ -695,26 +762,22 @@ WHERE related_documents @> '[{"id": "document-uuid-here"}]';
 ```sql
 -- Find elements with a specific tag by UUID (uses GIN index)
 SELECT * FROM elements
-WHERE related_tags @> '[{"id": "tag-uuid-here"}]';
+WHERE related_tags @> ARRAY['tag-uuid-here'];
 
 -- Find elements with tag "koordination" by code (join approach)
 SELECT e.* FROM elements e
-WHERE related_tags @> (
-  SELECT jsonb_build_array(jsonb_build_object('id', id::text))
-  FROM tags WHERE code = 'koordination'
-);
+WHERE related_tags @> ARRAY[(SELECT id::text FROM tags WHERE code = 'koordination')];
 
 -- Find elements with multiple tags (both must be present)
 SELECT e.* FROM elements e
-WHERE related_tags @> '[{"id": "tag-uuid-1"}]'
-  AND related_tags @> '[{"id": "tag-uuid-2"}]';
+WHERE related_tags @> ARRAY['tag-uuid-1', 'tag-uuid-2'];
 
 -- List all tags for an element with their translations
 SELECT t.code, t.name->>'de' AS name_de, t.name->>'en' AS name_en
 FROM tags t
-WHERE t.id::text IN (
-  SELECT ref->>'id' FROM elements e, jsonb_array_elements(e.related_tags) ref
-  WHERE e.id = '550e8400-e29b-41d4-a716-446655440000'
+WHERE t.id::text = ANY(
+  SELECT unnest(related_tags) FROM elements
+  WHERE id = '550e8400-e29b-41d4-a716-446655440000'
 );
 ```
 
@@ -766,9 +829,9 @@ CREATE TABLE public.elements (
     related_documents jsonb NOT NULL DEFAULT '[]',
     related_epds jsonb NOT NULL DEFAULT '[]',
     related_attributes jsonb NOT NULL DEFAULT '[]',
-    related_classifications jsonb NOT NULL DEFAULT '[]',
-    related_usecases jsonb NOT NULL DEFAULT '[]',
-    related_tags jsonb NOT NULL DEFAULT '[]',
+    related_classifications text[] NOT NULL DEFAULT '{}',
+    related_usecases text[] NOT NULL DEFAULT '{}',
+    related_tags text[] NOT NULL DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT elements_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -788,8 +851,8 @@ CREATE TABLE public.documents (
     formats text[] NOT NULL,
     retention integer,
     related_elements jsonb NOT NULL DEFAULT '[]',
-    related_classifications jsonb NOT NULL DEFAULT '[]',
-    related_tags jsonb NOT NULL DEFAULT '[]',
+    related_classifications text[] NOT NULL DEFAULT '{}',
+    related_tags text[] NOT NULL DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT documents_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5]),
@@ -817,7 +880,7 @@ CREATE TABLE public.usecases (
     process_url text,
     related_elements jsonb NOT NULL DEFAULT '[]',
     related_documents jsonb NOT NULL DEFAULT '[]',
-    related_tags jsonb NOT NULL DEFAULT '[]',
+    related_tags text[] NOT NULL DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT usecases_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -835,7 +898,7 @@ CREATE TABLE public.models (
     phases integer[],
     code text NOT NULL UNIQUE,
     related_elements jsonb NOT NULL DEFAULT '[]',
-    related_tags jsonb NOT NULL DEFAULT '[]',
+    related_tags text[] NOT NULL DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT models_phases_valid CHECK (phases IS NULL OR phases <@ ARRAY[1,2,3,4,5])
@@ -862,7 +925,7 @@ CREATE TABLE public.epds (
     pert numeric(12,4) NOT NULL,
     density text,
     biogenic_carbon numeric(12,6),
-    related_tags jsonb NOT NULL DEFAULT '[]',
+    related_tags text[] NOT NULL DEFAULT '{}',
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
     CONSTRAINT epds_ubp_positive CHECK (ubp >= 0),
@@ -987,19 +1050,22 @@ CREATE INDEX models_phases_idx ON models USING gin(phases);
 -- RELATIONSHIP INDEXES
 -- -----------------------------------------------------------------------------
 
+-- JSONB relationships (with metadata)
 CREATE INDEX elements_related_documents_idx ON elements USING gin(related_documents);
 CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
+CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
+CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
+CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_documents);
+CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
+
+-- Simple text[] relationships (UUID arrays)
 CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
 CREATE INDEX elements_related_usecases_idx ON elements USING gin(related_usecases);
 CREATE INDEX elements_related_tags_idx ON elements USING gin(related_tags);
-CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
 CREATE INDEX documents_related_classifications_idx ON documents USING gin(related_classifications);
 CREATE INDEX documents_related_tags_idx ON documents USING gin(related_tags);
-CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
-CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_documents);
 CREATE INDEX usecases_related_tags_idx ON usecases USING gin(related_tags);
-CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
 CREATE INDEX models_related_tags_idx ON models USING gin(related_tags);
 CREATE INDEX epds_related_tags_idx ON epds USING gin(related_tags);
 ```
