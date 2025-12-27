@@ -12,18 +12,6 @@
 
 Interactive catalog for BIM requirements, classifications, and information specifications for building elements and documents in Switzerland.
 
-### Validation Sources
-
-| Standard | Scope |
-|----------|-------|
-| VDI 2552 Blatt 12.1/12.2 | Use case structure, lifecycle phases, Anwendungsfeld taxonomy |
-| ISO 19650 | Information management concepts |
-| KBOB/IPB Bauwerksdokumentation | Document categories and retention |
-| KBOB Ökobilanzdaten | Environmental impact indicators |
-| IFC 4.3 | Element classification and property mapping |
-| SN 506 511:2020 (eBKP-H) | Swiss cost classification |
-| DIN 276:2018 | German cost classification |
-
 ### Design Principles
 
 - **Multilingual:** All user-facing text supports de/fr/it/en via JSONB
@@ -59,7 +47,7 @@ Interactive catalog for BIM requirements, classifications, and information speci
 | `epds` | Reference | Environmental impact data (KBOB Ökobilanzdaten) | – | ✓ |
 | `attributes` | Reference | Reusable property definitions (LOI) | – | – |
 | `classifications` | Reference | Classification codes (eBKP-H, DIN 276, etc.) | – | ✓ |
-| `tags` | Reference | Anwendungsfeld keywords per VDI 2552 Blatt 12.2 | – | ✓ |
+| `tags` | Reference | Anwendungsfeld keywords per VDI 2552 Blatt 12.2 | – | – |
 
 > **Core vs Reference:** Core entities represent project deliverables with lifecycle phases. Reference entities are phase-neutral lookup data; phase applicability is defined in the relationship.
 
@@ -98,12 +86,12 @@ erDiagram
         integer[] phases
         jsonb geometry
         jsonb tool_elements
-        jsonb related_documents
-        jsonb related_epds
-        jsonb related_attributes
-        text[] related_classifications
-        text[] related_usecases
-        text[] related_tags
+        jsonb related_documents FK
+        jsonb related_epds FK
+        jsonb related_attributes FK
+        text[] related_classifications FK
+        text[] related_usecases FK
+        text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -120,9 +108,9 @@ erDiagram
         text code UK
         text[] formats
         integer retention
-        jsonb related_elements
-        text[] related_classifications
-        text[] related_tags
+        jsonb related_elements FK
+        text[] related_classifications FK
+        text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -145,9 +133,9 @@ erDiagram
         jsonb implementation
         jsonb quality_criteria
         text process_url
-        jsonb related_elements
-        jsonb related_documents
-        text[] related_tags
+        jsonb related_elements FK
+        jsonb related_documents FK
+        text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -162,8 +150,8 @@ erDiagram
         jsonb description
         integer[] phases
         text code UK
-        jsonb related_elements
-        text[] related_tags
+        jsonb related_elements FK
+        text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -184,7 +172,7 @@ erDiagram
         numeric pert
         text density
         numeric biogenic_carbon
-        text[] related_tags
+        text[] related_tags FK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -216,7 +204,6 @@ erDiagram
         uuid id PK
         jsonb name
         jsonb description
-        text code UK
         timestamptz created_at
         timestamptz updated_at
     }
@@ -402,12 +389,6 @@ Classification codes from multiple systems.
 ### 4.8 tags
 
 Anwendungsfeld keywords per VDI 2552 Blatt 12.2. Used for filtering and categorizing entities across the catalog.
-
-| Column | Type | Required | Constraints | Description |
-|--------|------|:--------:|-------------|-------------|
-| `code` | `text` | ✓ | `UNIQUE` | Machine-readable code (e.g., `koordination`, `dokumentation`) |
-
-**Supported codes:** See §7.5 for the complete list of 22 Anwendungsfeld values.
 
 > **Design rationale:** By normalizing tags into a reference table, translations are managed centrally. Adding or correcting a translation only requires updating one record instead of every entity that uses the tag.
 
@@ -660,30 +641,30 @@ Per KBOB/IPB Dokumenttypenkatalog:
 
 Per VDI 2552 Blatt 12.2 Anhang B1 — stored in the `tags` reference table, referenced via `related_tags` by all core entities:
 
-| Code | DE | EN |
-|------|----|----|
-| `abnahme` | Abnahme | Acceptance |
-| `aenderungsmanagement` | Änderungsmanagement | Change Management |
-| `ausschreibung` | Ausschreibung und Vergabe | Tendering and Procurement |
-| `bedarfsplanung` | Bedarfsplanung | Requirements Planning |
-| `bestandserfassung` | Bestandserfassung | Asset Capture |
-| `betrieb` | Betrieb | Operations |
-| `dokumentation` | Dokumentation | Documentation |
-| `genehmigung` | Genehmigung | Approval |
-| `inbetriebnahme` | Inbetriebnahme | Commissioning |
-| `koordination` | Koordination | Coordination |
-| `kosten` | Kosten | Costs |
-| `logistik` | Logistik | Logistics |
-| `machbarkeit` | Machbarkeit | Feasibility |
-| `nachhaltigkeit` | Nachhaltigkeit | Sustainability |
-| `nachweise` | Nachweise | Verification |
-| `qualitaetssicherung` | Qualitätssicherung | Quality Assurance |
-| `risikomanagement` | Risikomanagement | Risk Management |
-| `termine` | Termine | Scheduling |
-| `variantenvergleich` | Variantenvergleich | Variant Comparison |
-| `versicherung` | Versicherung | Insurance |
-| `visualisierung` | Visualisierung | Visualization |
-| `sonstiges` | Sonstiges | Other |
+| DE | EN |
+|----|----|
+| Abnahme | Acceptance |
+| Änderungsmanagement | Change Management |
+| Ausschreibung und Vergabe | Tendering and Procurement |
+| Bedarfsplanung | Requirements Planning |
+| Bestandserfassung | Asset Capture |
+| Betrieb | Operations |
+| Dokumentation | Documentation |
+| Genehmigung | Approval |
+| Inbetriebnahme | Commissioning |
+| Koordination | Coordination |
+| Kosten | Costs |
+| Logistik | Logistics |
+| Machbarkeit | Feasibility |
+| Nachhaltigkeit | Sustainability |
+| Nachweise | Verification |
+| Qualitätssicherung | Quality Assurance |
+| Risikomanagement | Risk Management |
+| Termine | Scheduling |
+| Variantenvergleich | Variant Comparison |
+| Versicherung | Insurance |
+| Visualisierung | Visualization |
+| Sonstiges | Other |
 
 > **Note:** The `usecases.domain` field also uses these values (as i18n objects), providing the primary Anwendungsfeld for a use case.
 
@@ -764,16 +745,12 @@ WHERE related_documents @> '[{"id": "document-uuid-here"}]';
 SELECT * FROM elements
 WHERE related_tags @> ARRAY['tag-uuid-here'];
 
--- Find elements with tag "koordination" by code (join approach)
-SELECT e.* FROM elements e
-WHERE related_tags @> ARRAY[(SELECT id::text FROM tags WHERE code = 'koordination')];
-
 -- Find elements with multiple tags (both must be present)
 SELECT e.* FROM elements e
 WHERE related_tags @> ARRAY['tag-uuid-1', 'tag-uuid-2'];
 
 -- List all tags for an element with their translations
-SELECT t.code, t.name->>'de' AS name_de, t.name->>'en' AS name_en
+SELECT t.id, t.name->>'de' AS name_de, t.name->>'en' AS name_en
 FROM tags t
 WHERE t.id::text = ANY(
   SELECT unnest(related_tags) FROM elements
@@ -965,7 +942,6 @@ CREATE TABLE public.tags (
     id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     name jsonb NOT NULL,
     description jsonb,
-    code text NOT NULL UNIQUE,
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now()
 );
@@ -1038,7 +1014,6 @@ CREATE INDEX documents_code_idx ON documents(code);
 CREATE INDEX usecases_code_idx ON usecases(code);
 CREATE INDEX models_code_idx ON models(code);
 CREATE INDEX epds_code_idx ON epds(code);
-CREATE UNIQUE INDEX tags_code_idx ON tags(code);
 
 -- Phase filters (GIN for array containment)
 CREATE INDEX elements_phases_idx ON elements USING gin(phases);
