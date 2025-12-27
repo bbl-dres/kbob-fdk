@@ -2,7 +2,7 @@
 
 > **Repository:** [kbob-fdk](https://github.com/davras5/kbob-fdk)
 > **Database:** PostgreSQL on Supabase
-> **Schema Version:** 2.3.0  
+> **Schema Version:** 2.4.0  
 
 ---
 
@@ -16,7 +16,7 @@ Interactive catalog for BIM requirements, classifications, and information speci
 
 - **Multilingual:** All user-facing text supports de/fr/it/en via JSONB
 - **Phase-aware:** Core entities track applicability across 5 lifecycle phases
-- **Relationship-rich:** JSONB arrays store typed references with optional metadata
+- **Relationship-rich:** Relationships stored as JSONB (with metadata) or `text[]` (simple UUID lists)
 - **Read-optimized:** GIN indexes support browse and filter patterns; no junction tables
 
 ### API Endpoints
@@ -779,7 +779,7 @@ WHERE u.phases @> ARRAY[2];
 -- =============================================================================
 -- KBOB Fachdatenkatalog - Database Schema
 -- PostgreSQL on Supabase
--- Version: 2.3.0
+-- Version: 2.4.0
 -- =============================================================================
 
 -- -----------------------------------------------------------------------------
@@ -1144,6 +1144,7 @@ COMMENT ON COLUMN usecases.roles IS 'RACI responsibility matrix with i18n suppor
 
 | Version | Date | Changes |
 |---------|------|---------|
+| 2.4.0 | 2025-12 | **Schema simplification:** Changed `related_tags`, `related_classifications`, `related_usecases`, `related_epds` from JSONB to simple `text[]` UUID arrays; removed `code` from tags; simplified required constraints (only `id`, `name`, `domain`, `created_at`, `updated_at` required); removed Validation Sources section; updated ER diagram with FK notation and all attributes |
 | 2.3.0 | 2025-12 | **Tags normalization:** Added `tags` reference table for Anwendungsfeld keywords; replaced embedded `tags` JSONB arrays with `related_tags` relationship on all core entities; centralized i18n for tags enabling single-point translation management |
 | 2.2.0 | 2025-12 | Major restructure: reordered sections for conceptual→implementation flow; added Example Queries section (§8); clarified bidirectional relationship source of truth; documented retention semantics; consolidated reference values; split SQL into logical subsections |
 | 2.1.13 | 2025-12 | Added `code` to models; added Required column to attribute tables |
