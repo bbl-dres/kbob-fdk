@@ -87,7 +87,7 @@ erDiagram
         jsonb geometry
         jsonb tool_elements
         jsonb related_documents FK
-        jsonb related_epds FK
+        text[] related_epds FK
         jsonb related_attributes FK
         text[] related_classifications FK
         text[] related_usecases FK
@@ -218,13 +218,13 @@ All core entities share these attributes for identification, versioning, and dis
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
 | `id` | `uuid` | ✓ | Primary key (UUID v4, auto-generated) |
-| `version` | `text` | ✓ | Version indicator, format: `MAJOR.MINOR` (e.g., "2.1") |
-| `last_change` | `date` | ✓ | Date of last content modification (ISO 8601) |
+| `version` | `text` | | Version indicator, format: `MAJOR.MINOR` (e.g., "2.1") |
+| `last_change` | `date` | | Date of last content modification (ISO 8601) |
 | `name` | `jsonb` | ✓ | Display name with i18n: `{"de": "...", "fr": "...", "it": "...", "en": "..."}` |
 | `image` | `text` | | URL or path to visual representation |
 | `domain` | `jsonb` | ✓ | Primary grouping with i18n |
 | `description` | `jsonb` | | Detailed explanation with i18n |
-| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` (default: `{}`) |
+| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` (default: `{}`) |
 | `phases` | `integer[]` | | Applicable lifecycle phases: 1–5 (core entities only) |
 | `created_at` | `timestamptz` | ✓ | Record creation timestamp (auto-set) |
 | `updated_at` | `timestamptz` | ✓ | Record modification timestamp (auto-updated) |
@@ -254,14 +254,14 @@ Physical building components with geometry (LOG) requirements.
 
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
-| `geometry` | `jsonb` | ✓ | LOG specifications per phase (see §6.1) |
-| `tool_elements` | `jsonb` | ✓ | Mappings to IFC classes and authoring tools (see §6.2) |
-| `related_documents` | `jsonb` | ✓ | Links to documents: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_epds` | `jsonb` | ✓ | Links to EPDs: `[{"id": "<uuid>"}]` |
-| `related_attributes` | `jsonb` | ✓ | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `related_classifications` | `text[]` | ✓ | Classification UUIDs: `["<uuid>", ...]` |
-| `related_usecases` | `text[]` | ✓ | Use case UUIDs: `["<uuid>", ...]` |
-| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
+| `geometry` | `jsonb` | | LOG specifications per phase (see §6.1) |
+| `tool_elements` | `jsonb` | | Mappings to IFC classes and authoring tools (see §6.2) |
+| `related_documents` | `jsonb` | | Links to documents: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_epds` | `text[]` | | EPD UUIDs: `["<uuid>", ...]` |
+| `related_attributes` | `jsonb` | | Links to attributes: `[{"id": "<uuid>", "phases": [3,4,5]}]` |
+| `related_classifications` | `text[]` | | Classification UUIDs: `["<uuid>", ...]` |
+| `related_usecases` | `text[]` | | Use case UUIDs: `["<uuid>", ...]` |
+| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Architektur, Tragwerk, Gebäudetechnik HLKS, Gebäudetechnik Elektro, Ausbau, Umgebung, Brandschutz, Transportanlagen
 
@@ -273,12 +273,12 @@ Project documentation types with format requirements and retention policies per 
 
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
-| `code` | `text` | ✓ | Unique human-readable code (e.g., O01001, K02003) |
-| `formats` | `text[]` | ✓ | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
+| `code` | `text` | | Unique human-readable code (e.g., O01001, K02003) |
+| `formats` | `text[]` | | Acceptable file formats (PDF-A, Office-Format, DWG, IFC, etc.) |
 | `retention` | `integer` | | Retention period in years (see note below) |
-| `related_elements` | `jsonb` | ✓ | Links to elements: `[{"id": "<uuid>"}]` |
-| `related_classifications` | `text[]` | ✓ | Classification UUIDs: `["<uuid>", ...]` |
-| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
+| `related_elements` | `jsonb` | | Links to elements: `[{"id": "<uuid>"}]` |
+| `related_classifications` | `text[]` | | Classification UUIDs: `["<uuid>", ...]` |
+| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Retention semantics:**
 - `0` = retain indefinitely
@@ -295,18 +295,18 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
-| `code` | `text` | ✓ | Unique human-readable code (e.g., uc000, uc280) |
-| `goals` | `jsonb` | ✓ | Objectives as i18n array |
-| `inputs` | `jsonb` | ✓ | Required inputs/preconditions as i18n array |
-| `outputs` | `jsonb` | ✓ | Deliverables/results as i18n array |
-| `roles` | `jsonb` | ✓ | RACI responsibility matrix (see §6.3) |
-| `prerequisites` | `jsonb` | ✓ | Requirements for client/contractor (see §6.4) |
-| `implementation` | `jsonb` | ✓ | Implementation steps as i18n array |
-| `quality_criteria` | `jsonb` | ✓ | Acceptance criteria as i18n array |
+| `code` | `text` | | Unique human-readable code (e.g., uc000, uc280) |
+| `goals` | `jsonb` | | Objectives as i18n array |
+| `inputs` | `jsonb` | | Required inputs/preconditions as i18n array |
+| `outputs` | `jsonb` | | Deliverables/results as i18n array |
+| `roles` | `jsonb` | | RACI responsibility matrix (see §6.3) |
+| `prerequisites` | `jsonb` | | Requirements for client/contractor (see §6.4) |
+| `implementation` | `jsonb` | | Implementation steps as i18n array |
+| `quality_criteria` | `jsonb` | | Acceptance criteria as i18n array |
 | `process_url` | `text` | | Link to BPMN process diagram |
-| `related_elements` | `jsonb` | ✓ | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
-| `related_documents` | `jsonb` | ✓ | Required documents: `[{"id": "<uuid>", "required": true}]` |
-| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
+| `related_elements` | `jsonb` | | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
+| `related_documents` | `jsonb` | | Required documents: `[{"id": "<uuid>", "required": true}]` |
+| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** See §7.5 (22 Anwendungsfeld values per VDI 2552 Blatt 12.2)
 
@@ -318,9 +318,9 @@ BIM model types including discipline models, coordination models, and special-pu
 
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
-| `code` | `text` | ✓ | Unique human-readable code (e.g., arch-01, coord-01) |
-| `related_elements` | `jsonb` | ✓ | Element types in model: `[{"id": "<uuid>", "phases": [2,3,4]}]` |
-| `related_tags` | `text[]` | ✓ | Tag UUIDs: `["<uuid>", ...]` |
+| `code` | `text` | | Unique human-readable code (e.g., arch-01, coord-01) |
+| `related_elements` | `jsonb` | | Element types in model: `[{"id": "<uuid>", "phases": [2,3,4]}]` |
+| `related_tags` | `text[]` | | Tag UUIDs: `["<uuid>", ...]` |
 
 **Domain values:** Fachmodelle, Koordination, Spezialmodelle, Bestand
 
@@ -334,15 +334,15 @@ Environmental impact data for construction materials per KBOB Ökobilanzdaten.
 
 | Column | Type | Required | Constraints | Description |
 |--------|------|:--------:|-------------|-------------|
-| `code` | `text` | ✓ | `UNIQUE` | KBOB code (e.g., kbob-01-042) |
-| `unit` | `text` | ✓ | | Functional unit (kg, m², m³, kWh, etc.) |
-| `gwp` | `numeric(12,4)` | ✓ | | Global Warming Potential (kg CO₂-eq) — can be negative |
-| `ubp` | `numeric(12,2)` | ✓ | `>= 0` | Umweltbelastungspunkte (Swiss ecological scarcity) |
-| `penrt` | `numeric(12,4)` | ✓ | `>= 0` | Primary Energy Non-Renewable Total (MJ) |
-| `pert` | `numeric(12,4)` | ✓ | `>= 0` | Primary Energy Renewable Total (MJ) |
+| `code` | `text` | | `UNIQUE` | KBOB code (e.g., kbob-01-042) |
+| `unit` | `text` | | | Functional unit (kg, m², m³, kWh, etc.) |
+| `gwp` | `numeric(12,4)` | | | Global Warming Potential (kg CO₂-eq) — can be negative |
+| `ubp` | `numeric(12,2)` | | `>= 0` | Umweltbelastungspunkte (Swiss ecological scarcity) |
+| `penrt` | `numeric(12,4)` | | `>= 0` | Primary Energy Non-Renewable Total (MJ) |
+| `pert` | `numeric(12,4)` | | `>= 0` | Primary Energy Renewable Total (MJ) |
 | `density` | `text` | | | Material density (display only) |
 | `biogenic_carbon` | `numeric(12,6)` | | | Biogenic carbon content (kg C) |
-| `related_tags` | `text[]` | ✓ | `{}` | Tag UUIDs: `["<uuid>", ...]` |
+| `related_tags` | `text[]` | | `{}` | Tag UUIDs: `["<uuid>", ...]` |
 
 > **GWP can be negative** for carbon-sequestering materials (timber, bio-based) per EN 15804.
 
@@ -356,7 +356,7 @@ Reusable property definitions for LOI (Level of Information) requirements.
 
 | Column | Type | Required | Description |
 |--------|------|:--------:|-------------|
-| `data_type` | `text` | ✓ | Property data type: string, number, boolean, enum |
+| `data_type` | `text` | | Property data type: string, number, boolean, enum |
 | `unit` | `text` | | Unit of measurement (m, kg, °C, etc.) |
 | `ifc_pset` | `text` | | IFC property set name |
 | `ifc_property` | `text` | | IFC property name within the pset |
@@ -370,8 +370,8 @@ Classification codes from multiple systems.
 
 | Column | Type | Required | Constraints | Description |
 |--------|------|:--------:|-------------|-------------|
-| `system` | `text` | ✓ | See below | Classification system |
-| `code` | `text` | ✓ | `UNIQUE(system, code)` | Code within the system |
+| `system` | `text` | | See below | Classification system |
+| `code` | `text` | | `UNIQUE(system, code)` | Code within the system |
 
 **Supported systems:**
 
@@ -403,7 +403,7 @@ Relationships between entities are stored on the parent entity, avoiding junctio
 | Source | Field | Target | Structure |
 |--------|-------|--------|-----------|
 | `elements` | `related_documents` | documents | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
-| `elements` | `related_epds` | epds | `[{"id": "<uuid>"}]` |
+| `elements` | `related_epds` | epds | `["<uuid>", ...]` |
 | `elements` | `related_attributes` | attributes | `[{"id": "<uuid>", "phases": [3,4,5]}]` |
 | `elements` | `related_classifications` | classifications | `["<uuid>", ...]` |
 | `elements` | `related_usecases` | usecases | `["<uuid>", ...]` |
@@ -804,7 +804,7 @@ CREATE TABLE public.elements (
     geometry jsonb NOT NULL DEFAULT '[]',
     tool_elements jsonb NOT NULL DEFAULT '[]',
     related_documents jsonb NOT NULL DEFAULT '[]',
-    related_epds jsonb NOT NULL DEFAULT '[]',
+    related_epds text[] NOT NULL DEFAULT '{}',
     related_attributes jsonb NOT NULL DEFAULT '[]',
     related_classifications text[] NOT NULL DEFAULT '{}',
     related_usecases text[] NOT NULL DEFAULT '{}',
@@ -1027,7 +1027,6 @@ CREATE INDEX models_phases_idx ON models USING gin(phases);
 
 -- JSONB relationships (with metadata)
 CREATE INDEX elements_related_documents_idx ON elements USING gin(related_documents);
-CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_attributes_idx ON elements USING gin(related_attributes);
 CREATE INDEX documents_related_elements_idx ON documents USING gin(related_elements);
 CREATE INDEX usecases_related_elements_idx ON usecases USING gin(related_elements);
@@ -1035,6 +1034,7 @@ CREATE INDEX usecases_related_documents_idx ON usecases USING gin(related_docume
 CREATE INDEX models_related_elements_idx ON models USING gin(related_elements);
 
 -- Simple text[] relationships (UUID arrays)
+CREATE INDEX elements_related_epds_idx ON elements USING gin(related_epds);
 CREATE INDEX elements_related_classifications_idx ON elements USING gin(related_classifications);
 CREATE INDEX elements_related_usecases_idx ON elements USING gin(related_usecases);
 CREATE INDEX elements_related_tags_idx ON elements USING gin(related_tags);
