@@ -323,7 +323,7 @@ function renderGenericGridItems(type, items, activeTags = [], activeCategory = '
         <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
             <div class="card__image">
                 ${itemCategory ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
-                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
+                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}" loading="lazy" decoding="async" width="400" height="200">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
                 <h3 class="card__title">${safeTitle}</h3>
@@ -485,7 +485,7 @@ function renderSingleGridItem(type, item, activeTags = [], activeCategory = '') 
         <article class="card" data-card-id="${cardId}" data-href="${cardHref}">
             <div class="card__image">
                 ${itemCategory ? `<span class="tag-badge ${isCategoryActive ? 'active' : ''}" data-action="toggle-category" data-category="${safeCategory}">${safeCategory}</span>` : ''}
-                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
+                ${item.image ? `<img src="${escapeHtml(item.image)}" alt="${safeTitle}" loading="lazy" decoding="async" width="400" height="200">` : `<i data-lucide="${config.icon}" class="placeholder-icon icon--xl" aria-hidden="true"></i>`}
             </div>
             <div class="card__body">
                 <h3 class="card__title">${safeTitle}</h3>

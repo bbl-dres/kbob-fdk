@@ -148,7 +148,7 @@ function renderElementDetailPage(id, activeTags = []) {
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : '<i data-lucide="image" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -296,7 +296,7 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : `<i data-lucide="${config.icon}" class="hero-image-placeholder icon--4xl"></i>`}
                 </div>
             </div>
         </section>
@@ -397,7 +397,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : '<i data-lucide="file-text" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -684,7 +684,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : '<i data-lucide="workflow" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -839,7 +839,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : '<i data-lucide="boxes" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
@@ -966,7 +966,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
                     <div class="hero-tags">${renderTagsHtml(data.related_tags, activeTags)}</div>
                 </div>
                 <div class="hero-image-container">
-                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
+                    ${safeImage ? `<img src="${safeImage}" alt="${safeTitle}" loading="lazy" decoding="async" width="600" height="400">` : '<i data-lucide="leaf" class="hero-image-placeholder icon--4xl"></i>'}
                 </div>
             </div>
         </section>
