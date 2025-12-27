@@ -1,13 +1,16 @@
-# Image Optimizer for Web
+# Image Optimizer for Web (Enhanced)
 
-A Python script that optimizes images for fast web loading. Automatically resizes, compresses, and backs up your images.
+A Python script that recursively optimizes images for fast web loading. Automatically resizes, compresses, creates thumbnails, and backs up your images.
 
 ## Features
 
+- **Recursive processing** – Processes all subfolders automatically
+- **Smart skip logic** – Skips backup folders (backup_*, *_backup, YYYYMMDD_*)
 - **Automatic backup** – Copies originals to a timestamped subfolder before processing
 - **Smart resizing** – Scales images to max width while preserving aspect ratio
 - **Web-optimized compression** – Progressive JPEGs, optimized PNGs
-- **Batch processing** – Handles all images in a folder at once
+- **Thumbnail generation** – Optional thumbnail creation for gallery views
+- **Dry-run mode** – Preview changes without modifying files
 - **Detailed reporting** – Shows file sizes and total savings
 
 ## Supported Formats
@@ -24,61 +27,99 @@ pip install Pillow
 
 ## Usage
 
-Place the script in your images folder and run:
-
-```bash
-python optimize_images.py
-```
-
-Or specify a folder:
+Specify a folder to process:
 
 ```bash
 python optimize_images.py /path/to/images
+```
+
+Preview what would be optimized:
+
+```bash
+python optimize_images.py /path/to/images --dry-run
 ```
 
 ### Options
 
 | Option | Default | Description |
 |--------|---------|-------------|
-| `folder` | Script location | Path to folder containing images |
+| `folder` | Required | Path to folder containing images |
 | `--max-width` | 800 | Maximum width in pixels |
 | `--quality` | 85 | JPEG/WebP quality (1-100) |
+| `--thumbnails` | False | Also create thumbnail versions |
+| `--thumb-width` | 400 | Thumbnail width in pixels |
+| `--thumb-quality` | 80 | Thumbnail quality |
+| `--thumb-folder` | _thumbs | Subfolder name for thumbnails |
+| `--force` | False | Process all images, even if already optimized |
+| `--dry-run` | False | Show what would be done without making changes |
 | `--no-backup` | False | Skip creating backup |
 
 ### Examples
 
 ```bash
-# Use all defaults (800px, quality 85, backup enabled)
-python optimize_images.py
+# Preview what would be optimized
+python optimize_images.py ../assets/img --dry-run
 
-# Custom max width
-python optimize_images.py --max-width 1200
+# Optimize with defaults (800px, quality 85)
+python optimize_images.py ../assets/img
 
-# Custom quality (lower = smaller files)
-python optimize_images.py --quality 75
+# Also create thumbnails for gallery use
+python optimize_images.py ../assets/img --thumbnails --thumb-width 400
 
-# Process specific folder without backup
-python optimize_images.py ./assets --no-backup
+# Force re-optimize all images
+python optimize_images.py ../assets/img --force
 
-# Full custom settings
-python optimize_images.py C:\Photos --max-width 1920 --quality 90
+# Custom max width and quality
+python optimize_images.py ../assets/img --max-width 1200 --quality 90
+
+# Process without creating backup
+python optimize_images.py ../assets/img --no-backup
 ```
+
+## Skip Patterns
+
+The script automatically skips these folders:
+- `backup_*` – Backup folders (e.g., backup_originals_20241212)
+- `*_backup` – Folders ending with _backup
+- `YYMMDD_*` or `YYYYMMDD_*` – Date-prefixed folders
+- `_thumbs` – Thumbnail output folders
 
 ## Output
 
-The script creates a backup folder named `backup_originals_YYYYMMDD_HHMMSS` and prints a summary:
+The script analyzes images first, then processes only those needing optimization:
 
 ```
 ============================================================
+Image Optimizer for Web (Enhanced)
+============================================================
+Folder: /path/to/assets/img
+Images found: 54
+Max width: 800px
+Quality: 85
+Create thumbnails: False
+Dry run: False
+============================================================
+
+Analyzing images...
+  Need optimization: 4
+  Already optimized: 50
+
+Processing images...
+------------------------------------------------------------
+[1/4] api/rest.jpg
+         resized to 800x450, saved 35.2%
+[2/4] element/raum.jpg
+         resized to 800x533, saved 28.7%
+...
+
+============================================================
 SUMMARY
 ============================================================
-Images processed: 12/12
-Original total:   24.5 MB
-Optimized total:  4.2 MB
-Total saved:      20.3 MB
-Reduction:        82.9%
-
-Original files backed up to: backup_originals_20241212_143022/
+Images optimized:    4/4
+Original total:      2.1 MB
+Optimized total:     1.4 MB
+Space saved:         720.5 KB
+Reduction:           34.2%
 ============================================================
 ```
 
