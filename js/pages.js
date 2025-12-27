@@ -383,7 +383,8 @@ function setupCatalogLazyLoading(type, contentId, activeTags, activeCategory, vi
     const sentinel = container.querySelector('.lazy-load-sentinel');
     if (!sentinel) return;
 
-    setupLazyLoadObserver(type, sentinel, (batch) => {
+    // Named function so we can reference it for recursive observer setup
+    function handleLoadMore(batch) {
         // Append new items based on view mode
         if (viewMode === 'grid') {
             appendGridItems(type, container, batch.items, activeTags, activeCategory);
@@ -405,10 +406,12 @@ function setupCatalogLazyLoading(type, contentId, activeTags, activeCategory, vi
         if (batch.hasMore) {
             const newSentinel = container.querySelector('.lazy-load-sentinel');
             if (newSentinel) {
-                setupLazyLoadObserver(type, newSentinel, arguments.callee);
+                setupLazyLoadObserver(type, newSentinel, handleLoadMore);
             }
         }
-    });
+    }
+
+    setupLazyLoadObserver(type, sentinel, handleLoadMore);
 }
 
 /**
