@@ -53,7 +53,6 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'klassifizierung', text: 'Klassifizierung' },
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
-        { id: 'informationen', text: 'Informationen' },
         { id: 'loin', text: 'LOIN' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
@@ -103,45 +102,6 @@ function renderElementDetailPage(id, activeTags = []) {
                 <td class="col-val">${renderPhaseBadges(row.phases)}</td>
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
-
-    // Build attribute rows from related_loin (flatten all attributes from all usecases, deduplicate by attr id)
-    let infoRowsHtml = '';
-    const seenAttrIds = new Set();
-    const flattenedAttrs = [];
-    if (data.related_loin && Array.isArray(data.related_loin)) {
-        data.related_loin.forEach(loinEntry => {
-            (loinEntry.attributes || []).forEach(ref => {
-                if (!seenAttrIds.has(ref.id)) {
-                    seenAttrIds.add(ref.id);
-                    flattenedAttrs.push(ref);
-                }
-            });
-        });
-    }
-    if (flattenedAttrs.length > 0) {
-        infoRowsHtml = flattenedAttrs.map(ref => {
-            const attr = getItemById('attributes', ref.id);
-            if (attr) {
-                const attrName = t(attr.name);
-                const attrDesc = t(attr.description);
-                const ifcMapping = attr.ifc_pset && attr.ifc_property
-                    ? `${attr.ifc_pset}.${attr.ifc_property}`
-                    : (attr.ifc_pset || '-');
-                return `
-                <tr>
-                    <td class="col-val"><span class="info-name-tooltip" title="${escapeHtml(attrDesc)}">${escapeHtml(attrName)}</span></td>
-                    <td class="col-val">${escapeHtml(attr.data_type || '-')}</td>
-                    <td class="col-center">-</td>
-                    <td class="col-val">${escapeHtml(ifcMapping)}</td>
-                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
-                </tr>`;
-            }
-            return '';
-        }).filter(Boolean).join('');
-    }
-    if (!infoRowsHtml) {
-        infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
-    }
 
     // Build LOIN table HTML (usecases with nested attributes)
     let loinRowsHtml = '';
@@ -234,20 +194,6 @@ function renderElementDetailPage(id, activeTags = []) {
                         <table class="data-table">
                             <thead><tr><th class="th-w-20">Element</th><th>Beschreibung</th><th class="th-w-phases">Phasen (1-5)</th></tr></thead>
                             <tbody>${geomRowsHtml}</tbody>
-                        </table>
-                    </div>
-
-                    <div id="informationen" class="detail-section">
-                        <h2>Informationen</h2>
-                        <table class="data-table">
-                            <thead><tr>
-                                <th class="th-w-20">Name</th>
-                                <th class="th-w-format">Format</th>
-                                <th class="th-w-list">Liste</th>
-                                <th>IFC Mapping</th>
-                                <th class="th-w-phases">Phasen (1-5)</th>
-                            </tr></thead>
-                            <tbody>${infoRowsHtml}</tbody>
                         </table>
                     </div>
 
