@@ -29,9 +29,11 @@ function renderElementDetailPage(id, activeTags = []) {
     (data.geometry || []).forEach(item => {
         item?.phases?.forEach(p => derivedPhases.add(p));
     });
-    // Add phases from related_attributes
-    (data.related_attributes || []).forEach(ref => {
-        ref?.phases?.forEach(p => derivedPhases.add(p));
+    // Add phases from related_loin (nested under usecases)
+    (data.related_loin || []).forEach(loinEntry => {
+        (loinEntry.attributes || []).forEach(attr => {
+            attr?.phases?.forEach(p => derivedPhases.add(p));
+        });
     });
     const elementPhases = Array.from(derivedPhases).sort((a, b) => a - b);
     const hasPhases = elementPhases.length > 0;
@@ -52,7 +54,7 @@ function renderElementDetailPage(id, activeTags = []) {
         { id: 'ifc', text: 'IFC-Klasse' },
         { id: 'geometrie', text: 'Geometrie' },
         { id: 'informationen', text: 'Informationen' },
-        { id: 'anwendungsfaelle', text: 'Anwendungsfälle' }
+        { id: 'loin', text: 'LOIN' }
     ].map(link => `<a href="#${link.id}" class="sidebar-link" data-target="${link.id}">${link.text}</a>`).join('');
 
     // Build classification rows from related_classifications (now a simple string array of IDs)
@@ -102,10 +104,22 @@ function renderElementDetailPage(id, activeTags = []) {
             </tr>`).join('')
         : '<tr><td colspan="3" class="col-val empty-text">Keine Daten.</td></tr>';
 
-    // Build attribute rows from related_attributes
+    // Build attribute rows from related_loin (flatten all attributes from all usecases, deduplicate by attr id)
     let infoRowsHtml = '';
-    if (data.related_attributes && Array.isArray(data.related_attributes) && data.related_attributes.length > 0) {
-        infoRowsHtml = data.related_attributes.map(ref => {
+    const seenAttrIds = new Set();
+    const flattenedAttrs = [];
+    if (data.related_loin && Array.isArray(data.related_loin)) {
+        data.related_loin.forEach(loinEntry => {
+            (loinEntry.attributes || []).forEach(ref => {
+                if (!seenAttrIds.has(ref.id)) {
+                    seenAttrIds.add(ref.id);
+                    flattenedAttrs.push(ref);
+                }
+            });
+        });
+    }
+    if (flattenedAttrs.length > 0) {
+        infoRowsHtml = flattenedAttrs.map(ref => {
             const attr = getItemById('attributes', ref.id);
             if (attr) {
                 const attrName = t(attr.name);
@@ -127,6 +141,39 @@ function renderElementDetailPage(id, activeTags = []) {
     }
     if (!infoRowsHtml) {
         infoRowsHtml = '<tr><td colspan="5" class="col-val empty-text">Keine Attribute (LOI).</td></tr>';
+    }
+
+    // Build LOIN table HTML (usecases with nested attributes)
+    let loinRowsHtml = '';
+    if (data.related_loin && Array.isArray(data.related_loin) && data.related_loin.length > 0) {
+        loinRowsHtml = data.related_loin.map(loinEntry => {
+            const uc = getItemById('usecases', loinEntry.usecase_id);
+            if (uc) {
+                const ucName = t(uc.name);
+                const ucLink = `#usecases/${uc.id}`;
+                // Usecase row
+                let rows = `<tr class="loin-usecase-row">
+                    <td class="col-val"><a href="${ucLink}" class="doc-link">${escapeHtml(ucName)}</a></td>
+                    <td class="col-val"></td>
+                </tr>`;
+                // Attribute rows (indented)
+                (loinEntry.attributes || []).forEach(attrRef => {
+                    const attr = getItemById('attributes', attrRef.id);
+                    if (attr) {
+                        const attrName = t(attr.name);
+                        rows += `<tr class="loin-attr-row">
+                            <td class="col-val loin-attr-indent">${escapeHtml(attrName)}</td>
+                            <td class="col-val">${renderPhaseBadges(attrRef.phases)}</td>
+                        </tr>`;
+                    }
+                });
+                return rows;
+            }
+            return '';
+        }).filter(Boolean).join('');
+    }
+    if (!loinRowsHtml) {
+        loinRowsHtml = '<tr><td colspan="2" class="col-val empty-text">Keine LOIN-Anforderungen.</td></tr>';
     }
 
     // Build phases HTML (similar to usecase detail)
@@ -204,14 +251,17 @@ function renderElementDetailPage(id, activeTags = []) {
                         </table>
                     </div>
 
-                    <div id="anwendungsfaelle" class="detail-section">
-                        <h2>Anwendungsfälle</h2>
-                        <div class="info-box info-box--inline">
-                            <i data-lucide="construction" class="info-box__icon"></i>
-                            <div>
-                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Anwendungsfälle angezeigt.</p>
-                            </div>
-                        </div>
+                    <div id="loin" class="detail-section">
+                        <h2>LOIN</h2>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-w-50">Anwendungsfall / Attribut</th>
+                                    <th>Phasen (1-5)</th>
+                                </tr>
+                            </thead>
+                            <tbody>${loinRowsHtml}</tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -3371,6 +3371,16 @@ footer a:hover {
     border: 1px solid var(--color-border-input);
 }
 
+/* LOIN table row styling */
+.loin-usecase-row td {
+    font-weight: 600;
+    background: var(--color-bg-light);
+}
+
+.loin-attr-indent {
+    padding-left: 2rem !important;
+}
+
 .info-box--inline {
     display: flex;
     align-items: flex-start;
