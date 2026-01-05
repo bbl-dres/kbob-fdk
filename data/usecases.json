@@ -282,19 +282,39 @@
     "related_documents": [
       {
         "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       },
       {
         "id": "320d5f7c-7db3-45e2-b118-e5b6236242fe",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       },
       {
         "id": "790600c4-01ee-4853-9a80-f69b069e7f5d",
-        "required": false
+        "required": false,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       },
       {
         "id": "789e87f7-4476-4cc9-a920-0c67ae688ef6",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -577,11 +597,21 @@
     "related_documents": [
       {
         "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          4
+        ]
       },
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -862,11 +892,17 @@
     "related_documents": [
       {
         "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
-        "required": true
+        "required": true,
+        "phases": [
+          1
+        ]
       },
       {
         "id": "d08c9e7e-0aa0-41fc-a4fe-1beadf30592d",
-        "required": false
+        "required": false,
+        "phases": [
+          1
+        ]
       }
     ],
     "related_tags": [
@@ -1149,7 +1185,11 @@
     "related_documents": [
       {
         "id": "e78a10de-102e-435c-9a4a-085ee117dcbe",
-        "required": false
+        "required": false,
+        "phases": [
+          1,
+          2
+        ]
       }
     ],
     "related_tags": [
@@ -1429,7 +1469,13 @@
     "related_documents": [
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
-        "required": false
+        "required": false,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -1754,15 +1800,27 @@
     "related_documents": [
       {
         "id": "e2665347-baf8-41a1-adb6-470f3c9d506a",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       },
       {
         "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
-        "required": false
+        "required": false,
+        "phases": [
+          2,
+          3
+        ]
       },
       {
         "id": "789e87f7-4476-4cc9-a920-0c67ae688ef6",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -2046,15 +2104,27 @@
     "related_documents": [
       {
         "id": "861de13e-0055-4293-a0ca-35ed1346f1a3",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       },
       {
         "id": "175dfc9c-97cf-4984-8396-76ea2b353c65",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       },
       {
         "id": "525e3aa3-9f5b-46f5-a43c-90f03bb39be3",
-        "required": false
+        "required": false,
+        "phases": [
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -2337,7 +2407,10 @@
     "related_documents": [
       {
         "id": "b2b16291-86c3-4b5a-9f89-2a4a71739ba1",
-        "required": false
+        "required": false,
+        "phases": [
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -2614,11 +2687,20 @@
     "related_documents": [
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3,
+          4
+        ]
       },
       {
         "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -2900,15 +2982,24 @@
     "related_documents": [
       {
         "id": "001a7013-f227-476f-931b-dc3a70d50d4f",
-        "required": true
+        "required": true,
+        "phases": [
+          2
+        ]
       },
       {
         "id": "22257a5a-96a4-4f14-a501-d99b8dce7706",
-        "required": true
+        "required": true,
+        "phases": [
+          2
+        ]
       },
       {
         "id": "69ec1e3f-1895-45a9-87cd-708be147a5e8",
-        "required": false
+        "required": false,
+        "phases": [
+          2
+        ]
       }
     ],
     "related_tags": [
@@ -3272,7 +3363,12 @@
     "related_documents": [
       {
         "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
-        "required": false
+        "required": false,
+        "phases": [
+          1,
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -3826,11 +3922,19 @@
     "related_documents": [
       {
         "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       },
       {
         "id": "47626726-0504-465a-99f0-1f8649a9f936",
-        "required": false
+        "required": false,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -4113,7 +4217,11 @@
     "related_documents": [
       {
         "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -4394,11 +4502,17 @@
     "related_documents": [
       {
         "id": "0224ee41-c616-44d0-bf94-bb5f70859108",
-        "required": true
+        "required": true,
+        "phases": [
+          3
+        ]
       },
       {
         "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
-        "required": true
+        "required": true,
+        "phases": [
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -4680,11 +4794,17 @@
     "related_documents": [
       {
         "id": "e971a9e1-0a5a-4e41-bf55-e5d88d1d0a05",
-        "required": true
+        "required": true,
+        "phases": [
+          3
+        ]
       },
       {
         "id": "5b4d2052-2730-4109-8b19-eb5001d3772b",
-        "required": true
+        "required": true,
+        "phases": [
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -5232,15 +5352,26 @@
     "related_documents": [
       {
         "id": "4229dbee-f2ad-44ab-be7d-3a5a90b77ce1",
-        "required": true
+        "required": true,
+        "phases": [
+          3
+        ]
       },
       {
         "id": "5ae3dc48-e3e1-427e-b596-f60921328063",
-        "required": true
+        "required": true,
+        "phases": [
+          3,
+          4
+        ]
       },
       {
         "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
-        "required": true
+        "required": true,
+        "phases": [
+          3,
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -5524,15 +5655,27 @@
     "related_documents": [
       {
         "id": "d9827be9-3a16-4cf5-b092-dfff0fd6bfa9",
-        "required": true
+        "required": true,
+        "phases": [
+          3,
+          4
+        ]
       },
       {
         "id": "2aad684c-1004-43d2-b32c-02541cfe8ee1",
-        "required": true
+        "required": true,
+        "phases": [
+          3,
+          4
+        ]
       },
       {
         "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
-        "required": false
+        "required": false,
+        "phases": [
+          3,
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -5860,19 +6003,41 @@
     "related_documents": [
       {
         "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
       },
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
       },
       {
         "id": "7ca7912c-1e19-4592-9b66-d18fa2c4e94f",
-        "required": true
+        "required": true,
+        "phases": [
+          1,
+          2,
+          3,
+          4
+        ]
       },
       {
         "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
-        "required": true
+        "required": true,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [
@@ -6147,11 +6312,17 @@
     "related_documents": [
       {
         "id": "41233723-778f-4b91-811f-832dbb52e465",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -6426,11 +6597,17 @@
     "related_documents": [
       {
         "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "e01d496e-5b0b-45a7-b74c-ca16a73e6d00",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -6711,15 +6888,24 @@
     "related_documents": [
       {
         "id": "38532497-513b-484e-ac65-c184e5695eb0",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "184147f3-7b25-45f0-ada9-66362cb87bca",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "977bc117-b84b-4494-9473-82d785d9ce26",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -6993,11 +7179,17 @@
     "related_documents": [
       {
         "id": "5c56cefe-0501-43d0-8324-e13c01462a04",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "38532497-513b-484e-ac65-c184e5695eb0",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -7271,7 +7463,10 @@
     "related_documents": [
       {
         "id": "e7a6996d-0f6e-42d0-a3cc-320ffc04e7da",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -7552,11 +7747,17 @@
     "related_documents": [
       {
         "id": "471dc368-d0e4-40bf-991d-6de407026ba7",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "6f4feb6d-b869-429f-9325-e9ce7df779ce",
-        "required": false
+        "required": false,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -7824,11 +8025,17 @@
     "related_documents": [
       {
         "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       },
       {
         "id": "ff0858f5-e14a-4c64-92e2-ed44368a837e",
-        "required": true
+        "required": true,
+        "phases": [
+          4
+        ]
       }
     ],
     "related_tags": [
@@ -8114,7 +8321,11 @@
     "related_documents": [
       {
         "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
-        "required": false
+        "required": false,
+        "phases": [
+          2,
+          3
+        ]
       }
     ],
     "related_tags": [

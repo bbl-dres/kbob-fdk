@@ -303,7 +303,7 @@ Standardized BIM processes with roles, responsibilities, and quality criteria pe
 | `quality_criteria` | `jsonb` | | Acceptance criteria as i18n array |
 | `process_url` | `text` | | Link to BPMN process diagram |
 | `related_elements` | `jsonb` | | Required elements: `[{"id": "<uuid>", "phases": [2,3]}]` |
-| `related_documents` | `jsonb` | | Required documents: `[{"id": "<uuid>", "required": true}]` |
+| `related_documents` | `jsonb` | | Required documents: `[{"id": "<uuid>", "phases": [2,3], "required": true}]` |
 
 **Domain values:** See §7.5 (22 Anwendungsfeld values per VDI 2552 Blatt 12.2)
 
@@ -407,7 +407,7 @@ Relationships between entities are stored on the parent entity, avoiding junctio
 | `documents` | `related_classifications` | classifications | `["<uuid>", ...]` |
 | `documents` | `related_tags` | tags | `["<uuid>", ...]` |
 | `usecases` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3]}]` |
-| `usecases` | `related_documents` | documents | `[{"id": "<uuid>", "required": true}]` |
+| `usecases` | `related_documents` | documents | `[{"id": "<uuid>", "phases": [2,3], "required": true}]` |
 | `usecases` | `related_tags` | tags | `["<uuid>", ...]` |
 | `models` | `related_elements` | elements | `[{"id": "<uuid>", "phases": [2,3,4]}]` |
 | `models` | `related_tags` | tags | `["<uuid>", ...]` |

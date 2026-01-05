@@ -682,8 +682,6 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             const doc = getItemById('documents', ref.id);
             if (doc) {
                 const docName = t(doc.name);
-                const docCode = doc.code || '';
-                const docDomain = t(doc.domain) || '';
                 const requiredBadge = ref.required
                     ? '<span class="badge badge--required">Erforderlich</span>'
                     : '<span class="badge badge--optional">Optional</span>';
@@ -691,8 +689,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 return `
                 <tr>
                     <td class="col-val"><a href="${docLink}" class="doc-link">${escapeHtml(docName)}</a></td>
-                    <td class="col-val">${escapeHtml(docCode)}</td>
-                    <td class="col-val">${escapeHtml(docDomain)}</td>
+                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
                     <td class="col-val">${requiredBadge}</td>
                 </tr>`;
             }
@@ -705,8 +702,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     <thead>
                         <tr>
                             <th>Dokument</th>
-                            <th class="th-w-15">Code</th>
-                            <th class="th-w-20">Kategorie</th>
+                            <th class="th-w-phases">Phasen (1-5)</th>
                             <th class="th-w-15">Status</th>
                         </tr>
                     </thead>
