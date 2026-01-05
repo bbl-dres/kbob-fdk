@@ -103,12 +103,11 @@ The catalog comprises five independent entity types, each stored as a standalone
 ```mermaid
 flowchart TB
     USECASES["Use Cases"] -- implement --> PROCESSES["Processes (BPMN)"]
-    USECASES -- define --> LOIN["Information Requirements"]
     USECASES -- require --> DOCUMENTS["Documents"]
-    MODELS["Discipline Models"] -- contain --> ELEMENTS["Building Elements"]
-    LOIN -- constrain --> ELEMENTS
-    ELEMENTS -- have --> ATTRIBUTES["Attributes"]
-    LOIN -- specify --> ATTRIBUTES
+    USECASES <-- "related_loin" --> ELEMENTS["Building Elements"]
+    USECASES -- "related_loin" --> ATTRIBUTES["Attributes"]
+    ELEMENTS -- "related_loin" --> ATTRIBUTES
+    MODELS["Discipline Models"] -- contain --> ELEMENTS
     ELEMENTS -- classified by --> CLASSIFICATIONS["Classifications"]
     ELEMENTS -- reference --> EPDS["EPD Data"]
     ATTRIBUTES -- constrained by --> ENUMERATIONS["Enumerations"]
@@ -133,7 +132,6 @@ flowchart TB
         MODELS["Discipline Models"]
         DOCUMENTS["Documents"]
         ELEMENTS["Building Elements"]
-        LOIN["Information Requirements"]
         ATTRIBUTES["Attributes"]
         CLASSIFICATIONS["Classifications"]
         EPDS["EPD Data"]
@@ -146,12 +144,11 @@ flowchart TB
     PHASES -- structure --> USECASES
     ROLES -- responsible for --> MODELS
     ROLES -- produce --> DOCUMENTS
-    USECASES -- define --> LOIN
     USECASES -- require --> DOCUMENTS
+    USECASES <-- "related_loin" --> ELEMENTS
+    USECASES -- "related_loin" --> ATTRIBUTES
+    ELEMENTS -- "related_loin" --> ATTRIBUTES
     MODELS -- contain --> ELEMENTS
-    LOIN -- constrain --> ELEMENTS
-    ELEMENTS -- have --> ATTRIBUTES
-    LOIN -- specify --> ATTRIBUTES
     ELEMENTS -- classified by --> CLASSIFICATIONS
     ELEMENTS -- reference --> EPDS
     ATTRIBUTES -- constrained by --> ENUMERATIONS
@@ -171,7 +168,7 @@ flowchart TB
 | **Capabilities** | Organizational abilities required to achieve goals: design, coordination, quality assurance. | Conceptual | TOGAF/ArchiMate, eCH-0122 |
 | **Processes** | Defined workflows implementing capabilities, governed by asset phases: information delivery, model coordination, quality assurance, change management. Implemented as BPMN diagrams. | Implemented | TOGAF/ArchiMate, eCH-0073/0074, BPMN 2.0 |
 | **Use Cases** | Specific BIM applications, e.g. As-Built Survey, Requirements Planning, Discipline Coordination, Quantity & Cost Estimation, Quality Assurance, Sustainability Certification, Defect Management. | Implemented | ISO 19650, buildingSMART IDM |
-| **Information Requirements** | LOIN specifications defining what information is needed, when, and at what detail level. | Implemented | ISO 19650-1, EN 17412 |
+| **Information Requirements (LOIN)** | Bidirectional relationship (`related_loin`) between Use Cases and Building Elements, specifying which Attributes are required at which phases. | Implemented | ISO 19650-1, EN 17412 |
 | **Attributes** | Properties attached to building elements: material, dimensions, fire rating, U-value. | Implemented | IFC, bSDD |
 | **Enumerations** | Controlled vocabularies constraining attribute values: material types, status codes, classifications. | Implemented | IFC, bSDD |
 | **Reference Data** | External data sources linked to attributes: standards, regulations, product databases. | Conceptual | DCAT-AP CH, Swiss Data Ecosystem |
