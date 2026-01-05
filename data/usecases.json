@@ -279,7 +279,24 @@
     ],
     "process_url": "assets/bpmn/uc000-minimalstandard.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
+        "required": true
+      },
+      {
+        "id": "320d5f7c-7db3-45e2-b118-e5b6236242fe",
+        "required": true
+      },
+      {
+        "id": "790600c4-01ee-4853-9a80-f69b069e7f5d",
+        "required": false
+      },
+      {
+        "id": "789e87f7-4476-4cc9-a920-0c67ae688ef6",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-koordination"
     ]
@@ -557,7 +574,16 @@
     ],
     "process_url": "assets/bpmn/uc010-bestandserfassung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
+        "required": true
+      },
+      {
+        "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-bestandserfassung"
     ]
@@ -833,7 +859,16 @@
     ],
     "process_url": "assets/bpmn/uc020-bedarfsplanung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
+        "required": true
+      },
+      {
+        "id": "d08c9e7e-0aa0-41fc-a4fe-1beadf30592d",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-bedarfsplanung",
       "tag-koordination"
@@ -1111,7 +1146,12 @@
     ],
     "process_url": "assets/bpmn/uc030-planungsvarianten.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "e78a10de-102e-435c-9a4a-085ee117dcbe",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-variantenvergleich",
       "tag-nachhaltigkeit",
@@ -1386,7 +1426,12 @@
     ],
     "process_url": "assets/bpmn/uc040-visualisierung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-visualisierung",
       "tag-koordination"
@@ -1706,7 +1751,20 @@
     ],
     "process_url": "assets/bpmn/uc050-koordination_der_fachgewerke.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "e2665347-baf8-41a1-adb6-470f3c9d506a",
+        "required": true
+      },
+      {
+        "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
+        "required": false
+      },
+      {
+        "id": "789e87f7-4476-4cc9-a920-0c67ae688ef6",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-koordination",
       "tag-qualitaetssicherung"
@@ -1985,7 +2043,20 @@
     ],
     "process_url": "assets/bpmn/uc060-qualit_tspr_fung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "861de13e-0055-4293-a0ca-35ed1346f1a3",
+        "required": true
+      },
+      {
+        "id": "175dfc9c-97cf-4984-8396-76ea2b353c65",
+        "required": true
+      },
+      {
+        "id": "525e3aa3-9f5b-46f5-a43c-90f03bb39be3",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-koordination"
@@ -2263,7 +2334,12 @@
     ],
     "process_url": "assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "b2b16291-86c3-4b5a-9f89-2a4a71739ba1",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-nachweise",
       "tag-koordination"
@@ -2535,7 +2611,16 @@
     ],
     "process_url": "assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
+        "required": true
+      },
+      {
+        "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-dokumentation",
       "tag-koordination"
@@ -2812,7 +2897,20 @@
     ],
     "process_url": "assets/bpmn/uc090-genehmigungsprozess.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "001a7013-f227-476f-931b-dc3a70d50d4f",
+        "required": true
+      },
+      {
+        "id": "22257a5a-96a4-4f14-a501-d99b8dce7706",
+        "required": true
+      },
+      {
+        "id": "69ec1e3f-1895-45a9-87cd-708be147a5e8",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-genehmigung",
       "tag-koordination"
@@ -3171,7 +3269,12 @@
     ],
     "process_url": "assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-kosten"
     ]
@@ -3720,7 +3823,16 @@
     ],
     "process_url": "assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
+        "required": true
+      },
+      {
+        "id": "47626726-0504-465a-99f0-1f8649a9f936",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-termine",
       "tag-koordination"
@@ -3998,7 +4110,12 @@
     ],
     "process_url": "assets/bpmn/uc130-logistikplanung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-logistik",
       "tag-koordination"
@@ -4274,7 +4391,16 @@
     ],
     "process_url": "assets/bpmn/uc140-baufortschrittskontrolle.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "0224ee41-c616-44d0-bf94-bb5f70859108",
+        "required": true
+      },
+      {
+        "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-kosten",
@@ -4551,7 +4677,16 @@
     ],
     "process_url": "assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "e971a9e1-0a5a-4e41-bf55-e5d88d1d0a05",
+        "required": true
+      },
+      {
+        "id": "5b4d2052-2730-4109-8b19-eb5001d3772b",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-aenderungsmanagement",
       "tag-kosten",
@@ -5094,7 +5229,20 @@
     ],
     "process_url": "assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "4229dbee-f2ad-44ab-be7d-3a5a90b77ce1",
+        "required": true
+      },
+      {
+        "id": "5ae3dc48-e3e1-427e-b596-f60921328063",
+        "required": true
+      },
+      {
+        "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-abnahme",
       "tag-qualitaetssicherung",
@@ -5373,7 +5521,20 @@
     ],
     "process_url": "assets/bpmn/uc180-inbetriebnahmemanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "d9827be9-3a16-4cf5-b092-dfff0fd6bfa9",
+        "required": true
+      },
+      {
+        "id": "2aad684c-1004-43d2-b32c-02541cfe8ee1",
+        "required": true
+      },
+      {
+        "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-inbetriebnahme",
       "tag-abnahme",
@@ -5696,7 +5857,24 @@
     ],
     "process_url": "assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
+        "required": true
+      },
+      {
+        "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
+        "required": true
+      },
+      {
+        "id": "7ca7912c-1e19-4592-9b66-d18fa2c4e94f",
+        "required": true
+      },
+      {
+        "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-dokumentation",
       "tag-koordination"
@@ -5966,7 +6144,16 @@
     ],
     "process_url": "assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "41233723-778f-4b91-811f-832dbb52e465",
+        "required": true
+      },
+      {
+        "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-dokumentation",
       "tag-betrieb"
@@ -6236,7 +6423,16 @@
     ],
     "process_url": "assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
+        "required": true
+      },
+      {
+        "id": "e01d496e-5b0b-45a7-b74c-ca16a73e6d00",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-betrieb"
@@ -6512,7 +6708,20 @@
     ],
     "process_url": "assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "38532497-513b-484e-ac65-c184e5695eb0",
+        "required": true
+      },
+      {
+        "id": "184147f3-7b25-45f0-ada9-66362cb87bca",
+        "required": true
+      },
+      {
+        "id": "977bc117-b84b-4494-9473-82d785d9ce26",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-betrieb"
     ]
@@ -6781,7 +6990,16 @@
     ],
     "process_url": "assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "5c56cefe-0501-43d0-8324-e13c01462a04",
+        "required": true
+      },
+      {
+        "id": "38532497-513b-484e-ac65-c184e5695eb0",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-betrieb"
     ]
@@ -7050,7 +7268,12 @@
     ],
     "process_url": "assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "e7a6996d-0f6e-42d0-a3cc-320ffc04e7da",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-bedarfsplanung",
       "tag-betrieb"
@@ -7326,7 +7549,16 @@
     ],
     "process_url": "assets/bpmn/uc250-energiemanagement.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "471dc368-d0e4-40bf-991d-6de407026ba7",
+        "required": true
+      },
+      {
+        "id": "6f4feb6d-b869-429f-9325-e9ce7df779ce",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-nachhaltigkeit",
       "tag-betrieb"
@@ -7589,7 +7821,16 @@
     ],
     "process_url": "assets/bpmn/uc260-betreiberverantwortung.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
+        "required": true
+      },
+      {
+        "id": "ff0858f5-e14a-4c64-92e2-ed44368a837e",
+        "required": true
+      }
+    ],
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-risikomanagement",
@@ -7870,7 +8111,12 @@
     ],
     "process_url": "assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn",
     "related_elements": [],
-    "related_documents": [],
+    "related_documents": [
+      {
+        "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
+        "required": false
+      }
+    ],
     "related_tags": [
       "tag-nachhaltigkeit",
       "tag-nachweise"

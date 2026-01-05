@@ -551,6 +551,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
     // practiceExample field removed from schema
     const hasQualityCriteria = hasData(data.quality_criteria);
     const hasRoles = hasData(data.roles);
+    const hasDocuments = hasData(data.related_documents);
 
     // Build sidebar with group labels
     let sidebarHtml = '';
@@ -674,6 +675,46 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             </tr>`).join('')
         : '<tr><td colspan="4" class="col-center empty-text">Keine Rollen definiert.</td></tr>';
 
+    // Build documents table HTML
+    let documentsHtml = '';
+    if (hasDocuments) {
+        const docRows = data.related_documents.map(ref => {
+            const doc = getItemById('documents', ref.id);
+            if (doc) {
+                const docName = t(doc.name);
+                const docCode = doc.code || '';
+                const docDomain = t(doc.domain) || '';
+                const requiredBadge = ref.required
+                    ? '<span class="badge badge--required">Erforderlich</span>'
+                    : '<span class="badge badge--optional">Optional</span>';
+                const docLink = `#documents/${doc.id}`;
+                return `
+                <tr>
+                    <td class="col-val"><a href="${docLink}" class="doc-link">${escapeHtml(docName)}</a></td>
+                    <td class="col-val">${escapeHtml(docCode)}</td>
+                    <td class="col-val">${escapeHtml(docDomain)}</td>
+                    <td class="col-val">${requiredBadge}</td>
+                </tr>`;
+            }
+            return '';
+        }).filter(Boolean).join('');
+
+        if (docRows) {
+            documentsHtml = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dokument</th>
+                            <th class="th-w-15">Code</th>
+                            <th class="th-w-20">Kategorie</th>
+                            <th class="th-w-15">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>${docRows}</tbody>
+                </table>`;
+        }
+    }
+
     contentArea.innerHTML = `
         <section class="detail-hero">
             <div class="container detail-hero__inner">
@@ -760,12 +801,9 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
                     <div class="detail-section" id="dokumente">
                         <h2>Dokumente</h2>
-                        <div class="info-box info-box--inline">
-                            <i data-lucide="construction" class="info-box__icon"></i>
-                            <div>
-                                <p class="info-box__text">Diese Funktion wird derzeit entwickelt. Hier werden zukünftig verknüpfte Dokumente angezeigt.</p>
-                            </div>
-                        </div>
+                        ${hasDocuments && documentsHtml ? documentsHtml : `
+                        <p class="empty-text">Keine verknüpften Dokumente vorhanden.</p>
+                        `}
                     </div>
 
                     <div class="detail-section" id="elemente">
