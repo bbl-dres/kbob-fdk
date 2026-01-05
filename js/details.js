@@ -112,7 +112,7 @@ function renderElementDetailPage(id, activeTags = []) {
                 const ucName = t(uc.name);
                 const ucLink = `#usecases/${uc.id}`;
                 // Usecase row
-                let rows = `<tr>
+                let rows = `<tr class="loin-parent-row">
                     <td class="col-val"><a href="${ucLink}" class="doc-link">${escapeHtml(ucName)}</a></td>
                     <td class="col-val">-</td>
                     <td class="col-val">-</td>
@@ -727,7 +727,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 const elemName = t(elem.name);
                 const elemLink = `#elements/${elem.id}`;
                 // Element row
-                let rows = `<tr>
+                let rows = `<tr class="loin-parent-row">
                     <td class="col-val"><a href="${elemLink}" class="doc-link">${escapeHtml(elemName)}</a></td>
                     <td class="col-val">-</td>
                     <td class="col-val">-</td>
