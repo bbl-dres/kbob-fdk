@@ -112,6 +112,7 @@ flowchart TB
     ELEMENTS -- reference --> EPDS["EPD Data"]
     ATTRIBUTES -- constrained by --> ENUMERATIONS["Enumerations"]
     DOCUMENTS -- describe --> ELEMENTS
+    DOCUMENTS -- classified by --> CLASSIFICATIONS
 ```
 
 ### Full Conceptual Model
@@ -154,6 +155,7 @@ flowchart TB
     ATTRIBUTES -- constrained by --> ENUMERATIONS
     ATTRIBUTES -- reference --> REFDATA
     DOCUMENTS -- describe --> ELEMENTS
+    DOCUMENTS -- classified by --> CLASSIFICATIONS
 ```
 
 **Entities**
