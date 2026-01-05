@@ -278,7 +278,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc000-minimalstandard.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
@@ -319,6 +318,21 @@
     ],
     "related_tags": [
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "2c16f420-0c40-492d-98e4-a8a1a260d770",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -593,7 +607,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc010-bestandserfassung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
@@ -616,6 +629,308 @@
     ],
     "related_tags": [
       "tag-bestandserfassung"
+    ],
+    "related_loin": [
+      {
+        "element_id": "17b220da-4546-4b29-bfec-1ee0389d85e1",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2b718f27-54a9-45df-a38a-75101b358f2e",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b462c234-3391-464a-93e2-6496839973fa",
+        "attributes": [
+          {
+            "id": "attr-0023",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0026",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0024",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0021",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2ba16eb5-30bd-4ac8-a800-3828b0f577d8",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0055",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "dde4ce0f-7643-4e16-8a72-d2460dba9267",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0055",
+            "phases": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "bdb90b0b-718b-4d11-8bfe-aa5e1718ae43",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -888,7 +1203,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc020-bedarfsplanung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "a31e1a29-9359-485e-9a5b-60e048dc3f71",
@@ -908,6 +1222,302 @@
     "related_tags": [
       "tag-bedarfsplanung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "b8d68104-9703-40fd-a6a3-5fab013fd034",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "565ffb5e-e960-4cbd-a206-e04cbf4eb5be",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "08c136b5-d075-4848-8b38-282a505c73b5",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1bf6f812-9eef-4230-a673-0855b69d4dc7",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b6aa7cda-0bdf-4f51-b8be-5219ef9e5470",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "62dd9d35-99cd-413c-b19f-a7e350cd7147",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3429be1b-2f3e-46c8-8165-845464ea7928",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "5d31920c-d200-441a-a267-aaad3fe910e5",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      }
     ]
   },
   {
@@ -1181,7 +1791,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc030-planungsvarianten.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "e78a10de-102e-435c-9a4a-085ee117dcbe",
@@ -1196,6 +1805,213 @@
       "tag-variantenvergleich",
       "tag-nachhaltigkeit",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "17b220da-4546-4b29-bfec-1ee0389d85e1",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "85175226-3ed8-4cbb-b20d-cc2138a46392",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "973b2333-964f-4221-af8f-21d2c15b16f9",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3429be1b-2f3e-46c8-8165-845464ea7928",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "0379a0e0-0666-4783-a762-77d8b9588559",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -1465,7 +2281,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc040-visualisierung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
@@ -1481,6 +2296,419 @@
     "related_tags": [
       "tag-visualisierung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "754a6320-7474-4742-802e-b1497e839346",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "e8569677-1f9c-43d0-afaf-27e2dfe9a7a0",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0015",
+            "phases": [
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "60e848ec-edc1-4fae-b56e-91784ada4194",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0020",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "11a9365c-cf55-4b13-9713-c304095ba236",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b6aa7cda-0bdf-4f51-b8be-5219ef9e5470",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0053",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0054",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0052",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0051",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "65d6cfe2-8b1f-4958-afcd-f19fea4f8656",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "53fbe693-3891-4bb2-9453-80e8d63dfbb7",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0038",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3a922ea7-c481-4be3-91a4-6449c81b1121",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "ceb30a80-b9cc-4086-a204-50a84256be13",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -1796,7 +3024,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc050-koordination_der_fachgewerke.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "e2665347-baf8-41a1-adb6-470f3c9d506a",
@@ -1826,6 +3053,295 @@
     "related_tags": [
       "tag-koordination",
       "tag-qualitaetssicherung"
+    ],
+    "related_loin": [
+      {
+        "element_id": "9df8dce0-aa86-4991-976d-30c390c7576f",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "533eeef7-7f5d-4b06-a121-bd247c5af2f0",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "67830174-2237-4ce3-b236-b52be2d879dd",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "61f7fd54-3598-43d6-976a-973092428833",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3950ed86-be6d-4702-a454-fcb8d51266f3",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "8f5586ac-cc29-498f-956d-c9f100e7106f",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -2100,7 +3616,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc060-qualit_tspr_fung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "861de13e-0055-4293-a0ca-35ed1346f1a3",
@@ -2130,6 +3645,141 @@
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "ae2a2b1c-14da-40fa-be11-c7106d07e0da",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "8caf1a86-ecb4-4c99-9da4-714fdc508bc6",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -2403,7 +4053,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc070-bemessung_und_nachweisf_hrung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "b2b16291-86c3-4b5a-9f89-2a4a71739ba1",
@@ -2416,6 +4065,111 @@
     "related_tags": [
       "tag-nachweise",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "71a94359-fa87-421e-a7e8-dc0bb0f8a44c",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "cf32faa3-a257-497f-be30-a460371fba06",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "e3586d46-42bf-4405-bffc-8c3f6a70a90e",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "fe62bc9f-2c13-4abe-9021-146bbbbe5789",
+        "attributes": [
+          {
+            "id": "attr-0048",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0049",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -2683,7 +4437,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc080-ableitung_von_planunterlagen.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "1fbc83af-bee5-4f87-951e-9d717ebebe68",
@@ -2706,6 +4459,149 @@
     "related_tags": [
       "tag-dokumentation",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "4d48ad22-0c19-4822-8d83-3b530fddd5c5",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6779cc62-b398-4549-8935-3b9e57346343",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3950ed86-be6d-4702-a454-fcb8d51266f3",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "17dcbb8c-b402-4ebf-b730-baf6ab7dc35b",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1efc68ab-1d5d-49d6-b7b8-732005904f90",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -2978,7 +4874,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc090-genehmigungsprozess.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "001a7013-f227-476f-931b-dc3a70d50d4f",
@@ -3005,6 +4900,310 @@
     "related_tags": [
       "tag-genehmigung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "6da21a90-f629-4fbc-a7d0-1d5568f062a1",
+        "attributes": [
+          {
+            "id": "attr-0027",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2662e289-3f3e-4c3d-96b9-8114c399f7af",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0029",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0031",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0030",
+            "phases": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "d1b2ae08-2fb8-40ad-8d90-9053de4e326c",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "4fb6f690-c435-426e-9cbf-ceb3e6065f22",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "0e7186d1-a1dc-4cf3-9cef-30a13d9a4b13",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2ce10089-bcaf-4081-8881-7e14bcf7f450",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "5d31920c-d200-441a-a267-aaad3fe910e5",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      }
     ]
   },
   {
@@ -3359,7 +5558,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc100-mengen__und_kostenermittlung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "22a45f7c-cb4e-4419-a4a9-3754fb12a0de",
@@ -3373,6 +5571,195 @@
     ],
     "related_tags": [
       "tag-kosten"
+    ],
+    "related_loin": [
+      {
+        "element_id": "63179f40-7f64-4632-a34e-8fd5d7e44ee7",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "23372c85-9f5e-4493-9949-8b534a99c886",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "fa45f72e-5a33-476c-a543-f4feeacd3c46",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0057",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0059",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0056",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0017",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "f570632c-5199-41af-905b-99c029b0ecf1",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -3640,11 +6027,89 @@
       }
     ],
     "process_url": "assets/bpmn/uc110-leistungsverzeichnis_und_ausschreibung.bpmn",
-    "related_elements": [],
     "related_documents": [],
     "related_tags": [
       "tag-ausschreibung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "23372c85-9f5e-4493-9949-8b534a99c886",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "e98be27a-84c0-4b21-a0f9-48be5d81e101",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0033",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "9a39bc96-93f9-438d-bbd1-aa52a83817c5",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -3918,7 +6383,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc120-terminplanung_der_ausf_hrung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
@@ -3940,6 +6404,31 @@
     "related_tags": [
       "tag-termine",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "6eb9809b-c60a-4d5c-8d4e-54098c9e2ff6",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -4213,7 +6702,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc130-logistikplanung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "b88b03e0-9576-43c4-918b-ae0bd908d6f6",
@@ -4227,6 +6715,373 @@
     "related_tags": [
       "tag-logistik",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "60e848ec-edc1-4fae-b56e-91784ada4194",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "fe9122fa-d48d-4adf-a724-677e21f3317a",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6eb9809b-c60a-4d5c-8d4e-54098c9e2ff6",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "533eeef7-7f5d-4b06-a121-bd247c5af2f0",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b462c234-3391-464a-93e2-6496839973fa",
+        "attributes": [
+          {
+            "id": "attr-0024",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0025",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "4fe0a174-baf2-4dd2-b6f1-9727fb5aeadc",
+        "attributes": [
+          {
+            "id": "attr-0021",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0040",
+            "phases": []
+          },
+          {
+            "id": "attr-0041",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0045",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0044",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0047",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0043",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0039",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0046",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0042",
+            "phases": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2d30c8c0-1d19-4282-9522-8a4403be2d03",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "de634a06-6d82-46ef-a954-031eb8499611",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "fa45f72e-5a33-476c-a543-f4feeacd3c46",
+        "attributes": [
+          {
+            "id": "attr-0017",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0020",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "f303d882-332f-4468-8389-35f793c80a53",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -4498,7 +7353,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc140-baufortschrittskontrolle.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "0224ee41-c616-44d0-bf94-bb5f70859108",
@@ -4519,6 +7373,269 @@
       "tag-qualitaetssicherung",
       "tag-kosten",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "d1b2ae08-2fb8-40ad-8d90-9053de4e326c",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "565ffb5e-e960-4cbd-a206-e04cbf4eb5be",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "812e527c-2b18-4eb1-834f-47a9add4e292",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "65d6cfe2-8b1f-4958-afcd-f19fea4f8656",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "53fbe693-3891-4bb2-9453-80e8d63dfbb7",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0038",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "b213d722-b960-4553-bbef-5f2f9eabfba7",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      }
     ]
   },
   {
@@ -4790,7 +7907,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc150-_nderungs__und_nachtragsmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "e971a9e1-0a5a-4e41-bf55-e5d88d1d0a05",
@@ -4811,6 +7927,275 @@
       "tag-aenderungsmanagement",
       "tag-kosten",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "2c16f420-0c40-492d-98e4-a8a1a260d770",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1dd0036e-aa7d-4301-93d4-a884829356ef",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2d30c8c0-1d19-4282-9522-8a4403be2d03",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2ba16eb5-30bd-4ac8-a800-3828b0f577d8",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0055",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "20bc2e49-17aa-4727-86ca-c6dc6f3f5e9a",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -5077,11 +8462,219 @@
       }
     ],
     "process_url": "assets/bpmn/uc160-abrechnung_von_bauleistungen.bpmn",
-    "related_elements": [],
     "related_documents": [],
     "related_tags": [
       "tag-kosten",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "17b220da-4546-4b29-bfec-1ee0389d85e1",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "c7e4f63e-e9af-4c88-9e95-c32a5c42bb7e",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2b718f27-54a9-45df-a38a-75101b358f2e",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "7fd3e1e0-6f6b-40e1-8152-2da9df0090d2",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "166aeb72-9918-4bfe-a020-9b23ebc3b459",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -5348,7 +8941,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc170-abnahme__und_m_ngelmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "4229dbee-f2ad-44ab-be7d-3a5a90b77ce1",
@@ -5378,6 +8970,417 @@
       "tag-abnahme",
       "tag-qualitaetssicherung",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "f73d044d-c18f-4708-aec8-f12337fa504a",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b462c234-3391-464a-93e2-6496839973fa",
+        "attributes": [
+          {
+            "id": "attr-0026",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0021",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0025",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0022",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "61f7fd54-3598-43d6-976a-973092428833",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "812e527c-2b18-4eb1-834f-47a9add4e292",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0038",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6862686b-e732-49e8-bd74-5cef483dbe74",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "dde4ce0f-7643-4e16-8a72-d2460dba9267",
+        "attributes": [
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0055",
+            "phases": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3a922ea7-c481-4be3-91a4-6449c81b1121",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "20bc2e49-17aa-4727-86ca-c6dc6f3f5e9a",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "583fb594-cc81-4d3f-b652-ca1cfcb232f4",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -5651,7 +9654,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc180-inbetriebnahmemanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "d9827be9-3a16-4cf5-b092-dfff0fd6bfa9",
@@ -5682,6 +9684,269 @@
       "tag-inbetriebnahme",
       "tag-abnahme",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "3a0bcc72-54d8-4de3-8004-8fa7ddf9d738",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "ae2a2b1c-14da-40fa-be11-c7106d07e0da",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "9df8dce0-aa86-4991-976d-30c390c7576f",
+        "attributes": [
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "c7e4f63e-e9af-4c88-9e95-c32a5c42bb7e",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6da21a90-f629-4fbc-a7d0-1d5568f062a1",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0027",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -5999,7 +10264,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc190-projekt__und_bauwerksdokumentation.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "1f1a4d07-39db-4b21-a301-46b83b2f4d36",
@@ -6043,6 +10307,367 @@
     "related_tags": [
       "tag-dokumentation",
       "tag-koordination"
+    ],
+    "related_loin": [
+      {
+        "element_id": "71a94359-fa87-421e-a7e8-dc0bb0f8a44c",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1dd0036e-aa7d-4301-93d4-a884829356ef",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "9df8dce0-aa86-4991-976d-30c390c7576f",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "4d48ad22-0c19-4822-8d83-3b530fddd5c5",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6da21a90-f629-4fbc-a7d0-1d5568f062a1",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2662e289-3f3e-4c3d-96b9-8114c399f7af",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0030",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "a35edf4f-5b69-4f12-b8db-ead0a7b29270",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "62dd9d35-99cd-413c-b19f-a7e350cd7147",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3e184cb3-0618-4a4c-ad30-189a4b29526a",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "2ce10089-bcaf-4081-8881-7e14bcf7f450",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -6308,7 +10933,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc200-nutzung_f_r_betrieb_und_erhaltung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "41233723-778f-4b91-811f-832dbb52e465",
@@ -6328,6 +10952,168 @@
     "related_tags": [
       "tag-dokumentation",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "de634a06-6d82-46ef-a954-031eb8499611",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "f570632c-5199-41af-905b-99c029b0ecf1",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0060",
+            "phases": [
+              2
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "bdb90b0b-718b-4d11-8bfe-aa5e1718ae43",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "efa36799-762c-4284-b5e1-42eab298bccd",
+        "attributes": [
+          {
+            "id": "attr-0061",
+            "phases": [
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -6593,7 +11379,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc210-gew_hrleistungsmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "5876c85d-5ba7-44b6-a7dc-b81c33bbb9dd",
@@ -6613,6 +11398,417 @@
     "related_tags": [
       "tag-qualitaetssicherung",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "1dd0036e-aa7d-4301-93d4-a884829356ef",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "cf32faa3-a257-497f-be30-a460371fba06",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "533eeef7-7f5d-4b06-a121-bd247c5af2f0",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "6779cc62-b398-4549-8935-3b9e57346343",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "154ff527-e4bf-48f9-a2da-1d2488514b0f",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "4fe0a174-baf2-4dd2-b6f1-9727fb5aeadc",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0047",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0043",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0042",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0021",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0039",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0041",
+            "phases": [
+              1
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0040",
+            "phases": []
+          },
+          {
+            "id": "attr-0045",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "973b2333-964f-4221-af8f-21d2c15b16f9",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "3e184cb3-0618-4a4c-ad30-189a4b29526a",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "3429be1b-2f3e-46c8-8165-845464ea7928",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "46b9e4bb-2c26-42b9-b091-efffd824fe76",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "583fb594-cc81-4d3f-b652-ca1cfcb232f4",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -6884,7 +12080,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc220-wartungs__und_inspektionsmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "38532497-513b-484e-ac65-c184e5695eb0",
@@ -6910,6 +12105,186 @@
     ],
     "related_tags": [
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "c0f925b9-dccf-484c-8c01-acc4280457d4",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "154ff527-e4bf-48f9-a2da-1d2488514b0f",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "08c136b5-d075-4848-8b38-282a505c73b5",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "62dd9d35-99cd-413c-b19f-a7e350cd7147",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      }
     ]
   },
   {
@@ -7175,7 +12550,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc230-instandhaltungs__und_instandsetzungsmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "5c56cefe-0501-43d0-8324-e13c01462a04",
@@ -7194,6 +12568,269 @@
     ],
     "related_tags": [
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "8caf1a86-ecb4-4c99-9da4-714fdc508bc6",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "a35edf4f-5b69-4f12-b8db-ead0a7b29270",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "85175226-3ed8-4cbb-b20d-cc2138a46392",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "973b2333-964f-4221-af8f-21d2c15b16f9",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "dde4ce0f-7643-4e16-8a72-d2460dba9267",
+        "attributes": [
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0055",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "f303d882-332f-4468-8389-35f793c80a53",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -7459,7 +13096,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc240-fl_chen__und_raumbelegungsmanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "e7a6996d-0f6e-42d0-a3cc-320ffc04e7da",
@@ -7472,6 +13108,262 @@
     "related_tags": [
       "tag-bedarfsplanung",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "d76be817-9021-4c79-96af-1f6b524b4990",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "85175226-3ed8-4cbb-b20d-cc2138a46392",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "7fd3e1e0-6f6b-40e1-8152-2da9df0090d2",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "154ff527-e4bf-48f9-a2da-1d2488514b0f",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "0e7186d1-a1dc-4cf3-9cef-30a13d9a4b13",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "f570632c-5199-41af-905b-99c029b0ecf1",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "8f5586ac-cc29-498f-956d-c9f100e7106f",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -7743,7 +13635,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc250-energiemanagement.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "471dc368-d0e4-40bf-991d-6de407026ba7",
@@ -7763,6 +13654,307 @@
     "related_tags": [
       "tag-nachhaltigkeit",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "e8569677-1f9c-43d0-afaf-27e2dfe9a7a0",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "e3586d46-42bf-4405-bffc-8c3f6a70a90e",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "812e527c-2b18-4eb1-834f-47a9add4e292",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0038",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0014",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "65d6cfe2-8b1f-4958-afcd-f19fea4f8656",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "de634a06-6d82-46ef-a954-031eb8499611",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "46b9e4bb-2c26-42b9-b091-efffd824fe76",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1efc68ab-1d5d-49d6-b7b8-732005904f90",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -8021,7 +14213,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc260-betreiberverantwortung.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "9151c288-a8e9-41d0-9498-edea54e527a2",
@@ -8042,6 +14233,245 @@
       "tag-qualitaetssicherung",
       "tag-risikomanagement",
       "tag-betrieb"
+    ],
+    "related_loin": [
+      {
+        "element_id": "11311774-f09f-4df6-ac12-a10b3a7f686a",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0011",
+            "phases": [
+              2
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "c7e4f63e-e9af-4c88-9e95-c32a5c42bb7e",
+        "attributes": [
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "08c136b5-d075-4848-8b38-282a505c73b5",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "46b9e4bb-2c26-42b9-b091-efffd824fe76",
+        "attributes": [
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "1efc68ab-1d5d-49d6-b7b8-732005904f90",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -8317,7 +14747,6 @@
       }
     ],
     "process_url": "assets/bpmn/uc270-nachhaltigkeitsnachweise.bpmn",
-    "related_elements": [],
     "related_documents": [
       {
         "id": "0aef8da7-ed08-49bc-8f39-28cf51ac5ef4",
@@ -8331,6 +14760,157 @@
     "related_tags": [
       "tag-nachhaltigkeit",
       "tag-nachweise"
+    ],
+    "related_loin": [
+      {
+        "element_id": "23372c85-9f5e-4493-9949-8b534a99c886",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "17dcbb8c-b402-4ebf-b730-baf6ab7dc35b",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "fa45f72e-5a33-476c-a543-f4feeacd3c46",
+        "attributes": [
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0059",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "20bc2e49-17aa-4727-86ca-c6dc6f3f5e9a",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -8596,10 +15176,202 @@
       }
     ],
     "process_url": "assets/bpmn/uc280-r_ckbauplanung.bpmn",
-    "related_elements": [],
     "related_documents": [],
     "related_tags": [
       "tag-nachhaltigkeit"
+    ],
+    "related_loin": [
+      {
+        "element_id": "f73d044d-c18f-4708-aec8-f12337fa504a",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "b6aa7cda-0bdf-4f51-b8be-5219ef9e5470",
+        "attributes": [
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0054",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0053",
+            "phases": [
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "8f5586ac-cc29-498f-956d-c9f100e7106f",
+        "attributes": [
+          {
+            "id": "attr-0007",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "efa36799-762c-4284-b5e1-42eab298bccd",
+        "attributes": [
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -8865,10 +15637,237 @@
       }
     ],
     "process_url": "assets/bpmn/uc290-bauteilb_rse_und_wiederverwendung.bpmn",
-    "related_elements": [],
     "related_documents": [],
     "related_tags": [
       "tag-nachhaltigkeit"
+    ],
+    "related_loin": [
+      {
+        "element_id": "60e848ec-edc1-4fae-b56e-91784ada4194",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0019",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0008",
+            "phases": []
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0018",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0016",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0020",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "02068076-169a-4637-aae9-7ac7bb5388bb",
+        "attributes": [
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "67830174-2237-4ce3-b236-b52be2d879dd",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "565ffb5e-e960-4cbd-a206-e04cbf4eb5be",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          }
+        ]
+      },
+      {
+        "element_id": "0e7186d1-a1dc-4cf3-9cef-30a13d9a4b13",
+        "attributes": [
+          {
+            "id": "attr-0004",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0001",
+            "phases": []
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          {
+            "id": "attr-0003",
+            "phases": [
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ]
+      }
     ]
   }
 ]
