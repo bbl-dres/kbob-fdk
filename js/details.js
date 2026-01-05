@@ -582,7 +582,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
 
     // VERKNÜPFUNGEN (always shown as placeholder)
     sidebarHtml += '<a href="#dokumente" class="sidebar-link" data-target="dokumente">Dokumente</a>';
-    sidebarHtml += '<a href="#elemente" class="sidebar-link" data-target="elemente">Elemente</a>';
+    sidebarHtml += '<a href="#loin" class="sidebar-link" data-target="loin">LOIN</a>';
 
     // Build phases HTML
     const allPhases = Object.keys(phaseLabels).map(Number).sort((a, b) => a - b);
@@ -842,10 +842,10 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                         `}
                     </div>
 
-                    <div class="detail-section" id="elemente">
-                        <h2>Elemente</h2>
+                    <div class="detail-section" id="loin">
+                        <h2>LOIN</h2>
                         ${hasElements && elementsHtml ? elementsHtml : `
-                        <p class="empty-text">Keine verknüpften Elemente vorhanden.</p>
+                        <p class="empty-text">Keine LOIN-Anforderungen vorhanden.</p>
                         `}
                     </div>
                 </div>
