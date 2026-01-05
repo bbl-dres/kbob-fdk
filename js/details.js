@@ -112,18 +112,26 @@ function renderElementDetailPage(id, activeTags = []) {
                 const ucName = t(uc.name);
                 const ucLink = `#usecases/${uc.id}`;
                 // Usecase row
-                let rows = `<tr class="loin-usecase-row">
+                let rows = `<tr>
                     <td class="col-val"><a href="${ucLink}" class="doc-link">${escapeHtml(ucName)}</a></td>
-                    <td class="col-val"></td>
+                    <td class="col-val">-</td>
+                    <td class="col-val">-</td>
+                    <td class="col-val">-</td>
                 </tr>`;
-                // Attribute rows (indented)
+                // Attribute rows
                 (loinEntry.attributes || []).forEach(attrRef => {
                     const attr = getItemById('attributes', attrRef.id);
                     if (attr) {
                         const attrName = t(attr.name);
-                        rows += `<tr class="loin-attr-row">
-                            <td class="col-val loin-attr-indent">${escapeHtml(attrName)}</td>
-                            <td class="col-val">${renderPhaseBadges(attrRef.phases)}</td>
+                        const attrDesc = t(attr.description) || '';
+                        const format = attr.data_type || '-';
+                        const liste = attr.has_list ? 'Ja' : '-';
+                        const phases = attrRef.phases && attrRef.phases.length > 0 ? renderPhaseBadges(attrRef.phases) : '-';
+                        rows += `<tr>
+                            <td class="col-val"><span title="${escapeHtml(attrDesc)}">${escapeHtml(attrName)}</span></td>
+                            <td class="col-val">${escapeHtml(format)}</td>
+                            <td class="col-val">${liste}</td>
+                            <td class="col-val">${phases}</td>
                         </tr>`;
                     }
                 });
@@ -133,7 +141,7 @@ function renderElementDetailPage(id, activeTags = []) {
         }).filter(Boolean).join('');
     }
     if (!loinRowsHtml) {
-        loinRowsHtml = '<tr><td colspan="2" class="col-val empty-text">Keine LOIN-Anforderungen.</td></tr>';
+        loinRowsHtml = '<tr><td colspan="4" class="col-val empty-text">Keine LOIN-Anforderungen.</td></tr>';
     }
 
     // Build phases HTML (similar to usecase detail)
@@ -202,8 +210,10 @@ function renderElementDetailPage(id, activeTags = []) {
                         <table class="data-table">
                             <thead>
                                 <tr>
-                                    <th class="th-w-50">Anwendungsfall / Attribut</th>
-                                    <th>Phasen (1-5)</th>
+                                    <th>Anwendungsfall / Attribut</th>
+                                    <th class="th-w-format">Format</th>
+                                    <th class="th-w-list">Liste</th>
+                                    <th class="th-w-phases">Phasen (1-5)</th>
                                 </tr>
                             </thead>
                             <tbody>${loinRowsHtml}</tbody>
@@ -716,23 +726,31 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
             if (elem) {
                 const elemName = t(elem.name);
                 const elemLink = `#elements/${elem.id}`;
-                // Build attributes list with phases
-                const attrList = ref.attributes.map(attr => {
-                    const attrData = getItemById('attributes', attr.id);
-                    if (attrData) {
-                        const attrName = t(attrData.name);
-                        const phasesStr = attr.phases && attr.phases.length > 0
-                            ? ` (${attr.phases.join(', ')})`
-                            : '';
-                        return `<span class="attr-pill">${escapeHtml(attrName)}${phasesStr}</span>`;
-                    }
-                    return '';
-                }).filter(Boolean).join(' ');
-                return `
-                <tr>
+                // Element row
+                let rows = `<tr>
                     <td class="col-val"><a href="${elemLink}" class="doc-link">${escapeHtml(elemName)}</a></td>
-                    <td class="col-val">${attrList || '<span class="empty-text">–</span>'}</td>
+                    <td class="col-val">-</td>
+                    <td class="col-val">-</td>
+                    <td class="col-val">-</td>
                 </tr>`;
+                // Attribute rows
+                (ref.attributes || []).forEach(attrRef => {
+                    const attr = getItemById('attributes', attrRef.id);
+                    if (attr) {
+                        const attrName = t(attr.name);
+                        const attrDesc = t(attr.description) || '';
+                        const format = attr.data_type || '-';
+                        const liste = attr.has_list ? 'Ja' : '-';
+                        const phases = attrRef.phases && attrRef.phases.length > 0 ? renderPhaseBadges(attrRef.phases) : '-';
+                        rows += `<tr>
+                            <td class="col-val"><span title="${escapeHtml(attrDesc)}">${escapeHtml(attrName)}</span></td>
+                            <td class="col-val">${escapeHtml(format)}</td>
+                            <td class="col-val">${liste}</td>
+                            <td class="col-val">${phases}</td>
+                        </tr>`;
+                    }
+                });
+                return rows;
             }
             return '';
         }).filter(Boolean).join('');
@@ -742,8 +760,10 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 <table class="data-table">
                     <thead>
                         <tr>
-                            <th class="th-w-30">Element</th>
-                            <th>Attribute (Phasen)</th>
+                            <th>Element / Attribut</th>
+                            <th class="th-w-format">Format</th>
+                            <th class="th-w-list">Liste</th>
+                            <th class="th-w-phases">Phasen (1-5)</th>
                         </tr>
                     </thead>
                     <tbody>${elemRows}</tbody>
