@@ -4187,20 +4187,6 @@
     ],
     "related_loin": [
       {
-        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
-        "attributes": [
-          {
-            "id": "attr-0007",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
         "usecase_id": "b39c666b-b189-4514-91c8-6735fdc528c8",
         "attributes": [
           {
@@ -4655,6 +4641,43 @@
             "id": "attr-0013",
             "phases": [
               1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
               2,
               3,
               4
@@ -6613,6 +6636,43 @@
             "id": "attr-0012",
             "phases": [
               1,
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
               2,
               3,
               4
@@ -9210,35 +9270,6 @@
           },
           {
             "id": "attr-0002",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
-        "attributes": [
-          {
-            "id": "attr-0004",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0002",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0005",
             "phases": [
               3,
               4,
@@ -12857,6 +12888,27 @@
             ]
           }
         ]
+      },
+      {
+        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
       }
     ]
   },
@@ -13931,35 +13983,6 @@
           },
           {
             "id": "attr-0003",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
-        "attributes": [
-          {
-            "id": "attr-0006",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0002",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0005",
             "phases": [
               3,
               4,
@@ -17548,33 +17571,6 @@
     ],
     "related_loin": [
       {
-        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
-        "attributes": [
-          {
-            "id": "attr-0005",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0001",
-            "phases": []
-          },
-          {
-            "id": "attr-0004",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
         "usecase_id": "0af72854-8ff7-4b72-97f0-28b692f45adf",
         "attributes": [
           {
@@ -19893,6 +19889,50 @@
             ]
           }
         ]
+      },
+      {
+        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0016",
+            "phases": [
+              3,
+              4
+            ]
+          }
+        ]
       }
     ]
   },
@@ -20966,6 +21006,66 @@
           {
             "id": "attr-0001",
             "phases": []
+          }
+        ]
+      },
+      {
+        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0009",
+            "phases": [
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0012",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              2,
+              3,
+              4
+            ]
           }
         ]
       }
@@ -23379,48 +23479,6 @@
           },
           {
             "id": "attr-0009",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "usecase_id": "eedc47f7-6a7c-4357-8a59-c1839257d5be",
-        "attributes": [
-          {
-            "id": "attr-0006",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0005",
-            "phases": [
-              1,
-              2,
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0009",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0004",
             "phases": [
               2,
               3,

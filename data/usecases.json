@@ -4462,142 +4462,200 @@
     ],
     "related_loin": [
       {
-        "element_id": "4d48ad22-0c19-4822-8d83-3b530fddd5c5",
+        "element_id": "f570632c-5199-41af-905b-99c029b0ecf1",
         "attributes": [
-          {
-            "id": "attr-0007",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "element_id": "6779cc62-b398-4549-8935-3b9e57346343",
-        "attributes": [
-          {
-            "id": "attr-0004",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0002",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0005",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "element_id": "3950ed86-be6d-4702-a454-fcb8d51266f3",
-        "attributes": [
-          {
-            "id": "attr-0006",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0002",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          },
-          {
-            "id": "attr-0005",
-            "phases": [
-              3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "element_id": "17dcbb8c-b402-4ebf-b730-baf6ab7dc35b",
-        "attributes": [
-          {
-            "id": "attr-0005",
-            "phases": [
-              2,
-              3,
-              4,
-              5
-            ]
-          },
           {
             "id": "attr-0001",
-            "phases": []
+            "phases": [
+              2,
+              3,
+              4
+            ]
           },
           {
-            "id": "attr-0004",
+            "id": "attr-0002",
             "phases": [
               2,
               3,
-              4,
-              5
-            ]
-          }
-        ]
-      },
-      {
-        "element_id": "1efc68ab-1d5d-49d6-b7b8-732005904f90",
-        "attributes": [
-          {
-            "id": "attr-0006",
-            "phases": [
-              2,
-              3,
-              4,
-              5
+              4
             ]
           },
           {
             "id": "attr-0005",
             "phases": [
-              1,
               2,
               3,
-              4,
-              5
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
             ]
           },
           {
             "id": "attr-0009",
             "phases": [
-              2,
               3,
-              4,
-              5
+              4
             ]
           },
           {
-            "id": "attr-0004",
+            "id": "attr-0012",
             "phases": [
               2,
               3,
-              4,
-              5
+              4
+            ]
+          },
+          {
+            "id": "attr-0013",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "60e848ec-edc1-4fae-b56e-91784ada4194",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "fa45f72e-5a33-476c-a543-f4feeacd3c46",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0016",
+            "phases": [
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "c0f925b9-dccf-484c-8c01-acc4280457d4",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0002",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0006",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "element_id": "4fe0a174-baf2-4dd2-b6f1-9727fb5aeadc",
+        "attributes": [
+          {
+            "id": "attr-0001",
+            "phases": [
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "id": "attr-0005",
+            "phases": [
+              2,
+              3,
+              4
             ]
           }
         ]

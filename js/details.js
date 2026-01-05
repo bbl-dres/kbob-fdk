@@ -696,8 +696,8 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                 return `
                 <tr>
                     <td class="col-val"><a href="${docLink}" class="doc-link">${escapeHtml(docName)}</a></td>
-                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
                     <td class="col-val">${requiredBadge}</td>
+                    <td class="col-val">${renderPhaseBadges(ref.phases)}</td>
                 </tr>`;
             }
             return '';
@@ -709,8 +709,8 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
                     <thead>
                         <tr>
                             <th class="th-w-50">Dokument</th>
-                            <th class="th-w-phases">Phasen (1-5)</th>
                             <th>Status</th>
+                            <th class="th-w-phases">Phasen (1-5)</th>
                         </tr>
                     </thead>
                     <tbody>${docRows}</tbody>
