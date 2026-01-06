@@ -53,7 +53,7 @@ function router() {
         const dataType = routeToType[route];
         if (dataType) {
             const item = getItemById(dataType, id);
-            itemTitle = item ? item.title : null;
+            itemTitle = item ? t(item.name) : null;
         }
     }
     updateBreadcrumbs(route, id, itemTitle);
