@@ -37,7 +37,7 @@
 | ID | Feature | Description | Status | Notes |
 |----|---------|-------------|--------|-------|
 | FR-1.1 | 5 browsable catalogs | Elements, Use Cases, Documents, Models, EPDs with list and detail views | ✅ | 80 / 30 / 130 / 10 / 20 records |
-| FR-1.2 | Reference data | Attributes, Classifications, Tags used in relationships | ✅ | 64 / 344 / 22 records; no standalone UI |
+| FR-1.2 | Reference data | Attributes, Classifications, Tags used in relationships | 🔄 | 64 / 344 / 22 records; no standalone UI; attribute value lists pending |
 | FR-1.3 | Detail views | Full specifications per entity with cross-entity navigation | ✅ | |
 | FR-1.4 | Relationships | Bidirectional linking between entities with phase metadata | ✅ | |
 | FR-1.5 | Versioning | Version number and last_change date displayed | 🔄 | No version history |
