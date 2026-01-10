@@ -44,14 +44,14 @@ Browse and explore BIM reference data across multiple entity types with detail v
 | Documents catalog | ✅ | 130 document types per KBOB/IPB |
 | Discipline Models catalog | ✅ | 10 BIM model definitions |
 | EPD Data catalog | ✅ | 20 environmental product declarations (KBOB Ökobilanzdaten) |
-| **Reference Data** | | |
-| Attributes reference | ✅ | 64 reusable property definitions for LOI |
-| Classifications reference | ✅ | 344 codes (eBKP-H, DIN 276) |
-| Tags reference | ✅ | 22 Anwendungsfeld keywords per VDI 2552 |
+| **Reference Data (used in relationships)** | | |
+| Attributes | ✅ | 64 property definitions (displayed in LOIN tables, no standalone view) |
+| Classifications | ✅ | 344 codes (displayed on detail pages, no standalone view) |
+| Tags | ✅ | 22 keywords (used for filtering, no standalone view) |
 | **Common Features** | | |
 | Detail views with full specifications | ✅ | Per entity type |
 | Cross-entity relationships | ✅ | Bidirectional linking with phase metadata |
-| Versioning support | ✅ | Version field + last_change date |
+| Versioning metadata | 🔄 | Version field + last_change date displayed; no version history |
 | Visual identification (images/icons) | ✅ | |
 
 ### FR-2: Search & Filtering
@@ -226,14 +226,14 @@ Browse and explore BIM reference data across multiple entity types with detail v
 
 | Entity | Records | Type | Key Features |
 |--------|---------|------|--------------|
-| Elements | 80 | Core | LOG/LOIN requirements, IFC mappings |
-| Use Cases | 30 | Core | VDI 2552 processes, BPMN diagrams |
-| Documents | 130 | Core | KBOB/IPB types, retention periods |
-| Models | 10 | Core | Discipline model definitions |
-| EPDs | 20 | Reference | Environmental impact data |
-| Attributes | 64 | Reference | LOI property definitions |
-| Classifications | 344 | Reference | eBKP-H, DIN 276 codes |
-| Tags | 22 | Reference | Anwendungsfeld keywords |
+| Elements | 80 | Core (catalog) | LOG/LOIN requirements, IFC mappings |
+| Use Cases | 30 | Core (catalog) | VDI 2552 processes, BPMN diagrams |
+| Documents | 130 | Core (catalog) | KBOB/IPB types, retention periods |
+| Models | 10 | Core (catalog) | Discipline model definitions |
+| EPDs | 20 | Core (catalog) | Environmental impact data |
+| Attributes | 64 | Reference (no UI) | LOI property definitions |
+| Classifications | 344 | Reference (no UI) | eBKP-H, DIN 276 codes |
+| Tags | 22 | Reference (no UI) | Anwendungsfeld keywords |
 
 ### Lifecycle Phases (VDI 2552 Blatt 12.2)
 
