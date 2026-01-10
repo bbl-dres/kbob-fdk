@@ -214,10 +214,20 @@
 
 ## Open Questions
 
-1. Which CDEs should be prioritized for integration?
-2. Should authoring templates be developed in-house or via partnerships?
-3. How will data versioning and change management work?
-4. Is a dedicated mobile app needed beyond responsive web?
+### Governance & Community
+
+1. **Content stewardship**: Who owns and maintains the catalog data? KBOB working group, federal office, or community-driven?
+2. **Community of Practice (CoP)**: How will the practitioner community be built and sustained? What events, communication channels, and coordination mechanisms are needed?
+3. **Decision authority**: Who approves changes to element definitions, attribute requirements, and classification mappings?
+4. **Stakeholder alignment**: How to coordinate federal, cantonal, and municipal interests?
+5. **Funding model**: How will long-term maintenance and development be funded?
+
+### Technical & Integration
+
+6. Which CDEs should be prioritized for integration?
+7. Should authoring templates be developed in-house or via partnerships?
+8. How will data versioning and change management work?
+9. Is a dedicated mobile app needed beyond responsive web?
 
 ---
 
