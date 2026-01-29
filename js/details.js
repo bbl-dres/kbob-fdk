@@ -4,6 +4,15 @@
  */
 
 // ============================================
+// PROTOTYPE NOTICE
+// ============================================
+const PROTOTYPE_NOTICE_HTML = `
+    <div class="prototype-notice">
+        <i data-lucide="alert-triangle" class="prototype-notice__icon"></i>
+        Diese Anwendung ist ein Prototyp. Darstellung, Funktionalität und Inhalte dienen ausschliesslich der Demonstration.
+    </div>`;
+
+// ============================================
 // ELEMENT DETAIL PAGE
 // ============================================
 
@@ -169,6 +178,7 @@ function renderElementDetailPage(id, activeTags = []) {
         </section>
 
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
@@ -307,6 +317,7 @@ function renderPlaceholderDetailPage(type, id, activeTags = [], activeCategory =
             </div>
         </section>
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="info-box info-box--centered">
                 <i data-lucide="hard-hat" class="info-box__icon icon--4xl"></i>
                 <h2 class="info-box__title">In Entwicklung</h2>
@@ -409,6 +420,7 @@ function renderDocumentDetailPage(id, activeTags = [], activeCategory = '') {
         </section>
 
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarLinks}</nav></aside>
                 <div class="detail-content-area">
@@ -787,6 +799,7 @@ function renderUsecaseDetailPage(id, activeTags = [], activeCategory = '') {
         </section>
 
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
@@ -936,6 +949,7 @@ function renderModelDetailPage(id, activeTags = [], activeCategory = '') {
         </section>
 
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
@@ -1063,6 +1077,7 @@ function renderEpdDetailPage(id, activeTags = [], activeCategory = '') {
         </section>
 
         <div class="container">
+            ${PROTOTYPE_NOTICE_HTML}
             <div class="detail-layout">
                 <aside class="detail-sidebar"><nav class="sticky-nav">${sidebarHtml}</nav></aside>
                 <div class="detail-content-area">
