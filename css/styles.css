@@ -270,7 +270,7 @@ header {
     transform: translateX(-50%);
     color: var(--color-accent-red, #DC0018);
     font-size: var(--text-body-sm);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold, 700);
     white-space: nowrap;
 }
 
@@ -727,6 +727,7 @@ header {
 .contact-prototype-disclaimer {
     color: var(--color-accent-red, #DC0018);
     font-size: var(--text-body-sm);
+    font-weight: var(--font-weight-bold, 700);
     margin-top: var(--space-lg);
     max-width: 480px;
     line-height: var(--line-height-normal);
