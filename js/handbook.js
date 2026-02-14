@@ -123,7 +123,7 @@ function renderHandbookPage() {
                                 </div>
                                 <div class="external-item">
                                     <i data-lucide="github" class="external-item__icon" aria-hidden="true"></i>
-                                    <a href="https://github.com/davras5/kbob-fdk" target="_blank" rel="noopener" class="external-item__link">
+                                    <a href="https://github.com/bbl-dres/kbob-fdk" target="_blank" rel="noopener" class="external-item__link">
                                         Quellcode
                                         <i data-lucide="external-link" class="external-icon" aria-hidden="true"></i>
                                     </a>
