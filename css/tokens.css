@@ -1,88 +1,204 @@
 /* ============================================
    CSS DESIGN TOKENS - Swiss Federal Design System
    KBOB Fachdatenkatalog
+
+   Source: swiss/designsystem
+   - Colors: css/skins/default.postcss
+   - Typography: css/foundations/typography.postcss
+   - Spacing/Breakpoints: app/tailwind.config.js
+   - Shadows/Radii: app/tailwind.config.js
    ============================================ */
 
 :root {
     /* =====================
-       COLOR SYSTEM
+       COLOR SYSTEM - Primary (Swiss Red)
+       Source: designsystem/css/skins/default.postcss
        ===================== */
 
-    /* Primary Brand Colors */
-    --color-primary: #DC0018;
-    --color-primary-light: #F7001D;
-    --color-primary-dark: #B00014;
+    --color-primary-50: #ffedee;
+    --color-primary-100: #fae1e2;
+    --color-primary-200: #ffccce;
+    --color-primary-300: #fa9da1;
+    --color-primary-400: #fc656b;
+    --color-primary-500: #e53940;
+    --color-primary-600: #d8232a;   /* primary brand color */
+    --color-primary-700: #bf1f25;
+    --color-primary-800: #99191e;
+    --color-primary-900: #801519;
 
-    /* Interactive Colors */
-    --color-interactive: #006699;
-    --color-interactive-hover: #005580;
-    --color-focus: #66AFE9;
-    --color-focus-input: #6366f1;
+    /* Aliases for backward compatibility */
+    --color-primary: var(--color-primary-600);
+    --color-primary-light: var(--color-primary-500);
+    --color-primary-dark: var(--color-primary-700);
 
-    /* Neutral Colors */
+    /* =====================
+       COLOR SYSTEM - Secondary (Blue-Gray)
+       Source: designsystem/css/skins/default.postcss
+       ===================== */
+
+    --color-secondary-50: #f0f4f7;
+    --color-secondary-100: #dfe4e9;
+    --color-secondary-200: #acb4bd;
+    --color-secondary-300: #828e9a;
+    --color-secondary-400: #596978;
+    --color-secondary-500: #46596b;
+    --color-secondary-600: #2f4356;   /* top-bar, contact bg */
+    --color-secondary-700: #263645;   /* footer bg */
+    --color-secondary-800: #1c2834;
+    --color-secondary-900: #131b22;
+
+    /* =====================
+       COLOR SYSTEM - Text (Gray)
+       Source: tailwind.config.js
+       ===================== */
+
+    --color-text-50: #f9fafb;
+    --color-text-100: #f3f4f6;
+    --color-text-200: #e5e7eb;
+    --color-text-300: #d1d5db;
+    --color-text-400: #9ca3af;
+    --color-text-500: #6b7280;
+    --color-text-600: #4b5563;
+    --color-text-700: #374151;
+    --color-text-800: #1f2937;   /* body text color (official) */
+    --color-text-900: #111827;
+
+    /* Semantic text aliases */
+    --color-text-primary: var(--color-text-800);
+    --color-text-secondary: var(--color-text-600);
+    --color-text-muted: var(--color-text-500);
+
+    /* =====================
+       COLOR SYSTEM - Semantic Status Colors
+       Source: tailwind.config.js color scales
+       ===================== */
+
+    --color-success: #047857;           /* green-700 */
+    --color-success-text: #065f46;      /* green-800 */
+    --color-success-bg: #d1fae5;        /* green-100 */
+    --color-success-bg-light: #ecfdf5;  /* green-50 */
+
+    --color-warning: #b45309;           /* yellow-700 */
+    --color-warning-text: #92400e;      /* yellow-800 */
+    --color-warning-bg: #fef3c7;        /* yellow-100 */
+    --color-warning-bg-light: #fffbeb;  /* yellow-50 */
+
+    --color-error: #bf1f25;             /* primary-700 / red */
+    --color-error-text: #99191e;        /* primary-800 / red-800 */
+    --color-error-bg: #fae1e2;          /* primary-100 / red-100 */
+    --color-error-bg-light: #ffedee;    /* primary-50 / red-50 */
+
+    --color-info: #1d4ed8;              /* blue-700 */
+    --color-info-text: #1e40af;         /* blue-800 */
+    --color-info-bg: #dbeafe;           /* blue-100 */
+    --color-info-bg-light: #eff6ff;     /* blue-50 */
+
+    /* =====================
+       COLOR SYSTEM - Interactive / Focus
+       Source: tailwind.config.js (purple scale)
+       ===================== */
+
+    --color-focus: #8655F6;             /* purple-500 — CD Bund focus ring */
+    --color-focus-light: #c4b5fd;       /* purple-300 — focus on dark backgrounds */
+    --color-focus-ring-shadow: rgba(134, 85, 246, 0.25);  /* purple-500 at 25% */
+
+    /* Interactive (links on dark backgrounds) */
+    --color-interactive: var(--color-secondary-400);
+    --color-interactive-hover: var(--color-secondary-300);
+
+    /* =====================
+       COLOR SYSTEM - Surfaces & Borders
+       ===================== */
+
     --color-black: #000000;
-    --color-text-primary: #1a2a3a;
-    --color-text-secondary: #4a5568;
-    --color-text-muted: #718096;
-    --color-border: #e2e8f0;
-    --color-border-light: #e5e7eb;
-    --color-border-input: #9ca3af;
-    --color-bg-alt: #f7fafc;
-    --color-bg-light: #f0f4f7;
-    --color-white: #FFFFFF;
+    --color-white: #ffffff;
 
-    /* Surface Colors */
-    --color-surface: #f7fafc;
-    --color-surface-alt: #edf2f7;
-    --color-surface-blue: #ebf4ff;
-    --color-highlight: #FFFAB2;
+    --color-surface: var(--color-secondary-50);         /* #f0f4f7 */
+    --color-surface-alt: var(--color-secondary-100);    /* #dfe4e9 */
+    --color-surface-blue: #eff6ff;                      /* blue-50 */
+    --color-surface-dark: var(--color-secondary-600);   /* #2f4356 */
+    --color-surface-darker: var(--color-secondary-700); /* #263645 */
 
-    /* Status Colors */
-    --color-success: #3C763D;
-    --color-success-bg: #DFF0D8;
-    --color-warning: #8A6D3B;
-    --color-warning-bg: #FCF8E3;
-    --color-error: #A94442;
-    --color-error-bg: #F2DEDE;
-    --color-info: #31708F;
-    --color-info-bg: #D9EDF7;
+    --color-border: var(--color-text-200);              /* #e5e7eb */
+    --color-border-light: var(--color-text-200);        /* #e5e7eb */
+    --color-border-input: var(--color-text-500);        /* #6b7280 (official input border) */
 
-    /* Dark UI Colors (footer, contact sections) */
-    --color-surface-dark: #3d4f5f;
-    --color-surface-darker: #2d3a44;
+    --color-bg-alt: var(--color-text-50);               /* #f9fafb */
+    --color-bg-light: var(--color-secondary-50);        /* #f0f4f7 */
+    --color-highlight: #fde68a;                         /* yellow-200 */
+
+    /* =====================
+       COLOR SYSTEM - Alpha Variants (for overlays, shadows)
+       ===================== */
+
+    --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+    --color-white-alpha-20: rgba(255, 255, 255, 0.2);
+    --color-white-alpha-30: rgba(255, 255, 255, 0.3);
+    --color-white-alpha-50: rgba(255, 255, 255, 0.5);
+    --color-backdrop: rgba(0, 0, 0, 0.6);
+    --color-backdrop-heavy: rgba(0, 0, 0, 0.75);
+    --color-primary-alpha-8: rgba(216, 35, 42, 0.08);
+
+    /* =====================
+       COLOR SYSTEM - Badge Colors
+       Source: tailwind.config.js color scales
+       ===================== */
+
+    --color-badge-gray-text: var(--color-text-800);
+    --color-badge-gray-bg: var(--color-secondary-100);
+    --color-badge-red-text: #801519;     /* red-900 */
+    --color-badge-red-bg: #fae1e2;       /* red-100 */
+    --color-badge-green-text: #065f46;   /* green-800 */
+    --color-badge-green-bg: #d1fae5;     /* green-100 */
+    --color-badge-blue-text: #1e40af;    /* blue-800 */
+    --color-badge-blue-bg: #dbeafe;      /* blue-100 */
+    --color-badge-yellow-text: #92400e;  /* yellow-800 */
+    --color-badge-yellow-bg: #fef3c7;    /* yellow-100 */
+    --color-badge-orange-text: #9a3412;  /* orange-800 */
+    --color-badge-orange-bg: #ffedd5;    /* orange-100 */
+    --color-badge-indigo-text: #3730a3;  /* indigo-800 */
+    --color-badge-indigo-bg: #e0e7ff;    /* indigo-100 */
+    --color-badge-purple-text: #5b21b6;  /* purple-800 */
+    --color-badge-purple-bg: #ede9fe;    /* purple-100 */
 
     /* =====================
        TYPOGRAPHY
+       Source: designsystem/css/foundations/typography.postcss
+       + tailwind.config.js fontSize
        ===================== */
 
     --font-family-primary: 'Noto Sans', 'Helvetica Neue', 'Arial', sans-serif;
     --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
-    /* Type Scale (Major Third - 1.25 ratio) */
-    --text-display: 2.25rem;    /* 36px */
-    --text-h1: 1.75rem;         /* 28px */
-    --text-h2: 1.5rem;          /* 24px */
-    --text-h3: 1.25rem;         /* 20px */
-    --text-h4: 1.125rem;        /* 18px */
-    --text-h5: 1rem;            /* 16px */
-    --text-body: 1rem;          /* 16px */
-    --text-body-sm: 0.875rem;   /* 14px */
-    --text-body-xs: 0.6875rem;  /* 11px */
-    --text-caption: 0.75rem;    /* 12px */
-    --text-label: 0.875rem;     /* 14px */
+    /* Type Scale — base sizes (mobile-first)
+       Official text--base = text-base (1rem) → xl:text-lg (1.125rem) → 3xl:text-xl (1.25rem)
+       We use the base (mobile) values here; responsive overrides in styles.css */
+    --text-display: 2.5rem;     /* 40px — text-5xl */
+    --text-h1: 1.625rem;        /* 26px — text-3xl (text--3xl base) */
+    --text-h2: 1.375rem;        /* 22px — text-2xl (text--2xl base) */
+    --text-h3: 1.25rem;         /* 20px — text-xl (text--xl base) */
+    --text-h4: 1.125rem;        /* 18px — text-lg (text--lg base) */
+    --text-h5: 1rem;            /* 16px — text-base (text--base) */
+    --text-body: 1rem;          /* 16px — text-base */
+    --text-body-sm: 0.875rem;   /* 14px — text-sm */
+    --text-body-xs: 0.75rem;    /* 12px — text-xs */
+    --text-caption: 0.75rem;    /* 12px — text-xs */
+    --text-label: 0.875rem;     /* 14px — text-sm */
 
-    /* Font Size Aliases (for component compatibility) */
-    --font-size-sm: var(--text-body-sm);  /* 14px */
-    --font-size-xs: var(--text-caption);  /* 12px */
+    /* Font Size Aliases */
+    --font-size-sm: var(--text-body-sm);
+    --font-size-xs: var(--text-caption);
 
-    /* Line Heights */
-    --line-height-tight: 1.2;
-    --line-height-snug: 1.3;
-    --line-height-normal: 1.5;
-    --line-height-relaxed: 1.6;
-    --line-height-loose: 1.8;
+    /* Line Heights — Source: Tailwind leading-* utilities */
+    --line-height-tight: 1.25;      /* leading-tight */
+    --line-height-snug: 1.375;      /* leading-snug */
+    --line-height-normal: 1.5;      /* leading-normal */
+    --line-height-relaxed: 1.625;   /* leading-relaxed */
+    --line-height-loose: 2;         /* leading-loose */
 
-    /* Font Weights */
+    /* Font Weights
+       Note: Official design system uses font-family: Font-Bold (weight 400).
+       Since we use Google Fonts (Noto Sans), we use weight 700 for bold. */
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
@@ -92,49 +208,102 @@
        SPACING (4px base unit)
        ===================== */
 
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 32px;
-    --space-2xl: 48px;
-    --space-3xl: 64px;
-    --space-4xl: 80px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-9: 36px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-14: 56px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-32: 128px;
+
+    /* Semantic spacing aliases */
+    --space-xs: var(--space-1);     /* 4px */
+    --space-sm: var(--space-2);     /* 8px */
+    --space-md: var(--space-4);     /* 16px */
+    --space-lg: var(--space-6);     /* 24px */
+    --space-xl: var(--space-8);     /* 32px */
+    --space-2xl: var(--space-12);   /* 48px */
+    --space-3xl: var(--space-16);   /* 64px */
+    --space-4xl: var(--space-20);   /* 80px */
 
     /* =====================
        LAYOUT
+       Source: tailwind.config.js screens + container
        ===================== */
 
-    --container-max-width: 1564px;
-    --container-padding: var(--space-xl);  /* 32px - consistent edge padding for all sections */
-    --grid-gutter: 24px;
+    /* Container max-widths */
+    --container-max-width-2xl: 1544px;
+    --container-max-width-3xl: 1676px;
+    --container-max-width: var(--container-max-width-2xl);
 
-    /* Breakpoints */
-    --breakpoint-sm: 576px;
+    /* Container padding — responsive progression
+       Base: 16px → xs: 28px → sm: 36px → lg: 40px → xl: 48px → 3xl: 64px
+       (set as base value; responsive overrides in styles.css) */
+    --container-padding: var(--space-md);  /* 16px base */
+    --grid-gutter: var(--space-lg);        /* 24px */
+
+    /* Breakpoints — Source: tailwind.config.js screens */
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-logo: 1024px;  /* Logo full/minimal switch */
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1544px;
+    --breakpoint-3xl: 1920px;
+    --breakpoint-logo: 1024px;
+
+    /* Section vertical padding — responsive
+       Base: 56px → lg: 80px → 3xl: 128px */
+    --section-padding-y: var(--space-14);  /* 56px base */
 
     /* Component Dimensions */
     --header-height: 146px;
     --nav-height: 64px;
     --footer-height: 64px;
     --toolbar-height: 46px;
+    --input-min-height: 44px;
+    --input-min-height-xl: 48px;
+    --input-min-height-3xl: 52px;
 
     /* =====================
        BORDERS & SHADOWS
+       Source: tailwind.config.js borderRadius + boxShadow
        ===================== */
 
-    --border-radius-sm: 2px;
-    --border-radius: 4px;
-    --border-radius-lg: 8px;
+    /* Border Radius */
+    --border-radius-xs: 0.0625rem;   /* 1px */
+    --border-radius-sm: 0.125rem;    /* 2px */
+    --border-radius: 0.1875rem;      /* 3px — DEFAULT */
+    --border-radius-lg: 0.3125rem;   /* 5px */
+    --border-radius-xl: 0.375rem;    /* 6px */
+    --border-radius-2xl: 0.5rem;     /* 8px */
+    --border-radius-3xl: 0.625rem;   /* 10px */
+    --border-radius-4xl: 0.75rem;    /* 12px */
+    --border-radius-5xl: 0.9375rem;  /* 15px */
     --border-radius-full: 9999px;
 
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* Box Shadows — Source: tailwind.config.js boxShadow */
+    --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    --shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 5px 0px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0px 2px 4px -1px rgba(0, 0, 0, 0.06), 0px 4px 10px -1px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0px 2px 6px -1px rgba(0, 0, 0, 0.06), 0px 5px 20px -3px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0px 6px 10px -5px rgba(0, 0, 0, 0.06), 0px 15px 25px -3px rgba(0, 0, 0, 0.09);
+    --shadow-2xl: 0px 10px 20px 0px rgba(0, 0, 0, 0.06), 1px 10px 70px -8px rgba(0, 0, 0, 0.13);
+    --shadow-none: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+
+    /* Semantic shadow aliases for components */
+    --shadow-card: var(--shadow-lg);
+    --shadow-card-hover: var(--shadow-2xl);
+    --shadow-dropdown: var(--shadow-xl);
+    --shadow-modal: var(--shadow-2xl);
 
     /* =====================
        TRANSITIONS
@@ -143,6 +312,7 @@
     --transition-fast: 150ms ease;
     --transition-normal: 250ms ease;
     --transition-slow: 350ms ease;
+    --transition-colors: color 200ms ease-in-out;
 
     /* =====================
        Z-INDEX SCALE
@@ -154,4 +324,18 @@
     --z-modal-backdrop: 300;
     --z-modal: 400;
     --z-tooltip: 500;
+
+    /* =====================
+       PROJECT-SPECIFIC TOKENS
+       (KBOB Fachdatenkatalog only — not from CD Bund)
+       ===================== */
+
+    /* Swagger UI semantic colors */
+    --color-swagger-get-bg: rgba(16, 185, 129, 0.05);    /* green-500 at 5% */
+    --color-swagger-post-bg: rgba(59, 130, 246, 0.05);   /* blue-500 at 5% */
+    --color-swagger-delete-bg: rgba(220, 53, 69, 0.05);  /* red at 5% */
+    --color-swagger-put-bg: rgba(249, 115, 22, 0.05);    /* orange-500 at 5% */
+
+    /* BPMN Viewer */
+    --color-bpmn-backdrop: var(--color-backdrop-heavy);
 }
